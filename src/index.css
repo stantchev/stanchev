@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.glitch-button {
+  position: relative;
+  left: -40px;
+  width: 190px; /* Наполовина от 380px */
+  height: 43px; /* Наполовина от 86px */
+  font-size: 25px; /* Наполовина от 36px */
+  background: transparent; /* Прозрачен фон */
+  border: 0;
+  color: #fff;
+  letter-spacing: 1.5px; /* Наполовина от 3px */
+  line-height: 44px; /* Наполовина от 88px */
+  box-shadow: 3px 0 0 #00e6f6; /* Наполовина от 6px */
+  outline: transparent;
+}
+
+.glitch-button::after {
+  --slice-0: inset(50% 50% 50% 50%);
+  --slice-1: inset(80% -6px 0 0);
+  --slice-2: inset(50% -6px 30% 0);
+  --slice-3: inset(10% -6px 85% 0);
+  --slice-4: inset(40% -6px 43% 0);
+  --slice-5: inset(80% -6px 5% 0);
+  
+  content: 'AVAILABLE NOW';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent 3%, #00e6f6 3%, #00e6f6 5%, #ff013c 5%); /* Градиентен фон */
+  text-shadow: -2px -2px 0 #f8f005, 2px 2px 0 #00e6f6; /* Намаляване на размера на text-shadow */
+  clip-path: var(--slice-0);
+}
+
+.glitch-button:hover::after {
+  animation: glitch 1s steps(2, end);
+}
+
+@keyframes glitch {
+  0% {
+    clip-path: var(--slice-1);
+    transform: translate(-10px, -5px); /* Наполовина от предишните стойности */
+  }
+  10% {
+    clip-path: var(--slice-3);
+    transform: translate(5px, 5px); /* Наполовина от предишните стойности */
+  }
+  20% {
+    clip-path: var(--slice-1);
+    transform: translate(-5px, 5px); /* Наполовина от предишните стойности */
+  }
+  30% {
+    clip-path: var(--slice-3);
+    transform: translate(0px, 2px); /* Наполовина от предишните стойности */
+  }
+  40% {
+    clip-path: var(--slice-2);
+    transform: translate(-2px, 0px); /* Наполовина от предишните стойности */
+  }
+  50% {
+    clip-path: var(--slice-3);
+    transform: translate(2px, 0px); /* Наполовина от предишните стойности */
+  }
+  60% {
+    clip-path: var(--slice-4);
+    transform: translate(2px, 5px); /* Наполовина от предишните стойности */
+  }
+  70% {
+    clip-path: var(--slice-2);
+    transform: translate(-5px, 5px); /* Наполовина от предишните стойности */
+  }
+  80% {
+    clip-path: var(--slice-5);
+    transform: translate(10px, -5px); /* Наполовина от предишните стойности */
+  }
+  90% {
+    clip-path: var(--slice-1);
+    transform: translate(-5px, 0px); /* Наполовина от предишните стойности */
+  }
+  100% {
+    clip-path: var(--slice-1);
+    transform: translate(0);
+  }
+}
