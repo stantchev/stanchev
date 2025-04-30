@@ -2,43 +2,77 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
     <title>STANCHEV | Portfolio</title>
+    <meta name="description" content="Frontend портфолио на Станчев – фокус върху визуално изживяване, достъпност и модерни уеб технологии.">
+    <meta name="keywords" content="Frontend, Web Developer, JavaScript, React, Vite, Portfolio, SEO, STANCHEV, Станчев, Stanchev, Stantcheff, СТАНЧЕВ">
+    <meta name="author" content="Stanchev">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Stanchev | Portfolio" />
+    <meta property="og:description" content="Фронтенд портфолио с модерен дизайн и интерактивни проекти." />
+    <meta property="og:image" content="https://raw.githubusercontent.com/stantchev/stanchev/main/cover.jpg" />
+    <meta property="og:url" content="https://stanchev.netlify.app/" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="STANCHEV | Portfolio" />
+    <meta name="twitter:description" content="Фронтенд портфолио с модерен дизайн и интерактивни проекти." />
+    <meta name="twitter:image" content="https://raw.githubusercontent.com/stantchev/stanchev/main/cover.jpg" />
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Stanchev",
+      "url": "https://stanchev.netlify.app/",
+      "jobTitle": "Frontend Developer",
+      "sameAs": [
+        "https://github.com/stantchev"
+      ]
+    }
+    </script>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
     <style>
       body {
         font-family: 'Space Grotesk', sans-serif;
         overflow-x: hidden;
       }
-      
-      /* Custom scrollbar */
+
       ::-webkit-scrollbar {
         width: 8px;
       }
-      
+
       ::-webkit-scrollbar-track {
         background: #050816;
       }
-      
+
       ::-webkit-scrollbar-thumb {
         background: linear-gradient(to bottom, #00ffff, #ff00ff);
         border-radius: 4px;
       }
-      
-      /* Smooth scrolling */
+
       html {
         scroll-behavior: smooth;
       }
-      
-      /* Animation classes */
+
       @keyframes fadeIn {
         from { opacity: 0; transform: translateY(20px); }
         to { opacity: 1; transform: translateY(0); }
       }
-      
+
       .animate-fadeIn {
         animation: fadeIn 0.8s ease forwards;
       }
