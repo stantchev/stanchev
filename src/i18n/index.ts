@@ -17,9 +17,9 @@ const resources = {
       
       "about.title": "About",
       "about.me": "Me",
-     "about.description1": "I'm an expert in security and defense, known for disciplined and strategic thinking, with a strong mission-focused and analytical mindset.",
-	 "about.description2": "Highly trained and results-driven, I excel in high-pressure environments, solving complex problems and coordinating critical operations with precision.",
-	 "about.description3": "My approach combines resilience, clarity, and responsibility, ensuring success in challenging situations where stability and focus are essential.",
+      "about.description1": "I'm an expert in security and defense, known for disciplined and strategic thinking, with a strong mission-focused and analytical mindset.",
+      "about.description2": "Highly trained and results-driven, I excel in high-pressure environments, solving complex problems and coordinating critical operations with precision.",
+      "about.description3": "My approach combines resilience, clarity, and responsibility, ensuring success in challenging situations where stability and focus are essential.",
 
       "experience.title": "Work",
       "experience.subtitle": "Experience",
@@ -29,8 +29,9 @@ const resources = {
       "projects.description": "Explore my portfolio of innovative web applications and digital experiences that showcase my skills and creativity.",
       "projects.viewAll": "See All Projects",
       "projects.viewProject": "View Project",
+      "projects.keylock_description": "Keylock.bg offers professional key cutting, lock repair, and emergency locksmith services across Sofia, ensuring quick and reliable solutions for all security needs.",
       "projects.insurance_bg_description": "Digital platform for online insurance and price calculation for third-party liability, motor insurance, and other types of insurance in Bulgaria.",
-      "projects.oilstandart_bg_description": "Oil Standart is a Bulgarian company trading high-quality oils and lubricants from leading brands such as Mobil, Castrol, and Total.",
+      "projects.oil_standart_description": "Oil Standart is a Bulgarian company trading high-quality oils and lubricants from leading brands such as Mobil, Castrol, and Total.",
       
       "skills.title": "Technical",
       "skills.subtitle": "Skills",
@@ -91,8 +92,8 @@ const resources = {
   "about.title": "За",
   "about.me": "мен",
   "about.description1": "Имам опит в сигурността и отбраната, като проявявам дисциплина и стратегическо мислене. Обучен съм да действам под натиск. Съчетавам аналитични умения с фокус върху мисии и цели.",
-"about.description2": "Подготвен съм да вземам решения в критични моменти. Стремя се към резултати и се адаптирам лесно. Решавам проблеми с яснота и визия.",
-"about.description3": "Устойчив съм в трудни ситуации и запазвам контрол. Работя с цел ефективност и сигурност. Координирам между екипи и структури успешно.",
+  "about.description2": "Подготвен съм да вземам решения в критични моменти. Стремя се към резултати и се адаптирам лесно. Решавам проблеми с яснота и визия.",
+  "about.description3": "Устойчив съм в трудни ситуации и запазвам контрол. Работя с цел ефективност и сигурност. Координирам между екипи и структури успешно.",
 
   "experience.title": "Професионален",
   "experience.subtitle": "опит",
@@ -102,8 +103,9 @@ const resources = {
   "projects.description": "Разгледай селекция от уеб приложения и дигитални решения, които показват моите умения и креативност.",
   "projects.viewAll": "Всички проекти",
   "projects.viewProject": "Детайли за проекта",
-  "projects.insurance_bg_description": "Цифрова платформа за онлайн застраховки и изчисляване на цени за застраховки за трети лица, автомобилни застраховки и други видове застраховки в България.",
-  "projects.oilstandart_bg_description": "Oil Standart е българска компания, търгуваща с висококачествени масла и смазочни материали от водещи марки като Mobil, Castrol и Total.",
+  "projects.keylock_description": "Keylock.bg предлага професионално рязане на ключове, ремонт на брави и спешни услуги за ключар в цяла София, осигурявайки бързи и надеждни решения за всички нужди от сигурност.",
+  "projects.insurance_bg_description": "Платформа за онлайн застраховки и изчисляване на цени за застраховки за трети лица, автомобилни застраховки и други видове застраховки в България.",
+  "projects.oil_standart_description": "Oil Standart е българска компания, търгуваща с висококачествени масла и смазочни материали от водещи марки като Mobil, Castrol и Total.",
 
   "skills.title": "Технически",
   "skills.subtitle": "умения",
