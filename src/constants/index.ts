@@ -27,26 +27,24 @@ export const projects: Project[] = [
   {
     id: "Proj-01",
     name: "Insurance.BG",
-    description: useTranslation().t('projects.insurance_bg_description'),
-    tags: ["SEO", "Technical-SEO", "Non-Tech SEO"],
+    descriptionKey: "projects.insurance_bg_description",
+    tags: ["WordPress", "Technical-SEO", "Non-Tech SEO"],
     image: "https://insurance.bg/wp-content/uploads/2024/05/Insurancebg-logo.svg",
     link: "https://insurance.bg/",
   },
   {
     id: "project-2",
     name: "OilStandart.BG",
-    description:
-      "Oil Standart is a Bulgarian company trading high-quality oils and lubricants from leading brands such as Mobil, Castrol, and Total.",
-    tags: ["SEO", "Technical-SEO", "Non-Tech SEO"],
+    descriptionKey: "projects.oil_standart_description",
+    tags: ["WordPress", "Technical-SEO", "Non-Tech SEO"],
     image: "https://oil-standart.net/wp-content/uploads/2024/07/logo-oil-standart.svg",
     link: "https://oil-standart.net/",
   },
   {
     id: "project-3",
     name: "KeyLock.BG",
-    description:
-      "Keylock.bg offers professional key cutting, lock repair, and emergency locksmith services across Sofia, ensuring quick and reliable solutions for all security needs.",
-    tags: ["SEO", "Technical-SEO", "Non-Tech SEO"],
+    descriptionKey: "projects.keylock_description",
+    tags: ["WordPress", "Technical-SEO", "Non-Tech SEO"],
     image: "https://keylock.bg/wp-content/uploads/2024/09/keylock-logo.svg",
     link: "https://keylock.bg/",
   },
