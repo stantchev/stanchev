@@ -28,11 +28,12 @@ const HeroSection: React.FC = () => {
       {t('button.explore')}
     </button>
   </a>
-  <a href="#contact">
-    <button className="py-3 px-8 rounded-full bg-gradient-to-r from-cyan-500 to-fuchsia-500 text-white font-medium hover:opacity-90 transition-opacity duration-300">
-      {t('button.contact')}
-    </button>
-  </a>
+<a
+  href="#contact"
+  className="inline-block py-3 px-8 min-w-[48px] min-h-[48px] rounded-full bg-gradient-to-r from-cyan-500 to-fuchsia-500 text-white font-medium hover:opacity-90 transition-opacity duration-300 text-center"
+>
+  {t('button.contact')}
+</a>
 	</div>
 		</div>
       </div>
