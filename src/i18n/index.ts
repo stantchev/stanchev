@@ -29,6 +29,7 @@ const resources = {
       "projects.description": "Explore my portfolio of innovative web applications and digital experiences that showcase my skills and creativity.",
       "projects.viewAll": "See All Projects",
       "projects.viewProject": "View Project",
+      "projects.oilstandart_bg_description": "Oil Standart is a Bulgarian company trading high-quality oils and lubricants from leading brands such as Mobil, Castrol, and Total.",
       
       "skills.title": "Technical",
       "skills.subtitle": "Skills",
@@ -100,6 +101,7 @@ const resources = {
   "projects.description": "Разгледай селекция от уеб приложения и дигитални решения, които показват моите умения и креативност.",
   "projects.viewAll": "Всички проекти",
   "projects.viewProject": "Детайли за проекта",
+  "projects.oilstandart_bg_description": "Oil Standart е българска компания, търгуваща с висококачествени масла и смазочни материали от водещи марки като Mobil, Castrol и Total.",
 
   "skills.title": "Технически",
   "skills.subtitle": "умения",
