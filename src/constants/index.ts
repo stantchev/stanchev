@@ -27,8 +27,7 @@ export const projects: Project[] = [
   {
     id: "Proj-01",
     name: "Insurance.BG",
-    description:
-      "Digital platform for online insurance and price calculation for third-party liability, motor insurance, and other types of insurance in Bulgaria.",
+    description: useTranslation().t('projects.insurance_bg_description'),
     tags: ["SEO", "Technical-SEO", "Non-Tech SEO"],
     image: "https://insurance.bg/wp-content/uploads/2024/05/Insurancebg-logo.svg",
     link: "https://insurance.bg/",
