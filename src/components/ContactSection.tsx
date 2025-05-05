@@ -173,7 +173,7 @@ const ContactSection: React.FC = () => {
               <h3 className="text-xl font-bold text-white mb-4">{t('contact.social.title')}</h3>
               <div className="flex gap-4">
                 <a
-                  href="#"
+                  href="https://www.linkedin.com/in/stantcheff/"
                   className="w-10 h-10 rounded-full bg-[#1e293b] flex items-center justify-center hover:bg-[#2a3c58] transition-colors duration-300"
                 >
                   <Linkedin className="h-5 w-5 text-cyan-400" />
