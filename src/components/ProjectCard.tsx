@@ -29,7 +29,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
       <h3 className="text-xl font-bold text-white mb-2">{project.name}</h3>
 
       <p className="text-gray-300 mb-4 h-24 overflow-hidden">
-        {project.description}
+         {t(project.descriptionKey)}
       </p>
 
       <div className="flex flex-wrap gap-2 mb-4">
