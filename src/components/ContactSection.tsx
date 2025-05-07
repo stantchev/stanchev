@@ -181,6 +181,7 @@ const ContactSection: React.FC = () => {
                   </div>
                 </div>
               </div>
+            </div>
             <div>
               <h3 className="text-xl font-bold text-white mb-4">{t('contact.social.title')}</h3>
               <div className="flex gap-4">
