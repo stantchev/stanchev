@@ -176,9 +176,12 @@ const ContactSection: React.FC = () => {
                     <Mail className="h-5 w-5 text-cyan-400" />
                   </div>
                   <div>
-                    <h4 className="text-white font-medium">{t('contact.info.location')}</h4>
-                    <p className="text-gray-300">Sofia, Bulgaria</p>
-                  </div>
+      <h4 className="text-white font-medium flex items-center">
+        <MapPin className="h-5 w-5 text-cyan-500 mr-2" />
+        {t('contact.info.location')}
+      </h4>
+      <p className="text-gray-300">Sofia, Bulgaria</p>
+    </div>
                 </div>
               </div>
             </div>
