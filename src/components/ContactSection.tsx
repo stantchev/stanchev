@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Mail, Github, Linkedin } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 import { ContactFormData } from '../types';
 
 const ContactSection: React.FC = () => {
@@ -10,10 +11,10 @@ const ContactSection: React.FC = () => {
     email: '',
     message: '',
   });
-  
+
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
-  
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -21,22 +22,37 @@ const ContactSection: React.FC = () => {
       [name]: value,
     }));
   };
-  
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsSubmitted(true);
-      setFormData({ name: '', email: '', message: '' });
-      
-      setTimeout(() => {
-        setIsSubmitted(false);
-      }, 5000);
-    }, 1500);
+
+    emailjs
+      .send(
+        'service_7xhpxuz',
+        'template_mr55u1m',
+        {
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        },
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      )
+      .then(() => {
+        setIsSubmitting(false);
+        setIsSubmitted(true);
+        setFormData({ name: '', email: '', message: '' });
+
+        setTimeout(() => {
+          setIsSubmitted(false);
+        }, 5000);
+      })
+      .catch((error) => {
+        console.error('EmailJS error:', error);
+        setIsSubmitting(false);
+      });
   };
-  
+
   return (
     <section id="contact" className="relative py-20 bg-[#050816]">
       <div className="max-w-7xl mx-auto px-6">
@@ -48,7 +64,7 @@ const ContactSection: React.FC = () => {
             {t('contact.description')}
           </p>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto">
           <div className="bg-[#1e293b] p-8 rounded-2xl">
             {isSubmitted ? (
@@ -93,7 +109,7 @@ const ContactSection: React.FC = () => {
                     placeholder={t('contact.form.name')}
                   />
                 </div>
-                
+
                 <div className="mb-6">
                   <label htmlFor="email" className="block text-white mb-2">
                     {t('contact.form.email')}
@@ -109,7 +125,7 @@ const ContactSection: React.FC = () => {
                     placeholder={t('contact.form.email')}
                   />
                 </div>
-                
+
                 <div className="mb-6">
                   <label htmlFor="message" className="block text-white mb-2">
                     {t('contact.form.message')}
@@ -125,7 +141,7 @@ const ContactSection: React.FC = () => {
                     placeholder={t('contact.form.placeholder.message')}
                   ></textarea>
                 </div>
-                
+
                 <button
                   type="submit"
                   disabled={isSubmitting}
@@ -138,14 +154,12 @@ const ContactSection: React.FC = () => {
               </form>
             )}
           </div>
-          
+
           <div className="flex flex-col justify-center">
             <div className="mb-8">
               <h3 className="text-xl font-bold text-white mb-4">{t('contact.info.title')}</h3>
-              <p className="text-gray-300 mb-6">
-                {t('contact.info.description')}
-              </p>
-              
+              <p className="text-gray-300 mb-6">{t('contact.info.description')}</p>
+
               <div className="space-y-4">
                 <div className="flex items-start">
                   <div className="w-10 h-10 rounded-full bg-[#1e293b] flex items-center justify-center mr-4">
@@ -156,7 +170,7 @@ const ContactSection: React.FC = () => {
                     <p className="text-gray-300">stantcheff@gmail.com</p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start">
                   <div className="w-10 h-10 rounded-full bg-[#1e293b] flex items-center justify-center mr-4">
                     <Mail className="h-5 w-5 text-cyan-400" />
@@ -168,22 +182,18 @@ const ContactSection: React.FC = () => {
                 </div>
               </div>
             </div>
-            
+
             <div>
               <h3 className="text-xl font-bold text-white mb-4">{t('contact.social.title')}</h3>
               <div className="flex gap-4">
                 <a
                   href="https://www.linkedin.com/in/stantcheff/"
-                   title="LinkedIn"
-                   aria-label="LinkedIn profile"
                   className="w-10 h-10 rounded-full bg-[#1e293b] flex items-center justify-center hover:bg-[#2a3c58] transition-colors duration-300"
                 >
                   <Linkedin className="h-5 w-5 text-cyan-400" />
                 </a>
                 <a
                   href="https://github.com/stantchev/"
-                   title="GitHub"
-                   aria-label="GitHub profile"
                   className="w-10 h-10 rounded-full bg-[#1e293b] flex items-center justify-center hover:bg-[#2a3c58] transition-colors duration-300"
                 >
                   <Github className="h-5 w-5 text-fuchsia-400" />
