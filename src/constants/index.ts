@@ -48,6 +48,14 @@ export const projects: Project[] = [
     image: "https://keylock.bg/wp-content/uploads/2024/09/keylock-logo.svg",
     link: "https://keylock.bg/",
   },
+   {
+    id: "project-4",
+    name: "SmartBulgaria.BG",
+    descriptionKey: "projects.smartbg_description",
+    tags: ["OpenCart", "Technical-SEO", "Non-Tech SEO"],
+    image: "https://smartbulgaria.bg/image/cache/wp/gp/brand/logo-original-big-w-p-200x65.webp",
+    link: "https://smartbulgaria.bg/",
+  },
 ];
 
 export const experiences: Experience[] = [
