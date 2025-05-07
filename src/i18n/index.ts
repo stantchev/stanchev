@@ -29,6 +29,7 @@ const resources = {
       "projects.description": "Explore my portfolio of innovative web applications and digital experiences that showcase my skills and creativity.",
       "projects.viewAll": "See All Projects",
       "projects.viewProject": "View Project",
+      "projects.smartbg_description": "Smart Bulgaria is an online store offering a wide range of smart devices and electronics for home and office, including smart cameras, TV boxes, lighting, and tools."
       "projects.keylock_description": "Keylock.bg offers professional key cutting, lock repair, and emergency locksmith services across Sofia, ensuring quick and reliable solutions for all security needs.",
       "projects.insurance_bg_description": "Digital platform for online insurance and price calculation for third-party liability, motor insurance, and other types of insurance in Bulgaria.",
       "projects.oil_standart_description": "Oil Standart is a Bulgarian company trading high-quality oils and lubricants from leading brands such as Mobil, Castrol, and Total.",
@@ -103,6 +104,7 @@ const resources = {
   "projects.description": "Разгледай селекция от уеб приложения и дигитални решения, които показват моите умения и креативност.",
   "projects.viewAll": "Всички проекти",
   "projects.viewProject": "Детайли за проекта",
+  "projects.smartbg_description": "Smart Bulgaria е онлайн магазин, предлагащ разнообразие от умни устройства и електроника за дома и офиса, включително смарт камери, TV боксове, осветление и инструменти."
   "projects.keylock_description": "Keylock.bg предлага професионално рязане на ключове, ремонт на брави и спешни услуги за ключар в цяла София, осигурявайки бързи и надеждни решения за всички нужди от сигурност.",
   "projects.insurance_bg_description": "Платформа за онлайн застраховки и изчисляване на цени за застраховки за трети лица, автомобилни застраховки и други видове застраховки в България.",
   "projects.oil_standart_description": "Oil Standart е българска компания, търгуваща с висококачествени масла и смазочни материали от водещи марки като Mobil, Castrol и Total.",
