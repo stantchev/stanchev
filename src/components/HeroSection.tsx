@@ -21,19 +21,25 @@ const HeroSection: React.FC = () => {
           >
             <p>{t('hero.subtitle')}</p>
           </div>
-	<div className="flex flex-wrap justify-center gap-4">
-  <a href="#projects">
-    <button className="py-3 px-8 rounded-full border-2 border-cyan-400 hover:bg-cyan-400/20 text-white font-medium transition-all duration-300">
-      {t('button.explore')}
-    </button>
-  </a>
-  <a href="#contact">
-    <button className="py-3 px-8 rounded-full bg-gradient-to-r from-cyan-500 to-fuchsia-500 text-white font-medium hover:opacity-90 transition-opacity duration-300">
-      {t('button.contact')}
-    </button>
-  </a>
-	</div>
-		</div>
+          <div className="flex flex-wrap justify-center gap-6"> {/* Increased gap */}
+            <a href="#projects" aria-label={t('button.explore')}>
+              <button
+                className="py-4 px-10 rounded-full border-2 border-cyan-400 hover:bg-cyan-400/20 text-white font-medium transition-all duration-300"
+                aria-label={t('button.explore')}
+              >
+                {t('button.explore')}
+              </button>
+            </a>
+            <a href="#contact" aria-label={t('button.contact')}>
+              <button
+                className="py-4 px-10 rounded-full bg-gradient-to-r from-cyan-500 to-fuchsia-500 text-white font-medium hover:opacity-90 transition-opacity duration-300"
+                aria-label={t('button.contact')}
+              >
+                {t('button.contact')}
+              </button>
+            </a>
+          </div>
+        </div>
       </div>
 
       <div className="absolute bottom-10 w-full flex justify-center z-10">
