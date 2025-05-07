@@ -175,13 +175,15 @@ const ContactSection: React.FC = () => {
                   <div className="w-10 h-10 rounded-full bg-[#1e293b] flex items-center justify-center mr-4">
                     <Mail className="h-5 w-5 text-cyan-400" />
                   </div>
-                  <div>
-      <h4 className="text-white font-medium flex items-center">
-        <MapPin className="h-5 w-5 text-cyan-500 mr-2" />
-        {t('contact.info.location')}
-      </h4>
-      <p className="text-gray-300">Sofia, Bulgaria</p>
-    </div>
+                  <div className="flex items-start">
+  <div className="w-10 h-10 rounded-full bg-[#1e293b] flex items-center justify-center mr-4">
+    <MapPin className="h-5 w-5 text-cyan-400" />
+  </div>
+  <div>
+    <h4 className="text-white font-medium">{t('contact.info.location')}</h4>
+    <p className="text-gray-300">Sofia, Bulgaria</p>
+  </div>
+</div>
                 </div>
               </div>
             </div>
