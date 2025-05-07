@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Mail, Github, Linkedin } from 'lucide-react';
+import { Mail, Github, Linkedin, MapPin } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import { ContactFormData } from '../types';
 
