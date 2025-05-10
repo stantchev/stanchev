@@ -90,7 +90,7 @@ const ServiceCarousel: React.FC<ServiceCarouselProps> = ({ services }) => {
             className="absolute transition-all duration-500 cursor-pointer"
             style={getCardStyle(index)}
           >
-            <div className="relative bg-gradient-to-br from-[#1a1c2e] to-[#0d0f1d] rounded-2xl p-6 sm:p-4 group"> {/* Намалих пълнежа на мобилни устройства */}
+            <div className="relative bg-gradient-to-br from-[#1a1c2e] to-[#0d0f1d] rounded-2xl p-[32px] sm:p-[25px] group"> {/* Увеличен padding за мобилни устройства */}
               {/* Glow */}
               <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-cyan-500/20 to-fuchsia-500/20 blur-md" />
@@ -98,22 +98,22 @@ const ServiceCarousel: React.FC<ServiceCarouselProps> = ({ services }) => {
 
               {/* Content */}
               <div className="relative">
-                <div className="mb-4 sm:mb-2"> {/* Намалих маргините на мобилни устройства */}
-                  <div className="relative bg-gradient-to-br from-[#2a2d4c] to-[#1a1c2e] p-3 sm:p-2 rounded-xl">
-                    <service.icon className="w-10 h-10 sm:w-8 sm:h-8 text-cyan-400" /> {/* Намалих иконата на мобилно */}
+                <div className="mb-[30px] sm:mb-[20px]"> {/* Увеличени маргините за мобилни устройства */}
+                  <div className="relative bg-gradient-to-br from-[#2a2d4c] to-[#1a1c2e] p-[30px] sm:p-[20px] rounded-xl">
+                    <service.icon className="w-[72px] h-[72px] sm:w-[48px] sm:h-[48px] text-cyan-400" /> {/* Увеличих иконата на 72px за мобилни устройства */}
                   </div>
                 </div>
 
-                <h3 className="text-lg sm:text-sm font-bold mb-3 sm:mb-2 bg-gradient-to-r from-cyan-400 to-fuchsia-500 bg-clip-text text-transparent">
+                <h3 className="text-[36px] sm:text-[22px] font-bold mb-[25px] sm:mb-[20px] bg-gradient-to-r from-cyan-400 to-fuchsia-500 bg-clip-text text-transparent">
                   {t(`services.${service.slug}.title`)}
                 </h3>
 
-                <p className="text-gray-400 mb-3 sm:mb-2 line-clamp-2"> {/* Намалих размера на текста на мобилно */}
+                <p className="text-gray-400 mb-[25px] sm:mb-[15px] line-clamp-3"> {/* Увеличих текста и маргините за мобилни устройства */}
                   {t(`services.${service.slug}.shortDescription`)}
                 </p>
 
                 {/* Second line */}
-                <p className="text-cyan-400 text-sm sm:text-xs">{t('services.learnMore')}</p> {/* Намалих текста за мобилни устройства */}
+                <p className="text-cyan-400 text-[24px] sm:text-[16px]">{t('services.learnMore')}</p> {/* Увеличих текста за мобилни устройства */}
               </div>
             </div>
           </Link>
@@ -123,15 +123,15 @@ const ServiceCarousel: React.FC<ServiceCarouselProps> = ({ services }) => {
       {/* Navigation buttons - hidden on mobile */}
       <button
         onClick={handlePrev}
-        className="hidden sm:flex absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/50 backdrop-blur-sm items-center justify-center text-white hover:bg-black/70 transition-colors"
+        className="hidden sm:flex absolute left-4 top-1/2 -translate-y-1/2 w-[60px] h-[60px] rounded-full bg-black/50 backdrop-blur-sm items-center justify-center text-white hover:bg-black/70 transition-colors"
       >
-        <ArrowLeft className="w-6 h-6" />
+        <ArrowLeft className="w-[30px] h-[30px]" />
       </button>
       <button
         onClick={handleNext}
-        className="hidden sm:flex absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/50 backdrop-blur-sm items-center justify-center text-white hover:bg-black/70 transition-colors"
+        className="hidden sm:flex absolute right-4 top-1/2 -translate-y-1/2 w-[60px] h-[60px] rounded-full bg-black/50 backdrop-blur-sm items-center justify-center text-white hover:bg-black/70 transition-colors"
       >
-        <ArrowRight className="w-6 h-6" />
+        <ArrowRight className="w-[30px] h-[30px]" />
       </button>
 
       {/* Indicators */}
@@ -143,9 +143,9 @@ const ServiceCarousel: React.FC<ServiceCarouselProps> = ({ services }) => {
               setCurrentIndex(index);
               setIsAutoPlaying(false);
             }}
-            className={`w-2 h-2 rounded-full transition-all duration-300 ${
+            className={`w-[10px] h-[10px] rounded-full transition-all duration-300 ${
               index === currentIndex
-                ? 'w-8 bg-gradient-to-r from-cyan-400 to-fuchsia-500'
+                ? 'w-[40px] bg-gradient-to-r from-cyan-400 to-fuchsia-500'
                 : 'bg-white/30'
             }`}
           />
