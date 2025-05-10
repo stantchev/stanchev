@@ -1,11 +1,8 @@
 import { NavLink, Project, Experience, Skill } from "../types";
-<<<<<<< HEAD
-=======
 import {
   Search, Link as LinkIcon, FileText, PenTool, MapPin,
   ShoppingCart, Smartphone, Globe2, LayoutGrid, FileSearch
 } from 'lucide-react';
->>>>>>> 611847f (Добавяне на промените и .gitignore)
 
 export const navLinks: NavLink[] = [
   {
@@ -30,8 +27,6 @@ export const navLinks: NavLink[] = [
   },
 ];
 
-<<<<<<< HEAD
-=======
 export const services: Service[] = [
   {
     slug: 'technical-seo',
@@ -75,7 +70,6 @@ export const services: Service[] = [
   },
 ];
 
->>>>>>> 611847f (Добавяне на промените и .gitignore)
 export const projects: Project[] = [
   {
     id: "Proj-01",
@@ -134,8 +128,6 @@ export const experiences: Experience[] = [
       "Designed intuitive user experiences for next-generation applications. Created design systems that improved development workflow by 30%.",
   },
 ];
-
-
 
 export const skills: Skill[] = [
   { name: "WordPress", level: 90 },
