@@ -62,6 +62,12 @@ const Footer: React.FC = () => {
               >
                 {t('nav.contact')}
               </button>
+               <button
+                onClick={goToServices}
+                className="text-gray-400 hover:text-cyan-400 transition-colors duration-300"
+              >
+                {t('nav.services')}
+              </button>
             </div>
             <p className="text-gray-500 text-sm">
               © {currentYear} STANCHEV. {t('footer.rights')}
