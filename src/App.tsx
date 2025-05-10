@@ -11,11 +11,64 @@ import Footer from './components/Footer';
 import ServicesPage from './pages/ServicesPage';
 import ServiceDetail from './pages/ServiceDetail';
 
-// Scroll handler component (трябва да е отделно, извън App)
 const ScrollToSection: React.FC = () => {
   const location = useLocation();
 
   useEffect(() => {
+    import React, { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import HeroSection from './components/HeroSection';
+import AboutSection from './components/AboutSection';
+import ProjectsSection from './components/ProjectsSection';
+import SkillsSection from './components/SkillsSection';
+import ContactSection from './components/ContactSection';
+import Footer from './components/Footer';
+import ServicesPage from './pages/ServicesPage';
+import ServiceDetail from './pages/ServiceDetail';
+
+function App() {
+  const { i18n } = useTranslation();
+
+  useEffect(() => {
+    // Auto-detect user's country based on IP and set language
+    fetch('https://ipapi.co/json/')
+      .then(res => res.json())
+      .then(data => {
+        if (data.country_code === 'BG') {
+          i18n.changeLanguage('bg'); // Set language to Bulgarian if user is from Bulgaria
+        } else {
+          i18n.changeLanguage('en'); // Default to English
+        }
+      })
+      .catch(() => {
+        // Fallback to English in case of an error
+        i18n.changeLanguage('en');
+      });
+
+    document.title = 'Stanchev | Portfolio';
+    document.body.classList.add('bg-[#050816]', 'text-white');
+    return () => {
+      document.body.classList.remove('bg-[#050816]', 'text-white');
+    };
+  }, [i18n]);
+
+  return (
+    <div className="relative z-0">
+      <Navbar />
+      <HeroSection />
+      <AboutSection />
+      <ProjectsSection />
+      <SkillsSection />
+      <ContactSection />
+      <Footer />
+    </div>
+  );
+}
+
+export default App;
+
     if (location.hash) {
       const id = location.hash.substring(1);
       const element = document.getElementById(id);
