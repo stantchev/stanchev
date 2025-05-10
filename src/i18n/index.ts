@@ -57,10 +57,6 @@ const resources = {
       "contact.info.email": "Email",
       "contact.info.location": "Location",
       "contact.social.title": "Social Media",
-<<<<<<< HEAD
-      
-=======
-	  
 	  "nav.services": "Services",
 	  "services.title": "SEO",
 	  "services.subtitle": "SERVICES LIST",
@@ -196,8 +192,6 @@ const resources = {
 },
 
 		},
-		
->>>>>>> 611847f (Добавяне на промените и .gitignore)
       "footer.slogan": "Creating the digital experiences of tomorrow",
       "footer.rights": "All rights reserved.",
 
@@ -217,10 +211,7 @@ const resources = {
       }
     }
   },
-<<<<<<< HEAD
-=======
-  
->>>>>>> 611847f (Добавяне на промените и .gitignore)
+	
   bg: {
   translation: {
   "nav.home": "Начало",
@@ -276,9 +267,6 @@ const resources = {
   "contact.info.email": "Имейл",
   "contact.info.location": "Местоположение",
   "contact.social.title": "Социални мрежи",
-
-<<<<<<< HEAD
-=======
   "nav.services": "Услуги",
   "services.title": "SEO",
   "services.subtitle": "Услуги",
@@ -414,7 +402,6 @@ const resources = {
 },
 },
 
->>>>>>> 611847f (Добавяне на промените и .gitignore)
   "footer.slogan": "Създавам дигиталните изживявания на бъдещето",
   "footer.rights": "Всички права запазени.",
 
@@ -433,11 +420,6 @@ const resources = {
         },
       }
     }
-<<<<<<< HEAD
-  }
-=======
-  },
->>>>>>> 611847f (Добавяне на промените и .gitignore)
 }
 i18n
   .use(initReactI18next)
