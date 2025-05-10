@@ -8,6 +8,10 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
+ const handleClick = () => {
+    navigate('/services');
+  };
+
 const ProjectsSection: React.FC = () => {
   const { t } = useTranslation();
   
@@ -48,7 +52,9 @@ const ProjectsSection: React.FC = () => {
   ))}
 </Swiper>
         <div className="flex justify-center mt-12">
-          <button className="py-3 px-8 rounded-full border-2 border-cyan-400 hover:bg-cyan-400/20 text-white font-medium transition-all duration-300">
+           <button
+      onClick={handleClick}
+      className="py-3 px-8 rounded-full border-2 border-cyan-400 hover:bg-cyan-400/20 text-white font-medium transition-all duration-300">
             {t('projects.viewAll')}
           </button>
         </div>
