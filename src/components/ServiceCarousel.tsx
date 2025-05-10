@@ -87,7 +87,7 @@ const ServiceCarousel: React.FC<ServiceCarouselProps> = ({ services }) => {
           <Link
             key={service.slug}
             to={`/services/${service.slug}`}
-            className="absolute w-[300px] transition-all duration-500 cursor-pointer"
+            className="absolute transition-all duration-500 cursor-pointer"
             style={getCardStyle(index)}
           >
             <div className="relative bg-gradient-to-br from-[#1a1c2e] to-[#0d0f1d] rounded-2xl p-8 group">
