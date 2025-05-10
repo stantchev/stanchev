@@ -1,9 +1,6 @@
 import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-<<<<<<< HEAD
-=======
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
->>>>>>> 611847f (Добавяне на промените и .gitignore)
 import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
 import AboutSection from './components/AboutSection';
@@ -11,7 +8,6 @@ import ProjectsSection from './components/ProjectsSection';
 import SkillsSection from './components/SkillsSection';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
-<<<<<<< HEAD
 
 function App() {
 const { i18n } = useTranslation();
@@ -24,7 +20,6 @@ const { i18n } = useTranslation();
     document.body.classList.add('bg-[#050816]', 'text-white');
 	
 	// Update lang attribute based on current language
-=======
 import ServicesPage from './pages/ServicesPage';
 import ServiceDetail from './pages/ServiceDetail';
 
@@ -56,7 +51,6 @@ function App() {
   useEffect(() => {
     document.title = 'Stanchev | Portfolio';
     document.body.classList.add('bg-[#050816]', 'text-white');
->>>>>>> 611847f (Добавяне на промените и .gitignore)
     document.body.setAttribute('lang', i18n.language);
     
     return () => {
@@ -65,7 +59,6 @@ function App() {
   }, [i18n.language]);
 
   return (
-<<<<<<< HEAD
     <div className="relative z-0">
       <Navbar />
       <HeroSection />
@@ -79,8 +72,7 @@ function App() {
 }
 
 export default App;
-=======
-    <Router>
+<Router>
       <div className="relative z-0">
         <Navbar />
         <Routes>
@@ -103,4 +95,3 @@ export default App;
 }
 
 export default App;
->>>>>>> 611847f (Добавяне на промените и .gitignore)
