@@ -15,19 +15,6 @@ const ScrollToSection: React.FC = () => {
   const location = useLocation();
 
   useEffect(() => {
-    import React, { useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import HeroSection from './components/HeroSection';
-import AboutSection from './components/AboutSection';
-import ProjectsSection from './components/ProjectsSection';
-import SkillsSection from './components/SkillsSection';
-import ContactSection from './components/ContactSection';
-import Footer from './components/Footer';
-import ServicesPage from './pages/ServicesPage';
-import ServiceDetail from './pages/ServiceDetail';
-
 function App() {
   const { i18n } = useTranslation();
 
