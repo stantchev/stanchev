@@ -68,8 +68,6 @@ function App() {
     </div>
   );
 }
-
-export default App;
 <Router>
       <div className="relative z-0">
         <Navbar />
