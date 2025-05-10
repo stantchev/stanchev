@@ -17,16 +17,27 @@ This is a personal website built with a focus on speed, modern design, and SEO o
 ## Project Structure
 
 ```
-├── src/                 # Application source code
-├── images/              # Images used on the website
-├── index.html           # Main HTML page
-├── koritsa.jpg          # Cover image
-├── vite.config.ts       # Vite configuration
-├── tailwind.config.js   # Tailwind CSS configuration
-├── postcss.config.js    # PostCSS configuration
-├── tsconfig*.json       # TypeScript configuration files
-├── package.json         # Project dependencies and scripts
-└── LICENSE              # Project license
+├── public/                      # Static assets publicly accessible via URL
+│   ├── fonts/                   # Custom fonts
+│   ├── robots.txt               # Instructions for web crawlers
+│   └── sitemap.xml              # XML sitemap for search engines
+├── src/                         # Application source code
+├── images/                      # Images used on the website
+├── index.html                   # Main HTML page
+├── koritsa.jpg                  # Cover image
+├── vite.config.ts               # Vite build tool configuration
+├── tailwind.config.js           # Tailwind CSS framework configuration
+├── postcss.config.js            # PostCSS plugin configuration
+├── tsconfig.json                # Base TypeScript configuration
+├── tsconfig.app.json            # App-specific TypeScript configuration
+├── tsconfig.node.json           # TypeScript config for Node.js usage
+├── eslint.config.js             # ESLint code linting configuration
+├── package.json                 # Project dependencies and scripts
+├── package-lock.json            # Exact dependency versions
+├── .env                         # Environment variables (if used)
+├── .gitignore                   # Files and folders ignored by Git
+├── README.md                    # Project documentation
+└── LICENSE                      # Project license
 ```
 
 ---
