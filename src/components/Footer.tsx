@@ -18,7 +18,11 @@ const Footer: React.FC = () => {
       }
     }
   };
-
+const goToServices = () => {
+  if (location.pathname !== '/services') {
+    navigate('/services');
+  }
+};
   return (
     <footer className="bg-[#0a0d1d] py-8">
       <div className="max-w-7xl mx-auto px-6">
