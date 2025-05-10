@@ -11,9 +11,9 @@ import 'swiper/css/navigation';
 
 const ProjectsSection: React.FC = () => {
   const { t } = useTranslation();
-   const navigate = useNavigate();
+  const navigate = useNavigate();
  
- const handleClick = () => {
+  const handleClick = () => {
     navigate('/services');
   };
  
