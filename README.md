@@ -17,6 +17,7 @@ This is a personal website built with a focus on speed, modern design, and SEO o
 ## Project Structure
 
 ```
+<<<<<<< HEAD
 ├── public/                      # Static assets publicly accessible via URL
 │   ├── fonts/                   # Custom fonts
 │   ├── robots.txt               # Instructions for web crawlers
@@ -38,6 +39,18 @@ This is a personal website built with a focus on speed, modern design, and SEO o
 ├── .gitignore                   # Files and folders ignored by Git
 ├── README.md                    # Project documentation
 └── LICENSE                      # Project license
+=======
+├── src/                 # Application source code
+├── images/              # Images used on the website
+├── index.html           # Main HTML page
+├── koritsa.jpg          # Cover image
+├── vite.config.ts       # Vite configuration
+├── tailwind.config.js   # Tailwind CSS configuration
+├── postcss.config.js    # PostCSS configuration
+├── tsconfig*.json       # TypeScript configuration files
+├── package.json         # Project dependencies and scripts
+└── LICENSE              # Project license
+>>>>>>> 611847f (Добавяне на промените и .gitignore)
 ```
 
 ---

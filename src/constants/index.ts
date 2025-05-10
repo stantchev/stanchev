@@ -1,4 +1,11 @@
 import { NavLink, Project, Experience, Skill } from "../types";
+<<<<<<< HEAD
+=======
+import {
+  Search, Link as LinkIcon, FileText, PenTool, MapPin,
+  ShoppingCart, Smartphone, Globe2, LayoutGrid, FileSearch
+} from 'lucide-react';
+>>>>>>> 611847f (Добавяне на промените и .gitignore)
 
 export const navLinks: NavLink[] = [
   {
@@ -23,6 +30,52 @@ export const navLinks: NavLink[] = [
   },
 ];
 
+<<<<<<< HEAD
+=======
+export const services: Service[] = [
+  {
+    slug: 'technical-seo',
+    icon: Search,
+  },
+  {
+    slug: 'link-building',
+    icon: LinkIcon,
+  },
+  {
+    slug: 'on-page-seo',
+    icon: FileText,
+  },
+  {
+    slug: 'content-strategy',
+    icon: PenTool,
+  },
+  {
+    slug: 'local-seo',
+    icon: MapPin,
+  },
+  {
+    slug: 'ecommerce-seo',
+    icon: ShoppingCart,
+  },
+  {
+    slug: 'mobile-seo',
+    icon: Smartphone,
+  },
+  {
+    slug: 'international-seo',
+    icon: Globe2,
+  },
+  {
+    slug: 'site-architecture',
+    icon: LayoutGrid,
+  },
+  {
+    slug: 'seo-audit',
+    icon: FileSearch,
+  },
+];
+
+>>>>>>> 611847f (Добавяне на промените и .gitignore)
 export const projects: Project[] = [
   {
     id: "Proj-01",

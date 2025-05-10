@@ -1,3 +1,8 @@
+<<<<<<< HEAD
 User-agent: *
 Allow: /
+=======
+User-agent: *
+Allow: /
+>>>>>>> 611847f (Добавяне на промените и .gitignore)
 Sitemap: https://stanchev.bg/sitemap.xml

@@ -57,7 +57,147 @@ const resources = {
       "contact.info.email": "Email",
       "contact.info.location": "Location",
       "contact.social.title": "Social Media",
+<<<<<<< HEAD
       
+=======
+	  
+	  "nav.services": "Services",
+	  "services.title": "SEO",
+	  "services.subtitle": "SERVICES LIST",
+	  "services.description":"Everything you need for successful SEO – analysis, strategy, optimization, and results.",
+	  "services.backToServices": "Back",
+	  "services.learnMore": "Learn more",
+	  "services.startProject": "Start a project",
+	  "services.keyBenefits": "Key benefits",
+	  "services.startProjectDescription": "Ready to take your website to the next level? Get in touch today and let's start your project!",
+	  "services.contactUs": "Get in touch",
+	  "services.relatedServices": "Related services",
+
+      "services": {
+        "technical-seo": {
+          "title": "Technical SEO",
+          "shortDescription": "Optimize your website's technical foundation for better search engine rankings",
+          "fullDescription": "Comprehensive technical SEO services to improve your website's visibility and performance in search engines",
+          "benefits": [
+            "In-depth technical site audits",
+            "Performance optimization",
+            "Mobile optimization",
+            "Schema markup implementation",
+            "Site architecture optimization"
+				]
+			},
+		"link-building": {
+			"title": "Link Building",
+			"shortDescription": "Boost your site's authority with high-quality backlinks",
+			"fullDescription": "Strategic link building services to improve your website’s domain authority, search engine rankings, and organic traffic through quality backlinks",
+			"benefits": [
+			"White-hat link acquisition",
+			"Backlink profile analysis",
+			"Outreach to relevant websites",
+			"Guest posting and content placement",
+			"Improved domain authority and rankings"
+  ]
+},
+"on-page-seo": {
+  "title": "On-Page SEO",
+  "shortDescription": "Optimize individual pages for better rankings and user experience",
+  "fullDescription": "On-page SEO services to ensure your website content and structure are fully optimized for search engines and users alike",
+  "benefits": [
+    "Keyword optimization",
+    "Meta tags and headers improvement",
+    "Internal linking strategies",
+    "Content relevance and readability",
+    "URL and image optimization"
+  ]
+},
+"content-strategy": {
+  "title": "Content Strategy",
+  "shortDescription": "Plan and create SEO-friendly content that drives traffic",
+  "fullDescription": "Tailored content strategies designed to engage users, support SEO goals, and boost organic growth through valuable content",
+  "benefits": [
+    "Keyword and topic research",
+    "Content calendar planning",
+    "SEO-focused content creation",
+    "User intent targeting",
+    "Content performance tracking"
+  ]
+},
+"local-seo": {
+  "title": "Local SEO",
+  "shortDescription": "Increase visibility in local search results and Google Maps",
+  "fullDescription": "Local SEO services to help your business attract nearby customers through optimized listings and local citations",
+  "benefits": [
+    "Google Business Profile optimization",
+    "Local citations and NAP consistency",
+    "Local keyword targeting",
+    "Review and reputation management",
+    "Location-based content creation"
+  ]
+},
+"ecommerce-seo": {
+  "title": "Ecommerce SEO",
+  "shortDescription": "Optimize your online store for search engines and shoppers",
+  "fullDescription": "Ecommerce SEO solutions tailored to improve product visibility, drive traffic, and increase conversions in your online store",
+  "benefits": [
+    "Product page optimization",
+    "Category structure enhancements",
+    "Technical improvements for ecommerce platforms",
+    "Schema markup for products",
+    "Conversion-focused keyword targeting"
+  ]
+},
+"mobile-seo": {
+  "title": "Mobile SEO",
+  "shortDescription": "Ensure your website is optimized for mobile users and mobile-first indexing",
+  "fullDescription": "Mobile SEO services to enhance usability, speed, and search visibility on smartphones and tablets",
+  "benefits": [
+    "Mobile-friendly design",
+    "Responsive layout improvements",
+    "Page speed optimization for mobile",
+    "Touch usability enhancements",
+    "Mobile-first SEO best practices"
+  ]
+},
+"international-seo": {
+  "title": "International SEO",
+  "shortDescription": "Expand your global reach with multilingual and regional SEO",
+  "fullDescription": "International SEO strategies to help your website rank in multiple countries and languages, targeting global audiences effectively",
+  "benefits": [
+    "Hreflang implementation",
+    "Geo-targeting strategies",
+    "Multilingual content optimization",
+    "International keyword research",
+    "Localized technical SEO"
+  ]
+},
+"site-architecture": {
+  "title": "Site Architecture",
+  "shortDescription": "Create a logical and scalable website structure for better SEO",
+  "fullDescription": "Site architecture optimization to improve crawlability, indexation, and user navigation for stronger SEO performance",
+  "benefits": [
+    "Logical hierarchy and navigation",
+    "URL structure improvements",
+    "Internal linking enhancements",
+    "Flat vs. deep architecture strategy",
+    "Better crawl efficiency and user flow"
+  ]
+},
+"seo-audit": {
+  "title": "SEO Audit",
+  "shortDescription": "Identify and fix SEO issues holding your site back",
+  "fullDescription": "Comprehensive SEO audits to uncover technical, content, and structural problems affecting your site's performance",
+  "benefits": [
+    "Complete website health check",
+    "Technical SEO evaluation",
+    "On-page and off-page analysis",
+    "Actionable recommendations",
+    "Improved visibility and rankings"
+  ]
+},
+
+		},
+		
+>>>>>>> 611847f (Добавяне на промените и .gitignore)
       "footer.slogan": "Creating the digital experiences of tomorrow",
       "footer.rights": "All rights reserved.",
 
@@ -77,6 +217,10 @@ const resources = {
       }
     }
   },
+<<<<<<< HEAD
+=======
+  
+>>>>>>> 611847f (Добавяне на промените и .gitignore)
   bg: {
   translation: {
   "nav.home": "Начало",
@@ -133,6 +277,144 @@ const resources = {
   "contact.info.location": "Местоположение",
   "contact.social.title": "Социални мрежи",
 
+<<<<<<< HEAD
+=======
+  "nav.services": "Услуги",
+  "services.title": "SEO",
+  "services.subtitle": "Услуги",
+  "services.description": " Всичко, от което се нуждаете за успешно SEO – анализ, стратегия, оптимизация и резултати.",
+  "services.backToServices": "Назад",
+  "services.learnMore": "Виж тук",
+  "services.startProject": "Започни проект",
+  "services.keyBenefits": "Предимства",
+  "services.startProjectDescription": "Готов да изведеш сайта си на следващото ниво? Свържи се с мен още днес и нека започнем проекта ти!",
+  "services.contactUs": "Контакти",
+  "services.relatedServices": "Подобни услуги",
+  
+"services": {
+  "technical-seo": {
+    "title": "Техническо SEO",
+    "shortDescription": "Оптимизирайте техническата основа на уебсайта си за по-добро класиране в търсачките",
+    "fullDescription": "Цялостни услуги за техническо SEO с цел подобряване на видимостта и производителността на вашия уебсайт в търсачките",
+    "benefits": [
+      "Задълбочени технически одити на сайта",
+      "Оптимизация на производителността",
+      "Мобилна оптимизация",
+      "Имплементация на Schema markup",
+      "Оптимизация на архитектурата на сайта"
+    ]
+  },
+  "link-building": {
+  "title": "Link Building",
+  "shortDescription": "Изградете висококачествени линкове за по-добро класиране",
+  "fullDescription": "Link building услуги, които повишават авторитета на сайта ви чрез надеждни и релевантни обратни връзки",
+  "benefits": [
+    "Създаване на беклинкове от авторитетни сайтове",
+    "White-hat стратегии за линк билдинг",
+    "Анализ на профил на обратни връзки",
+    "Идентифициране на нови възможности за линкове",
+    "Подобряване на домейн авторитет и SEO резултати"
+  ]
+},
+  "on-page-seo": {
+  "title": "On-Page SEO",
+  "shortDescription": "Оптимизирайте отделни страници за по-добро класиране и потребителско изживяване",
+  "fullDescription": "Услуги за On-page SEO, които гарантират, че съдържанието и структурата на вашия сайт са напълно оптимизирани за търсачки и потребители",
+  "benefits": [
+    "Оптимизация на ключови думи",
+    "Подобряване на мета тагове и заглавия",
+    "Стратегии за вътрешно линкване",
+    "Актуалност и четливост на съдържанието",
+    "Оптимизация на URL адреси и изображения"
+  ]
+},
+"content-strategy": {
+  "title": "Контент стратегия",
+  "shortDescription": "Планирайте и създавайте SEO съдържание, което привлича трафик",
+  "fullDescription": "Индивидуално създадени стратегии за съдържание, които ангажират потребителите, подпомагат SEO целите и стимулират органичен растеж",
+  "benefits": [
+    "Проучване на ключови думи и теми",
+    "Планиране на съдържание чрез календар",
+    "Създаване на съдържание с фокус върху SEO",
+    "Целево съдържание според потребителското намерение",
+    "Проследяване на ефективността на съдържанието"
+  ]
+},
+"local-seo": {
+  "title": "Локално SEO",
+  "shortDescription": "Увеличете видимостта си в локалните търсения и Google Maps",
+  "fullDescription": "Локални SEO услуги, които помагат на вашия бизнес да привлече клиенти в близост чрез оптимизирани профили и локални цитирания",
+  "benefits": [
+    "Оптимизация на профил в Google Business",
+    "Консистентност на локални цитирания и NAP данни",
+    "Таргетиране на локални ключови думи",
+    "Управление на ревюта и репутация",
+    "Създаване на съдържание с локална насоченост"
+  ]
+},
+"ecommerce-seo": {
+  "title": "SEO за онлайн магазини",
+  "shortDescription": "Оптимизирайте онлайн магазина си за търсачки и купувачи",
+  "fullDescription": "SEO решения за онлайн магазини, насочени към подобряване на видимостта на продуктите, увеличаване на трафика и повишаване на конверсиите",
+  "benefits": [
+    "Оптимизация на продуктови страници",
+    "Подобряване на структурата на категориите",
+    "Технически подобрения за е-комерс платформи",
+    "Схема маркиране за продукти",
+    "Ключови думи, насочени към конверсии"
+  ]
+},
+"mobile-seo": {
+  "title": "Мобилно SEO",
+  "shortDescription": "Уверете се, че сайтът ви е оптимизиран за мобилни устройства и мобилен индекс",
+  "fullDescription": "Услуги за мобилно SEO за по-добра използваемост, скорост и видимост в търсачките на смартфони и таблети",
+  "benefits": [
+    "Дизайн, съобразен с мобилни устройства",
+    "Подобрения в отзивчивия изглед",
+    "Оптимизация на скоростта за мобилни устройства",
+    "Улеснена навигация с докосване",
+    "SEO добри практики за мобилно индексиране"
+  ]
+},
+"international-seo": {
+  "title": "Международно SEO",
+  "shortDescription": "Разширете глобалното си присъствие с мултиезично и регионално SEO",
+  "fullDescription": "Международни SEO стратегии, които помагат на вашия сайт да се класира в различни държави и езици, достигайки глобална аудитория",
+  "benefits": [
+    "Имплементиране на hreflang тагове",
+    "Гео-таргетиращи стратегии",
+    "Оптимизация на мултиезично съдържание",
+    "Проучване на международни ключови думи",
+    "Локализирано техническо SEO"
+  ]
+},
+"site-architecture": {
+  "title": "Структура на сайта",
+  "shortDescription": "Създайте логична и мащабируема структура за по-добро SEO",
+  "fullDescription": "Оптимизация на структурата на сайта с цел подобряване на обхождането, индексирането и потребителската навигация",
+  "benefits": [
+    "Логична йерархия и навигация",
+    "Подобрения в URL структурата",
+    "Оптимизация на вътрешни връзки",
+    "Стратегия за плоска vs. дълбока структура",
+    "По-добра ефективност при обхождане и потребителски поток"
+  ]
+},
+"seo-audit": {
+  "title": "SEO одит",
+  "shortDescription": "Идентифицирайте и отстранете SEO проблеми, които ви задържат назад",
+  "fullDescription": "Пълен SEO одит за разкриване на технически, съдържателни и структурни проблеми, които влияят на представянето на сайта",
+  "benefits": [
+    "Цялостна проверка на състоянието на сайта",
+    "Техническа SEO оценка",
+    "Анализ на вътрешна и външна оптимизация",
+    "Конкретни препоръки за подобрение",
+    "По-добра видимост и класиране"
+  ]
+},
+},
+
+>>>>>>> 611847f (Добавяне на промените и .gitignore)
   "footer.slogan": "Създавам дигиталните изживявания на бъдещето",
   "footer.rights": "Всички права запазени.",
 
@@ -151,7 +433,11 @@ const resources = {
         },
       }
     }
+<<<<<<< HEAD
   }
+=======
+  },
+>>>>>>> 611847f (Добавяне на промените и .gitignore)
 }
 i18n
   .use(initReactI18next)

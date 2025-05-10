@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+import { LucideIcon } from 'lucide-react';
+
+>>>>>>> 611847f (Добавяне на промените и .gitignore)
 export interface NavLink {
   id: string;
   title: string;
@@ -29,3 +34,11 @@ export interface ContactFormData {
   email: string;
   message: string;
 }
+<<<<<<< HEAD
+=======
+
+export interface Service {
+  slug: string;
+  icon: LucideIcon;
+}
+>>>>>>> 611847f (Добавяне на промените и .gitignore)
