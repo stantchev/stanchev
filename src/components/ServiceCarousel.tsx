@@ -12,7 +12,7 @@ interface ServiceCarouselProps {
 const ServiceCarousel: React.FC<ServiceCarouselProps> = ({ services }) => {
   const { t } = useTranslation();
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [lastInteraction, setLastInteraction] = useState(Date.now());
   const autoPlayRef = useRef<NodeJS.Timeout>();
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -20,27 +20,25 @@ const ServiceCarousel: React.FC<ServiceCarouselProps> = ({ services }) => {
   const centerOffset = Math.floor(visibleCards / 2);
 
   useEffect(() => {
-    if (isAutoPlaying) {
-      autoPlayRef.current = setInterval(() => {
+    autoPlayRef.current = setInterval(() => {
+      if (Date.now() - lastInteraction >= 10000) {
         setCurrentIndex((prev) => (prev + 1) % services.length);
-      }, 3500);
-    }
+      }
+    }, 3500);
 
     return () => {
-      if (autoPlayRef.current) {
-        clearInterval(autoPlayRef.current);
-      }
+      clearInterval(autoPlayRef.current);
     };
-  }, [isAutoPlaying, services.length]);
+  }, [lastInteraction, services.length]);
 
   const handleNext = () => {
     setCurrentIndex((prev) => (prev + 1) % services.length);
-    setIsAutoPlaying(false);
+    setLastInteraction(Date.now());
   };
 
   const handlePrev = () => {
     setCurrentIndex((prev) => (prev - 1 + services.length) % services.length);
-    setIsAutoPlaying(false);
+    setLastInteraction(Date.now());
   };
 
   const getCardStyle = (index: number) => {
@@ -70,14 +68,14 @@ const ServiceCarousel: React.FC<ServiceCarouselProps> = ({ services }) => {
     preventScrollOnSwipe: true,
     trackTouch: true,
     trackMouse: false,
+    onTouchStartOrOnMouseDown: () => setLastInteraction(Date.now()),
   });
 
   return (
     <div
       {...swipeHandlers}
-      className="relative h-[400px] sm:h-[600px] overflow-hidden"
-      onMouseEnter={() => setIsAutoPlaying(false)}
-      onMouseLeave={() => setIsAutoPlaying(true)}
+      className="relative h-[420px] sm:h-[600px] overflow-hidden"
+      onMouseEnter={() => setLastInteraction(Date.now())}
     >
       <div
         ref={containerRef}
@@ -88,22 +86,22 @@ const ServiceCarousel: React.FC<ServiceCarouselProps> = ({ services }) => {
           <Link
             key={service.slug}
             to={`/services/${service.slug}`}
-            className="absolute w-[240px] sm:w-[300px] transition-all duration-500 cursor-pointer"
+            className="absolute w-[220px] sm:w-[300px] transition-all duration-500 cursor-pointer"
             style={getCardStyle(index)}
           >
-            <div className="relative bg-gradient-to-br from-[#1a1c2e] to-[#0d0f1d] rounded-2xl p-6 sm:p-8 group">
+            <div className="relative bg-gradient-to-br from-[#1a1c2e] to-[#0d0f1d] rounded-xl sm:rounded-2xl p-5 sm:p-8 group">
               {/* Glow effect */}
-              <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div className="absolute inset-0 rounded-xl sm:rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <div
-                  className="absolute inset-0 rounded-2xl bg-gradient-to-r from-cyan-500/20 to-fuchsia-500/20"
-                  style={{ filter: 'blur(8px)' }}
+                  className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-fuchsia-500/20"
+                  style={{ filter: 'blur(8px)', borderRadius: 'inherit' }}
                 />
               </div>
 
               {/* Card content */}
               <div className="relative">
                 <div className="mb-4 sm:mb-6">
-                  <div className="relative bg-gradient-to-br from-[#2a2d4c] to-[#1a1c2e] p-3 sm:p-4 rounded-xl">
+                  <div className="relative bg-gradient-to-br from-[#2a2d4c] to-[#1a1c2e] p-3 sm:p-4 rounded-lg sm:rounded-xl">
                     <service.icon className="w-10 h-10 sm:w-12 sm:h-12 text-cyan-400" />
                   </div>
                 </div>
@@ -121,18 +119,18 @@ const ServiceCarousel: React.FC<ServiceCarouselProps> = ({ services }) => {
         ))}
       </div>
 
-      {/* Navigation buttons */}
+      {/* Navigation buttons - hidden on small screens */}
       <button
         onClick={handlePrev}
-        className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/50 backdrop-blur-sm flex items-center justify-center text-white hover:bg-black/70 transition-colors"
+        className="hidden sm:flex absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/50 backdrop-blur-sm items-center justify-center text-white hover:bg-black/70 transition-colors"
       >
-        <ArrowLeft className="w-5 h-5 sm:w-6 sm:h-6" />
+        <ArrowLeft className="w-6 h-6" />
       </button>
       <button
         onClick={handleNext}
-        className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/50 backdrop-blur-sm flex items-center justify-center text-white hover:bg-black/70 transition-colors"
+        className="hidden sm:flex absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/50 backdrop-blur-sm items-center justify-center text-white hover:bg-black/70 transition-colors"
       >
-        <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6" />
+        <ArrowRight className="w-6 h-6" />
       </button>
 
       {/* Indicators */}
@@ -142,7 +140,7 @@ const ServiceCarousel: React.FC<ServiceCarouselProps> = ({ services }) => {
             key={index}
             onClick={() => {
               setCurrentIndex(index);
-              setIsAutoPlaying(false);
+              setLastInteraction(Date.now());
             }}
             className={`w-2 h-2 rounded-full transition-all duration-300 ${
               index === currentIndex
