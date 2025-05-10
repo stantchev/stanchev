@@ -19,14 +19,16 @@ const ServiceCarousel: React.FC<ServiceCarouselProps> = ({ services }) => {
   const centerOffset = Math.floor(visibleCards / 2);
 
   useEffect(() => {
-    autoPlayRef.current = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % services.length);
-    }, 10000);
+    if (isAutoPlaying) {
+      autoPlayRef.current = setInterval(() => {
+        setCurrentIndex((prev) => (prev + 1) % services.length);
+      }, 10000);
+    }
 
     return () => {
       if (autoPlayRef.current) clearInterval(autoPlayRef.current);
     };
-  }, [services.length]);
+  }, [services.length, isAutoPlaying]);
 
   const handleNext = () => {
     setCurrentIndex((prev) => (prev + 1) % services.length);
@@ -44,7 +46,6 @@ const ServiceCarousel: React.FC<ServiceCarouselProps> = ({ services }) => {
 
     const rotateY = adjustedPosition * 40;
     const translateZ = Math.cos((Math.abs(adjustedPosition) * Math.PI) / 2) * 200;
-    const scale = 1 - Math.abs(adjustedPosition) * 0.1;
     const opacity = 1 - Math.abs(adjustedPosition) / centerOffset;
 
     return {
@@ -52,11 +53,14 @@ const ServiceCarousel: React.FC<ServiceCarouselProps> = ({ services }) => {
         perspective(1000px)
         rotateY(${rotateY}deg)
         translateZ(${translateZ}px)
-        scale(${scale})
+        scale(${1 - Math.abs(adjustedPosition) * 0.1})
       `,
-      opacity,
+      opacity: opacity,
       zIndex: centerOffset - Math.abs(adjustedPosition),
       pointerEvents: Math.abs(adjustedPosition) < 1 ? 'auto' : 'none',
+      position: 'absolute',
+      left: '50%',
+      transformOrigin: 'center',
     };
   };
 
@@ -76,7 +80,7 @@ const ServiceCarousel: React.FC<ServiceCarouselProps> = ({ services }) => {
 
   return (
     <div
-      className="relative h-[600px] sm:h-[650px] overflow-hidden px-2"
+      className="relative h-[650px] sm:h-[600px] overflow-hidden"
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
     >
@@ -84,42 +88,49 @@ const ServiceCarousel: React.FC<ServiceCarouselProps> = ({ services }) => {
         className="absolute inset-0 flex items-center justify-center"
         style={{ perspective: '1000px' }}
       >
-        {services.map((service, index) => (
-          <Link
-            key={service.slug}
-            to={`/services/${service.slug}`}
-            className="absolute w-[90vw] sm:w-[300px] transition-all duration-500 cursor-pointer max-w-xs"
-            style={getCardStyle(index)}
-          >
-            <div className="relative bg-gradient-to-br from-[#1a1c2e] to-[#0d0f1d] rounded-2xl p-4 sm:p-8 group w-full">
-              {/* Glow */}
-              <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-cyan-500/20 to-fuchsia-500/20 blur-md" />
-              </div>
-
-              {/* Content */}
-              <div className="relative">
-                <div className="mb-4 sm:mb-6">
-                  <div className="relative bg-gradient-to-br from-[#2a2d4c] to-[#1a1c2e] p-3 sm:p-4 rounded-xl w-fit">
-                    <service.icon className="w-8 h-8 sm:w-12 sm:h-12 text-cyan-400" />
-                  </div>
+        {services.map((service, index) => {
+          const cardStyle = getCardStyle(index);
+          return (
+            <Link
+              key={service.slug}
+              to={`/services/${service.slug}`}
+              className="transition-all duration-500 cursor-pointer"
+              style={{
+                ...cardStyle,
+                width: window.innerWidth < 768 ? '90vw' : '300px',
+                transform: `${cardStyle.transform} translateX(-50%)`,
+              }}
+            >
+              <div className="relative bg-gradient-to-br from-[#1a1c2e] to-[#0d0f1d] rounded-2xl p-6 group">
+                {/* Glow */}
+                <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-cyan-500/20 to-fuchsia-500/20 blur-md" />
                 </div>
 
-                <h3 className="text-[clamp(0.875rem,2.5vw,1.25rem)] font-bold mb-2 sm:mb-4 bg-gradient-to-r from-cyan-400 to-fuchsia-500 bg-clip-text text-transparent">
-                  {t(`services.${service.slug}.title`)}
-                </h3>
+                {/* Content */}
+                <div className="relative">
+                  <div className="mb-6">
+                    <div className="relative bg-gradient-to-br from-[#2a2d4c] to-[#1a1c2e] p-4 rounded-xl">
+                      <service.icon className="w-12 h-12 text-cyan-400" />
+                    </div>
+                  </div>
 
-                <p className="text-gray-400 mb-2 sm:mb-4 text-sm sm:text-base line-clamp-3">
-                  {t(`services.${service.slug}.shortDescription`)}
-                </p>
+                  <h3 className="text-lg sm:text-xl font-bold mb-4 bg-gradient-to-r from-cyan-400 to-fuchsia-500 bg-clip-text text-transparent">
+                    {t(`services.${service.slug}.title`)}
+                  </h3>
 
-                <p className="text-cyan-400 text-sm sm:text-base">
-                  {t('services.learnMore')}
-                </p>
+                  <p className="text-gray-400 mb-4 line-clamp-3 text-sm sm:text-base">
+                    {t(`services.${service.slug}.shortDescription`)}
+                  </p>
+
+                  <p className="text-cyan-400 text-sm sm:text-base">
+                    {t('services.learnMore')}
+                  </p>
+                </div>
               </div>
-            </div>
-          </Link>
-        ))}
+            </Link>
+          );
+        })}
       </div>
 
       {/* Navigation buttons */}
@@ -137,7 +148,7 @@ const ServiceCarousel: React.FC<ServiceCarouselProps> = ({ services }) => {
       </button>
 
       {/* Indicators */}
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2">
         {services.map((_, index) => (
           <button
             key={index}
@@ -145,10 +156,10 @@ const ServiceCarousel: React.FC<ServiceCarouselProps> = ({ services }) => {
               setCurrentIndex(index);
               setIsAutoPlaying(false);
             }}
-            className={`h-2 rounded-full transition-all duration-300 ${
+            className={`w-2 h-2 rounded-full transition-all duration-300 ${
               index === currentIndex
                 ? 'w-8 bg-gradient-to-r from-cyan-400 to-fuchsia-500'
-                : 'w-2 bg-white/30'
+                : 'bg-white/30'
             }`}
           />
         ))}
