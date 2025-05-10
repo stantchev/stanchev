@@ -8,6 +8,8 @@ import ProjectsSection from './components/ProjectsSection';
 import SkillsSection from './components/SkillsSection';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
+import ServicesPage from './pages/ServicesPage';
+import ServiceDetail from './pages/ServiceDetail';
 
 function App() {
 const { i18n } = useTranslation();
@@ -18,10 +20,6 @@ const { i18n } = useTranslation();
     
     // Add a class to the body for global styling
     document.body.classList.add('bg-[#050816]', 'text-white');
-	
-	// Update lang attribute based on current language
-import ServicesPage from './pages/ServicesPage';
-import ServiceDetail from './pages/ServiceDetail';
 
 // Scroll handler component
 const ScrollToSection: React.FC = () => {
