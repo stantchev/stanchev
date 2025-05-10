@@ -1,16 +1,10 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-<<<<<<< HEAD
-=======
 import { useLocation, useNavigate } from 'react-router-dom';
->>>>>>> 611847f (Добавяне на промените и .gitignore)
 
 const Footer: React.FC = () => {
   const { t } = useTranslation();
   const currentYear = new Date().getFullYear();
-<<<<<<< HEAD
-
-=======
   const location = useLocation();
   const navigate = useNavigate();
   
@@ -26,14 +20,10 @@ const Footer: React.FC = () => {
       }
     }
   };
-  
->>>>>>> 611847f (Добавяне на промените и .gitignore)
   return (
     <footer className="bg-[#0a0d1d] py-8">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-center">
-<<<<<<< HEAD
-          
           {/* Logo and slogan */}
           <div className="mb-6 md:mb-0">
             <a href="#home" className="text-white text-xl font-bold cursor-pointer flex items-center">
@@ -65,8 +55,6 @@ const Footer: React.FC = () => {
               © {currentYear} STANCHEV. {t('footer.rights')}
             </p>
           </div>
-
-=======
           <div className="mb-6 md:mb-0">
             <button 
               onClick={() => handleNavigation('home')}
@@ -111,15 +99,9 @@ const Footer: React.FC = () => {
               © {currentYear} STANCHEV. {t('footer.rights')}
             </p>
           </div>
->>>>>>> 611847f (Добавяне на промените и .gitignore)
         </div>
       </div>
     </footer>
   );
 };
-
-<<<<<<< HEAD
 export default Footer;
-=======
-export default Footer;
->>>>>>> 611847f (Добавяне на промените и .gitignore)
