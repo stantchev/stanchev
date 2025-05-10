@@ -10,12 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
-<<<<<<< HEAD
-=======
 	"@react-three/drei": "^9.102.3",
     "@react-three/fiber": "^8.15.19",
     "@react-three/postprocessing": "^2.16.2",
->>>>>>> 611847f (Добавяне на промените и .gitignore)
     "@emailjs/browser": "^4.4.1",
     "i18next": "^23.10.1",
     "lucide-react": "^0.344.0",
