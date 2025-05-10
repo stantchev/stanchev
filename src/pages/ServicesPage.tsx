@@ -4,6 +4,11 @@ import { useTranslation } from 'react-i18next';
 import { services } from '../constants';
 import { ArrowRight } from 'lucide-react';
 
+interface Service {
+  slug: string;
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+}
+
 const ServicesPage: React.FC = () => {
   const { t } = useTranslation();
 
@@ -20,13 +25,14 @@ const ServicesPage: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service) => (
+          {services.map((service: Service) => (
             <Link
               key={service.slug}
               to={`/services/${service.slug}`}
-              className="group bg-[#1e293b] rounded-xl p-6 transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-xl hover:shadow-cyan-500/20"
+              className="group bg-[#1e293b] rounded-xl p-6 transition-all duration-300 transform preserve-3d hover:rotate-[10deg] hover:scale-105"
             >
               <div className="mb-4">
+                {/* Рендерираме иконата на услугата */}
                 <service.icon className="w-12 h-12 text-cyan-400" />
               </div>
               <h3 className="text-xl font-bold text-white mb-3 group-hover:text-cyan-400 transition-colors">
