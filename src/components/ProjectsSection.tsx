@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { projects } from '../constants';
 import ProjectCard from './ProjectCard';
@@ -8,13 +9,14 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
+const ProjectsSection: React.FC = () => {
+  const { t } = useTranslation();
+   const navigate = useNavigate();
+ 
  const handleClick = () => {
     navigate('/services');
   };
-
-const ProjectsSection: React.FC = () => {
-  const { t } = useTranslation();
-  
+ 
   return (
     <section id="projects" className="relative py-20 bg-[#050816]">
       <div className="max-w-7xl mx-auto px-6">
