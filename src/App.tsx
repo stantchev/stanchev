@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
 import AboutSection from './components/AboutSection';
@@ -11,17 +11,7 @@ import Footer from './components/Footer';
 import ServicesPage from './pages/ServicesPage';
 import ServiceDetail from './pages/ServiceDetail';
 
-function App() {
-const { i18n } = useTranslation();
-
-  useEffect(() => {
-    // Update page title
-    document.title = 'Stanchev | Portfolio';
-    
-    // Add a class to the body for global styling
-    document.body.classList.add('bg-[#050816]', 'text-white');
-
-// Scroll handler component
+// Scroll handler component (трябва да е отделно, извън App)
 const ScrollToSection: React.FC = () => {
   const location = useLocation();
 
@@ -29,7 +19,7 @@ const ScrollToSection: React.FC = () => {
     if (location.hash) {
       const id = location.hash.substring(1);
       const element = document.getElementById(id);
-      
+
       if (element) {
         setTimeout(() => {
           element.scrollIntoView({ behavior: 'smooth' });
@@ -50,37 +40,30 @@ function App() {
     document.title = 'Stanchev | Portfolio';
     document.body.classList.add('bg-[#050816]', 'text-white');
     document.body.setAttribute('lang', i18n.language);
-    
+
     return () => {
       document.body.classList.remove('bg-[#050816]', 'text-white');
     };
   }, [i18n.language]);
 
   return (
-    <div className="relative z-0">
-      <Navbar />
-      <HeroSection />
-      <AboutSection />
-      <ProjectsSection />
-      <SkillsSection />
-      <ContactSection />
-      <Footer />
-    </div>
-  );
-}
-<Router>
+    <Router>
+      <ScrollToSection />
       <div className="relative z-0">
         <Navbar />
         <Routes>
-          <Route path="/" element={
-            <>
-              <HeroSection />
-              <AboutSection />
-              <ProjectsSection />
-              <SkillsSection />
-              <ContactSection />
-            </>
-          } />
+          <Route
+            path="/"
+            element={
+              <>
+                <HeroSection />
+                <AboutSection />
+                <ProjectsSection />
+                <SkillsSection />
+                <ContactSection />
+              </>
+            }
+          />
           <Route path="/services" element={<ServicesPage />} />
           <Route path="/services/:slug" element={<ServiceDetail />} />
         </Routes>
