@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-<<<<<<< HEAD
-=======
 import { useLocation, useNavigate, Link } from 'react-router-dom';
->>>>>>> 611847f (Добавяне на промените и .gitignore)
 import { navLinks } from '../constants';
 import LanguageToggle from './LanguageToggle';
 
@@ -13,11 +10,8 @@ const Navbar: React.FC = () => {
   const [toggle, setToggle] = useState<boolean>(false);
   const [scrolled, setScrolled] = useState<boolean>(false);
   const { t } = useTranslation();
-<<<<<<< HEAD
-=======
   const location = useLocation();
   const navigate = useNavigate();
->>>>>>> 611847f (Добавяне на промените и .gitignore)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,15 +27,12 @@ const Navbar: React.FC = () => {
 
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-<<<<<<< HEAD
   const scrollToSection = (id: string) => {
     setActive(id);
     setToggle(false);
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
-=======
   const handleNavigation = (id: string) => {
     setActive(id);
     setToggle(false);
@@ -53,7 +44,6 @@ const Navbar: React.FC = () => {
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
       }
->>>>>>> 611847f (Добавяне на промените и .gitignore)
     }
   };
 
@@ -64,7 +54,6 @@ const Navbar: React.FC = () => {
       } transition-all duration-300`}
     >
       <div className="w-full flex justify-between items-center max-w-7xl mx-auto px-6">
-<<<<<<< HEAD
         <a 
           href="#home" 
           className="flex items-center gap-2" 
@@ -72,7 +61,6 @@ const Navbar: React.FC = () => {
         >
           <button className="glitch-button">STANCHEV</button>
         </a>
-=======
         <button 
           onClick={() => handleNavigation('home')}
           className="flex items-center gap-2"
@@ -82,8 +70,6 @@ const Navbar: React.FC = () => {
             <span className="text-fuchsia-400">CHEV</span>
           </span>
         </button>
->>>>>>> 611847f (Добавяне на промените и .gitignore)
-
         <div className="hidden md:flex items-center gap-6">
           <ul className="list-none flex flex-row gap-10">
             {navLinks.map((nav) => (
@@ -92,17 +78,12 @@ const Navbar: React.FC = () => {
                 className={`${
                   active === nav.id ? 'text-white' : 'text-gray-400'
                 } hover:text-cyan-400 text-lg font-medium cursor-pointer transition-colors duration-300`}
-<<<<<<< HEAD
                 onClick={() => scrollToSection(nav.id)}
-=======
                 onClick={() => handleNavigation(nav.id)}
->>>>>>> 611847f (Добавяне на промените и .gitignore)
               >
                 {t(`nav.${nav.id}`)}
               </li>
             ))}
-<<<<<<< HEAD
-=======
 			<li>
     <Link
       to="/services"
@@ -112,7 +93,6 @@ const Navbar: React.FC = () => {
       {t('nav.services')}
     </Link>
   </li>
->>>>>>> 611847f (Добавяне на промените и .gitignore)
           </ul>
           <LanguageToggle />
         </div>
@@ -139,11 +119,8 @@ const Navbar: React.FC = () => {
                   className={`font-medium cursor-pointer text-base ${
                     active === nav.id ? 'text-white' : 'text-gray-400'
                   }`}
-<<<<<<< HEAD
                   onClick={() => scrollToSection(nav.id)}
-=======
                   onClick={() => handleNavigation(nav.id)}
->>>>>>> 611847f (Добавяне на промените и .gitignore)
                 >
                   {t(`nav.${nav.id}`)}
                 </li>
@@ -154,12 +131,6 @@ const Navbar: React.FC = () => {
       </div>
     </nav>
   );
-<<<<<<< HEAD
 };
 
 export default Navbar;
-=======
-}
-
-export default Navbar
->>>>>>> 611847f (Добавяне на промените и .gitignore)
