@@ -19,18 +19,16 @@ function App() {
   const { i18n } = useTranslation();
 
   useEffect(() => {
-    // Auto-detect user's country based on IP and set language
     fetch('https://ipapi.co/json/')
       .then(res => res.json())
       .then(data => {
         if (data.country_code === 'BG') {
-          i18n.changeLanguage('bg'); // Set language to Bulgarian if user is from Bulgaria
+          i18n.changeLanguage('bg');
         } else {
-          i18n.changeLanguage('en'); // Default to English
+          i18n.changeLanguage('en');
         }
       })
       .catch(() => {
-        // Fallback to English in case of an error
         i18n.changeLanguage('en');
       });
 
