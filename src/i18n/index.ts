@@ -9,6 +9,7 @@ const resources = {
       "nav.projects": "Projects",
       "nav.skills": "Skills",
       "nav.contact": "Contact",
+      "nav.services": "Services",
       
       "hero.title": "Expert Web Development & SEO Solutions",
       "hero.subtitle": "Elevating your digital presence with cutting-edge web development, optimized SEO strategies, and data-driven results",
@@ -219,6 +220,7 @@ const resources = {
   "nav.projects": "Проекти",
   "nav.skills": "Умения",
   "nav.contact": "Контакти",
+  "nav.services": "Услуги",
 
   "hero.title": "Уеб разработка и SEO, които работят за вас",
   "hero.subtitle": "Изграждам силно онлайн присъствие с модерни уеб технологии, ефективни SEO стратегии и решения, водени от данни",
