@@ -20,6 +20,7 @@
     "react-dom": "^18.3.1",
     "react-i18next": "^14.1.0",
     "react-router-dom": "^7.6.0",
+    "react-swipeable": "^7.0.2",
     "swiper": "^11.2.6"
   },
   "devDependencies": {
