@@ -90,7 +90,7 @@ const ServiceCarousel: React.FC<ServiceCarouselProps> = ({ services }) => {
             className="absolute transition-all duration-500 cursor-pointer"
             style={getCardStyle(index)}
           >
-            <div className="relative bg-gradient-to-br from-[#1a1c2e] to-[#0d0f1d] rounded-2xl p-8 group">
+            <div className="relative bg-gradient-to-br from-[#1a1c2e] to-[#0d0f1d] rounded-2xl p-6 sm:p-4 group"> {/* Намалих пълнежа на мобилни устройства */}
               {/* Glow */}
               <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-cyan-500/20 to-fuchsia-500/20 blur-md" />
@@ -98,22 +98,22 @@ const ServiceCarousel: React.FC<ServiceCarouselProps> = ({ services }) => {
 
               {/* Content */}
               <div className="relative">
-                <div className="mb-6">
-                  <div className="relative bg-gradient-to-br from-[#2a2d4c] to-[#1a1c2e] p-4 rounded-xl">
-                    <service.icon className="w-12 h-12 text-cyan-400" />
+                <div className="mb-4 sm:mb-2"> {/* Намалих маргините на мобилни устройства */}
+                  <div className="relative bg-gradient-to-br from-[#2a2d4c] to-[#1a1c2e] p-3 sm:p-2 rounded-xl">
+                    <service.icon className="w-10 h-10 sm:w-8 sm:h-8 text-cyan-400" /> {/* Намалих иконата на мобилно */}
                   </div>
                 </div>
 
-                <h3 className="text-xl font-bold mb-4 bg-gradient-to-r from-cyan-400 to-fuchsia-500 bg-clip-text text-transparent">
+                <h3 className="text-lg sm:text-sm font-bold mb-3 sm:mb-2 bg-gradient-to-r from-cyan-400 to-fuchsia-500 bg-clip-text text-transparent">
                   {t(`services.${service.slug}.title`)}
                 </h3>
 
-                <p className="text-gray-400 mb-4 line-clamp-3">
+                <p className="text-gray-400 mb-3 sm:mb-2 line-clamp-2"> {/* Намалих размера на текста на мобилно */}
                   {t(`services.${service.slug}.shortDescription`)}
                 </p>
 
                 {/* Second line */}
-                <p className="text-cyan-400">{t('services.learnMore')}</p>
+                <p className="text-cyan-400 text-sm sm:text-xs">{t('services.learnMore')}</p> {/* Намалих текста за мобилни устройства */}
               </div>
             </div>
           </Link>
