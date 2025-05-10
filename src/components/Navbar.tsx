@@ -16,23 +16,13 @@ const Navbar: React.FC = () => {
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.scrollY;
-      if (scrollTop > 50) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
+      setScrolled(scrollTop > 50);
     };
 
     window.addEventListener('scroll', handleScroll);
-
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-  const scrollToSection = (id: string) => {
-    setActive(id);
-    setToggle(false);
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+
   const handleNavigation = (id: string) => {
     setActive(id);
     setToggle(false);
@@ -54,13 +44,6 @@ const Navbar: React.FC = () => {
       } transition-all duration-300`}
     >
       <div className="w-full flex justify-between items-center max-w-7xl mx-auto px-6">
-        <a 
-          href="#home" 
-          className="flex items-center gap-2" 
-          onClick={() => scrollToSection('home')}
-        >
-          <button className="glitch-button">STANCHEV</button>
-        </a>
         <button 
           onClick={() => handleNavigation('home')}
           className="flex items-center gap-2"
@@ -70,6 +53,7 @@ const Navbar: React.FC = () => {
             <span className="text-fuchsia-400">CHEV</span>
           </span>
         </button>
+
         <div className="hidden md:flex items-center gap-6">
           <ul className="list-none flex flex-row gap-10">
             {navLinks.map((nav) => (
@@ -78,21 +62,20 @@ const Navbar: React.FC = () => {
                 className={`${
                   active === nav.id ? 'text-white' : 'text-gray-400'
                 } hover:text-cyan-400 text-lg font-medium cursor-pointer transition-colors duration-300`}
-                onClick={() => scrollToSection(nav.id)}
                 onClick={() => handleNavigation(nav.id)}
               >
                 {t(`nav.${nav.id}`)}
               </li>
             ))}
-			<li>
-    <Link
-      to="/services"
-      className="text-gray-400 hover:text-cyan-400 text-base font-medium transition-colors duration-300"
-      onClick={() => setToggle(false)}
-    >
-      {t('nav.services')}
-    </Link>
-  </li>
+            <li>
+              <Link
+                to="/services"
+                className="text-gray-400 hover:text-cyan-400 text-base font-medium transition-colors duration-300"
+                onClick={() => setToggle(false)}
+              >
+                {t('nav.services')}
+              </Link>
+            </li>
           </ul>
           <LanguageToggle />
         </div>
@@ -119,12 +102,20 @@ const Navbar: React.FC = () => {
                   className={`font-medium cursor-pointer text-base ${
                     active === nav.id ? 'text-white' : 'text-gray-400'
                   }`}
-                  onClick={() => scrollToSection(nav.id)}
                   onClick={() => handleNavigation(nav.id)}
                 >
                   {t(`nav.${nav.id}`)}
                 </li>
               ))}
+              <li>
+                <Link
+                  to="/services"
+                  className="text-gray-400 hover:text-cyan-400 text-base font-medium transition-colors duration-300"
+                  onClick={() => setToggle(false)}
+                >
+                  {t('nav.services')}
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
