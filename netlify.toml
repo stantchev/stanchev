@@ -1,0 +1,17 @@
+[[redirects]]
+  from = "/services*"
+  to = "/services"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/services/:slug"
+  to = "/services/:slug"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/*"
+  to = "/"
+  status = 200
+  force = true
