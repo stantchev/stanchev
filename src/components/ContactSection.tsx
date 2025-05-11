@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Mail, Github, Linkedin, MapPin } from 'lucide-react';
+import { Mail, Github, Linkedin } from 'lucide-react';
+import { FaDev } from 'react-icons/fa'; // Импортирай иконката за dev.to
 import emailjs from '@emailjs/browser';
 import { ContactFormData } from '../types';
 
@@ -50,6 +51,7 @@ const ContactSection: React.FC = () => {
       .catch((error) => {
         console.error('EmailJS error:', error);
         setIsSubmitting(false);
+        // Можеш да добавиш известие за грешка тук
       });
   };
 
@@ -160,7 +162,7 @@ const ContactSection: React.FC = () => {
               <h3 className="text-xl font-bold text-white mb-4">{t('contact.info.title')}</h3>
               <p className="text-gray-300 mb-6">{t('contact.info.description')}</p>
 
-              <div className="space-y-4 mb-8">
+              <div className="space-y-4">
                 <div className="flex items-start">
                   <div className="w-10 h-10 rounded-full bg-[#1e293b] flex items-center justify-center mr-4">
                     <Mail className="h-5 w-5 text-cyan-400" />
@@ -170,9 +172,10 @@ const ContactSection: React.FC = () => {
                     <p className="text-gray-300">stantcheff@gmail.com</p>
                   </div>
                 </div>
+
                 <div className="flex items-start">
                   <div className="w-10 h-10 rounded-full bg-[#1e293b] flex items-center justify-center mr-4">
-                    <MapPin className="h-5 w-5 text-cyan-400" />
+                    <Mail className="h-5 w-5 text-cyan-400" />
                   </div>
                   <div>
                     <h4 className="text-white font-medium">{t('contact.info.location')}</h4>
@@ -180,28 +183,29 @@ const ContactSection: React.FC = () => {
                   </div>
                 </div>
               </div>
-
-              {/* Social media moved here */}
-              <div>
-                <h3 className="text-xl font-bold text-white mb-4">{t('contact.social.title')}</h3>
-                <div className="flex gap-4">
-                  <a
-                    href="https://www.linkedin.com/in/stantcheff/"
-                    className="w-10 h-10 rounded-full bg-[#1e293b] flex items-center justify-center hover:bg-[#2a3c58] transition-colors duration-300"
-                    aria-label="Stanchev's LinkedIn profile"
-                    title="Visit Stanchev's LinkedIn profile"
-                  >
-                    <Linkedin className="h-5 w-5 text-cyan-400" />
-                  </a>
-                  <a
-                    href="https://github.com/stantchev/"
-                    className="w-10 h-10 rounded-full bg-[#1e293b] flex items-center justify-center hover:bg-[#2a3c58] transition-colors duration-300"
-                    aria-label="Stanchev's GitHub profile"
-                    title="Visit Stanchev's GitHub profile"
-                  >
-                    <Github className="h-5 w-5 text-fuchsia-400" />
-                  </a>
-                </div>
+            </div>
+            <div>
+              <h3 className="text-xl font-bold text-white mb-4">{t('contact.social.title')}</h3>
+              <div className="flex gap-4">
+                <a
+                  href="#"
+                  className="w-10 h-10 rounded-full bg-[#1e293b] flex items-center justify-center hover:bg-[#2a3c58] transition-colors duration-300"
+                >
+                  <Linkedin className="h-5 w-5 text-cyan-400" />
+                </a>
+                <a
+                  href="https://github.com/stantchev/"
+                  className="w-10 h-10 rounded-full bg-[#1e293b] flex items-center justify-center hover:bg-[#2a3c58] transition-colors duration-300"
+                >
+                  <Github className="h-5 w-5 text-fuchsia-400" />
+                </a>
+                {/* Добавяне на иконка за dev.to */}
+                <a
+                  href="https://dev.to/stanchev"
+                  className="w-10 h-10 rounded-full bg-[#1e293b] flex items-center justify-center hover:bg-[#2a3c58] transition-colors duration-300"
+                >
+                  <FaDev className="h-5 w-5 text-cyan-400" />
+                </a>
               </div>
             </div>
           </div>
