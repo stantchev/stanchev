@@ -38,19 +38,6 @@ This is a personal website built with a focus on speed, modern design, and SEO o
 ├── .gitignore                   # Files and folders ignored by Git
 ├── README.md                    # Project documentation
 └── LICENSE                      # Project license
-=======
-├── src/                 # Application source code
-├── images/              # Images used on the website
-├── index.html           # Main HTML page
-├── koritsa.jpg          # Cover image
-├── vite.config.ts       # Vite configuration
-├── tailwind.config.js   # Tailwind CSS configuration
-├── postcss.config.js    # PostCSS configuration
-├── tsconfig*.json       # TypeScript configuration files
-├── package.json         # Project dependencies and scripts
-└── LICENSE              # Project license
-```
-
 ---
 
 ## Getting Started
