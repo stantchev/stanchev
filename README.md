@@ -1,4 +1,4 @@
-# Stanchev
+# [Stanchev](https://stanchev.bg/).
 
 This is a personal website built with a focus on speed, modern design, and SEO optimization. It is developed using Vite, TypeScript, and Tailwind CSS to showcase skills in Front-End development and web performance.
 [![Netlify Status](https://api.netlify.com/api/v1/badges/8e3cf8a1-091d-4ea6-8204-70f5ed97b46a/deploy-status)](https://app.netlify.com/sites/stanchev/deploys)
