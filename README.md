@@ -68,4 +68,4 @@ This project intentionally has **no license**, in order to forbid any use, copyi
 
 ## Contact
 
-For questions or suggestions, please reach out to [stantchev](https://stanchev.bg/).
+For questions or suggestions, please reach out to [stanchev](https://stanchev.bg/).
