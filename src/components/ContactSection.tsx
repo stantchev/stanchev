@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Mail, Github, Linkedin } from 'lucide-react';
-import { FaDev } from 'react-icons/fa'; // Импортирай иконката за dev.to
+import { FaDev } from 'react-icons/fa';
 import emailjs from '@emailjs/browser';
 import { ContactFormData } from '../types';
 
@@ -51,7 +51,6 @@ const ContactSection: React.FC = () => {
       .catch((error) => {
         console.error('EmailJS error:', error);
         setIsSubmitting(false);
-        // Можеш да добавиш известие за грешка тук
       });
   };
 
@@ -169,7 +168,7 @@ const ContactSection: React.FC = () => {
                   </div>
                   <div>
                     <h4 className="text-white font-medium">{t('contact.info.email')}</h4>
-                    <p className="text-gray-300">stantcheff@gmail.com</p>
+                    <p className="text-gray-300">hello@stanchev.bg</p>
                   </div>
                 </div>
 
@@ -199,7 +198,7 @@ const ContactSection: React.FC = () => {
                 >
                   <Github className="h-5 w-5 text-fuchsia-400" />
                 </a>
-                {/* Добавяне на иконка за dev.to */}
+                {}
                 <a
                   href="https://dev.to/stanchev"
                   className="w-10 h-10 rounded-full bg-[#1e293b] flex items-center justify-center hover:bg-[#2a3c58] transition-colors duration-300"
