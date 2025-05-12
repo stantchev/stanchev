@@ -1,28 +1,48 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { Helmet } from 'react-helmet';
 import { services } from '../constants';
 import { ArrowRight } from 'lucide-react';
+import SEO from '../components/SEO';
 
 const ServicesPage: React.FC = () => {
   const { t } = useTranslation();
 
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "itemListElement": services.map((service, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "item": {
+        "@type": "Service",
+        "name": t(`services.${service.slug}.title`),
+        "description": t(`services.${service.slug}.shortDescription`),
+        "url": `https://stanchev.bg/services/${service.slug}`
+      }
+    }))
+  };
+
   return (
     <>
-      <Helmet>
-        <title>SEO Services | Stanchev</title>
-        <meta name="description" content="Comprehensive SEO services including technical SEO, content strategy, and link building to improve your website's visibility and rankings." />
-        <meta name="keywords" content="SEO services, technical SEO, content strategy, link building, digital marketing" />
-        <meta property="og:title" content="SEO Services | Stanchev" />
-        <meta property="og:description" content="Comprehensive SEO services including technical SEO, content strategy, and link building to improve your website's visibility and rankings." />
-        <meta property="og:type" content="website" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="SEO Services | Stanchev" />
-        <meta name="twitter:description" content="Comprehensive SEO services including technical SEO, content strategy, and link building to improve your website's visibility and rankings." />
-      </Helmet>
+      <SEO
+        title="SEO Services | Stanchev"
+        description="Comprehensive SEO services including technical SEO, content strategy, and link building to improve your website's visibility and rankings."
+        keywords="SEO services, technical SEO, content strategy, link building, digital marketing"
+        schema={schema}
+      />
 
       <div className="min-h-screen pt-20 bg-gradient-to-b from-[#050816] to-[#091634]">
+        <nav className="max-w-7xl mx-auto px-6 py-4" aria-label="Breadcrumb">
+          <ol className="flex items-center space-x-2 text-sm">
+            <li>
+              <Link to="/" className="text-gray-400 hover:text-cyan-400">Home</Link>
+            </li>
+            <li className="text-gray-400">/</li>
+            <li className="text-cyan-400">Services</li>
+          </ol>
+        </nav>
+
         <div className="max-w-7xl mx-auto px-6 py-16">
           <div className="text-center mb-16">
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">

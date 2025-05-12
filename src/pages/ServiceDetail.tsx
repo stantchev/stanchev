@@ -1,9 +1,9 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { Helmet } from 'react-helmet';
 import { services } from '../constants';
 import { ArrowLeft, CheckCircle2 } from 'lucide-react';
+import SEO from '../components/SEO';
 
 const ServiceDetail: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -31,21 +31,58 @@ const ServiceDetail: React.FC = () => {
   const title = t(`services.${service.slug}.title`);
   const description = t(`services.${service.slug}.fullDescription`);
 
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": title,
+    "description": description,
+    "provider": {
+      "@type": "Organization",
+      "name": "Stanchev SEO",
+      "url": "https://stanchev.bg",
+      "image": "https://raw.githubusercontent.com/stantchev/stanchev/main/koritsa.jpg"
+    },
+    "areaServed": {
+      "@type": "Place",
+      "name": "Europe"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "SEO Services",
+      "itemListElement": benefits.map((benefit, index) => ({
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": benefit
+        }
+      }))
+    }
+  };
+
   return (
     <>
-      <Helmet>
-        <title>{`${title} | Stanchev SEO Services`}</title>
-        <meta name="description" content={description} />
-        <meta name="keywords" content={`SEO, ${title}, digital marketing, web optimization`} />
-        <meta property="og:title" content={`${title} | Stanchev SEO Services`} />
-        <meta property="og:description" content={description} />
-        <meta property="og:type" content="website" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={`${title} | Stanchev SEO Services`} />
-        <meta name="twitter:description" content={description} />
-      </Helmet>
+      <SEO
+        title={`${title} | Stanchev SEO Services`}
+        description={description}
+        keywords={`SEO, ${title}, digital marketing, web optimization`}
+        schema={schema}
+      />
 
       <div className="min-h-screen pt-20 bg-gradient-to-b from-[#050816] to-[#091634]">
+        <nav className="max-w-7xl mx-auto px-6 py-4" aria-label="Breadcrumb">
+          <ol className="flex items-center space-x-2 text-sm">
+            <li>
+              <Link to="/" className="text-gray-400 hover:text-cyan-400">Home</Link>
+            </li>
+            <li className="text-gray-400">/</li>
+            <li>
+              <Link to="/services" className="text-gray-400 hover:text-cyan-400">Services</Link>
+            </li>
+            <li className="text-gray-400">/</li>
+            <li className="text-cyan-400">{title}</li>
+          </ol>
+        </nav>
+
         <div className="max-w-7xl mx-auto px-6 py-16">
           <Link
             to="/services"
