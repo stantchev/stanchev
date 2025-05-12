@@ -26,7 +26,7 @@ const ServicesPage: React.FC = () => {
   return (
     <>
       <SEO
-        title="SEO Services | Stanchev"
+        title="Stanchev | SEO Services"
         description="Comprehensive SEO services including technical SEO, content strategy, and link building to improve your website's visibility and rankings."
         keywords="SEO services, technical SEO, content strategy, link building, digital marketing"
         schema={schema}
