@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { Helmet } from 'react-helmet';
 import { services } from '../constants';
 import { ArrowLeft, CheckCircle2 } from 'lucide-react';
 
@@ -27,81 +28,95 @@ const ServiceDetail: React.FC = () => {
   }
 
   const benefits = t(`services.${service.slug}.benefits`, { returnObjects: true }) as string[];
+  const title = t(`services.${service.slug}.title`);
+  const description = t(`services.${service.slug}.fullDescription`);
 
   return (
-    <div className="min-h-screen pt-20 bg-gradient-to-b from-[#050816] to-[#091634]">
-      <div className="max-w-7xl mx-auto px-6 py-16">
-        <Link
-          to="/services"
-          className="inline-flex items-center text-cyan-400 hover:text-cyan-300 mb-8 transition-colors"
-        >
-          <ArrowLeft className="w-4 h-4 mr-2" />
-          {t('services.backToServices')}
-        </Link>
+    <>
+      <Helmet>
+        <title>{`${title} | Stanchev SEO Services`}</title>
+        <meta name="description" content={description} />
+        <meta name="keywords" content={`SEO, ${title}, digital marketing, web optimization`} />
+        <meta property="og:title" content={`${title} | Stanchev SEO Services`} />
+        <meta property="og:description" content={description} />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={`${title} | Stanchev SEO Services`} />
+        <meta name="twitter:description" content={description} />
+      </Helmet>
 
-        <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
-          {t(`services.${service.slug}.title`)}
-        </h1>
+      <div className="min-h-screen pt-20 bg-gradient-to-b from-[#050816] to-[#091634]">
+        <div className="max-w-7xl mx-auto px-6 py-16">
+          <Link
+            to="/services"
+            className="inline-flex items-center text-cyan-400 hover:text-cyan-300 mb-8 transition-colors"
+          >
+            <ArrowLeft className="w-4 h-4 mr-2" />
+            {t('services.backToServices')}
+          </Link>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-          <div className="lg:col-span-2">
-            <p className="text-gray-300 text-lg mb-8">
-              {t(`services.${service.slug}.fullDescription`)}
-            </p>
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            {title}
+          </h1>
 
-            <h2 className="text-2xl font-bold text-white mb-6">
-              {t('services.keyBenefits')}
-            </h2>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+            <div className="lg:col-span-2">
+              <p className="text-gray-300 text-lg mb-8">{description}</p>
 
-            <div className="grid gap-4 mb-12">
-              {Array.isArray(benefits) && benefits.map((benefit: string, index: number) => (
-                <div key={index} className="flex items-start">
-                  <CheckCircle2 className="w-6 h-6 text-cyan-400 mt-1 mr-3 flex-shrink-0" />
-                  <p className="text-gray-300">{benefit}</p>
-                </div>
-              ))}
-            </div>
+              <h2 className="text-2xl font-bold text-white mb-6">
+                {t('services.keyBenefits')}
+              </h2>
 
-            <div className="bg-gradient-to-r from-cyan-500 to-fuchsia-500 p-8 rounded-xl">
-              <h3 className="text-xl font-bold text-white mb-4">
-                {t('services.startProject')}
-              </h3>
-              <p className="text-white/90 mb-6">
-                {t('services.startProjectDescription')}
-              </p>
-              <Link
-                to="/contact"
-                className="inline-block bg-white text-black px-8 py-3 rounded-full font-medium hover:bg-opacity-90 transition-opacity"
-              >
-                {t('services.contactUs')}
-              </Link>
-            </div>
-          </div>
+              <div className="grid gap-4 mb-12">
+                {Array.isArray(benefits) && benefits.map((benefit: string, index: number) => (
+                  <div key={index} className="flex items-start">
+                    <CheckCircle2 className="w-6 h-6 text-cyan-400 mt-1 mr-3 flex-shrink-0" />
+                    <p className="text-gray-300">{benefit}</p>
+                  </div>
+                ))}
+              </div>
 
-          <div>
-            <h2 className="text-2xl font-bold text-white mb-6">
-              {t('services.relatedServices')}
-            </h2>
-            <div className="space-y-4">
-              {relatedServices.map((relatedService) => (
+              <div className="bg-gradient-to-r from-cyan-500 to-fuchsia-500 p-8 rounded-xl">
+                <h3 className="text-xl font-bold text-white mb-4">
+                  {t('services.startProject')}
+                </h3>
+                <p className="text-white/90 mb-6">
+                  {t('services.startProjectDescription')}
+                </p>
                 <Link
-                  key={relatedService.slug}
-                  to={`/services/${relatedService.slug}`}
-                  className="block bg-[#1e293b] p-4 rounded-lg hover:bg-[#2a3c58] transition-colors"
+                  to="/contact"
+                  className="inline-block bg-white text-black px-8 py-3 rounded-full font-medium hover:bg-opacity-90 transition-opacity"
                 >
-                  <h3 className="text-lg font-medium text-white mb-2">
-                    {t(`services.${relatedService.slug}.title`)}
-                  </h3>
-                  <p className="text-gray-300 text-sm">
-                    {t(`services.${relatedService.slug}.shortDescription`)}
-                  </p>
+                  {t('services.contactUs')}
                 </Link>
-              ))}
+              </div>
+            </div>
+
+            <div>
+              <h2 className="text-2xl font-bold text-white mb-6">
+                {t('services.relatedServices')}
+              </h2>
+              <div className="space-y-4">
+                {relatedServices.map((relatedService) => (
+                  <Link
+                    key={relatedService.slug}
+                    to={`/services/${relatedService.slug}`}
+                    className="block bg-[#1e293b] p-4 rounded-lg hover:bg-[#2a3c58] transition-colors"
+                  >
+                    <h3 className="text-lg font-medium text-white mb-2">
+                      {t(`services.${relatedService.slug}.title`)}
+                    </h3>
+                    <p className="text-gray-300 text-sm">
+                      {t(`services.${relatedService.slug}.shortDescription`)}
+                    </p>
+                  </Link>
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

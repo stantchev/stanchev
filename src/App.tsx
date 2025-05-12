@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
 import AboutSection from './components/AboutSection';
@@ -11,27 +12,6 @@ import Footer from './components/Footer';
 import ServicesPage from './pages/ServicesPage';
 import ServiceDetail from './pages/ServiceDetail';
 
-const ScrollToSection: React.FC = () => {
-  const location = useLocation();
-
-  useEffect(() => {
-    if (location.hash) {
-      const id = location.hash.substring(1);
-      const element = document.getElementById(id);
-
-      if (element) {
-        setTimeout(() => {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }, 0);
-      }
-    } else {
-      window.scrollTo(0, 0);
-    }
-  }, [location]);
-
-  return null;
-};
-
 function App() {
   const { i18n } = useTranslation();
 
@@ -40,16 +20,15 @@ function App() {
       .then(res => res.json())
       .then(data => {
         if (data.country_code === 'BG') {
-          i18n.changeLanguage('bg'); // Set language to Bulgarian if user is from Bulgaria
+          i18n.changeLanguage('bg');
         } else {
-          i18n.changeLanguage('en'); // Default to English
+          i18n.changeLanguage('en');
         }
       })
       .catch(() => {
-        i18n.changeLanguage('en'); // Fallback to English in case of an error
+        i18n.changeLanguage('en');
       });
 
-    document.title = 'Stanchev | Portfolio';
     document.body.classList.add('bg-[#050816]', 'text-white');
     return () => {
       document.body.classList.remove('bg-[#050816]', 'text-white');
@@ -58,8 +37,12 @@ function App() {
 
   return (
     <Router>
-      <ScrollToSection />
       <div className="relative z-0">
+        <Helmet>
+          <title>Stanchev | Portfolio</title>
+          <meta name="description" content="Expert web development and SEO solutions for your digital success" />
+          <meta name="keywords" content="web development, SEO, digital marketing, technical SEO, web optimization" />
+        </Helmet>
         <Navbar />
         <Routes>
           <Route
