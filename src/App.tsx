@@ -41,7 +41,7 @@ function App() {
       <div className="relative z-0">
         <Helmet>
           <html lang={i18n.language} />
-          <title>Stanchev | Portfolio</title>
+          <title>Stanchev | SEO Services</title>
           <meta name="description" content="Expert web development and SEO solutions for your digital success" />
           <meta name="keywords" content="web development, SEO, digital marketing, technical SEO, web optimization" />
           <link rel="alternate" hreflang="en" href="https://stanchev.bg" />
