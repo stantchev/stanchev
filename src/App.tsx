@@ -11,6 +11,7 @@ import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 import ServicesPage from './pages/ServicesPage';
 import ServiceDetail from './pages/ServiceDetail';
+import HTMLSitemap from './pages/HTMLSitemap';
 
 function App() {
   const { i18n } = useTranslation();
@@ -39,9 +40,13 @@ function App() {
     <Router>
       <div className="relative z-0">
         <Helmet>
+          <html lang={i18n.language} />
           <title>Stanchev | Portfolio</title>
           <meta name="description" content="Expert web development and SEO solutions for your digital success" />
           <meta name="keywords" content="web development, SEO, digital marketing, technical SEO, web optimization" />
+          <link rel="alternate" hreflang="en" href="https://stanchev.bg" />
+          <link rel="alternate" hreflang="bg" href="https://stanchev.bg" />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
         </Helmet>
         <Navbar />
         <Routes>
@@ -59,6 +64,7 @@ function App() {
           />
           <Route path="/services" element={<ServicesPage />} />
           <Route path="/services/:slug" element={<ServiceDetail />} />
+          <Route path="/sitemap" element={<HTMLSitemap />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
         <Footer />

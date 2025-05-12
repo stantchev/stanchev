@@ -1,3 +1,14 @@
 User-agent: *
 Allow: /
+Disallow: /private/
+Disallow: /admin/
+Disallow: /api/
+
+# Allow search engines to crawl all service pages
+Allow: /services/
+
+# Sitemap location
 Sitemap: https://stanchev.bg/sitemap.xml
+
+# Crawl-delay for better server performance
+Crawl-delay: 1
