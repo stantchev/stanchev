@@ -11,7 +11,7 @@ const resources = {
       "nav.contact": "Контакти",
       "nav.services": "SEO Услуги",
       
-      "hero.title": "Професионални SEO Услуги и Уеб Разработка",
+      "hero.title": "SEO Услуги и Уеб Разработка",
       "hero.subtitle": "Подобрете онлайн присъствието си с доказани SEO стратегии и технически оптимизации",
       "button.explore": "Разгледай SEO проекти",
       "button.contact": "Поискай SEO консултация",
