@@ -23,11 +23,11 @@ function App() {
         if (data.country_code === 'BG') {
           i18n.changeLanguage('bg');
         } else {
-          i18n.changeLanguage('en');
+          i18n.changeLanguage('bg');
         }
       })
       .catch(() => {
-        i18n.changeLanguage('en');
+        i18n.changeLanguage('bg');
       });
 
     document.body.classList.add('bg-[#050816]', 'text-white');
@@ -41,9 +41,9 @@ function App() {
       <div className="relative z-0">
         <Helmet>
           <html lang={i18n.language} />
-          <title>Stanchev | SEO Services</title>
-          <meta name="description" content="Expert web development and SEO solutions for your digital success" />
-          <meta name="keywords" content="web development, SEO, digital marketing, technical SEO, web optimization" />
+          <title>Станчев | SEO Услуги</title>
+          <meta name="description" content="Експертни уеб разработки и SEO решения за вашия дигитален успех" />
+          <meta name="keywords" content="изработка на сайт, seo оптимизация, изработка на уебсайт, линк билдинг, seo оптимизация цена, seo оптимизация цени, станчев сео, станчев seo, направа на сайт, станчев сео, станчев seo, seo експерт софия, seo freelancer българия, seo услуги българия, оптимизация на онлайн магазин, seo оптимизация wordpress, цена за изработка на сайт, поддръжка на сайт и seo, seo анализ на сайт, seo стратегия за уебсайт, одит на уебсайт, техническо seo, локално seo за бизнес, оптимизация за мобилни устройства, линк билдинг българия" />
           <link rel="alternate" hreflang="en" href="https://stanchev.bg" />
           <link rel="alternate" hreflang="bg" href="https://stanchev.bg" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
