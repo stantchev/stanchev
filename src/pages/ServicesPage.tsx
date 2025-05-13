@@ -8,28 +8,12 @@ import SEO from '../components/SEO';
 const ServicesPage: React.FC = () => {
   const { t } = useTranslation();
 
-  const schema = {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    "itemListElement": services.map((service, index) => ({
-      "@type": "ListItem",
-      "position": index + 1,
-      "item": {
-        "@type": "Service",
-        "name": t(`services.${service.slug}.title`),
-        "description": t(`services.${service.slug}.shortDescription`),
-        "url": `https://stanchev.bg/services/${service.slug}`
-      }
-    }))
-  };
-
   return (
     <>
       <SEO
-        title="Stanchev | SEO Services"
-        description="Comprehensive SEO services including technical SEO, content strategy, and link building to improve your website's visibility and rankings."
+        title={t('meta.services.title')}
+        description={t('meta.services.description')}
         keywords="SEO services, technical SEO, content strategy, link building, digital marketing"
-        schema={schema}
       />
 
       <div className="min-h-screen pt-20 bg-gradient-to-b from-[#050816] to-[#091634]">
@@ -48,9 +32,9 @@ const ServicesPage: React.FC = () => {
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
               {t('services.title')} <span className="text-cyan-400">{t('services.subtitle')}</span>
             </h1>
-            <p className="text-gray-300 max-w-2xl mx-auto">
+            <h2 className="text-gray-300 max-w-2xl mx-auto">
               {t('services.description')}
-            </p>
+            </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

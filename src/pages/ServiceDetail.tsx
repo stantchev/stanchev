@@ -28,44 +28,13 @@ const ServiceDetail: React.FC = () => {
   }
 
   const benefits = t(`services.${service.slug}.benefits`, { returnObjects: true }) as string[];
-  const title = t(`services.${service.slug}.title`);
-  const description = t(`services.${service.slug}.fullDescription`);
-
-  const schema = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "name": title,
-    "description": description,
-    "provider": {
-      "@type": "Organization",
-      "name": "Stanchev SEO",
-      "url": "https://stanchev.bg",
-      "image": "https://raw.githubusercontent.com/stantchev/stanchev/main/koritsa.jpg"
-    },
-    "areaServed": {
-      "@type": "Place",
-      "name": "Europe"
-    },
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "SEO Services",
-      "itemListElement": benefits.map((benefit, index) => ({
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": benefit
-        }
-      }))
-    }
-  };
 
   return (
     <>
       <SEO
-        title={`${title} | Stanchev SEO Services`}
-        description={description}
-        keywords={`SEO, ${title}, digital marketing, web optimization`}
-        schema={schema}
+        title={t(`meta.${service.slug}.title`)}
+        description={t(`meta.${service.slug}.description`)}
+        keywords={`SEO, ${t(`services.${service.slug}.title`)}, digital marketing, web optimization`}
       />
 
       <div className="min-h-screen pt-20 bg-gradient-to-b from-[#050816] to-[#091634]">
@@ -79,7 +48,7 @@ const ServiceDetail: React.FC = () => {
               <Link to="/services" className="text-gray-400 hover:text-cyan-400">Services</Link>
             </li>
             <li className="text-gray-400">/</li>
-            <li className="text-cyan-400">{title}</li>
+            <li className="text-cyan-400">{t(`services.${service.slug}.title`)}</li>
           </ol>
         </nav>
 
@@ -93,16 +62,18 @@ const ServiceDetail: React.FC = () => {
           </Link>
 
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            {title}
+            {t(`services.${service.slug}.title`)}
           </h1>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             <div className="lg:col-span-2">
-              <p className="text-gray-300 text-lg mb-8">{description}</p>
-
-              <h2 className="text-2xl font-bold text-white mb-6">
-                {t('services.keyBenefits')}
+              <h2 className="text-gray-300 text-lg mb-8">
+                {t(`services.${service.slug}.fullDescription`)}
               </h2>
+
+              <h3 className="text-2xl font-bold text-white mb-6">
+                {t('services.keyBenefits')}
+              </h3>
 
               <div className="grid gap-4 mb-12">
                 {Array.isArray(benefits) && benefits.map((benefit: string, index: number) => (
@@ -130,9 +101,9 @@ const ServiceDetail: React.FC = () => {
             </div>
 
             <div>
-              <h2 className="text-2xl font-bold text-white mb-6">
+              <h3 className="text-2xl font-bold text-white mb-6">
                 {t('services.relatedServices')}
-              </h2>
+              </h3>
               <div className="space-y-4">
                 {relatedServices.map((relatedService) => (
                   <Link
@@ -140,9 +111,9 @@ const ServiceDetail: React.FC = () => {
                     to={`/services/${relatedService.slug}`}
                     className="block bg-[#1e293b] p-4 rounded-lg hover:bg-[#2a3c58] transition-colors"
                   >
-                    <h3 className="text-lg font-medium text-white mb-2">
+                    <h4 className="text-lg font-medium text-white mb-2">
                       {t(`services.${relatedService.slug}.title`)}
-                    </h3>
+                    </h4>
                     <p className="text-gray-300 text-sm">
                       {t(`services.${relatedService.slug}.shortDescription`)}
                     </p>
