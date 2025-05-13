@@ -2,136 +2,9 @@ import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
 const resources = {
-  en: {
-    translation: {
-      "nav.home": "Home | SEO Services",
-      "nav.about": "About Stanchev SEO",
-      "nav.projects": "SEO Projects & Case Studies",
-      "nav.skills": "SEO Skills & Expertise",
-      "nav.contact": "Contact SEO Expert",
-      "nav.services": "SEO Services",
-      
-      "hero.title": "Professional SEO Services & Web Development Solutions",
-      "hero.subtitle": "Transform your online presence with data-driven SEO strategies, technical optimization, and proven results",
-      "button.explore": "View SEO Projects",
-      "button.contact": "Get SEO Consultation",
-      
-      "about.title": "About",
-      "about.me": "Stanchev SEO",
-      "about.description1": "Expert SEO consultant with proven track record in improving search rankings and driving organic traffic growth.",
-      "about.description2": "Specializing in technical SEO, content strategy, and data-driven optimization for businesses across industries.",
-      "about.description3": "Committed to delivering measurable results through comprehensive SEO solutions and strategic digital marketing.",
-
-      "experience.title": "SEO",
-      "experience.subtitle": "Experience",
-      
-      "projects.title": "SEO",
-      "projects.subtitle": "Portfolio",
-      "projects.description": "Explore our successful SEO projects and case studies showcasing significant improvements in search visibility and organic traffic.",
-      "projects.viewAll": "View All SEO Services",
-      "projects.viewProject": "View Case Study",
-      "projects.smartbg_description": "Implemented comprehensive SEO strategy for Smart Bulgaria's e-commerce platform, resulting in 150% increase in organic traffic.",
-      "projects.keylock_description": "Optimized local SEO presence for Keylock.bg, achieving top rankings for competitive locksmith keywords in Sofia.",
-      "projects.insurance_bg_description": "Developed technical SEO framework for Insurance.bg, improving site structure and achieving 200% growth in organic leads.",
-      "projects.oil_standart_description": "Enhanced e-commerce SEO for Oil Standart, resulting in improved product visibility and increased online sales.",
-      
-      "skills.title": "SEO",
-      "skills.subtitle": "Expertise",
-      "skills.description": "Comprehensive SEO skills covering technical optimization, content strategy, and search engine algorithms.",
-      "skills.additional": "Advanced",
-      "skills.technologies": "SEO Tools",
-      
-      "contact.title": "SEO",
-      "contact.subtitle": "Consultation",
-      "contact.description": "Get expert SEO advice and discover how we can improve your website's search engine performance.",
-      "contact.form.name": "Your Name",
-      "contact.form.email": "Your Email",
-      "contact.form.message": "Project Details",
-      "contact.form.placeholder.message": "Tell us about your SEO goals...",
-      "contact.form.sending": "Sending...",
-      "contact.form.send": "Get SEO Analysis",
-      "contact.form.success.title": "Thank You!",
-      "contact.form.success.message": "We'll analyze your website and respond with SEO recommendations soon.",
-      
-      "contact.info.title": "SEO Consultation",
-      "contact.info.description": "Ready to improve your search rankings? Contact us through any channel below.",
-      "contact.info.email": "Email",
-      "contact.info.location": "Location",
-      "contact.social.title": "Connect With Us",
-
-      "meta": {
-        "services": {
-          "title": "Professional SEO Services | Technical & Content Optimization",
-          "description": "Expert SEO services including technical optimization, content strategy, and link building. Improve rankings and drive organic traffic with proven strategies."
-        },
-        "technical-seo": {
-          "title": "Technical SEO Services | Website Performance Optimization",
-          "description": "Expert technical SEO services to improve website structure, speed, and crawlability. Get better search visibility with solid technical optimization."
-        },
-        "link-building": {
-          "title": "Link Building Services | Authority Building & Outreach",
-          "description": "Strategic link building services to boost domain authority and rankings through high-quality backlinks and expert outreach campaigns."
-        },
-        "on-page-seo": {
-          "title": "On-Page SEO Services | Content & Structure Optimization",
-          "description": "Professional on-page SEO services to optimize content, meta tags, and internal linking for better search engine rankings."
-        },
-        "content-strategy": {
-          "title": "SEO Content Strategy | Content Planning & Optimization",
-          "description": "Data-driven content strategy services to create SEO-optimized content that drives traffic and engages your target audience."
-        },
-        "local-seo": {
-          "title": "Local SEO Services | Google Maps & Local Rankings",
-          "description": "Local SEO expertise to improve your business visibility in local search results and Google Maps rankings."
-        },
-        "ecommerce-seo": {
-          "title": "E-commerce SEO Services | Online Store Optimization",
-          "description": "Specialized e-commerce SEO services to improve product visibility and increase online sales through search optimization."
-        },
-        "mobile-seo": {
-          "title": "Mobile SEO Services | Mobile-First Optimization",
-          "description": "Expert mobile SEO services ensuring optimal website performance on smartphones and tablets."
-        },
-        "international-seo": {
-          "title": "International SEO Services | Global Market Optimization",
-          "description": "Comprehensive international SEO services for businesses targeting multiple countries and languages."
-        },
-        "site-architecture": {
-          "title": "Website Architecture SEO | Structure Optimization",
-          "description": "Expert site architecture services to improve crawlability, user experience, and search engine performance."
-        },
-        "seo-audit": {
-          "title": "SEO Audit Services | Website Performance Analysis",
-          "description": "In-depth SEO audit services to identify and fix issues affecting your website's search performance."
-        }
-      },
-
-      "services": {
-        // ... (keeping existing services translations)
-      },
-      
-      "footer.slogan": "Driving Digital Success Through SEO Excellence",
-      "footer.rights": "All rights reserved.",
-
-      "experience.positions": {
-        "senior": {
-          "title": "SEO Specialist",
-          "company": "WebStation LTD",
-          "date": "2025 - Present",
-          "description": "Leading SEO strategies and implementations, achieving significant improvements in client website rankings and organic traffic."
-        },
-        "fullstack": {
-          "title": "Technical SEO Analyst",
-          "company": "Digital Solutions",
-          "date": "2021 - 2021",
-          "description": "Specialized in technical SEO audits and implementations, focusing on website performance and search engine optimization."
-        }
-      }
-    }
-  },
   bg: {
     translation: {
-      "nav.home": "Начало | SEO Услуги",
+      "nav.home": "Начало",
       "nav.about": "За Станчев SEO",
       "nav.projects": "SEO Проекти",
       "nav.skills": "SEO Умения",
@@ -148,11 +21,58 @@ const resources = {
       "about.description1": "SEO експерт с доказан опит в подобряването на позициите в търсачките и увеличаването на органичния трафик.",
       "about.description2": "Специализация в техническо SEO, контент стратегия и оптимизация, базирана на данни.",
       "about.description3": "Фокус върху измерими резултати чрез цялостни SEO решения и стратегически дигитален маркетинг.",
+	  
+	"footer.slogan": "Успех в дигиталния свят чрез SEO изключителност",
+    "footer.rights": "Всички права запазени.",
+	"experience.title": "Трудов",
+	"experience.subtitle": "стаж",
+	"experience.positions.senior.title": "WebStation ООД",
+	"experience.positions.senior.company": "Специалист SEO и Дигитален маркетинг",
+	"experience.positions.senior.date": "2025 - Настоящем",
+	"experience.positions.senior.description": "Специалист по SEO и дигитален маркетинг с фокус върху повишаване на онлайн видимостта и реализиране на устойчив органичен трафик. Изграждам ефективни стратегии чрез техническа оптимизация, съдържание и рекламни кампании за постигане на бизнес цели.",
+	"experience.positions.fullstack.title": "Свободна практика",
+    "experience.positions.fullstack.company": "Front-End ъеб дизайн",
+	"experience.positions.fullstack.date": "2019 - Настоящем",
+	"experience.positions.fullstack.description":"Фронт енд разработчик и уеб дизайнер, специализиран в създаването на интуитивни, бързи и адаптивни уеб интерфейси. Комбинирам модерен дизайн с чист код за постигане на отлично потребителско изживяване.",
+  "projects.title": "SEO",
+  "projects.subtitle": "Портфолио",
+  "projects.description": "Разгледайте нашите успешни SEO проекти и казуси, показващи значителни подобрения в видимостта и органичния трафик.",
+  "projects.viewAll": "Виж всички SEO услуги",
+  "projects.viewProject": "Виж казуса",
+  "projects.smartbg_description": "Изградихме цялостна SEO стратегия за онлайн платформата на Smart Bulgaria, водеща до 150% ръст в органичния трафик.",
+  "projects.keylock_description": "Оптимизирахме локалното SEO за Keylock.bg и постигнахме топ позиции за конкурентни ключови думи в София.",
+  "projects.insurance_bg_description": "Разработихме техническа SEO структура за Insurance.bg, подобрихме архитектурата на сайта и постигнахме 200% ръст на органичните запитвания.",
+  "projects.oil_standart_description": "Подобрихме SEO за онлайн магазина на Oil Standart, с фокус върху видимостта на продуктите и увеличените онлайн продажби.",
+
+  "skills.title": "SEO",
+  "skills.subtitle": "Експертиза",
+  "skills.description": "Цялостни SEO умения, обхващащи техническа оптимизация, съдържателна стратегия и алгоритми на търсачките.",
+  "skills.additional": "Напреднало ниво",
+  "skills.technologies": "SEO инструменти",
+
+  "contact.title": "SEO",
+  "contact.subtitle": "Консултация",
+  "contact.description": "Получете експертен SEO съвет и разберете как можем да подобрим представянето на сайта ви в търсачките.",
+  "contact.form.name": "Вашето име",
+  "contact.form.email": "Вашият имейл",
+  "contact.form.message": "Детайли за проекта",
+  "contact.form.placeholder.message": "Разкажете ни за вашите SEO цели...",
+  "contact.form.sending": "Изпращане...",
+  "contact.form.send": "Вземи SEO анализ",
+  "contact.form.success.title": "Благодарим!",
+  "contact.form.success.message": "Ще анализираме сайта ви и скоро ще ви изпратим препоръки за SEO оптимизация.",
+
+  "contact.info.title": "SEO консултация",
+  "contact.info.description": "Готови ли сте за по-добри позиции в търсачките? Свържете се с нас чрез някой от посочените начини.",
+  "contact.info.email": "Имейл",
+  "contact.info.location": "Локация",
+  "contact.social.title": "Свържете се с нас",
 
       "meta": {
         "services": {
           "title": "Професионални SEO Услуги | Техническа и Контент Оптимизация",
-          "description": "Експертни SEO услуги включващи техническа оптимизация, контент стратегия и линк билдинг. Подобрете позициите си с доказани стратегии."
+          "description": "Експертни SEO услуги включващи техническа оптимизация, контент стратегия и линк билдинг. Подобрете позициите си с доказани стратегии.",
+		  "keywords": "професионални SEO услуги, техническа SEO оптимизация, контент SEO оптимизация, оптимизация на сайт, оптимизация за търсачки, SEO стратегии, SEO анализ, on-page оптимизация, off-page оптимизация, SEO одит, подобряване на класирането в Google, органичен трафик, ключови думи за SEO, оптимизация на съдържание, линк билдинг, локално SEO, SEO за онлайн магазини, дигитален маркетинг, Google оптимизация, SEO експерт"
         },
         "technical-seo": {
           "title": "Техническо SEO | Оптимизация на Уебсайт",
@@ -195,18 +115,57 @@ const resources = {
           "description": "Задълбочени SEO одит услуги за идентифициране и отстраняване на проблеми, влияещи на търсачките."
         }
       },
-
-      // ... (keeping existing Bulgarian translations)
+  "services": {
+    "title": "SEO",
+    "subtitle": "Услуги",
+    "description": "Предлагаме резултатно ориентирани SEO услуги, които подобряват класирането в търсачките, увеличават органичния трафик и подобряват онлайн видимостта чрез индивидуално разработени стратегии и оптимизация на сайта.",
+    "backToServices": "SEO услуги",
+    "learnMore": "Научете повече",
+    "relatedServices": "Свързани SEO услуги",
+    "technical-seo.title": "Техническо SEO",
+    "technical-seo.shortDescription": "Оптимизирайте структурата и представянето на сайта за по-добра видимост в търсачките и по-бързо зареждане.",
+    "technical-seo.fullDescription": "Подобрете представянето на сайта и видимостта в търсачките с експертни услуги по техническо SEO. От оптимизация на структурата на сайта и подобряване на възможността за индексиране до оптимизация на Core Web Vitals, ние гарантираме, че вашият сайт е оптимизиран за търсачки и работи на най-високо ниво.",
+    "link-building.title": "SEO линк билдинг",
+    "link-building.shortDescription": "Повишете авторитета на сайта с висококачествени линкове от доверени източници, за да подобрите класирането в търсачките.",
+    "link-building.fullDescription": "Подобрете авторитета на сайта си и класирането в търсачките чрез изграждане на висококачествени линкове от реномирани сайтове. Нашите стратегии за линк билдинг се фокусират върху придобиване на релевантни и естествени линкове, които увеличават доверието и видимостта на сайта ви.",
+    "on-page-seo.title": "SEO на страница",
+    "on-page-seo.shortDescription": "Подобрете съдържанието, структурата и използваемостта на сайта за по-добро класиране в търсачките и по-добро потребителско изживяване.",
+    "on-page-seo.fullDescription": "Оптимизирайте съдържанието, структурата и HTML на сайта си, за да подобрите класирането в търсачките. От оптимизация на ключови думи и мета тагове до вътрешно свързване и подобряване на потребителското изживяване, ние гарантираме, че всеки елемент на сайта е напълно оптимизиран за SEO успех.",
+    "content-strategy.title": "SEO стратегия за съдържание",
+    "content-strategy.shortDescription": "Създайте индивидуален план за съдържание, който води до ангажираност, увеличава осведомеността за марката и подкрепя бизнес целите ви.",
+    "content-strategy.fullDescription": "Разработваме цялостна стратегия за съдържание, която съответства на бизнес целите и нуждите на вашата аудитория. Създаваме планове, основани на данни, които включват създаване, разпространение и оптимизация на съдържание, за да привлечете, ангажирате и конвертирате целевата си аудитория.",
+    "local-seo.title": "Локално SEO",
+    "local-seo.fullDescription": "Подобрете видимостта си в локалните резултати от търсенето и привлечете повече местни клиенти с нашите локални SEO услуги. Оптимизираме вашия Google бизнес профил, локални цитати и ключови думи, базирани на местоположението, за да помогнем на бизнеса ви да се класира по-високо в локалните търсения и карти.",
+    "local-seo.shortDescription": "Увеличете локалната видимост и привлечете местни клиенти чрез оптимизирано присъствие в локални търсения и карти.",
+    "ecommerce-seo.title": "E-commerce SEO",
+    "ecommerce-seo.shortDescription": "Оптимизирайте онлайн магазина си, за да увеличите видимостта в търсачките, привлечете трафик и увеличите продажбите.",
+    "ecommerce-seo.fullDescription": "Привлечете повече трафик и продажби към онлайн магазина си чрез SEO за eCommerce. Оптимизираме продуктови страници, категории, техническа настройка и потребителско изживяване, за да подобрим класирането, увеличим видимостта и превърнем посетителите в клиенти на всички основни търсачки.",
+    "mobile-seo.title": "Мобилно SEO",
+    "mobile-seo.shortDescription": "Подобрете класирането и използваемостта с мобилно-приятелски, бързи и отзивчиви сайтове.",
+    "mobile-seo.fullDescription": "Осигурете изключително изживяване на смартфони и таблети с мобилно SEO. Оптимизираме скоростта на зареждане, отзивчивия дизайн, мобилната използваемост и мобилното индексиране, за да подобрим производителността и класирането в мобилни резултати от търсенето.",
+    "international-seo.title": "Международно SEO",
+    "international-seo.fullDescription": "Разширете обхвата си до глобалните пазари с международно SEO. Оптимизираме сайта ви за множество езици и региони, внедряваме hreflang тагове и създаваме стратегии, специфични за местоположението, за да осигурим видимост и релевантност в различни държави и търсачки.",
+    "international-seo.shortDescription": "Привлечете глобална аудитория с многоезични SEO стратегии, насочени към специфични региони.",
+    "site-architecture.title": "Архитектура на сайта",
+    "site-architecture.fullDescription": "Създайте солидна основа за SEO с ясна и мащабируема архитектура на сайта. Организираме структурата на сайта ви, за да осигурим лесна навигация, правилно вътрешно свързване и ефективно индексиране, което помага както на потребителите, така и на търсачките да достъпват съдържанието ефективно.",
+    "site-architecture.shortDescription": "Подобрете SEO и UX с ясна структура, умно свързване и мащабируема навигация.",
+    "seo-audit.title": "SEO одит",
+    "seo-audit.fullDescription": "Извършете подробен SEO одит, за да откриете проблеми, които могат да възпрепятстват представянето на сайта ви. Анализираме фактори на страницата, технически елементи, линкове и потребителското изживяване, за да предоставим практически идеи за подобряване на класирането, видимостта и трафика на сайта.",
+    "seo-audit.shortDescription": "Открийте и поправете SEO проблеми с подробен одит, който повишава представянето и класирането на сайта.",
+    "keyBenefits": "Ключови ползи от SEO услугите: Увеличен органичен трафик, Подобрени класирания в търсачките, По-добро потребителско изживяване, Ефективен маркетинг, Доверието в марката и устойчив растеж!",
+    "startProject": "Свържете се с SEO специалист",
+    "startProjectDescription": "Започнете своето SEO пътуване с индивидуална стратегия, която отговаря на нуждите на бизнеса ви.",
+    "contactUs": "Свържете се с нас",
+    },
     }
   }
 };
-
 i18n
   .use(initReactI18next)
   .init({
     resources,
-    lng: "en",
-    fallbackLng: "en",
+    lng: "bg",
+    fallbackLng: "bg",
     interpolation: {
       escapeValue: false
     }
