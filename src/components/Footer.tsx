@@ -33,10 +33,9 @@ const goToServices = () => {
               onClick={() => handleNavigation('home')}
               className="text-white text-xl font-bold cursor-pointer flex items-center"
             >
-              <span className="text-cyan-400">STAN</span>
-              <span className="text-fuchsia-400">CHEV</span>
+              <span className="text-white-400">Stanchev</span>
             </button>
-            <p className="text-gray-300 mt-2">{t('footer.slogan')}</p>
+            <p className="text-white-300 mt-2">{t('footer.slogan')}</p>
           </div>
 
           {/* Navigation and copyright */}
@@ -44,37 +43,37 @@ const goToServices = () => {
             <div className="flex space-x-6 mb-4">
               <button
                 onClick={() => handleNavigation('home')}
-                className="text-gray-400 hover:text-cyan-400 transition-colors duration-300"
+                className="text-gray-250 hover:text-cyan-400 transition-colors duration-300"
               >
                 {t('nav.home')}
               </button>
               <button
                 onClick={() => handleNavigation('about')}
-                className="text-gray-400 hover:text-cyan-400 transition-colors duration-300"
+                className="text-gray-250 hover:text-cyan-400 transition-colors duration-300"
               >
                 {t('nav.about')}
               </button>
               <button
                 onClick={() => handleNavigation('projects')}
-                className="text-gray-400 hover:text-cyan-400 transition-colors duration-300"
+                className="text-gray-250 hover:text-cyan-400 transition-colors duration-300"
               >
                 {t('nav.projects')}
               </button>
               <button
                 onClick={() => handleNavigation('contact')}
-                className="text-gray-400 hover:text-cyan-400 transition-colors duration-300"
+                className="text-gray-250 hover:text-cyan-400 transition-colors duration-300"
               >
                 {t('nav.contact')}
               </button>
                <button
                 onClick={goToServices}
-                className="text-gray-400 hover:text-cyan-400 transition-colors duration-300"
+                className="text-gray-250 hover:text-cyan-400 transition-colors duration-300"
               >
                 {t('nav.services')}
               </button>
             </div>
-            <p className="text-gray-500 text-sm">
-              © {currentYear} STANCHEV. {t('footer.rights')}
+            <p className="text-gray-300 text-sm">
+              © {currentYear} Stanchev. {t('footer.rights')}
             </p>
           </div>
         </div>
