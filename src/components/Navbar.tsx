@@ -3,7 +3,6 @@ import { Menu, X } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { useLocation, useNavigate, Link } from 'react-router-dom';
 import { navLinks } from '../constants';
-import LanguageToggle from './LanguageToggle';
 
 const Navbar: React.FC = () => {
   const [active, setActive] = useState<string>('');
@@ -49,8 +48,7 @@ const Navbar: React.FC = () => {
           className="flex items-center gap-2"
         >
           <span className="text-white text-xl font-bold cursor-pointer flex">
-            <span className="text-cyan-400">STAN</span>
-            <span className="text-fuchsia-400">CHEV</span>
+            <span className="text-white-400">Stanchev</span>
           </span>
         </button>
 
@@ -77,11 +75,9 @@ const Navbar: React.FC = () => {
               </Link>
             </li>
           </ul>
-          <LanguageToggle />
         </div>
 
         <div className="md:hidden flex items-center gap-4">
-          <LanguageToggle />
           <button
             className="w-8 h-8 flex justify-center items-center text-white"
             onClick={() => setToggle(!toggle)}
