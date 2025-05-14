@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Mail, Github, Linkedin } from 'lucide-react';
 import { FaDev } from 'react-icons/fa';
+import { SiWebflow } from 'react-icons/si';
 import emailjs from '@emailjs/browser';
 import { ContactFormData } from '../types';
 
@@ -205,6 +206,12 @@ const ContactSection: React.FC = () => {
                 >
                   <FaDev className="h-5 w-5 text-cyan-400" />
                 </a>
+                <a
+  				        href="https://webflow.com/@stantchev"
+				          className="w-10 h-10 rounded-full bg-[#1e293b] flex items-center justify-center hover:bg-[#2a3c58] transition-colors duration-300"
+				        >
+				          <SiWebflow className="h-5 w-5 text-fuchsia-400" />
+				        </a>
               </div>
             </div>
           </div>
