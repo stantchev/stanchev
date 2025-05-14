@@ -29,18 +29,30 @@ const SEO: React.FC<SEOProps> = ({
       {keywords && <meta name="keywords" content={keywords} />}
       <link rel="canonical" href={currentUrl} />
 
-      {/* Open Graph */}
-      <meta property="og:title" content={title} />
-      <meta property="og:description" content={description} />
-      <meta property="og:type" content={type} />
-      <meta property="og:url" content={currentUrl} />
-      <meta property="og:image" content={imageUrl} />
+{/* Universal Open Graph and Social Media Meta Tags */}
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:type" content={type || "website"} />
+<meta property="og:url" content={currentUrl} />
+<meta property="og:image" content={imageUrl} />
+<meta property="og:image:secure_url" content={imageUrl} />
+<meta property="og:image:type" content="image/jpeg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:locale" content="bg_BG" />
+<meta property="og:site_name" content="Stanchev.bg" />
 
-      {/* Twitter Card */}
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content={title} />
-      <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={imageUrl} />
+{/* Twitter Card Tags (for Twitter, Telegram, etc.) */}
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={imageUrl} />
+<meta name="twitter:url" content={currentUrl} />
+<meta name="twitter:site" content="@stanchevbg" /> {/* Ако имаш Twitter акаунт */}
+
+{/* Optional but recommended for full compatibility */}
+<link rel="canonical" href={currentUrl} />
+<meta name="description" content={description} />
 
       {/* Language */}
       <html lang="en" />
