@@ -21,24 +21,23 @@ const HeroSection: React.FC = () => {
           >
             <p>{t('hero.subtitle')}</p>
           </div>
-          <div className="flex flex-wrap justify-center gap-6"> {/* Increased gap */}
-            <a href="#projects" aria-label={t('button.explore')}>
-              <button
-                className="py-4 px-10 rounded-full border-2 border-cyan-400 hover:bg-cyan-400/20 text-white font-medium transition-all duration-300"
-                aria-label={t('button.explore')}
-              >
-                {t('button.explore')}
-              </button>
-            </a>
-            <a href="#contact" aria-label={t('button.contact')}>
-              <button
-                className="py-4 px-10 rounded-full bg-gradient-to-r from-cyan-500 to-fuchsia-500 text-white font-medium hover:opacity-90 transition-opacity duration-300"
-                aria-label={t('button.contact')}
-              >
-                {t('button.contact')}
-              </button>
-            </a>
-          </div>
+         <div className="flex flex-wrap justify-center gap-6">
+  <a
+    href="#projects"
+    aria-label={t('button.explore')}
+    className="inline-block py-4 px-10 rounded-full border-2 border-cyan-400 hover:bg-cyan-400/20 text-white font-medium transition-all duration-300 min-w-[44px] min-h-[44px] text-center"
+  >
+    {t('button.explore')}
+  </a>
+  <a
+    href="#contact"
+    aria-label={t('button.contact')}
+    className="inline-block py-4 px-10 rounded-full bg-gradient-to-r from-cyan-500 to-fuchsia-500 text-white font-medium hover:opacity-90 transition-opacity duration-300 min-w-[44px] min-h-[44px] text-center"
+  >
+    {t('button.contact')}
+  </a>
+</div>
+
         </div>
       </div>
 
