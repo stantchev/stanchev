@@ -188,14 +188,16 @@ const ContactSection: React.FC = () => {
               <h3 className="text-xl font-bold text-white mb-4">{t('contact.social.title')}</h3>
               <div className="flex gap-4">
                 <a
-                  href="#"
+                  href="https://www.linkedin.com/in/stantcheff/"
                   className="w-10 h-10 rounded-full bg-[#1e293b] flex items-center justify-center hover:bg-[#2a3c58] transition-colors duration-300"
+		  aria-label="LinkedIn профил на Станчев SEO експерт"
                 >
                   <Linkedin className="h-5 w-5 text-cyan-400" />
                 </a>
                 <a
                   href="https://github.com/stantchev/"
                   className="w-10 h-10 rounded-full bg-[#1e293b] flex items-center justify-center hover:bg-[#2a3c58] transition-colors duration-300"
+		  aria-label="GitHub профил на Станчев SEO експерт"
                 >
                   <Github className="h-5 w-5 text-fuchsia-400" />
                 </a>
@@ -203,15 +205,17 @@ const ContactSection: React.FC = () => {
                 <a
                   href="https://dev.to/stanchev"
                   className="w-10 h-10 rounded-full bg-[#1e293b] flex items-center justify-center hover:bg-[#2a3c58] transition-colors duration-300"
+		  aria-label="Dev.to профил на Станчев SEO експерт"
                 >
                   <FaDev className="h-5 w-5 text-cyan-400" />
                 </a>
                 <a
-  				        href="https://webflow.com/@stantchev"
-				          className="w-10 h-10 rounded-full bg-[#1e293b] flex items-center justify-center hover:bg-[#2a3c58] transition-colors duration-300"
-				        >
-				          <SiWebflow className="h-5 w-5 text-fuchsia-400" />
-				        </a>
+  	   	 href="https://webflow.com/@stantchev"
+		 className="w-10 h-10 rounded-full bg-[#1e293b] flex items-center justify-center hover:bg-[#2a3c58] transition-colors duration-300"
+		 aria-label="Webflow профил на Станчев SEO експерт"
+		>
+		  <SiWebflow className="h-5 w-5 text-fuchsia-400" />
+		</a>
               </div>
             </div>
           </div>
