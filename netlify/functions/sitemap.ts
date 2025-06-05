@@ -1,5 +1,5 @@
 import { Handler } from '@netlify/functions';
-import { generateSitemap } from '../../src/utils/sitemap';
+import { generateSitemap } from './sitemap';
 
 export const handler: Handler = async () => {
   const sitemap = generateSitemap();
