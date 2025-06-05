@@ -10,8 +10,8 @@ const LinkBuildingPage: React.FC = () => {
       <SEOHead
         title="Изграждане на Връзки | Качествени външни линкове за по-добро SEO"
         description="Повиши авторитета на сайта си чрез изграждане на стратегически външни връзки и линк билдинг кампании."
-        keywords="изграждане на връзки, link building, външни линкове, обратни връзки, SEO връзки, авторитет на сайта"
-        canonicalUrl="https://stanchev-seo.bg/услуги/изграждане-на-връзки"
+        keywords="изграждане на връзки, link building, външни линкове, обратни връзки, SEO връзки, авторитет на сайта, авторитет на сайт"
+        canonicalUrl="https://stanchev.bg/услуги/изграждане-на-връзки"
       />
 
       <div className="pt-24 pb-20">
@@ -26,7 +26,7 @@ const LinkBuildingPage: React.FC = () => {
                 Изграждането на висококачествени <strong>обратни връзки</strong> е ключов фактор за доброто класиране в търсачките. Това е един от най-силните SEO сигнали, които показват на Google, че сайтът ви е надежден и заслужава внимание.
               </p>
               <p className="text-xl text-gray-300 mb-8">
-                Тази услуга допълва оптимизацията на <Link to="/услуги/структурирани-данни" className="text-cyber-blue hover:text-cyber-purple">структурираните данни</Link> и е част от завършена SEO стратегия.
+                Тази услуга допълва оптимизацията на <Link to="https://stanchev.bg/услуги/структурирани-данни" className="text-cyber-blue hover:text-cyber-purple">структурираните данни</Link> и е част от завършена SEO стратегия.
               </p>
             </div>
 
@@ -92,13 +92,13 @@ const LinkBuildingPage: React.FC = () => {
 
             <div className="flex justify-between items-center">
               <Link 
-                to="/услуги/структурирани-данни"
+                to="https://stanchev.bg/услуги/структурирани-данни"
                 className="text-cyber-blue hover:text-cyber-purple transition-colors inline-flex items-center"
               >
                 ← Обратно към Структурирани Данни
               </Link>
               <Link 
-                to="/контакти"
+                to="https://stanchev.bg/контакти"
                 className="text-cyber-blue hover:text-cyber-purple transition-colors inline-flex items-center"
               >
                 Свържи се с мен
