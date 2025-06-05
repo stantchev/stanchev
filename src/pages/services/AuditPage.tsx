@@ -25,7 +25,7 @@ const AuditPage: React.FC = () => {
                 SEO <span className="neon-text">Одит</span>
               </h1>
               <p className="text-xl text-gray-300 mb-8">
-                След <Link to="/услуги/консултация" className="text-cyber-blue hover:text-cyber-purple">първоначалната консултация</Link>, 
+                След първоначалната <Link to="https://stanchev.bg/%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B8/%D0%BA%D0%BE%D0%BD%D1%81%D1%83%D0%BB%D1%82%D0%B0%D1%86%D0%B8%D1%8F" className="text-cyber-blue hover:text-cyber-purple">SEO консултация</Link>, 
                 извършвам задълбочен анализ на вашия уебсайт, за да открия всички възможности за подобрение и да създам 
                 конкретен план за действие.
               </p>
@@ -166,9 +166,9 @@ const AuditPage: React.FC = () => {
 
             <div className="text-center">
               <p className="text-xl text-gray-300 mb-8">
-                След SEO одита, следващата стъпка е създаването на{' '}
-                <Link to="/услуги/стратегия" className="text-cyber-blue hover:text-cyber-purple">
-                  цялостна SEO стратегия
+                След SEO одита, следващата стъпка е създаването на цялостна {' '}
+                <Link to="https://stanchev.bg/%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B8/%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D0%B8%D1%8F" className="text-cyber-blue hover:text-cyber-purple">
+                  SEO стратегия
                 </Link>{' '}
                 за вашия сайт.
               </p>
