@@ -6,11 +6,10 @@
     "scripts": {
     "build": "npm run generate-sitemap && react-scripts build",
     "generate-sitemap": "node scripts/generate-sitemap.js"
-},
-  "build": "vite build",
-  "dev": "vite",
-  "lint": "eslint .",
-  "preview": "vite preview"
+    "build": "vite build",
+    "dev": "vite",
+    "lint": "eslint .",
+    "preview": "vite preview"
 },
     "dependencies": {
         "@google-analytics/data": "^5.1.0",
