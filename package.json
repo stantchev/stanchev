@@ -4,9 +4,8 @@
     "version": "1.0.0",
     "type": "module",
     "scripts": {
-    "build": "npm run generate-sitemap && react-scripts build",
     "generate-sitemap": "node scripts/generate-sitemap.js",
-    "build": "vite build",
+    "build": "npm run generate-sitemap && react-scripts build",
     "dev": "vite",
     "lint": "eslint .",
     "preview": "vite preview"
