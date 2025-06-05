@@ -10,8 +10,8 @@ const OnPagePage: React.FC = () => {
       <SEOHead
         title="On-page SEO | Оптимизация на уебсайт съдържание"
         description="Професионална on-page SEO оптимизация за вашия уебсайт. Подобрете видимостта си в търсачките чрез оптимизация на съдържанието и структурата."
-        keywords="on-page SEO, оптимизация на съдържание, SEO оптимизация, мета тагове"
-        canonicalUrl="https://stanchev-seo.bg/услуги/on-page-оптимизация"
+        keywords="on-page SEO, оптимизация на съдържание, SEO оптимизация, мета тагове, on-page SEO оптимизация, on-page оптимизация"
+        canonicalUrl="https://stanchev.bg/услуги/on-page-оптимизация"
       />
 
       <div className="pt-24 pb-20">
@@ -26,7 +26,7 @@ const OnPagePage: React.FC = () => {
               </h1>
               <p className="text-xl text-gray-300 mb-8">
                 След разработването на{' '}
-                <Link to="/услуги/стратегия" className="text-cyber-blue hover:text-cyber-purple">
+                <Link to="https://stanchev.bg/услуги/стратегия" className="text-cyber-blue hover:text-cyber-purple">
                   цялостната SEO стратегия
                 </Link>, 
                 пристъпваме към оптимизация на вътрешните елементи на вашия сайт за 
@@ -157,13 +157,13 @@ const OnPagePage: React.FC = () => {
             <div className="text-center">
               <p className="text-xl text-gray-300 mb-8">
                 След on-page оптимизацията, преминаваме към{' '}
-                <Link to="/услуги/техническо-seo" className="text-cyber-blue hover:text-cyber-purple">
+                <Link to="https://stanchev.bg/услуги/техническо-seo" className="text-cyber-blue hover:text-cyber-purple">
                   техническата SEO оптимизация
                 </Link>{' '}
                 на вашия сайт.
               </p>
               <Link 
-                to="/услуги/техническо-seo" 
+                to="https://stanchev.bg/услуги/техническо-seo" 
                 className="btn-primary inline-flex items-center"
               >
                 Към техническо SEO
