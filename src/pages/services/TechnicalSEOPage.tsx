@@ -10,7 +10,7 @@ const TechnicalSEOPage: React.FC = () => {
       <SEOHead
         title="Техническо SEO | Подобрете индексирането и скоростта на вашия сайт"
         description="Професионално техническо SEO за оптимално индексиране, висока скорост и сигурност. Осигурете стабилна основа за вашия сайт в търсачките."
-        keywords="техническо SEO, индексиране, скорост на сайта, SEO оптимизация, техническа поддръжка"
+        keywords="техническо SEO, индексиране, скорост на сайта, SEO оптимизация, техническа поддръжка, скорост на сайт, индексиране на сайт, поддръжка на сайт"
         canonicalUrl="https://stanchev.bg/услуги/техническо-seo"
       />
 
@@ -23,7 +23,7 @@ const TechnicalSEOPage: React.FC = () => {
 
             <div className="prose prose-invert max-w-none mb-12">
               <p className="text-xl text-gray-300 mb-8">
-                Техническото SEO е основата на успешната оптимизация. След <Link to="/услуги/одит" className="text-cyber-blue hover:text-cyber-purple">SEO одита</Link> преминаваме към поправяне на технически пречки, които възпрепятстват индексирането, скоростта или мобилната съвместимост на сайта ви. Без здрава техническа основа, всички останали SEO усилия се компрометират.
+                Техническото SEO е основата на успешната оптимизация. След подробния<Link to="https://stanchev.bg/услуги/одит" className="text-cyber-blue hover:text-cyber-purple">SEO одит</Link> преминаваме към поправяне на технически пречки, които възпрепятстват индексирането, скоростта или мобилната съвместимост на сайта ви. Без здрава техническа основа, всички останали SEO усилия се компрометират.
               </p>
             </div>
 
@@ -93,13 +93,13 @@ const TechnicalSEOPage: React.FC = () => {
 
             <div className="flex justify-between items-center">
               <Link 
-                to="/услуги/одит"
+                to="https://stanchev.bg/услуги/одит"
                 className="text-cyber-blue hover:text-cyber-purple transition-colors inline-flex items-center"
               >
                 ← Обратно към SEO Одит
               </Link>
               <Link 
-                to="/услуги/съдържание"
+                to="https://stanchev.bg/услуги/съдържание"
                 className="text-cyber-blue hover:text-cyber-purple transition-colors inline-flex items-center"
               >
                 Следваща услуга: Оптимизация на Съдържание
