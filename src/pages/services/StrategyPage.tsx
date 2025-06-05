@@ -10,8 +10,8 @@ const StrategyPage: React.FC = () => {
       <SEOHead
         title="SEO Стратегия | Планиране за успех в търсачките"
         description="Разработване на персонализирана SEO стратегия за вашия бизнес. Ясен план за действие и конкретни стъпки за постигане на по-добри резултати."
-        keywords="SEO стратегия, SEO планиране, оптимизация за търсачки, SEO България"
-        canonicalUrl="https://stanchev-seo.bg/услуги/стратегия"
+        keywords="SEO стратегия, SEO планиране, оптимизация за търсачки, SEO България, SEO, SEO оптимизация"
+        canonicalUrl="https://stanchev.bg/услуги/стратегия"
       />
 
       <div className="pt-24 pb-20">
@@ -26,7 +26,7 @@ const StrategyPage: React.FC = () => {
               </h1>
               <p className="text-xl text-gray-300 mb-8">
                 След провеждането на подробен{' '}
-                <Link to="/услуги/seo-одит" className="text-cyber-blue hover:text-cyber-purple">
+                <Link to="https://stanchev.bg/услуги/seo-одит" className="text-cyber-blue hover:text-cyber-purple">
                   SEO одит
                 </Link>, 
                 разработвам персонализирана стратегия, която ще помогне на вашия бизнес да 
@@ -157,13 +157,13 @@ const StrategyPage: React.FC = () => {
             <div className="text-center">
               <p className="text-xl text-gray-300 mb-8">
                 След разработването на стратегията, следва{' '}
-                <Link to="/услуги/on-page-оптимизация" className="text-cyber-blue hover:text-cyber-purple">
+                <Link to="https://stanchev.bg/услуги/on-page-оптимизация" className="text-cyber-blue hover:text-cyber-purple">
                   On-page SEO оптимизация
                 </Link>{' '}
                 на вашия сайт.
               </p>
               <Link 
-                to="/услуги/on-page-оптимизация" 
+                to="https://stanchev.bg/услуги/on-page-оптимизация" 
                 className="btn-primary inline-flex items-center"
               >
                 Към On-page SEO
