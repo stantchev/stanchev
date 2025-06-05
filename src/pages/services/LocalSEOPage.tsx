@@ -10,7 +10,7 @@ const LocalSEOPage: React.FC = () => {
       <SEOHead
         title="Локално SEO | Подобрете видимостта си в местното търсене"
         description="Локално SEO за български бизнеси – подобрете присъствието си в Google Maps и резултатите при търсения „близо до мен“ с оптимизация за локално търсене."
-        keywords="локално SEO, Google My Business, локално търсене, Google Maps SEO, България"
+        keywords="локално SEO, Google My Business, локално търсене, Google Maps SEO, България, Googlе оптимизация, локално търсене, SEO, България, София, SEO в България"
         canonicalUrl="https://stanchev.bg/услуги/локално-seo"
       />
 
@@ -23,7 +23,7 @@ const LocalSEOPage: React.FC = () => {
 
             <div className="prose prose-invert max-w-none mb-12">
               <p className="text-xl text-gray-300 mb-8">
-                Ако предлагате услуги или продукти на местно ниво, <Link to="/услуги/съдържание" className="text-cyber-blue hover:text-cyber-purple">оптимизираното съдържание</Link> не е достатъчно – нуждаете се и от ефективно <strong>локално SEO</strong>. Това ви помага да се показвате на водещи позиции в търсения като „най-добрият фризьор в София“ или „ресторант до мен“. Тук става дума за оптимизация на вашето присъствие в Google My Business, локални каталози, отзиви и още.
+                Ако предлагате услуги или продукти на местно ниво, <Link to="https://stanchev.bg/услуги/съдържание" className="text-cyber-blue hover:text-cyber-purple">оптимизирано съдържание</Link> не е достатъчно – нуждаете се и от ефективно <strong>локално SEO</strong>. Това ви помага да се показвате на водещи позиции в търсения като „най-добрият фризьор в София“ или „ресторант до мен“. Тук става дума за оптимизация на вашето присъствие в Google My Business, локални каталози, отзиви и още.
               </p>
             </div>
 
@@ -93,13 +93,13 @@ const LocalSEOPage: React.FC = () => {
 
             <div className="flex justify-between items-center">
               <Link 
-                to="/услуги/съдържание"
+                to="https://stanchev.bg/услуги/съдържание"
                 className="text-cyber-blue hover:text-cyber-purple transition-colors inline-flex items-center"
               >
                 ← Обратно към Оптимизация на Съдържание
               </Link>
               <Link 
-                to="/услуги/структурирани-данни"
+                to="https://stanchev.bg/услуги/структурирани-данни"
                 className="text-cyber-blue hover:text-cyber-purple transition-colors inline-flex items-center"
               >
                 Следваща услуга: Структурирани Данни
