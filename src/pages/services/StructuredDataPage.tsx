@@ -10,7 +10,7 @@ const StructuredDataPage: React.FC = () => {
       <SEOHead
         title="Структурирани Данни | Внедряване на Schema.org за SEO"
         description="Оптимизирай видимостта си с внедряване на структурирани данни и rich snippets чрез Schema.org."
-        keywords="структурирани данни, schema.org, rich snippets, SEO подобрение, богати резултати"
+        keywords="структурирани данни, schema.org, rich snippets, SEO подобрение, богати резултати, SEO, техническо SEO"
         canonicalUrl="https://stanchev.bg/услуги/структурирани-данни"
       />
 
@@ -26,7 +26,7 @@ const StructuredDataPage: React.FC = () => {
                 Внедряването на <strong>структурирани данни</strong> чрез <code>Schema.org</code> е ключово за по-ефективното представяне на съдържанието ви в Google и други търсачки. Те позволяват на търсачките да разберат по-добре структурата на вашия сайт и съдържанието му, като по този начин се увеличава вероятността за показване на rich snippets.
               </p>
               <p className="text-xl text-gray-300 mb-8">
-                Структурираните данни са естествено продължение на <Link to="/услуги/локално-seo" className="text-cyber-blue hover:text-cyber-purple">Локалното SEO</Link> и играят важна роля в цялостната ви SEO стратегия.
+                Структурираните данни са естествено продължение на <Link to="https://stanchev.bg/услуги/локално-seo" className="text-cyber-blue hover:text-cyber-purple">Локалното SEO</Link> и играят важна роля в цялостната ви SEO стратегия.
               </p>
             </div>
 
@@ -92,13 +92,13 @@ const StructuredDataPage: React.FC = () => {
 
             <div className="flex justify-between items-center">
               <Link 
-                to="/услуги/локално-seo"
+                to="https://stanchev.bg/услуги/локално-seo"
                 className="text-cyber-blue hover:text-cyber-purple transition-colors inline-flex items-center"
               >
                 ← Обратно към Локално SEO
               </Link>
               <Link 
-                to="/услуги/съдържание"
+                to="https://stanchev.bg/услуги/съдържание"
                 className="text-cyber-blue hover:text-cyber-purple transition-colors inline-flex items-center"
               >
                 Следваща услуга: Оптимизация на Съдържание
