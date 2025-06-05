@@ -8,7 +8,7 @@ export const generateSitemap = () => {
   const { posts } = useBlogStore.getState();
   const publishedPosts = posts.filter(post => post.status === 'published');
   
-  const baseUrl = 'https://stanchev-seo.bg';
+  const baseUrl = 'https://stanchev.bg';
   
   // Static pages
   const staticPages = [
