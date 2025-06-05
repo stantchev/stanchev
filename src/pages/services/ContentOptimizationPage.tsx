@@ -10,7 +10,7 @@ const ContentOptimizationPage: React.FC = () => {
       <SEOHead
         title="Оптимизация на Съдържание | Повишете видимостта и ангажираността"
         description="Създаваме и оптимизираме съдържание, което класира, вдъхновява и продава. Подобрете ангажираността и класирането си с ефективна SEO стратегия за съдържание."
-        keywords="оптимизация на съдържание, SEO съдържание, SEO копирайтинг, SEO текстове, България"
+        keywords="оптимизация на съдържание, SEO съдържание, SEO копирайтинг, SEO текстове, България, копирайтинг, SEO"
         canonicalUrl="https://stanchev.bg/услуги/съдържание"
       />
 
@@ -23,7 +23,7 @@ const ContentOptimizationPage: React.FC = () => {
 
             <div className="prose prose-invert max-w-none mb-12">
               <p className="text-xl text-gray-300 mb-8">
-                След <Link to="/услуги/техническо-seo" className="text-cyber-blue hover:text-cyber-purple">техническото SEO</Link> идва най-видимата част — съдържанието. То не просто трябва да е красиво написано, а да бъде стратегически структурирано, ангажиращо и индексирано от търсачките. Правилната оптимизация на съдържание увеличава както трафика, така и доверието на потребителите.
+                След <Link to="https://stanchev.bg/услуги/техническо-seo" className="text-cyber-blue hover:text-cyber-purple">техническо SEO</Link> идва най-видимата част — съдържанието. То не просто трябва да е красиво написано, а да бъде стратегически структурирано, ангажиращо и индексирано от търсачките. Правилната оптимизация на съдържание увеличава както трафика, така и доверието на потребителите.
               </p>
             </div>
 
@@ -93,13 +93,13 @@ const ContentOptimizationPage: React.FC = () => {
 
             <div className="flex justify-between items-center">
               <Link 
-                to="/услуги/техническо-seo"
+                to="https://stanchev.bg/услуги/техническо-seo"
                 className="text-cyber-blue hover:text-cyber-purple transition-colors inline-flex items-center"
               >
                 ← Обратно към Техническо SEO
               </Link>
               <Link 
-                to="/услуги/локално-seo"
+                to="https://stanchev.bg/услуги/локално-seo"
                 className="text-cyber-blue hover:text-cyber-purple transition-colors inline-flex items-center"
               >
                 Следваща услуга: Локално SEO
