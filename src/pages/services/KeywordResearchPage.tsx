@@ -10,7 +10,7 @@ const KeywordResearchPage: React.FC = () => {
       <SEOHead
         title="Проучване на Ключови Думи | SEO Анализ за Вашия Бизнес"
         description="Открийте най-подходящите ключови думи за вашия бизнес чрез професионално SEO проучване. Повишете видимостта си в Google."
-        keywords="ключови думи, SEO проучване, търсене, български пазар, онлайн видимост"
+        keywords="ключови думи, SEO проучване, търсене, български пазар, онлайн видимост, SEO Анализ, SEO, България"
         canonicalUrl="https://stanchev.bg/услуги/ключови-думи"
       />
 
@@ -23,7 +23,7 @@ const KeywordResearchPage: React.FC = () => {
             
             <div className="prose prose-invert max-w-none mb-12">
               <p className="text-xl text-gray-300 mb-8">
-                Успешното SEO започва с правилното <Link to="/услуги/ключови-думи" className="text-cyber-blue hover:text-cyber-purple">проучване на ключови думи</Link>. Това е основата, върху която изграждаме съдържание, което наистина достига до вашата целева аудитория.
+                Успешното SEO започва с правилното <Link to="https://stanchev.bg/услуги/ключови-думи" className="text-cyber-blue hover:text-cyber-purple">проучване на ключови думи</Link>. Това е основата, върху която изграждаме съдържание, което наистина достига до вашата целева аудитория.
               </p>
             </div>
 
@@ -89,13 +89,13 @@ const KeywordResearchPage: React.FC = () => {
 
             <div className="flex justify-between items-center">
               <Link 
-                to="/услуги/seo-одит"
+                to="https://stanchev.bg/услуги/seo-одит"
                 className="text-cyber-blue hover:text-cyber-purple transition-colors inline-flex items-center"
               >
                 ← Обратно към SEO одит
               </Link>
               <Link 
-                to="/услуги/съдържание"
+                to="https://stanchev.bg/услуги/съдържание"
                 className="text-cyber-blue hover:text-cyber-purple transition-colors inline-flex items-center"
               >
                 Следваща услуга: Оптимизация на Съдържание
