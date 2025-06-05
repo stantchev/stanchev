@@ -1,0 +1,133 @@
+import React, { useRef, useEffect } from 'react';
+
+const SEO_TERMS = [
+  'SEO', 'CTR', 'трафик', 'анализ', 'ключова дума', 'линкове',
+  'Google', 'позиции', 'rich snippets', 'canonical', 'crawl budget',
+  'schema', 'оптимизация', 'meta', 'robots.txt', 'user intent',
+  'линк билдинг', 'локално SEO', 'скорост на сайта', 'mobile first',
+  'duplicate content', 'backlinks', 'on-page', 'off-page',
+  'structured data', 'SERP', 'organic traffic', 'content marketing',
+  'page speed', 'indexing', 'alt text', 'anchor text', 'bounce rate',
+  'sitemap', 'nofollow', 'dofollow', 'keyword density', 'long tail keywords',
+  'conversion rate', 'UX', 'crawl errors', 'page authority', 'domain authority',
+  'Google Analytics', 'Google Search Console', 'SEO audit', '301 redirect',
+  'hreflang', 'SSL', 'AMP', 'canonical URL', 'rich cards',
+];
+
+interface Particle {
+  x: number;
+  y: number;
+  term: string;
+  opacity: number;
+  fadingIn: boolean;
+  fadeSpeed: number;
+  fontSize: number;
+  glow: number;
+}
+
+const randomRange = (min: number, max: number) => Math.random() * (max - min) + min;
+
+const SeoFadingWords: React.FC = () => {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const particlesRef = useRef<Particle[]>([]);
+
+  // Initialize particles with random terms and positions
+  const createParticle = (): Particle => ({
+    x: randomRange(50, window.innerWidth - 100),
+    y: randomRange(50, window.innerHeight - 100),
+    term: SEO_TERMS[Math.floor(Math.random() * SEO_TERMS.length)],
+    opacity: 0,
+    fadingIn: true,
+    fadeSpeed: randomRange(0.008, 0.015),
+    fontSize: randomRange(18, 26),
+    glow: randomRange(0.4, 0.8),
+  });
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    // Create 9 particles initially
+    particlesRef.current = Array.from({ length: 9 }, createParticle);
+
+    const animate = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      particlesRef.current.forEach((p, i) => {
+        // Update opacity
+        if (p.fadingIn) {
+          p.opacity += p.fadeSpeed;
+          if (p.opacity >= 1) {
+            p.opacity = 1;
+            p.fadingIn = false;
+          }
+        } else {
+          p.opacity -= p.fadeSpeed;
+          if (p.opacity <= 0) {
+            p.opacity = 0;
+            // Reset to new position and term
+            p.x = randomRange(50, window.innerWidth - 100);
+            p.y = randomRange(50, window.innerHeight - 100);
+            p.term = SEO_TERMS[Math.floor(Math.random() * SEO_TERMS.length)];
+            p.fontSize = randomRange(18, 26);
+            p.glow = randomRange(0.4, 0.8);
+            p.fadingIn = true;
+          }
+        }
+
+        // Draw text with glow effect
+        ctx.font = `${p.fontSize}px 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif`;
+
+        // Glow gradient
+        const gradient = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.fontSize);
+        gradient.addColorStop(0, `rgba(0, 200, 255, ${p.opacity * p.glow})`);
+        gradient.addColorStop(1, `rgba(0, 100, 150, 0)`);
+
+        ctx.fillStyle = gradient;
+        ctx.shadowColor = `rgba(0, 200, 255, ${p.opacity * p.glow})`;
+        ctx.shadowBlur = 12 * p.opacity * p.glow;
+
+        ctx.fillText(p.term, p.x, p.y);
+        ctx.shadowBlur = 0;
+      });
+
+      requestAnimationFrame(animate);
+    };
+
+    animate();
+
+    const handleResize = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  return (
+    <canvas
+      ref={canvasRef}
+      style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        width: '100vw',
+        height: '100vh',
+        zIndex: -1,
+        pointerEvents: 'none',
+        backgroundColor: '#0d1117',
+      }}
+    />
+  );
+};
+
+export default SeoFadingWords;

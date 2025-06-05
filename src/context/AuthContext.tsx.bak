@@ -1,0 +1,62 @@
+import React, { createContext, useContext, useEffect, useState } from 'react';
+
+interface AuthContextType {
+  isAuthenticated: boolean;
+  isLoading: boolean;
+  login: (username: string, password: string) => Promise<boolean>;
+  logout: () => void;
+}
+
+const AuthContext = createContext<AuthContextType>({
+  isAuthenticated: false,
+  isLoading: true,
+  login: async () => false,
+  logout: () => {},
+});
+
+export const useAuth = () => useContext(AuthContext);
+
+interface AuthProviderProps {
+  children: React.ReactNode;
+}
+
+export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+
+  // Check if user is already logged in
+  useEffect(() => {
+    const checkAuth = () => {
+      const token = localStorage.getItem('auth_token');
+      setIsAuthenticated(!!token);
+      setIsLoading(false);
+    };
+
+    checkAuth();
+  }, []);
+
+  const login = async (username: string, password: string): Promise<boolean> => {
+    // Hardcoded credentials for demo
+    if (username === 'Станчев' && password === 'StanchevSEO2k25!') {
+      // Set a token in localStorage
+      localStorage.setItem('auth_token', 'demo_token_' + Date.now());
+      setIsAuthenticated(true);
+      return true;
+    }
+    return false;
+  };
+
+  const logout = () => {
+    localStorage.removeItem('auth_token');
+    setIsAuthenticated(false);
+  };
+
+  const value = {
+    isAuthenticated,
+    isLoading,
+    login,
+    logout,
+  };
+
+  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
+};
