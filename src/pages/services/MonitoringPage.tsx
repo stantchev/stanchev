@@ -10,7 +10,7 @@ const MonitoringPage: React.FC = () => {
       <SEOHead
         title="SEO Мониторинг | Проследяване и анализ на SEO резултатите"
         description="Професионален SEO мониторинг с месечни доклади, анализ на позициите и ключови метрики за устойчив растеж."
-        keywords="SEO мониторинг, проследяване на резултати, SEO анализ, позициониране, SEO отчет, Google Search Console"
+        keywords="SEO мониторинг, проследяване на резултати, SEO анализ, позициониране, SEO отчет, Google Search Console, SEO резултати, устойчиво SEO"
         canonicalUrl="https://stanchev.bg/услуги/seo-мониторинг"
       />
 
@@ -26,7 +26,7 @@ const MonitoringPage: React.FC = () => {
                 SEO мониторингът е последната, но изключително важна стъпка от SEO процеса. Той гарантира, че приложените стратегии се проследяват, анализират и усъвършенстват постоянно. Така се осигурява дългосрочен успех и стабилен растеж на органичния трафик.
               </p>
               <p className="text-xl text-gray-300 mb-8">
-                Услугата се комбинира идеално с <Link to="/услуги/изграждане-на-връзки" className="text-cyber-blue hover:text-cyber-purple">линк билдинг</Link> и <Link to="/услуги/оптимизация-на-съдържание" className="text-cyber-blue hover:text-cyber-purple">оптимизация на съдържание</Link>, за да се извлече максимален ефект от всяка предприета стъпка.
+                Услугата се комбинира идеално с <Link to="https://stanchev.bg/услуги/изграждане-на-връзки" className="text-cyber-blue hover:text-cyber-purple">линк билдинг</Link> и <Link to="https://stanchev.bg/услуги/оптимизация-на-съдържание" className="text-cyber-blue hover:text-cyber-purple">оптимизация на съдържание</Link>, за да се извлече максимален ефект от всяка предприета стъпка.
               </p>
             </div>
 
@@ -92,13 +92,13 @@ const MonitoringPage: React.FC = () => {
 
             <div className="flex justify-between items-center">
               <Link 
-                to="/услуги/изграждане-на-връзки"
+                to="https://stanchev.bg/услуги/изграждане-на-връзки"
                 className="text-cyber-blue hover:text-cyber-purple transition-colors inline-flex items-center"
               >
                 ← Назад към Изграждане на Връзки
               </Link>
               <Link 
-                to="/контакти"
+                to="https://stanchev.bg/контакти"
                 className="text-cyber-blue hover:text-cyber-purple transition-colors inline-flex items-center"
               >
                 Свържи се с мен
