@@ -19,14 +19,36 @@ const posts = [
 function generateSitemap() {
   const baseUrl = 'https://stanchev.bg';
 
-  const staticPages = [
-    { url: '/', priority: '1.0', changefreq: 'daily' },
-    { url: '/услуги', priority: '0.9', changefreq: 'weekly' },
-    { url: '/blog', priority: '0.8', changefreq: 'weekly' },
-    { url: '/за-мен', priority: '0.7', changefreq: 'monthly' },
-    { url: '/ресурси', priority: '0.7', changefreq: 'monthly' },
-    { url: '/контакти', priority: '0.6', changefreq: 'monthly' },
-  ];
+const staticPages = [
+  { url: '/', priority: '1.0', changefreq: 'daily' },
+  { url: '/услуги', priority: '0.9', changefreq: 'weekly' },
+  { url: '/blog', priority: '0.8', changefreq: 'daily' },
+  { url: '/за-мен', priority: '0.7', changefreq: 'monthly' },
+  { url: '/контакти', priority: '0.6', changefreq: 'monthly' },
+
+  // Допълнителни секции от router-а
+  { url: '/политика-за-поверителност', priority: '0.3', changefreq: 'yearly' },
+  { url: '/общи-условия', priority: '0.3', changefreq: 'yearly' },
+  { url: '/бисквитки', priority: '0.3', changefreq: 'yearly' },
+
+  // Услуги (SEO подстраници)
+  { url: '/услуги/консултация', priority: '0.6', changefreq: 'monthly' },
+  { url: '/услуги/seo-одит', priority: '0.6', changefreq: 'monthly' },
+  { url: '/услуги/стратегия', priority: '0.6', changefreq: 'monthly' },
+  { url: '/услуги/on-page-оптимизация', priority: '0.6', changefreq: 'monthly' },
+  { url: '/услуги/ключови-думи', priority: '0.6', changefreq: 'monthly' },
+  { url: '/услуги/техническо-seo', priority: '0.6', changefreq: 'monthly' },
+  { url: '/услуги/оптимизация-на-съдържание', priority: '0.6', changefreq: 'monthly' },
+  { url: '/услуги/локално-seo', priority: '0.6', changefreq: 'monthly' },
+  { url: '/услуги/структурирани-данни', priority: '0.6', changefreq: 'monthly' },
+  { url: '/услуги/линк-билдинг', priority: '0.6', changefreq: 'monthly' },
+  { url: '/услуги/seo-мониторинг', priority: '0.6', changefreq: 'monthly' },
+
+  // Инструменти и ресурси
+  { url: '/ресурси', priority: '0.5', changefreq: 'monthly' },
+  { url: '/tools/meta-tag-generator', priority: '0.5', changefreq: 'monthly' },
+  { url: '/tools/schema-generator', priority: '0.5', changefreq: 'monthly' }
+];
 
   const publishedPosts = posts.filter(post => post.status === 'published');
 
