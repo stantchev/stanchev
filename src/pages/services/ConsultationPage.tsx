@@ -27,6 +27,7 @@ const ConsultationPage: React.FC = () => {
     "description": "Индивидуална SEO консултация с практическа насоченост – анализ на техническо състояние, съдържание, ключови думи и линк профил на уебсайта. Подходящо за фирми и онлайн магазини в България."
   }}
 />
+    );
       <div className="pt-24 pb-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
