@@ -43,32 +43,24 @@ const BlogPage: React.FC = () => {
 
   return (
     <>
-  <SEOHead
-    title="Блог за SEO | Съвети и стратегии за българския пазар"
-    description="Полезни статии, съвети и стратегии за SEO оптимизация, специално насочени към българския пазар и особеностите на местното търсене."
-    keywords="SEO блог, SEO съвети, SEO България, стратегии за оптимизация, дигитален маркетинг, локално SEO, Google класиране, техническа оптимизация, SEO съдържание, ключови думи, линк билдинг"
-    canonicalUrl="https://stanchev.bg/blog"
-    structuredData={{
-      "@context": "https://schema.org",
-      "@type": "Blog",
-      "name": "Блог за SEO оптимизация",
-      "description": "Полезни статии, съвети и стратегии за SEO оптимизация, специално насочени към българския пазар",
-      "url": "https://stanchev.bg/blog",
-      "inLanguage": "bg",
-      "author": {
-        "@type": "Person",
-        "name": "Станчев",
-        "url": "https://stanchev.bg/за-мен"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "Станчев SEO",
-        "url": "https://stanchev.bg"
-      }
-    }}
-  />
-</>
-    );
+      <SEOHead
+        title="Блог за SEO | Съвети и стратегии за българския пазар"
+        description="Полезни статии, съвети и стратегии за SEO оптимизация, специално насочени към българския пазар и особеностите на местното търсене."
+        keywords="SEO блог, SEO съвети, SEO България, стратегии за оптимизация, дигитален маркетинг"
+        canonicalUrl="https://stanchev-seo.bg/blog"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "Blog",
+          "name": "Блог за SEO оптимизация",
+          "description": "Полезни статии, съвети и стратегии за SEO оптимизация, специално насочени към българския пазар",
+          "url": "https://stanchev-seo.bg/blog",
+          "author": {
+            "@type": "Person",
+            "name": "Станчев"
+          }
+        }}
+      />
+
       <div className="pt-24 pb-20">
         <div className="container mx-auto px-4">
           {/* Header */}
@@ -150,6 +142,8 @@ const BlogPage: React.FC = () => {
           )}
         </div>
       </div>
+    </>
+  );
 };
 
 export default BlogPage;
