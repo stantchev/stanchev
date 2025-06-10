@@ -25,9 +25,8 @@ const HomePage: React.FC = () => {
           "@context": "https://schema.org",
           "@type": "ProfessionalService",
           "name": "Станчев SEO",
-           "description": "Професионални SEO услуги за българския пазар, включително оптимизация за търсачки, технически одит и SEO стратегии."
-		   {
-	"address": {
+           "description": "Професионални SEO услуги за българския пазар, включително оптимизация за търсачки, технически одит и SEO стратегии.",
+  	"address": {
             "@type": "PostalAddress",
             "addressLocality": "София",
             "addressCountry": "България"
