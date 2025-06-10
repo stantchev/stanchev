@@ -13,28 +13,25 @@ const BlogPostPage: React.FC = () => {
   const navigate = useNavigate();
   const { getPostBySlug, posts } = useBlogStore();
   const { isAuthenticated } = useAuth();
-  
+
   const post = getPostBySlug(slug || '');
-  
+
   if (!post) {
     return (
-      <div className="min-h-screen pt-24 flex flex-col items-center justify-center">
-        <h1 className="text-3xl font-bold mb-4">Публикацията не е намерена</h1>
-        <p className="text-gray-400 mb-8">Страницата, която търсите, не съществува или е преместена.</p>
-        <Link to="/blog" className="btn-primary">
-          Върнете се към блога
-        </Link>
+      <div className="min-h-screen pt-24 flex flex-col items-center justify-center text-center px-4">
+        <div className="bg-cyber-gray/10 p-10 rounded-xl border border-cyber-gray/30">
+          <h1 className="text-3xl font-bold mb-4">Публикацията не е намерена</h1>
+          <p className="text-gray-400 mb-8">Страницата, която търсите, не съществува или е преместена.</p>
+          <Link to="/blog" className="btn-primary">
+            Върнете се към блога
+          </Link>
+        </div>
       </div>
     );
   }
 
-  // Get related posts based on tags
   const relatedPosts = posts
-    .filter(p => 
-      p.id !== post.id && 
-      p.status === 'published' && 
-      p.tags.some(tag => post.tags.includes(tag))
-    )
+    .filter(p => p.id !== post.id && p.status === 'published' && p.tags.some(tag => post.tags.includes(tag)))
     .slice(0, 3);
 
   return (
@@ -42,43 +39,40 @@ const BlogPostPage: React.FC = () => {
       <SEOHead
         title={post.seoTitle || post.title}
         description={post.seoDescription || post.excerpt}
-        keywords={post.seoKeywords}
+        keywords={post.seoKeywords || `${post.tags.join(", ")}, SEO блог, дигитален маркетинг, съдържание, ключови думи, Google търсене, онлайн видимост, статия за SEO`}
         ogType="article"
-        canonicalUrl={`https://stanchev-seo.bg/blog/${post.slug}`}
+        canonicalUrl={`https://stanchev.bg/blog/${post.slug}`}
         structuredData={{
           "@context": "https://schema.org",
           "@type": "BlogPosting",
-          "headline": post.title,
-          "description": post.excerpt,
-          "keywords": post.tags.join(", "),
-          "author": {
-            "@type": "Person",
-            "name": post.author
-          },
-          "datePublished": post.publishedAt,
-          "mainEntityOfPage": {
+          headline: post.title,
+          description: post.excerpt,
+          keywords: `${post.tags.join(", ")}, SEO блог, дигитален маркетинг, съдържание, ключови думи, Google търсене, онлайн видимост, статия за SEO`,
+          author: { "@type": "Person", name: post.author },
+          datePublished: post.publishedAt,
+          mainEntityOfPage: {
             "@type": "WebPage",
-            "@id": `https://stanchev-seo.bg/blog/${post.slug}`
-          }
+            "@id": `https://stanchev.bg/blog/${post.slug}`,
+          },
         }}
       />
 
       <div className="pt-24 pb-20">
         <div className="container mx-auto px-4">
-          {/* Back to blog */}
           <div className="mb-8">
-            <Link to="/blog" className="inline-flex items-center text-gray-400 hover:text-white transition-colors">
-              <ArrowLeft size={20} className="mr-2" />
-              Назад към блога
+            <Link
+              to="/blog"
+              className="inline-flex items-center text-gray-400 hover:text-white transition-all duration-200"
+            >
+              <ArrowLeft size={20} className="mr-2" /> Назад към блога
             </Link>
           </div>
 
-          {/* Article Header */}
           <div className="mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+            <h1 className="text-4xl md:text-5xl font-extrabold leading-tight tracking-tight mb-6 text-white">
               {post.title}
             </h1>
-            
+
             <div className="flex flex-wrap items-center text-gray-400 mb-6 gap-x-6 gap-y-2">
               <div className="flex items-center">
                 <Clock size={18} className="mr-2" />
@@ -89,64 +83,60 @@ const BlogPostPage: React.FC = () => {
                 <span>{post.author}</span>
               </div>
               {isAuthenticated && (
-                <button 
+                <button
                   onClick={() => navigate(`/admin/blog/${post.id}`)}
                   className="flex items-center text-cyber-blue hover:text-cyber-purple transition-colors"
                 >
-                  <Edit size={18} className="mr-2" />
-                  <span>Редактирай</span>
+                  <Edit size={18} className="mr-2" /> <span>Редактирай</span>
                 </button>
               )}
             </div>
-            
-            <div className="flex flex-wrap gap-2 mb-8">
+
+            <div className="flex flex-wrap gap-2 mb-8 overflow-x-auto scrollbar-hide">
               {post.tags.map((tag, index) => (
-                <Link 
-                  key={index} 
+                <Link
+                  key={index}
                   to={`/blog?tag=${tag}`}
-                  className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-cyber-gray text-cyber-blue hover:bg-cyber-gray/80 transition-colors"
+                  className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-cyber-gray text-cyber-blue hover:bg-cyber-gray/80 transition-all duration-200"
                 >
-                  <Tag size={14} className="mr-1" />
-                  {tag}
+                  <Tag size={14} className="mr-1" /> {tag}
                 </Link>
               ))}
             </div>
           </div>
 
-          {/* Article Content */}
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-            <div className="lg:col-span-3">
-              <CyberCard glowColor="purple" className="article-content">
-                <article className="prose prose-lg prose-invert max-w-none">
-                  <ReactMarkdown>
-                    {post.content}
-                  </ReactMarkdown>
+          <div className="grid grid-cols-1 xl:grid-cols-4 gap-y-12 gap-x-8">
+            <div className="xl:col-span-3">
+              <CyberCard glowColor="purple" className="article-content shadow-lg border border-cyber-gray/30">
+                <article className="prose prose-invert lg:prose-xl prose-headings:text-white prose-a:text-cyber-blue hover:prose-a:text-cyber-purple prose-img:rounded-xl prose-img:shadow-lg max-w-none">
+                  <ReactMarkdown>{post.content}</ReactMarkdown>
                 </article>
               </CyberCard>
             </div>
-            
-            <div className="lg:col-span-1">
-              {/* Author Info */}
+
+            <div className="xl:col-span-1">
               <CyberCard glowColor="blue" className="mb-8">
                 <div className="text-center">
                   <h3 className="text-xl font-bold mb-3">За автора</h3>
                   <p className="text-gray-300 mb-4">
-                    Станчев е SEO експерт с над 5 години опит в оптимизацията за търсачки за българския пазар.
+                    Станчев е SEO експерт с 1 година опит в оптимизацията за търсачки за българския пазар. Публикациите му обхващат SEO стратегии, онлайн маркетинг, копирайтинг и техническа оптимизация на сайтове.
                   </p>
                   <Link to="/за-мен" className="text-cyber-blue hover:text-cyber-purple transition-colors">
                     Научете повече
                   </Link>
                 </div>
               </CyberCard>
-              
-              {/* Related Posts */}
+
               {relatedPosts.length > 0 && (
                 <CyberCard glowColor="teal">
                   <h3 className="text-xl font-bold mb-4">Свързани статии</h3>
                   <div className="space-y-4">
                     {relatedPosts.map((relatedPost) => (
-                      <div key={relatedPost.id} className="border-b border-cyber-gray pb-4 last:border-0 last:pb-0">
-                        <Link 
+                      <div
+                        key={relatedPost.id}
+                        className="border-b border-cyber-gray pb-4 last:border-0 last:pb-0"
+                      >
+                        <Link
                           to={`/blog/${relatedPost.slug}`}
                           className="block font-medium hover:text-cyber-purple transition-colors"
                         >

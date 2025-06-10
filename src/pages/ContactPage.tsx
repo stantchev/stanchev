@@ -95,26 +95,36 @@ const ContactPage: React.FC = () => {
   return (
     <>
       <SEOHead
-        title="Контакти | SEO Специалист Станчев"
-        description="Свържете се със Станчев - SEO специалист за българския пазар. Безплатна консултация и персонализирани решения за вашия бизнес."
-        keywords="контакти, SEO консултация, SEO специалист, Станчев контакти"
-        canonicalUrl="https://stanchev.bg/контакти"
-        structuredData={{
-          "@context": "https://schema.org",
-          "@type": "ContactPage",
-          "name": "Контакти",
-          "description": "Свържете се със Станчев - SEO специалист за българския пазар",
-          "url": "https://stanchev.bg/контакти",
-          "contactPoint": {
-            "@type": "ContactPoint",
-            "telephone": "+359 88 888 8888",
-            "contactType": "customer service",
-            "areaServed": "BG",
-            "availableLanguage": "Bulgarian"
-          }
-        }}
-      />
-
+  title="Контакти | SEO Специалист Станчев"
+  description="Свържете се със Станчев - SEO специалист за българския пазар. Безплатна консултация и персонализирани решения за вашия бизнес."
+  keywords="контакти, SEO консултация, SEO специалист, Станчев контакти, дигитален маркетинг, безплатна SEO консултация, локално SEO България, връзка със SEO експерт"
+  canonicalUrl="https://stanchev.bg/контакти"
+  structuredData={{
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Контакти",
+    "description": "Свържете се със Станчев - SEO специалист за българския пазар. Получете безплатна консултация и решения, съобразени с вашия уебсайт.",
+    "url": "https://stanchev.bg/контакти",
+    "inLanguage": "bg",
+    "mainEntity": {
+      "@type": "Person",
+      "name": "Станчев",
+      "jobTitle": "SEO Специалист",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Станчев SEO",
+        "url": "https://stanchev.bg"
+      }
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+359 88 888 8888",
+      "contactType": "customer service",
+      "areaServed": "BG",
+      "availableLanguage": ["Bulgarian"]
+    }
+  }}
+/>
       <div className="pt-24 pb-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
@@ -169,11 +179,11 @@ const ContactPage: React.FC = () => {
                 <div className="space-y-2 text-gray-300">
                   <div className="flex justify-between">
                     <span>Понеделник - Петък:</span>
-                    <span>09:00 - 17:00</span>
+                    <span>9:00 - 18:00</span>
                   </div>
                   <div className="flex justify-between">
                     <span>Събота:</span>
-                    <span>Затворено</span>
+                    <span>10:00 - 15:00</span>
                   </div>
                   <div className="flex justify-between">
                     <span>Неделя:</span>

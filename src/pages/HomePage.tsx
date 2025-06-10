@@ -19,20 +19,20 @@ const HomePage: React.FC = () => {
       <SEOHead
         title="Станчев SEO | Оптимизация за търсачки"
         description="Професионални SEO услуги за българския пазар. Станчев - Професионалист в оптимизацията за търсачки и дигиталния маркетинг."
-        keywords="SEO, оптимизация за търсачки, дигитален маркетинг, България, уеб оптимизация, София"
+        keywords="SEO, оптимизация за търсачки, дигитален маркетинг, България, уеб оптимизация, София, SEO експерт, SEO консултант, локално SEO, линк билдинг, ключови думи, класиране в Google, органичен трафик, SEO стратегия, анализ на конкуренцията"
         canonicalUrl="https://stanchev.bg"
         structuredData={{
           "@context": "https://schema.org",
           "@type": "ProfessionalService",
           "name": "Станчев SEO",
-          "description": "Професионални SEO услуги за българския пазар",
+           "description": "Професионални SEO услуги за българския пазар, включително оптимизация за търсачки, технически одит и SEO стратегии."
           "address": {
             "@type": "PostalAddress",
             "addressLocality": "София",
             "addressCountry": "България"
           },
           "telephone": "+359 88 888 8888",
-          "email": "seo@stanchev.bg",
+          "email": "hello@stanchev.bg",
           "url": "https://stanchev.bg",
           "priceRange": "$$",
           "serviceArea": {
@@ -77,19 +77,19 @@ const HomePage: React.FC = () => {
             </div>
             <div className="grid grid-cols-2 gap-6">
               <CyberCard glowColor="purple" className="p-6">
-                <div className="text-3xl font-bold text-cyber-purple mb-2">10+</div>
+                <div className="text-3xl font-bold text-cyber-purple mb-2">100+</div>
                 <div className="text-gray-300">Успешни проекта</div>
               </CyberCard>
               <CyberCard glowColor="blue" className="p-6">
-                <div className="text-3xl font-bold text-cyber-blue mb-2">1</div>
-                <div className="text-gray-300">Годинa опит</div>
+                <div className="text-3xl font-bold text-cyber-blue mb-2">5+</div>
+                <div className="text-gray-300">Години опит</div>
               </CyberCard>
               <CyberCard glowColor="teal" className="p-6">
-                <div className="text-3xl font-bold text-cyber-teal mb-2">12+</div>
+                <div className="text-3xl font-bold text-cyber-teal mb-2">50+</div>
                 <div className="text-gray-300">Редовни клиенти</div>
               </CyberCard>
               <CyberCard glowColor="pink" className="p-6">
-                <div className="text-3xl font-bold text-cyber-pink mb-2">253%</div>
+                <div className="text-3xl font-bold text-cyber-pink mb-2">200%</div>
                 <div className="text-gray-300">Ръст на трафика</div>
               </CyberCard>
             </div>

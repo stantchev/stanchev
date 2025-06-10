@@ -5,12 +5,20 @@ import CyberCard from '../components/UI/CyberCard';
 const TermsPage: React.FC = () => {
   return (
     <>
-      <SEOHead
-        title="Общи условия | SEO Специалист Станчев"
-        description="Общи условия за използване на услугите"
-        canonicalUrl="https://stanchev-seo.bg/общи-условия"
-      />
-
+  <SEOHead
+    title="Общи условия | SEO Специалист Станчев"
+    description="Прочетете общите условия за използване на сайта и SEO услугите, предоставяни от Станчев. Запознайте се с правилата, задълженията и политиките."
+    keywords="общи условия, правила за ползване, условия за услуги, SEO договор, SEO услуги България, правна информация, потребителски права, задължения на клиенти"
+    canonicalUrl="https://stanchev.bg/общи-условия"
+    structuredData={{
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Общи условия",
+      "description": "Правна информация и условия за ползване на SEO услугите и уебсайта stanchev.bg. Включва задължения на потребители и доставчик.",
+      "url": "https://stanchev.bg/общи-условия"
+    }}
+  />
+</>
       <div className="pt-24 pb-20">
         <div className="container mx-auto px-4">
           <CyberCard className="prose prose-invert max-w-none">

@@ -6,11 +6,18 @@ const CookiesPage: React.FC = () => {
   return (
     <>
       <SEOHead
-        title="Политика за бисквитките | SEO Специалист Станчев"
-        description="Информация за използването на бисквитки на сайта"
-        canonicalUrl="https://stanchev-seo.bg/бисквитки"
-      />
-
+  title="Политика за бисквитките | SEO Специалист Станчев"
+  description="Разберете как използваме бисквитки на сайта stanchev-seo.bg, какви типове данни се събират и как можете да управлявате своите предпочитания."
+  keywords="бисквитки, политика за бисквитки, GDPR, поверителност, лични данни, проследяване, SEO сайт, защита на данни"
+  canonicalUrl="https://stanchev-seo/бисквитки"
+  structuredData={{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Политика за бисквитките",
+    "description": "Информация относно използването на бисквитки, събирането на данни и спазване на GDPR на сайта stanchev-seo.bg.",
+    "url": "https://stanchev-seo/бисквитки"
+  }}
+/>
       <div className="pt-24 pb-20">
         <div className="container mx-auto px-4">
           <CyberCard className="prose prose-invert max-w-none">

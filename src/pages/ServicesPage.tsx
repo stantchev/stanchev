@@ -139,27 +139,33 @@ const ServicesPage: React.FC = () => {
   return (
     <>
       <SEOHead
-        title="SEO Услуги | Професионална оптимизация за търсачки в България"
-        description="Пълен набор от SEO услуги, персонализирани за българския пазар. От технически SEO одит до изграждане на обратни връзки и оптимизация на съдържание."
-        keywords="SEO услуги, оптимизация за търсачки, SEO одит, ключови думи, техническо SEO, локално SEO, България"
-        canonicalUrl="https://stanchev.bg/услуги"
-        structuredData={{
-          "@context": "https://schema.org",
-          "@type": "Service",
-          "name": "SEO Услуги за българския пазар",
-          "description": "Професионални SEO услуги за повишаване на видимостта в търсачките",
-          "provider": {
-            "@type": "Person",
-            "name": "Станчев"
-          },
-          "serviceType": "Оптимизация за търсачки",
-          "areaServed": {
-            "@type": "Country",
-            "name": "България"
-          }
-        }}
-      />
-
+  title="SEO Услуги | Професионална оптимизация за търсачки в България"
+  description="Пълен набор от SEO услуги, персонализирани за българския пазар. Включва технически SEO одит, локално SEO, изграждане на линкове, оптимизация на съдържание и SEO стратегия."
+  keywords="SEO услуги, оптимизация за търсачки, SEO одит, ключови думи, техническо SEO, локално SEO, България, линк билдинг, on-page SEO, off-page SEO, SEO консултации, класиране в Google, органичен трафик, дигитален маркетинг"
+  canonicalUrl="https://stanchev.bg/услуги"
+  structuredData={{
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "SEO Услуги за българския пазар",
+    "description": "Професионални SEO услуги за повишаване на органичното класиране в търсачките, включително технически одит, съдържание, линкове и локално SEO.",
+    "provider": {
+      "@type": "Person",
+      "name": "Станчев",
+      "url": "https://stanchev.bg/за-мен"
+    },
+    "serviceType": "Оптимизация за търсачки",
+    "areaServed": {
+      "@type": "Country",
+      "name": "България"
+    },
+    "offers": {
+      "@type": "Offer",
+      "priceCurrency": "BGN",
+      "availability": "https://schema.org/InStock",
+      "url": "https://stanchev.bg/услуги"
+    }
+  }}
+/>
       <div className="pt-24 pb-20">
         <div className="container mx-auto px-4">
           {/* Header */}
@@ -188,7 +194,7 @@ const ServicesPage: React.FC = () => {
                     <p className="text-xl text-gray-300 mb-6">
                       {service.description}
                     </p>
-                    <ul className="space-y-3 text-left">
+                    <ul className="space-y-3">
                       {service.benefits.map((benefit, benefitIndex) => (
                         <li key={benefitIndex} className="flex items-start">
                           <CheckCircle className={`text-cyber-${service.color} mt-1 mr-3 flex-shrink-0`} size={20} />
@@ -206,6 +212,19 @@ const ServicesPage: React.FC = () => {
               </div>
 			 </div>
             ))}
+          </div>
+
+          {/* CTA */}
+          <div className="mt-24 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              Готови ли сте да подобрите вашите <span className="neon-text">SEO резултати</span>?
+            </h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
+              Свържете се с мен за безплатна консултация и анализ на вашия уебсайт. Заедно ще създадем стратегия, която ще изведе вашия бизнес напред.
+            </p>
+            <Link to="/контакти" className="btn-primary text-lg px-8 py-4">
+              Свържете се с мен
+            </Link>
           </div>
 		  {/* How It Works - Only on Mobile */}
 <div className="block lg:hidden mt-24">
@@ -245,18 +264,6 @@ const ServicesPage: React.FC = () => {
     </div>
   </CyberCard>
 </div>
-          {/* CTA */}
-          <div className="mt-24 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Готови ли сте да подобрите вашите <span className="neon-text">SEO резултати</span>?
-            </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
-              Свържете се с мен за безплатна консултация и анализ на вашия уебсайт. Заедно ще създадем стратегия, която ще изведе вашия бизнес напред.
-            </p>
-            <Link to="/контакти" className="btn-primary text-lg px-8 py-4">
-              Свържете се с мен
-            </Link>
-          </div>
         </div>
       </div>
     </>

@@ -6,11 +6,18 @@ const PrivacyPage: React.FC = () => {
   return (
     <>
       <SEOHead
-        title="Политика за поверителност | SEO Специалист Станчев"
-        description="Политика за поверителност и защита на личните данни"
-        canonicalUrl="https://stanchev-seo.bg/политика-за-поверителност"
-      />
-
+  title="Политика за поверителност | SEO Специалист Станчев"
+  description="Прочетете политиката за поверителност и научете как събираме, използваме и защитаваме личните ви данни на сайта stanchev.bg, в съответствие с GDPR."
+  keywords="политика за поверителност, защита на лични данни, GDPR, SEO сайт, лична информация, поверителност, данни на потребители, сигурност на данни"
+  canonicalUrl="https://stanchev.bg/политика-за-поверителност"
+  structuredData={{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Политика за поверителност",
+    "description": "Политика за поверителност относно обработката и съхранението на лични данни на потребителите на сайта stanchev.bg, в съответствие с Общия регламент за защита на данните (GDPR).",
+    "url": "https://stanchev.bg/политика-за-поверителност"
+  }}
+/>
       <div className="pt-24 pb-20">
         <div className="container mx-auto px-4">
           <CyberCard className="prose prose-invert max-w-none">
