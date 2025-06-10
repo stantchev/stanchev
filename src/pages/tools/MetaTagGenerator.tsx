@@ -43,11 +43,21 @@ const MetaTagGeneratorPage: React.FC = () => {
   return (
     <>
       <SEOHead
-        title="Генератор на Мета Тагове | SEO инструменти за разработчици"
-        description="Генерирайте лесно и бързо SEO мета тагове за вашия уебсайт с реален преглед, копиране и експортиране."
-        keywords="meta тагове, SEO генератор, OpenGraph, JSON-LD, разработчици"
-        canonicalUrl="https://stanchev.bg/tools/meta-tag-generator"
-      />
+  title="Генератор на Мета Тагове | SEO инструменти за разработчици"
+  description="Генерирайте бързо и лесно SEO мета тагове, OpenGraph и JSON-LD за вашия уебсайт. Визуален преглед, копиране, експортиране и готов код за поставяне."
+  keywords="meta тагове, SEO генератор, генератор на мета тагове, OpenGraph, JSON-LD, мета описание, заглавие на страница, технически SEO, инструменти за разработчици, SEO инструменти онлайн"
+  canonicalUrl="https://stanchev.bg/tools/meta-tag-generator"
+  structuredData={{
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Генератор на мета тагове",
+    "applicationCategory": "SEO Tool",
+    "description": "Онлайн инструмент за създаване на мета тагове, OpenGraph и JSON-LD с визуализация и автоматично генериране на SEO код.",
+    "operatingSystem": "All",
+    "url": "https://stanchev.bg/tools/meta-tag-generator"
+  }}
+/>
+
       <div className={`pt-24 pb-20 ${darkMode ? 'bg-black text-white' : 'bg-white text-black'}`}>
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center mb-6">
