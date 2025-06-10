@@ -88,7 +88,6 @@ const TermsPage: React.FC = () => {
           </CyberCard>
         </div>
       </div>
-    </>
   );
 };
 
