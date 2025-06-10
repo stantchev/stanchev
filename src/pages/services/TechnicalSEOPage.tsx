@@ -8,11 +8,26 @@ const TechnicalSEOPage: React.FC = () => {
   return (
     <>
       <SEOHead
-        title="Техническо SEO | Подобрете индексирането и скоростта на вашия сайт"
-        description="Професионално техническо SEO за оптимално индексиране, висока скорост и сигурност. Осигурете стабилна основа за вашия сайт в търсачките."
-        keywords="техническо SEO, индексиране, скорост на сайта, SEO оптимизация, техническа поддръжка, скорост на сайт, индексиране на сайт, поддръжка на сайт"
-        canonicalUrl="https://stanchev.bg/услуги/техническо-seo"
-      />
+  title="Техническо SEO | Подобрете индексирането и скоростта на вашия сайт"
+  description="Професионално техническо SEO за подобряване на индексирането, скоростта на зареждане, мобилната оптимизация и сигурността на сайта. Създайте стабилна техническа основа за дългосрочен SEO успех."
+  keywords="техническо SEO, индексиране, скорост на сайта, SEO оптимизация, техническа поддръжка, Core Web Vitals, мобилна оптимизация, robots.txt, sitemap.xml, canonical тагове, уебсайт сигурност, SEO инфраструктура"
+  canonicalUrl="https://stanchev.bg/услуги/техническо-seo"
+  structuredData={{
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Техническо SEO",
+    "provider": {
+      "@type": "Person",
+      "name": "Станчев",
+      "url": "https://stanchev.bg/за-мен"
+    },
+    "areaServed": {
+      "@type": "Country",
+      "name": "България"
+    },
+    "description": "Техническа SEO услуга, включваща анализ на индексиране, скорост на зареждане, мобилна съвместимост, структура на сайта, сигурност и конфигурация на важни файлове като robots.txt и sitemap.xml."
+  }}
+/>
 
       <div className="pt-24 pb-20">
         <div className="container mx-auto px-4">
@@ -23,7 +38,7 @@ const TechnicalSEOPage: React.FC = () => {
 
             <div className="prose prose-invert max-w-none mb-12">
               <p className="text-xl text-gray-300 mb-8">
-                Техническото SEO е основата на успешната оптимизация. След подробния<Link to="https://stanchev.bg/услуги/одит" className="text-cyber-blue hover:text-cyber-purple">SEO одит</Link> преминаваме към поправяне на технически пречки, които възпрепятстват индексирането, скоростта или мобилната съвместимост на сайта ви. Без здрава техническа основа, всички останали SEO усилия се компрометират.
+                Техническото SEO е основата на успешната оптимизация. След <Link to="/услуги/одит" className="text-cyber-blue hover:text-cyber-purple">SEO одита</Link> преминаваме към поправяне на технически пречки, които възпрепятстват индексирането, скоростта или мобилната съвместимост на сайта ви. Без здрава техническа основа, всички останали SEO усилия се компрометират.
               </p>
             </div>
 
@@ -93,13 +108,13 @@ const TechnicalSEOPage: React.FC = () => {
 
             <div className="flex justify-between items-center">
               <Link 
-                to="https://stanchev.bg/услуги/одит"
+                to="/услуги/одит"
                 className="text-cyber-blue hover:text-cyber-purple transition-colors inline-flex items-center"
               >
                 ← Обратно към SEO Одит
               </Link>
               <Link 
-                to="https://stanchev.bg/услуги/съдържание"
+                to="/услуги/съдържание"
                 className="text-cyber-blue hover:text-cyber-purple transition-colors inline-flex items-center"
               >
                 Следваща услуга: Оптимизация на Съдържание

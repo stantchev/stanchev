@@ -6,13 +6,27 @@ import CyberCard from '../../components/UI/CyberCard';
 
 const MonitoringPage: React.FC = () => {
   return (
-    <>
-      <SEOHead
-        title="SEO Мониторинг | Проследяване и анализ на SEO резултатите"
-        description="Професионален SEO мониторинг с месечни доклади, анализ на позициите и ключови метрики за устойчив растеж."
-        keywords="SEO мониторинг, проследяване на резултати, SEO анализ, позициониране, SEO отчет, Google Search Console, SEO резултати, устойчиво SEO"
-        canonicalUrl="https://stanchev.bg/услуги/seo-мониторинг"
-      />
+    <SEOHead
+  title="SEO Мониторинг | Проследяване и анализ на SEO резултатите"
+  description="SEO мониторинг с месечни отчети, анализ на ключови думи, позиции и трафик. Поддържайте високо класиране с професионален анализ чрез Google Search Console и SEO инструменти."
+  keywords="SEO мониторинг, проследяване на резултати, SEO анализ, позициониране, SEO отчет, Google Search Console, SEO метрики, ключови думи, SERP анализ, устойчив растеж, SEO доклади"
+  canonicalUrl="https://stanchev.bg/услуги/seo-мониторинг"
+  structuredData={{
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "SEO Мониторинг",
+    "provider": {
+      "@type": "Person",
+      "name": "Станчев",
+      "url": "https://stanchev.bg/за-мен"
+    },
+    "areaServed": {
+      "@type": "Country",
+      "name": "България"
+    },
+    "description": "Услуга за SEO мониторинг и анализ на резултати – включва проследяване на ключови думи, позиции в търсачките, трафик и месечни отчети чрез Google Search Console и професионални инструменти."
+  }}
+/>
 
       <div className="pt-24 pb-20">
         <div className="container mx-auto px-4">
@@ -26,7 +40,7 @@ const MonitoringPage: React.FC = () => {
                 SEO мониторингът е последната, но изключително важна стъпка от SEO процеса. Той гарантира, че приложените стратегии се проследяват, анализират и усъвършенстват постоянно. Така се осигурява дългосрочен успех и стабилен растеж на органичния трафик.
               </p>
               <p className="text-xl text-gray-300 mb-8">
-                Услугата се комбинира идеално с <Link to="https://stanchev.bg/услуги/изграждане-на-връзки" className="text-cyber-blue hover:text-cyber-purple">линк билдинг</Link> и <Link to="https://stanchev.bg/услуги/оптимизация-на-съдържание" className="text-cyber-blue hover:text-cyber-purple">оптимизация на съдържание</Link>, за да се извлече максимален ефект от всяка предприета стъпка.
+                Услугата се комбинира идеално с <Link to="/услуги/изграждане-на-връзки" className="text-cyber-blue hover:text-cyber-purple">линк билдинг</Link> и <Link to="/услуги/оптимизация-на-съдържание" className="text-cyber-blue hover:text-cyber-purple">оптимизация на съдържание</Link>, за да се извлече максимален ефект от всяка предприета стъпка.
               </p>
             </div>
 
@@ -92,13 +106,13 @@ const MonitoringPage: React.FC = () => {
 
             <div className="flex justify-between items-center">
               <Link 
-                to="https://stanchev.bg/услуги/изграждане-на-връзки"
+                to="/услуги/изграждане-на-връзки"
                 className="text-cyber-blue hover:text-cyber-purple transition-colors inline-flex items-center"
               >
                 ← Назад към Изграждане на Връзки
               </Link>
               <Link 
-                to="https://stanchev.bg/контакти"
+                to="/контакти"
                 className="text-cyber-blue hover:text-cyber-purple transition-colors inline-flex items-center"
               >
                 Свържи се с мен

@@ -8,12 +8,26 @@ const LocalSEOPage: React.FC = () => {
   return (
     <>
       <SEOHead
-        title="Локално SEO | Подобрете видимостта си в местното търсене"
-        description="Локално SEO за български бизнеси – подобрете присъствието си в Google Maps и резултатите при търсения „близо до мен“ с оптимизация за локално търсене."
-        keywords="локално SEO, Google My Business, локално търсене, Google Maps SEO, България, Googlе оптимизация, локално търсене, SEO, България, София, SEO в България"
-        canonicalUrl="https://stanchev.bg/услуги/локално-seo"
-      />
-
+  title="Локално SEO | Подобрете видимостта си в местното търсене"
+  description="Локално SEO за български бизнеси – оптимизация на Google профил, локални ключови думи и линкове. Подобрете видимостта си в Google Maps и резултатите при търсения „близо до мен“."
+  keywords="локално SEO, Google My Business, локално търсене, Google Maps SEO, оптимизация за местен бизнес, локални ключови думи, Google профил, SEO за магазини, България, бизнес в София, търсене близо до мен, SEO за ресторанти"
+  canonicalUrl="https://stanchev.bg/услуги/локално-seo"
+  structuredData={{
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Локално SEO",
+    "provider": {
+      "@type": "Person",
+      "name": "Станчев",
+      "url": "https://stanchev.bg/за-мен"
+    },
+    "areaServed": {
+      "@type": "Country",
+      "name": "България"
+    },
+    "description": "SEO услуга за локално позициониране на бизнес в Google. Включва оптимизация на Google Business профил, локални търсения, ключови думи по населено място и повишаване на авторитета в местните резултати."
+  }}
+/>
       <div className="pt-24 pb-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
@@ -23,7 +37,7 @@ const LocalSEOPage: React.FC = () => {
 
             <div className="prose prose-invert max-w-none mb-12">
               <p className="text-xl text-gray-300 mb-8">
-                Ако предлагате услуги или продукти на местно ниво, <Link to="https://stanchev.bg/услуги/съдържание" className="text-cyber-blue hover:text-cyber-purple">оптимизирано съдържание</Link> не е достатъчно – нуждаете се и от ефективно <strong>локално SEO</strong>. Това ви помага да се показвате на водещи позиции в търсения като „най-добрият фризьор в София“ или „ресторант до мен“. Тук става дума за оптимизация на вашето присъствие в Google My Business, локални каталози, отзиви и още.
+                Ако предлагате услуги или продукти на местно ниво, <Link to="/услуги/съдържание" className="text-cyber-blue hover:text-cyber-purple">оптимизираното съдържание</Link> не е достатъчно – нуждаете се и от ефективно <strong>локално SEO</strong>. Това ви помага да се показвате на водещи позиции в търсения като „най-добрият фризьор в София“ или „ресторант до мен“. Тук става дума за оптимизация на вашето присъствие в Google My Business, локални каталози, отзиви и още.
               </p>
             </div>
 
@@ -93,13 +107,13 @@ const LocalSEOPage: React.FC = () => {
 
             <div className="flex justify-between items-center">
               <Link 
-                to="https://stanchev.bg/услуги/съдържание"
+                to="/услуги/съдържание"
                 className="text-cyber-blue hover:text-cyber-purple transition-colors inline-flex items-center"
               >
                 ← Обратно към Оптимизация на Съдържание
               </Link>
               <Link 
-                to="https://stanchev.bg/услуги/структурирани-данни"
+                to="/услуги/структурирани-данни"
                 className="text-cyber-blue hover:text-cyber-purple transition-colors inline-flex items-center"
               >
                 Следваща услуга: Структурирани Данни

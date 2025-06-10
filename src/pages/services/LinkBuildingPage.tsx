@@ -8,12 +8,26 @@ const LinkBuildingPage: React.FC = () => {
   return (
     <>
       <SEOHead
-        title="Изграждане на Връзки | Качествени външни линкове за по-добро SEO"
-        description="Повиши авторитета на сайта си чрез изграждане на стратегически външни връзки и линк билдинг кампании."
-        keywords="изграждане на връзки, link building, външни линкове, обратни връзки, SEO връзки, авторитет на сайта, авторитет на сайт"
-        canonicalUrl="https://stanchev.bg/услуги/изграждане-на-връзки"
-      />
-
+  title="Изграждане на Връзки | Качествени външни линкове за по-добро SEO"
+  description="Изграждане на авторитет с качествени външни връзки. Провеждаме бели link building кампании, които подобряват класирането ви в търсачките и органичния трафик в България."
+  keywords="изграждане на връзки, link building, външни линкове, обратни връзки, линк билдинг България, SEO връзки, авторитет на сайта, линков профил, white hat link building, SEO кампания"
+  canonicalUrl="https://stanchev-seo.bg/услуги/изграждане-на-връзки"
+  structuredData={{
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Изграждане на връзки (Link Building)",
+    "provider": {
+      "@type": "Person",
+      "name": "Станчев",
+      "url": "https://stanchev.bg/за-мен"
+    },
+    "areaServed": {
+      "@type": "Country",
+      "name": "България"
+    },
+    "description": "Професионално изграждане на линкове с фокус върху релевантност, качество и устойчив растеж. Услугата включва outreach, guest posting и анализ на линковия профил."
+  }}
+/>
       <div className="pt-24 pb-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
@@ -26,7 +40,7 @@ const LinkBuildingPage: React.FC = () => {
                 Изграждането на висококачествени <strong>обратни връзки</strong> е ключов фактор за доброто класиране в търсачките. Това е един от най-силните SEO сигнали, които показват на Google, че сайтът ви е надежден и заслужава внимание.
               </p>
               <p className="text-xl text-gray-300 mb-8">
-                Тази услуга допълва оптимизацията на <Link to="https://stanchev.bg/услуги/структурирани-данни" className="text-cyber-blue hover:text-cyber-purple">структурираните данни</Link> и е част от завършена SEO стратегия.
+                Тази услуга допълва оптимизацията на <Link to="/услуги/структурирани-данни" className="text-cyber-blue hover:text-cyber-purple">структурираните данни</Link> и е част от завършена SEO стратегия.
               </p>
             </div>
 
@@ -92,13 +106,13 @@ const LinkBuildingPage: React.FC = () => {
 
             <div className="flex justify-between items-center">
               <Link 
-                to="https://stanchev.bg/услуги/структурирани-данни"
+                to="/услуги/структурирани-данни"
                 className="text-cyber-blue hover:text-cyber-purple transition-colors inline-flex items-center"
               >
                 ← Обратно към Структурирани Данни
               </Link>
               <Link 
-                to="https://stanchev.bg/контакти"
+                to="/контакти"
                 className="text-cyber-blue hover:text-cyber-purple transition-colors inline-flex items-center"
               >
                 Свържи се с мен

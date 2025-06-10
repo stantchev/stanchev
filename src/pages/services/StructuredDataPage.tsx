@@ -8,11 +8,26 @@ const StructuredDataPage: React.FC = () => {
   return (
     <>
       <SEOHead
-        title="Структурирани Данни | Внедряване на Schema.org за SEO"
-        description="Оптимизирай видимостта си с внедряване на структурирани данни и rich snippets чрез Schema.org."
-        keywords="структурирани данни, schema.org, rich snippets, SEO подобрение, богати резултати, SEO, техническо SEO"
-        canonicalUrl="https://stanchev.bg/услуги/структурирани-данни"
-      />
+  title="Структурирани Данни | Внедряване на Schema.org за SEO"
+  description="Внедряване на структурирани данни (Schema.org) за подобряване на видимостта в Google и поява в rich snippets. Подобрете CTR и SEO представянето с технически подход."
+  keywords="структурирани данни, schema.org, rich snippets, структуриране на информация, SEO подобрение, техническо SEO, богати резултати, JSON-LD, SEO тагове, microdata, SEO България"
+  canonicalUrl="https://stanchev.bg/услуги/структурирани-данни"
+  structuredData={{
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Внедряване на структурирани данни (Schema.org)",
+    "provider": {
+      "@type": "Person",
+      "name": "Станчев",
+      "url": "https://stanchev.bg/за-мен"
+    },
+    "areaServed": {
+      "@type": "Country",
+      "name": "България"
+    },
+    "description": "Услуга за техническа SEO оптимизация чрез структурирани данни. Включва анализ, подбор и внедряване на schema.org формати като JSON-LD за подобряване на класиране и визуално присъствие в търсачките."
+  }}
+/>
 
       <div className="pt-24 pb-20">
         <div className="container mx-auto px-4">
@@ -26,7 +41,7 @@ const StructuredDataPage: React.FC = () => {
                 Внедряването на <strong>структурирани данни</strong> чрез <code>Schema.org</code> е ключово за по-ефективното представяне на съдържанието ви в Google и други търсачки. Те позволяват на търсачките да разберат по-добре структурата на вашия сайт и съдържанието му, като по този начин се увеличава вероятността за показване на rich snippets.
               </p>
               <p className="text-xl text-gray-300 mb-8">
-                Структурираните данни са естествено продължение на <Link to="https://stanchev.bg/услуги/локално-seo" className="text-cyber-blue hover:text-cyber-purple">Локалното SEO</Link> и играят важна роля в цялостната ви SEO стратегия.
+                Структурираните данни са естествено продължение на <Link to="/услуги/локално-seo" className="text-cyber-blue hover:text-cyber-purple">Локалното SEO</Link> и играят важна роля в цялостната ви SEO стратегия.
               </p>
             </div>
 
@@ -92,13 +107,13 @@ const StructuredDataPage: React.FC = () => {
 
             <div className="flex justify-between items-center">
               <Link 
-                to="https://stanchev.bg/услуги/локално-seo"
+                to="/услуги/локално-seo"
                 className="text-cyber-blue hover:text-cyber-purple transition-colors inline-flex items-center"
               >
                 ← Обратно към Локално SEO
               </Link>
               <Link 
-                to="https://stanchev.bg/услуги/съдържание"
+                to="/услуги/съдържание"
                 className="text-cyber-blue hover:text-cyber-purple transition-colors inline-flex items-center"
               >
                 Следваща услуга: Оптимизация на Съдържание

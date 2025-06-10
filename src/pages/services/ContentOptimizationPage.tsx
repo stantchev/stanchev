@@ -6,13 +6,27 @@ import CyberCard from '../../components/UI/CyberCard';
 
 const ContentOptimizationPage: React.FC = () => {
   return (
-    <>
-      <SEOHead
-        title="Оптимизация на Съдържание | Повишете видимостта и ангажираността"
-        description="Създаваме и оптимизираме съдържание, което класира, вдъхновява и продава. Подобрете ангажираността и класирането си с ефективна SEO стратегия за съдържание."
-        keywords="оптимизация на съдържание, SEO съдържание, SEO копирайтинг, SEO текстове, България, копирайтинг, SEO"
-        canonicalUrl="https://stanchev.bg/услуги/съдържание"
-      />
+    <SEOHead
+  title="Оптимизация на Съдържание | Повишете видимостта и ангажираността"
+  description="Създаваме и оптимизираме SEO съдържание, което класира, вдъхновява и конвертира. Получете висококачествени текстове за блога, категориите и услугите си, оптимизирани за търсачките и българския пазар."
+  keywords="оптимизация на съдържание, SEO съдържание, SEO копирайтинг, SEO текстове, съдържание за уебсайт, текстове за блог, ключови думи, съдържание за онлайн магазин, конверсии чрез съдържание, България"
+  canonicalUrl="https://stanchev.bg/услуги/съдържание"
+  structuredData={{
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Оптимизация на съдържание",
+    "provider": {
+      "@type": "Person",
+      "name": "Станчев",
+      "url": "https://stanchev.bg/за-мен"
+    },
+    "areaServed": {
+      "@type": "Country",
+      "name": "България"
+    },
+    "description": "Услуга за оптимизация на съдържание с фокус върху SEO текстове, блог публикации, продуктови описания и страници за услуги, насочена към по-добро класиране и ангажираност."
+  }}
+/>
 
       <div className="pt-24 pb-20">
         <div className="container mx-auto px-4">
@@ -23,7 +37,7 @@ const ContentOptimizationPage: React.FC = () => {
 
             <div className="prose prose-invert max-w-none mb-12">
               <p className="text-xl text-gray-300 mb-8">
-                След <Link to="https://stanchev.bg/услуги/техническо-seo" className="text-cyber-blue hover:text-cyber-purple">техническо SEO</Link> идва най-видимата част — съдържанието. То не просто трябва да е красиво написано, а да бъде стратегически структурирано, ангажиращо и индексирано от търсачките. Правилната оптимизация на съдържание увеличава както трафика, така и доверието на потребителите.
+                След <Link to="/услуги/техническо-seo" className="text-cyber-blue hover:text-cyber-purple">техническото SEO</Link> идва най-видимата част — съдържанието. То не просто трябва да е красиво написано, а да бъде стратегически структурирано, ангажиращо и индексирано от търсачките. Правилната оптимизация на съдържание увеличава както трафика, така и доверието на потребителите.
               </p>
             </div>
 
@@ -93,13 +107,13 @@ const ContentOptimizationPage: React.FC = () => {
 
             <div className="flex justify-between items-center">
               <Link 
-                to="https://stanchev.bg/услуги/техническо-seo"
+                to="/услуги/техническо-seo"
                 className="text-cyber-blue hover:text-cyber-purple transition-colors inline-flex items-center"
               >
                 ← Обратно към Техническо SEO
               </Link>
               <Link 
-                to="https://stanchev.bg/услуги/локално-seo"
+                to="/услуги/локално-seo"
                 className="text-cyber-blue hover:text-cyber-purple transition-colors inline-flex items-center"
               >
                 Следваща услуга: Локално SEO

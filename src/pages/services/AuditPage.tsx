@@ -8,12 +8,26 @@ const AuditPage: React.FC = () => {
   return (
     <>
       <SEOHead
-        title="SEO Одит | Професионален анализ на уебсайтове"
-        description="Цялостен SEO одит на вашия уебсайт с конкретни препоръки за подобрение. Открийте възможностите за по-добро класиране в търсачките."
-        keywords="SEO одит, технически анализ, SEO анализ, одит на уебсайт, SEO България"
-        canonicalUrl="https://stanchev.bg/услуги/seo-одит"
-      />
-
+  title="SEO Одит | Професионален анализ на уебсайтове в България"
+  description="Професионален SEO одит с пълен технически анализ на уебсайта ви. Получете конкретни препоръки за оптимизация, подобряване на структурата, скоростта и видимостта в Google за българския пазар."
+  keywords="SEO одит, технически анализ, SEO анализ, одит на уебсайт, SEO България, оптимизация на сайт, SEO проверка, SEO услуги, органично търсене, класиране в Google, техническа оптимизация, дигитален одит, видимост в търсачки, on-page SEO, off-page SEO, уебсайт одит, SEO инструмент, crawl анализ"
+  canonicalUrl="https://stanchev.bg/услуги/seo-одит"
+  structuredData={{
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "SEO Одит",
+    "provider": {
+      "@type": "Person",
+      "name": "Станчев",
+      "url": "https://stanchev.bg/за-мен"
+    },
+    "areaServed": {
+      "@type": "Country",
+      "name": "България"
+    },
+    "description": "Подробен SEO одит с технически и съдържателен анализ на уебсайта ви, включително on-page, off-page и crawl диагностика. Идентифициране на грешки и възможности за подобрение."
+  }}
+/>
       <div className="pt-24 pb-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
@@ -25,7 +39,7 @@ const AuditPage: React.FC = () => {
                 SEO <span className="neon-text">Одит</span>
               </h1>
               <p className="text-xl text-gray-300 mb-8">
-                След първоначалната <Link to="https://stanchev.bg/%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B8/%D0%BA%D0%BE%D0%BD%D1%81%D1%83%D0%BB%D1%82%D0%B0%D1%86%D0%B8%D1%8F" className="text-cyber-blue hover:text-cyber-purple">SEO консултация</Link>, 
+                След <Link to="/услуги/консултация" className="text-cyber-blue hover:text-cyber-purple">първоначалната консултация</Link>, 
                 извършвам задълбочен анализ на вашия уебсайт, за да открия всички възможности за подобрение и да създам 
                 конкретен план за действие.
               </p>
@@ -166,9 +180,9 @@ const AuditPage: React.FC = () => {
 
             <div className="text-center">
               <p className="text-xl text-gray-300 mb-8">
-                След SEO одита, следващата стъпка е създаването на цялостна {' '}
-                <Link to="https://stanchev.bg/%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B8/%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D0%B8%D1%8F" className="text-cyber-blue hover:text-cyber-purple">
-                  SEO стратегия
+                След SEO одита, следващата стъпка е създаването на{' '}
+                <Link to="/услуги/стратегия" className="text-cyber-blue hover:text-cyber-purple">
+                  цялостна SEO стратегия
                 </Link>{' '}
                 за вашия сайт.
               </p>

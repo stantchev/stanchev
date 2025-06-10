@@ -6,14 +6,27 @@ import CyberCard from '../../components/UI/CyberCard';
 
 const ConsultationPage: React.FC = () => {
   return (
-    <>
-      <SEOHead
-        title="SEO Консултация | Професионална SEO консултация за български бизнеси"
-        description="Професионална SEO консултация за анализ на вашия уебсайт и разработване на стратегия за успех в българското интернет пространство."
-        keywords="SEO консултация, SEO анализ, SEO стратегия, България, онлайн бизнес"
-        canonicalUrl="https://stanchev.bg/услуги/консултация"
-      />
-
+    <SEOHead
+  title="SEO Консултация | Професионална SEO консултация за български бизнеси"
+  description="Персонализирана SEO консултация с дълбок анализ на уебсайта, разработване на цялостна стратегия и съвети за класиране в Google. Подходящо за онлайн магазини, корпоративни сайтове и местни бизнеси в България."
+  keywords="SEO консултация, SEO анализ, SEO стратегия, SEO съвети, дигитална стратегия, онлайн бизнес България, SEO за фирми, SEO консултант, класиране в Google, оптимизация на сайт"
+  canonicalUrl="https://stanchev.bg/услуги/консултация"
+  structuredData={{
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "SEO Консултация",
+    "provider": {
+      "@type": "Person",
+      "name": "Станчев",
+      "url": "https://stanchev.bg/за-мен"
+    },
+    "areaServed": {
+      "@type": "Country",
+      "name": "България"
+    },
+    "description": "Индивидуална SEO консултация с практическа насоченост – анализ на техническо състояние, съдържание, ключови думи и линк профил на уебсайта. Подходящо за фирми и онлайн магазини в България."
+  }}
+/>
       <div className="pt-24 pb-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
@@ -23,7 +36,7 @@ const ConsultationPage: React.FC = () => {
             
             <div className="prose prose-invert max-w-none mb-12">
               <p className="text-xl text-gray-300 mb-8">
-                Първата стъпка в процеса е провеждането на консултация с клиента. Тук се обсъждат целите, нуждите и очакванията, както и се предоставя обща представа за това как SEO може да помогне на вашия бизнес. След консултацията следва <Link to="https://stanchev.bg/%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B8/seo-%D0%BE%D0%B4%D0%B8%D1%82" className="text-cyber-blue hover:text-cyber-purple">SEO одит</Link> на сайта, който разкрива конкретните възможности за подобрение.
+                Първата стъпка в процеса е провеждането на консултация с клиента. Тук се обсъждат целите, нуждите и очакванията, както и се предоставя обща представа за това как SEO може да помогне на вашия бизнес. След консултацията следва <Link to="/услуги/seo-одит" className="text-cyber-blue hover:text-cyber-purple">SEO одит на сайта</Link>, който разкрива конкретните възможности за подобрение.
               </p>
             </div>
 

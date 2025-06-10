@@ -8,11 +8,26 @@ const StrategyPage: React.FC = () => {
   return (
     <>
       <SEOHead
-        title="SEO Стратегия | Планиране за успех в търсачките"
-        description="Разработване на персонализирана SEO стратегия за вашия бизнес. Ясен план за действие и конкретни стъпки за постигане на по-добри резултати."
-        keywords="SEO стратегия, SEO планиране, оптимизация за търсачки, SEO България, SEO, SEO оптимизация"
-        canonicalUrl="https://stanchev.bg/услуги/стратегия"
-      />
+  title="SEO Стратегия | Планиране за успех в търсачките"
+  description="Разработване на персонализирана SEO стратегия за устойчив растеж и по-добро класиране в Google. Включва анализ на конкуренцията, ключови думи, линк билдинг и съдържание."
+  keywords="SEO стратегия, SEO планиране, стратегия за оптимизация, SEO анализ, SEO България, дигитална стратегия, класиране в Google, конкурентен анализ, SEO за бизнес, SEO цели, стратегия за съдържание"
+  canonicalUrl="https://stanchev.bg/услуги/стратегия"
+  structuredData={{
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "SEO стратегия",
+    "provider": {
+      "@type": "Person",
+      "name": "Станчев",
+      "url": "https://stanchev.bg/за-мен"
+    },
+    "areaServed": {
+      "@type": "Country",
+      "name": "България"
+    },
+    "description": "Професионална SEO услуга за създаване на индивидуална стратегия – анализ на конкуренцията, избор на ключови думи, структура на сайта, съдържание и линк билдинг за дългосрочен растеж и видимост в търсачките."
+  }}
+/>
 
       <div className="pt-24 pb-20">
         <div className="container mx-auto px-4">
@@ -26,7 +41,7 @@ const StrategyPage: React.FC = () => {
               </h1>
               <p className="text-xl text-gray-300 mb-8">
                 След провеждането на подробен{' '}
-                <Link to="https://stanchev.bg/услуги/seo-одит" className="text-cyber-blue hover:text-cyber-purple">
+                <Link to="/услуги/seo-одит" className="text-cyber-blue hover:text-cyber-purple">
                   SEO одит
                 </Link>, 
                 разработвам персонализирана стратегия, която ще помогне на вашия бизнес да 
@@ -157,13 +172,13 @@ const StrategyPage: React.FC = () => {
             <div className="text-center">
               <p className="text-xl text-gray-300 mb-8">
                 След разработването на стратегията, следва{' '}
-                <Link to="https://stanchev.bg/услуги/on-page-оптимизация" className="text-cyber-blue hover:text-cyber-purple">
+                <Link to="/услуги/on-page-оптимизация" className="text-cyber-blue hover:text-cyber-purple">
                   On-page SEO оптимизация
                 </Link>{' '}
                 на вашия сайт.
               </p>
               <Link 
-                to="https://stanchev.bg/услуги/on-page-оптимизация" 
+                to="/услуги/on-page-оптимизация" 
                 className="btn-primary inline-flex items-center"
               >
                 Към On-page SEO

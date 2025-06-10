@@ -6,14 +6,27 @@ import CyberCard from '../../components/UI/CyberCard';
 
 const OnPagePage: React.FC = () => {
   return (
-    <>
-      <SEOHead
-        title="On-page SEO | Оптимизация на уебсайт съдържание"
-        description="Професионална on-page SEO оптимизация за вашия уебсайт. Подобрете видимостта си в търсачките чрез оптимизация на съдържанието и структурата."
-        keywords="on-page SEO, оптимизация на съдържание, SEO оптимизация, мета тагове, on-page SEO оптимизация, on-page оптимизация"
-        canonicalUrl="https://stanchev.bg/услуги/on-page-оптимизация"
-      />
-
+    <SEOHead
+  title="On-page SEO | Оптимизация на уебсайт съдържание"
+  description="Професионална on-page SEO услуга за оптимизация на заглавия, мета описания, структура на сайта и съдържание. Подобрете класирането си в търсачките и потребителското изживяване."
+  keywords="on-page SEO, оптимизация на съдържание, вътрешна SEO оптимизация, мета тагове, заглавия, структура на сайт, SEO за страници, вътрешни линкове, SEO тагове, HTML оптимизация, България"
+  canonicalUrl="https://stanchev.bg/услуги/on-page-оптимизация"
+  structuredData={{
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "On-page SEO оптимизация",
+    "provider": {
+      "@type": "Person",
+      "name": "Станчев",
+      "url": "https://stanchev.bg/за-мен"
+    },
+    "areaServed": {
+      "@type": "Country",
+      "name": "България"
+    },
+    "description": "Услуга за вътрешна SEO оптимизация – подобряване на мета тагове, структура на съдържанието, вътрешни връзки и HTML елементи с цел по-добро класиране в Google и повишаване на органичния трафик."
+  }}
+/>
       <div className="pt-24 pb-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
@@ -26,7 +39,7 @@ const OnPagePage: React.FC = () => {
               </h1>
               <p className="text-xl text-gray-300 mb-8">
                 След разработването на{' '}
-                <Link to="https://stanchev.bg/услуги/стратегия" className="text-cyber-blue hover:text-cyber-purple">
+                <Link to="/услуги/стратегия" className="text-cyber-blue hover:text-cyber-purple">
                   цялостната SEO стратегия
                 </Link>, 
                 пристъпваме към оптимизация на вътрешните елементи на вашия сайт за 
@@ -157,13 +170,13 @@ const OnPagePage: React.FC = () => {
             <div className="text-center">
               <p className="text-xl text-gray-300 mb-8">
                 След on-page оптимизацията, преминаваме към{' '}
-                <Link to="https://stanchev.bg/услуги/техническо-seo" className="text-cyber-blue hover:text-cyber-purple">
+                <Link to="/услуги/техническо-seo" className="text-cyber-blue hover:text-cyber-purple">
                   техническата SEO оптимизация
                 </Link>{' '}
                 на вашия сайт.
               </p>
               <Link 
-                to="https://stanchev.bg/услуги/техническо-seo" 
+                to="/услуги/техническо-seo" 
                 className="btn-primary inline-flex items-center"
               >
                 Към техническо SEO
