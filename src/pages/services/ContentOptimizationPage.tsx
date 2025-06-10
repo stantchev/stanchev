@@ -124,7 +124,6 @@ const ContentOptimizationPage: React.FC = () => {
           </div>
         </div>
       </div>
-  );
 };
 
 export default ContentOptimizationPage;
