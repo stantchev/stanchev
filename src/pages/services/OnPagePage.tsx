@@ -27,6 +27,7 @@ const OnPagePage: React.FC = () => {
     "description": "Услуга за вътрешна SEO оптимизация – подобряване на мета тагове, структура на съдържанието, вътрешни връзки и HTML елементи с цел по-добро класиране в Google и повишаване на органичния трафик."
   }}
 />
+    );
       <div className="pt-24 pb-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
