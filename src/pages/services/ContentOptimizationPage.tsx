@@ -27,6 +27,7 @@ const ContentOptimizationPage: React.FC = () => {
     "description": "Услуга за оптимизация на съдържание с фокус върху SEO текстове, блог публикации, продуктови описания и страници за услуги, насочена към по-добро класиране и ангажираност."
   }}
 />
+    );
 
       <div className="pt-24 pb-20">
         <div className="container mx-auto px-4">
@@ -123,7 +124,6 @@ const ContentOptimizationPage: React.FC = () => {
           </div>
         </div>
       </div>
-    </>
   );
 };
 
