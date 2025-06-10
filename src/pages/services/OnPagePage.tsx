@@ -187,7 +187,6 @@ const OnPagePage: React.FC = () => {
           </div>
         </div>
       </div>
-    </>
   );
 };
 
