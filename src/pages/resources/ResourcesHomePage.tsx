@@ -30,11 +30,19 @@ const ResourcesHomePage: React.FC = () => {
   return (
     <>
       <SEOHead
-        title="Полезни SEO Ресурси | Инструменти за Оптимизация"
-        description="Открийте безплатни онлайн инструменти за SEO – генератори на мета тагове, JSON-LD, и много други ресурси."
-        keywords="SEO инструменти, мета таг генератор, JSON-LD, SEO ресурси"
-        canonicalUrl="https://stanchev.bg/resources"
-      />
+  title="Полезни SEO Ресурси | Инструменти за Оптимизация"
+  description="Безплатни онлайн SEO инструменти за професионалисти и начинаещи – мета таг генератори, JSON-LD schema генератори, анализатори на съдържание, rich snippet валидатори и още."
+  keywords="SEO инструменти, мета таг генератор, JSON-LD, SEO ресурси, rich snippets, SEO валидатор, структурирани данни, SEO анализ, онлайн SEO помощ, техническа оптимизация"
+  canonicalUrl="https://stanchev.bg/resources"
+  structuredData={{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Полезни SEO ресурси",
+    "description": "Колекция от безплатни онлайн инструменти и ресурси за SEO оптимизация, включително генератори на мета тагове, структурирани данни (JSON-LD), валидатори и други.",
+    "url": "https://stanchev.bg/resources"
+  }}
+/>
+
       <div className="pt-24 pb-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
