@@ -19,6 +19,7 @@ const TermsPage: React.FC = () => {
     }}
   />
 </>
+    );
       <div className="pt-24 pb-20">
         <div className="container mx-auto px-4">
           <CyberCard className="prose prose-invert max-w-none">
