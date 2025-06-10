@@ -27,7 +27,7 @@ const MonitoringPage: React.FC = () => {
     "description": "Услуга за SEO мониторинг и анализ на резултати – включва проследяване на ключови думи, позиции в търсачките, трафик и месечни отчети чрез Google Search Console и професионални инструменти."
   }}
 />
-    ):
+    );
 
       <div className="pt-24 pb-20">
         <div className="container mx-auto px-4">
