@@ -13,6 +13,11 @@ const posts = [
     publishedAt: '2023-10-15T10:00:00.000Z',
     status: 'published',
   },
+  {
+    slug: 'kakvo-e-seo',
+    publishedAt: '2025-06-11T09:00:00.000Z',
+    status: 'published',
+  },
 ];
 
 // ГЕНЕРИРАНЕ НА sitemap.xml
