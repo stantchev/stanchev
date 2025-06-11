@@ -1,7 +1,6 @@
 const chromium = require('chrome-aws-lambda');
 const puppeteer = require('puppeteer-core');
-const rawIsBot = require('isbot');
-const isBot = typeof rawIsBot === 'function' ? rawIsBot : rawIsBot.default;
+const isBot = require('isbot');
 
 const ALLOWED_PATHS = [
   '/',
