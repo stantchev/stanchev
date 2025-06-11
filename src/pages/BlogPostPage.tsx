@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { ArrowLeft, Clock, User, Tag, Edit } from 'lucide-react';
 import SEOHead from '../components/Layout/SEOHead';
@@ -9,12 +9,19 @@ import { useAuth } from '../context/AuthContext';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 
-
 const BlogPostPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
   const { getPostBySlug, posts } = useBlogStore();
   const { isAuthenticated } = useAuth();
+
+  // Reset localStorage if posts are missing (helps during SSR or first load)
+  useEffect(() => {
+    if (useBlogStore.getState().posts.length === 0) {
+      localStorage.removeItem('blog-storage');
+      window.location.reload();
+    }
+  }, []);
 
   const post = getPostBySlug(slug || '');
 
@@ -23,7 +30,9 @@ const BlogPostPage: React.FC = () => {
       <div className="min-h-screen pt-24 flex flex-col items-center justify-center text-center px-4">
         <div className="bg-cyber-gray/10 p-10 rounded-xl border border-cyber-gray/30">
           <h1 className="text-3xl font-bold mb-4">Публикацията не е намерена</h1>
-          <p className="text-gray-400 mb-8">Страницата, която търсите, не съществува или е преместена.</p>
+          <p className="text-gray-400 mb-8">
+            Страницата, която търсите, не съществува или е преместена.
+          </p>
           <Link to="/blog" className="btn-primary">
             Върнете се към блога
           </Link>
@@ -33,7 +42,12 @@ const BlogPostPage: React.FC = () => {
   }
 
   const relatedPosts = posts
-    .filter(p => p.id !== post.id && p.status === 'published' && p.tags.some(tag => post.tags.includes(tag)))
+    .filter(
+      (p) =>
+        p.id !== post.id &&
+        p.status === 'published' &&
+        p.tags.some((tag) => post.tags.includes(tag))
+    )
     .slice(0, 3);
 
   return (
@@ -41,20 +55,23 @@ const BlogPostPage: React.FC = () => {
       <SEOHead
         title={post.seoTitle || post.title}
         description={post.seoDescription || post.excerpt}
-        keywords={post.seoKeywords || `${post.tags.join(", ")}, SEO блог, дигитален маркетинг, съдържание, ключови думи, Google търсене, онлайн видимост, статия за SEO`}
+        keywords={
+          post.seoKeywords ||
+          `${post.tags.join(', ')}, SEO блог, дигитален маркетинг, съдържание, ключови думи, Google търсене, онлайн видимост, статия за SEO`
+        }
         ogType="article"
         canonicalUrl={`https://stanchev.bg/blog/${post.slug}`}
         structuredData={{
-          "@context": "https://schema.org",
-          "@type": "BlogPosting",
+          '@context': 'https://schema.org',
+          '@type': 'BlogPosting',
           headline: post.title,
           description: post.excerpt,
-          keywords: `${post.tags.join(", ")}, SEO блог, дигитален маркетинг, съдържание, ключови думи, Google търсене, онлайн видимост, статия за SEO`,
-          author: { "@type": "Person", name: post.author },
+          keywords: `${post.tags.join(', ')}, SEO блог, дигитален маркетинг, съдържание, ключови думи, Google търсене, онлайн видимост, статия за SEO`,
+          author: { '@type': 'Person', name: post.author },
           datePublished: post.publishedAt,
           mainEntityOfPage: {
-            "@type": "WebPage",
-            "@id": `https://stanchev.bg/blog/${post.slug}`,
+            '@type': 'WebPage',
+            '@id': `https://stanchev.bg/blog/${post.slug}`,
           },
         }}
       />
@@ -109,10 +126,13 @@ const BlogPostPage: React.FC = () => {
 
           <div className="grid grid-cols-1 xl:grid-cols-4 gap-y-12 gap-x-8">
             <div className="xl:col-span-3">
-              <CyberCard glowColor="purple" className="article-content shadow-lg border border-cyber-gray/30">
+              <CyberCard
+                glowColor="purple"
+                className="article-content shadow-lg border border-cyber-gray/30"
+              >
                 <article className="prose prose-invert lg:prose-xl prose-headings:text-white prose-a:text-cyber-blue hover:prose-a:text-cyber-purple prose-img:rounded-xl prose-img:shadow-lg max-w-none">
                   <ReactMarkdown remarkPlugins={[remarkGfm]}>
-                      {post.content}
+                    {post.content}
                   </ReactMarkdown>
                 </article>
               </CyberCard>
@@ -123,9 +143,15 @@ const BlogPostPage: React.FC = () => {
                 <div className="text-center">
                   <h3 className="text-xl font-bold mb-3">За автора</h3>
                   <p className="text-gray-300 mb-4">
-                    Станчев е SEO експерт с 1 година опит в оптимизацията за търсачки за българския пазар. Публикациите му обхващат SEO стратегии, онлайн маркетинг, копирайтинг и техническа оптимизация на сайтове.
+                    Станчев е SEO експерт с 1 година опит в оптимизацията за
+                    търсачки за българския пазар. Публикациите му обхващат SEO
+                    стратегии, онлайн маркетинг, копирайтинг и техническа
+                    оптимизация на сайтове.
                   </p>
-                  <Link to="/за-мен" className="text-cyber-blue hover:text-cyber-purple transition-colors">
+                  <Link
+                    to="/за-мен"
+                    className="text-cyber-blue hover:text-cyber-purple transition-colors"
+                  >
                     Научете повече
                   </Link>
                 </div>
