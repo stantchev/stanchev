@@ -59,7 +59,7 @@ export const useBlogStore = create<BlogState>()(
           status: 'published'
         },
         {
-          id: '4',
+          id: '2',
           title: 'Какво е SEO?',
           slug: 'kakvo-e-seo',
           content: `
