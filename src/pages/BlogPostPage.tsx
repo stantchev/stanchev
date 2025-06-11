@@ -7,6 +7,8 @@ import { useBlogStore } from '../store/blogStore';
 import { formatDate } from '../utils/formatters';
 import { useAuth } from '../context/AuthContext';
 import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+
 
 const BlogPostPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -109,7 +111,9 @@ const BlogPostPage: React.FC = () => {
             <div className="xl:col-span-3">
               <CyberCard glowColor="purple" className="article-content shadow-lg border border-cyber-gray/30">
                 <article className="prose prose-invert lg:prose-xl prose-headings:text-white prose-a:text-cyber-blue hover:prose-a:text-cyber-purple prose-img:rounded-xl prose-img:shadow-lg max-w-none">
-                  <ReactMarkdown>{post.content}</ReactMarkdown>
+                  <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                      {post.content}
+                  </ReactMarkdown>
                 </article>
               </CyberCard>
             </div>
