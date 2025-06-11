@@ -1,11 +1,4 @@
 import React from 'react';
-import React, { useEffect } from 'react';
-useEffect(() => {
-  if (useBlogStore.getState().posts.length === 0) {
-    localStorage.removeItem('blog-storage');
-    window.location.reload();
-  }
-}, []);
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { ArrowLeft, Clock, User, Tag, Edit } from 'lucide-react';
 import SEOHead from '../components/Layout/SEOHead';
