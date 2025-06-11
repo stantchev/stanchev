@@ -131,9 +131,10 @@ const BlogPostPage: React.FC = () => {
                 className="article-content shadow-lg border border-cyber-gray/30"
               >
                 <article className="prose prose-invert lg:prose-xl prose-headings:text-white prose-a:text-cyber-blue hover:prose-a:text-cyber-purple prose-img:rounded-xl prose-img:shadow-lg max-w-none">
-                  <ReactMarkdown remarkPlugins={[remarkGfm]}>
-                    {post.content}
-                  </ReactMarkdown>
+                  <div
+                      className="prose prose-invert lg:prose-xl prose-headings:text-white prose-a:text-cyber-blue hover:prose-a:text-cyber-purple prose-img:rounded-xl prose-img:shadow-lg max-w-none"
+                      dangerouslySetInnerHTML={{ __html: post.content }}
+                      />
                 </article>
               </CyberCard>
             </div>
