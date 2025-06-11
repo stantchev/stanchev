@@ -34,6 +34,7 @@ exports.handler = async (event) => {
 
   const userAgent = event.headers['user-agent'] || '';
   const path = event.rawUrl.replace(/^https?:\/\/[^/]+/, '').split('?')[0];
+  const path = decodeURIComponent(rawPath);
 
   const shouldServeBot = isBot(userAgent);
   const isAllowedPath = ALLOWED_PATHS.some((rule) =>
