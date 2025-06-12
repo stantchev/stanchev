@@ -72,7 +72,25 @@ exports.handler = async (event) => {
       timeout: 30000
     });
 
-    console.log('[Prerender] Страницата е заредена. Генерирам HTML.');
+    console.log('[Prerender] Страницата е заредена. Почистваме дублирани <head> елементи.');
+
+    // Премахваме дублиращи се тагове в head-а
+    await page.evaluate(() => {
+      const keepAttrs = ['name', 'property', 'rel', 'type'];
+      const seen = new Set();
+
+      const tagSelector = 'meta[name], meta[property], link[rel], title, script[type="application/ld+json"]';
+      document.head.querySelectorAll(tagSelector).forEach((el) => {
+        const attr = keepAttrs.find((a) => el.hasAttribute(a));
+        const key = `${el.tagName}:${attr ? el.getAttribute(attr) : el.textContent}`;
+
+        if (seen.has(key)) {
+          el.remove();
+        } else {
+          seen.add(key);
+        }
+      });
+    });
 
     const html = await page.content();
     await browser.close();
