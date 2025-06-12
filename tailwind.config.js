@@ -16,7 +16,7 @@ export default {
         'cyber-gray': '#2d2d3f',
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
+        sans: ['NotoSerif', 'serif',],
       },
       animation: {
         'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
