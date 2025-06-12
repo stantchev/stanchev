@@ -95,36 +95,36 @@ const ContactPage: React.FC = () => {
   return (
     <>
       <SEOHead
-  title="Контакти | SEO Специалист Станчев"
-  description="Свържете се със Станчев - SEO специалист за българския пазар. Безплатна консултация и персонализирани решения за вашия бизнес."
-  keywords="контакти, SEO консултация, SEO специалист, Станчев контакти, дигитален маркетинг, безплатна SEO консултация, локално SEO България, връзка със SEO експерт"
-  canonicalUrl="https://stanchev.bg/контакти"
-  structuredData={{
-    "@context": "https://schema.org",
-    "@type": "ContactPage",
-    "name": "Контакти",
-    "description": "Свържете се със Станчев - SEO специалист за българския пазар. Получете безплатна консултация и решения, съобразени с вашия уебсайт.",
-    "url": "https://stanchev.bg/контакти",
-    "inLanguage": "bg",
-    "mainEntity": {
-      "@type": "Person",
-      "name": "Станчев",
-      "jobTitle": "SEO Специалист",
-      "worksFor": {
-        "@type": "Organization",
-        "name": "Станчев SEO",
-        "url": "https://stanchev.bg"
-      }
-    },
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": "+359 88 888 8888",
-      "contactType": "customer service",
-      "areaServed": "BG",
-      "availableLanguage": ["Bulgarian"]
-    }
-  }}
-/>
+        title="Контакти | SEO Специалист Станчев"
+        description="Свържете се със Станчев - SEO специалист за българския пазар. Безплатна консултация и персонализирани решения за вашия бизнес."
+        keywords="контакти, SEO консултация, SEO специалист, Станчев контакти, дигитален маркетинг, безплатна SEO консултация, локално SEO България, връзка със SEO експерт"
+        canonicalUrl="https://stanchev.bg/контакти"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "ContactPage",
+          "name": "Контакти",
+          "description": "Свържете се със Станчев - SEO специалист за българския пазар. Получете безплатна консултация и решения, съобразени с вашия уебсайт.",
+          "url": "https://stanchev.bg/контакти",
+          "inLanguage": "bg",
+          "mainEntity": {
+            "@type": "Person",
+            "name": "Станчев",
+            "jobTitle": "SEO Специалист",
+            "worksFor": {
+              "@type": "Organization",
+              "name": "Станчев SEO",
+              "url": "https://stanchev.bg"
+            }
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+359 88 888 8888",
+            "contactType": "customer service",
+            "areaServed": "BG",
+            "availableLanguage": ["Bulgarian"]
+          }
+        }}
+      />
       <div className="pt-24 pb-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">

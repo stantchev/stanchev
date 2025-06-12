@@ -47,13 +47,13 @@ const BlogPage: React.FC = () => {
         title="Блог за SEO | Съвети и стратегии за българския пазар"
         description="Полезни статии, съвети и стратегии за SEO оптимизация, специално насочени към българския пазар и особеностите на местното търсене."
         keywords="SEO блог, SEO съвети, SEO България, стратегии за оптимизация, дигитален маркетинг"
-        canonicalUrl="https://stanchev-seo.bg/blog"
+        canonicalUrl="https://stanchev.bg/blog"
         structuredData={{
           "@context": "https://schema.org",
           "@type": "Blog",
           "name": "Блог за SEO оптимизация",
           "description": "Полезни статии, съвети и стратегии за SEO оптимизация, специално насочени към българския пазар",
-          "url": "https://stanchev-seo.bg/blog",
+          "url": "https://stanchev.bg/blog",
           "author": {
             "@type": "Person",
             "name": "Станчев"

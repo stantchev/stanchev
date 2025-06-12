@@ -10,25 +10,119 @@
       gtag('config', 'G-RX0ETJDEQZ');
     </script>
 
+    <!-- Critical CSS for immediate rendering -->
     <style>
       @font-face {
-        font-family: bgcyrillic;
-        src: url('https://bgkalendar.com/fonts/notoserif-regular.php');
+        font-family: 'NotoSerif';
+        src: url('https://bgkalendar.com/fonts/notoserif-regular.ttf') format('truetype');
+        font-display: swap;
+        font-weight: normal;
+        font-style: normal;
       }
+      
       * {
-        font-family: bgcyrillic;
+        font-family: 'NotoSerif', 'Times New Roman', 'DejaVu Serif', serif;
+      }
+      
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #0a0a0f;
+        color: #f3f4f6;
+        font-family: 'NotoSerif', 'Times New Roman', 'DejaVu Serif', serif;
+      }
+      
+      /* Critical hero heading styles */
+      .hero-heading {
+        font-family: 'NotoSerif', 'Times New Roman', 'DejaVu Serif', serif !important;
+        font-size: 3rem;
+        font-weight: 700;
+        line-height: 1.1;
+        margin-bottom: 1.5rem;
+        will-change: transform;
+        contain: layout style paint;
+        backface-visibility: hidden;
+        transform: translateZ(0);
+        perspective: 1000px;
+      }
+      
+      @media (min-width: 768px) {
+        .hero-heading {
+          font-size: 3.75rem;
+        }
+      }
+      
+      /* Immediate font loading class */
+      .font-loaded * {
+        font-family: 'NotoSerif', 'Times New Roman', 'DejaVu Serif', serif;
       }
     </style>
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <link rel="icon" type="image/png" href="/станчевseo.png" />
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://bgkalendar.com/fonts/notoserif-regular.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="/src/main.tsx" as="script">
+    <link rel="preload" href="/src/index.css" as="style">
+
+    <!-- DNS prefetch for external resources -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link rel="dns-prefetch" href="//www.googletagmanager.com">
+    <link rel="dns-prefetch" href="//bgkalendar.com">
+
+    <!-- Preconnect for critical external resources -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://bgkalendar.com">
+
+    <link rel="icon" type="image/png" href="/станчевseo.png" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
 
-    <title>Станчев SEO</title>
+    <!-- Default meta tags (will be overridden by react-helmet-async) -->
+    <title>Станчев SEO | Оптимизация за търсачки</title>
+    <meta name="description" content="Професионални SEO услуги за българския пазар. Станчев - Професионалист в оптимизацията за търсачки и дигиталния маркетинг." />
+    <meta name="keywords" content="SEO, оптимизация за търсачки, дигитален маркетинг, България" />
+    
+    <!-- Default Open Graph tags -->
+    <meta property="og:title" content="Станчев SEO | Оптимизация за търсачки" />
+    <meta property="og:description" content="Професионални SEO услуги за българския пазар. Станчев - Професионалист в оптимизацията за търсачки и дигиталния маркетинг." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://stanchev.bg" />
+    <meta property="og:image" content="https://stanchev.bg/станчевseo.png" />
+    <meta property="og:site_name" content="Станчев SEO" />
+    <meta property="og:locale" content="bg_BG" />
+    
+    <!-- Default Twitter Card tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Станчев SEO | Оптимизация за търсачки" />
+    <meta name="twitter:description" content="Професионални SEO услуги за българския пазар. Станчев - Професионалист в оптимизацията за търсачки и дигиталния маркетинг." />
+    <meta name="twitter:image" content="https://stanchev.bg/станчевseo.png" />
+
+    <!-- Optimized font loading script -->
+    <script>
+      (function() {
+        // Immediately add font-loaded class
+        document.documentElement.classList.add('font-loaded');
+        
+        // Check if font is already loaded
+        if (document.fonts && document.fonts.check) {
+          if (document.fonts.check('1em NotoSerif')) {
+            return;
+          }
+        }
+        
+        // Load font asynchronously
+        var link = document.createElement('link');
+        link.rel = 'preload';
+        link.as = 'font';
+        link.type = 'font/ttf';
+        link.crossOrigin = 'anonymous';
+        link.href = 'https://bgkalendar.com/fonts/notoserif-regular.ttf';
+        document.head.appendChild(link);
+      })();
+    </script>
   </head>
   <body class="bg-gray-900 text-gray-100">
     <div id="root"></div>

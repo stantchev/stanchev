@@ -24,7 +24,7 @@ const services = [
   {
     id: 'klyuchovi-dumi',
 	slug: 'ключови-думи',
-    icon: <BarChart3 className="text-cyber-blue\" size={48} />,
+    icon: <BarChart3 className="text-cyber-blue" size={48} />,
     title: 'Проучване на Ключови Думи',
     description: 'Проучване и анализ на ключови думи за вашата индустрия на български език с фокус върху локалния пазар.',
     benefits: [
@@ -56,7 +56,7 @@ const services = [
   {
     id: 'optimizaciya-na-sadarzhanie',
 	slug: 'оптимизация-на-съдържание',
-    icon: <Code className="text-cyber-pink\" size={48} />,
+    icon: <Code className="text-cyber-pink" size={48} />,
     title: 'Оптимизация на Съдържание',
     description: 'Създаване и оптимизация на качествено съдържание, което привлича посетители и подобрява класирането ви.',
     benefits: [
@@ -88,7 +88,7 @@ const services = [
   {
     id: 'strukturirani-danni',
 	slug: 'структурирани-данни',
-    icon: <Database className="text-cyber-blue\" size={48} />,
+    icon: <Database className="text-cyber-blue" size={48} />,
     title: 'Структурирани Данни',
     description: 'Внедряване на Schema.org маркиране за по-добро представяне в резултатите от търсенето и rich snippets.',
     benefits: [
@@ -120,7 +120,7 @@ const services = [
   {
     id: 'izgrazhdane-na-vrazki',
 	slug: 'линк-билдинг',
-    icon: <Megaphone className="text-cyber-pink\" size={48} />,
+    icon: <Megaphone className="text-cyber-pink" size={48} />,
     title: 'Линк Билдинг',
     description: 'Стратегии за изграждане на качествени обратни връзки от авторитетни български сайтове.',
     benefits: [
@@ -139,33 +139,33 @@ const ServicesPage: React.FC = () => {
   return (
     <>
       <SEOHead
-  title="SEO Услуги | Професионална оптимизация за търсачки в България"
-  description="Пълен набор от SEO услуги, персонализирани за българския пазар. Включва технически SEO одит, локално SEO, изграждане на линкове, оптимизация на съдържание и SEO стратегия."
-  keywords="SEO услуги, оптимизация за търсачки, SEO одит, ключови думи, техническо SEO, локално SEO, България, линк билдинг, on-page SEO, off-page SEO, SEO консултации, класиране в Google, органичен трафик, дигитален маркетинг"
-  canonicalUrl="https://stanchev.bg/услуги"
-  structuredData={{
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "name": "SEO Услуги за българския пазар",
-    "description": "Професионални SEO услуги за повишаване на органичното класиране в търсачките, включително технически одит, съдържание, линкове и локално SEO.",
-    "provider": {
-      "@type": "Person",
-      "name": "Станчев",
-      "url": "https://stanchev.bg/за-мен"
-    },
-    "serviceType": "Оптимизация за търсачки",
-    "areaServed": {
-      "@type": "Country",
-      "name": "България"
-    },
-    "offers": {
-      "@type": "Offer",
-      "priceCurrency": "BGN",
-      "availability": "https://schema.org/InStock",
-      "url": "https://stanchev.bg/услуги"
-    }
-  }}
-/>
+        title="SEO Услуги | Професионална оптимизация за търсачки в България"
+        description="Пълен набор от SEO услуги, персонализирани за българския пазар. Включва технически SEO одит, локално SEO, изграждане на линкове, оптимизация на съдържание и SEO стратегия."
+        keywords="SEO услуги, оптимизация за търсачки, SEO одит, ключови думи, техническо SEO, локално SEO, България, линк билдинг, on-page SEO, off-page SEO, SEO консултации, класиране в Google, органичен трафик, дигитален маркетинг"
+        canonicalUrl="https://stanchev.bg/услуги"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "name": "SEO Услуги за българския пазар",
+          "description": "Професионални SEO услуги за повишаване на органичното класиране в търсачките, включително технически одит, съдържание, линкове и локално SEO.",
+          "provider": {
+            "@type": "Person",
+            "name": "Станчев",
+            "url": "https://stanchev.bg/за-мен"
+          },
+          "serviceType": "Оптимизация за търсачки",
+          "areaServed": {
+            "@type": "Country",
+            "name": "България"
+          },
+          "offers": {
+            "@type": "Offer",
+            "priceCurrency": "BGN",
+            "availability": "https://schema.org/InStock",
+            "url": "https://stanchev.bg/услуги"
+          }
+        }}
+      />
       <div className="pt-24 pb-20">
         <div className="container mx-auto px-4">
           {/* Header */}
