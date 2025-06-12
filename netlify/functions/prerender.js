@@ -54,7 +54,7 @@ exports.handler = async (event) => {
     };
   }
 
-  const url = `https://stanchev.bg${path}`;
+  const url = `https://stanchev.netlify.app${path}`;
   console.log(`[Prerender] Стартираме Puppeteer за ${url}`);
 
   try {
