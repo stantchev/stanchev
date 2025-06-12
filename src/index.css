@@ -8,6 +8,7 @@
   }
   
   body {
+    font-family: 'NotoSerif', serif;
     @apply bg-cyber-black text-gray-100 font-sans;
     background-image: 
       radial-gradient(circle, rgba(147, 51, 234, 0.1) 1px, transparent 1px),
