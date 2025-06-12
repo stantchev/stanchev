@@ -53,8 +53,9 @@ exports.handler = async (event) => {
       body: 'Not Found'
     };
   }
+
   const encodedPath = encodeURI(path);
-  const url = `https://stanchev.netlify.app${path}`;
+  const url = `https://stanchev.netlify.app${encodedPath}`;
   console.log(`[Prerender] Стартираме Puppeteer за ${url}`);
 
   try {
