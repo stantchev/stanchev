@@ -1,108 +1,48 @@
 [build]
   functions = "netlify/functions"
-  publish = "dist"
+  publish = "dist/client"
+  command = "npm run build"
 
-# Пререндер само за ботове
+# SSR function for prerendering
 [[redirects]]
-  from = "/"
-  to = "/.netlify/functions/prerender"
+  from = "/*"
+  to = "/.netlify/functions/ssr"
   status = 200
-  force = true
   conditions = { Header = ["User-Agent"] }
 
-[[redirects]]
-  from = "/blog"
-  to = "/.netlify/functions/prerender"
-  status = 200
-  force = true
-  conditions = { Header = ["User-Agent"] }
-
-[[redirects]]
-  from = "/blog/*"
-  to = "/.netlify/functions/prerender"
-  status = 200
-  force = true
-  conditions = { Header = ["User-Agent"] }
-
-[[redirects]]
-  from = "/услуги"
-  to = "/.netlify/functions/prerender"
-  status = 200
-  force = true
-  conditions = { Header = ["User-Agent"] }
-
-[[redirects]]
-  from = "/услуги/*"
-  to = "/.netlify/functions/prerender"
-  status = 200
-  force = true
-  conditions = { Header = ["User-Agent"] }
-
-[[redirects]]
-  from = "/за-мен"
-  to = "/.netlify/functions/prerender"
-  status = 200
-  force = true
-  conditions = { Header = ["User-Agent"] }
-
-[[redirects]]
-  from = "/контакти"
-  to = "/.netlify/functions/prerender"
-  status = 200
-  force = true
-  conditions = { Header = ["User-Agent"] }
-
-[[redirects]]
-  from = "/вход"
-  to = "/.netlify/functions/prerender"
-  status = 200
-  force = true
-  conditions = { Header = ["User-Agent"] }
-
-[[redirects]]
-  from = "/политика-за-поверителност"
-  to = "/.netlify/functions/prerender"
-  status = 200
-  force = true
-  conditions = { Header = ["User-Agent"] }
-
-[[redirects]]
-  from = "/общи-условия"
-  to = "/.netlify/functions/prerender"
-  status = 200
-  force = true
-  conditions = { Header = ["User-Agent"] }
-
-[[redirects]]
-  from = "/бисквитки"
-  to = "/.netlify/functions/prerender"
-  status = 200
-  force = true
-  conditions = { Header = ["User-Agent"] }
-
-[[redirects]]
-  from = "/ресурси"
-  to = "/.netlify/functions/prerender"
-  status = 200
-  force = true
-  conditions = { Header = ["User-Agent"] }
-
-[[redirects]]
-  from = "/tools/meta-tag-generator"
-  to = "/.netlify/functions/prerender"
-  status = 200
-  force = true
-  conditions = { Header = ["User-Agent"] }
-
-[[redirects]]
-  from = "/tools/schema-generator"
-  to = "/.netlify/functions/prerender"
-  status = 200
-  force = true
-  conditions = { Header = ["User-Agent"] }
-
-# Fallback за всички останали – SPA routing
+# Fallback for SPA routing
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
+
+# URL redirects for transliteration
+[[redirects]]
+  from = "/local-seo"
+  to = "/lokalno-seo"
+  status = 301
+
+[[redirects]]
+  from = "/uslugi"
+  to = "/услуги"
+  status = 301
+
+[[redirects]]
+  from = "/za-men"
+  to = "/за-мен"
+  status = 301
+
+[[redirects]]
+  from = "/kontakti"
+  to = "/контакти"
+  status = 301
+
+[[redirects]]
+  from = "/vhod"
+  to = "/вход"
+  status = 301
+
+[[redirects]]
+  from = "/resursi"
+  to = "/ресурси"
+  status = 301

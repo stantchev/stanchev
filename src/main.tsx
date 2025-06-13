@@ -6,7 +6,10 @@ import App from './App';
 import { AuthProvider } from './context/AuthContext';
 import './index.css';
 
-createRoot(document.getElementById('root')!).render(
+const container = document.getElementById('root')!;
+const root = createRoot(container);
+
+root.render(
   <StrictMode>
     <HelmetProvider>
       <BrowserRouter>

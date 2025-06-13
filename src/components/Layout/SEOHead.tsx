@@ -1,6 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useLocation } from 'react-router-dom';
+import { transliterateCyrillicToLatin } from '../../utils/transliteration';
 
 interface SEOHeadProps {
   title: string;
@@ -25,7 +26,10 @@ const SEOHead: React.FC<SEOHeadProps> = ({
 }) => {
   const { pathname } = useLocation();
   const baseUrl = 'https://stanchev.bg';
-  const fullCanonicalUrl = canonicalUrl || `${baseUrl}${pathname}`;
+  
+  // Use transliterated URL for canonical
+  const transliteratedPath = transliterateCyrillicToLatin(pathname);
+  const fullCanonicalUrl = canonicalUrl || `${baseUrl}${transliteratedPath}`;
   const fullTitle = title.includes('Станчев') ? title : `${title} | Станчев SEO`;
 
   return (
@@ -42,8 +46,16 @@ const SEOHead: React.FC<SEOHeadProps> = ({
         <meta name="robots" content="index, follow" />
       )}
 
-      {/* Canonical URL */}
+      {/* Canonical URL - always use transliterated version */}
       <link rel="canonical" href={fullCanonicalUrl} />
+      
+      {/* Alternate language versions */}
+      <link rel="alternate" hrefLang="bg" href={`${baseUrl}${pathname}`} />
+      <link rel="alternate" hrefLang="x-default" href={fullCanonicalUrl} />
+
+      {/* Favicon */}
+      <link rel="icon" type="image/png" href="/станчевseo.png" />
+      <link rel="apple-touch-icon" href="/станчевseo.png" />
 
       {/* Open Graph Tags */}
       <meta property="og:title" content={fullTitle} />
