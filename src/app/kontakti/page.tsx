@@ -38,8 +38,6 @@ import {
 import { baseURL, person, contact } from "@/resources";
 import { sendEmail } from "@/lib/sendEmail";
 import { redirect } from "next/navigation";
-
-import type { Metadata } from 'next'
  
 export default function Kontakti() {
   async function handleSubmit(formData: FormData) {
