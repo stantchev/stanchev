@@ -1,4 +1,9 @@
 'use client';
+import type { Metadata } from 'next'
+export const metadata: Metadata = {
+  title: 'Общи условия | СтанчевSEO',
+  description: 'На тази страница може да видите нашите общи условия за ползване на сайта.',
+}
 
 import { Column, Flex, Feedback } from "@once-ui-system/core";
 
