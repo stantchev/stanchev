@@ -66,11 +66,9 @@ export default function Nachalo() {
           </RevealFx>
           )}
           <RevealFx translateY="4" fillWidth horizontal="start" paddingBottom="16">
-		  <GlitchFx fillWidth speed="slow">
             <Heading wrap="balance" variant="display-strong-l">
               {home.headline}
             </Heading>
-			</GlitchFx>
           </RevealFx>
           <RevealFx translateY="8" delay={0.2} fillWidth horizontal="start" paddingBottom="32">
             <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-xl">
