@@ -1,0 +1,42 @@
+@use "../breakpoints.scss" as breakpoints;
+
+.hover {
+  transition: var(--transition-micro-medium);
+
+  &:hover {
+    transform: translateX(var(--static-space-4));
+  }
+}
+
+/* Блок с аватара */
+.avatar {
+  height: fit-content;
+}
+
+/* Sticky само на ≥ 769 px */
+.avatarSticky {
+  position: sticky;
+  top: var(--static-space-64);
+
+  @media (max-width: 768px) {
+    position: static; // или relative
+    top: auto;
+  }
+}
+
+/* Таблица с инструментите */
+.toolItem {
+  flex-basis: calc(50% - 6px);
+
+  @media (max-width: 768px) {
+    flex-basis: 100%;
+  }
+}
+
+.textAlign {
+  text-align: center;
+}
+
+.blockAlign {
+  align-self: center;
+}
