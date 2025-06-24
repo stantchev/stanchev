@@ -79,41 +79,41 @@ export default function RootLayout({
         fonts.code.variable
       )}
     >
-      {/* theme-init скрипта – използвай next/script */}
-      <Script id="theme-init" strategy="beforeInteractive" async >{`
-        (function () {
-          try {
-            const root = document.documentElement;
-            const config = ${JSON.stringify({
-              brand: style.brand,
-              accent: style.accent,
-              neutral: style.neutral,
-              solid: style.solid,
-              "solid-style": style.solidStyle,
-              border: style.border,
-              surface: style.surface,
-              transition: style.transition,
-              scaling: style.scaling,
-              "viz-style": dataStyle.variant,
-            })};
-            Object.entries(config).forEach(([k, v]) =>
-              root.setAttribute("data-" + k, v)
-            );
-            const resolveTheme = (t) =>
-              !t || t === "system"
-                ? window.matchMedia("(prefers-color-scheme: dark)").matches
-                  ? "dark"
-                  : "light"
-                : t;
-            root.setAttribute("data-theme", resolveTheme(localStorage.getItem("data-theme")));
-          } catch (e) {
-            console.error(e);
-            document.documentElement.setAttribute("data-theme", "dark");
-          }
-        })();
-      `}</Script>
-
       <body className="page-background flex flex-col items-center min-h-screen">
+        {/* theme-init скрипта – използвай next/script */}
+        <Script id="theme-init" strategy="beforeInteractive" async >{`
+          (function () {
+            try {
+              const root = document.documentElement;
+              const config = ${JSON.stringify({
+                brand: style.brand,
+                accent: style.accent,
+                neutral: style.neutral,
+                solid: style.solid,
+                "solid-style": style.solidStyle,
+                border: style.border,
+                surface: style.surface,
+                transition: style.transition,
+                scaling: style.scaling,
+                "viz-style": dataStyle.variant,
+              })};
+              Object.entries(config).forEach(([k, v]) =>
+                root.setAttribute("data-" + k, v)
+              );
+              const resolveTheme = (t) =>
+                !t || t === "system"
+                  ? window.matchMedia("(prefers-color-scheme: dark)").matches
+                    ? "dark"
+                    : "light"
+                  : t;
+              root.setAttribute("data-theme", resolveTheme(localStorage.getItem("data-theme")));
+            } catch (e) {
+              console.error(e);
+              document.documentElement.setAttribute("data-theme", "dark");
+            }
+          })();
+        `}</Script>
+
         <Providers>
           <Background
             position="fixed"
