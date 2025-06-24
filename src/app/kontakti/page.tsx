@@ -19,8 +19,8 @@ import { redirect } from "next/navigation";
 import type { Metadata } from 'next'
  
 export const metadata: Metadata = {
-  title: 'kur',
-  description: 'kur kur kur kur',
+  title: 'Контакти | StanchevSEO',
+  description: 'Свържете се с мен за SEO консултация или запитване относно оптимизация на сайт.',
   openGraph: {
           title: "Контакти | StanchevSEO",
           description: "Свържете се с мен за SEO консултация или запитване относно оптимизация на сайт.",
