@@ -62,19 +62,21 @@ const ThemeToggle = dynamic(() => import("./ThemeToggle").then(mod => ({ default
 export const Header = () => {
   const pathname = usePathname() ?? "";
 
-  return (
+    return (
     <>
       <Fade hide="s" fillWidth position="fixed" height="80" zIndex={9} />
       <Fade show="s" fillWidth position="fixed" bottom="0" to="top" height="80" zIndex={9} />
-      <Fade
-  className={styles.headerBlur}
-  show="s"
-  fillWidth
-  position="fixed"
-  top="0"
-  height="80"
-  zIndex={8}
-/>
+      <Flex
+        fitHeight
+        position="unset"
+        className={styles.position}
+        as="header"
+        zIndex={9}
+        fillWidth
+        padding="8"
+        horizontal="center"
+        data-border="rounded"
+      >
       <Flex
         fitHeight
         position="unset"
