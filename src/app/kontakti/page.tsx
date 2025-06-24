@@ -40,7 +40,6 @@ title: "Контакти | StanchevSEO",
       description: "Свържете се с мен за SEO консултация или запитване относно оптимизация на сайт.",
     },
   };
-}
  
 export default function Kontakti() {
   async function handleSubmit(formData: FormData) {
