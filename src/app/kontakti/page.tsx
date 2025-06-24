@@ -1,4 +1,26 @@
 // ❗️ Този файл е server component – НЕ добавяй "use client"
+export const metadata = {
+  title: "Контакти | StanchevSEO",
+  description: "Свържете се с мен за SEO консултация или запитване относно оптимизация на сайт.",
+  keywords: "контакти, Ketaring.bg, свържете се, партньор ресторант, кетъринг услуги, България, информация",
+  author: "stanchev.bg",
+  robots: "index, follow",
+  openGraph: {
+    title: "Контакти | StanchevSEO",
+    description: "Свържете се с мен за SEO консултация или запитване относно оптимизация на сайт.",
+    type: "website",
+    url: "https://stanchev.vercel.app/kontakti",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Контакти | StanchevSEO",
+    description: "Свържете се с мен за SEO консултация или запитване относно оптимизация на сайт.",
+  },
+  alternates: {
+    canonical: "https://stanchev.vercel.app/kontakti",
+  },
+};
+
 
 import {
   Column,
