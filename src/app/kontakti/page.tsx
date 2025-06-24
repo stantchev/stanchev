@@ -16,11 +16,8 @@ import { baseURL, person, contact } from "@/resources";
 import { sendEmail } from "@/lib/sendEmail";
 import { redirect } from "next/navigation";
 
-export const dynamic = "force-dynamic"; // гарантира SSR
-
-export async function generateMetadata() {
-  return {
-    title: "Контакти | StanchevSEO",
+export const metadata: Metadata = {
+title: "Контакти | StanchevSEO",
     description: "Свържете се с мен за SEO консултация или запитване относно оптимизация на сайт.",
     openGraph: {
       title: "Контакти | StanchevSEO",
@@ -44,8 +41,7 @@ export async function generateMetadata() {
     },
   };
 }
-
-
+ 
 export default function Kontakti() {
   async function handleSubmit(formData: FormData) {
     "use server";
