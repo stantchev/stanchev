@@ -1,7 +1,6 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
 import { Fade, Flex, Line, ToggleButton, iconLibrary } from "@once-ui-system/core";
 import {
   routes,
@@ -13,8 +12,8 @@ import {
   seoServices,
   contact,
 } from "@/resources";
-import { ThemeToggle } from "./ThemeToggle";
 import styles from "./Header.module.scss";
+import dynamic from "next/dynamic";
 
 // ✅ SVG иконата
 const HandshakeIcon = ({
@@ -48,38 +47,17 @@ const HandshakeIcon = ({
 // ✅ Регистрирай я в iconLibrary
 iconLibrary.handshake = HandshakeIcon;
 
-const TimeDisplay = ({
-  timeZone,
-  locale = "bg-BG",
-}: {
-  timeZone: string;
-  locale?: string;
-}) => {
-  const [currentTime, setCurrentTime] = useState("");
+// Dynamic import for TimeDisplay to avoid hydration mismatch
+const TimeDisplay = dynamic(() => import("./TimeDisplay"), {
+  ssr: false,
+  loading: () => <span>--:--:--</span>
+});
 
-  useEffect(() => {
-    const updateTime = () => {
-      const now = new Date();
-      const options: Intl.DateTimeFormatOptions = {
-        timeZone,
-        hour: "2-digit",
-        minute: "2-digit",
-        second: "2-digit",
-        hour12: false,
-      };
-      const timeString = new Intl.DateTimeFormat(locale, options).format(now);
-      setCurrentTime(timeString);
-    };
-
-    updateTime();
-    const intervalId = setInterval(updateTime, 1000);
-    return () => clearInterval(intervalId);
-  }, [timeZone, locale]);
-
-  return <>{currentTime}</>;
-};
-
-export default TimeDisplay;
+// Dynamic import for ThemeToggle to avoid hydration mismatch
+const ThemeToggle = dynamic(() => import("./ThemeToggle").then(mod => ({ default: mod.ThemeToggle })), {
+  ssr: false,
+  loading: () => <ToggleButton prefixIcon="sun" aria-label="Зареждане на тема..." />
+});
 
 export const Header = () => {
   const pathname = usePathname() ?? "";
