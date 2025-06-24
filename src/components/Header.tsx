@@ -1,6 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 import { Fade, Flex, Line, ToggleButton, iconLibrary } from "@once-ui-system/core";
 import {
   routes,
@@ -12,8 +13,8 @@ import {
   seoServices,
   contact,
 } from "@/resources";
+import { ThemeToggle } from "./ThemeToggle";
 import styles from "./Header.module.scss";
-import dynamic from "next/dynamic";
 
 // ✅ SVG иконата
 const HandshakeIcon = ({
@@ -47,36 +48,55 @@ const HandshakeIcon = ({
 // ✅ Регистрирай я в iconLibrary
 iconLibrary.handshake = HandshakeIcon;
 
-// Dynamic import for TimeDisplay to avoid hydration mismatch
-const TimeDisplay = dynamic(() => import("./TimeDisplay"), {
-  ssr: false,
-  loading: () => <span>--:--:--</span>
-});
+const TimeDisplay = ({
+  timeZone,
+  locale = "bg-BG",
+}: {
+  timeZone: string;
+  locale?: string;
+}) => {
+  const [currentTime, setCurrentTime] = useState("");
 
-// Dynamic import for ThemeToggle to avoid hydration mismatch
-const ThemeToggle = dynamic(() => import("./ThemeToggle").then(mod => ({ default: mod.ThemeToggle })), {
-  ssr: false,
-  loading: () => <ToggleButton prefixIcon="sun" aria-label="Зареждане на тема..." />
-});
+  useEffect(() => {
+    const updateTime = () => {
+      const now = new Date();
+      const options: Intl.DateTimeFormatOptions = {
+        timeZone,
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: false,
+      };
+      const timeString = new Intl.DateTimeFormat(locale, options).format(now);
+      setCurrentTime(timeString);
+    };
+
+    updateTime();
+    const intervalId = setInterval(updateTime, 1000);
+    return () => clearInterval(intervalId);
+  }, [timeZone, locale]);
+
+  return <>{currentTime}</>;
+};
+
+export default TimeDisplay;
 
 export const Header = () => {
   const pathname = usePathname() ?? "";
 
-    return (
+  return (
     <>
       <Fade hide="s" fillWidth position="fixed" height="80" zIndex={9} />
-      <Fade fillWidth position="fixed" bottom="0" height="80" zIndex={9} />
-      <Flex
-        fitHeight
-        position="unset"
-        className={styles.position}
-        as="header"
-        zIndex={9}
-        fillWidth
-        padding="8"
-        horizontal="center"
-        data-border="rounded"
-      >
+      <Fade show="s" fillWidth position="fixed" bottom="0" to="top" height="80" zIndex={9} />
+      <Fade
+  className={styles.headerBlur}
+  show="s"
+  fillWidth
+  position="fixed"
+  top="0"
+  height="80"
+  zIndex={8}
+/>
       <Flex
         fitHeight
         position="unset"
@@ -103,7 +123,7 @@ export const Header = () => {
           >
             <Flex gap="4" vertical="center" textVariant="body-default-s" suppressHydrationWarning>
               {routes["/"] && (
-                <ToggleButton prefixIcon="home" href="/" aria-label=Начало selected={pathname === "/"} />
+                <ToggleButton prefixIcon="home" href="/" selected={pathname === "/"} />
               )}
               <Line background="neutral-alpha-medium" vert maxHeight="24" />
               {routes["/za-men"] && (
