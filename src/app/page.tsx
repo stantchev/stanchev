@@ -8,18 +8,20 @@ import { Posts } from "@/components/blog/Posts";
 
 export async function generateMetadata() {
   return {
-    title: home.title,
-    description: home.description,
+    title: "SEO Консултант България | Станчев SEO - Професионални SEO Услуги",
+    description: "Професионален SEO консултант в България. SEO оптимизация, линк билдинг стратегия, оптимизация на сайт, SEO анализ. Повишете позициите си в Google с доказани SEO услуги.",
+    keywords: "seo консултант, seo фирми, линк билдинг стратегия, seo обучение, seo цена, seo оптимизации, интернет реклама, seo оптимизация google, seo специалист, оптимизация на сайт, seo анализ, seo услуги, seo експерт, seo агенция, seo българия",
     openGraph: {
-      title: home.title,
-      description: home.description,
+      title: "SEO Консултант България | Станчев SEO - Професионални SEO Услуги",
+      description: "Професионален SEO консултант в България. SEO оптимизация, линк билдинг стратегия, оптимизация на сайт, SEO анализ. Повишете позициите си в Google с доказани SEO услуги.",
       url: `${baseURL}/`,
-      siteName: home.title,
+      siteName: "Станчев SEO - Професионални SEO Услуги България",
       images: [
         {
-          url: home.image,
+          url: "https://stanchev.vercel.app/images/og/og.jpg",
           width: 1200,
           height: 630,
+          alt: "Станчев SEO - Професионални SEO услуги България",
         },
       ],
       locale: 'bg_BG',
@@ -27,9 +29,12 @@ export async function generateMetadata() {
     },
     twitter: {
       card: 'summary_large_image',
-      title: home.title,
-      description: home.description,
-      images: [home.image],
+      title: "SEO Консултант България | Станчев SEO - Професионални SEO Услуги",
+      description: "Професионален SEO консултант в България. SEO оптимизация, линк билдинг стратегия, оптимизация на сайт, SEO анализ. Повишете позициите си в Google с доказани SEO услуги.",
+      images: ["https://stanchev.vercel.app/images/og/og.jpg"],
+    },
+    alternates: {
+      canonical: `${baseURL}/`,
     },
   };
 }
@@ -41,9 +46,9 @@ export default function Nachalo() {
         as="webPage"
         baseURL={baseURL}
         path="/"
-        title={home.title}
-        description={home.description}
-        image={`/api/og/generate?title=${encodeURIComponent(home.title)}`}
+        title="SEO Консултант България | Станчев SEO - Професионални SEO Услуги"
+        description="Професионален SEO консултант в България. SEO оптимизация, линк билдинг стратегия, оптимизация на сайт, SEO анализ. Повишете позициите си в Google с доказани SEO услуги."
+        image="https://stanchev.vercel.app/images/og/og.jpg"
         author={{
           name: person.name,
           url: `${baseURL}/za-men`,
