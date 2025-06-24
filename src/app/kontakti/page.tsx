@@ -1,4 +1,5 @@
 // ❗️ Този файл е server component – НЕ добавяй "use client"
+import type { Metadata } from 'next'
 export const metadata = {
   title: "Контакти | StanchevSEO",
   description: "Свържете се с мен за SEO консултация или запитване относно оптимизация на сайт.",
@@ -39,26 +40,6 @@ import { sendEmail } from "@/lib/sendEmail";
 import { redirect } from "next/navigation";
 
 import type { Metadata } from 'next'
- 
-export const metadata: Metadata = {
-  title: 'Контакти | StanchevSEO',
-  description: 'Свържете се с мен за SEO консултация или запитване относно оптимизация на сайт.',
-  openGraph: {
-          title: "Контакти | StanchevSEO",
-          description: "Свържете се с мен за SEO консултация или запитване относно оптимизация на сайт.",
-          url: "https://stanchevseo.netlify.app/kontakti",
-          siteName: "StanchevSEO",
-          images: [
-            {
-              url: "/images/opengraph.jpg",
-              width: 1200,
-              height: 630,
-            },
-          ],
-          type: "website",
-          locale: "bg_BG",
-        },
-}
  
 export default function Kontakti() {
   async function handleSubmit(formData: FormData) {
