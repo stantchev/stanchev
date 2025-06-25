@@ -152,7 +152,7 @@ const about = {
 const blog = {
   path: "/blog",
   label: "Блог",
-  title: "Writing about design and tech...",
+  title: "SEO блог | Станчев SEO",
   description: `Read what ${person.name} has been up to recently`,
 };
 
