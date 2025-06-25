@@ -7,13 +7,15 @@ import { Projects } from "@/components/work/Projects";
 import { Posts } from "@/components/blog/Posts";
 
 export const Meta = {
-  generate: (options: { title: string; description: string; baseURL: string; type: string }): Metadata => {
+  generate: (options: { title: string; description: string;}): Metadata => {
     return {
       title: "SEO Консултант България | Станчев SEO - Професионални SEO Услуги",
       description: "Професионален SEO консултант в България. SEO оптимизация, линк билдинг стратегия, оптимизация на сайт, SEO анализ. Повишете позициите си в Google с доказани SEO услуги.",
-  };
+      // ... други properties, които съвпадат с Metadata типа
+    };
+  }
 };
-}
+
 export default function Nachalo() {
   return (
     <Column maxWidth="m" gap="xl" horizontal="center">
