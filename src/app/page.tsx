@@ -8,16 +8,13 @@ import { Posts } from "@/components/blog/Posts";
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "SEO Консултант България | Станчев SEO - Професионални SEO Услуги",
-  description: "Професионален SEO консултант в България. SEO оптимизация, линк билдинг стратегия, оптимизация на сайт, SEO анализ. Повишете позициите си в Google с доказани SEO услуги.",
-  // Можеш да добавиш и други метаданни директно тук, например за Open Graph:
+  title: home.titleText,
+  description: home.descriptionText,
   openGraph: {
-    title: "SEO Консултант България | Станчев SEO - Професионални SEO Услуги",
-    description: "Професионален SEO консултант в България. SEO оптимизация, линк билдинг стратегия, оптимизация на сайт, SEO анализ. Повишете позициите си в Google с доказани SEO услуги.",
-    url: "https://stanchev.vercel.app/",
-    type: "website",
+    title: home.titleText,
+    description: home.descriptionText,
+    images: [{ url: home.image }],
   },
-  // ... и други като twitter, icons, keywords и т.н.
 };
 
 export default function Nachalo() {
