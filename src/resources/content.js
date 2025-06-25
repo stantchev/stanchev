@@ -46,8 +46,6 @@ const home = {
   path: "/",
   image: "/images/og/home.jpg",
   label: "Начало",
-  title: `${person.name}`,
-  description: `SEO услуги, които не обещават чудеса… но ги постигат. Не сме магьосници, просто знаем алгоритъма по-добре от повечето.`,
   headline: <>SEO услуги, които строят мостове между дизайн и код</>,
   featured: {
     display: true,
