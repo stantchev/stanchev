@@ -46,18 +46,27 @@ const home = {
   path: "/",
   image: "https://stanchev.vercel.app/images/og/og.jpg",
   label: "Начало",
+
+  // За SEO и metadata
+  titleText: "SEO услуги, които строят мостове между дизайн и код",
+  descriptionText: "Аз съм Станчев – SEO оптимизатор, който превръща хаоса в структура, дизайнът в код и кофеина в работещи решения.",
+  featuredTitleText: "Скорошен проект: DarosBuild",
+
+  // За визуалния интерфейс (UI)
   headline: <>SEO услуги, които строят мостове между дизайн и код</>,
-  featured: {
-    display: true,
-    title: <>Скорошен проект: <strong className="ml-4">DarosBuild</strong></>,
-    href: "/seo-proekti/DarosBuild-moyat-proces-po-seo-optimizatsiya",
-  },
   subline: (
     <>
       Аз съм Станчев – SEO оптимизатор, който превръща хаоса в структура,
       <br /> дизайнът в код и кофеина в работещи решения
     </>
   ),
+  featured: {
+    display: true,
+    title: (
+      <>Скорошен проект: <strong className="ml-4">DarosBuild</strong></>
+    ),
+    href: "/seo-proekti/DarosBuild-moyat-proces-po-seo-optimizatsiya",
+  },
 };
 
 const about = {
