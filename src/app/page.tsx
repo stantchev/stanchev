@@ -5,16 +5,19 @@ import { home, about, person, newsletter, baseURL, routes } from "@/resources";
 import { Mailchimp } from "@/components";
 import { Projects } from "@/components/work/Projects";
 import { Posts } from "@/components/blog/Posts";
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
 
-export const Meta = {
-  generate: (options: { title: string; description: string;}): Metadata => {
-    return {
-      title: "SEO Консултант България | Станчев SEO - Професионални SEO Услуги",
-      description: "Професионален SEO консултант в България. SEO оптимизация, линк билдинг стратегия, оптимизация на сайт, SEO анализ. Повишете позициите си в Google с доказани SEO услуги.",
-      // ... други properties, които съвпадат с Metadata типа
-    };
-  }
+export const metadata: Metadata = {
+  title: "SEO Консултант България | Станчев SEO - Професионални SEO Услуги",
+  description: "Професионален SEO консултант в България. SEO оптимизация, линк билдинг стратегия, оптимизация на сайт, SEO анализ. Повишете позициите си в Google с доказани SEO услуги.",
+  // Можеш да добавиш и други метаданни директно тук, например за Open Graph:
+  openGraph: {
+    title: "SEO Консултант България | Станчев SEO - Професионални SEO Услуги",
+    description: "Професионален SEO консултант в България. SEO оптимизация, линк билдинг стратегия, оптимизация на сайт, SEO анализ. Повишете позициите си в Google с доказани SEO услуги.",
+    url: "https://stanchev.vercel.app/",
+    type: "website",
+  },
+  // ... и други като twitter, icons, keywords и т.н.
 };
 
 export default function Nachalo() {
