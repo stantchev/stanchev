@@ -1,18 +1,18 @@
 import React from "react";
 
-import { Heading, Flex, Text, Button, Avatar, RevealFx, Column, Badge, Row, Meta, Schema, GlitchFx } from "@once-ui-system/core";
+import { Heading, Flex, Text, Button, Avatar, RevealFx, Column, Badge, Row, Schema, GlitchFx } from "@once-ui-system/core";
 import { home, about, person, newsletter, baseURL, routes } from "@/resources";
 import { Mailchimp } from "@/components";
 import { Projects } from "@/components/work/Projects";
 import { Posts } from "@/components/blog/Posts";
 
-export async function generateMetadata() {
-  return Meta.generate({
-    title: "SEO Консултант България | Станчев SEO - Професионални SEO Услуги",
-    description: "Професионален SEO консултант в България. SEO оптимизация, линк билдинг стратегия, оптимизация на сайт, SEO анализ. Повишете позициите си в Google с доказани SEO услуги.",
-    baseURL: "https://stanchev.vercel.app/",
-    type: "website"
-  });
+export const Meta = {
+  generate: (options: { title: string; description: string; baseURL: string; type: string }): Metadata => {
+    return {
+      title: "SEO Консултант България | Станчев SEO - Професионални SEO Услуги",
+      description: "Професионален SEO консултант в България. SEO оптимизация, линк билдинг стратегия, оптимизация на сайт, SEO анализ. Повишете позициите си в Google с доказани SEO услуги.",
+  };
+};
 }
 export default function Nachalo() {
   return (
