@@ -5,6 +5,7 @@ import { home, about, person, newsletter, baseURL, routes } from "@/resources";
 import { Mailchimp } from "@/components";
 import { Projects } from "@/components/work/Projects";
 import { Posts } from "@/components/blog/Posts";
+import { Metadata } from 'next';
 
 export const Meta = {
   generate: (options: { title: string; description: string;}): Metadata => {
