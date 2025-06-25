@@ -10,51 +10,13 @@ export async function generateMetadata() {
   return Meta.generate({
     title: "SEO Консултант България | Станчев SEO - Професионални SEO Услуги",
     description: "Професионален SEO консултант в България. SEO оптимизация, линк билдинг стратегия, оптимизация на сайт, SEO анализ. Повишете позициите си в Google с доказани SEO услуги.",
-    keywords: "seo консултант, seo фирми, линк билдинг стратегия, seo обучение, seo цена, seo оптимизации, интернет реклама, seo оптимизация google, seo специалист, оптимизация на сайт, seo анализ, seo услуги, seo експерт, seo агенция, seo българия",
-    openGraph: {
-      title: "SEO Консултант България | Станчев SEO - Професионални SEO Услуги",
-      description: "Професионален SEO консултант в България. SEO оптимизация, линк билдинг стратегия, оптимизация на сайт, SEO анализ. Повишете позициите си в Google с доказани SEO услуги.",
-      url: `${baseURL}/`,
-      siteName: "Станчев SEO - Професионални SEO Услуги България",
-      images: [
-        {
-          url: "https://stanchev.vercel.app/images/og/og.jpg",
-          width: 1200,
-          height: 630,
-          alt: "Станчев SEO - Професионални SEO услуги България",
-        },
-      ],
-      locale: 'bg_BG',
-      type: 'website',
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: "SEO Консултант България | Станчев SEO - Професионални SEO Услуги",
-      description: "Професионален SEO консултант в България. SEO оптимизация, линк билдинг стратегия, оптимизация на сайт, SEO анализ. Повишете позициите си в Google с доказани SEO услуги.",
-      images: ["https://stanchev.vercel.app/images/og/og.jpg"],
-    },
-    alternates: {
-      canonical: `${baseURL}/`,
-    },
-  };
+    baseURL: "https://stanchev.vercel.app/",
+    type: "website"
+  });
 }
-
 export default function Nachalo() {
   return (
     <Column maxWidth="m" gap="xl" horizontal="center">
-      <Schema
-        as="webPage"
-        baseURL={baseURL}
-        path="/"
-        title="SEO Консултант България | Станчев SEO - Професионални SEO Услуги"
-        description="Професионален SEO консултант в България. SEO оптимизация, линк билдинг стратегия, оптимизация на сайт, SEO анализ. Повишете позициите си в Google с доказани SEO услуги."
-        image="https://stanchev.vercel.app/images/og/og.jpg"
-        author={{
-          name: person.name,
-          url: `${baseURL}/za-men`,
-          image: `${baseURL}${person.avatar}`,
-        }}
-      />
       <Column fillWidth paddingY="24" gap="m">
         <Column maxWidth="s">
           {home.featured.display && (
