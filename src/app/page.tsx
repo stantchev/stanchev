@@ -36,7 +36,7 @@ export async function generateMetadata() {
     alternates: {
       canonical: `${baseURL}/`,
     },
-  )};
+  };
 }
 
 export default function Nachalo() {
