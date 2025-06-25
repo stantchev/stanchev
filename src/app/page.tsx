@@ -7,7 +7,7 @@ import { Projects } from "@/components/work/Projects";
 import { Posts } from "@/components/blog/Posts";
 
 export async function generateMetadata() {
-  return {
+  return Meta.generate({
     title: "SEO Консултант България | Станчев SEO - Професионални SEO Услуги",
     description: "Професионален SEO консултант в България. SEO оптимизация, линк билдинг стратегия, оптимизация на сайт, SEO анализ. Повишете позициите си в Google с доказани SEO услуги.",
     keywords: "seo консултант, seo фирми, линк билдинг стратегия, seo обучение, seo цена, seo оптимизации, интернет реклама, seo оптимизация google, seo специалист, оптимизация на сайт, seo анализ, seo услуги, seo експерт, seo агенция, seo българия",
@@ -36,7 +36,7 @@ export async function generateMetadata() {
     alternates: {
       canonical: `${baseURL}/`,
     },
-  };
+  )};
 }
 
 export default function Nachalo() {
