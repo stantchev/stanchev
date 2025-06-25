@@ -151,7 +151,7 @@ export default function RootLayout({
               "name": "Станчев SEO",
               "description": "Професионален SEO консултант в България. SEO оптимизация, линк билдинг стратегия, оптимизация на сайт, SEO анализ.",
               "url": "https://stanchev.vercel.app",
-              "logo": "https://stanchev.vercel.app/images/avatar.jpg",
+              "logo": "https://stanchev.vercel.app/images/og/og.jpg",
               "image": "https://stanchev.vercel.app/images/og/og.jpg",
               "telephone": "+359-XXX-XXX-XXX",
               "email": "seo@stanchev.bg",
