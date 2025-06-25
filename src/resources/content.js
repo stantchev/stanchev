@@ -44,7 +44,7 @@ const social = [
 
 const home = {
   path: "/",
-  image: "/images/og/home.jpg",
+  image: "https://stanchev.vercel.app/images/og/og.jpg",
   label: "Начало",
   headline: <>SEO услуги, които строят мостове между дизайн и код</>,
   featured: {
