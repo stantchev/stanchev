@@ -25,4 +25,18 @@
         transform: rotate(180deg);
         bottom: 0;
     }
+    .s-flex-hide {
+        display: none !important;
+    }
+    .s-flex-show {
+        display: inline-flex !important;
+    }
+}
+@media (min-width: 769px) {
+    .s-flex-hide {
+        display: inline-flex !important;
+    }
+    .s-flex-show {
+        display: none !important;
+    }
 }

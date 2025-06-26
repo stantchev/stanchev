@@ -25,6 +25,7 @@ export const Footer = () => {
       paddingY="16"
       paddingX="24"
       horizontal="center"
+      className={styles['footer-root']}
       style={{
         width: '100%',
         maxWidth: '1200px',
