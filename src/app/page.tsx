@@ -19,24 +19,46 @@ export const metadata: Metadata = {
 
 export default function Nachalo() {
   return (
-    <Column maxWidth="m" gap="xl" horizontal="center">
-      <Column fillWidth paddingY="24" gap="m">
+    <Column 
+      maxWidth="m" 
+      gap="xl" 
+      horizontal="center"
+    >
+      <Column 
+        fillWidth 
+        paddingY="24" 
+        gap="m"
+      >
         <Column maxWidth="s">
           {home.featured.display && (
           <RevealFx fillWidth horizontal="start" paddingTop="16" paddingBottom="32" paddingLeft="12">
-            <Badge background="brand-alpha-weak" paddingX="12" paddingY="4" onBackground="neutral-strong" textVariant="label-default-s" arrow={false}
-              href={home.featured.href}>
+            <Badge 
+              background="brand-alpha-weak" 
+              paddingX="12" 
+              paddingY="4" 
+              onBackground="neutral-strong" 
+              textVariant="label-default-s" 
+              arrow={false}
+              href={home.featured.href}
+            >
               <Row paddingY="2">{home.featured.title}</Row>
             </Badge>
           </RevealFx>
           )}
           <RevealFx translateY="4" fillWidth horizontal="start" paddingBottom="16">
-            <Heading wrap="balance" variant="display-strong-l">
+            <Heading 
+              wrap="balance" 
+              variant="display-strong-l"
+            >
               {home.headline}
             </Heading>
           </RevealFx>
           <RevealFx translateY="8" delay={0.2} fillWidth horizontal="start" paddingBottom="32">
-            <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-xl">
+            <Text 
+              wrap="balance" 
+              onBackground="neutral-weak" 
+              variant="heading-default-xl"
+            >
               {home.subline}
             </Text>
           </RevealFx>
@@ -54,7 +76,6 @@ export default function Nachalo() {
                 {about.avatar.display && (
                   <Avatar
                     marginRight="8"
-                    style={{ marginLeft: "-0.75rem" }}
                     src={person.avatar}
                     size="m"
                   />
@@ -69,9 +90,17 @@ export default function Nachalo() {
         <Projects range={[1, 1]} />
       </RevealFx>
       {routes["/blog"] && (
-        <Flex fillWidth gap="24" mobileDirection="column">
+        <Flex 
+          fillWidth 
+          gap="24" 
+          mobileDirection="column"
+        >
           <Flex flex={1} paddingLeft="l" paddingTop="24">
-            <Heading as="h2" variant="display-strong-xs" wrap="balance">
+            <Heading 
+              as="h2" 
+              variant="display-strong-xs" 
+              wrap="balance"
+            >
               Последни публикации
             </Heading>
           </Flex>
@@ -81,7 +110,9 @@ export default function Nachalo() {
         </Flex>
       )}
       <Projects range={[2]} />
-      {newsletter.display && <Mailchimp newsletter={newsletter} />}
+      {newsletter.display && (
+        <Mailchimp newsletter={newsletter} />
+      )}
     </Column>
   );
 }

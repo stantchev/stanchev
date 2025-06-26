@@ -7,3 +7,16 @@
         align-items: center;
     }
 }
+
+// Hover effects for footer links and icons
+.footerLink {
+    &:hover {
+        color: var(--accent-strong) !important;
+    }
+}
+
+.footerIcon {
+    &:hover {
+        color: var(--accent-strong) !important;
+    }
+}

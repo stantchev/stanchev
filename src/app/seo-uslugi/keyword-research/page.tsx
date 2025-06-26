@@ -1,7 +1,5 @@
 // src/app/seo-uslugi/keyword-research/page.tsx
 
-'use client';
-
 import {
   Column,
   Flex,
@@ -13,6 +11,35 @@ import {
   Feedback,
 } from '@once-ui-system/core';
 import KeywordResearchFAQ from './faq';
+import { baseURL } from '@/resources';
+
+export async function generateMetadata() {
+  return {
+    title: "Keyword Research – Основата на всяка успешна SEO стратегия",
+    description: "Без правилно проучване на ключови думи, дори най-добрата SEO оптимизация може да се окаже неефективна. Изграждането на стабилна основа започва именно от тук.",
+    openGraph: {
+      title: "Keyword Research – Основата на всяка успешна SEO стратегия",
+      description: "Без правилно проучване на ключови думи, дори най-добрата SEO оптимизация може да се окаже неефективна. Изграждането на стабилна основа започва именно от тук.",
+      url: `${baseURL}/seo-uslugi/keyword-research`,
+      siteName: "Станчев SEO - Професионални SEO Услуги България",
+      images: [
+        {
+          url: `/api/og/generate?title=${encodeURIComponent("Keyword Research")}`,
+          width: 1200,
+          height: 630,
+        },
+      ],
+      locale: 'bg_BG',
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: "Keyword Research – Основата на всяка успешна SEO стратегия",
+      description: "Без правилно проучване на ключови думи, дори най-добрата SEO оптимизация може да се окаже неефективна. Изграждането на стабилна основа започва именно от тук.",
+      images: [`/api/og/generate?title=${encodeURIComponent("Keyword Research")}`],
+    },
+  };
+}
 
 export default function KeywordResearchPage() {
   return (

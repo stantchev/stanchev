@@ -16,6 +16,13 @@ import { baseURL, about, person, social } from "@/resources";
 import TableOfContents from "@/components/about/TableOfContents";
 import styles from "@/components/about/about.module.scss";
 import React from "react";
+import type { ReactNode } from "react";
+
+type ExperienceImage = {
+  src: string;
+  alt?: string;
+  width?: number;
+};
 
 export async function generateMetadata() {
   return {
@@ -69,7 +76,9 @@ export default function ZaMen() {
     },
   ];
   return (
-    <Column maxWidth="m">
+    <Column 
+      maxWidth="m"
+    >
       <Schema
         as="webPage"
         baseURL={baseURL}
@@ -107,15 +116,21 @@ export default function ZaMen() {
             flex={3}
             horizontal="center"
           >
-            <Avatar src={person.avatar} size="xl" />
+            <Avatar 
+              src={person.avatar} 
+              size="xl"
+            />
             <Flex gap="8" vertical="center">
               <Icon onBackground="accent-weak" name="globe" />
-              {person.location}
+              <Text>{person.location}</Text>
             </Flex>
             {person.languages.length > 0 && (
               <Flex wrap gap="8">
                 {person.languages.map((language, index) => (
-                  <Tag key={language} size="l">
+                  <Tag 
+                    key={language} 
+                    size="l"
+                  >
                     {language}
                   </Tag>
                 ))}
@@ -136,17 +151,12 @@ export default function ZaMen() {
                 fitWidth
                 border="brand-alpha-medium"
                 className={styles.blockAlign}
-                style={{
-                  backdropFilter: "blur(var(--static-space-1))",
-                }}
-                background="brand-alpha-weak"
                 radius="full"
-                padding="4"
                 gap="8"
                 marginBottom="m"
                 vertical="center"
               >
-                <Icon paddingLeft="12" name="calendar" onBackground="brand-weak" />
+                <Icon paddingLeft="12" name="calendar" />
                 <Flex paddingX="8">Заяви консултация</Flex>
                 <IconButton
                   href={about.calendar.link}
@@ -156,24 +166,35 @@ export default function ZaMen() {
                 />
               </Flex>
             )}
-            <Heading className={styles.textAlign} variant="display-strong-xl">
+            <Heading 
+              className={styles.textAlign} 
+              variant="display-strong-xl"
+            >
               {person.name}
             </Heading>
             <Text
               className={styles.textAlign}
               variant="display-default-xs"
-              onBackground="neutral-weak"
             >
               {person.role}
             </Text>
             {social.length > 0 && (
-              <Flex className={styles.blockAlign} paddingTop="20" paddingBottom="8" gap="8" wrap horizontal="center" fitWidth data-border="rounded">
+              <Flex 
+                className={styles.blockAlign} 
+                paddingTop="20" 
+                paddingBottom="8" 
+                gap="8" 
+                wrap 
+                horizontal="center" 
+                fitWidth 
+                data-border="rounded"
+              >
                 {social.map(
                   (item) =>
                     item.link && (
                         <React.Fragment key={item.name}>
                             <Button
-                                className="s-flex-hide"
+                                className="s-flex-hide styled-button"
                                 key={item.name}
                                 href={item.link}
                                 prefixIcon={item.icon}
@@ -183,7 +204,7 @@ export default function ZaMen() {
                                 variant="secondary"
                             />
                             <IconButton
-                                className="s-flex-show"
+                                className="s-flex-show styled-button"
                                 size="l"
                                 key={`${item.name}-icon`}
                                 href={item.link}
@@ -209,17 +230,17 @@ export default function ZaMen() {
                 {about.work.title}
               </Heading>
               <Column fillWidth gap="l" marginBottom="40">
-                {about.work.experiences.map((experience, index) => (
-                  <Column key={`${experience.company}-${experience.role}-${index}`} fillWidth>
+                {about.work.experiences.map((experience, expIdx) => (
+                  <Column key={`${experience.company}-${experience.role}-${expIdx}`} fillWidth>
                     <Flex fillWidth horizontal="space-between" vertical="end" marginBottom="4">
                       <Text id={experience.company} variant="heading-strong-l">
                         {experience.company}
                       </Text>
-                      <Text variant="heading-default-xs" onBackground="neutral-weak">
+                      <Text variant="heading-default-xs">
                         {experience.timeframe}
                       </Text>
                     </Flex>
-                    <Text variant="body-default-s" onBackground="brand-weak" marginBottom="m">
+                    <Text variant="body-default-s" marginBottom="m">
                       {experience.role}
                     </Text>
                     <Column as="ul" gap="16">
@@ -233,26 +254,19 @@ export default function ZaMen() {
                         </Text>
                       ))}
                     </Column>
-                    {experience.images.length > 0 && (
+                    {Array.isArray(experience.images) && experience.images.length > 0 && (
                       <Flex fillWidth paddingTop="m" paddingLeft="40" gap="12" wrap>
-                        {experience.images.map((image, index) => (
+                        {(experience.images as ExperienceImage[]).map((image, idx) => (
                           <Flex
-                            key={index}
+                            key={idx}
                             border="neutral-medium"
                             radius="m"
-                            //@ts-ignore
-                            minWidth={image.width}
-                            //@ts-ignore
-                            height={image.height}
                           >
                             <Media
                               enlarge
                               radius="m"
-                              //@ts-ignore
-                              sizes={image.width.toString()}
-                              //@ts-ignore
-                              alt={image.alt}
-                              //@ts-ignore
+                              sizes={image.width ? image.width.toString() : undefined}
+                              alt={image.alt || ''}
                               src={image.src}
                             />
                           </Flex>
@@ -276,7 +290,7 @@ export default function ZaMen() {
                     <Text id={institution.name} variant="heading-strong-l">
                       {institution.name}
                     </Text>
-                    <Text variant="heading-default-xs" onBackground="neutral-weak">
+                    <Text>
                       {institution.description}
                     </Text>
                   </Column>
@@ -286,53 +300,25 @@ export default function ZaMen() {
           )}
 
           {about.technical.display && (
-            <>
-              <Heading
-                as="h2"
-                id={about.technical.title}
-                variant="display-strong-s"
-                marginBottom="40"
-              >
+            <Column gap="l" marginTop="32">
+              <Heading variant="display-strong-m" className={styles.textAlign}>
                 {about.technical.title}
               </Heading>
-              <Column fillWidth gap="l">
-                {about.technical.skills.map((skill, index) => (
-                  <Column key={`${skill}-${index}`} fillWidth gap="4">
-                    <Text variant="heading-strong-l">{skill.title}</Text>
-                    <Text variant="body-default-m" onBackground="neutral-weak">
-                      {skill.description}
-                    </Text>
-{skill.tools && skill.tools.length > 0 && (
-  <Flex
-    wrap
-    gap="12"
-    paddingTop="8"
-    style={{
-      // Responsive стилизация
-      display: "flex",
-      flexWrap: "wrap",
-    }}
-  >
-    {skill.tools.map((tool, i) => (
-      <Flex
-        key={`${skill.title}-tool-${i}`}
-        vertical="center"
-        gap="8"
-        as="li"
-        className={styles.toolItem}
-      >
-        <Icon name="checkCircle" size="s" onBackground="brand-strong" />
-        <Text variant="body-default-s" onBackground="brand-weak">
-          {tool}
-        </Text>
-      </Flex>
-    ))}
-  </Flex>
-)}
-                  </Column>
-                ))}
-              </Column>
-            </>
+              {about.technical.skills.map((skill, idx) => (
+                <Column key={skill.title} fillWidth gap="4">
+                  <Text variant="heading-strong-l">{skill.title}</Text>
+                  <Text>{skill.description}</Text>
+                  <Flex gap="4" paddingTop="4" wrap>
+                    {skill.tools.map((tool, i) => (
+                      <Flex key={tool} className={styles.toolItem} vertical="center" gap="2">
+                        <Icon name="check" size="s" onBackground="brand-strong" />
+                        <Text variant="body-default-s">{tool}</Text>
+                      </Flex>
+                    ))}
+                  </Flex>
+                </Column>
+              ))}
+            </Column>
           )}
         </Column>
       </Flex>

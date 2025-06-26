@@ -1,7 +1,5 @@
 // src/app/seo-uslugi/seo-konsultaciya/page.tsx
 
-'use client';
-
 import {
   Column,
   Flex,
@@ -13,6 +11,35 @@ import {
   Feedback,
 } from '@once-ui-system/core';
 import SeoConsultationFAQ from './faq';
+import { baseURL } from '@/resources';
+
+export async function generateMetadata() {
+  return {
+    title: "SEO Консултация – Най-бързият начин да разберете защо сайтът ви не се класира",
+    description: "Независимо дали имате нужда от технически съвет, преглед на структурата или стратегия за съдържание – SEO консултацията е идеалният начин да получите персонален план за действие.",
+    openGraph: {
+      title: "SEO Консултация – Най-бързият начин да разберете защо сайтът ви не се класира",
+      description: "Независимо дали имате нужда от технически съвет, преглед на структурата или стратегия за съдържание – SEO консултацията е идеалният начин да получите персонален план за действие.",
+      url: `${baseURL}/seo-uslugi/seo-konsultaciya`,
+      siteName: "Станчев SEO - Професионални SEO Услуги България",
+      images: [
+        {
+          url: `/api/og/generate?title=${encodeURIComponent("SEO Консултация")}`,
+          width: 1200,
+          height: 630,
+        },
+      ],
+      locale: 'bg_BG',
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: "SEO Консултация – Най-бързият начин да разберете защо сайтът ви не се класира",
+      description: "Независимо дали имате нужда от технически съвет, преглед на структурата или стратегия за съдържание – SEO консултацията е идеалният начин да получите персонален план за действие.",
+      images: [`/api/og/generate?title=${encodeURIComponent("SEO Консултация")}`],
+    },
+  };
+}
 
 export default function SeoConsultationPage() {
   return (

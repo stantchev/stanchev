@@ -39,6 +39,8 @@ import {
 import { baseURL, person, contact } from "@/resources";
 import { sendEmail } from "@/lib/sendEmail";
 import { redirect } from "next/navigation";
+import { MdOutlineMail, MdOutlineAccessTime } from "react-icons/md";
+import { FaGlobe } from "react-icons/fa";
  
 export default function Kontakti() {
   async function handleSubmit(formData: FormData) {
@@ -89,7 +91,7 @@ export default function Kontakti() {
           </Heading>
 
           <Flex gap="12" vertical="center">
-            <Icon name="email" size="m" onBackground="brand-medium" />
+            <MdOutlineMail size={24} style={{ color: 'var(--brand-medium)' }} />
             <Column gap="4">
               <Text variant="body-default-s" onBackground="neutral-weak">
                 Email
@@ -99,7 +101,7 @@ export default function Kontakti() {
           </Flex>
 
           <Flex gap="12" vertical="center">
-            <Icon name="globe" size="m" onBackground="brand-medium" />
+            <FaGlobe size={22} style={{ color: 'var(--brand-medium)' }} />
             <Column gap="4">
               <Text variant="body-default-s" onBackground="neutral-weak">
                 Локация
@@ -109,7 +111,7 @@ export default function Kontakti() {
           </Flex>
 
           <Flex gap="12" vertical="center">
-            <Icon name="calendar" size="m" onBackground="brand-medium" />
+            <MdOutlineAccessTime size={24} style={{ color: 'var(--brand-medium)' }} />
             <Column gap="4">
               <Text variant="body-default-s" onBackground="neutral-weak">
                 Работно време

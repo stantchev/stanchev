@@ -12,7 +12,6 @@ import {
   opacity,
   SpacingToken,
 } from "@once-ui-system/core";
-import { Footer, Header, RouteGuard, Providers } from "@/components";
 import {
   baseURL,
   effects,
@@ -23,6 +22,8 @@ import {
 } from "@/resources";
 import Script from "next/script";
 import { Metadata } from "next";
+import { Header } from '@/components/Header';
+import { Footer } from '@/components/Footer';
 
 // ───────────────────────────────────────────────────────────
 // 1. Метаданни – Всичко тук ще бъде инжектирано в <head> от Next.js на сървъра
@@ -227,23 +228,33 @@ export default function RootLayout({
             }
           })();
         `}</Script>
-        <Providers>
-          <Background
-            position="fixed"
-            mask={effects.mask}
-            gradient={{ ...effects.gradient, opacity: effects.gradient.opacity as opacity }}
-            dots={{ ...effects.dots, opacity: effects.dots.opacity as opacity, size: effects.dots.size as SpacingToken }}
-            grid={{ ...effects.grid, opacity: effects.grid.opacity as opacity }}
-            lines={{ ...effects.lines, opacity: effects.lines.opacity as opacity, size: effects.lines.size as SpacingToken }}
-          />
-          <Header />
-          <Flex zIndex={0} fillWidth padding="l" horizontal="center" flex={1}>
-            <Flex horizontal="center" fillWidth minHeight="0">
-              <RouteGuard>{children}</RouteGuard>
-            </Flex>
-          </Flex>
-          <Footer />
-        </Providers>
+        
+        {/* Server-rendered background */}
+        <Background
+          position="fixed"
+          mask={effects.mask}
+          gradient={{ ...effects.gradient, opacity: effects.gradient.opacity as opacity }}
+          dots={{ ...effects.dots, opacity: effects.dots.opacity as opacity, size: effects.dots.size as SpacingToken }}
+          grid={{ ...effects.grid, opacity: effects.grid.opacity as opacity }}
+          lines={{ ...effects.lines, opacity: effects.lines.opacity as opacity, size: effects.lines.size as SpacingToken }}
+        />
+        
+        {/* Render Header and Footer globally as server components */}
+        <Header />
+        <main style={{ 
+          width: '100%', 
+          maxWidth: '1200px', 
+          margin: '0 auto', 
+          padding: '0 24px',
+          minHeight: 'calc(100vh - 120px)', // Reduced to account for header only
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          paddingTop: '80px', // Space for the header
+        }}>
+          {children}
+        </main>
+        <Footer />
       </body>
     </html>
   );

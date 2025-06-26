@@ -1,5 +1,3 @@
-"use client";
-
 import { Column, Flex, Heading, Media, SmartLink, Tag, Text } from '@once-ui-system/core';
 import styles from './Posts.module.scss';
 import { formatDate } from '@/app/utils/formatDate';
