@@ -40,3 +40,8 @@
         display: none !important;
     }
 }
+
+.headerIcon {
+  color: var(--on-background-strong, #fff) !important;
+  transition: color 0.2s;
+}
