@@ -24,6 +24,7 @@ import Script from "next/script";
 import { Metadata } from "next";
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
+import { Providers } from "@/components/Providers";
 
 // ───────────────────────────────────────────────────────────
 // 1. Метаданни – Всичко тук ще бъде инжектирано в <head> от Next.js на сървъра
@@ -239,21 +240,26 @@ export default function RootLayout({
           lines={{ ...effects.lines, opacity: effects.lines.opacity as opacity, size: effects.lines.size as SpacingToken }}
         />
         
-        {/* Render Header and Footer globally as server components */}
+        {/* Render Header as server component */}
         <Header />
-        <main style={{ 
-          width: '100%', 
-          maxWidth: '1200px', 
-          margin: '0 auto', 
-          padding: '0 24px',
-          minHeight: 'calc(100vh - 120px)', // Reduced to account for header only
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          paddingTop: '80px', // Space for the header
-        }}>
-          {children}
-        </main>
+        
+        <Providers>
+          <main style={{ 
+            width: '100%', 
+            maxWidth: '1200px', 
+            margin: '0 auto', 
+            padding: '0 24px',
+            minHeight: 'calc(100vh - 120px)', // Reduced to account for header only
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            paddingTop: '80px', // Space for the header
+          }}>
+            {children}
+          </main>
+        </Providers>
+        
+        {/* Render Footer as server component */}
         <Footer />
       </body>
     </html>
