@@ -110,16 +110,21 @@ a:focus {
 
 .main-content {
   padding-top: 30px !important;
-  max-width: 800px; /* or a width that works for your design */
+  max-width: 800px;
   margin: 0 auto;
 }
 
 /* Mobile-specific override */
 @media (max-width: 768px) {
   .main-content {
-    padding-top: 10px !important; /* Reduced from 80px to 10px */
-    min-height: calc(100vh - 96px) !important;
-    padding-bottom: 96px !important;
+    /* Намаляваме padding-top за мобилни */
+    padding-top: 10px !important; 
+    
+    /* Променете тази линия, за да премахнете грешката на Android */
+    /* Опитайте без min-height или с по-гъвкава стойност */
+    min-height: auto !important; 
+    
+    /* Оставяме padding-bottom, за да има място за менюто */
+    padding-bottom: 96px !important; 
     margin: 0 auto;
   }
-}
