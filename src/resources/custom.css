@@ -107,3 +107,9 @@ a:focus {
   outline: 2px solid rgba(102, 126, 234, 0.5);
   outline-offset: 2px;
 }
+
+@media (max-width: 768px) {
+  main {
+    padding-bottom: 96px !important;
+  }
+}
