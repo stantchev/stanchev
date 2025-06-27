@@ -48,8 +48,8 @@ const home = {
   label: "Начало",
 
   // За SEO и metadata
-  titleText: "Начало | Станчев SEO",
-  descriptionText: "SEO оптимизатор, който превръща хаоса в структура, дизайнът в код и кофеина в работещи решения.",
+  titleText: "SEO оптимизация и услуги | Достигнете първо място в Google",
+  descriptionText: "Експертни SEO услуги за вашия сайт. Увеличете трафика и продажбите с ефективна оптимизация. Свържете се за безплатна консултация!",
   featuredTitleText: "Скорошен проект: DarosBuild",
 
   // За визуалния интерфейс (UI)
@@ -72,8 +72,8 @@ const home = {
 const about = {
   path: "/za-men",
   label: "За мен",
-  title: `За мен – ${person.name}`,
-  description: `Meet ${person.name}, ${person.role} от ${person.location}`,
+  title: `SEO експерт с 1 година опит в оптимизацията на сайтове`,
+  description: `Научете повече за моя опит и философия в SEO. Прозрачност, ефективност и резултати. Заедно ще изградим вашата онлайн репутация.`,
   tableOfContent: {
     display: true,
     subItems: false,
@@ -161,23 +161,23 @@ const about = {
 const blog = {
   path: "/blog",
   label: "Блог",
-  title: "SEO блог",
-  description: `Read what ${person.name} has been up to recently`,
+  title: "SEO блог: Уроци, съвети и актуални новини от света на SEO",
+  description: `Прочетете полезни статии, уроци и съвети за SEO оптимизация. Научете как да класирате сайта си и да увеличите трафика.`,
 };
 
 const work = {
   path: "/seo-proekti",
   label: "Проекти",
-  title: `SEO проекти – ${person.name}`,
-  description: `Design and dev projects by ${person.name}`,
+  title: `SEO проекти: Вижте успешните ни истории и резултати`,
+  description: `Разгледайте портфолиото ни. Постигнали сме видими резултати в SEO класирането на различни сайтове.`,
 };
 
 const seoServices = {
   path: "/seo-uslugi",
   label: "SEO Услуги",
-  title: "SEO Услуги за вашия бизнес",
+  title: "Пълна гама от SEO услуги, цени и пакети за вашия бизнес",
   description:
-    "Професионални SEO услуги за оптимизация на сайтове, онлайн магазини, линк билдинг, анализ и повишаване на позиции в Google.",
+    "Предлагаме SEO оптимизация, линк билдинг, on-page и off-page оптимизация, PPC кампании и др. Вижте цените и изберете пакет.",
   services: [
     {
       title: "SEO Одит",
@@ -237,8 +237,8 @@ const seoServices = {
 const contact = {
   path: "/kontakti",
   label: "Контакти",
-  title: "Свържете се с мен",
-  description: "Готов съм да помогна за подобряване на SEO резултатите на вашия сайт.",
+  title: "Контакти: Свържете се за безплатна SEO консултация",
+  description: "Свържете се с мен за безплатна консултация или одит на сайта. Ще отговоря на вашите въпроси и ще изработим стратегия.",
 };
 
 const gallery = {
