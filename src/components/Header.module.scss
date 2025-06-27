@@ -15,10 +15,12 @@
 
 @media (max-width: breakpoints.$s) {
     .position {
-        top: auto;
-        position: fixed;
-        bottom: var(--static-space-24);
-    }
+    top: auto;
+    position: fixed;
+    bottom: var(--static-space-24);
+    left: 50%;
+    transform: translateX(-50%);
+}
 
     .mask {
         transform: rotate(180deg);
