@@ -108,10 +108,6 @@ a:focus {
   outline-offset: 2px;
 }
 
-.main-content {
-  paddingTop: 80px; /* Desktop spacing */
-}
-
 /* Mobile-specific override */
 @media (max-width: 768px) {
   .main-content {
