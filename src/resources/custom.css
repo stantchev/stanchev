@@ -109,7 +109,7 @@ a:focus {
 }
 
 .main-content {
-  max-width: 900px; /* or a width that works for your design */
+  max-width: 800px; /* or a width that works for your design */
   margin: 0 auto;
 }
 
