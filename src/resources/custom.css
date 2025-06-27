@@ -109,14 +109,6 @@ a:focus {
 }
 
 .main-content {
-  width: 100%;
-  maxWidth: 1200px;
-  margin: 0 auto;
-  padding: 0 24px;
-  minHeight: calc(100vh - 120px);
-  display: flex;
-  flexDirection: column;
-  alignItems: center;
   paddingTop: 80px; /* Desktop spacing */
 }
 
