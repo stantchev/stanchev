@@ -42,6 +42,39 @@
 }
 
 .headerIcon {
-  color: var(--on-background-strong, #fff) !important;
-  transition: color 0.2s;
+  color: var(--neutral-on-background-strong) !important;
+  transition: color 0.2s ease;
+  opacity: 1 !important;
+  fill: currentColor !important;
+}
+
+.headerIcon:hover {
+  color: var(--brand-on-background-strong) !important;
+}
+
+/* Ensure icons are visible in both light and dark themes */
+[data-theme="light"] .headerIcon {
+  color: var(--neutral-900) !important;
+}
+
+[data-theme="dark"] .headerIcon {
+  color: var(--neutral-100) !important;
+}
+
+/* Force visibility on mobile */
+@media (max-width: breakpoints.$s) {
+  .headerIcon {
+    color: var(--neutral-on-background-strong) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: inline-block !important;
+  }
+  
+  [data-theme="light"] .headerIcon {
+    color: #1a1a1a !important;
+  }
+  
+  [data-theme="dark"] .headerIcon {
+    color: #ffffff !important;
+  }
 }
