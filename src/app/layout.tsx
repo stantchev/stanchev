@@ -139,15 +139,6 @@ export default function RootLayout({
         fonts.code.variable
       )}
     >
-      <head>
-        <style jsx global>{`
-          @media (max-width: 768px) {
-            main {
-              padding-bottom: 96px !important;
-            }
-          }
-        `}</style>
-      </head>
       <body className="page-background flex flex-col items-center min-h-screen">
         <Script
           id="json-ld-professional-service"
