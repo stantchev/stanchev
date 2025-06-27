@@ -110,7 +110,7 @@ a:focus {
 
 .main-content {
   max-width: 1200px; /* or a width that works for your design */
-  margin: 0 auto;
+  justify-content: center;
 }
 
 /* Mobile-specific override */
@@ -119,6 +119,6 @@ a:focus {
     padding-top: 10px !important; /* Reduced from 80px to 10px */
     min-height: calc(100vh - 96px) !important;
     padding-bottom: 96px !important;
-    margin: 0 auto;
+    justify-content: center;
   }
 }
