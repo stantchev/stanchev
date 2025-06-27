@@ -1,8 +1,79 @@
 @use "./breakpoints.scss" as breakpoints;
 
+/* Custom styles for the application */
+
+/* Hover effects for styled components */
+.styled-badge {
+    transition: all 0.3s ease;
+}
+
+.styled-badge:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6) !important;
+}
+
+.styled-button {
+    transition: all 0.3s ease;
+}
+
+.styled-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5) !important;
+}
+
+/* Glass morphism effects */
+.glass-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.glass-card:hover {
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Gradient text effects */
+.gradient-text {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Smooth transitions for all interactive elements */
+* {
+    transition: all 0.2s ease;
+}
+
+/* Enhanced focus states */
+button:focus,
+a:focus {
+    outline: 2px solid rgba(102, 126, 234, 0.5);
+    outline-offset: 2px;
+}
+
+/* Base styles for the main content area */
+.main-content {
+    padding-top: 30px !important;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Prevent horizontal scrolling on all devices */
+body, html {
+    overflow-x: hidden;
+    max-width: 100vw;
+}
+
+/* Header/Menu positioning and styling */
 .position {
-    position: sticky;
+    position: sticky; /* Sticky position for desktop */
     top: 0;
+    width: 100%;
+    z-index: 1000;
 }
 
 .mask {
@@ -11,17 +82,95 @@
     background: linear-gradient(to bottom, var(--page-background), var(--static-transparent));
     mask-image: linear-gradient(rgba(0,0,0) 25%, rgba(0, 0, 0, 0) 100%);
     mask-size: 100% 100%;
+    top: 0px;
 }
 
+/* Mobile-specific styles */
 @media (max-width: breakpoints.$s) {
-    .position {
-        top: auto;
-        position: fixed;
-        bottom: var(--static-space-24);
+    /* Main content padding for mobile to accommodate the bottom menu */
+    .main-content {
+        padding-top: 10px !important;
+        min-height: auto !important;
+        padding-bottom: 96px !important; /* Ensure enough space for the bottom menu */
+        margin: 0 auto;
     }
 
+    /* Fix the menu to the bottom of the screen on mobile */
+    .position {
+        top: auto;
+        position: fixed; /* Use fixed for consistent visibility */
+        bottom: 0; /* Align to the bottom edge */
+        left: 0;
+        right: 0;
+        z-index: 100;
+        width: 100%;
+        
+        /* Add flexbox for horizontal centering */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* Rotate the mask for the bottom menu */
     .mask {
         transform: rotate(180deg);
         bottom: 0;
+    }
+
+    /* Mobile show/hide classes */
+    .s-flex-hide {
+        display: none !important;
+    }
+    .s-flex-show {
+        display: inline-flex !important;
+    }
+}
+
+/* Desktop-specific styles */
+@media (min-width: 769px) {
+    .s-flex-hide {
+        display: inline-flex !important;
+    }
+    .s-flex-show {
+        display: none !important;
+    }
+}
+
+/* Header icon styles */
+.headerIcon {
+    color: var(--neutral-on-background-strong) !important;
+    transition: color 0.2s ease;
+    opacity: 1 !important;
+    fill: currentColor !important;
+}
+
+.headerIcon:hover {
+    color: var(--brand-on-background-strong) !important;
+}
+
+/* Ensure icons are visible in both light and dark themes */
+[data-theme="light"] .headerIcon {
+    color: var(--neutral-900) !important;
+}
+
+[data-theme="dark"] .headerIcon {
+    color: var(--neutral-100) !important;
+}
+
+/* Force visibility on mobile */
+@media (max-width: breakpoints.$s) {
+    .headerIcon {
+        color: var(--neutral-on-background-strong) !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        display: inline-block !important;
+    }
+    
+    [data-theme="light"] .headerIcon {
+        color: #1a1a1a !important;
+    }
+    
+    [data-theme="dark"] .headerIcon {
+        color: #ffffff !important;
     }
 }
