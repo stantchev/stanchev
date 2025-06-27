@@ -109,6 +109,7 @@ a:focus {
 }
 
 .main-content {
+  padding-top: 30px !important;
   max-width: 800px; /* or a width that works for your design */
   margin: 0 auto;
 }
