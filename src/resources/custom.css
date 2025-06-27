@@ -48,7 +48,18 @@
   --scheme-neutral-1100: #e7f8ff;
   --scheme-neutral-1200: #eeffff;
   --scheme-neutral-600-10: rgba(137,152,159,0.1);
+
+
   --scheme-neutral-600-30: rgba(137,152,159,0.3);
   --scheme-neutral-600-50: rgba(137,152,159,0.5);
   /*
 }*/
+@use "./breakpoints.scss" as breakpoints;
+
+@media (max-width: breakpoints.$s) {
+  .main-content {
+        padding-top: 10px !important;
+        min-height: auto !important;
+        padding-bottom: 96px !important;
+  }
+}
