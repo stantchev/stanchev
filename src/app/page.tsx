@@ -80,7 +80,7 @@ export default function Nachalo() {
                     size="m"
                   />
                 )}
-                "За мен | Станчев SEO"
+                За мен | Станчев SEO
               </Flex>
             </Button>
           </RevealFx>
