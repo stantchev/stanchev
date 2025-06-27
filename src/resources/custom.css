@@ -108,8 +108,23 @@ a:focus {
   outline-offset: 2px;
 }
 
+.main-content {
+  width: 100%;
+  maxWidth: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  minHeight: calc(100vh - 120px);
+  display: flex;
+  flexDirection: column;
+  alignItems: center;
+  paddingTop: 80px; /* Desktop spacing */
+}
+
+/* Mobile-specific override */
 @media (max-width: 768px) {
-  main {
+  .main-content {
+    padding-top: 10px !important; /* Reduced from 80px to 10px */
+    min-height: calc(100vh - 96px) !important;
     padding-bottom: 96px !important;
   }
 }
