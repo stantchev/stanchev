@@ -202,7 +202,16 @@ export default function RootLayout({
         />
         
         {/* Render Header as server component */}
-        <Header />
+        <Flex fillWidth minHeight="16" hide="s"/>
+            <Header />
+            <Flex
+              zIndex={0}
+              fillWidth
+              padding="l"
+              horizontal="center"
+              flex={1}
+            >
+              <Flex horizontal="center" fillWidth minHeight="0">
         
         <Providers>
           <main className="main-content">
