@@ -57,8 +57,11 @@
 @use "./breakpoints.scss" as breakpoints;
 
 @media (max-width: breakpoints.$s) {
-  .Fade_mask__bdBNv {
-    display: none !important;
+ .Fade_mask__bdBNv {
+    top: auto !important;
+    bottom: 0 !important;
+    display: block !important;
+    transform: rotate(180deg) !important;
   }
   .main-content {
         padding-top: 10px !important;
