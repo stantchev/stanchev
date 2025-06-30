@@ -203,13 +203,13 @@ export default function RootLayout({
         
         {/* Render Header as server component */}
             <Header />
-        
+        <Flex flex={1} fillWidth horizontal="center">
         <Providers>
           <main className="main-content">
             {children}
           </main>
         </Providers>
-        
+        </Flex>
         {/* Render Footer as server component */}
         <Footer />
       </body>
