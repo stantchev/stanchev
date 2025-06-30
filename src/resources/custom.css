@@ -54,7 +54,7 @@
   --scheme-neutral-600-50: rgba(137,152,159,0.5);
   /*
 }*/
-@use "../breakpoints.scss" as breakpoints;
+@use "../components/breakpoints.scss" as breakpoints;
 
 @media (max-width: breakpoints.$s) {
  .Fade_mask__bdBNv {
