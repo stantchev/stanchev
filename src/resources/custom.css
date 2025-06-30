@@ -57,7 +57,7 @@
 @use "./breakpoints.scss" as breakpoints;
 
 @media (max-width: breakpoints.$s) {
-  .media-content {
+  .main-content {
         padding-top: 10px !important;
         min-height: auto !important;
         padding-bottom: 65px !important;
