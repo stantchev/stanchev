@@ -44,7 +44,7 @@ export async function GET(request: Request) {
       >
         <span
           style={{
-            padding: "1rem",
+            padding: "0rem",
             fontSize: "6rem",
             lineHeight: "8rem",
             letterSpacing: "-0.05em",
