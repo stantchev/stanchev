@@ -11,6 +11,7 @@
     background: linear-gradient(to bottom, var(--page-background), var(--static-transparent));
     mask-image: linear-gradient(rgba(0,0,0) 25%, rgba(0, 0, 0, 0) 100%);
     mask-size: 100% 100%;
+    top: 0;
 }
 
 @media (max-width: breakpoints.$s) {
