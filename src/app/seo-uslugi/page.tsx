@@ -1,4 +1,4 @@
-import { Flex, Meta, Schema, Column, Heading, Text, Button, Grid, Card } from "@once-ui-system/core";
+import { Flex, Meta, Schema, Column, Heading, Text, Button, Grid, Card, AccordionGroup } from "@once-ui-system/core";
 import { baseURL, person, seoServices } from "@/resources";
 
 export async function generateMetadata() {
@@ -48,10 +48,27 @@ export default function SeoUslugi() {
       
       <Column gap="l" paddingX="l">
         <Heading variant="display-strong-l" marginBottom="m">
-          {seoServices.title}
+          SEO услуги за вашия бизнес
         </Heading>
-        <Text variant="heading-default-xl" onBackground="neutral-weak" wrap="balance">
-          {seoServices.description}
+        <Text
+          variant="heading-default-xl"
+          onBackground="neutral-weak"
+          wrap="balance"
+        >
+          Нашият екип предлага услуги като оптимизация на сайтове, seo копирайтинг и регистрация на сайт в търсачки за различни бизнеси и онлайн магазини. Вижте нашите <a href="/seo-proekti">успешни проекти</a> или се <a href="/kontakti">свържете с нас</a> за повече информация.
+        </Text>
+      </Column>
+
+      <Column gap="m" paddingX="l">
+        <Heading variant="heading-strong-l" marginBottom="m">
+          Как можем да помогнем?
+        </Heading>
+        <Text
+          variant="body-default-l"
+          onBackground="neutral-weak"
+          wrap="balance"
+        >
+          Извършваме услуги като seo анализ онлайн, seo стратегия, оптимизация на сайт за мобилни устройства и off-page оптимизация за фирми, онлайн магазини и блогове. Предлагаме индивидуален подход и прозрачни резултати.
         </Text>
       </Column>
 
@@ -95,6 +112,35 @@ export default function SeoUslugi() {
           </Card>
         ))}
       </Grid>
+
+      <AccordionGroup
+        items={[
+          {
+            title: "Какви точно SEO услуги предлага Станчев SEO?",
+            content: (
+              <Text onBackground="neutral-weak">
+                Станчев SEO предлага цялостни SEO услуги, които включват детайлен технически одит на уебсайта, оптимизация на съдържанието (on-page SEO), изграждане на качествени връзки (off-page SEO), анализ на ключови думи и мониторинг на конкуренцията. Ние се фокусираме върху дългосрочни резултати и устойчив растеж на органичния трафик, като нашата SEO стратегия е съобразена с най-новите алгоритми.
+              </Text>
+            )
+          },
+          {
+            title: "С какво услугите на Станчев SEO се отличават от конкурентните?",
+            content: (
+              <Text onBackground="neutral-weak">
+                Станчев SEO се отличава с персонализиран подход към всеки клиент и прозрачност в работата. Ние не просто изпълняваме задачи, а задълбочено разбираме вашите бизнес цели и адаптираме стратегията си. Използваме утвърдени и етични (white-hat) SEO практики, гарантиращи сигурност и устойчивост на резултатите ви. Работим като отдаден SEO консултант за вашия онлайн успех.
+              </Text>
+            )
+          },
+          {
+            title: "За какъв тип бизнес са подходящи SEO услугите на Станчев SEO?",
+            content: (
+              <Text onBackground="neutral-weak">
+                Нашите SEO оптимизации са подходящи за широк кръг бизнеси, които искат да увеличат онлайн видимостта си. Работим успешно както с малки и средни предприятия, така и с големи компании от различни сектори, включително електронни магазини, фирмени уебсайтове и блогове. Важно е да имате желание за дългосрочна инвестиция в дигиталния си маркетинг. За нас е важно да сме вашата надеждна SEO фирма.
+              </Text>
+            )
+          }
+        ]}
+      />
 
       <Column gap="m" paddingX="l" horizontal="center">
         <Heading variant="display-strong-s" align="center">
