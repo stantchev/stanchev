@@ -26,6 +26,9 @@ import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { Providers } from "@/components/Providers";
 
+// ───────────────────────────────────────────────────────────
+// 1. Метаданни – Всичко тук ще бъде инжектирано в <head> от Next.js на сървъра
+// ───────────────────────────────────────────────────────────
 export const metadata: Metadata = {
   title: "SEO Консултант България | Станчев SEO - Професионални SEO Услуги",
   description: "Професионален SEO консултант в България. SEO оптимизация, линк билдинг стратегия, оптимизация на сайт, SEO анализ. Повишете позициите си в Google с доказани SEO услуги.",
@@ -78,12 +81,48 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: baseURL,
+    // Други алтернативи, ако имаш:
+    // languages: {
+    //   'en-US': 'https://example.com/en-US',
+    // },
   },
   verification: {
     google: "your-google-verification-code", // Добави реалния код
   },
   category: "SEO Services",
+  // Директно добавяне на link и meta тагове, които не са част от стандартните
+  // properties, но искаш да са в <head>.
+  // Трябва да са в 'other' или да се конвертират към съвместими формати.
+  // *Важно: Next.js ще добави default <meta> тагове от <metadata> обекта.*
+  // *Не е нужно да добавяш description, title, keywords отново тук.*
+  // *За custom meta тагове, които не са директноSUPPORTED от Metadata типа, може да се наложи:*
+  // other: {
+  //   'format-detection': 'telephone=no', // Пример, може да не е нужно
+  //   'geo.region': 'BG',
+  //   'geo.placename': 'София, България',
+  //   'ICBM': '42.6977, 23.3219',
+  //   'geo.position': '42.6977;23.3219',
+  //   'language': 'Bulgarian',
+  //   'distribution': 'global',
+  //   'rating': 'general',
+  //   'revisit-after': '7 days',
+  //   'business:contact_data:locality': 'София',
+  //   'business:contact_data:region': 'София-град',
+  //   'business:contact_data:country_name': 'България',
+  //   'business:contact_data:email': 'seo@stanchev.bg',
+  //   'business:contact_data:website': 'https://stanchev.vercel.app',
+  // },
+  // icon: "/favicon.ico", // За favicon
+  // appleWebApp: {
+  //   capable: true,
+  //   startupImage: '/images/avatar.jpg', // Може да се използва за apple-touch-icon
+  // },
+  // themeColor: "#ffffff", // За theme-color
 };
+
+// ───────────────────────────────────────────────────────────
+// 2. Layout компонент – БЕЗ <head> таг в JSX
+// ───────────────────────────────────────────────────────────
 export default function RootLayout({
   children,
 }: {
@@ -202,14 +241,24 @@ export default function RootLayout({
         />
         
         {/* Render Header as server component */}
-            <Header />
-        <Flex flex={1} fillWidth horizontal="center">
+        <Header />
+        
         <Providers>
-          <main className="main-content">
+          <main className="main-content" style={{ 
+            width: '100%', 
+            maxWidth: '1200px', 
+            margin: '0 auto', 
+            padding: '0 24px',
+            minHeight: 'calc(100vh - 120px)', // Reduced to account for header only
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            paddingTop: '80px', // Space for the header
+          }}>
             {children}
           </main>
         </Providers>
-        </Flex>
+        
         {/* Render Footer as server component */}
         <Footer />
       </body>
