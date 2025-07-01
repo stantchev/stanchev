@@ -13,6 +13,7 @@ import styles from "./Header.module.scss";
 import { AiOutlineHome } from "react-icons/ai";
 import { FaUser, FaThLarge, FaRegNewspaper } from "react-icons/fa";
 import { MdOutlineRocketLaunch, MdOutlineMail } from "react-icons/md";
+import React from "react";
 
 export const Header = () => {
   return (
@@ -56,92 +57,72 @@ export const Header = () => {
             zIndex={1}
           >
             <Flex gap="4" vertical="center" textVariant="body-default-s">
-              {/* Static navigation links with react-icons */}
+              {/* Homepage button: icon only, always visible */}
               <ToggleButton 
                 href="/" 
                 aria-label="Начало" 
-                label={<AiOutlineHome size={18} className={styles.headerIcon} />} 
+                label={<AiOutlineHome size={18} />} 
               />
               <Line background="neutral-alpha-medium" vert maxHeight="24" />
+              {/* About nav item */}
               <ToggleButton 
                 className="s-flex-hide" 
                 href="/za-men" 
-                label={
-                  <span style={{display:'flex',alignItems:'center',gap:6}}>
-                    <FaUser size={16} className={styles.headerIcon} />
-                    {about.label}
-                  </span>
-                } 
+                label={<span style={{display:'flex',alignItems:'center',gap:6}}><FaUser size={16}/>{about.label}</span>} 
               />
               <ToggleButton 
                 className="s-flex-show" 
                 aria-label="За мен" 
-                href="/za-men"
-                label={<FaUser size={16} className={styles.headerIcon} />}
+                href="/za-men" 
+                label={<FaUser size={16} />} 
               />
+              {/* Projects nav item */}
               <ToggleButton 
                 className="s-flex-hide" 
                 href="/seo-proekti" 
-                label={
-                  <span style={{display:'flex',alignItems:'center',gap:6}}>
-                    <FaThLarge size={16} className={styles.headerIcon} />
-                    {work.label}
-                  </span>
-                } 
+                label={<span style={{display:'flex',alignItems:'center',gap:6}}><FaThLarge size={16}/>{work.label}</span>} 
               />
               <ToggleButton 
                 className="s-flex-show" 
                 aria-label="SEO проекти" 
-                href="/seo-proekti"
-                label={<FaThLarge size={16} className={styles.headerIcon} />}
+                href="/seo-proekti" 
+                label={<FaThLarge size={16} />} 
               />
+              {/* Services nav item */}
               <ToggleButton 
                 className="s-flex-hide" 
                 href="/seo-uslugi" 
-                label={
-                  <span style={{display:'flex',alignItems:'center',gap:6}}>
-                    <MdOutlineRocketLaunch size={18} className={styles.headerIcon} />
-                    {seoServices.label}
-                  </span>
-                } 
+                label={<span style={{display:'flex',alignItems:'center',gap:6}}><MdOutlineRocketLaunch size={18}/>{seoServices.label}</span>} 
               />
               <ToggleButton 
                 className="s-flex-show" 
                 aria-label="SEO услуги" 
-                href="/seo-uslugi"
-                label={<MdOutlineRocketLaunch size={18} className={styles.headerIcon} />}
+                href="/seo-uslugi" 
+                label={<MdOutlineRocketLaunch size={18} />} 
               />
+              {/* Contacts nav item */}
               <ToggleButton 
                 className="s-flex-hide" 
                 href="/kontakti" 
-                label={
-                  <span style={{display:'flex',alignItems:'center',gap:6}}>
-                    <MdOutlineMail size={18} className={styles.headerIcon} />
-                    {contact.label}
-                  </span>
-                } 
+                label={<span style={{display:'flex',alignItems:'center',gap:6}}><MdOutlineMail size={18}/>{contact.label}</span>} 
               />
               <ToggleButton 
                 className="s-flex-show" 
                 aria-label="Контакти" 
-                href="/kontakti"
-                label={<MdOutlineMail size={18} className={styles.headerIcon} />}
+                href="/kontakti" 
+                label={<MdOutlineMail size={18} />} 
               />
+              {/* Blog nav item */}
               <ToggleButton 
                 className="s-flex-hide" 
                 href="/blog" 
-                label={
-                  <span style={{display:'flex',alignItems:'center',gap:6}}>
-                    <FaRegNewspaper size={16} className={styles.headerIcon} />
-                    {blog.label}
-                  </span>
-                } 
+                label={<span style={{display:'flex',alignItems:'center',gap:6}}><FaRegNewspaper size={16}/>{blog.label}</span>} 
               />
               <ToggleButton 
                 className="s-flex-show" 
                 aria-label="SEO блог" 
-                href="/blog"
-                label={<FaRegNewspaper size={16} className={styles.headerIcon} />}
+                href="/blog" 
+                label={<FaRegNewspaper size={16} />} 
               />
             </Flex>
           </Flex>
