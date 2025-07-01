@@ -48,7 +48,7 @@ export default function Nachalo() {
           <RevealFx translateY="4" fillWidth horizontal="start" paddingBottom="16">
             <Heading 
               wrap="balance" 
-              variant="display-strong-l"
+              variant="display-strong-m"
             >
               {home.headline}
             </Heading>
