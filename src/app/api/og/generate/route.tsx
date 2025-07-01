@@ -1,26 +1,17 @@
 import { ImageResponse } from "next/og";
 import { baseURL, person } from "@/resources";
 
-export const runtime = "nodejs";
+export const runtime = "edge";
 
 export async function GET(request: Request) {
   let url = new URL(request.url);
   let title = url.searchParams.get("title") || "Portfolio";
-
-  async function loadGoogleFont(font: string) {
-    const url = `https://fonts.googleapis.com/css2?family=${font}`
-    const css = await (await fetch(url)).text()
-    const resource = css.match(/src: url\((.+)\) format\('(opentype|truetype)'\)/)
-
-    if (resource) {
-      const response = await fetch(resource[1])
-      if (response.status == 200) {
-        return await response.arrayBuffer()
-      }
-    }
-
-    throw new Error('failed to load font data')
-  }
+  /*
+  const font = fetch(new URL("../../../public/fonts/Inter.ttf", import.meta.url)).then((res) =>
+    res.arrayBuffer(),
+  );
+  const fontData = await font;
+  */
 
   return new ImageResponse(
     <div
@@ -28,7 +19,7 @@ export async function GET(request: Request) {
         display: "flex",
         width: "100%",
         height: "100%",
-        padding: "6rem",
+        padding: "8rem",
         background: "#151515",
       }}
     >
@@ -44,13 +35,11 @@ export async function GET(request: Request) {
       >
         <span
           style={{
-            padding: "0rem",
-            fontSize: "6rem",
+            fontSize: "8rem",
             lineHeight: "8rem",
             letterSpacing: "-0.05em",
-            whiteSpace: "wrap",
+            whiteSpace: "pre-wrap",
             textWrap: "balance",
-            overflow: "hidden"
           }}
         >
           {title}
@@ -106,13 +95,15 @@ export async function GET(request: Request) {
     {
       width: 1280,
       height: 720,
+      /*
       fonts: [
         {
-          name: "Geist",
-          data: await loadGoogleFont('Geist:wght@400'),
+          name: "Inter",
+          data: fontData,
           style: "normal",
         },
       ],
+      */
     },
   );
 }
