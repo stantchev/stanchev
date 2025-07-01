@@ -48,7 +48,7 @@ export default function SeoProekti() {
         }}
       />
       <Heading variant="display-strong-l" marginBottom="m">
-        Примери за успешни SEO проекти
+        Успешни SEO проекти
       </Heading>
       <Text
         variant="heading-default-xl"
