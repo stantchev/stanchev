@@ -80,7 +80,7 @@ export default function Kontakti() {
           onBackground="neutral-weak"
           wrap="balance"
         >
-          {contact.description}
+          Ако имате въпроси относно интернет реклама, оптимизация на сайт, дигитален маркетинг или търсите опитен seo специалист, свържете се с нас чрез формата по-долу. За повече информация относно нашите услуги, посетете страницата за <a href="/seo-uslugi">SEO услуги</a>.
         </Text>
       </Column>
 
