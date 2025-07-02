@@ -160,7 +160,7 @@ export default function SeoAuditPage() {
 			  <Button
           variant="secondary"
           size="s"
-          href="/kontakti"
+          href="/seo-uslugi/link-building"
           prefixIcon="chevronRight"
           data-border="rounded"
 		  style={{ marginLeft: '50px', minWidth: '200px'}}
