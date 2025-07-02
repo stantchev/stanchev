@@ -40,27 +40,27 @@ import {
   Button,
   Input,
   Textarea,
-  Meta,
   Schema,
-  Icon,
 } from "@once-ui-system/core";
 import { sendEmail } from "@/lib/sendEmail";
 import { redirect } from "next/navigation";
 import { MdOutlineMail, MdOutlineAccessTime } from "react-icons/md";
 import { FaGlobe } from "react-icons/fa";
  
-export default function Kontakti() {
-  async function handleSubmit(formData: FormData) {
-    "use server";
-    const name = formData.get("name")?.toString() || "";
-    const email = formData.get("email")?.toString() || "";
-    const subject = formData.get("subject")?.toString() || "";
-    const message = formData.get("message")?.toString() || "";
+async function handleSubmit(formData: FormData) {
+  "use server";
+  const name = formData.get("name")?.toString() || "";
+  const email = formData.get("email")?.toString() || "";
+  const subject = formData.get("subject")?.toString() || "";
+  const message = formData.get("message")?.toString() || "";
 
-    await sendEmail({ name, email, subject, message });
+  await sendEmail({ name, email, subject, message });
 
-    redirect("/kontakti?status=ok");
-  }
+  redirect("/kontakti?status=ok");
+}
+
+export default function Kontakti({ searchParams }: { searchParams?: { status?: string } }) {
+  const isSuccess = searchParams?.status === "ok";
 
   return (
     <Column maxWidth="m" gap="xl">
@@ -132,38 +132,54 @@ export default function Kontakti() {
 
         <Column flex={2} gap="l">
           <Heading variant="heading-strong-l" marginBottom="m">
-            Изпратете съобщение
+            {isSuccess ? "Успешно изпратено запитване!" : "Изпратете съобщение"}
           </Heading>
 
-          <form action={handleSubmit}>
-            <Column gap="16">
-              <Input id="name" name="name" placeholder="Вашето име" required />
-              <Input
-                id="email"
-                name="email"
-                type="email"
-                placeholder="your@email.com"
-                required
-              />
-              <Input
-                id="subject"
-                name="subject"
-                placeholder="Тема на съобщението"
-                required
-              />
-              <Textarea
-                id="message"
-                name="message"
-                label="Съобщение"
-                placeholder="Опишете вашия проект или въпрос..."
-                rows={6}
-                required
-              />
-              <Button type="submit" variant="primary" size="m" fillWidth>
-                Изпрати съобщение
-              </Button>
-            </Column>
-          </form>
+          {isSuccess ? (
+            <Text
+              variant="display-default-m"
+              style={{
+                color: "var(--brand-strong)",
+                textAlign: "center",
+                padding: "2rem",
+                border: "2px solid var(--brand-strong)",
+                borderRadius: "8px",
+                backgroundColor: "rgba(76, 175, 80, 0.1)",
+              }}
+            >
+              Благодарим ви, вашето съобщение беше изпратено успешно.
+            </Text>
+          ) : (
+            <form action={handleSubmit}>
+              <Column gap="16">
+                <Input id="name" name="name" placeholder="Вашето име" required />
+                <Input
+                  id="email"
+                  name="email"
+                  type="email"
+                  placeholder="your@email.com"
+                  required
+                />
+                <Input
+                  id="subject"
+                  name="subject"
+                  placeholder="Тема на съобщението"
+                  required
+                />
+                <Textarea
+                  id="message"
+                  name="message"
+                  label="Съобщение"
+                  placeholder="Опишете вашия проект или въпрос..."
+                  rows={6}
+                  required
+                />
+                <Button type="submit" variant="primary" size="m" fillWidth>
+                  Изпрати съобщение
+                </Button>
+              </Column>
+            </form>
+          )}
         </Column>
       </Flex>
     </Column>
