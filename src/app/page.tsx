@@ -57,7 +57,7 @@ export default function Nachalo() {
             <Text 
               wrap="balance" 
               onBackground="neutral-weak" 
-              variant="heading-default-xl"
+              variant="heading-default-l"
             >
               {home.subline}
             </Text>
