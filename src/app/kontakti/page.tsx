@@ -1,28 +1,36 @@
 // ❗️ Този файл е server component – НЕ добавяй "use client"
 export const dynamic = "force-dynamic";
 import type { Metadata } from 'next'
-export const metadata = {
-  title: "Контакти | Станчев SEO",
-  description: "Свържете се с мен за безплатна SEO консултация или запитване относно оптимизация на сайт.",
-  keywords: "seo консултация, seo услуги, seo експерт, seo оптимизатор, фирма за seo оптимизация, seo консултант, заявка за seo, контакт със seo специалист, поръчай seo оптимизация, връзка с seo фирма",
-  author: "stanchev.bg",
-  robots: "index, follow",
-  openGraph: {
-    title: "Контакти | StanchevSEO",
-    description: "Свържете се с мен за безплатна SEO консултация или запитване относно оптимизация на сайт.",
-    type: "website",
-    url: "https://stanchev.vercel.app/kontakti",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Контакти | StanchevSEO",
-    description: "Свържете се с мен за безплатна SEO консултация или запитване относно оптимизация на сайт.",
-  },
-  alternates: {
-    canonical: "https://stanchev.vercel.app/kontakti",
-  },
-};
+import { baseURL, person, contact } from "@/resources";
 
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: "Контакти | Станчев SEO",
+    description: "Свържете се с мен за безплатна SEO консултация или запитване относно оптимизация на сайт.",
+    keywords: "seo консултация, seo услуги, seo експерт, seo оптимизатор, фирма за seo оптимизация, seo консултант, заявка за seo, контакт със seo специалист, поръчай seo оптимизация, връзка с seo фирма",
+    openGraph: {
+      title: "Контакти | Станчев SEO",
+      description: "Свържете се с мен за безплатна SEO консултация или запитване относно оптимизация на сайт.",
+      url: `${baseURL}/kontakti`,
+      siteName: "Контакти | Станчев SEO",
+      images: [
+        {
+          url: `https://stanchev.vercel.app/images/og/og.jpg`,
+          width: 1200,
+          height: 630,
+        },
+      ],
+      locale: 'bg_BG',
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: "Контакти | Станчев SEO",
+      description: "Свържете се с мен за безплатна SEO консултация или запитване относно оптимизация на сайт.",
+      images: [`https://stanchev.vercel.app/images/og/og.jpg`],
+    },
+  };
+}
 
 import {
   Column,
@@ -36,7 +44,6 @@ import {
   Schema,
   Icon,
 } from "@once-ui-system/core";
-import { baseURL, person, contact } from "@/resources";
 import { sendEmail } from "@/lib/sendEmail";
 import { redirect } from "next/navigation";
 import { MdOutlineMail, MdOutlineAccessTime } from "react-icons/md";
