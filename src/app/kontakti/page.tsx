@@ -59,7 +59,7 @@ async function handleSubmit(formData: FormData) {
   redirect("/kontakti?status=ok");
 }
 
-export default function Kontakti({ searchParams }: { searchParams?: { status?: string } }) {
+export default function Kontakti({ searchParams }: { searchParams?: { [key: string]: string | string[] | undefined } }) {
   const isSuccess = searchParams?.status === "ok";
 
   return (
