@@ -5,13 +5,14 @@ import { Projects } from "@/components/work/Projects";
 
 export async function generateMetadata() {
   return {
-    title: work.title,
-    description: work.description,
-    openGraph: {
-      title: work.title,
-      description: work.description,
+    title: 'Успешни SEO проекти – виж как помагам на сайтове да растат в Google',
+    description: 'Реални SEO проекти с видими резултати. Виж как повишихме трафика, позициите и продажбите на сайтове в различни ниши.',
+    keywords: 'seo проекти, seo оптимизация, seo услуги, seo стратегия, seo анализ сайта, линк билдинг стратегия, фирма за seo оптимизация, ефективна seo оптимизация, класиране в google, seo резултати',
+	openGraph: {
+      title: 'Успешни SEO проекти – виж как помагам на сайтове да растат в Google',
+      description: 'Реални SEO проекти с видими резултати. Виж как повишихме трафика, позициите и продажбите на сайтове в различни ниши.',
       url: `${baseURL}/seo-proekti`,
-      siteName: work.title,
+      siteName: 'Успешни SEO проекти – виж как помагам на сайтове да растат в Google',
       images: [
         {
           url: `/api/og/generate?title=${encodeURIComponent(work.title)}`,
@@ -24,8 +25,8 @@ export async function generateMetadata() {
     },
     twitter: {
       card: 'summary_large_image',
-      title: work.title,
-      description: work.description,
+      title: 'Успешни SEO проекти – виж как помагам на сайтове да растат в Google',
+      description: 'Реални SEO проекти с видими резултати. Виж как повишихме трафика, позициите и продажбите на сайтове в различни ниши.',
       images: [`/api/og/generate?title=${encodeURIComponent(work.title)}`],
     },
   };
@@ -48,7 +49,7 @@ export default function SeoProekti() {
         }}
       />
       <Heading variant="display-strong-l" marginBottom="m">
-        Успешни SEO проекти
+        Примери за успешни SEO проекти
       </Heading>
       <Text
         variant="heading-default-xl"

@@ -9,32 +9,72 @@ import {
   Feedback,
 } from '@once-ui-system/core';
 import SeoAuditFAQ from './faq';
+import { baseURL, seoServices } from '@/resources';
 
-export default function SeoAuditPage() {
+const service = seoServices.services.find(s => s.slug === 'link-building');
+
+export async function generateMetadata() {
+  if (!service) {
+    return {
+      title: 'Link Building стратегии за силно SEO – изгради авторитет и класиране в Google',
+      description: 'Изгради силен линк профил с ефективна Link Building стратегия. Повиши авторитета на сайта си и се класирай по-високо в Google.',
+      openGraph: { title: 'Link Building стратегии за силно SEO – изгради авторитет и класиране в Google', description: 'Изгради силен линк профил с ефективна Link Building стратегия. Повиши авторитета на сайта си и се класирай по-високо в Google.', url: `${baseURL}/seo-uslugi/link-building` },
+      twitter: { title: 'Link Building стратегии за силно SEO – изгради авторитет и класиране в Google', description: 'Изгради силен линк профил с ефективна Link Building стратегия. Повиши авторитета на сайта си и се класирай по-високо в Google.' },
+    };
+  }
+  return {
+    title: 'Link Building стратегии за силно SEO – изгради авторитет и класиране в Google',
+    description: 'Изгради силен линк профил с ефективна Link Building стратегия. Повиши авторитета на сайта си и се класирай по-високо в Google.',
+    keywords: 'link building, линк билдинг, линк билдинг стратегия, изграждане на линкове, външни връзки, линкове към сайт, линк билдинг цена, seo линкове, link building услуги, линк профил',
+	openGraph: {
+      title: 'Link Building стратегии за силно SEO – изгради авторитет и класиране в Google',
+      description: 'Изгради силен линк профил с ефективна Link Building стратегия. Повиши авторитета на сайта си и се класирай по-високо в Google.',
+      url: `${baseURL}/seo-uslugi/${service.slug}`,
+      siteName: seoServices.title,
+      images: [
+        {
+          url: `https://stanchev.vercel.app/images/og/og.jpg`,
+          width: 1200,
+          height: 630,
+        },
+      ],
+      locale: 'bg_BG',
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: 'Link Building стратегии за силно SEO – изгради авторитет и класиране в Google',
+      description: 'Изгради силен линк профил с ефективна Link Building стратегия. Повиши авторитета на сайта си и се класирай по-високо в Google.',
+      images: [`https://stanchev.vercel.app/images/og/og.jpg`],
+    },
+  };
+}
+
+export default function LinkBuildingPage() {
   return (
     <Column as="section" gap="xl" padding="xl" fillWidth>
       <Column gap="m" align="center" fillWidth>
         <Heading as="h1" variant="display-strong-l" align="center">
           Link Building – изградете авторитет и класиране с качествени връзки
         </Heading>
-<Text
+        <Text
           variant="heading-default-xl"
           onBackground="neutral-weak"
           wrap="balance"
         >
           Добре планираната линк билдинг стратегия е основа за всяка успешна <a href="/seo-uslugi/seo-optimizatsiya">SEO Оптимизация.</a> Чрез изграждане на качествени външни връзки подобряваме вашия SEO рейтинг и видимост в Google.
         </Text>
-      <Flex horizontal="center">
-        <Button
-          variant="primary"
-          size="l"
-          href="/kontakti"
-          prefixIcon="checkCircle"
-          data-border="rounded"
-        >
-          Заяви безплатна консултация
-        </Button>
-      </Flex>
+        <Flex horizontal="center">
+          <Button
+            variant="primary"
+            size="l"
+            href="/kontakti"
+            prefixIcon="checkCircle"
+            data-border="rounded"
+          >
+            Заяви безплатна консултация
+          </Button>
+        </Flex>
       </Column>
 
       <Flex gap="8" wrap horizontal="center">

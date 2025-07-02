@@ -5,9 +5,10 @@ import { baseURL, blog, person, newsletter } from "@/resources";
 
 export async function generateMetadata() {
   return Meta.generate({
-    title: blog.title,
-    description: blog.description,
-    baseURL: baseURL,
+    title: 'SEO Блог – съвети, стратегии и новини за по-добро класиране в Google',
+    description: 'Следи нашия SEO блог за практически съвети, актуални стратегии, уроци и новини от света на оптимизацията. Всичко за по-високи позиции и реални резултати.',
+    keywords: 'seo блог, seo съвети, seo новини, seo уроци, seo обучение, seo копирайтинг, seo стратегии, как се прави seo оптимизация, анализ на сайт, оптимизация на сайт',
+	baseURL: baseURL,
     image: `/api/og/generate?title=${encodeURIComponent(blog.title)}`,
     path: blog.path,
   });

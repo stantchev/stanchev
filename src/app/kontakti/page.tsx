@@ -2,21 +2,21 @@
 export const dynamic = "force-dynamic";
 import type { Metadata } from 'next'
 export const metadata = {
-  title: "Контакти | StanchevSEO",
-  description: "Свържете се с мен за SEO консултация или запитване относно оптимизация на сайт.",
-  keywords: "контакти, Ketaring.bg, свържете се, партньор ресторант, кетъринг услуги, България, информация",
+  title: "Контакти | Станчев SEO",
+  description: "Свържете се с мен за безплатна SEO консултация или запитване относно оптимизация на сайт.",
+  keywords: "seo консултация, seo услуги, seo експерт, seo оптимизатор, фирма за seo оптимизация, seo консултант, заявка за seo, контакт със seo специалист, поръчай seo оптимизация, връзка с seo фирма",
   author: "stanchev.bg",
   robots: "index, follow",
   openGraph: {
     title: "Контакти | StanchevSEO",
-    description: "Свържете се с мен за SEO консултация или запитване относно оптимизация на сайт.",
+    description: "Свържете се с мен за безплатна SEO консултация или запитване относно оптимизация на сайт.",
     type: "website",
     url: "https://stanchev.vercel.app/kontakti",
   },
   twitter: {
     card: "summary_large_image",
     title: "Контакти | StanchevSEO",
-    description: "Свържете се с мен за SEO консултация или запитване относно оптимизация на сайт.",
+    description: "Свържете се с мен за безплатна SEO консултация или запитване относно оптимизация на сайт.",
   },
   alternates: {
     canonical: "https://stanchev.vercel.app/kontakti",

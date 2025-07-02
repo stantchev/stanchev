@@ -11,20 +11,31 @@ import {
   Feedback,
 } from '@once-ui-system/core';
 import KeywordResearchFAQ from './faq';
-import { baseURL } from '@/resources';
+import { baseURL, seoServices } from '@/resources';
+
+const service = seoServices.services.find(s => s.slug === 'keyword-research');
 
 export async function generateMetadata() {
+  if (!service) {
+    return {
+      title: 'Keyword Research – основата на успешната SEO стратегия',
+      description: 'Открийте най-ценните ключови думи за вашия бизнес с професионален keyword research и анализ.',
+      openGraph: { title: 'Keyword Research – основата на успешната SEO стратегия', description: 'Открийте най-ценните ключови думи за вашия бизнес с професионален keyword research и анализ.', url: `${baseURL}/seo-uslugi/keyword-research` },
+      twitter: { title: 'Keyword Research – основата на успешната SEO стратегия', description: 'Открийте най-ценните ключови думи за вашия бизнес с професионален keyword research и анализ.' },
+    };
+  }
   return {
-    title: "Keyword Research – Основата на всяка успешна SEO стратегия",
-    description: "Без правилно проучване на ключови думи, дори най-добрата SEO оптимизация може да се окаже неефективна. Изграждането на стабилна основа започва именно от тук.",
+    title: 'Keyword Research – основата на успешната SEO стратегия',
+    description: 'Откриваме най-ценните ключови думи за вашия бизнес с професионален keyword research и анализ.',
+	keywords: 'keyword research, проучване на ключови думи, keyword анализ, търсене на ключови думи, seo ключови думи, инструмент за ключови думи, keyword strategy, подбор на ключови думи, keyword mapping, анализ на търсене',
     openGraph: {
-      title: "Keyword Research – Основата на всяка успешна SEO стратегия",
-      description: "Без правилно проучване на ключови думи, дори най-добрата SEO оптимизация може да се окаже неефективна. Изграждането на стабилна основа започва именно от тук.",
-      url: `${baseURL}/seo-uslugi/keyword-research`,
-      siteName: "Станчев SEO - Професионални SEO Услуги България",
+      title: 'Keyword Research – основата на успешната SEO стратегия',
+      description: 'Откриваме най-ценните ключови думи за вашия бизнес с професионален keyword research и анализ.',
+      url: `${baseURL}/seo-uslugi/${service.slug}`,
+      siteName: seoServices.title,
       images: [
         {
-          url: `/api/og/generate?title=${encodeURIComponent("Keyword Research")}`,
+          url: `https://stanchev.vercel.app/images/og/og.jpg`,
           width: 1200,
           height: 630,
         },
@@ -34,9 +45,9 @@ export async function generateMetadata() {
     },
     twitter: {
       card: 'summary_large_image',
-      title: "Keyword Research – Основата на всяка успешна SEO стратегия",
-      description: "Без правилно проучване на ключови думи, дори най-добрата SEO оптимизация може да се окаже неефективна. Изграждането на стабилна основа започва именно от тук.",
-      images: [`/api/og/generate?title=${encodeURIComponent("Keyword Research")}`],
+      title: 'Keyword Research – основата на успешната SEO стратегия',
+      description: 'Откриваме най-ценните ключови думи за вашия бизнес с професионален keyword research и анализ.',
+      images: [`https://stanchev.vercel.app/images/og/og.jpg`],
     },
   };
 }

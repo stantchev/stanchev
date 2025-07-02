@@ -11,20 +11,31 @@ import {
   Feedback,
 } from '@once-ui-system/core';
 import SeoConsultationFAQ from './faq';
-import { baseURL } from '@/resources';
+import { baseURL, seoServices } from '@/resources';
+
+const service = seoServices.services.find(s => s.slug === 'seo-konsultaciya');
 
 export async function generateMetadata() {
+  if (!service) {
+    return {
+      title: 'SEO Консултация – експертна помощ за вашия сайт',
+      description: 'Безплатна персонализирана SEO консултация и стратегия за по-добро класиране и повече трафик.',
+      openGraph: { title: 'SEO Консултация – експертна помощ за вашия сайт', description: 'Получете персонализирана SEO консултация и стратегия за по-добро класиране и повече трафик.', url: `${baseURL}/seo-uslugi/seo-konsultaciya` },
+      twitter: { title: 'SEO Консултация – експертна помощ за вашия сайт', description: 'Получете персонализирана SEO консултация и стратегия за по-добро класиране и повече трафик.' },
+    };
+  }
   return {
-    title: "SEO Консултация – Най-бързият начин да разберете защо сайтът ви не се класира",
-    description: "Независимо дали имате нужда от технически съвет, преглед на структурата или стратегия за съдържание – SEO консултацията е идеалният начин да получите персонален план за действие.",
-    openGraph: {
-      title: "SEO Консултация – Най-бързият начин да разберете защо сайтът ви не се класира",
-      description: "Независимо дали имате нужда от технически съвет, преглед на структурата или стратегия за съдържание – SEO консултацията е идеалният начин да получите персонален план за действие.",
-      url: `${baseURL}/seo-uslugi/seo-konsultaciya`,
-      siteName: "Станчев SEO - Професионални SEO Услуги България",
+    title: 'SEO Консултация – експертна помощ за вашия сайт',
+    description: 'Безплатна персонализирана SEO консултация и стратегия за по-добро класиране и повече трафик.',
+    keywords: 'seo консултация, seo консултант, seo експерт, seo услуги, персонална seo стратегия, анализ на сайт, seo одит, консултация за оптимизация на сайт, seo съвети, професионален seo анализ',
+	openGraph: {
+      title: 'SEO Консултация – експертна помощ за вашия сайт',
+      description: 'Безплатна персонализирана SEO консултация и стратегия за по-добро класиране и повече трафик.',
+      url: `${baseURL}/seo-uslugi/${service.slug}`,
+      siteName: seoServices.title,
       images: [
         {
-          url: `/api/og/generate?title=${encodeURIComponent("SEO Консултация")}`,
+          url: `https://stanchev.vercel.app/images/og/og.jpg`,
           width: 1200,
           height: 630,
         },
@@ -34,9 +45,9 @@ export async function generateMetadata() {
     },
     twitter: {
       card: 'summary_large_image',
-      title: "SEO Консултация – Най-бързият начин да разберете защо сайтът ви не се класира",
-      description: "Независимо дали имате нужда от технически съвет, преглед на структурата или стратегия за съдържание – SEO консултацията е идеалният начин да получите персонален план за действие.",
-      images: [`/api/og/generate?title=${encodeURIComponent("SEO Консултация")}`],
+      title: 'SEO Консултация – експертна помощ за вашия сайт',
+      description: 'Безплатна персонализирана SEO консултация и стратегия за по-добро класиране и повече трафик.',
+      images: [`https://stanchev.vercel.app/images/og/og.jpg`],
     },
   };
 }

@@ -9,6 +9,46 @@ import {
   Feedback,
 } from '@once-ui-system/core';
 import OnPageFaq from './faq';
+import { baseURL, seoServices } from '@/resources';
+
+const service = seoServices.services.find(s => s.slug === 'on-page-seo');
+
+export async function generateMetadata() {
+  if (!service) {
+    return {
+      title: 'On-Page SEO – оптимизация на структура и съдържание',
+      description: 'Подобрете класирането си с on-page SEO: оптимизация на структура, мета данни и съдържание.',
+      openGraph: { title: 'On-Page SEO – оптимизация на структура и съдържание', description: 'Подобрете класирането си с on-page SEO: оптимизация на структура, мета данни и съдържание.', url: `${baseURL}/seo-uslugi/on-page-seo` },
+      twitter: { title: 'On-Page SEO – оптимизация на структура и съдържание', description: 'Подобрете класирането си с on-page SEO: оптимизация на структура, мета данни и съдържание.' },
+    };
+  }
+  return {
+    title: 'On-Page SEO – оптимизация на структура и съдържание',
+    description: 'Подобрете класирането си с on-page SEO: оптимизация на структура, мета данни и съдържание.',
+    keywords: 'on-page seo, онпейдж оптимизация, оптимизация на съдържание, seo тагове, meta description, заглавни тагове, вътрешно линкване, ключови думи в съдържанието, структура на url, html оптимизация'
+	openGraph: {
+      title: 'On-Page SEO – оптимизация на структура и съдържание',
+      description: 'Подобрете класирането си с on-page SEO: оптимизация на структура, мета данни и съдържание.',
+      url: `${baseURL}/seo-uslugi/${service.slug}`,
+      siteName: seoServices.title,
+      images: [
+        {
+          url: `https://stanchev.vercel.app/images/og/og.jpg`,
+          width: 1200,
+          height: 630,
+        },
+      ],
+      locale: 'bg_BG',
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: 'On-Page SEO – оптимизация на структура и съдържание',
+      description: 'Подобрете класирането си с on-page SEO: оптимизация на структура, мета данни и съдържание.',
+      images: [`https://stanchev.vercel.app/images/og/og.jpg`],
+    },
+  };
+}
 
 export default function OnPageSeoPage() {
   return (

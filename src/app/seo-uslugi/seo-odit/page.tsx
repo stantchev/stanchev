@@ -9,6 +9,46 @@ import {
   Feedback,
 } from '@once-ui-system/core';
 import SeoAuditFAQ from './faq';
+import { baseURL, seoServices } from '@/resources';
+
+const service = seoServices.services.find(s => s.slug === 'seo-odit');
+
+export async function generateMetadata() {
+  if (!service) {
+    return {
+      title: 'SEO Одит – анализ и стратегия за по-добро класиране',
+      description: 'Пълен SEO одит на сайта ви с технически анализ, конкурентен анализ и препоръки за оптимизация.',
+      openGraph: { title: 'SEO Одит – анализ и стратегия за по-добро класиране', description: 'Пълен SEO одит на сайта ви с технически анализ, конкурентен анализ и препоръки за оптимизация.', url: `${baseURL}/seo-uslugi/seo-odit` },
+      twitter: { title: 'SEO Одит – анализ и стратегия за по-добро класиране', description: 'Пълен SEO одит на сайта ви с технически анализ, конкурентен анализ и препоръки за оптимизация.' },
+    };
+  }
+  return {
+    title: 'SEO Одит – анализ и стратегия за по-добро класиране',
+    description: 'Пълен SEO одит на сайта ви с технически анализ, конкурентен анализ и препоръки за оптимизация.',
+    keywords: 'seo одит, анализ на сайт, технически seo одит, seo анализ сайта, одит на уебсайт, seo проверка, одит на съдържание, seo одит инструмент, одит на линк профил, пълен seo одит',
+	openGraph: {
+      title: 'SEO Одит – анализ и стратегия за по-добро класиране',
+      description: 'Пълен SEO одит на сайта ви с технически анализ, конкурентен анализ и препоръки за оптимизация.',
+      url: `${baseURL}/seo-uslugi/${service.slug}`,
+      siteName: seoServices.title,
+      images: [
+        {
+          url: `https://stanchev.vercel.app/images/og/og.jpg`,
+          width: 1200,
+          height: 630,
+        },
+      ],
+      locale: 'bg_BG',
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: 'SEO Одит – анализ и стратегия за по-добро класиране',
+      description: 'Пълен SEO одит на сайта ви с технически анализ, конкурентен анализ и препоръки за оптимизация.',
+      images: [`https://stanchev.vercel.app/images/og/og.jpg`],
+    },
+  };
+}
 
 export default function SeoAuditPage() {
   return (

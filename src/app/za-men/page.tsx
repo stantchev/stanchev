@@ -26,16 +26,17 @@ type ExperienceImage = {
 
 export async function generateMetadata() {
   return {
-    title: about.title,
-    description: about.description,
-    openGraph: {
-      title: about.title,
-      description: about.description,
+    title: 'За мен | Станчев SEO',
+    description: 'Кой стои зад проекта? Разгледай как започнах с SEO, какво ме движи и защо работя със страст по всеки сайт. Без клишета – само истина.',
+    keywords: 'Кой е Станчев SEO?, seo консултант, seo експерт, seo оптимизатор, seo специалист, seo консултация, фирма за seo, seo услуги, seo анализ сайта, seo стратегия, сео оптимизатор',
+	openGraph: {
+      title: 'За мен | Станчев SEO',
+      description: 'Кой стои зад проекта? Разгледай как започнах с SEO, какво ме движи и защо работя със страст по всеки сайт. Без клишета – само истина.',
       url: `${baseURL}/za-men`,
-      siteName: about.title,
+      siteName: 'За мен | Станчев SEO',
       images: [
         {
-          url: `/api/og/generate?title=${encodeURIComponent(about.title)}`,
+          url: `https://stanchev.vercel.app/images/og/og.jpg`,
           width: 1200,
           height: 630,
         },
@@ -45,9 +46,9 @@ export async function generateMetadata() {
     },
     twitter: {
       card: 'summary_large_image',
-      title: about.title,
-      description: about.description,
-      images: [`/api/og/generate?title=${encodeURIComponent(about.title)}`],
+      title: 'За мен | Станчев SEO',
+      description: 'Кой стои зад проекта? Разгледай как започнах с SEO, какво ме движи и защо работя със страст по всеки сайт. Без клишета – само истина.',
+      images: [`https://stanchev.vercel.app/images/og/og.jpg`],
     },
   };
 }

@@ -9,6 +9,46 @@ import {
   Feedback,
 } from '@once-ui-system/core';
 import SeoAuditFAQ from './faq';
+import { baseURL, seoServices } from '@/resources';
+
+const service = seoServices.services.find(s => s.slug === 'seo-optimizatsiya');
+
+export async function generateMetadata() {
+  if (!service) {
+    return {
+      title: 'SEO Оптимизация – повишете видимостта си в Google с професионален подход',
+      description: 'Професионална SEO оптимизация за по-добро класиране, повече трафик и устойчив растеж.',
+      openGraph: { title: 'SEO Оптимизация – повишете видимостта си в Google с професионален подход', description: 'Професионална SEO оптимизация за по-добро класиране, повече трафик и устойчив растеж.', url: `${baseURL}/seo-uslugi/seo-optimizatsiya` },
+      twitter: { title: 'SEO Оптимизация – повишете видимостта си в Google с професионален подход', description: 'Професионална SEO оптимизация за по-добро класиране, повече трафик и устойчив растеж.' },
+    };
+  }
+  return {
+    title: 'SEO Оптимизация – повишете видимостта си в Google с професионален подход',
+    description: 'Професионална SEO оптимизация за по-добро класиране, повече трафик и устойчив растеж.',
+	keywords: 'seo оптимизация, оптимизация на сайт, seo оптимизация на онлайн магазин, seo услуги, цени за seo оптимизация, фирма за seo оптимизация, seo консултация, seo анализ сайта, ефективна seo оптимизация, seo експерт',
+    openGraph: {
+      title: 'SEO Оптимизация – повишете видимостта си в Google с професионален подход',
+      description: 'Професионална SEO оптимизация за по-добро класиране, повече трафик и устойчив растеж.',
+      url: `${baseURL}/seo-uslugi/${service.slug}`,
+      siteName: seoServices.title,
+      images: [
+        {
+          url: `https://stanchev.vercel.app/images/og/og.jpg`,
+          width: 1200,
+          height: 630,
+        },
+      ],
+      locale: 'bg_BG',
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: 'SEO Оптимизация – повишете видимостта си в Google с професионален подход',
+      description: 'Професионална SEO оптимизация за по-добро класиране, повече трафик и устойчив растеж.',
+      images: [`https://stanchev.vercel.app/images/og/og.jpg`],
+    },
+  };
+}
 
 export default function SeoAuditPage() {
   return (
