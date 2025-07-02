@@ -15,7 +15,8 @@ const routes = {
   "/seo-uslugi/on-page-seo": true,
   "/seo-uslugi/keyword-research": true,
   "/seo-uslugi/seo-konsultaciya": true,
-    "/seo-uslugi/seo-optimizatsiya": true,
+  "/seo-uslugi/seo-optimizatsiya": true,
+  "/seo-uslugi/link-building": true,
 };
 
 const display = {
