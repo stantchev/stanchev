@@ -4,14 +4,32 @@ import { Posts } from "@/components/blog/Posts";
 import { baseURL, blog, person, newsletter } from "@/resources";
 
 export async function generateMetadata() {
-  return Meta.generate({
+  return {
     title: 'SEO Блог – съвети, стратегии и новини за по-добро класиране в Google',
     description: 'Следи нашия SEO блог за практически съвети, актуални стратегии, уроци и новини от света на оптимизацията. Всичко за по-високи позиции и реални резултати.',
     keywords: 'seo блог, seo съвети, seo новини, seo уроци, seo обучение, seo копирайтинг, seo стратегии, как се прави seo оптимизация, анализ на сайт, оптимизация на сайт',
-	baseURL: baseURL,
-    image: `/api/og/generate?title=${encodeURIComponent(blog.title)}`,
-    path: blog.path,
-  });
+    openGraph: {
+      title: 'SEO Блог – съвети, стратегии и новини за по-добро класиране в Google',
+      description: 'Следи нашия SEO блог за практически съвети, актуални стратегии, уроци и новини от света на оптимизацията. Всичко за по-високи позиции и реални резултати.',
+      url: `${baseURL}/blog`,
+      siteName: 'SEO Блог – съвети, стратегии и новини за по-добро класиране в Google',
+      images: [
+        {
+          url: `https://stanchev.vercel.app/images/og/og.jpg`,
+          width: 1200,
+          height: 630,
+        },
+      ],
+      locale: 'bg_BG',
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: 'SEO Блог – съвети, стратегии и новини за по-добро класиране в Google',
+      description: 'Следи нашия SEO блог за практически съвети, актуални стратегии, уроци и новини от света на оптимизацията. Всичко за по-високи позиции и реални резултати.',
+      images: [`https://stanchev.vercel.app/images/og/og.jpg`],
+    },
+  };
 }
 
 export default function Blog() {
