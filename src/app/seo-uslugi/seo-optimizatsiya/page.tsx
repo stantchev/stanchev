@@ -156,6 +156,7 @@ export default function SeoAuditPage() {
             radius="m"
             padding="l"
             gap="m"
+	    mobileDirection="column"
           >
             <Column flex={8} gap="s" >
               <Heading as="h3" variant="heading-strong-l">
