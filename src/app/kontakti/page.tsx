@@ -1,138 +1,51 @@
-import { Column, Flex, Heading, Text, Schema } from "@once-ui-system/core";
-import ContactForm from "./ContactForm";
-import { baseURL, person, contact } from "@/resources";
-import { MdOutlineMail, MdOutlineAccessTime } from "react-icons/md";
-import { FaGlobe } from "react-icons/fa";
-import { redirect } from "next/navigation";
-import { sendEmail } from "@/lib/sendEmail";
+"use client";
 
-export const dynamic = "force-dynamic";
+import React, { useTransition } from "react";
+import { Button, Column, Input, Textarea, useToast } from "@once-ui-system/core";
 
-export async function generateMetadata() {
-  return {
-    title: "Контакти | Станчев SEO",
-    description:
-      "Свържете се с мен за безплатна SEO консултация или запитване относно оптимизация на сайт.",
-    keywords:
-      "seo консултация, seo услуги, seo експерт, seo оптимизатор, фирма за seo оптимизация, seo консултант, заявка за seo, контакт със seo специалист, поръчай seo оптимизация, връзка с seo фирма",
-    openGraph: {
-      title: "Контакти | Станчев SEO",
-      description:
-        "Свържете се с мен за безплатна SEO консултация или запитване относно оптимизация на сайт.",
-      url: `${baseURL}/kontakti`,
-      siteName: "Контакти | Станчев SEO",
-      images: [
-        {
-          url: `https://stanchev.vercel.app/images/og/og.jpg`,
-          width: 1200,
-          height: 630,
-        },
-      ],
-      locale: "bg_BG",
-      type: "website",
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: "Контакти | Станчев SEO",
-      description:
-        "Свържете се с мен за безплатна SEO консултация или запитване относно оптимизация на сайт.",
-      images: [`https://stanchev.vercel.app/images/og/og.jpg`],
-    },
-  };
-}
+type Props = {
+  handleSubmit: (formData: FormData) => Promise<void>;
+};
 
-export default function Kontakti() {
-  // handleSubmit остава server функция
-  async function handleSubmit(formData: FormData) {
-    "use server";
-    const name = formData.get("name")?.toString() || "";
-    const email = formData.get("email")?.toString() || "";
-    const subject = formData.get("subject")?.toString() || "";
-    const message = formData.get("message")?.toString() || "";
+export default function ContactForm({ handleSubmit }: Props) {
+  const { addToast } = useToast();
+  const [isPending, startTransition] = useTransition();
 
-    await sendEmail({ name, email, subject, message });
+  async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
 
-    redirect("/kontakti?status=ok");
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+
+    startTransition(async () => {
+      try {
+        await handleSubmit(formData);
+        addToast({ variant: "success", message: "Успешно изпратено запитване!" });
+        form.reset();
+      } catch {
+        addToast({ variant: "danger", message: "Функцията е временно недостъпна." });
+      }
+    });
   }
 
   return (
-    <Column maxWidth="m" gap="xl" paddingX="l">
-      <Schema
-        as="webPage"
-        baseURL={baseURL}
-        title={contact.title}
-        description={contact.description}
-        path="/kontakti"
-        image={`/api/og/generate?title=${encodeURIComponent(contact.title)}`}
-        author={{
-          name: person.name,
-          url: `${baseURL}/kontakti`,
-          image: `${baseURL}${person.avatar}`,
-        }}
-      />
-
-      <Column gap="l">
-        <Heading variant="display-strong-l" marginBottom="m">
-          {contact.title}
-        </Heading>
-        <Text
-          variant="heading-default-xl"
-          onBackground="neutral-weak"
-          wrap="balance"
-        >
-          Ако имате въпроси относно интернет реклама, оптимизация на сайт, дигитален
-          маркетинг или търсите опитен seo специалист, свържете се с нас чрез
-          формата по-долу. За повече информация относно нашите услуги, посетете
-          страницата за <a href="/seo-uslugi">SEO услуги</a>.
-        </Text>
+    <form onSubmit={onSubmit}>
+      <Column gap="16">
+        <Input id="name" name="name" placeholder="Вашето име" required />
+        <Input id="email" name="email" type="email" placeholder="your@email.com" required />
+        <Input id="subject" name="subject" placeholder="Тема на съобщението" required />
+        <Textarea
+          id="message"
+          name="message"
+          label="Съобщение"
+          placeholder="Опишете вашия проект или въпрос..."
+          rows={6}
+          required
+        />
+        <Button type="submit" variant="primary" size="m" fillWidth disabled={isPending}>
+          {isPending ? "Изпращане..." : "Изпрати съобщение"}
+        </Button>
       </Column>
-
-      <Flex fillWidth gap="xl" mobileDirection="column" paddingX="l" marginTop="xl">
-        <Column flex={1} gap="l">
-          <Heading variant="heading-strong-l" marginBottom="m">
-            Информация за контакт
-          </Heading>
-
-          <Flex gap="12" vertical="center">
-            <MdOutlineMail size={24} style={{ color: "var(--brand-medium)" }} />
-            <Column gap="4">
-              <Text variant="body-default-s" onBackground="neutral-weak">
-                Email
-              </Text>
-              <Text variant="body-default-m">{person.email}</Text>
-            </Column>
-          </Flex>
-
-          <Flex gap="12" vertical="center">
-            <FaGlobe size={22} style={{ color: "var(--brand-medium)" }} />
-            <Column gap="4">
-              <Text variant="body-default-s" onBackground="neutral-weak">
-                Локация
-              </Text>
-              <Text variant="body-default-m">София, България</Text>
-            </Column>
-          </Flex>
-
-          <Flex gap="12" vertical="center">
-            <MdOutlineAccessTime size={24} style={{ color: "var(--brand-medium)" }} />
-            <Column gap="4">
-              <Text variant="body-default-s" onBackground="neutral-weak">
-                Работно време
-              </Text>
-              <Text variant="body-default-m">Понеделник - Петък, 9:00 - 18:00</Text>
-            </Column>
-          </Flex>
-        </Column>
-
-        <Column flex={2} gap="l">
-          <Heading variant="heading-strong-l" marginBottom="m">
-            Изпратете съобщение
-          </Heading>
-
-          {/* Вмъкваме клиентската форма */}
-          <ContactForm handleSubmit={handleSubmit} />
-        </Column>
-      </Flex>
-    </Column>
+    </form>
   );
 }
