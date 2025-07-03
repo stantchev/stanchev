@@ -169,6 +169,7 @@ export default function SeoAuditPage() {
             <Column flex={4} align="center">
               <Heading variant="display-strong-s" className="price-heading">от 750&nbsp;лв.</Heading>
         <Button
+	  className="price-button"
           variant="secondary"
           size="s"
           href="/kontakti"
@@ -199,16 +200,17 @@ export default function SeoAuditPage() {
             </Column>
             <Column flex={4} align="end">
               <Heading variant="display-strong-s" className="price-heading">от 550&nbsp;лв./мес</Heading>
-			  <Button
-          variant="secondary"
-          size="s"
-          href="/seo-uslugi/link-building"
-          prefixIcon="chevronRight"
-          data-border="rounded"
-		  style={{ marginLeft: '50px', minWidth: '200px'}}
-        >
-          Виж повече
-        </Button>
+		<Button
+	  	className="price-button"
+          	variant="secondary"
+          	size="s"
+          	href="/seo-uslugi/link-building"
+          	prefixIcon="chevronRight"
+          	data-border="rounded"
+		style={{ marginLeft: '50px', minWidth: '200px'}}
+       		 >
+          	Виж повече
+        	</Button>
             </Column>
           </Flex>
         </Column>
