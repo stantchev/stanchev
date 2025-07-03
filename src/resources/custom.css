@@ -116,4 +116,6 @@ a:focus {
     font-size: 1.5rem !important;
     text-align: left !important;
   }
+  .price-button {
+    align: center !important;
 }
