@@ -119,4 +119,9 @@ a:focus {
   .price-button {
     align: center !important;
   }
+  .price-button-container {
+    display: flex !important;
+    justify-content: center !important;
+    margin-left: 0 !important;
+  }
 }
