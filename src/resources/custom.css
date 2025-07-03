@@ -112,4 +112,8 @@ a:focus {
   .main-content {
     padding-bottom: 65px !important;
   }
+  .price-heading {
+    font-size: 1rem !important;
+    text-align: left !important;
+  }
 }
