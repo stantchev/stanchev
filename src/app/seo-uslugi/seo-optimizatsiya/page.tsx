@@ -16,7 +16,7 @@ const service = seoServices.services.find(s => s.slug === 'seo-optimizatsiya');
 export async function generateMetadata() {
   if (!service) {
     return {
-      title: 'SEO Оптимизация – повишете видимостта си в Google с професионален подход',
+      title: 'SEO оптимизация с професионален подход за видимост в Google',
       description: 'Професионална SEO оптимизация за по-добро класиране, повече трафик и устойчив растеж.',
       openGraph: { title: 'SEO Оптимизация – повишете видимостта си в Google с професионален подход', description: 'Професионална SEO оптимизация за по-добро класиране, повече трафик и устойчив растеж.', url: `${baseURL}/seo-uslugi/seo-optimizatsiya` },
       twitter: { title: 'SEO Оптимизация – повишете видимостта си в Google с професионален подход', description: 'Професионална SEO оптимизация за по-добро класиране, повече трафик и устойчив растеж.' },
