@@ -1,6 +1,6 @@
 import { home } from "./content";
 
-const baseURL = "https://stanchev.bg/";
+const baseURL = "https://stanchev.bg";
 
 const routes = {
   "/": true,
