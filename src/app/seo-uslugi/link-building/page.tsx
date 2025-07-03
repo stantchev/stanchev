@@ -16,7 +16,7 @@ const service = seoServices.services.find(s => s.slug === 'link-building');
 export async function generateMetadata() {
   if (!service) {
     return {
-      title: 'Link Building стратегии за силно SEO – изгради авторитет и класиране в Google',
+      title: 'Link Building стратегии за SEO – изгради авторитет в Google',
       description: 'Изгради силен линк профил с ефективна Link Building стратегия. Повиши авторитета на сайта си и се класирай по-високо в Google.',
       openGraph: { title: 'Link Building стратегии за силно SEO – изгради авторитет и класиране в Google', description: 'Изгради силен линк профил с ефективна Link Building стратегия. Повиши авторитета на сайта си и се класирай по-високо в Google.', url: `${baseURL}/seo-uslugi/link-building` },
       twitter: { title: 'Link Building стратегии за силно SEO – изгради авторитет и класиране в Google', description: 'Изгради силен линк профил с ефективна Link Building стратегия. Повиши авторитета на сайта си и се класирай по-високо в Google.' },
