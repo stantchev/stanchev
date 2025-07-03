@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Общи условия | СтанчевSEO',
-  description: 'На тази страница може да видите нашите общи условия за ползване на сайта.',
+  description: 'Запознайте се с общите условия за ползване на сайта, включително права, задължения и правила за достъп до информацията и услугите ни.',
 }
 
 import { Column, Flex, Feedback } from "@once-ui-system/core";
