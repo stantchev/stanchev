@@ -167,7 +167,7 @@ export default function SeoAuditPage() {
               </Text>
             </Column>
             <Column flex={4} align="center">
-              <Heading variant="display-strong-s">от 750&nbsp;лв.</Heading>
+              <Heading variant="display-strong-s" className="price-heading">от 750&nbsp;лв.</Heading>
         <Button
           variant="secondary"
           size="s"
@@ -187,6 +187,7 @@ export default function SeoAuditPage() {
             radius="m"
             padding="l"
             gap="m"
+	    mobileDirection="column"
           >
             <Column flex={8} gap="s">
               <Heading as="h3" variant="heading-strong-l">
@@ -197,7 +198,7 @@ export default function SeoAuditPage() {
               </Text>
             </Column>
             <Column flex={4} align="end">
-              <Heading variant="display-strong-s">от 550&nbsp;лв./мес</Heading>
+              <Heading variant="display-strong-s" className="price-heading">от 550&nbsp;лв./мес</Heading>
 			  <Button
           variant="secondary"
           size="s"
