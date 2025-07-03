@@ -1,9 +1,8 @@
-import { Column, Flex, Heading, Text } from "@once-ui-system/core";
+import { Column, Flex, Heading, Text, Schema } from "@once-ui-system/core";
 import ContactForm from "./ContactForm";
 import { baseURL, person, contact } from "@/resources";
 import { MdOutlineMail, MdOutlineAccessTime } from "react-icons/md";
 import { FaGlobe } from "react-icons/fa";
-import Schema from "@once-ui-system/core/Schema";
 import { redirect } from "next/navigation";
 import { sendEmail } from "@/lib/sendEmail";
 
