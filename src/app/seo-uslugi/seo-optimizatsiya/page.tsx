@@ -175,7 +175,6 @@ export default function SeoAuditPage() {
           href="/kontakti"
           prefixIcon="chevronRight"
           data-border="rounded"
-	  mobileAlign="center"
 		  style={{ marginLeft: '50px', minWidth: '200px'}}
         >
           Виж повече
@@ -202,8 +201,6 @@ export default function SeoAuditPage() {
             <Column flex={4} align="end">
               <Heading variant="display-strong-s" className="price-heading">от 550&nbsp;лв./мес</Heading>
 		<Button
-		mobileAlign="center"
-	  	className="price-button"
           	variant="secondary"
           	size="s"
           	href="/seo-uslugi/link-building"
