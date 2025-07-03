@@ -17,7 +17,7 @@ export async function generateMetadata() {
   if (!service) {
     return {
       title: 'On-Page SEO – оптимизация на структура и съдържание',
-      description: 'Подобрете класирането си с on-page SEO: оптимизация на структура, мета данни и съдържание.',
+      description: 'Подобрете позициите си в Google с on-page SEO чрез оптимизация на структурата, мета описанията, заглавията и съдържанието на страниците ви.',
       openGraph: { title: 'On-Page SEO – оптимизация на структура и съдържание', description: 'Подобрете класирането си с on-page SEO: оптимизация на структура, мета данни и съдържание.', url: `${baseURL}/seo-uslugi/on-page-seo` },
       twitter: { title: 'On-Page SEO – оптимизация на структура и съдържание', description: 'Подобрете класирането си с on-page SEO: оптимизация на структура, мета данни и съдържание.' },
     };
