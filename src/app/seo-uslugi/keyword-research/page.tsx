@@ -19,7 +19,7 @@ export async function generateMetadata() {
   if (!service) {
     return {
       title: 'Keyword Research – основата на успешната SEO стратегия',
-      description: 'Открийте най-ценните ключови думи за вашия бизнес с професионален keyword research и анализ.',
+      description: 'Открийте печеливши ключови думи за бизнеса си с професионален keyword research и задълбочен анализ на конкуренцията и обема на търсене.',
       openGraph: { title: 'Keyword Research – основата на успешната SEO стратегия', description: 'Открийте най-ценните ключови думи за вашия бизнес с професионален keyword research и анализ.', url: `${baseURL}/seo-uslugi/keyword-research` },
       twitter: { title: 'Keyword Research – основата на успешната SEO стратегия', description: 'Открийте най-ценните ключови думи за вашия бизнес с професионален keyword research и анализ.' },
     };
