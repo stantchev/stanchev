@@ -111,11 +111,12 @@ a:focus {
 @media (max-width: 768px) {
   .main-content {
     padding-bottom: 65px !important;
-  }
+    }
   .price-heading {
     font-size: 1.5rem !important;
     text-align: left !important;
-  }
+    }
   .price-button {
     align: center !important;
+  }
 }
