@@ -1,16 +1,24 @@
-// ❗️ Този файл е server component – НЕ добавяй "use client"
-export const dynamic = "force-dynamic";
-import type { Metadata } from 'next'
-import { baseURL, person, contact } from "@/resources";
+import { Column, Flex, Heading, Text } from "@once-ui-system/core";
+import ContactForm from "@/ContactForm"; // нагласи пътя според твоя проект
 
-export async function generateMetadata(): Promise<Metadata> {
+import { baseURL, person, contact } from "@/resources";
+import { MdOutlineMail, MdOutlineAccessTime } from "react-icons/md";
+import { FaGlobe } from "react-icons/fa";
+import Schema from "@once-ui-system/core/Schema";
+
+export const dynamic = "force-dynamic";
+
+export async function generateMetadata() {
   return {
     title: "Контакти | Станчев SEO",
-    description: "Свържете се с мен за безплатна SEO консултация или запитване относно оптимизация на сайт.",
-    keywords: "seo консултация, seo услуги, seo експерт, seo оптимизатор, фирма за seo оптимизация, seo консултант, заявка за seo, контакт със seo специалист, поръчай seo оптимизация, връзка с seo фирма",
+    description:
+      "Свържете се с мен за безплатна SEO консултация или запитване относно оптимизация на сайт.",
+    keywords:
+      "seo консултация, seo услуги, seo експерт, seo оптимизатор, фирма за seo оптимизация, seo консултант, заявка за seo, контакт със seo специалист, поръчай seo оптимизация, връзка с seo фирма",
     openGraph: {
       title: "Контакти | Станчев SEO",
-      description: "Свържете се с мен за безплатна SEO консултация или запитване относно оптимизация на сайт.",
+      description:
+        "Свържете се с мен за безплатна SEO консултация или запитване относно оптимизация на сайт.",
       url: `${baseURL}/kontakti`,
       siteName: "Контакти | Станчев SEO",
       images: [
@@ -20,50 +28,22 @@ export async function generateMetadata(): Promise<Metadata> {
           height: 630,
         },
       ],
-      locale: 'bg_BG',
-      type: 'website',
+      locale: "bg_BG",
+      type: "website",
     },
     twitter: {
-      card: 'summary_large_image',
+      card: "summary_large_image",
       title: "Контакти | Станчев SEO",
-      description: "Свържете се с мен за безплатна SEO консултация или запитване относно оптимизация на сайт.",
+      description:
+        "Свържете се с мен за безплатна SEO консултация или запитване относно оптимизация на сайт.",
       images: [`https://stanchev.vercel.app/images/og/og.jpg`],
     },
   };
 }
 
-import {
-  Column,
-  Flex,
-  Heading,
-  Text,
-  Button,
-  Input,
-  Textarea,
-  Meta,
-  Schema,
-  Icon,
-} from "@once-ui-system/core";
-import { sendEmail } from "@/lib/sendEmail";
-import { redirect } from "next/navigation";
-import { MdOutlineMail, MdOutlineAccessTime } from "react-icons/md";
-import { FaGlobe } from "react-icons/fa";
- 
 export default function Kontakti() {
-  async function handleSubmit(formData: FormData) {
-    "use server";
-    const name = formData.get("name")?.toString() || "";
-    const email = formData.get("email")?.toString() || "";
-    const subject = formData.get("subject")?.toString() || "";
-    const message = formData.get("message")?.toString() || "";
-
-    await sendEmail({ name, email, subject, message });
-
-    redirect("/kontakti?status=ok");
-  }
-
   return (
-    <Column maxWidth="m" gap="xl">
+    <Column maxWidth="m" gap="xl" paddingX="l">
       <Schema
         as="webPage"
         baseURL={baseURL}
@@ -78,7 +58,7 @@ export default function Kontakti() {
         }}
       />
 
-      <Column gap="l" paddingX="l">
+      <Column gap="l">
         <Heading variant="display-strong-l" marginBottom="m">
           {contact.title}
         </Heading>
@@ -87,18 +67,21 @@ export default function Kontakti() {
           onBackground="neutral-weak"
           wrap="balance"
         >
-          Ако имате въпроси относно интернет реклама, оптимизация на сайт, дигитален маркетинг или търсите опитен seo специалист, свържете се с нас чрез формата по-долу. За повече информация относно нашите услуги, посетете страницата за <a href="/seo-uslugi">SEO услуги</a>.
+          Ако имате въпроси относно интернет реклама, оптимизация на сайт, дигитален
+          маркетинг или търсите опитен seo специалист, свържете се с нас чрез
+          формата по-долу. За повече информация относно нашите услуги, посетете
+          страницата за <a href="/seo-uslugi">SEO услуги</a>.
         </Text>
       </Column>
 
-      <Flex fillWidth gap="xl" mobileDirection="column" paddingX="l">
+      <Flex fillWidth gap="xl" mobileDirection="column" paddingX="l" marginTop="xl">
         <Column flex={1} gap="l">
           <Heading variant="heading-strong-l" marginBottom="m">
             Информация за контакт
           </Heading>
 
           <Flex gap="12" vertical="center">
-            <MdOutlineMail size={24} style={{ color: 'var(--brand-medium)' }} />
+            <MdOutlineMail size={24} style={{ color: "var(--brand-medium)" }} />
             <Column gap="4">
               <Text variant="body-default-s" onBackground="neutral-weak">
                 Email
@@ -108,7 +91,7 @@ export default function Kontakti() {
           </Flex>
 
           <Flex gap="12" vertical="center">
-            <FaGlobe size={22} style={{ color: 'var(--brand-medium)' }} />
+            <FaGlobe size={22} style={{ color: "var(--brand-medium)" }} />
             <Column gap="4">
               <Text variant="body-default-s" onBackground="neutral-weak">
                 Локация
@@ -118,14 +101,12 @@ export default function Kontakti() {
           </Flex>
 
           <Flex gap="12" vertical="center">
-            <MdOutlineAccessTime size={24} style={{ color: 'var(--brand-medium)' }} />
+            <MdOutlineAccessTime size={24} style={{ color: "var(--brand-medium)" }} />
             <Column gap="4">
               <Text variant="body-default-s" onBackground="neutral-weak">
                 Работно време
               </Text>
-              <Text variant="body-default-m">
-                Понеделник - Петък, 9:00 - 18:00
-              </Text>
+              <Text variant="body-default-m">Понеделник - Петък, 9:00 - 18:00</Text>
             </Column>
           </Flex>
         </Column>
@@ -135,35 +116,7 @@ export default function Kontakti() {
             Изпратете съобщение
           </Heading>
 
-          <form action={handleSubmit}>
-            <Column gap="16">
-              <Input id="name" name="name" placeholder="Вашето име" required />
-              <Input
-                id="email"
-                name="email"
-                type="email"
-                placeholder="your@email.com"
-                required
-              />
-              <Input
-                id="subject"
-                name="subject"
-                placeholder="Тема на съобщението"
-                required
-              />
-              <Textarea
-                id="message"
-                name="message"
-                label="Съобщение"
-                placeholder="Опишете вашия проект или въпрос..."
-                rows={6}
-                required
-              />
-              <Button type="submit" variant="primary" size="m" fillWidth>
-                Изпрати съобщение
-              </Button>
-            </Column>
-          </form>
+          <ContactForm />
         </Column>
       </Flex>
     </Column>
