@@ -15,6 +15,9 @@ export const metadata: Metadata = {
     description: home.descriptionText,
     images: [{ url: home.image }],
   },
+  verification: {
+    google: "ULHB2WBDkeyXyEYc7jVHf2nyPUUqKl_KOVBxnuiykpo",
+  },
 };
 
 export default function Nachalo() {
