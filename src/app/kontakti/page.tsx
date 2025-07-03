@@ -1,10 +1,12 @@
 import { Column, Flex, Heading, Text } from "@once-ui-system/core";
-import ContactForm from "@/ContactForm"; // нагласи пътя според твоя проект
+import ContactForm from "@/ContactForm";
 
 import { baseURL, person, contact } from "@/resources";
 import { MdOutlineMail, MdOutlineAccessTime } from "react-icons/md";
 import { FaGlobe } from "react-icons/fa";
 import Schema from "@once-ui-system/core/Schema";
+import { redirect } from "next/navigation";
+import { sendEmail } from "@/lib/sendEmail";
 
 export const dynamic = "force-dynamic";
 
@@ -42,6 +44,19 @@ export async function generateMetadata() {
 }
 
 export default function Kontakti() {
+  // handleSubmit остава server функция
+  async function handleSubmit(formData: FormData) {
+    "use server";
+    const name = formData.get("name")?.toString() || "";
+    const email = formData.get("email")?.toString() || "";
+    const subject = formData.get("subject")?.toString() || "";
+    const message = formData.get("message")?.toString() || "";
+
+    await sendEmail({ name, email, subject, message });
+
+    redirect("/kontakti?status=ok");
+  }
+
   return (
     <Column maxWidth="m" gap="xl" paddingX="l">
       <Schema
@@ -116,7 +131,8 @@ export default function Kontakti() {
             Изпратете съобщение
           </Heading>
 
-          <ContactForm />
+          {/* Вмъкваме клиентската форма */}
+          <ContactForm handleSubmit={handleSubmit} />
         </Column>
       </Flex>
     </Column>
