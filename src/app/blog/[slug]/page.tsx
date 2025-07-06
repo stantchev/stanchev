@@ -32,6 +32,7 @@ export async function generateMetadata({
     baseURL: baseURL,
     image: post.metadata.image || `/api/og/generate?title=${post.metadata.title}`,
     path: `${blog.path}/${post.slug}`,
+    keywords: post.metadata.keywords,
   });
 }
 
