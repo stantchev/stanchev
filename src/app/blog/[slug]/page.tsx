@@ -16,26 +16,39 @@ export async function generateStaticParams(): Promise<{ slug: string }[]> {
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ slug: string | string[] }>;
+  params: { slug: string | string[] };
 }): Promise<Metadata> {
-  const routeParams = await params;
-  const slugPath = Array.isArray(routeParams.slug) ? routeParams.slug.join('/') : routeParams.slug || '';
-
-  const posts = getPosts(["src", "app", "blog", "posts"])
-  let post = posts.find((post) => post.slug === slugPath);
+  const slugPath = Array.isArray(params.slug) ? params.slug.join('/') : params.slug || '';
+  const posts = getPosts(["src", "app", "blog", "posts"]);
+  const post = posts.find((p) => p.slug === slugPath);
 
   if (!post) return {};
 
-  return Meta.generate({
-    title: post.metadata.title,
-    description: post.metadata.summary,
-    baseURL: baseURL,
-    image: post.metadata.image || `/api/og/generate?title=${post.metadata.title}`,
-    path: `${blog.path}/${post.slug}`,
-     other: {
-    keywords: post.metadata.keywords?.join(", ") || "",
-     }
-  });
+  const title = post.metadata.title;
+  const description = post.metadata.summary;
+  const image = post.metadata.image || `/api/og/generate?title=${encodeURIComponent(title)}`;
+  const url = `${baseURL}${blog.path}/${post.slug}`;
+  const keywords = post.metadata.keywords?.join(", ") || "";
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      images: [{ url: image }],
+      url,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [image],
+    },
+    other: {
+      keywords,
+    },
+  };
 }
 
 export default async function Blog({
