@@ -26,13 +26,32 @@ export async function generateMetadata({
 
   if (!post) return {};
 
-  return Meta.generate({
+  return {
     title: post.metadata.title,
     description: post.metadata.summary,
-    baseURL: baseURL,
-    image: post.metadata.image || `/api/og/generate?title=${post.metadata.title}`,
-    path: `${blog.path}/${post.slug}`,
-  });
+    keywords: post.metadata.keywords,
+    openGraph: {
+      title: post.metadata.title,
+      description: post.metadata.summary,
+      url: `${baseURL}${blog.path}/${post.slug}`,
+      siteName: post.metadata.title,
+      images: [
+        {
+          url: post.metadata.image || `/api/og/generate?title=${encodeURIComponent(post.metadata.title)}`,
+          width: 1200,
+          height: 630,
+        },
+      ],
+      locale: 'bg_BG',
+      type: 'article',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.metadata.title,
+      description: post.metadata.summary,
+      images: [post.metadata.image || `/api/og/generate?title=${encodeURIComponent(post.metadata.title)}`],
+    },
+  };
 }
 
 export default async function Blog({
@@ -90,7 +109,7 @@ export default async function Blog({
     </Row>
     <Column maxWidth={12} paddingLeft="40" fitHeight position="sticky" top="80" gap="16" hide="m">
       <Row
-        gap="12"
+        gap="20"
         paddingLeft="2"
         vertical="center"
         onBackground="neutral-medium"
@@ -99,12 +118,7 @@ export default async function Blog({
         <Icon name="document" size="xs" />
         В тази статия
       </Row>
-      <HeadingNav
-  width={20}
-  position="sticky"
-  top="64"
-  fitHeight
-/>
+      <HeadingNav fitHeight/>
     </Column>
     </Row>
   );
