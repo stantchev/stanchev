@@ -34,6 +34,7 @@ export async function generateMetadata({
     path: `${blog.path}/${post.slug}`,
      other: {
     keywords: post.metadata.keywords?.join(", ") || "",
+     }
   });
 }
 
