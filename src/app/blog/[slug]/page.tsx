@@ -4,7 +4,6 @@ import { Meta, Schema, AvatarGroup, Button, Column, Heading, HeadingNav, Icon, R
 import { baseURL, about, blog, person } from "@/resources";
 import { formatDate } from "@/app/utils/formatDate";
 import { getPosts } from "@/app/utils/utils";
-import { Metadata } from 'next';
 
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
   const posts = getPosts(["src", "app", "blog", "posts"]);
