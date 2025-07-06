@@ -16,9 +16,11 @@ export async function generateStaticParams(): Promise<{ slug: string }[]> {
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string | string[] };
+  params: Promise<{ slug: string | string[] }>;
 }): Promise<Metadata> {
-  const slugPath = Array.isArray(params.slug) ? params.slug.join('/') : params.slug || '';
+  const routeParams = await params;
+  const slugPath = Array.isArray(routeParams.slug) ? routeParams.slug.join('/') : routeParams.slug || '';
+
   const posts = getPosts(["src", "app", "blog", "posts"]);
   const post = posts.find((p) => p.slug === slugPath);
 
