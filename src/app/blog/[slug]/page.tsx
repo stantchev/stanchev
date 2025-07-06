@@ -101,7 +101,7 @@ export default async function Blog({
         В тази статия
       </Row>
       <HeadingNav
-  width={24}
+  width={20}
   position="sticky"
   top="64"
   fitHeight
