@@ -30,7 +30,7 @@ export async function generateMetadata() {
     description: 'Кой стои зад проекта? Разгледай как започнах с SEO, какво ме движи и защо работя със страст по всеки сайт. Без клишета – само истина.',
     keywords: 'Кой е Станчев SEO?, seo консултант, seo експерт, seo оптимизатор, seo специалист, seo консултация, фирма за seo, seo услуги, seo анализ сайта, seo стратегия, сео оптимизатор',
 	   alternates: {
-    canonical: '`${baseURL}/za-men`,
+    canonical: `${baseURL}/za-men`,
   },
 	openGraph: {
       title: 'За мен | Станчев SEO',
