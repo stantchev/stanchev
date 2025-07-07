@@ -1,27 +1,65 @@
 import { notFound } from "next/navigation";
 import { CustomMDX, ScrollToHash } from "@/components";
-import { Meta, Schema, AvatarGroup, Button, Column, Heading, HeadingNav, Icon, Row, Text, AccordionGroup} from "@once-ui-system/core";
+import {
+  Schema,
+  AvatarGroup,
+  Button,
+  Column,
+  Heading,
+  HeadingNav,
+  Icon,
+  Row,
+  Text,
+} from "@once-ui-system/core";
 import { baseURL, about, blog, person } from "@/resources";
 import { formatDate } from "@/app/utils/formatDate";
 import { getPosts } from "@/app/utils/utils";
+import { Metadata } from "next";
 
+// ───────────────────────────────────────────
+// Типове за blog постове (.mdx мета)
+// ───────────────────────────────────────────
+type BlogPostMetadata = {
+  title: string;
+  summary: string;
+  publishedAt?: string;
+  image?: string;
+  keywords?: string[];
+  author?: string;
+  team?: { avatar: string; name?: string }[];
+};
+
+type BlogPost = {
+  slug: string;
+  content: string;
+  metadata: BlogPostMetadata;
+};
+
+// ───────────────────────────────────────────
+// Генериране на параметри за статични маршрути
+// ───────────────────────────────────────────
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
-  const posts = getPosts(["src", "app", "blog", "posts"]);
+  const posts: BlogPost[] = getPosts(["src", "app", "blog", "posts"]);
   return posts.map((post) => ({
     slug: post.slug,
   }));
 }
 
+// ───────────────────────────────────────────
+// SEO мета за всеки пост (вкл. keywords)
+// ───────────────────────────────────────────
 export async function generateMetadata({
   params,
 }: {
   params: Promise<{ slug: string | string[] }>;
-}) {
+}): Promise<Metadata> {
   const routeParams = await params;
-  const slugPath = Array.isArray(routeParams.slug) ? routeParams.slug.join('/') : routeParams.slug || '';
+  const slugPath = Array.isArray(routeParams.slug)
+    ? routeParams.slug.join("/")
+    : routeParams.slug || "";
 
-  const posts = getPosts(["src", "app", "blog", "posts"])
-  let post = posts.find((post) => post.slug === slugPath);
+  const posts: BlogPost[] = getPosts(["src", "app", "blog", "posts"]);
+  const post = posts.find((post) => post.slug === slugPath);
 
   if (!post) return {};
 
@@ -36,30 +74,45 @@ export async function generateMetadata({
       siteName: post.metadata.title,
       images: [
         {
-          url: post.metadata.image || `/api/og/generate?title=${encodeURIComponent(post.metadata.title)}`,
+          url:
+            post.metadata.image ||
+            `/api/og/generate?title=${encodeURIComponent(
+              post.metadata.title
+            )}`,
           width: 1200,
           height: 630,
         },
       ],
-      locale: 'bg_BG',
-      type: 'article',
+      locale: "bg_BG",
+      type: "article",
     },
     twitter: {
-      card: 'summary_large_image',
+      card: "summary_large_image",
       title: post.metadata.title,
       description: post.metadata.summary,
-      images: [post.metadata.image || `/api/og/generate?title=${encodeURIComponent(post.metadata.title)}`],
+      images: [
+        post.metadata.image ||
+          `/api/og/generate?title=${encodeURIComponent(post.metadata.title)}`,
+      ],
     },
   };
 }
 
+// ───────────────────────────────────────────
+// Рендер на Blog Post страницата
+// ───────────────────────────────────────────
 export default async function Blog({
-  params
-}: { params: Promise<{ slug: string | string[] }> }) {
+  params,
+}: {
+  params: Promise<{ slug: string | string[] }>;
+}) {
   const routeParams = await params;
-  const slugPath = Array.isArray(routeParams.slug) ? routeParams.slug.join('/') : routeParams.slug || '';
+  const slugPath = Array.isArray(routeParams.slug)
+    ? routeParams.slug.join("/")
+    : routeParams.slug || "";
 
-  let post = getPosts(["src", "app", "blog", "posts"]).find((post) => post.slug === slugPath);
+  const posts: BlogPost[] = getPosts(["src", "app", "blog", "posts"]);
+  const post = posts.find((post) => post.slug === slugPath);
 
   if (!post) {
     notFound();
@@ -72,7 +125,7 @@ export default async function Blog({
 
   return (
     <Row fillWidth>
-      <Row maxWidth={12} hide="m"/>
+      <Row maxWidth={12} hide="m" />
       <Row fillWidth horizontal="center">
         <Column as="section" maxWidth="xs" gap="l">
           <Schema
@@ -83,14 +136,26 @@ export default async function Blog({
             description={post.metadata.summary}
             datePublished={post.metadata.publishedAt}
             dateModified={post.metadata.publishedAt}
-            image={post.metadata.image || `/api/og/generate?title=${encodeURIComponent(post.metadata.title)}`}
+            image={
+              post.metadata.image ||
+              `/api/og/generate?title=${encodeURIComponent(
+                post.metadata.title
+              )}`
+            }
             author={{
               name: person.name,
               url: `${baseURL}${about.path}`,
               image: `${baseURL}${person.avatar}`,
             }}
           />
-          <Button data-border="rounded" href="/blog" weight="default" variant="tertiary" size="s" prefixIcon="chevronLeft">
+          <Button
+            data-border="rounded"
+            href="/blog"
+            weight="default"
+            variant="tertiary"
+            size="s"
+            prefixIcon="chevronLeft"
+          >
             Към блога
           </Button>
           <Heading variant="display-strong-s">{post.metadata.title}</Heading>
@@ -105,20 +170,28 @@ export default async function Blog({
           </Column>
           <ScrollToHash />
         </Column>
-    </Row>
-    <Column maxWidth={12} paddingLeft="40" fitHeight position="sticky" top="80" gap="16" hide="m">
-      <Row
-        gap="20"
-        paddingLeft="2"
-        vertical="center"
-        onBackground="neutral-medium"
-        textVariant="label-default-s"
-      >
-        <Icon name="document" size="xs" />
-        В тази статия
       </Row>
-      <HeadingNav fitHeight/>
-    </Column>
+      <Column
+        maxWidth={12}
+        paddingLeft="40"
+        fitHeight
+        position="sticky"
+        top="80"
+        gap="16"
+        hide="m"
+      >
+        <Row
+          gap="20"
+          paddingLeft="2"
+          vertical="center"
+          onBackground="neutral-medium"
+          textVariant="label-default-s"
+        >
+          <Icon name="document" size="xs" />
+          В тази статия
+        </Row>
+        <HeadingNav fitHeight />
+      </Column>
     </Row>
   );
 }
