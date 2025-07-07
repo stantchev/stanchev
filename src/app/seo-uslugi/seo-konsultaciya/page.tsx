@@ -20,7 +20,7 @@ export async function generateMetadata() {
     return {
       title: 'SEO Консултация – експертна помощ за вашия сайт',
       description: 'Безплатна персонализирана SEO консултация с анализ на сайта ви и ясна стратегия за по-добро класиране, повече трафик и реални резултати.',
-	    keywords: 'seo консултация, seo консултант, seo съвети, seo експерт, консултация по seo, seo анализ, сео консултант, сео анализ онлайн.',
+	    keywords: 'seo консултация, seo консултант, seo съвети, seo експерт, консултация по seo, seo анализ, сео консултант, сео анализ онлайн',
 	    alternates: {
     canonical: `$${baseURL}/seo-uslugi/seo-konsultaciya`,
   },
