@@ -244,6 +244,19 @@ const seoServices = {
       ],
       price: "От 150 лв.",
     },
+	  {
+  title: "Локално SEO",
+  slug: "local-seo",
+  description: "SEO оптимизация за локални търсения и позициониране в Google Maps.",
+  features: [
+    "Оптимизация на Google Business Profile",
+    "Регистрация в локални директории",
+    "NAP консистентност",
+    "Управление на онлайн отзиви",
+    "Стратегия за локално съдържание"
+  ],
+  price: "От 390 лв."
+},
     {
       title: "SEO Консултация",
 	  slug: "seo-konsultaciya",
