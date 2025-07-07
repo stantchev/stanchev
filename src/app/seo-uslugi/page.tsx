@@ -5,6 +5,9 @@ export async function generateMetadata() {
   return {
     title: seoServices.title,
     description: seoServices.description,
+    alternates: {
+    canonical: `${baseURL}/seo-uslugi`,
+  },
     openGraph: {
       title: seoServices.title,
       description: seoServices.description,
