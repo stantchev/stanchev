@@ -32,8 +32,27 @@ export async function generateMetadata({
     alternates: {
       canonical: `${baseURL}/blog/${post.slug}`,
     },
-    image: post.metadata.image || `/api/og/generate?title=${post.metadata.title}`,
-    path: `${blog.path}/${post.slug}`,
+openGraph: {
+      title: post.metadata.title,
+      description: post.metadata.summary,
+      url: `${baseURL}/blog/${post.slug}`,
+      siteName: post.metadata.title,
+      images: [
+        {
+          url: post.metadata.image || `/api/og/generate?title=${post.metadata.title}`,
+          width: 1200,
+          height: 630,
+        },
+      ],
+      locale: 'bg_BG',
+      type: 'article',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.metadata.title,
+      description: post.metadata.summary,
+      images: [post.metadata.image || `/api/og/generate?title=${post.metadata.title}`],
+    },
   };
 }
 
