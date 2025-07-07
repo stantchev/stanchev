@@ -124,7 +124,7 @@ const about = {
       },
       {
         name: "SoftUni",
-        description: <>В момента се обучавам в SoftUni и надграждам знанията си в SEO.</>,
+        description: <>В момента се обучавам в SoftUni и надграждам знанията си в SEO, защото Google не спи.</>,
       },
     ],
   },
