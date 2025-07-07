@@ -26,14 +26,12 @@ export async function generateMetadata({
 
   if (!post) return {};
   
-const canonicalUrl = `${baseURL}/${blog.path}/${post.slug}`
   return Meta.generate({
     title: post.metadata.title,
     description: post.metadata.summary,
     alternates: {
-      canonical: canonicalUrl,
+    canonical: `${baseURL}/blog/${post.slug}`,
     },
-    baseURL: `${baseURL}/${blog.path}/${post.slug}`,
     image: post.metadata.image || `/api/og/generate?title=${post.metadata.title}`,
     path: `${blog.path}/${post.slug}`,
   });
