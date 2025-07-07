@@ -29,6 +29,7 @@ export async function generateMetadata({
   return {
     title: post.metadata.title,
     description: post.metadata.summary,
+    canonical: `${baseURL}/seo-proekti/${post.slug}`,
     openGraph: {
       title: post.metadata.title,
       description: post.metadata.summary,
