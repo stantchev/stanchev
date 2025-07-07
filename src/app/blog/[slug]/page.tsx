@@ -34,7 +34,7 @@ export async function generateMetadata({
     },
     image: post.metadata.image || `/api/og/generate?title=${post.metadata.title}`,
     path: `${blog.path}/${post.slug}`,
-  });
+  };
 }
 
 export default async function Blog({
