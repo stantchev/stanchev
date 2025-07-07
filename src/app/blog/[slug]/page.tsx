@@ -124,10 +124,9 @@ export default async function Blog({
     })) || [];
 
   return (
-  <>
     <Head>
       <meta name="keywords" content={post.metadata.keywords?.join(", ")} />
-    </Head>
+    </Head>,
     
   return (
     <Row fillWidth>
