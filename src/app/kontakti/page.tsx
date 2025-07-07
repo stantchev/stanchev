@@ -15,6 +15,9 @@ export async function generateMetadata() {
       "Свържете се с мен за безплатна SEO консултация или запитване относно техническа и съдържателна оптимизация на вашия уебсайт.",
     keywords:
       "seo консултация, seo услуги, seo експерт, seo оптимизатор, фирма за seo оптимизация, seo консултант, заявка за seo, контакт със seo специалист, поръчай seo оптимизация, връзка с seo фирма",
+    alternates: {
+    canonical: `${baseURL}/kontakti`,
+  },
     openGraph: {
       title: "Контакти | Станчев SEO",
       description:
