@@ -18,6 +18,10 @@ export async function generateMetadata() {
     return {
       title: 'On-Page SEO – оптимизация на структура и съдържание',
       description: 'Подобрете позициите си в Google с on-page SEO чрез оптимизация на структурата, мета описанията, заглавията и съдържанието на страниците ви.',
+      keywords: 'on-page оптимизация, seo оптимизация на страница, оптимизация на съдържание, seo текст, seo копирайтинг, оптимизация на мета тагове, оптимизация на заглавия, seo on-page, on-page seo',
+	alternates: {
+    canonical: `${baseURL}/seo-uslugi/on-page-seo`,
+  },    
       openGraph: { title: 'On-Page SEO – оптимизация на структура и съдържание', description: 'Подобрете класирането си с on-page SEO: оптимизация на структура, мета данни и съдържание.', url: `${baseURL}/seo-uslugi/on-page-seo` },
       twitter: { title: 'On-Page SEO – оптимизация на структура и съдържание', description: 'Подобрете класирането си с on-page SEO: оптимизация на структура, мета данни и съдържание.' },
     };
