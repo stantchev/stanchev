@@ -30,7 +30,7 @@ export async function generateMetadata({
 }: {
   params: { slug: string | string[] };
 }): Promise<Metadata> {
-  const slugPath = Array.isArray(params.slug) ? params.slug.join("/") : params.slug || "";
+  const slugPath = Array.isArray(params.slug) ? params.slug.join('/') : params.slug || '';
 
   const posts = getPosts(["src", "app", "blog", "posts"]);
   const post = posts.find((p) => p.slug === slugPath);
@@ -41,8 +41,6 @@ export async function generateMetadata({
   const description = post.metadata.summary;
   const image = post.metadata.image || `/api/og/generate?title=${encodeURIComponent(title)}`;
   const url = `${baseURL}${blog.path}/${post.slug}`;
-  const keywords = post.metadata.keywords?.join(", ");
-  const author = post.metadata.author || person.name;
 
   return {
     title,
@@ -50,11 +48,8 @@ export async function generateMetadata({
     openGraph: {
       title,
       description,
-      url,
-      siteName: "Станчев SEO",
       images: [{ url: image }],
-      locale: "bg_BG",
-      type: "article",
+      url,
     },
     twitter: {
       card: "summary_large_image",
@@ -63,15 +58,10 @@ export async function generateMetadata({
       images: [image],
     },
     alternates: {
-      canonical: url,
-    },
-    other: {
-      keywords: keywords ?? "",
-      author,
+      canonical: url, // ← Това е каноничният URL
     },
   };
 }
-
 // Основен компонент
 export default async function Blog({
   params,
