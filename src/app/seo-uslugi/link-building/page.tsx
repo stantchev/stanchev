@@ -18,6 +18,10 @@ export async function generateMetadata() {
     return {
       title: 'Link Building стратегии за SEO – изгради авторитет в Google',
       description: 'Изгради силен линк профил с ефективна Link Building стратегия. Повиши авторитета на сайта си и се класирай по-високо в Google.',
+	    keywords: 'линк билдинг, линк билдинг стратегия, изграждане на линкове, линк билдинг цени, линк билдинг цена, качествени линкове, обратни връзки, link building.',
+	    alternates: {
+    canonical: `${baseURL}/seo-uslugi/link-building`,
+  },
       openGraph: { title: 'Link Building стратегии за силно SEO – изгради авторитет и класиране в Google', description: 'Изгради силен линк профил с ефективна Link Building стратегия. Повиши авторитета на сайта си и се класирай по-високо в Google.', url: `${baseURL}/seo-uslugi/link-building` },
       twitter: { title: 'Link Building стратегии за силно SEO – изгради авторитет и класиране в Google', description: 'Изгради силен линк профил с ефективна Link Building стратегия. Повиши авторитета на сайта си и се класирай по-високо в Google.' },
     };
