@@ -7,8 +7,8 @@ export async function generateMetadata() {
     description: seoServices.description,
     alternates: {
       keywords: 'seo оптимизация, seo услуги, seo цена, линк билдинг, оптимизация на сайт, seo консултант, фирма за seo, seo специалист, seo агенция, seo оптимизатор, реклама в Google, дигитален маркетинг, seo одит, seo обучение, seo стратегия, оптимизация на онлайн магазин.',
-    canonical: `${baseURL}/seo-uslugi`,
-  },
+      canonical: `${baseURL}/seo-uslugi`,
+    },
     openGraph: {
       title: seoServices.title,
       description: seoServices.description,
@@ -49,9 +49,9 @@ export default function SeoUslugi() {
           image: `${baseURL}${person.avatar}`,
         }}
       />
-      
+        
       <Column gap="l" paddingX="l">
-        <Heading variant="display-strong-l" marginBottom="m">
+        <Heading variant="display-strong-l" marginBottom="m" as="h1"> {/* <-- ЕДИНСТВЕНО H1 */}
           SEO услуги за вашия бизнес
         </Heading>
         <Text
@@ -64,7 +64,7 @@ export default function SeoUslugi() {
       </Column>
 
       <Column gap="m" paddingX="l">
-        <Heading variant="heading-strong-l" marginBottom="m">
+        <Heading variant="heading-strong-l" marginBottom="m" as="h2"> {/* <-- ЕДИНСТВЕНО H2 */}
           Как можем да помогнем?
         </Heading>
         <Text
@@ -87,7 +87,7 @@ export default function SeoUslugi() {
             direction="column"
             gap="m"
           >
-            <Heading variant="heading-strong-l" marginBottom="s">
+            <Heading variant="heading-strong-l" marginBottom="s" as="h3"> {/* <-- Променено на H3 */}
               {service.title}
             </Heading>
             <Text variant="body-default-m" onBackground="neutral-weak" marginBottom="m">
@@ -103,16 +103,16 @@ export default function SeoUslugi() {
             <Text variant="heading-strong-m" marginTop="m">
               {service.price}
             </Text>
-            {service.slug && (    
-      <Button
-            href={`/seo-uslugi/${service.slug}`}
-          variant="primary"
-          size="m"
-          prefixIcon="rocket"
-        >
-        Виж повече
-      </Button>
-    )}
+            {service.slug && (  
+              <Button
+                href={`/seo-uslugi/${service.slug}`}
+                variant="primary"
+                size="m"
+                prefixIcon="rocket"
+              >
+                Виж повече
+              </Button>
+            )}
           </Card>
         ))}
       </Grid>
@@ -147,7 +147,7 @@ export default function SeoUslugi() {
       />
 
       <Column gap="m" paddingX="l" horizontal="center">
-        <Heading variant="display-strong-s" align="center">
+        <Heading variant="display-strong-s" align="center" as="h4"> {/* <-- ЕДИНСТВЕНО H4 */}
           Готови за по-добри резултати?
         </Heading>
         <Text variant="body-default-l" onBackground="neutral-weak" align="center" wrap="balance">
