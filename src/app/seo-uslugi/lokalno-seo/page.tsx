@@ -11,7 +11,7 @@ import {
 import { baseURL, seoServices } from '@/resources';
 import LocalSEOFAQ from './faq';
 
-const service = seoServices.services.find(s => s.slug === 'local-seo');
+const service = seoServices.services.find(s => s.slug === 'lokalno-seo');
 
 export async function generateMetadata() {
   return {
@@ -19,12 +19,12 @@ export async function generateMetadata() {
     description: 'Привлечете клиенти от вашия регион с професионална локална SEO оптимизация. Научете как добър SEO консултант подобрява присъствието ви в местните резултати.',
     keywords: 'локално seo, seo консултант, seo оптимизация google, линк билдинг стратегия, оптимизация на сайт цени',
     alternates: {
-      canonical: `${baseURL}/seo-uslugi/local-seo`,
+      canonical: `${baseURL}/seo-uslugi/lokalno-seo`,
     },
     openGraph: {
       title: 'Локално SEO – доминирай в Google търсенията във вашия град',
       description: 'Превърнете се в №1 избор в местните търсения чрез ефективна локална SEO стратегия и оптимизация на Google профил.',
-      url: `${baseURL}/seo-uslugi/local-seo`,
+      url: `${baseURL}/seo-uslugi/lokalno-seo`,
       siteName: seoServices.title,
       images: [
         {
