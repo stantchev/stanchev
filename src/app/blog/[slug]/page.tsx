@@ -1,9 +1,9 @@
 import { notFound } from "next/navigation";
 import { CustomMDX, ScrollToHash } from "@/components";
-import { Meta, Schema, AvatarGroup, Button, Column, Heading, HeadingNav, Icon, Row, Text } from "@once-ui-system/core";
+import { Meta, Schema, AvatarGroup, Button, Column, Heading, HeadingNav, Icon, Row, Text, AccordionGroup} from "@once-ui-system/core";
 import { baseURL, about, blog, person } from "@/resources";
-import { formatDate } from "@/utils/formatDate";
-import { getPosts } from "@/utils/utils";
+import { formatDate } from "@/app/utils/formatDate";
+import { getPosts } from "@/app/utils/utils";
 import { Metadata } from 'next';
 
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
@@ -59,7 +59,7 @@ export default async function Blog({
         <Column as="section" maxWidth="xs" gap="l">
           <Schema
             as="blogPosting"
-            baseURL={`{baseURL}/${blog.path}/${post.slug}`}
+            baseURL={baseURL}
             path={`${blog.path}/${post.slug}`}
             title={post.metadata.title}
             description={post.metadata.summary}
@@ -90,7 +90,7 @@ export default async function Blog({
     </Row>
     <Column maxWidth={12} paddingLeft="40" fitHeight position="sticky" top="80" gap="16" hide="m">
       <Row
-        gap="20"
+        gap="12"
         paddingLeft="2"
         vertical="center"
         onBackground="neutral-medium"
@@ -99,7 +99,12 @@ export default async function Blog({
         <Icon name="document" size="xs" />
         В тази статия
       </Row>
-      <HeadingNav fitHeight/>
+      <HeadingNav
+  width={24}
+  position="sticky"
+  top="64"
+  fitHeight
+/>
     </Column>
     </Row>
   );
