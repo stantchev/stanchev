@@ -122,11 +122,6 @@ export default async function Blog({
     post.metadata.team?.map((person) => ({
       src: person.avatar,
     })) || [];
-
-  return (
-    <Head>
-      <meta name="keywords" content={post.metadata.keywords?.join(", ")} />
-    </Head>,
     
   return (
     <Row fillWidth>
@@ -135,7 +130,7 @@ export default async function Blog({
         <Column as="section" maxWidth="xs" gap="l">
           <Schema
             as="blogPosting"
-            baseURL={baseURL}
+            baseURL={`{baseURL}/${blog.path}/${post.slug}`}
             path={`${blog.path}/${post.slug}`}
             title={post.metadata.title}
             description={post.metadata.summary}
