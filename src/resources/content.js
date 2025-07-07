@@ -246,7 +246,7 @@ const seoServices = {
     },
 	  {
   title: "Локално SEO",
-  slug: "local-seo",
+  slug: "lokalno-seo",
   description: "SEO оптимизация за локални търсения и позициониране в Google Maps.",
   features: [
     "Оптимизация на Google Business Profile",
