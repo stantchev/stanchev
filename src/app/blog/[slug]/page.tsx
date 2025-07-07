@@ -29,6 +29,7 @@ export async function generateMetadata({
   return {
     title: post.metadata.title,
     description: post.metadata.summary,
+    keywords: post.metadata.keywords,
     alternates: {
       canonical: `${baseURL}/blog/${post.slug}`,
     },
@@ -53,7 +54,7 @@ openGraph: {
       description: post.metadata.summary,
       images: [post.metadata.image || `/api/og/generate?title=${post.metadata.title}`],
     },
-  };
+  }as any;
 }
 
 export default async function Blog({
