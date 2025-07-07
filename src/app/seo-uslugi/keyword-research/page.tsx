@@ -20,7 +20,12 @@ export async function generateMetadata() {
     return {
       title: 'Keyword Research – основата на успешната SEO стратегия',
       description: 'Открийте печеливши ключови думи за бизнеса си с професионален keyword research и задълбочен анализ на конкуренцията и обема на търсене.',
-      openGraph: { title: 'Keyword Research – основата на успешната SEO стратегия', description: 'Открийте най-ценните ключови думи за вашия бизнес с професионален keyword research и анализ.', url: `${baseURL}/seo-uslugi/keyword-research` },
+	   keywords: 'ключови думи, проучване на ключови думи, изследване на ключови думи, анализ на ключови думи, инструменти за ключови думи, стратегия за ключови думи, намиране на ключови думи, сео ключови думи, оптимизация на ключови думи',
+	    alternates: {
+    canonical: `${baseURL}/seo-uslugi/keyword-research`,
+  },
+      openGraph: { title: 'Keyword Research – основата на успешната SEO стратегия', description: 'Открийте най-ценните ключови думи за вашия бизнес с професионален keyword research и анализ.', 
+		  url: `${baseURL}/seo-uslugi/keyword-research` },
       twitter: { title: 'Keyword Research – основата на успешната SEO стратегия', description: 'Открийте най-ценните ключови думи за вашия бизнес с професионален keyword research и анализ.' },
     };
   }
