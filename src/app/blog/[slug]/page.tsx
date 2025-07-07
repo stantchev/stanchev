@@ -15,6 +15,7 @@ import { baseURL, about, blog, person } from "@/resources";
 import { formatDate } from "@/app/utils/formatDate";
 import { getPosts } from "@/app/utils/utils";
 import { Metadata } from "next";
+import Head from "next/head";
 
 // ───────────────────────────────────────────
 // Типове за blog постове (.mdx мета)
@@ -52,52 +53,51 @@ export async function generateMetadata({
   params,
 }: {
   params: Promise<{ slug: string | string[] }>;
-}): Promise<Metadata> {
+}) {
   const routeParams = await params;
-  const slugPath = Array.isArray(routeParams.slug)
-    ? routeParams.slug.join("/")
-    : routeParams.slug || "";
+  const slugPath = Array.isArray(routeParams.slug) ? routeParams.slug.join('/') : routeParams.slug || '';
 
-  const posts: BlogPost[] = getPosts(["src", "app", "blog", "posts"]);
-  const post = posts.find((post) => post.slug === slugPath);
+  const posts = getPosts(["src", "app", "blog", "posts"]);
+  let post = posts.find((post) => post.slug === slugPath);
 
   if (!post) return {};
 
+  const title = post.metadata.title;
+  const description = post.metadata.summary;
+  const image = post.metadata.image || `/api/og/generate?title=${encodeURIComponent(title)}`;
+  const url = `${baseURL}${blog.path}/${post.slug}`;
+  const keywords = post.metadata.keywords?.join(", ") || "";
+
   return {
-    title: post.metadata.title,
-    description: post.metadata.summary,
+    title,
+    description,
     keywords: post.metadata.keywords,
     openGraph: {
-      title: post.metadata.title,
-      description: post.metadata.summary,
-      url: `${baseURL}${blog.path}/${post.slug}`,
-      siteName: post.metadata.title,
+      title,
+      description,
+      url,
+      siteName: title,
       images: [
         {
-          url:
-            post.metadata.image ||
-            `/api/og/generate?title=${encodeURIComponent(
-              post.metadata.title
-            )}`,
+          url: image,
           width: 1200,
           height: 630,
         },
       ],
-      locale: "bg_BG",
-      type: "article",
+      locale: 'bg_BG',
+      type: 'article',
     },
     twitter: {
-      card: "summary_large_image",
-      title: post.metadata.title,
-      description: post.metadata.summary,
-      images: [
-        post.metadata.image ||
-          `/api/og/generate?title=${encodeURIComponent(post.metadata.title)}`,
-      ],
+      card: 'summary_large_image',
+      title,
+      description,
+      images: [image],
+    },
+    alternates: {
+      canonical: url,
     },
   };
 }
-
 // ───────────────────────────────────────────
 // Рендер на Blog Post страницата
 // ───────────────────────────────────────────
@@ -123,6 +123,12 @@ export default async function Blog({
       src: person.avatar,
     })) || [];
 
+  return (
+  <>
+    <Head>
+      <meta name="keywords" content={post.metadata.keywords?.join(", ")} />
+    </Head>
+    
   return (
     <Row fillWidth>
       <Row maxWidth={12} hide="m" />
