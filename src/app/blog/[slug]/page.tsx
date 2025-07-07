@@ -15,50 +15,25 @@ import { baseURL, about, blog, person } from "@/resources";
 import { formatDate } from "@/app/utils/formatDate";
 import { getPosts } from "@/app/utils/utils";
 import { Metadata } from "next";
-import Head from "next/head";
 
-// ───────────────────────────────────────────
-// Типове за blog постове (.mdx мета)
-// ───────────────────────────────────────────
-type BlogPostMetadata = {
-  title: string;
-  summary: string;
-  publishedAt?: string;
-  image?: string;
-  keywords?: string[];
-  author?: string;
-  team?: { avatar: string; name?: string }[];
-};
-
-type BlogPost = {
-  slug: string;
-  content: string;
-  metadata: BlogPostMetadata;
-};
-
-// ───────────────────────────────────────────
-// Генериране на параметри за статични маршрути
-// ───────────────────────────────────────────
+// Генерира статични пътища
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
-  const posts: BlogPost[] = getPosts(["src", "app", "blog", "posts"]);
+  const posts = getPosts(["src", "app", "blog", "posts"]);
   return posts.map((post) => ({
     slug: post.slug,
   }));
 }
 
-// ───────────────────────────────────────────
-// SEO мета за всеки пост (вкл. keywords)
-// ───────────────────────────────────────────
+// Генерира мета таговете за <head>
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ slug: string | string[] }>;
-}) {
-  const routeParams = await params;
-  const slugPath = Array.isArray(routeParams.slug) ? routeParams.slug.join('/') : routeParams.slug || '';
+  params: { slug: string | string[] };
+}): Promise<Metadata> {
+  const slugPath = Array.isArray(params.slug) ? params.slug.join("/") : params.slug || "";
 
   const posts = getPosts(["src", "app", "blog", "posts"]);
-  let post = posts.find((post) => post.slug === slugPath);
+  const post = posts.find((p) => p.slug === slugPath);
 
   if (!post) return {};
 
@@ -66,29 +41,23 @@ export async function generateMetadata({
   const description = post.metadata.summary;
   const image = post.metadata.image || `/api/og/generate?title=${encodeURIComponent(title)}`;
   const url = `${baseURL}${blog.path}/${post.slug}`;
-  const keywords = post.metadata.keywords?.join(", ") || "";
+  const keywords = post.metadata.keywords?.join(", ");
+  const author = post.metadata.author || person.name;
 
   return {
     title,
     description,
-    keywords: post.metadata.keywords,
     openGraph: {
       title,
       description,
       url,
-      siteName: title,
-      images: [
-        {
-          url: image,
-          width: 1200,
-          height: 630,
-        },
-      ],
-      locale: 'bg_BG',
-      type: 'article',
+      siteName: "Станчев SEO",
+      images: [{ url: image }],
+      locale: "bg_BG",
+      type: "article",
     },
     twitter: {
-      card: 'summary_large_image',
+      card: "summary_large_image",
       title,
       description,
       images: [image],
@@ -96,23 +65,22 @@ export async function generateMetadata({
     alternates: {
       canonical: url,
     },
+    other: {
+      keywords: keywords ?? "",
+      author,
+    },
   };
 }
-// ───────────────────────────────────────────
-// Рендер на Blog Post страницата
-// ───────────────────────────────────────────
+
+// Основен компонент
 export default async function Blog({
   params,
 }: {
-  params: Promise<{ slug: string | string[] }>;
+  params: { slug: string | string[] };
 }) {
-  const routeParams = await params;
-  const slugPath = Array.isArray(routeParams.slug)
-    ? routeParams.slug.join("/")
-    : routeParams.slug || "";
+  const slugPath = Array.isArray(params.slug) ? params.slug.join("/") : params.slug || "";
 
-  const posts: BlogPost[] = getPosts(["src", "app", "blog", "posts"]);
-  const post = posts.find((post) => post.slug === slugPath);
+  const post = getPosts(["src", "app", "blog", "posts"]).find((p) => p.slug === slugPath);
 
   if (!post) {
     notFound();
@@ -122,7 +90,7 @@ export default async function Blog({
     post.metadata.team?.map((person) => ({
       src: person.avatar,
     })) || [];
-    
+
   return (
     <Row fillWidth>
       <Row maxWidth={12} hide="m" />
@@ -130,7 +98,7 @@ export default async function Blog({
         <Column as="section" maxWidth="xs" gap="l">
           <Schema
             as="blogPosting"
-            baseURL={`{baseURL}/${blog.path}/${post.slug}`}
+            baseURL={baseURL}
             path={`${blog.path}/${post.slug}`}
             title={post.metadata.title}
             description={post.metadata.summary}
@@ -138,9 +106,7 @@ export default async function Blog({
             dateModified={post.metadata.publishedAt}
             image={
               post.metadata.image ||
-              `/api/og/generate?title=${encodeURIComponent(
-                post.metadata.title
-              )}`
+              `/api/og/generate?title=${encodeURIComponent(post.metadata.title)}`
             }
             author={{
               name: person.name,
