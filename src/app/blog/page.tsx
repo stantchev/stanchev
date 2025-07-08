@@ -68,7 +68,7 @@ export default function Blog() {
             }
           })
         }}
-      />,
+      />
     <Column maxWidth="s">
       <Schema
         as="blogPosting"
