@@ -12,6 +12,7 @@ import {
 } from '@once-ui-system/core';
 import SeoConsultationFAQ from './faq';
 import { baseURL, seoServices } from '@/resources';
+import Script from 'next/script';
 
 const service = seoServices.services.find(s => s.slug === 'seo-konsultaciya');
 
@@ -58,6 +59,124 @@ export async function generateMetadata() {
 
 export default function SeoConsultationPage() {
   return (
+     <>
+      <Script
+        id="seo-consultation-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "http://schema.org",
+            "@graph": [
+              {
+                "@type": "WebPage",
+                "name": "SEO Консултация – най-бързият начин да разберете защо сайтът ви не се класира",
+                "description": "Независимо дали имате нужда от технически съвет, преглед на структурата или стратегия за съдържание – SEO консултацията е идеалният начин да получите персонален план за действие.",
+                "url": "https://stanchev.bg/seo-uslugi/seo-konsultaciya",
+                "image": {
+                  "@type": "ImageObject",
+                  "url": "https://stanchev.bg/images/og/og.jpg"
+                },
+                "mainEntityOfPage": {
+                  "@type": "WebPage",
+                  "@id": "https://stanchev.bg/seo-uslugi/seo-konsultaciya"
+                },
+                "author": {
+                  "@type": "Person",
+                  "name": "Станчев",
+                  "url": "https://www.linkedin.com/in/stantcheff/",
+                  "image": "https://stanchev.bg/assets/avatar.jpg"
+                },
+                "publisher": {
+                  "@id": "https://stanchev.bg/#organization" 
+                }
+              },
+              {
+                "@type": "Service",
+                "serviceType": "SEO Консултация",
+                "name": "Индивидуална SEO Консултация",
+                "description": "До 30 минути анализ и съвети, насочени към най-важните проблеми и възможности на сайта ви.",
+                "url": "https://stanchev.bg/seo-uslugi/seo-konsultaciya",
+                "provider": {
+                  "@id": "https://stanchev.bg/#organization" 
+                },
+                "offers": {
+                  "@type": "Offer",
+                  "priceCurrency": "BGN",
+                  "price": "0", // Защото е "от 0 лв."
+                  "name": "Безплатна SEO консултация",
+                  "availability": "http://schema.org/InStock", 
+                  "url": "https://stanchev.bg/kontakti" 
+                }
+              },
+              {
+                "@type": ["Organization", "ProfessionalService"],
+                "@id": "https://stanchev.bg/#organization", 
+                "name": "Станчев SEO",
+                "url": "https://stanchev.bg/",
+                "logo": "https://stanchev.bg/images/og/og.jpg",
+                "email": "seo@stanchev.bg",
+                "address": {
+                  "@type": "PostalAddress",
+                  "streetAddress": "Бул. Г.М. Димитров 26",
+                  "addressLocality": "София",
+                  "addressRegion": "София",
+                  "postalCode": "1797",
+                  "addressCountry": "BG"
+                },
+                "sameAs": [
+                  "https://github.com/stantchev/",
+                  "https://www.linkedin.com/in/stantcheff/",
+                  "https://dev.to/stanchev"
+                ],
+                "contactPoint": {
+                  "@type": "ContactPoint",
+                  "contactType": "customer service",
+                  "email": "seo@stanchev.bg",
+                  "areaServed": "BG",
+                  "availableLanguage": "bg"
+                }
+              },
+              {
+                "@type": "FAQPage",
+                "mainEntity": [
+			{
+                    "@type": "Question",
+                    "name": "Колко струва една SEO консултация при Вас?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "Консултацията до 1 (един) час е напълно безплатна. За един час се броят 60 (шестдесет) минути от началото на консултацията."
+                    }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "Какви точно SEO услуги предлага Станчев SEO?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "Станчев SEO предлага цялостни SEO услуги, които включват детайлен технически одит на уебсайта, оптимизация на съдържанието (on-page SEO), изграждане на качествени връзки (off-page SEO), анализ на ключови думи и мониторинг на конкуренцията. Ние се фокусираме върху дългосрочни резултати и устойчив растеж на органичния трафик, като нашата SEO стратегия е съобразена с най-новите алгоритми."
+                    }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "С какво услугите на Станчев SEO се отличават от конкурентните?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "Станчев SEO се отличава с персонализиран подход към всеки клиент и прозрачност в работата. Ние не просто изпълняваме задачи, а задълбочено разбираме вашите бизнес цели и адаптираме стратегията си. Използваме утвърдени и етични (white-hat) SEO практики, гарантиращи сигурност и устойчивост на резултатите ви. Работим като отдаден SEO консултант за вашия онлайн успех."
+                    }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "За какъв тип бизнес са подходящи SEO услугите на Станчев SEO?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "Нашите SEO оптимизации са подходящи за широк кръг бизнеси, които искат да увеличат онлайн видимостта си. Работим успешно както с малки и средни предприятия, така и с големи компании от различни сектори, включително електронни магазини, фирмени уебсайтове и блогове. Важно е да имате желание за дългосрочна инвестиция в дигиталния си маркетинг. За нас е важно да сме вашата надеждна SEO фирма."
+                    }
+                  }
+                ]
+              }
+            ]
+          })
+        }}
+      />,
     <Column as="section" gap="xl" padding="xl" fillWidth>
       <Column gap="m" align="center" fillWidth>
         <Heading as="h1" variant="display-strong-l" align="center">
@@ -198,5 +317,6 @@ export default function SeoConsultationPage() {
         </Flex>
       </Column>
     </Column>
+     </>
   );
 }
