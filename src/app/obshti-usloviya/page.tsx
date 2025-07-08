@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Script from 'next/script';
 export const metadata: Metadata = {
   title: 'Общи условия | СтанчевSEO',
   description: 'Запознайте се с общите условия за ползване на сайта, включително права, задължения и правила за достъп до информацията и услугите ни.',
@@ -8,6 +9,51 @@ import { Column, Flex, Feedback } from "@once-ui-system/core";
 
 export default function TermsPage() {
   return (
+    <>
+      <Script
+        id="terms-and-conditions-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "http://schema.org",
+            "@type": "WebPage",
+            "name": "Общи Условия за Ползване на Услугите на Станчев SEO",
+            "description": "Запознайте се с Общите условия за ползване на услугите, предоставяни от Станчев SEO, включително права и задължения, условия за плащане и поверителност.",
+            "url": "https://stanchev.bg/obshti-uslovia",
+            "potentialAction": {
+              "@type": "ReadAction",
+              "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": "https://stanchev.bg/obshti-uslovia"
+              }
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "Станчев SEO",
+              "url": "https://stanchev.bg/",
+              "logo": "https://stanchev.bg/images/og/og.jpg",
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "contactType": "customer service",
+                "email": "seo@stanchev.bg"
+              },
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Бул. Г.М. Димитров 26",
+                "addressLocality": "София",
+                "addressRegion": "София",
+                "postalCode": "1797",
+                "addressCountry": "BG"
+              },
+              "sameAs": [
+                "https://github.com/stantchev/",
+                "https://www.linkedin.com/in/stantcheff/",
+                "https://dev.to/stanchev"
+              ]
+            }
+          })
+        }}
+      />,
     <Column as="section" padding="xl" gap="xl" fillWidth>
       <Flex as="h1" textVariant="display-strong-m" horizontal="center">
         Общи условия за ползване на услугите на Stanchev.bg
@@ -100,5 +146,6 @@ export default function TermsPage() {
         </Flex>
       </Column>
     </Column>
+    </>
   );
 }
