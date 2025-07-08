@@ -61,6 +61,7 @@ export const Footer = () => {
                   tooltip={item.name}
                   size="s"
                   variant="ghost"
+                  rel="nofollow"
                   className={styles.footerIcon}
                   style={{ 
                     transition: 'color 0.2s',
