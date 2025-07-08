@@ -112,7 +112,7 @@ export default function KeywordResearchPage() {
       </Column>
 
       <Column gap="l">
-        <Heading as="h2" variant="display-default-m">
+        <Heading as="h3" variant="display-default-m">
           Защо keyword research е толкова важен?
         </Heading>
 
@@ -127,7 +127,7 @@ export default function KeywordResearchPage() {
       </Column>
 
       <Column gap="l">
-        <Heading as="h2" variant="display-default-m">
+        <Heading as="h3" variant="display-default-m">
           Как изглежда процесът при нас
         </Heading>
 
@@ -154,7 +154,7 @@ export default function KeywordResearchPage() {
 
       <Column gap="l">
         <Heading as="h2" variant="display-default-m">
-          Примерни пакети
+          Примерни пакети за keyword research
         </Heading>
 
         <Column gap="m">
@@ -174,7 +174,7 @@ export default function KeywordResearchPage() {
               </Text>
             </Column>
             <Column flex={4} align="end">
-              <Heading variant="display-strong-s">от 320&nbsp;лв.</Heading>
+              <Heading as="h4" variant="display-strong-s">от 320&nbsp;лв.</Heading>
             </Column>
           </Flex>
 
@@ -194,20 +194,20 @@ export default function KeywordResearchPage() {
               </Text>
             </Column>
             <Column flex={4} align="end">
-              <Heading variant="display-strong-s">от 850&nbsp;лв.</Heading>
+              <Heading as="h4" variant="display-strong-s">от 850&nbsp;лв.</Heading>
             </Column>
           </Flex>
         </Column>
       </Column>
 
-      <Heading as="h4" variant="display-default-s">
+      <Heading as="h3" variant="display-default-s">
         Често задавани въпроси (ЧЗВ) за Keyword Research
       </Heading>
 
       <KeywordResearchFAQ />
 
       <Column gap="m" align="center" paddingTop="xl">
-        <Heading variant="display-strong-m" align="center">
+        <Heading as="h4" variant="display-strong-m" align="center">
           Искате ли ключовите думи да работят за вас?
         </Heading>
         <Flex horizontal="center">
