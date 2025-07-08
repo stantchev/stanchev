@@ -172,7 +172,7 @@ export default function LinkBuildingPage() {
               </Text>
             </Column>
             <Column flex={4} align="end">
-              <Heading variant="display-strong-xs">от 790&nbsp;лв.</Heading>
+              <Heading as="h4" variant="display-strong-xs">от 790&nbsp;лв.</Heading>
             </Column>
           </Flex>
 
@@ -192,15 +192,15 @@ export default function LinkBuildingPage() {
               </Text>
             </Column>
             <Column flex={4} align="end">
-              <Heading variant="display-strong-xs">от 550&nbsp;лв./мес</Heading>
+              <Heading as="h4" variant="display-strong-xs">от 550&nbsp;лв./мес</Heading>
             </Column>
           </Flex>
         </Column>
       </Column>
-      <Heading as="h4" variant="display-default-s">Често задавани въпроси за Link Building</Heading>
+      <Heading as="h3" variant="display-default-s">Често задавани въпроси за Link Building</Heading>
       <SeoAuditFAQ />
       <Column gap="m" align="center" paddingTop="xl">
-        <Heading variant="display-strong-m" align="center">
+        <Heading as="h4" variant="display-strong-m" align="center">
           Искате ли по-висок авторитет и позиции в Google?
         </Heading>
         <Flex horizontal="center">
