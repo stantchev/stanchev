@@ -1,5 +1,6 @@
 import { Flex, Meta, Schema, Column, Heading, Text, Button, Grid, Card, AccordionGroup } from "@once-ui-system/core";
 import { baseURL, person, seoServices } from "@/resources";
+import Script from 'next/script';
 
 export async function generateMetadata() {
   return {
@@ -35,6 +36,212 @@ export async function generateMetadata() {
 
 export default function SeoUslugi() {
   return (
+     <>
+      <Script
+        id="seo-services-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "http://schema.org",
+            "@graph": [
+              {
+                "@type": "WebPage",
+                "name": "Пълна гама от SEO услуги, цени и пакети за вашия бизнес",
+                "description": "Предлагаме SEO оптимизация, линк билдинг, on-page и off-page оптимизация, PPC кампании и др. Вижте цените и изберете пакет.",
+                "url": "https://stanchev.bg/seo-uslugi",
+                "image": {
+                  "@type": "ImageObject",
+                  "url": "https://stanchev.bg/images/og/og.jpg"
+                },
+                "author": {
+                  "@type": "Person",
+                  "name": "Станчев", // Използваме person.name от @/resources
+                  "url": "https://www.linkedin.com/in/stantcheff/",
+                  "image": "https://stanchev.bg/assets/avatar.jpg" // Използваме person.avatar от @/resources
+                },
+                "publisher": {
+                  "@id": "https://stanchev.bg/#organization" // Референция към Organization в същия @graph
+                }
+              },
+              {
+                "@type": "OfferCatalog",
+                "name": "Пълна гама от SEO услуги, цени и пакети",
+                "description": "Предлагаме SEO оптимизация, линк билдинг, on-page и off-page оптимизация, PPC кампании и др. Вижте цените и изберете пакет.",
+                "url": "https://stanchev.bg/seo-uslugi",
+                "provider": {
+                  "@type": "Organization",
+                  "@id": "https://stanchev.bg/#organization", // Явно дефиниране на организацията
+                  "name": "Станчев SEO",
+                  "url": "https://stanchev.bg/",
+                  "logo": "https://stanchev.bg/images/og/og.jpg",
+                  "email": "seo@stanchev.bg",
+                  "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "Бул. Г.М. Димитров 26",
+                    "addressLocality": "София",
+                    "addressRegion": "София",
+                    "postalCode": "1797",
+                    "addressCountry": "BG"
+                  },
+                  "sameAs": [
+                    "https://github.com/stantchev/",
+                    "https://www.linkedin.com/in/stantcheff/",
+                    "https://dev.to/stanchev"
+                  ],
+                  "contactPoint": {
+                    "@type": "ContactPoint",
+                    "contactType": "customer service",
+                    "email": "seo@stanchev.bg",
+                    "areaServed": "BG",
+                    "availableLanguage": "bg"
+                  }
+                },
+                "itemListElement": [
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "SEO Оптимизация",
+                      "description": "Пълна SEO оптимизация на вашия уебсайт за по-добро класиране в търсачките."
+                    },
+                    "priceSpecification": {
+                      "@type": "UnitPriceSpecification",
+                      "priceCurrency": "BGN",
+                      "unitText": "По договаряне",
+                      "name": "Цена за SEO Оптимизация по договаряне"
+                    },
+                    "url": "https://stanchev.bg/seo-uslugi/seo-optimizatsiya"
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Link Building",
+                      "description": "Ефективно изграждане на линкове за подобряване на SEO позициите и авторитета на вашия сайт."
+                    },
+                    "priceSpecification": {
+                      "@type": "UnitPriceSpecification",
+                      "priceCurrency": "BGN",
+                      "unitText": "По договаряне",
+                      "name": "Цена за Link Building по договаряне"
+                    },
+                    "url": "https://stanchev.bg/seo-uslugi/link-building"
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "SEO Одит",
+                      "description": "Анализ на SEO състоянието на сайта и стратегии за подобрение."
+                    },
+                    "priceSpecification": {
+                      "@type": "UnitPriceSpecification",
+                      "price": "200",
+                      "priceCurrency": "BGN",
+                      "unitText": "лв.",
+                      "name": "Начална цена за SEO Одит"
+                    },
+                    "url": "https://stanchev.bg/seo-uslugi/seo-odit"
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "On-Page SEO",
+                      "description": "Оптимизация на структурата, мета данни и съдържание."
+                    },
+                    "priceSpecification": {
+                      "@type": "UnitPriceSpecification",
+                      "price": "300",
+                      "priceCurrency": "BGN",
+                      "unitText": "лв.",
+                      "name": "Начална цена за On-Page SEO"
+                    },
+                    "url": "https://stanchev.bg/seo-uslugi/on-page-seo"
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Keyword Research",
+                      "description": "Изследване на ключови думи и създаване на SEO стратегия."
+                    },
+                    "priceSpecification": {
+                      "@type": "UnitPriceSpecification",
+                      "price": "150",
+                      "priceCurrency": "BGN",
+                      "unitText": "лв.",
+                      "name": "Начална цена за Keyword Research"
+                    },
+                    "url": "https://stanchev.bg/seo-uslugi/keyword-research"
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Локално SEO",
+                      "description": "SEO оптимизация за локални търсения и позициониране в Google Maps."
+                    },
+                    "priceSpecification": {
+                      "@type": "UnitPriceSpecification",
+                      "price": "390",
+                      "priceCurrency": "BGN",
+                      "unitText": "лв.",
+                      "name": "Начална цена за Локално SEO"
+                    },
+                    "url": "https://stanchev.bg/seo-uslugi/lokalno-seo"
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "SEO Консултация",
+                      "description": "Лична консултация със SEO експерт за вашия бизнес."
+                    },
+                    "priceSpecification": {
+                      "@type": "UnitPriceSpecification",
+                      "price": "100",
+                      "priceCurrency": "BGN",
+                      "unitText": "лв./час",
+                      "name": "Цена за SEO Консултация на час"
+                    },
+                    "url": "https://stanchev.bg/seo-uslugi/seo-konsultaciya"
+                  }
+                ]
+              },
+              {
+                "@type": "FAQPage",
+                "mainEntity": [
+                  {
+                    "@type": "Question",
+                    "name": "Какви точно SEO услуги предлага Станчев SEO?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "Станчев SEO предлага цялостни SEO услуги, които включват детайлен технически одит на уебсайта, оптимизация на съдържанието (on-page SEO), изграждане на качествени връзки (off-page SEO), анализ на ключови думи и мониторинг на конкуренцията. Ние се фокусираме върху дългосрочни резултати и устойчив растеж на органичния трафик, като нашата SEO стратегия е съобразена с най-новите алгоритми."
+                    }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "С какво услугите на Станчев SEO се отличават от конкурентните?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "Станчев SEO се отличава с персонализиран подход към всеки клиент и прозрачност в работата. Ние не просто изпълняваме задачи, а задълбочено разбираме вашите бизнес цели и адаптираме стратегията си. Използваме утвърдени и етични (white-hat) SEO практики, гарантиращи сигурност и устойчивост на резултатите ви. Работим като отдаден SEO консултант за вашия онлайн успех."
+                    }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "За какъв тип бизнес са подходящи SEO услугите на Станчев SEO?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "Нашите SEO оптимизации са подходящи за широк кръг бизнеси, които искат да увеличат онлайн видимостта си. Работим успешно както с малки и средни предприятия, така и с големи компании от различни сектори, включително електронни магазини, фирмени уебсайтове и блогове. Важно е да имате желание за дългосрочна инвестиция в дигиталния си маркетинг. За нас е важно да сме вашата надеждна SEO фирма."
+                    }
+                  }
+                ]
+              }
+            ]
+          })
+        }}
+      />,
     <Column maxWidth="l" gap="xl">
       <Schema
         as="webPage"
@@ -163,5 +370,6 @@ export default function SeoUslugi() {
         </Button>
       </Column>
     </Column>
+     </>
   );
 }
