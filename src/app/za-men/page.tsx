@@ -305,7 +305,7 @@ export default function ZaMen() {
 
           {about.technical.display && (
             <Column gap="l" marginTop="32">
-              <Heading variant="display-strong-m" className={styles.textAlign}>
+              <Heading as="h3" variant="display-strong-m" className={styles.textAlign}>
                 {about.technical.title}
               </Heading>
               {about.technical.skills.map((skill, idx) => (
