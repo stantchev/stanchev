@@ -147,7 +147,7 @@ export default function OnPageSeoPage() {
 
       <Column gap="l">
         <Heading as="h2" variant="display-default-m">
-          Цени за on-page оптимизация
+          Цени за on-page SEO оптимизация
         </Heading>
 
         <Column gap="m">
