@@ -2,6 +2,7 @@ import { Column, Heading, Schema, Text } from "@once-ui-system/core";
 import { Mailchimp } from "@/components";
 import { Posts } from "@/components/blog/Posts";
 import { baseURL, blog, person, newsletter } from "@/resources";
+import Script from 'next/script';
 
 export async function generateMetadata() {
   return {
@@ -41,6 +42,29 @@ export async function generateMetadata() {
 
 export default function Blog() {
   return (
+    <>
+    <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": ["Blog", "CollectionPage"],
+  "name": "Блог | Станчев SEO",
+  "url": "https://stanchev.bg/blog",
+  "description": "Разгледайте последните статии и актуални новини от света на SEO оптимизацията, дигиталния маркетинг и уеб разработването от Станчев SEO.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Станчев SEO",
+    "url": "https://stanchev.bg/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://stanchev.bg/images/og/og.jpg"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://stanchev.bg/blog"
+  }
+}
+</script>
     <Column maxWidth="s">
       <Schema
         as="blogPosting"
@@ -92,5 +116,6 @@ export default function Blog() {
         </>
       )}
     </Column>
+      </>
   );
 }
