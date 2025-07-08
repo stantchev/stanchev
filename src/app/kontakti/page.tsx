@@ -1,4 +1,3 @@
-// src/app/kontakti/page.tsx
 import { Column, Flex, Heading, Text, Schema } from "@once-ui-system/core";
 import ContactForm from "./ContactForm";
 import { baseURL, person, contact } from "@/resources";
@@ -16,8 +15,8 @@ export async function generateMetadata() {
     keywords:
       "seo консултация, seo услуги, seo експерт, seo оптимизатор, фирма за seo оптимизация, seo консултант, заявка за seo, контакт със seo специалист, поръчай seo оптимизация, връзка с seo фирма",
     alternates: {
-    canonical: `${baseURL}/kontakti`,
-  },
+      canonical: `${baseURL}/kontakti`,
+    },
     openGraph: {
       title: "Контакти | Станчев SEO",
       description:
@@ -45,22 +44,19 @@ export async function generateMetadata() {
 }
 
 export default function Kontakti() {
-  // Server Action - изпраща email
   async function handleSubmit(formData: FormData) {
     "use server";
-
     const name = formData.get("name")?.toString() || "";
     const email = formData.get("email")?.toString() || "";
     const subject = formData.get("subject")?.toString() || "";
     const message = formData.get("message")?.toString() || "";
-
     await sendEmail({ name, email, subject, message });
   }
 
   return (
     <Column maxWidth="m" gap="xl" paddingX="l">
       <Column gap="l">
-        <Heading variant="display-strong-l" marginBottom="m">
+        <Heading as="h1" variant="display-strong-l" marginBottom="m">
           {contact.title}
         </Heading>
         <Text
@@ -69,15 +65,19 @@ export default function Kontakti() {
           wrap="balance"
         >
           Ако имате въпроси относно интернет реклама, оптимизация на сайт,
-          дигитален маркетинг или търсите опитен seo специалист, свържете се с
+          дигитален маркетинг или търсите опитен SEO специалист, свържете се с
           нас чрез формата по-долу. За повече информация относно нашите услуги,
           посетете страницата за <a href="/seo-uslugi">SEO услуги</a>.
         </Text>
       </Column>
 
+      <Heading as="h2" variant="heading-strong-m">
+        Как да се свържете с нас
+      </Heading>
+
       <Flex fillWidth gap="xl" mobileDirection="column" paddingX="l" marginTop="xl">
         <Column flex={1} gap="l">
-          <Heading variant="heading-strong-l" marginBottom="m">
+          <Heading as="h3" variant="heading-strong-s">
             Информация за контакт
           </Heading>
 
@@ -113,13 +113,17 @@ export default function Kontakti() {
         </Column>
 
         <Column flex={2} gap="l">
-          <Heading variant="heading-strong-l" marginBottom="m">
-            Изпратете съобщение
+          <Heading as="h3" variant="heading-strong-s">
+            Изпратете съобщение чрез формата
           </Heading>
 
           <ContactForm handleSubmit={handleSubmit} />
         </Column>
       </Flex>
+
+      <Heading as="h4" variant="heading-strong-xs" align="center" paddingTop="xl">
+        SEO консултация без ангажимент – направете първата стъпка още днес!
+      </Heading>
     </Column>
   );
 }
