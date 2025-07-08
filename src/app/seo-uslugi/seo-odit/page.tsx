@@ -10,6 +10,7 @@ import {
 } from '@once-ui-system/core';
 import SeoAuditFAQ from './faq';
 import { baseURL, seoServices } from '@/resources';
+import Script from 'next/script';
 
 const service = seoServices.services.find(s => s.slug === 'seo-odit');
 
@@ -56,6 +57,90 @@ export async function generateMetadata() {
 
 export default function SeoAuditPage() {
   return (
+     <>
+      <Script
+        id="seo-audit-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "http://schema.org",
+            "@type": "Service",
+            "name": "SEO Одит",
+            "serviceType": "SEO Одит и Анализ",
+            "description": "Предлагам пълен SEO одит на уебсайтове, който включва детайлен технически анализ, анализ на ключови думи и съдържание, преглед на външни фактори и конкурентен анализ. Целта е да се открият проблеми и да се дадат конкретни препоръки за подобрение и по-добро класиране в Google.",
+            "provider": {
+              "@type": "Organization",
+              "name": "Станчев SEO",
+              "url": "https://stanchev.bg/",
+              "logo": "https://stanchev.bg/images/og/og.jpg",
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "contactType": "customer service",
+                "email": "seo@stanchev.bg"
+              },
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Бул. Г.М. Димитров 26",
+                "addressLocality": "София",
+                "addressRegion": "София",
+                "postalCode": "1797",
+                "addressCountry": "BG"
+              }
+            },
+            "url": "https://stanchev.bg/seo-uslugi/seo-odit",
+            "areaServed": {
+              "@type": "Place",
+              "name": "България"
+            },
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Пакети за SEO Одит",
+              "itemListElement": [
+                {
+                  "@type": "Offer",
+                  "name": "Базов SEO Одит",
+                  "description": "Подходящ за SEO за начинаещи и фирми с ограничен бюджет.",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Базов SEO Одит"
+                  },
+                  "priceSpecification": {
+                    "@type": "UnitPriceSpecification",
+                    "price": "650",
+                    "priceCurrency": "BGN",
+                    "unitText": "лв."
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "name": "Премиум SEO Одит + Link Building",
+                  "description": "Включва ефективна SEO оптимизация и персонален SEO оптимизатор.",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Премиум SEO Одит и Линк Билдинг"
+                  },
+                  "priceSpecification": {
+                    "@type": "UnitPriceSpecification",
+                    "price": "1750",
+                    "priceCurrency": "BGN",
+                    "unitText": "лв."
+                  }
+                }
+              ]
+            },
+            "offers": {
+              "@type": "Offer",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "priceCurrency": "BGN"
+              },
+              "category": "SEO Одит",
+              "availability": "https://schema.org/InStock",
+              "url": "https://stanchev.bg/seo-uslugi/seo-odit"
+            }
+          })
+        }}
+      />,
     <Column as="section" gap="xl" padding="xl" fillWidth>
       <Column gap="m" align="center" fillWidth>
         <Heading as="h1" variant="display-strong-l" align="center">
@@ -218,5 +303,6 @@ export default function SeoAuditPage() {
       </Flex>
       </Column>
     </Column>
+   </>
   );
 }
