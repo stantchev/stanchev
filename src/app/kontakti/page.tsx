@@ -54,6 +54,7 @@ export default function Kontakti() {
   }
 
   return (
+    <>
       <Script
         id="organization-schema"
         type="application/ld+json"
@@ -156,5 +157,6 @@ export default function Kontakti() {
         SEO консултация без ангажимент – направете първата стъпка още днес!
       </Heading>
     </Column>
+      </>
   );
 }
