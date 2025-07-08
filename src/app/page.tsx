@@ -11,11 +11,29 @@ import Script from 'next/script';
 export const metadata: Metadata = {
   title: home.titleText,
   description: home.descriptionText,
-  openGraph: {
-    title: home.titleText,
-    description: home.descriptionText,
-    images: [{ url: home.image }],
-  },
+openGraph: {
+  title: "Станчев SEO - Експертни SEO Услуги и Оптимизация на Сайтове",
+  description:
+    "Достигнете върха на Google с персонализирани SEO стратегии от Станчев. Предлагаме цялостна оптимизация на сайтове, техническо SEO, On-page, Off-page и Link Building.",
+  url: "https://stanchev.bg/",
+  siteName: "Станчев SEO",
+  images: [
+    {
+      url: `https://stanchev.bg/images/og/og.jpg`,
+      width: 1200,
+      height: 630,
+    },
+  ],
+  locale: "bg_BG",
+  type: "website",
+},
+twitter: {
+  card: "summary_large_image",
+  title: "Станчев SEO - Експертни SEO Услуги и Оптимизация на Сайтове",
+  description:
+    "Достигнете върха на Google с персонализирани SEO стратегии от Станчев. Предлагаме цялостна оптимизация на сайтове, техническо SEO, On-page, Off-page и Link Building.",
+  images: [`https://stanchev.bg/images/og/og.jpg`],
+},
   verification: {
     google: "ULHB2WBDkeyXyEYc7jVHf2nyPUUqKl_KOVBxnuiykpo",
   },
