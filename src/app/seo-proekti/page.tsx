@@ -149,10 +149,9 @@ export default function SeoProekti() {
         wrap="balance"
         marginBottom="xl"
       >
-        Галерия с реални SEO проекти от стажа ми във Webstation, където съм участвал в оптимизация на сайтове, линк билдинг и SEO стратегии за различни бизнеси и онлайн магазини. За повече информация, посетете страницата за <a href="/seo-uslugi">SEO услуги</a> или се <a href="/kontakti">свържете с нас</a>.
+        Галерия с SEO проекти от едногодишната ми съвместна работа с Webstation, където съм участвал в оптимизация на сайтове, линк билдинг и SEO стратегии за различни бизнеси и онлайн магазини. За повече информация, посетете страницата за <a href="/seo-uslugi">SEO услуги</a> или се <a href="/kontakti">свържете с нас</a>.
       </Text>
       <Projects />
-      {/* FAQ AccordionGroup */}
 	    <Heading as="h3" variant="display-strong-s" align="center">
           Често задавани въпроси за нашите SEO проекти
         </Heading>
