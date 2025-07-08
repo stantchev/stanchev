@@ -241,7 +241,7 @@ export default function SeoUslugi() {
             ]
           })
         }}
-      />,
+      />
     <Column maxWidth="l" gap="xl">
       <Schema
         as="webPage"
