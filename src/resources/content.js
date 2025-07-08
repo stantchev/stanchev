@@ -83,7 +83,7 @@ const about = {
   },
   calendar: {
     display: true,
-    link: "https://cal.com",
+    link: "https://cal.com/stanchevseo/15min",
   },
   intro: {
     display: true,
