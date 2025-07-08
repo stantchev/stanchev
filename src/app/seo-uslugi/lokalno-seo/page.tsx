@@ -10,6 +10,7 @@ import {
 } from '@once-ui-system/core';
 import { baseURL, seoServices } from '@/resources';
 import LocalSEOFAQ from './faq';
+import Script from 'next/script';
 
 const service = seoServices.services.find(s => s.slug === 'lokalno-seo');
 
@@ -47,6 +48,132 @@ export async function generateMetadata() {
 
 export default function LocalSEOPage() {
   return (
+    <>
+    <Script
+  id="local-seo-schema"
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      "@context": "http://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "name": "Локално SEO – доминирай в търсенията около теб",
+          "description": "Привлечете клиенти от вашия регион с професионална локална SEO оптимизация. Научете как добър SEO консултант подобрява присъствието ви в местните резултати.",
+          "url": "https://stanchev.bg/seo-uslugi/lokalno-seo",
+          "image": {
+            "@type": "ImageObject",
+            "url": "https://stanchev.bg/images/og/og.jpg"
+          },
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://stanchev.bg/seo-uslugi/lokalno-seo"
+          },
+          "author": {
+            "@type": "Person",
+            "name": "Станчев",
+            "url": "https://www.linkedin.com/in/stantcheff/",
+            "image": "https://stanchev.bg/assets/avatar.jpg"
+          },
+          "publisher": {
+            "@id": "https://stanchev.bg/#organization"
+          }
+        },
+        {
+          "@type": "Service",
+          "serviceType": "Локално SEO",
+          "name": "Локално SEO – Доминирай в търсенията около теб",
+          "description": "Оптимизация за местни търсения в Google, привличане на повече трафик от района ви.",
+          "url": "https://stanchev.bg/seo-uslugi/lokalno-seo",
+          "provider": {
+            "@id": "https://stanchev.bg/#organization"
+          },
+          "offers": [
+            {
+              "@type": "Offer",
+              "name": "Базов Локален SEO пакет",
+              "priceCurrency": "BGN",
+              "price": "300",
+              "unitText": "лв.",
+              "description": "Идеален за малки бизнеси – включва основна регистрация в Google Business и базов линк билдинг.",
+              "availability": "http://schema.org/InStock",
+              "url": "https://stanchev.bg/kontakti"
+            },
+            {
+              "@type": "Offer",
+              "name": "Премиум Локално SEO + Онлайн репутация",
+              "priceCurrency": "BGN",
+              "price": "750",
+              "unitText": "лв.",
+              "description": "Подходящ за бизнеси с конкуренция – включва разширен SEO анализ, стратегия, линк билдинг и управление на отзиви.",
+              "availability": "http://schema.org/InStock",
+              "url": "https://stanchev.bg/kontakti"
+            }
+          ]
+        },
+        {
+          "@type": ["Organization", "ProfessionalService"],
+          "@id": "https://stanchev.bg/#organization",
+          "name": "Станчев SEO",
+          "url": "https://stanchev.bg/",
+          "logo": "https://stanchev.bg/images/og/og.jpg",
+          "email": "seo@stanchev.bg",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Бул. Г.М. Димитров 26",
+            "addressLocality": "София",
+            "addressRegion": "София",
+            "postalCode": "1797",
+            "addressCountry": "BG"
+          },
+          "sameAs": [
+            "https://github.com/stantchev/",
+            "https://www.linkedin.com/in/stantcheff/",
+            "https://dev.to/stanchev"
+          ],
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "customer service",
+            "email": "seo@stanchev.bg",
+            "areaServed": "BG",
+            "availableLanguage": "bg"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            // Assuming LocalSEOFAQ component will render these, if not, hardcode them here.
+            // Including placeholder questions based on the page content to ensure the FAQPage is valid.
+            {
+              "@type": "Question",
+              "name": "Какво е локално SEO и за кого е подходящо?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Локалното SEO е оптимизация на уебсайт и Google профил за местни търсения. Подходящо е за физически обекти като магазини, ресторанти, салони или офиси, които разчитат на клиенти от конкретен град или район."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Какви са ключовите елементи на ефективната локална SEO стратегия?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Основните елементи включват регистрация и оптимизация в Google Business Profile, създаване на локализирано съдържание, оптимизация на Google Maps, изграждане на локални линкове (цитации) и управление на онлайн репутацията (отзиви)."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Колко време отнема да се видят резултати от локалното SEO?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Времето за резултати варира, но обикновено можете да очаквате видими подобрения в рамките на 3-6 месеца. Редовната работа и поддръжка са ключови за дългосрочен успех."
+              }
+            }
+          ]
+        }
+      ]
+    })
+  }}
+/>,
     <Column as="section" gap="xl" padding="xl" fillWidth>
       <Column gap="m" align="center" fillWidth>
         <Heading as="h1" variant="display-strong-l" align="center">
@@ -211,5 +338,6 @@ export default function LocalSEOPage() {
         </Flex>
       </Column>
     </Column>
+    </>
   );
 }
