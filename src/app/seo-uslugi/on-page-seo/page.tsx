@@ -167,7 +167,7 @@ export default function OnPageSeoPage() {
               </Text>
             </Column>
             <Column flex={4} align="end">
-              <Heading variant="display-strong-s">от 480&nbsp;лв.</Heading>
+              <Heading as="h4" variant="display-strong-s">от 480&nbsp;лв.</Heading>
             </Column>
           </Flex>
 
@@ -187,17 +187,17 @@ export default function OnPageSeoPage() {
               </Text>
             </Column>
             <Column flex={4} align="end">
-              <Heading variant="display-strong-s">от 950&nbsp;лв.</Heading>
+              <Heading as="h4" variant="display-strong-s">от 950&nbsp;лв.</Heading>
             </Column>
           </Flex>
         </Column>
       </Column>
 
-    <Heading as="h4" variant="display-default-s">Често Задавани Въпроси (ЧЗВ) за on-page SEO</Heading>
+    <Heading as="h3" variant="display-default-s">Често Задавани Въпроси (ЧЗВ) за on-page SEO</Heading>
     <OnPageFaq />
 
       <Column gap="m" align="center" paddingTop="xl">
-        <Heading variant="display-strong-m" align="center">
+        <Heading as="h4" variant="display-strong-m" align="center">
           Искате сайтът ви да се класира по-добре в Google?
         </Heading>
       <Flex horizontal="center">
