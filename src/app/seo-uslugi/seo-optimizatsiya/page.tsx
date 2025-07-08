@@ -10,6 +10,7 @@ import {
 } from '@once-ui-system/core';
 import SeoAuditFAQ from './faq';
 import { baseURL, seoServices } from '@/resources';
+import Script from 'next/script';
 
 const service = seoServices.services.find(s => s.slug === 'seo-optimizatsiya');
 
@@ -56,6 +57,105 @@ export async function generateMetadata() {
 
 export default function SeoAuditPage() {
   return (
+	<>
+      <Script
+        id="seo-service-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "http://schema.org",
+            "@type": "Service",
+            "name": "Професионална SEO Оптимизация",
+            "serviceType": "SEO Оптимизация",
+            "description": "Предлагам комплексни услуги по SEO оптимизация, за да подобря видимостта на вашия уебсайт в търсачките, да увелича трафика и да осигуря устойчив онлайн растеж за вашия бизнес. Включва технически анализ, оптимизация на съдържанието, линк билдинг стратегия и конкурентен анализ.",
+            "provider": {
+              "@type": "Organization",
+              "name": "Станчев SEO",
+              "url": "https://stanchev.bg/",
+              "logo": "https://stanchev.bg/images/og/og.jpg",
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "contactType": "customer service",
+                "email": "seo@stanchev.bg"
+              }
+            },
+            "url": "https://stanchev.bg/seo-uslugi/seo-optimizatsiya",
+            "areaServed": {
+              "@type": "Place",
+              "name": "България"
+            },
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "SEO Услуги и Пакети",
+              "itemListElement": [
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "SEO Одит и Анализ",
+                    "description": "Детайлен SEO анализ на сайта с цел откриване на слаби места и изграждане на дългосрочна стратегия."
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Техническа SEO Оптимизация",
+                    "description": "Мобилна съвместимост, Core Web Vitals, скорост и структура на сайта."
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Оптимизация на Съдържанието",
+                    "description": "SEO копирайтинг, проучване на ключови думи, структура на страниците."
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Линк Билдинг Стратегия",
+                    "description": "Изграждане на линкове от релевантни източници и директории."
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Конкурентен Анализ",
+                    "description": "Анализ на конкурентни SEO фирми и стратегии."
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "name": "Еднократна SEO Оптимизация",
+                  "description": "Подходящ за оптимизация на онлайн магазин или малки бизнес сайтове.",
+                  "priceSpecification": {
+                    "@type": "UnitPriceSpecification",
+                    "price": "750",
+                    "priceCurrency": "BGN",
+                    "unitText": "лв."
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "name": "Разширен SEO пакет + Link Building",
+                  "description": "Комбинирана услуга за цялостна оптимизация на сайтове и външна SEO подкрепа.",
+                  "priceSpecification": {
+                    "@type": "UnitPriceSpecification",
+                    "price": "550",
+                    "priceCurrency": "BGN",
+                    "unitText": "лв./мес",
+                    "valueAddedTaxIncluded": true
+                  }
+                }
+              ]
+            }
+          })
+        }}
+      />,
     <Column as="section" gap="xl" padding="xl" fillWidth>
       <Column gap="m" align="center" fillWidth>
         <Heading as="h1" variant="display-strong-l" align="center">
@@ -238,5 +338,6 @@ export default function SeoAuditPage() {
         </Flex>
       </Column>
     </Column>
+   </>
   );
 }
