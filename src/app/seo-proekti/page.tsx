@@ -125,7 +125,7 @@ export default function SeoProekti() {
             ]
           })
         }}
-      />,
+      />
     <Column maxWidth="m">
       <Schema
         as="webPage"
