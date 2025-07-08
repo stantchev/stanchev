@@ -173,7 +173,7 @@ export default function LocalSEOPage() {
       ]
     })
   }}
-/>,
+/>
     <Column as="section" gap="xl" padding="xl" fillWidth>
       <Column gap="m" align="center" fillWidth>
         <Heading as="h1" variant="display-strong-l" align="center">
