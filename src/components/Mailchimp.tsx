@@ -107,7 +107,7 @@ export const Mailchimp = ({ newsletter }: { newsletter: NewsletterProps }) => {
           color: mailchimp.effects.lines.color,
         }}
       />
-      <Heading style={{ position: "relative" }} marginBottom="s" variant="display-strong-xs">
+      <Heading as="h4" style={{ position: "relative" }} marginBottom="s" variant="display-strong-xs">
         {newsletter.title}
       </Heading>
       <Text
