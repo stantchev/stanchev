@@ -111,7 +111,7 @@ export default function SeoAuditPage() {
       </Column>
 
       <Column gap="l">
-        <Heading as="h2" variant="display-default-m">
+        <Heading as="h3" variant="display-default-m">
           Защо SEO Одитът е задължителен?
         </Heading>
 
@@ -128,7 +128,7 @@ export default function SeoAuditPage() {
       </Column>
 
       <Column gap="l">
-        <Heading as="h2" variant="display-default-m">
+        <Heading as="h3" variant="display-default-m">
           Процес в 4 стъпки
         </Heading>
 
@@ -155,7 +155,7 @@ export default function SeoAuditPage() {
 
       <Column gap="l">
         <Heading as="h2" variant="display-default-m">
-          Пакети и примерни цени
+          SEO Пакети и примерни цени
         </Heading>
 
         <Column gap="m">
@@ -175,7 +175,7 @@ export default function SeoAuditPage() {
               </Text>
             </Column>
             <Column flex={4} align="end">
-              <Heading variant="display-strong-s">от 650&nbsp;лв.</Heading>
+              <Heading as="h4" variant="display-strong-s">от 650&nbsp;лв.</Heading>
             </Column>
           </Flex>
 
@@ -195,15 +195,15 @@ export default function SeoAuditPage() {
               </Text>
             </Column>
             <Column flex={4} align="end">
-              <Heading variant="display-strong-s">от 1 750&nbsp;лв.</Heading>
+              <Heading as="h4" variant="display-strong-s">от 1 750&nbsp;лв.</Heading>
             </Column>
           </Flex>
         </Column>
       </Column>
-    <Heading as="h4" variant="display-default-s">Често Задавани Въпроси (ЧЗВ) за SEO Одита</Heading>
+    <Heading as="h3" variant="display-default-s">Често Задавани Въпроси (ЧЗВ) за SEO Одита</Heading>
     <SeoAuditFAQ />
       <Column gap="m" align="center" paddingTop="xl">
-        <Heading variant="display-strong-m" align="center">
+        <Heading as="h4" variant="display-strong-m" align="center">
           Готови ли сте за истински SEO резултати?
         </Heading>
       <Flex horizontal="center">
