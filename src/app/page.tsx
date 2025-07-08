@@ -73,7 +73,7 @@ export default function Nachalo() {
             ]
           })
         }}
-      />,
+      />
     <Column 
       maxWidth="m" 
       gap="xl" 
