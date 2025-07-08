@@ -171,7 +171,7 @@ export default function SeoAuditPage() {
               </Text>
             </Column>
             <Column flex={4} align="center">
-              <Heading variant="display-strong-s" className="price-heading">от 750&nbsp;лв.</Heading>
+              <Heading as="h4" variant="display-strong-s" className="price-heading">от 750&nbsp;лв.</Heading>
         <Button
 	  className="price-button"
           variant="secondary"
@@ -203,7 +203,7 @@ export default function SeoAuditPage() {
               </Text>
             </Column>
             <Column flex={4} align="end">
-              <Heading variant="display-strong-s" className="price-heading">от 550&nbsp;лв./мес</Heading>
+              <Heading as="h4" variant="display-strong-s" className="price-heading">от 550&nbsp;лв./мес</Heading>
 		<Button
           	variant="secondary"
           	size="s"
@@ -219,11 +219,11 @@ export default function SeoAuditPage() {
         </Column>
       </Column>
 
-      <Heading as="h4" variant="display-default-s">Често задавани въпроси за SEO оптимизация</Heading>
+      <Heading as="h3" variant="display-default-s">Често задавани въпроси за SEO оптимизация</Heading>
       <SeoAuditFAQ />
 
       <Column gap="m" align="center" paddingTop="xl">
-        <Heading variant="display-strong-m" align="center">
+        <Heading as="h4" variant="display-strong-m" align="center">
           Искате ли повече органичен трафик и по-добро класиране?
         </Heading>
         <Flex horizontal="center">
