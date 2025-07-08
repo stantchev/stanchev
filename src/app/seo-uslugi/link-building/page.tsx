@@ -10,6 +10,7 @@ import {
 } from '@once-ui-system/core';
 import SeoAuditFAQ from './faq';
 import { baseURL, seoServices } from '@/resources';
+import Script from 'next/script';
 
 const service = seoServices.services.find(s => s.slug === 'link-building');
 
@@ -56,6 +57,132 @@ export async function generateMetadata() {
 
 export default function LinkBuildingPage() {
   return (
+	  <>
+<Script
+  id="link-building-schema"
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      "@context": "http://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "name": "Link Building – изградете авторитет и класиране с качествени връзки",
+          "description": "Добре планираната линк билдинг стратегия е основа за всяка успешна SEO оптимизация. Чрез изграждане на качествени външни връзки подобряваме вашия SEO рейтинг и видимост в Google.",
+          "url": "https://stanchev.bg/seo-uslugi/link-building",
+          "image": {
+            "@type": "ImageObject",
+            "url": "https://stanchev.bg/images/og/og.jpg"
+          },
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://stanchev.bg/seo-uslugi/link-building"
+          },
+          "author": {
+            "@type": "Person",
+            "name": "Станчев",
+            "url": "https://www.linkedin.com/in/stantcheff/",
+            "image": "https://stanchev.bg/assets/avatar.jpg"
+          },
+          "publisher": {
+            "@id": "https://stanchev.bg/#organization"
+          }
+        },
+        {
+          "@type": "Service",
+          "serviceType": "Link Building",
+          "name": "Link Building стратегии за силно SEO",
+          "description": "Изграждане на силен линк профил с ефективна Link Building стратегия за повишаване на авторитета и класирането в Google.",
+          "url": "https://stanchev.bg/seo-uslugi/link-building",
+          "provider": {
+            "@id": "https://stanchev.bg/#organization"
+          },
+          "offers": [
+            {
+              "@type": "Offer",
+              "name": "Стартов Link Building пакет",
+              "priceCurrency": "BGN",
+              "price": "790",
+              "unitText": "лв.",
+              "description": "Подходящ за оптимизация на нови сайтове или онлайн магазини без история.",
+              "availability": "http://schema.org/InStock",
+              "url": "https://stanchev.bg/kontakti"
+            },
+            {
+              "@type": "Offer",
+              "name": "Premium Link Building + SEO поддръжка",
+              "priceCurrency": "BGN",
+              "price": "550", // Note: This is per month, Schema.org "price" doesn't have a direct "per month" qualifier, but can be specified in description.
+              "unitText": "лв./мес.",
+              "description": "Подходящ за мащабни сайтове и постоянна работа с SEO оптимизатор.",
+              "availability": "http://schema.org/InStock",
+              "url": "https://stanchev.bg/kontakti"
+            }
+          ]
+        },
+        {
+          "@type": ["Organization", "ProfessionalService"],
+          "@id": "https://stanchev.bg/#organization",
+          "name": "Станчев SEO",
+          "url": "https://stanchev.bg/",
+          "logo": "https://stanchev.bg/images/og/og.jpg",
+          "email": "seo@stanchev.bg",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Бул. Г.М. Димитров 26",
+            "addressLocality": "София",
+            "addressRegion": "София",
+            "postalCode": "1797",
+            "addressCountry": "BG"
+          },
+          "sameAs": [
+            "https://github.com/stantchev/",
+            "https://www.linkedin.com/in/stantcheff/",
+            "https://dev.to/stanchev"
+          ],
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "customer service",
+            "email": "seo@stanchev.bg",
+            "areaServed": "BG",
+            "availableLanguage": "bg"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            // Assuming SeoAuditFAQ component will render these, if not, hardcode them here.
+            // Including placeholder questions based on the page content to ensure the FAQPage is valid.
+            {
+              "@type": "Question",
+              "name": "Какво е Link Building и защо е важен?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Link Building е процесът на изграждане на качествени външни връзки (backlinks) към вашия уебсайт. Той е ключов за SEO, защото Google разглежда тези връзки като сигнал за авторитет и доверие, което пряко влияе върху класирането ви в търсачките."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Какви методи за Link Building използвате?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Ние се фокусираме върху естествени и устойчиви методи, включително регистрация в релевантни директории, партньорства с блогове, гост публикации, създаване на висококачествено съдържание, което привлича естествени връзки, и анализ на конкуренцията за откриване на нови възможности."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Колко време отнема да се видят резултати от Link Building?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Link Building е дългосрочна стратегия. Първите резултати могат да се забележат след 3-6 месеца, но пълният потенциал и трайното подобрение на авторитета се развиват постепенно с течение на времето. Важно е постоянството и качеството на връзките."
+              }
+            }
+          ]
+        }
+      ]
+    })
+  }}
+/>,
     <Column as="section" gap="xl" padding="xl" fillWidth>
       <Column gap="m" align="center" fillWidth>
         <Heading as="h1" variant="display-strong-l" align="center">
@@ -215,5 +342,6 @@ export default function LinkBuildingPage() {
         </Flex>
       </Column>
     </Column>
+	  </>
   );
 }
