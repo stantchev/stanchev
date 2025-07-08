@@ -22,6 +22,39 @@ export const metadata: Metadata = {
 
 export default function Nachalo() {
   return (
+     <>
+      <Script
+        id="organization-homepage-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "http://schema.org",
+            "@type": "Organization",
+            "name": "Станчев SEO",
+            "url": "https://stanchev.bg/",
+            "logo": "https://stanchev.bg/images/og/og.jpg",
+            "description": "Аз съм Станчев – SEO оптимизатор, който превръща хаоса в структура, съдържанието в резултати и кофеина в работещи решения. Помагам на бизнеси да увеличат видимостта си онлайн и да постигнат устойчив растеж.",
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "contactType": "customer service",
+              "email": "seo@stanchev.bg"
+            },
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Бул. Г.М. Димитров 26",
+              "addressLocality": "София",
+              "addressRegion": "София",
+              "postalCode": "1797",
+              "addressCountry": "BG"
+            },
+            "sameAs": [
+              "https://github.com/stantchev/",
+              "https://www.linkedin.com/in/stantcheff/",
+              "https://dev.to/stanchev"
+            ]
+          })
+        }}
+      />,
     <Column 
       maxWidth="m" 
       gap="xl" 
@@ -117,5 +150,6 @@ export default function Nachalo() {
         <Mailchimp newsletter={newsletter} />
       )}
     </Column>
+    </>
   );
 }
