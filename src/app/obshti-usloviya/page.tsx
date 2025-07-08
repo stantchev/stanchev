@@ -53,7 +53,7 @@ export default function TermsPage() {
             }
           })
         }}
-      />,
+      />
     <Column as="section" padding="xl" gap="xl" fillWidth>
       <Flex as="h1" textVariant="display-strong-m" horizontal="center">
         Общи условия за ползване на услугите на Stanchev.bg
