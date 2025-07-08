@@ -2,6 +2,7 @@ import { Column, Meta, Schema, Heading, Text, Button } from "@once-ui-system/cor
 import { AccordionGroup } from "@once-ui-system/core";
 import { baseURL, about, person, work } from "@/resources";
 import { Projects } from "@/components/work/Projects";
+import Script from 'next/script';
 
 export async function generateMetadata() {
   return {
@@ -37,6 +38,94 @@ export async function generateMetadata() {
 
 export default function SeoProekti() {
   return (
+	   <>
+      <Script
+        id="seo-projects-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "http://schema.org",
+            "@graph": [
+              {
+                "@type": "CollectionPage",
+                "name": "Успешни SEO проекти – виж как помагам на сайтове да растат в Google",
+                "description": "Реални SEO проекти с видими резултати. Виж как повишихме трафика, позициите и продажбите на сайтове в различни ниши.",
+                "url": "https://stanchev.bg/seo-proekti",
+                "image": {
+                  "@type": "ImageObject",
+                  "url": "https://stanchev.bg/images/og/og.jpg"
+                },
+                "author": {
+                  "@type": "Person",
+                  "name": "Станислав Станчев",
+                  "url": "https://www.linkedin.com/in/stantcheff/",
+                  "image": "https://stanchev.bg/assets/avatar.jpg"
+                },
+                "publisher": {
+                  "@id": "https://stanchev.bg/#organization"
+                }
+              },
+              {
+                "@type": ["Organization", "ProfessionalService"],
+                "@id": "https://stanchev.bg/#organization",
+                "name": "Станчев SEO",
+                "url": "https://stanchev.bg/",
+                "logo": "https://stanchev.bg/images/og/og.jpg",
+                "email": "seo@stanchev.bg",
+                "address": {
+                  "@type": "PostalAddress",
+                  "streetAddress": "Бул. Г.М. Димитров 26",
+                  "addressLocality": "София",
+                  "addressRegion": "София",
+                  "postalCode": "1797",
+                  "addressCountry": "BG"
+                },
+                "sameAs": [
+                  "https://github.com/stantchev/",
+                  "https://www.linkedin.com/in/stantcheff/",
+                  "https://dev.to/stanchev"
+                ],
+                "contactPoint": {
+                  "@type": "ContactPoint",
+                  "contactType": "customer service",
+                  "email": "seo@stanchev.bg",
+                  "areaServed": "BG",
+                  "availableLanguage": "bg"
+                }
+              },
+              {
+                "@type": "FAQPage",
+                "mainEntity": [
+                  {
+                    "@type": "Question",
+                    "name": "Как проследявате напредъка и успеха на SEO проектите?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "Проследяваме напредъка чрез редовен мониторинг на класиранията по ключови думи, органичния трафик, поведението на потребителите на сайта и конверсиите. Използваме комбинация от Google Analytics, Google Search Console и специализирани SEO инструменти."
+                    }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "Какви метрики и инструменти използвате за измерване на успеха на проектите?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "Измерваме успеха чрез метрики като органични сесии, класирания по думи, процент на отпадане, време на сайта и конкретни конверсии. Основните ни инструменти включват Google Analytics, Google Search Console, Ahrefs, SEMrush и други специализирани платформи."
+                    }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "Как отчитате постигнатите резултати и колко често?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "Предоставяме подробни месечни доклади, които включват анализ на постигнатите резултати, прогрес по целите и предложени следващи стъпки. Докладите са лесни за разбиране и могат да бъдат представени и обсъдени и чрез видео разговор."
+                    }
+                  }
+                ]
+              }
+            ]
+          })
+        }}
+      />,
     <Column maxWidth="m">
       <Schema
         as="webPage"
@@ -113,5 +202,6 @@ export default function SeoProekti() {
         </Button>
       </Column>
     </Column>
+</>
   );
 }
