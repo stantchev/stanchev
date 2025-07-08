@@ -51,7 +51,7 @@ export default function SeoProekti() {
           image: `${baseURL}${person.avatar}`,
         }}
       />
-      <Heading variant="display-strong-l" marginBottom="m">
+      <Heading as="h1" variant="display-strong-l" marginBottom="m">
         Примери за успешни SEO проекти
       </Heading>
       <Text
@@ -64,6 +64,9 @@ export default function SeoProekti() {
       </Text>
       <Projects />
       {/* FAQ AccordionGroup */}
+	    <Heading as="h4" variant="display-strong-s" align="center">
+          Често задавани въпроси за нашите SEO проекти
+        </Heading>
       <AccordionGroup
         items={[
           {
@@ -94,7 +97,7 @@ export default function SeoProekti() {
       />
       {/* CTA Section */}
       <Column gap="m" paddingX="l" horizontal="center" marginTop="xl">
-        <Heading variant="display-strong-s" align="center">
+        <Heading as="h4" variant="display-strong-s" align="center">
           Готови за по-добри резултати?
         </Heading>
         <Text variant="body-default-l" onBackground="neutral-weak" align="center" wrap="balance">
