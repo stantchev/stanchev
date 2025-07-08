@@ -85,9 +85,9 @@ export default function Blog() {
 
       {newsletter.display && (
         <>
-          <Heading as="h4" variant="heading-strong-xs" align="center" marginTop="xl">
-            Абонирайте се за нови SEO съвети и ресурси
-          </Heading>
+         <Heading asChild variant="heading-strong-xs" align="center" marginTop="xl">
+            <h4>Абонирайте се за нови SEO съвети и ресурси</h4>
+         </Heading>
           <Mailchimp newsletter={newsletter} />
         </>
       )}
