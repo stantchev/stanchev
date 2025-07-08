@@ -182,7 +182,7 @@ export default function LocalSEOPage() {
               </Text>
             </Column>
             <Column flex={4} align="end">
-              <Heading variant="display-strong-s">от 750&nbsp;лв.</Heading>
+              <Heading as="h4" variant="display-strong-s">от 750&nbsp;лв.</Heading>
             </Column>
           </Flex>
         </Column>
@@ -196,7 +196,7 @@ export default function LocalSEOPage() {
       </Heading>
 
       <Column gap="m" align="center" paddingTop="xl">
-        <Heading variant="display-strong-m" align="center">
+        <Heading as="h4" variant="display-strong-m" align="center">
           Повече локален трафик, който реално се конвертира
         </Heading>
         <Flex horizontal="center">
