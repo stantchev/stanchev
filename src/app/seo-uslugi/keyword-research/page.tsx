@@ -12,6 +12,7 @@ import {
 } from '@once-ui-system/core';
 import KeywordResearchFAQ from './faq';
 import { baseURL, seoServices } from '@/resources';
+import Script from 'next/script';
 
 const service = seoServices.services.find(s => s.slug === 'keyword-research');
 
@@ -59,6 +60,130 @@ export async function generateMetadata() {
 
 export default function KeywordResearchPage() {
   return (
+	  <>
+<Script
+  id="keyword-research-schema"
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      "@context": "http://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "name": "Keyword Research – основата на всяка успешна SEO стратегия",
+          "description": "Открийте печеливши ключови думи за бизнеса си с професионален keyword research и задълбочен анализ на конкуренцията и обема на търсене.",
+          "url": "https://stanchev.bg/seo-uslugi/keyword-research",
+          "image": {
+            "@type": "ImageObject",
+            "url": "https://stanchev.bg/images/og/og.jpg"
+          },
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://stanchev.bg/seo-uslugi/keyword-research"
+          },
+          "author": {
+            "@type": "Person",
+            "name": "Станчев",
+            "url": "https://www.linkedin.com/in/stantcheff/",
+            "image": "https://stanchev.bg/assets/avatar.jpg"
+          },
+          "publisher": {
+            "@id": "https://stanchev.bg/#organization"
+          }
+        },
+        {
+          "@type": "Service",
+          "serviceType": "Keyword Research",
+          "name": "Keyword Research – основата на успешната SEO стратегия",
+          "description": "Откриваме най-ценните ключови думи за вашия бизнес с професионален keyword research и анализ.",
+          "url": "https://stanchev.bg/seo-uslugi/keyword-research",
+          "provider": {
+            "@id": "https://stanchev.bg/#organization"
+          },
+          "offers": [
+            {
+              "@type": "Offer",
+              "name": "Базов Keyword Research",
+              "priceCurrency": "BGN",
+              "price": "320",
+              "unitText": "лв.",
+              "description": "Подходящ за оптимизация на сайт с ограничен обхват – малък бизнес или локален сайт.",
+              "availability": "http://schema.org/InStock",
+              "url": "https://stanchev.bg/kontakti"
+            },
+            {
+              "@type": "Offer",
+              "name": "Премиум Keyword Strategy + Конкурентен анализ",
+              "priceCurrency": "BGN",
+              "price": "850",
+              "unitText": "лв.",
+              "description": "Перфектен за онлайн магазини, които се стремят към дългосрочна SEO оптимизация в Google.",
+              "availability": "http://schema.org/InStock",
+              "url": "https://stanchev.bg/kontakti"
+            }
+          ]
+        },
+        {
+          "@type": ["Organization", "ProfessionalService"],
+          "@id": "https://stanchev.bg/#organization",
+          "name": "Станчев SEO",
+          "url": "https://stanchev.bg/",
+          "logo": "https://stanchev.bg/images/og/og.jpg",
+          "email": "seo@stanchev.bg",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Бул. Г.М. Димитров 26",
+            "addressLocality": "София",
+            "addressRegion": "София",
+            "postalCode": "1797",
+            "addressCountry": "BG"
+          },
+          "sameAs": [
+            "https://github.com/stantchev/",
+            "https://www.linkedin.com/in/stantcheff/",
+            "https://dev.to/stanchev"
+          ],
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "customer service",
+            "email": "seo@stanchev.bg",
+            "areaServed": "BG",
+            "availableLanguage": "bg"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Какво е Keyword Research и защо е толкова важен?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Keyword Research е процесът на откриване на думи и фрази, които потребителите търсят в Google. Той е важен, защото осигурява основата за ефективна SEO стратегия, като насочва оптимизацията към реалните търсения и нужди на аудиторията."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Какви инструменти използвате за Keyword Research?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Използваме професионални SEO инструменти като Google Keyword Planner, SEMrush, Ahrefs и други, за да идентифицираме най-ценните ключови думи, анализираме обема на търсене, конкуренцията и намерението зад всяка дума."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Какво включва един Keyword Research пакет?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Един Keyword Research пакет включва задълбочено проучване на ключови думи, анализ на конкуренцията, групиране на ключови думи по теми и категории, и препоръки за тяхното внедряване в съдържанието и структурата на сайта за максимален SEO ефект."
+              }
+            }
+          ]
+        }
+      ]
+    })
+  }}
+/>
     <Column as="section" gap="xl" padding="xl" fillWidth>
       <Column gap="m" align="center" fillWidth>
         <Heading as="h1" variant="display-strong-l" align="center">
@@ -222,5 +347,6 @@ export default function KeywordResearchPage() {
         </Flex>
       </Column>
     </Column>
+	  </>
   );
 }
