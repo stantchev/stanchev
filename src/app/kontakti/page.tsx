@@ -54,7 +54,6 @@ export default function Kontakti() {
   }
 
   return (
-    <>
       <Script
         id="organization-schema"
         type="application/ld+json"
@@ -85,7 +84,7 @@ export default function Kontakti() {
             ]
           })
         }}
-      />
+      />,
     <Column maxWidth="m" gap="xl" paddingX="l">
       <Column gap="l">
         <Heading as="h1" variant="display-strong-l" marginBottom="m">
