@@ -107,7 +107,7 @@ export default function SeoConsultationPage() {
       </Column>
 
       <Column gap="l">
-        <Heading as="h2" variant="display-default-m">
+        <Heading as="h3" variant="display-default-m">
           Кога е правилният момент за SEO консултация?
         </Heading>
 
@@ -122,7 +122,7 @@ export default function SeoConsultationPage() {
       </Column>
 
       <Column gap="l">
-        <Heading as="h2" variant="display-default-m">
+        <Heading as="h3" variant="display-default-m">
           Как протича самата консултация?
         </Heading>
 
@@ -130,7 +130,7 @@ export default function SeoConsultationPage() {
           <Flex key={i} gap="8" vertical="start">
             <Icon name="checkCircle" onBackground="brand-strong" />
             <Column gap="2">
-              <Heading as="h3" variant="heading-strong-l">
+              <Heading as="h4" variant="heading-strong-l">
                 {step}
               </Heading>
               <Text variant="body-default-m">
@@ -149,7 +149,7 @@ export default function SeoConsultationPage() {
       </Column>
 
       <Column gap="l">
-        <Heading as="h2" variant="display-default-m">
+        <Heading as="h3" variant="display-default-m">
           Цена за SEO консултация
         </Heading>
 
@@ -170,20 +170,20 @@ export default function SeoConsultationPage() {
               </Text>
             </Column>
             <Column flex={4} align="end">
-              <Heading variant="display-strong-s">от 0&nbsp;лв.</Heading>
+              <Heading as="h4" variant="display-strong-s">от 0&nbsp;лв.</Heading>
             </Column>
           </Flex>
         </Column>
       </Column>
 
-      <Heading as="h4" variant="display-default-s">
+      <Heading as="h3" variant="display-default-s">
         Често задавани въпроси (ЧЗВ) за SEO консултацията
       </Heading>
 
       <SeoConsultationFAQ />
 
       <Column gap="m" align="center" paddingTop="xl">
-        <Heading variant="display-strong-m" align="center">
+        <Heading as="h4" variant="display-strong-m" align="center">
           Искате ли експертно мнение за SEO състоянието на сайта ви?
         </Heading>
         <Flex horizontal="center">
