@@ -10,6 +10,7 @@ import {
 } from '@once-ui-system/core';
 import OnPageFaq from './faq';
 import { baseURL, seoServices } from '@/resources';
+import Script from 'next/script';
 
 const service = seoServices.services.find(s => s.slug === 'on-page-seo');
 
@@ -56,6 +57,130 @@ export async function generateMetadata() {
 
 export default function OnPageSeoPage() {
   return (
+	  <>
+	  <Script
+  id="on-page-seo-schema"
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      "@context": "http://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "name": "On-Page SEO – оптимизация на структура и съдържание",
+          "description": "Подобрете класирането си с on-page SEO: оптимизация на структура, мета данни и съдържание.",
+          "url": "https://stanchev.bg/seo-uslugi/on-page-seo",
+          "image": {
+            "@type": "ImageObject",
+            "url": "https://stanchev.bg/images/og/og.jpg"
+          },
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://stanchev.bg/seo-uslugi/on-page-seo"
+          },
+          "author": {
+            "@type": "Person",
+            "name": "Станчев",
+            "url": "https://www.linkedin.com/in/stantcheff/",
+            "image": "https://stanchev.bg/assets/avatar.jpg"
+          },
+          "publisher": {
+            "@id": "https://stanchev.bg/#organization"
+          }
+        },
+        {
+          "@type": "Service",
+          "serviceType": "On-Page SEO",
+          "name": "On-Page SEO – Оптимизация на структура и съдържание",
+          "description": "Оптимизация на структурата, мета данни и съдържание.",
+          "url": "https://stanchev.bg/seo-uslugi/on-page-seo",
+          "provider": {
+            "@id": "https://stanchev.bg/#organization"
+          },
+          "offers": [
+            {
+              "@type": "Offer",
+              "name": "Базов пакет On-Page SEO",
+              "priceCurrency": "BGN",
+              "price": "480",
+              "unitText": "лв.",
+              "description": "Подходящ за оптимизация на сайт с ограничен бюджет.",
+              "availability": "http://schema.org/InStock",
+              "url": "https://stanchev.bg/kontakti"
+            },
+            {
+              "@type": "Offer",
+              "name": "Разширен пакет On-Page SEO",
+              "priceCurrency": "BGN",
+              "price": "950",
+              "unitText": "лв.",
+              "description": "Включва анализи и персонален SEO експерт за поддръжка.",
+              "availability": "http://schema.org/InStock",
+              "url": "https://stanchev.bg/kontakti"
+            }
+          ]
+        },
+        {
+          "@type": ["Organization", "ProfessionalService"],
+          "@id": "https://stanchev.bg/#organization",
+          "name": "Станчев SEO",
+          "url": "https://stanchev.bg/",
+          "logo": "https://stanchev.bg/images/og/og.jpg",
+          "email": "seo@stanchev.bg",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Бул. Г.М. Димитров 26",
+            "addressLocality": "София",
+            "addressRegion": "София",
+            "postalCode": "1797",
+            "addressCountry": "BG"
+          },
+          "sameAs": [
+            "https://github.com/stantchev/",
+            "https://www.linkedin.com/in/stantcheff/",
+            "https://dev.to/stanchev"
+          ],
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "customer service",
+            "email": "seo@stanchev.bg",
+            "areaServed": "BG",
+            "availableLanguage": "bg"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Какво представлява On-Page SEO оптимизацията?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "On-page SEO включва оптимизация на елементи директно на вашата уеб страница, като съдържание, мета тагове, URL структури, изображения и потребителско изживяване, за да подобри видимостта в търсачките."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Защо On-Page SEO е важно за моя сайт?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "On-page SEO е от съществено значение, защото помага на търсачките да разберат темата и релевантността на вашето съдържание. Добрата on-page оптимизация подобрява потребителското изживяване, увеличава органичния трафик и подпомага по-високо класиране."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Какви са основните стъпки при On-Page оптимизация?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Основните стъпки включват анализ на текущото състояние, планиране на стратегия, оптимизация на заглавия, мета описания, съдържание, изображения, вътрешно линкване и подобряване на скоростта на зареждане и мобилната съвместимост. "
+              }
+            }
+          ]
+        }
+      ]
+    })
+  }}
+/>,
     <Column as="section" gap="xl" padding="xl" fillWidth>
       <Column gap="m" align="center" fillWidth>
         <Heading as="h1" variant="display-strong-l" align="center">
@@ -212,5 +337,6 @@ export default function OnPageSeoPage() {
       </Flex>
       </Column>
     </Column>
+	  </>
   );
 }
