@@ -97,7 +97,7 @@ export default function Blog() {
         В нашия блог ще намерите полезни статии за seo оптимизация google, seo новини, класиране на сайт и seo анализатор. Разгледайте различни теми и съвети за подобряване на вашето онлайн присъствие или научете повече за нашите <a href="/seo-uslugi">SEO услуги</a>.
       </Text>
 
-      <Heading as="h3" variant="heading-strong-s" marginBottom="m">
+      <Heading as="h3" variant="heading-strong-m" marginBottom="m">
         Последни статии и SEO новини
       </Heading>
 
