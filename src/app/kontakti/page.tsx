@@ -54,6 +54,38 @@ export default function Kontakti() {
   }
 
   return (
+    <>
+      <Script
+        id="organization-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "http://schema.org",
+            "@type": "Organization",
+            "name": "Станчев SEO",
+            "url": "https://stanchev.bg/",
+            "logo": "https://stanchev.bg/images/og/og.jpg",
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "contactType": "customer service",
+              "email": "seo@stanchev.bg"
+            },
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Бул. Г.М. Димитров 26",
+              "addressLocality": "София",
+              "addressRegion": "София",
+              "postalCode": "1797",
+              "addressCountry": "BG"
+            },
+            "sameAs": [
+              "https://github.com/stantchev/",
+              "https://www.linkedin.com/in/stantcheff/",
+              "https://dev.to/stanchev"
+            ]
+          })
+        }}
+      />
     <Column maxWidth="m" gap="xl" paddingX="l">
       <Column gap="l">
         <Heading as="h1" variant="display-strong-l" marginBottom="m">
