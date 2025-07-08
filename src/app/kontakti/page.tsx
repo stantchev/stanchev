@@ -4,6 +4,7 @@ import { baseURL, person, contact } from "@/resources";
 import { MdOutlineMail, MdOutlineAccessTime } from "react-icons/md";
 import { FaGlobe } from "react-icons/fa";
 import { sendEmail } from "@/lib/sendEmail";
+import Script from 'next/script';
 
 export const dynamic = "force-dynamic";
 
