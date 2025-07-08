@@ -64,7 +64,7 @@ export default function SeoProekti() {
       </Text>
       <Projects />
       {/* FAQ AccordionGroup */}
-	    <Heading as="h4" variant="display-strong-s" align="center">
+	    <Heading as="h3" variant="display-strong-s" align="center">
           Често задавани въпроси за нашите SEO проекти
         </Heading>
       <AccordionGroup
