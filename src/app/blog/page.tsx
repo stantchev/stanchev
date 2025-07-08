@@ -61,7 +61,7 @@ export default function Blog() {
       </Heading>
 
       <Heading as="h2" variant="heading-strong-m" marginBottom="s">
-        Стратегии и съвети за по-добро класиране
+        Стратегии и SEO съвети за по-добро класиране в Google
       </Heading>
 
       <Text
@@ -74,7 +74,7 @@ export default function Blog() {
       </Text>
 
       <Heading as="h3" variant="heading-strong-s" marginBottom="m">
-        Последни статии
+        Последни статии и SEO новини
       </Heading>
 
       <Column fillWidth flex={1}>
@@ -85,9 +85,9 @@ export default function Blog() {
 
       {newsletter.display && (
         <>
-         <Heading asChild variant="heading-strong-xs" align="center" marginTop="xl">
-            <h4>Абонирайте се за нови SEO съвети и ресурси</h4>
-         </Heading>
+          <Heading as="h4" variant="heading-strong-xs" align="center" paddingTop="xl">
+        Абонирайте се за нови SEO съвети и ресурси
+          </Heading>
           <Mailchimp newsletter={newsletter} />
         </>
       )}
