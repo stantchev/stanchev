@@ -216,7 +216,7 @@ export default function ContentSEOPage() {
         </Column>
 
         {/* Чеклист */}
-        <Column gap="l" style={{ background: "var(--once-bg-subtle, #f7f7fa)", borderRadius: 12, padding: 24 }}>
+        <Column gap="l">
           <Heading as="h2">Чеклист за Content SEO</Heading>
           <Text>Преди да публикувате съдържание, проверете дали сте:</Text>
           <Column as="ul">
