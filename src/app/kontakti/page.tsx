@@ -26,7 +26,7 @@ export async function generateMetadata() {
       siteName: "Контакти | Станчев SEO",
       images: [
         {
-          url: `https://stanchev.vercel.app/images/og/og.jpg`,
+          url: `https://stanchev.bg/images/og/og.jpg`,
           width: 1200,
           height: 630,
         },
@@ -39,7 +39,7 @@ export async function generateMetadata() {
       title: "Контакти | Станчев SEO",
       description:
         "Свържете се с мен за безплатна SEO консултация или запитване относно оптимизация на сайт.",
-      images: [`https://stanchev.vercel.app/images/og/og.jpg`],
+      images: [`https://stanchev.bg/images/og/og.jpg`],
     },
   };
 }
