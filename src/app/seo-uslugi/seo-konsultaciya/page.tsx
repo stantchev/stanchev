@@ -40,7 +40,7 @@ export async function generateMetadata() {
       siteName: seoServices.title,
       images: [
         {
-          url: `https://stanchev.vercel.app/images/og/og.jpg`,
+          url: `https://stanchev.bg/images/og/og.jpg`,
           width: 1200,
           height: 630,
         },
@@ -52,7 +52,7 @@ export async function generateMetadata() {
       card: 'summary_large_image',
       title: 'SEO Консултация – експертна помощ за вашия сайт',
       description: 'Безплатна персонализирана SEO консултация и стратегия за по-добро класиране и повече трафик.',
-      images: [`https://stanchev.vercel.app/images/og/og.jpg`],
+      images: [`https://stanchev.bg/images/og/og.jpg`],
     },
   };
 }
