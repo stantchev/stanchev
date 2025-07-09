@@ -22,7 +22,7 @@ export async function generateMetadata() {
       siteName: "Станчев SEO",
       images: [
         {
-          url: `https://stanchev.vercel.app/images/og/og.jpg`,
+          url: `https://stanchev.bg/images/og/og.jpg`,
           width: 1200,
           height: 630,
         },
@@ -35,7 +35,7 @@ export async function generateMetadata() {
       title: "SEO Блог – съвети, стратегии и новини за по-добро класиране в Google",
       description:
         "Следи нашия SEO блог за практически съвети, актуални стратегии, уроци и новини от света на оптимизацията.",
-      images: [`https://stanchev.vercel.app/images/og/og.jpg`],
+      images: [`https://stanchev.bg/images/og/og.jpg`],
     },
   };
 }
