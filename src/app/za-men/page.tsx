@@ -40,7 +40,7 @@ export async function generateMetadata() {
       siteName: 'За мен | Станчев SEO',
       images: [
         {
-          url: `https://stanchev.vercel.app/images/og/og.jpg`,
+          url: `https://stanchev.bg/images/og/og.jpg`,
           width: 1200,
           height: 630,
         },
@@ -52,7 +52,7 @@ export async function generateMetadata() {
       card: 'summary_large_image',
       title: 'За мен | Станчев SEO',
       description: 'Кой стои зад проекта? Разгледай как започнах с SEO, какво ме движи и защо работя със страст по всеки сайт. Без клишета – само истина.',
-      images: [`https://stanchev.vercel.app/images/og/og.jpg`],
+      images: [`https://stanchev.bg/images/og/og.jpg`],
     },
   };
 }
