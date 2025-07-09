@@ -19,6 +19,10 @@ const routes = {
   "/seo-uslugi/link-building": true,
   "/seo-uslugi/lokalno-seo": true,
   "/seo-uslugi/content-seo": true,
+  "/seo-uslugi/ecommerce-seo": true,
+  "/seo-uslugi/wordpress-seo": true,
+  "/seo-uslugi/opencart-seo": true,
+  "/seo-uslugi/magento-seo": true,
 };
 
 const display = {
