@@ -125,7 +125,7 @@ export default async function Blog({
   position="sticky"
   top="64"
   fitHeight
-  style={{ lineHeight: '1.5em' }}
+  className="custom-heading-nav"
 />
     </Column>
     </Row>
