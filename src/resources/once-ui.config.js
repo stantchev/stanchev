@@ -18,6 +18,7 @@ const routes = {
   "/seo-uslugi/seo-optimizatsiya": true,
   "/seo-uslugi/link-building": true,
   "/seo-uslugi/lokalno-seo": true,
+  "/seo-uslugi/content-seo": true,
 };
 
 const display = {
