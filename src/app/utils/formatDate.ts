@@ -6,31 +6,37 @@ export function formatDate(date: string, includeRelative = false) {
   }
 
   const targetDate = new Date(date);
+
+  if (isNaN(targetDate.getTime())) {
+    console.error(`Invalid date string provided to formatDate: ${date}`);
+    return date;
+  }
+
   const yearsAgo = currentDate.getFullYear() - targetDate.getFullYear();
   const monthsAgo = currentDate.getMonth() - targetDate.getMonth();
   const daysAgo = currentDate.getDate() - targetDate.getDate();
 
-  let formattedDate = "";
+  let formattedRelativeDate = "";
 
   if (yearsAgo > 0) {
-    formattedDate = `${yearsAgo}y ago`;
+    formattedRelativeDate = `Преди ${yearsAgo}г.`;
   } else if (monthsAgo > 0) {
-    formattedDate = `${monthsAgo}mo ago`;
+    formattedRelativeDate = `Преди ${monthsAgo}м.`;
   } else if (daysAgo > 0) {
-    formattedDate = `${daysAgo}d ago`;
+    formattedRelativeDate = `Преди ${daysAgo}д.`;
   } else {
-    formattedDate = "Today";
+    formattedRelativeDate = "Днес";
   }
 
-  const fullDate = targetDate.toLocaleString("en-us", {
+  const fullDate = targetDate.toLocaleString("bg-BG", {
+    year: "numeric",
     month: "long",
     day: "numeric",
-    year: "numeric",
   });
 
   if (!includeRelative) {
     return fullDate;
   }
 
-  return `${fullDate} (${formattedDate})`;
+  return `${fullDate} (${formattedRelativeDate})`;
 }
