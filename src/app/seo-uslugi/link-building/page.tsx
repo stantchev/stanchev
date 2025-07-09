@@ -38,7 +38,7 @@ export async function generateMetadata() {
       siteName: seoServices.title,
       images: [
         {
-          url: `https://stanchev.vercel.app/images/og/og.jpg`,
+          url: `https://stanchev.bg/images/og/og.jpg`,
           width: 1200,
           height: 630,
         },
@@ -50,7 +50,7 @@ export async function generateMetadata() {
       card: 'summary_large_image',
       title: 'Link Building стратегии за силно SEO – изгради авторитет и класиране в Google',
       description: 'Изгради силен линк профил с ефективна Link Building стратегия. Повиши авторитета на сайта си и се класирай по-високо в Google.',
-      images: [`https://stanchev.vercel.app/images/og/og.jpg`],
+      images: [`https://stanchev.bg/images/og/og.jpg`],
     },
   };
 }
