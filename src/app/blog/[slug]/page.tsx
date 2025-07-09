@@ -124,7 +124,7 @@ export default async function Blog({
   width={17}
   position="sticky"
   top="64"
-  fitHeight
+  height={300}
 />
     </Column>
     </Row>
