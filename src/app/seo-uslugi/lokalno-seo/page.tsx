@@ -29,7 +29,7 @@ export async function generateMetadata() {
       siteName: seoServices.title,
       images: [
         {
-          url: `https://stanchev.vercel.app/images/og/og.jpg`,
+          url: `https://stanchev.bg/images/og/og.jpg`,
           width: 1200,
           height: 630,
         },
@@ -41,7 +41,7 @@ export async function generateMetadata() {
       card: 'summary_large_image',
       title: 'Локално SEO – доминирай в Google търсенията във вашия град',
       description: 'Превърнете се в №1 избор в местните търсения чрез ефективна локална SEO стратегия и оптимизация на Google профил.',
-      images: [`https://stanchev.vercel.app/images/og/og.jpg`],
+      images: [`https://stanchev.bg/images/og/og.jpg`],
     },
   };
 }
