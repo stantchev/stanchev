@@ -109,7 +109,7 @@ export default async function Blog({
           <ScrollToHash />
         </Column>
     </Row>
-    <Column maxWidth={12} paddingLeft="40" fitHeight position="sticky" top="80" gap="16" hide="m">
+    <Column maxWidth={12} paddingLeft="45" fitHeight position="sticky" top="80" gap="16" hide="m">
       <Row
         gap="12"
         paddingLeft="2"
