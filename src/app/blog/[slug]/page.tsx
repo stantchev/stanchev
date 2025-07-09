@@ -114,8 +114,8 @@ export default async function Blog({
         gap="12"
         paddingLeft="2"
         vertical="center"
-        onBackground="neutral-medium"
-        textVariant="label-default-s"
+        onBackground="neutral-small"
+        textVariant="label-default-xs"
       >
         <Icon name="document" size="xs" />
         В тази статия
