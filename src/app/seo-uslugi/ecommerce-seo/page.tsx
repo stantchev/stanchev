@@ -1,6 +1,7 @@
 import { Column, Heading, Text, Button, Tag, Flex } from '@once-ui-system/core';
 import { baseURL, seoServices } from '@/resources';
 import Script from 'next/script';
+import EcommerceSEOFAQ from './faq';
 
 const service = {
   title: 'SEO за Онлайн Магазини',
@@ -64,7 +65,7 @@ export default function EcommerceSEOPage() {
         <Column gap="l">
           <Heading as="h2">Защо SEO за онлайн магазини е различно?</Heading>
           <Text variant="body-default-l">
-            Онлайн магазините имат уникални SEO предизвикателства: голям брой продукти, дублирано съдържание, филтри и вариации, технически изисквания за скорост и мобилност. Специализираната SEO стратегия за e-commerce включва оптимизация на продуктови страници, категории, навигация, структурирани данни и интеграция с платформи като Google Merchant Center.
+            Онлайн магазините имат уникални SEO предизвикателства: голям брой продукти, дублирано съдържание, филтри и вариации, технически изисквания за скорост и мобилност. Специализираната SEO стратегия за e-commerce включва оптимизация на продуктови страници, категории, навигация, структурирани данни и интеграция с платформи като Google Merchant Center. Ако използвате <a href="/seo-uslugi/wordpress-seo">WordPress</a>, <a href="/seo-uslugi/opencart-seo">OpenCart</a> или <a href="/seo-uslugi/magento-seo">Magento</a>, вижте и нашите специализирани услуги за тези платформи.
           </Text>
         </Column>
         <Column gap="l">
@@ -78,18 +79,8 @@ export default function EcommerceSEOPage() {
           </Column>
         </Column>
         <Column gap="l">
-          <Heading as="h2">Вътрешни връзки</Heading>
-          <Text>
-            <a href="/seo-uslugi/wordpress-seo">SEO за WordPress</a> | <a href="/seo-uslugi/opencart-seo">SEO за OpenCart</a> | <a href="/seo-uslugi/magento-seo">SEO за Magento</a> | <a href="/seo-uslugi">Всички SEO услуги</a>
-          </Text>
-        </Column>
-        <Column gap="l">
           <Heading as="h2">Често задавани въпроси</Heading>
-          <Column as="ul">
-            <li>Колко време отнема SEO оптимизацията на онлайн магазин?</li>
-            <li>Как да избегна дублирано съдържание при продукти?</li>
-            <li>Какви са най-важните фактори за класиране на e-commerce сайт?</li>
-          </Column>
+          <EcommerceSEOFAQ />
         </Column>
         <Column align="center" paddingTop="xl" fillWidth>
           <Heading variant="display-strong-m" align="center">

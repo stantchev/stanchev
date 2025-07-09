@@ -1,6 +1,7 @@
 import { Column, Heading, Text, Button, Tag, Flex } from '@once-ui-system/core';
 import { baseURL, seoServices } from '@/resources';
 import Script from 'next/script';
+import MagentoSEOFAQ from './faq';
 
 const service = {
   title: 'SEO за Magento',
@@ -64,7 +65,7 @@ export default function MagentoSEOPage() {
         <Column gap="l">
           <Heading as="h2">Magento SEO – специфики и предимства</Heading>
           <Text variant="body-default-l">
-            Magento е мощна e-commerce платформа, която изисква техническа и съдържателна SEO оптимизация: оптимизация на URL адреси, мета тагове, изображения, скорост и сигурност. Добрата Magento SEO стратегия включва техническа оптимизация, съдържание и линк билдинг, както и интеграция с разширения за SEO.
+            Magento е мощна e-commerce платформа, която изисква техническа и съдържателна SEO оптимизация: оптимизация на URL адреси, мета тагове, изображения, скорост и сигурност. Добрата Magento SEO стратегия включва техническа оптимизация, съдържание и линк билдинг, както и интеграция с разширения за SEO. Ако използвате <a href="/seo-uslugi/opencart-seo">OpenCart</a> или <a href="/seo-uslugi/wordpress-seo">WordPress</a>, вижте и нашите услуги за тези платформи.
           </Text>
         </Column>
         <Column gap="l">
@@ -78,18 +79,8 @@ export default function MagentoSEOPage() {
           </Column>
         </Column>
         <Column gap="l">
-          <Heading as="h2">Вътрешни връзки</Heading>
-          <Text>
-            <a href="/seo-uslugi/ecommerce-seo">SEO за Онлайн Магазини</a> | <a href="/seo-uslugi/wordpress-seo">SEO за WordPress</a> | <a href="/seo-uslugi/opencart-seo">SEO за OpenCart</a> | <a href="/seo-uslugi">Всички SEO услуги</a>
-          </Text>
-        </Column>
-        <Column gap="l">
           <Heading as="h2">Често задавани въпроси</Heading>
-          <Column as="ul">
-            <li>Какви са най-добрите SEO разширения за Magento?</li>
-            <li>Как да оптимизирам скоростта на Magento магазина си?</li>
-            <li>Как да подобря класирането на продуктови страници?</li>
-          </Column>
+          <MagentoSEOFAQ />
         </Column>
         <Column align="center" paddingTop="xl" fillWidth>
           <Heading variant="display-strong-m" align="center">

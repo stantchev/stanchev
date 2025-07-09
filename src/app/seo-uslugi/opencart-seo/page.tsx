@@ -1,6 +1,7 @@
 import { Column, Heading, Text, Button, Tag, Flex } from '@once-ui-system/core';
 import { baseURL, seoServices } from '@/resources';
 import Script from 'next/script';
+import OpenCartSEOFAQ from './faq';
 
 const service = {
   title: 'SEO за OpenCart',
@@ -64,7 +65,7 @@ export default function OpenCartSEOPage() {
         <Column gap="l">
           <Heading as="h2">OpenCart SEO – специфики и предимства</Heading>
           <Text variant="body-default-l">
-            OpenCart е популярна платформа за онлайн магазини, но изисква специфични SEO настройки: оптимизация на URL адреси, мета тагове, изображения, скорост и сигурност. Добрата OpenCart SEO стратегия включва техническа оптимизация, съдържание и линк билдинг, както и интеграция с разширения за SEO.
+            OpenCart е популярна платформа за онлайн магазини, но изисква специфични SEO настройки: оптимизация на URL адреси, мета тагове, изображения, скорост и сигурност. Добрата OpenCart SEO стратегия включва техническа оптимизация, съдържание и линк билдинг, както и интеграция с разширения за SEO. Ако използвате <a href="/seo-uslugi/wordpress-seo">WordPress</a> или <a href="/seo-uslugi/magento-seo">Magento</a>, вижте и нашите услуги за тези платформи.
           </Text>
         </Column>
         <Column gap="l">
@@ -78,18 +79,8 @@ export default function OpenCartSEOPage() {
           </Column>
         </Column>
         <Column gap="l">
-          <Heading as="h2">Вътрешни връзки</Heading>
-          <Text>
-            <a href="/seo-uslugi/ecommerce-seo">SEO за Онлайн Магазини</a> | <a href="/seo-uslugi/wordpress-seo">SEO за WordPress</a> | <a href="/seo-uslugi/magento-seo">SEO за Magento</a> | <a href="/seo-uslugi">Всички SEO услуги</a>
-          </Text>
-        </Column>
-        <Column gap="l">
           <Heading as="h2">Често задавани въпроси</Heading>
-          <Column as="ul">
-            <li>Какви са най-добрите SEO разширения за OpenCart?</li>
-            <li>Как да оптимизирам скоростта на OpenCart магазина си?</li>
-            <li>Как да подобря класирането на продуктови страници?</li>
-          </Column>
+          <OpenCartSEOFAQ />
         </Column>
         <Column align="center" paddingTop="xl" fillWidth>
           <Heading variant="display-strong-m" align="center">

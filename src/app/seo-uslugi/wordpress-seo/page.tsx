@@ -1,6 +1,7 @@
 import { Column, Heading, Text, Button, Tag, Flex } from '@once-ui-system/core';
 import { baseURL, seoServices } from '@/resources';
 import Script from 'next/script';
+import WordpressSEOFAQ from './faq';
 
 const service = {
   title: 'SEO за WordPress',
@@ -64,7 +65,7 @@ export default function WordpressSEOPage() {
         <Column gap="l">
           <Heading as="h2">Защо WordPress SEO е важно?</Heading>
           <Text variant="body-default-l">
-            WordPress е най-популярната CMS платформа, но изисква специфични SEO настройки: оптимизация на permalinks, използване на SEO плъгини (Yoast, RankMath), сигурност, скорост и мобилна съвместимост. Добрата WordPress SEO стратегия включва техническа оптимизация, съдържание и линк билдинг.
+            WordPress е най-популярната CMS платформа, но изисква специфични SEO настройки: оптимизация на permalinks, използване на SEO плъгини (Yoast, RankMath), сигурност, скорост и мобилна съвместимост. Добрата WordPress SEO стратегия включва техническа оптимизация, съдържание и линк билдинг. Ако имате онлайн магазин, вижте <a href="/seo-uslugi/ecommerce-seo">SEO за онлайн магазини</a> или <a href="/seo-uslugi/opencart-seo">OpenCart SEO</a> за други платформи.
           </Text>
         </Column>
         <Column gap="l">
@@ -78,18 +79,8 @@ export default function WordpressSEOPage() {
           </Column>
         </Column>
         <Column gap="l">
-          <Heading as="h2">Вътрешни връзки</Heading>
-          <Text>
-            <a href="/seo-uslugi/ecommerce-seo">SEO за Онлайн Магазини</a> | <a href="/seo-uslugi/opencart-seo">SEO за OpenCart</a> | <a href="/seo-uslugi/magento-seo">SEO за Magento</a> | <a href="/seo-uslugi">Всички SEO услуги</a>
-          </Text>
-        </Column>
-        <Column gap="l">
           <Heading as="h2">Често задавани въпроси</Heading>
-          <Column as="ul">
-            <li>Кой е най-добрият SEO плъгин за WordPress?</li>
-            <li>Как да ускоря WordPress сайта си?</li>
-            <li>Как да защитя сайта си от спам и хакерски атаки?</li>
-          </Column>
+          <WordpressSEOFAQ />
         </Column>
         <Column align="center" paddingTop="xl" fillWidth>
           <Heading variant="display-strong-m" align="center">
