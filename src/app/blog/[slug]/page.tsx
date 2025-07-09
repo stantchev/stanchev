@@ -112,25 +112,29 @@ export default async function Blog({
 <Column
   maxWidth={12}
   paddingLeft="40"
+  position="sticky"
+  top="80"
   gap="16"
   hide="m"
-  style={{ alignSelf: 'flex-start' }}
 >
   <Row
     gap="12"
     paddingLeft="2"
     vertical="center"
-    onBackground="neutral-medium"
-    textVariant="label-default-s"
+    onBackground="neutral-small"
+    textVariant="label-default-xs"
   >
     <Icon name="document" size="xs" />
     В тази статия
   </Row>
   <HeadingNav
     width={15}
-    style={{ height: 'auto', overflow: 'visible' }}
+    position="sticky"
+    top="64"
+    style={{ marginBottom: '10px' }}
   />
 </Column>
+    </Row>
     </Row>
   );
 }
