@@ -112,10 +112,9 @@ export default async function Blog({
 <Column
   maxWidth={12}
   paddingLeft="40"
-  position="sticky"
-  top="80"
   gap="16"
   hide="m"
+  style={{ alignSelf: 'flex-start' }}
 >
   <Row
     gap="12"
@@ -129,9 +128,7 @@ export default async function Blog({
   </Row>
   <HeadingNav
     width={15}
-    position="sticky"
-    top="64"
-    style={{ marginBottom: '10px' }}
+    style={{ height: 'auto', overflow: 'visible' }}
   />
 </Column>
     </Row>
