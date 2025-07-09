@@ -5,6 +5,7 @@ import { baseURL, about, blog, person } from "@/resources";
 import { formatDate } from "@/app/utils/formatDate";
 import { getPosts } from "@/app/utils/utils";
 import { Metadata } from 'next';
+import ArticleHeadingMapNav from '@/components/ArticleHeadingMapNav';
 
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
   const posts = getPosts(["src", "app", "blog", "posts"]);
@@ -110,23 +111,7 @@ export default async function Blog({
         </Column>
     </Row>
     <Column maxWidth={12} paddingLeft="40" fitHeight position="sticky" top="80" gap="16" hide="m">
-      <Row
-        gap="12"
-        paddingLeft="2"
-        vertical="center"
-        onBackground="neutral-medium"
-        textVariant="label-default-xs"
-      >
-        <Icon name="document" size="xs" />
-        В тази статия
-      </Row>
-      <HeadingNav
-  width={15}
-  position="sticky"
-  top="64"
-  fitHeight
-  className="custom-heading-nav"
-/>
+      <ArticleHeadingMapNav />
     </Column>
     </Row>
   );
