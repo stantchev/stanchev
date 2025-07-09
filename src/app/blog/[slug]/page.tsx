@@ -109,24 +109,31 @@ export default async function Blog({
           <ScrollToHash />
         </Column>
     </Row>
-    <Column maxWidth={12} paddingLeft="40" fitHeight position="sticky" top="80" gap="16" hide="m">
-      <Row
-        gap="12"
-        paddingLeft="2"
-        vertical="center"
-        onBackground="neutral-medium"
-        textVariant="label-default-s"
-      >
-        <Icon name="document" size="xs" />
-        В тази статия
-      </Row>
-      <HeadingNav
-  width={15}
+<Column
+  maxWidth={12}
+  paddingLeft="40"
   position="sticky"
-  top="64"
-  fitHeight
-/>
-    </Column>
+  top="80"
+  gap="16"
+  hide="m"
+>
+  <Row
+    gap="12"
+    paddingLeft="2"
+    vertical="center"
+    onBackground="neutral-medium"
+    textVariant="label-default-s"
+  >
+    <Icon name="document" size="xs" />
+    В тази статия
+  </Row>
+  <HeadingNav
+    width={15}
+    position="sticky"
+    top="64"
+    style={{ marginBottom: '10px' }}
+  />
+</Column>
     </Row>
   );
 }
