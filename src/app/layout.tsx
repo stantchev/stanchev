@@ -63,7 +63,7 @@ export const metadata: Metadata = {
     description: "Професионален SEO консултант в България. SEO оптимизация, линк билдинг стратегия, оптимизация на сайт, SEO анализ. Повишете позициите си в Google с доказани SEO услуги.",
     images: [
       {
-        url: "https://stanchev.vercel.app/images/og/og.jpg",
+        url: "https://stanchev.bg/images/og/og.jpg",
         width: 1200,
         height: 630,
         alt: "Станчев SEO - Професионални SEO услуги България",
@@ -77,7 +77,7 @@ export const metadata: Metadata = {
     creator: "@stanchev_seo",
     title: "SEO Консултант България | Станчев SEO - Професионални SEO Услуги",
     description: "Професионален SEO консултант в България. SEO оптимизация, линк билдинг стратегия, оптимизация на сайт, SEO анализ. Повишете позициите си в Google с доказани SEO услуги.",
-    images: ["https://stanchev.vercel.app/images/og/og.jpg"],
+    images: ["https://stanchev.bg/images/og/og.jpg"],
   },
   alternates: {
     canonical: baseURL,
