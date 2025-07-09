@@ -10,3 +10,12 @@
     transition: var(--transition-micro-medium);
     transform: scale(1);
 }
+.custom-heading-nav > div > div {
+  height: var(--static-space-64) !important;
+}
+
+.custom-heading-nav span.truncate {
+  white-space: normal !important;
+  overflow: visible !important;
+  text-overflow: clip !important;
+}
