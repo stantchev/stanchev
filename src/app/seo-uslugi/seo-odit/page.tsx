@@ -38,7 +38,7 @@ export async function generateMetadata() {
       siteName: seoServices.title,
       images: [
         {
-          url: `https://stanchev.vercel.app/images/og/og.jpg`,
+          url: `https://stanchev.bg/images/og/og.jpg`,
           width: 1200,
           height: 630,
         },
@@ -50,7 +50,7 @@ export async function generateMetadata() {
       card: 'summary_large_image',
       title: 'SEO Одит – анализ и стратегия за по-добро класиране',
       description: 'Пълен SEO одит на сайта ви с технически анализ, конкурентен анализ и препоръки за оптимизация.',
-      images: [`https://stanchev.vercel.app/images/og/og.jpg`],
+      images: [`https://stanchev.bg/images/og/og.jpg`],
     },
   };
 }
