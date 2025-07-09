@@ -121,10 +121,11 @@ export default async function Blog({
         В тази статия
       </Row>
       <HeadingNav
-  width={17}
+  width={15}
   position="sticky"
   top="64"
-  height={300}
+  fitHeight
+  style={{ lineHeight: '1.5em' }}
 />
     </Column>
     </Row>
