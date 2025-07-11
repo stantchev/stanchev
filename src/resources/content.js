@@ -126,6 +126,10 @@ const about = {
         name: "AI Innovation Summit",
         description: <>Присъствах на форума, където се запознах с иновациите в сферата на изкуствения интелект.</>,
       },
+{
+        name: "OpenAI Academy",
+        description: <>Официално станах част от OpenAI Academy.</>,
+      },
       {
         name: "SoftUni",
         description: <>В момента се обучавам в SoftUni и надграждам знанията си в SEO, защото Google не спи.</>,
