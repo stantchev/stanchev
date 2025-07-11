@@ -119,7 +119,7 @@ export default function ZaMen() {
           "image": "https://stanchev.bg/assets/avatar.jpg",
           "alumniOf": {
             "@type": "EducationalOrganization",
-            "name": "Софийски университет 'Св. Климент Охридски'"
+            "name": "Военна Академия 'Г.С.Раковски'"
           },
           "knowsAbout": [
             "SEO",
