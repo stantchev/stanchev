@@ -219,28 +219,19 @@ export default function ZaMen() {
               <Text>{person.location}</Text>
             </Flex>
             {person.languages.length > 0 && (
-  <>
-    <Flex wrap gap="8">
-      {person.languages.map((language, index) => (
-        <Tag 
-          key={language} 
-          size="l"
-        >
-          {language}
-        </Tag>
-      ))}
-    </Flex>
-
-    {/* ✅ Добавяме баджа тук */}
-    <Flex horizontal="center" paddingTop="12">
-      <img 
-        src="/images/GA-badge-80x80.png" 
-        alt="SEO Badge" 
-        style={{ maxWidth: "120px", height: "auto" }} 
-      />
-    </Flex>
-  </>
-)}
+              <Flex wrap gap="8">
+                {person.languages.map((language, index) => (
+                  <Tag 
+                    key={language} 
+                    size="l"
+                  >
+                    {language}
+                  </Tag>
+                ))}
+              </Flex>
+            )}
+          </Column>
+        )}
         <Column className={styles.blockAlign} flex={9} maxWidth={40}>
           <Column
             id={about.intro.title}
