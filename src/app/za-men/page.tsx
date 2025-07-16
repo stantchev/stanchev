@@ -169,7 +169,7 @@ export default function ZaMen() {
       ]
     })
   }}
-/>
+/>,
     <Column 
       maxWidth="m"
     >
@@ -191,7 +191,7 @@ export default function ZaMen() {
           left="0"
           style={{ top: "50%", transform: "translateY(-50%)" }}
           position="fixed"
-          paddingLeft="24"
+          paddingLeft="8"
           gap="32"
           hide="s"
         >
@@ -219,16 +219,27 @@ export default function ZaMen() {
               <Text>{person.location}</Text>
             </Flex>
             {person.languages.length > 0 && (
-              <Flex wrap gap="8">
-                {person.languages.map((language, index) => (
-                  <Tag 
-                    key={language} 
-                    size="l"
-                  >
-                    {language}
-                  </Tag>
-                ))}
-              </Flex>
+              <>
+                <Flex wrap gap="8">
+                  {person.languages.map((language, index) => (
+                    <Tag 
+                      key={language} 
+                      size="l"
+                    >
+                      {language}
+                    </Tag>
+                  ))}
+                </Flex>
+                <Flex horizontal="center" style={{ marginTop: 16 }}>
+                  <img 
+                    src="/images/GA-badge-80x80.png" 
+                    alt="Google Analytics Certified Badge" 
+                    width={80} 
+                    height={80} 
+                    style={{ display: 'block' }}
+                  />
+                </Flex>
+              </>
             )}
           </Column>
         )}
@@ -380,14 +391,24 @@ export default function ZaMen() {
               </Heading>
               <Column fillWidth gap="l" marginBottom="40">
                 {about.studies.institutions.map((institution, index) => (
-                  <Column key={`${institution.name}-${index}`} fillWidth gap="4">
-                    <Text id={institution.name} variant="heading-strong-l">
-                      {institution.name}
-                    </Text>
-                    <Text>
-                      {institution.description}
-                    </Text>
-                  </Column>
+                  <Flex key={`${institution.name}-${index}`} gap="16" vertical="start" horizontal="start">
+                    {/* Timeline marker and line */}
+                    <Column style={{ alignItems: 'center', minWidth: 32 }}>
+                      <Icon name="checkCircle" size="l" onBackground="brand-strong" />
+                      {index < about.studies.institutions.length - 1 && (
+                        <div style={{ width: 2, height: 40, background: 'var(--neutral-alpha-medium)', margin: '0 auto' }} />
+                      )}
+                    </Column>
+                    {/* Institution info */}
+                    <Column gap="4">
+                      <Text id={institution.name} variant="heading-strong-l">
+                        {institution.name}
+                      </Text>
+                      <Text>
+                        {institution.description}
+                      </Text>
+                    </Column>
+                  </Flex>
                 ))}
               </Column>
             </>
