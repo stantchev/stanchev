@@ -1,49 +1,32 @@
-import { baseURL } from "@/resources";
+import { baseURL, llmsRules } from "@/resources";
 
-export default function llms() {
-  return {
-    rules: [
-      // ✅ Позволени AI ботове
-      {
-        userAgent: "Google-Extended",
-        allow: ["/uslugi/", "/blog/"],
-      },
-      {
-        userAgent: "OpenAI",
-        allow: ["/uslugi/", "/blog/"],
-        disallow: "/",
-      },
-      {
-        userAgent: "Meta",
-        allow: ["/uslugi/", "/blog/"],
-        disallow: "/",
-      },
-      {
-        userAgent: "Bingbot",
-        allow: ["/uslugi/", "/blog/"],
-        disallow: "/",
-      },
+export async function GET() {
+  let text = "";
 
-      // ❌ Блокирани
-      {
-        userAgent: "Anthropic",
-        disallow: "/",
-      },
-      {
-        userAgent: "Perplexity",
-        disallow: "/",
-      },
-      {
-        userAgent: "CCBot",
-        disallow: "/",
-      },
+  llmsRules.forEach(rule => {
+    text += `User-agent: ${rule.userAgent}\n`;
 
-      // ❌ Всички останали
-      {
-        userAgent: "*",
-        disallow: "/",
-      },
-    ],
-    sitemap: `${baseURL}/sitemap.xml`, // не е задължително, но някои AI го четат
-  };
+    if (rule.allow) {
+      (Array.isArray(rule.allow) ? rule.allow : [rule.allow]).forEach(path => {
+        text += `Allow: ${path}\n`;
+      });
+    }
+
+    if (rule.disallow) {
+      (Array.isArray(rule.disallow) ? rule.disallow : [rule.disallow]).forEach(path => {
+        text += `Disallow: ${path}\n`;
+      });
+    }
+
+    text += `\n`;
+  });
+
+  // 🔗 Добавяме линк към самия llms.txt (добра практика за AI)
+  text += `Sitemap: ${baseURL}/llms.txt\n`;
+
+  return new Response(text.trim(), {
+    headers: {
+      "Content-Type": "text/plain; charset=utf-8",
+    },
+  });
 }
