@@ -45,6 +45,5 @@ export default function llms() {
       },
     ],
     sitemap: `${baseURL}/sitemap.xml`, // не е задължително, но някои AI го четат
-    sitemap: `${baseURL}/llms.txt,`
   };
 }
