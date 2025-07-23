@@ -1,0 +1,30 @@
+User-agent: Google-Extended
+Allow: /uslugi/
+Allow: /blog/
+
+User-agent: OpenAI
+Allow: /uslugi/
+Allow: /blog/
+Disallow: /
+
+User-agent: Meta
+Allow: /uslugi/
+Allow: /blog/
+Disallow: /
+
+User-agent: Bingbot
+Allow: /uslugi/
+Allow: /blog/
+Disallow: /
+
+User-agent: Anthropic
+Disallow: /
+
+User-agent: Perplexity
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: *
+Disallow: /
