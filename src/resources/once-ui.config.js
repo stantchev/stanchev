@@ -200,4 +200,42 @@ const sameAs = {
   devto: "https://dev.to/stanchev",
 };
 
-export { display, mailchimp, routes, protectedRoutes, baseURL, fonts, style, schema, sameAs, effects, dataStyle };
+const llmsRules = [
+  {
+    userAgent: "Google-Extended",
+    allow: ["/uslugi/", "/blog/"],
+  },
+  {
+    userAgent: "OpenAI",
+    allow: ["/uslugi/", "/blog/"],
+    disallow: "/",
+  },
+  {
+    userAgent: "Meta",
+    allow: ["/uslugi/", "/blog/"],
+    disallow: "/",
+  },
+  {
+    userAgent: "Bingbot",
+    allow: ["/uslugi/", "/blog/"],
+    disallow: "/",
+  },
+  {
+    userAgent: "Anthropic",
+    disallow: "/",
+  },
+  {
+    userAgent: "Perplexity",
+    disallow: "/",
+  },
+  {
+    userAgent: "CCBot",
+    disallow: "/",
+  },
+  {
+    userAgent: "*",
+    disallow: "/",
+  },
+];
+
+export { display, mailchimp, routes, protectedRoutes, baseURL, fonts, style, schema, sameAs, effects, dataStyle, llmsRules };
