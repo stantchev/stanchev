@@ -50,10 +50,8 @@ team:
 
   <h3>Използван код</h3>
 
-  <p>Ето основния скрипт за миграция:</p>
-
-  <CodeBlock language="php">
-    {`add_action('init', function () {
+```php
+add_action('init', function () {
 
     if (!current_user_can('manage_options')) {
         return;
@@ -123,12 +121,4 @@ team:
     update_option('yith_to_pwb_and_pa_brands_migration_done', 1);
 
     error_log('✅ Миграцията е завършена!');
-});`}
-  </CodeBlock>
-
-  <h4>Резултат</h4>
-
-  <p>
-    След миграцията всички продукти запазиха правилните брандове и вече се използваха в Perfect Brands и WooCommerce атрибутите, което позволи по-добра съвместимост с филтри и дизайн. Времето за ръчна обработка беше спестено изцяло, а сайтът вече е готов за бъдещи оптимизации и филтри по брандове.
-  </p>
-</section>
+});
