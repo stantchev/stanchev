@@ -1,0 +1,134 @@
+---
+title: "WooCommerce Бранд Миграция: От YITH към Perfect Brands и pa_brands"
+publishedAt: "2025-07-24"
+images:
+  - "/images/projects/WC-Brands/WC-Brands-Migration.jpg"
+summary: "Как мигрирах всички YITH брандове към Perfect Brands и WooCommerce атрибути, без да загубя връзки с продуктите."
+team:
+  - name: "Станчев"
+    role: "WordPress & WooCommerce Specialist"
+    avatar: "/images/avatar.jpg"
+    linkedIn: "https://www.linkedin.com/in/stantcheff"
+---
+
+<section>
+  <h2>Накратко за проекта</h2>
+
+  <p>
+    Онлайн магазинът работеше с <strong>YITH WooCommerce Brands Add-On</strong>, но клиентът премина към
+    <strong>Perfect Brands for WooCommerce</strong> за по-добра интеграция и по-добър дизайн. Освен това беше важно всички брандове да се запишат и в стандартния WooCommerce атрибут <code>pa_brands</code> за по-добра съвместимост с филтри и продуктови вариации.
+  </p>
+
+  <h3>Ключови подобрения</h3>
+
+  <ul>
+    <li>
+      <strong>Пълна миграция на брандовете</strong>: Всички термини от YITH бяха прехвърлени към
+      <code>pwb-brand</code> и <code>pa_brands</code>, запазвайки slug и описание.
+    </li>
+    <li>
+      <strong>Автоматично свързване на продуктите</strong>: Всеки продукт, който имаше YITH бранд, беше свързан с новите брандове в Perfect Brands и WooCommerce атрибутите.
+    </li>
+    <li>
+      <strong>Еднократна миграция</strong>: Кодът е оптимизиран да се изпълнява само веднъж и след това се самоизключва.
+    </li>
+  </ul>
+
+  <h3>Използвани технологии</h3>
+
+  <ul>
+    <li><strong>WooCommerce</strong> – основната платформа за управление на продуктите.</li>
+    <li><strong>PHP + WordPress API</strong> – за директна миграция през <code>functions.php</code>.</li>
+    <li><strong>wp_insert_term()</strong> и <strong>wp_set_object_terms()</strong> – за създаване на брандове и свързване на продуктите.</li>
+  </ul>
+
+  <h3>Предизвикателства</h3>
+
+  <p>
+    Основното предизвикателство беше да се прехвърлят брандовете, без да се изгубят връзките с продуктите и без да се дублират съществуващи термини в Perfect Brands и WooCommerce атрибутите. Решението беше да се направи проверка с <code>term_exists()</code> и да се използва еднократен скрипт, който автоматично създава липсващите термини и ги асоциира.
+  </p>
+
+  <h3>Използван код</h3>
+
+  <p>Ето основния скрипт за миграция:</p>
+
+  <CodeBlock language="php">
+    {`add_action('init', function () {
+
+    if (!current_user_can('manage_options')) {
+        return;
+    }
+
+    if (get_option('yith_to_pwb_and_pa_brands_migration_done')) {
+        return;
+    }
+
+    $old_tax = 'yith_product_brand';
+    $new_tax_pwb = 'pwb-brand';
+    $new_tax_pa  = 'pa_brands';
+
+    $terms = get_terms([
+        'taxonomy'   => $old_tax,
+        'hide_empty' => false,
+    ]);
+
+    if (!empty($terms) && !is_wp_error($terms)) {
+        foreach ($terms as $term) {
+
+            $existing_pwb = term_exists($term->name, $new_tax_pwb);
+            if (!$existing_pwb) {
+                $new_term_pwb = wp_insert_term($term->name, $new_tax_pwb, [
+                    'description' => $term->description,
+                    'slug'        => $term->slug
+                ]);
+                $new_term_pwb_id = is_wp_error($new_term_pwb) ? null : $new_term_pwb['term_id'];
+            } else {
+                $new_term_pwb_id = is_array($existing_pwb) ? $existing_pwb['term_id'] : $existing_pwb;
+            }
+
+            $existing_pa = term_exists($term->name, $new_tax_pa);
+            if (!$existing_pa) {
+                $new_term_pa = wp_insert_term($term->name, $new_tax_pa, [
+                    'description' => $term->description,
+                    'slug'        => $term->slug
+                ]);
+                $new_term_pa_id = is_wp_error($new_term_pa) ? null : $new_term_pa['term_id'];
+            } else {
+                $new_term_pa_id = is_array($existing_pa) ? $existing_pa['term_id'] : $existing_pa;
+            }
+
+            $products = get_posts([
+                'post_type'      => 'product',
+                'posts_per_page' => -1,
+                'tax_query'      => [
+                    [
+                        'taxonomy' => $old_tax,
+                        'field'    => 'term_id',
+                        'terms'    => $term->term_id,
+                    ]
+                ]
+            ]);
+
+            foreach ($products as $product) {
+                if ($new_term_pwb_id) {
+                    wp_set_object_terms($product->ID, (int)$new_term_pwb_id, $new_tax_pwb, true);
+                }
+                if ($new_term_pa_id) {
+                    wp_set_object_terms($product->ID, (int)$new_term_pa_id, $new_tax_pa, true);
+                }
+            }
+        }
+    }
+
+    update_option('yith_to_pwb_and_pa_brands_migration_done', 1);
+
+    error_log('✅ Миграцията е завършена!');
+});`}
+  </CodeBlock>
+
+  <h4>Резултат</h4>
+
+  <p>
+    След миграцията всички продукти запазиха правилните брандове и вече се използваха в Perfect Brands и WooCommerce атрибутите, което позволи по-добра съвместимост с филтри и дизайн. Времето за ръчна обработка беше спестено изцяло, а сайтът вече е готов за бъдещи оптимизации и филтри по брандове.
+  </p>
+</section>
