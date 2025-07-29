@@ -1,0 +1,94 @@
+---
+title: "Shopify EUR Цена: Динамично добавяне под BGN с фиксиран курс"
+publishedAt: "2025-07-29"
+images:
+  - "/images/projects/Shopify-Euro-Price/Euro-Price-Inject.jpeg"
+summary: "Как добавихме динамична евро цена под лева в Shopify (Kalles v2.7.0), въпреки ограниченията на DOM рендеринга и динамичното съдържание."
+team:
+  - name: "Станчев"
+    role: "Shopify Liquid & JS Developer"
+    avatar: "/images/avatar.jpg"
+    linkedIn: "https://www.linkedin.com/in/stantcheff"
+---
+<section>
+  <h2>Накратко за проекта</h2>
+
+  <p>
+    Онлайн магазинът <strong>Vicious Intent</strong> искаше всички цени в лева да показват <strong>приблизителна цена в евро</strong> точно под тях. Валутният курс трябваше да бъде фиксиран на 1.95583 (BGN към EUR), а скриптът да работи на всички типове страници — продуктови, количка, бърз преглед.
+  </p>
+
+  <h3>Ключови подобрения</h3>
+
+  <ul>
+    <li><strong>Фиксиран курс</strong>: Не се използва външен API при зареждане, за бързина и стабилност.</li>
+    <li><strong>Мощен MutationObserver</strong>: Засича динамично добавяне на елементи и инжектира евро цена в реално време.</li>
+    <li><strong>Мулти-селекторно покритие</strong>: Скриптът обхваща над 9 различни класа за цена, характерни за темата Kalles.</li>
+    <li><strong>Автоматично позициониране</strong>: Евро цената се добавя точно до лева, без да се нарушава дизайна.</li>
+    <li><strong>Минимална визуална намеса</strong>: Евро цената е с по-сив шрифт и с 5% по-малък размер, без да доминира визуално.</li>
+  </ul>
+
+  <h3>Използвани технологии</h3>
+
+  <ul>
+    <li><strong>Vanilla JavaScript</strong> – за динамично откриване и вграждане на евро стойностите.</li>
+    <li><strong>MutationObserver</strong> – за следене на DOM промени и автоматично вграждане в динамично заредени елементи.</li>
+    <li><strong>Shopify Liquid + Kalles v2.7.0</strong> – интеграция със съществуващата тема.</li>
+  </ul>
+
+  <h3>Предизвикателства</h3>
+
+  <p>
+    Темата Kalles използва JavaScript рендериране за части от съдържанието — включително някои ценови елементи, които се появяват само при действие от потребителя (напр. добавяне в количката, quick view). Това прави невъзможно еднократно вграждане на евро цената само при <code>DOMContentLoaded</code>.
+  </p>
+
+  <p>
+    Допълнително предизвикателство беше, че част от елементите се рендерират в сянка (Shadow DOM) или задействат повторно рендериране при mouseover или scroll. Някои елементи, като <code>span.price.dib.mb__5</code>, визуализираха промяната едва след отваряне на инспектора. Затова внедрихме <code>MutationObserver</code> с повторно валидиране.
+  </p>
+
+  <h3>Използван JavaScript код</h3>
+
+```html
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const selectors = [
+    'span.price.dib.mb__5',
+    'p#price_ppr.price_range',
+    'div.cart_price',
+    'strong._19gi7yt0._19gi7yt12._19gi7yt1a._19gi7yt1l',
+    'strong._19gi7yt0._19gi7ytk._19gi7ytj._1fragemp5._19gi7yt12._19gi7yt1a._19gi7yt1l.notranslate',
+    'span._19gi7yt0._19gi7yt12._19gi7yt1a._19gi7yt1g.notranslate',
+    '.cart_tot_price',
+    '.totals__subtotal-value',
+    '.cart__subtotal .money'
+  ];
+
+  const rate = 1.95583;
+
+  function applyConversions() {
+    const elements = document.querySelectorAll(selectors.join(','));
+    elements.forEach((el) => {
+      if (el.querySelector('.euro-price')) return;
+      let prices = el.textContent.match(/[\d.,]+/g);
+      let priceBGN = parseFloat((prices ? prices[prices.length - 1] : '0').replace(',', '.'));
+      if (!isNaN(priceBGN)) {
+        let priceEUR = (Math.round((priceBGN / rate) * 100) / 100).toFixed(2);
+        el.insertAdjacentHTML('beforeend', ` <span class="euro-price" style="display:inline; font-size:0.85em; color:gray;">(${priceEUR} €)</span>`);
+      }
+    });
+  }
+
+  applyConversions();
+  const observer = new MutationObserver(applyConversions);
+  observer.observe(document.body, { childList: true, subtree: true });
+});
+</script>
+```
+
+<h3>Резултат</h3> 
+<p> Всички визуализирани цени вече показват евро стойност в реално време – включително в количката, quick view и продуктовите страници. Дизайнът остана непроменен, а добавянето не влияе на скоростта на сайта. </p> 
+
+<h3>Ограничения</h3> 
+<p> Въпреки прецизната имплементация, трябва да се отбележи, че поради естеството на <strong>динамичното зареждане на съдържание в Shopify</strong>, не всички ценови елементи могат да бъдат обработени на 100%. Например, съдържание, заредено през iframe или в Shadow DOM, не подлежи на стандартна обработка. В такива случаи е възможно евро цената да не се покаже, ако елементът не бъде открит в DOM. </p> 
+
+<h3>На финала</h3> 
+<p> Благодарение на внимателно изградения JavaScript и адаптацията към темата Kalles, проектът на <strong>ViciousIntent</strong> постигна желаната функционалност: динамична, точна и визуално ненатрапчива евро цена до всяка стойност в лева. Решението може лесно да се прехвърли в други Shopify магазини с минимални корекции. </p></section>
