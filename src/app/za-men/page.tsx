@@ -169,7 +169,7 @@ export default function ZaMen() {
       ]
     })
   }}
-/>,
+/>
     <Column 
       maxWidth="m"
     >
