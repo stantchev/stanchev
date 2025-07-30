@@ -231,13 +231,18 @@ export default function ZaMen() {
                   ))}
                 </Flex>
                 <Flex horizontal="center" style={{ marginTop: 16 }}>
-                  <img 
-                    src="/images/GA-badge-80x80.png" 
-                    alt="Google Analytics Certified Badge" 
-                    width={80} 
-                    height={80} 
-                    style={{ display: 'block' }}
-                  />
+                  <a 
+  href="https://skillshop.credential.net/d830b358-fac9-4299-9028-783755d639b1#acc.S5yMU1dc" 
+  rel="noopener noreferrer"
+>
+  <img 
+    src="/images/GA-badge-80x80.png" 
+    alt="Google Analytics Certified Badge" 
+    width={80} 
+    height={80} 
+    style={{ display: 'block' }}
+  />
+</a>
                 </Flex>
               </>
             )}
