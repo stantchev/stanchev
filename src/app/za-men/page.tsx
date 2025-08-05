@@ -258,7 +258,7 @@ export default function ZaMen() {
     />
   </a>
   <a 
-    href="https://digital.softuni.bg/certificates/details/72195/759fe551" 
+    href="https://stanchev.bg/images/Web%20Cactus%20SEO%20Certificate.png" 
     rel="noreferrer nofollow" 
     target="_blank"
     style={{ marginLeft: 12 }}
@@ -474,5 +474,6 @@ export default function ZaMen() {
    </>
   );
 }
+
 
 
