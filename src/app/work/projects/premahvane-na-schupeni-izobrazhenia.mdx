@@ -1,0 +1,133 @@
+---
+title: "Масово премахване на изтрити изображения с SQL и PHP – без плъгини"
+publishedAt: "2025-08-05"
+images:
+  - "/images/projects/broken-images-cleanup.jpg"
+summary: "Как почистих стотици счупени изображения от голям WooCommerce сайт без плъгини, само със SQL и PHP."
+team:
+  - name: "Станчев"
+    role: "WordPress & WooCommerce Specialist"
+    avatar: "/images/avatar.jpg"
+    linkedIn: "https://www.linkedin.com/in/stantcheff"
+---
+
+<section>
+  <h2>Накратко за проекта</h2>
+
+  <p>
+    В голям онлайн магазин, предлагащ масла и автомобилни консумативи, се появи сериозен проблем: десетки изображения, хоствани в <code>/uploads/</code>, бяха изтрити при миграция на съдържание. Резултатът – стотици <strong>счупени <code>&lt;img&gt;</code> тагове</strong> в страници, продукти и блог постове, влошаващи UX, SEO и цялостното възприятие за качество. Задачата: <strong>да се изчисти цялото съдържание от липсващи изображения</strong>, без да се използват тежки плъгини, за да се запази производителността.
+  </p>
+
+  <h3>Ключови подобрения</h3>
+
+  <ul>
+    <li>
+      <strong>Пълно премахване на всички счупени изображения</strong> от съдържанието на над 700 страници и продукта, без ръчна намеса.
+    </li>
+    <li>
+      <strong>Без използване на плъгини</strong>: Всичко бе постигнато с <code>SQL</code> и <code>PHP</code>, което гарантира чист и стабилен код.
+    </li>
+    <li>
+      <strong>Възстановяване на UX и Core Web Vitals</strong> чрез намаляване на 404 грешки и ненужно зареждане на липсващи ресурси.
+    </li>
+  </ul>
+
+  <h3>Използвани технологии</h3>
+
+  <ul>
+    <li><strong>WordPress + WooCommerce</strong> – базова структура на сайта и съдържанието.</li>
+    <li><strong>MySQL</strong> – за директна намеса в базата данни чрез SQL заявки.</li>
+    <li><strong>PHP</strong> – за обхождане на публикации и динамично премахване на счупени изображения.</li>
+  </ul>
+
+  <h3>Предизвикателства</h3>
+
+  <p>
+    Най-голямото предизвикателство беше да се открият изображенията, които сочат към несъществуващи файлове, разпръснати из <code>post_content</code> и <code>postmeta</code>, често в сериализирани данни от Elementor и други билдъри. Използването на плъгин като „Better Search Replace“ даде добри dry-run резултати, но за пълна автоматизация и контрол бе нужно програмен подход.
+  </p>
+
+  <h3>Решение с SQL заявка</h3>
+
+  <p>
+    Когато имаме известен URL към счупено изображение, можем директно да го премахнем от всички публикации чрез следната SQL заявка:
+  </p>
+</section>
+
+```sql
+UPDATE wp_posts
+SET post_content = REPLACE(post_content, 'https://example.com/wp-content/uploads/2023/09/thumbs/car.png', '')
+WHERE post_content LIKE '%thumbs/car.png%';
+```
+
+<section>
+  <p>
+    Тази заявка почиства всички срещания на конкретния линк в съдържанието на публикации, продукти и страници. Повтаря се за всеки счупен линк. Таблицата <code>wp_posts</code> може да има различен префикс в зависимост от инсталацията.
+  </p>
+
+  <h3>Динамично решение с PHP</h3>
+
+  <p>
+    За пълна автоматизация, особено когато не знаем точните линкове, разработих скрипт, който обхожда всички публикации и проверява всяко изображение дали връща 404. Ако е така – <strong>премахва целия <code>&lt;img&gt;</code> таг</strong>.
+  </p>
+</section>
+
+```php
+function remove_broken_images_from_posts() {
+    global $wpdb;
+
+    $posts = $wpdb->get_results("
+        SELECT ID, post_content FROM {$wpdb->prefix}posts 
+        WHERE post_type IN ('post', 'page', 'product') 
+        AND post_status = 'publish'
+    ");
+
+    foreach ($posts as $post) {
+        $original_content = $post->post_content;
+        $updated_content = $original_content;
+
+        preg_match_all('/<img[^>]+src=["\']([^"\']+)["\']/i', $original_content, $matches);
+        $image_urls = $matches[1] ?? [];
+
+        foreach ($image_urls as $img_url) {
+            $headers = @get_headers($img_url);
+            if (!$headers || strpos($headers[0], '404') !== false) {
+                $updated_content = str_replace($matches[0][array_search($img_url, $image_urls)], '', $updated_content);
+            }
+        }
+
+        if ($original_content !== $updated_content) {
+            $wpdb->update(
+                $wpdb->prefix . 'posts',
+                ['post_content' => $updated_content],
+                ['ID' => $post->ID]
+            );
+            echo "Почистен пост ID: {$post->ID}<br>";
+        }
+    }
+
+    echo " Всички счупени изображения са премахнати.";
+}
+```
+
+<section>
+  <h3>Стъпки за репродуциране</h3>
+
+  <ol>
+    <li>Създайте файл <code>remove-broken-images.php</code> и поставете горния код.</li>
+    <li>Качете го в root директорията на сайта или поставете функцията временно в <code>functions.php</code>.</li>
+    <li>Заредете го през браузър или админ панела (ако е във functions.php, той ще се изпълни веднъж).</li>
+    <li>След почистване, премахнете кода, за да предотвратите повторно изпълнение.</li>
+  </ol>
+
+  <h3>Резултат</h3>
+
+  <p>
+    Успешно бяха премахнати всички счупени изображения от съдържанието, без използване на външни плъгини. Сайтът беше забележимо по-бърз, визуално чист и SEO-фрейндли. Времето за ръчна редакция на всяка публикация бе сведено до нула. Подобрихме не само UX, но и crawlability от търсачките, което ще доведе до по-добро класиране в SERP.
+  </p>
+
+  <h4>Извод</h4>
+
+  <p>
+    Поддръжката на WordPress сайт на високо ниво не винаги означава инсталиране на още плъгини. Понякога, чист SQL и малко PHP вършат работа по-бързо, по-чисто и по-ефективно. С този подход постигнахме максимален резултат с минимален код – което е същината на добрата разработка.
+  </p>
+</section>
