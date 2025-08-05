@@ -230,20 +230,20 @@ export default function ZaMen() {
                     </Tag>
                   ))}
                 </Flex>
-                <Flex horizontal="center" style={{ marginTop: 16 }}>
-                  <a 
-  	href="https://skillshop.credential.net/d830b358-fac9-4299-9028-783755d639b1#acc.S5yMU1dc" 
-  	rel="noopener noreferrer"
-	>
-	  <img 
-    	src="/images/GA-badge-80x80.png" 
-   	 alt="Google Analytics Certified Badge" 
-   	 width={80} 
-  	  height={80} 
-  	  style={{ display: 'block' }}
- 	 />
-	</a>
-			 <a 
+                  <Flex horizontal="center" style={{ marginTop: 16 }}>
+  <a 
+    href="https://skillshop.credential.net/d830b358-fac9-4299-9028-783755d639b1#acc.S5yMU1dc" 
+    rel="noopener noreferrer"
+  >
+    <img 
+      src="/images/GA-badge-80x80.png" 
+      alt="Google Analytics Certified Badge" 
+      width={80} 
+      height={80} 
+      style={{ display: 'block' }}
+    />
+  </a>
+  <a 
     href="https://digital.softuni.bg/certificates/details/72195/759fe551" 
     rel="noreferrer nofollow" 
     target="_blank"
@@ -257,8 +257,7 @@ export default function ZaMen() {
       style={{ display: 'block' }}
     />
   </a>
-			</a>
-			 <a 
+  <a 
     href="https://digital.softuni.bg/certificates/details/72195/759fe551" 
     rel="noreferrer nofollow" 
     target="_blank"
@@ -272,7 +271,7 @@ export default function ZaMen() {
       style={{ display: 'block' }}
     />
   </a>
-                </Flex>
+</Flex>
               </>
             )}
           </Column>
@@ -475,4 +474,5 @@ export default function ZaMen() {
    </>
   );
 }
+
 
