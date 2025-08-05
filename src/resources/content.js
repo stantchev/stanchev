@@ -130,6 +130,10 @@ const about = {
         name: "OpenAI Academy",
         description: <>Официално станах част от OpenAI Academy.</>,
       },
+{
+        name: "Web Cactus Academy",
+        description: <>Завърших курсове по SEO за WordPress, OpenCart & Magento.</>,
+      },
       {
         name: "SoftUni",
         description: <>В момента се обучавам в SoftUni и надграждам знанията си в SEO, защото Google не спи.</>,
@@ -382,3 +386,4 @@ export {
   contact,
   gallery,
 };
+
