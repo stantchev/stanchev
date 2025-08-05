@@ -247,11 +247,26 @@ export default function ZaMen() {
     href="https://digital.softuni.bg/certificates/details/72195/759fe551" 
     rel="noreferrer nofollow" 
     target="_blank"
-    style={{ marginLeft: 12 }}
+    style={{ marginLeft: 8 }}
   >
     <img 
       src="/images/digital-small-logo-white.png" 
       alt="SoftUni SEO Digital Marketing Certificate" 
+      width={80} 
+      height={80} 
+      style={{ display: 'block' }}
+    />
+  </a>
+			</a>
+			 <a 
+    href="https://digital.softuni.bg/certificates/details/72195/759fe551" 
+    rel="noreferrer nofollow" 
+    target="_blank"
+    style={{ marginLeft: 12 }}
+  >
+    <img 
+      src="/images/icon-cactus-80x80.png" 
+      alt="Web Cactus Academy SEO Certificate" 
       width={80} 
       height={80} 
       style={{ display: 'block' }}
@@ -460,4 +475,5 @@ export default function ZaMen() {
    </>
   );
 }
+
 
