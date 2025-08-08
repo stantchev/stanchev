@@ -8,7 +8,7 @@ export async function generateMetadata() {
     description: seoServices.description,
     alternates: {
       keywords: 'seo оптимизация, seo услуги, seo цена, линк билдинг, оптимизация на сайт, seo консултант, фирма за seo, seo специалист, seo агенция, seo оптимизатор, реклама в Google, дигитален маркетинг, seo одит, seo обучение, seo стратегия, оптимизация на онлайн магазин.',
-      canonical: `${baseURL}/seo-uslugi`,
+      canonical: `https://www.stanchev.bg/seo-uslugi`,
     },
     openGraph: {
       title: seoServices.title,
@@ -373,3 +373,4 @@ export default function SeoUslugi() {
      </>
   );
 }
+
