@@ -65,7 +65,7 @@ const home = {
     title: (
       <>Скорошен проект: <strong className="ml-4">ChatGPT & WordPress</strong></>
     ),
-    href: "/seo-proekti/DarosBuild-moyat-proces-po-seo-optimizatsiya",
+    href: "/seo-proekti/integraciya-chatgpt-wordpress-case-study",
   },
 };
 
@@ -386,5 +386,6 @@ export {
   contact,
   gallery,
 };
+
 
 
