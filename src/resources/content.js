@@ -50,7 +50,7 @@ const home = {
   // За SEO и metadata
   titleText: "SEO оптимизация и услуги | Достигнете първо място в Google",
   descriptionText: "Експертни SEO услуги за вашия сайт. Увеличете трафика и продажбите с ефективна оптимизация. Свържете се за безплатна консултация!",
-  featuredTitleText: "Скорошен проект: DarosBuild",
+  featuredTitleText: "Скорошен проект: ChatGPT & WordPress",
 
   // За визуалния интерфейс (UI)
   headline: <>SEO услуги, които строят мостове между теб и Google</>,
@@ -63,7 +63,7 @@ const home = {
   featured: {
     display: true,
     title: (
-      <>Скорошен проект: <strong className="ml-4">DarosBuild</strong></>
+      <>Скорошен проект: <strong className="ml-4">ChatGPT & WordPress</strong></>
     ),
     href: "/seo-proekti/DarosBuild-moyat-proces-po-seo-optimizatsiya",
   },
@@ -386,4 +386,5 @@ export {
   contact,
   gallery,
 };
+
 
