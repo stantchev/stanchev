@@ -86,7 +86,6 @@ export default function Nachalo() {
       >
         <Column maxWidth="s">
           {home.featured.display && (
-          <RevealFx fillWidth horizontal="start" paddingTop="16" paddingBottom="32" paddingLeft="12">
             <Badge 
               background="brand-alpha-weak" 
               paddingX="12" 
@@ -98,17 +97,13 @@ export default function Nachalo() {
             >
               <Row paddingY="2">{home.featured.title}</Row>
             </Badge>
-          </RevealFx>
           )}
-          <RevealFx translateY="4" fillWidth horizontal="start" paddingBottom="16">
             <Heading 
               wrap="balance" 
               variant="display-strong-m"
             >
               {home.headline}
             </Heading>
-          </RevealFx>
-          <RevealFx translateY="8" delay={0.2} fillWidth horizontal="start" paddingBottom="32">
             <Text 
               wrap="balance" 
               onBackground="neutral-weak" 
@@ -116,8 +111,6 @@ export default function Nachalo() {
             >
               {home.subline}
             </Text>
-          </RevealFx>
-          <RevealFx paddingTop="12" delay={0.4} horizontal="start" paddingLeft="12">
             <Button
               id="about"
               data-border="rounded"
@@ -138,12 +131,9 @@ export default function Nachalo() {
                 {about.title}
               </Flex>
             </Button>
-          </RevealFx>
         </Column>
       </Column>
-      <RevealFx translateY="16" delay={0.6}>
         <Projects range={[1, 1]} />
-      </RevealFx>
       {routes["/blog"] && (
         <Flex 
           fillWidth 
