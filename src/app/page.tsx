@@ -86,7 +86,7 @@ export default function Nachalo() {
       >
         <Column maxWidth="s">
           {home.featured.display && (
-          <RevealFx fillWidth horizontal="start" paddingTop="16" paddingBottom="32" paddingLeft="12">
+          <RevealFx fillWidth horizontal="start" paddingTop="16" paddingBottom="32" paddingLeft="12" speed="fast">
             <Badge 
               background="brand-alpha-weak" 
               paddingX="12" 
@@ -100,7 +100,7 @@ export default function Nachalo() {
             </Badge>
           </RevealFx>
           )}
-          <RevealFx translateY="4" fillWidth horizontal="start" paddingBottom="16">
+          <RevealFx translateY="4" fillWidth horizontal="start" paddingBottom="16" speed="fast">
             <Heading 
               wrap="balance" 
               variant="display-strong-m"
@@ -108,7 +108,7 @@ export default function Nachalo() {
               {home.headline}
             </Heading>
           </RevealFx>
-          <RevealFx translateY="8" delay={0.2} fillWidth horizontal="start" paddingBottom="32">
+          <RevealFx translateY="8" delay={0.2} fillWidth horizontal="start" paddingBottom="32" speed="fast">
             <Text 
               wrap="balance" 
               onBackground="neutral-weak" 
@@ -117,7 +117,7 @@ export default function Nachalo() {
               {home.subline}
             </Text>
           </RevealFx>
-          <RevealFx paddingTop="12" delay={0.4} horizontal="start" paddingLeft="12">
+          <RevealFx paddingTop="12" delay={0.4} horizontal="start" paddingLeft="12" speed="fast">
             <Button
               id="about"
               data-border="rounded"
@@ -141,7 +141,7 @@ export default function Nachalo() {
           </RevealFx>
         </Column>
       </Column>
-      <RevealFx translateY="16" delay={0.6}>
+      <RevealFx translateY="16" delay={0.6} speed="fast">
         <Projects range={[1, 1]} />
       </RevealFx>
       {routes["/blog"] && (
@@ -172,3 +172,4 @@ export default function Nachalo() {
     </>
   );
 }
+
