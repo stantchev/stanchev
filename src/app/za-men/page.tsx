@@ -230,48 +230,75 @@ export default function ZaMen() {
                     </Tag>
                   ))}
                 </Flex>
-                  <Flex horizontal="center" style={{ marginTop: 16 }}>
+<div 
+  style={{ 
+    display: "grid", 
+    gridTemplateColumns: "repeat(2, auto)", 
+    gap: "12px", 
+    justifyContent: "center", 
+    marginTop: 16 
+  }}
+>
+  {/* Google Analytics Badge */}
   <a 
     href="https://skillshop.credential.net/d830b358-fac9-4299-9028-783755d639b1#acc.S5yMU1dc" 
     rel="noopener noreferrer"
+    target="_blank"
   >
     <img 
       src="/images/GA-badge-80x80.png" 
       alt="Google Analytics Certified Badge" 
       width={80} 
       height={80} 
-      style={{ display: 'block' }}
+      style={{ display: "block" }}
     />
   </a>
+
+  {/* Google Ads AI-Powered Performance Badge */}
+  <a 
+    href="https://skillshop.credential.net/6636f0fe-fd86-4a18-b25b-27a219fca1c8#acc.zCBJHLMX" 
+    rel="noreferrer nofollow" 
+    target="_blank"
+  >
+    <img 
+      src="/images/Google Ads AI-Powered Performance Certified badge.png" 
+      alt="Google Ads AI-Powered Performance Certified" 
+      width={80} 
+      height={80} 
+      style={{ display: "block" }}
+    />
+  </a>
+
+  {/* SoftUni SEO Certificate */}
   <a 
     href="https://digital.softuni.bg/certificates/details/72195/759fe551" 
     rel="noreferrer nofollow" 
     target="_blank"
-    style={{ marginLeft: 8 }}
   >
     <img 
       src="/images/digital-small-logo-white.png" 
       alt="SoftUni SEO Digital Marketing Certificate" 
       width={80} 
       height={80} 
-      style={{ display: 'block' }}
+      style={{ display: "block" }}
     />
   </a>
+
+  {/* Web Cactus Academy SEO Certificate */}
   <a 
     href="https://stanchev.bg/images/Web%20Cactus%20SEO%20Certificate.png" 
     rel="noreferrer nofollow" 
     target="_blank"
-    style={{ marginLeft: 12 }}
   >
     <img 
       src="/images/icon-cactus-80x80.png" 
       alt="Web Cactus Academy SEO Certificate" 
       width={80} 
       height={80} 
-      style={{ display: 'block' }}
+      style={{ display: "block" }}
     />
   </a>
-</Flex>
+</div>
               </>
             )}
           </Column>
@@ -474,6 +501,7 @@ export default function ZaMen() {
    </>
   );
 }
+
 
 
 
