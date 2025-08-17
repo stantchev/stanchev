@@ -1,0 +1,132 @@
+---
+title: "NotPetya: Войната, която започна с мълчание"
+keywords: ["NotPetya", "кибератака", "Sandworm", "GRU", "кибервойна", "рансъмуер", "supply chain атака", "M.E.Doc", "EternalBlue", "EternalRomance"]
+summary: "NotPetya – най-опустошителната кибератака в историята. Как започна, кои компании засегна и какви уроци остави за киберсигурността."
+author: "Станчев"
+publishedAt: "2025-08-12"
+tag: "Киберсигурност"
+image: /images/posts/notpetya-kiberataka.jpg
+---
+![notpetya-kiberataka](/images/posts/notpetya-kiberataka.jpg)
+
+<strong>NotPetya</strong> е повече от зловреден софтуер – това е емблема на новата, безшлакова война в цифровото пространство. На 27 юни 2017 г. атаката избухва в Украйна и за часове парализира критични услуги и глобални компании. Щетите се оценяват на <strong>над $10 млрд.</strong>, а правителства официално я приписаха на руската група <strong>Sandworm</strong> към <strong>ГРУ</strong>. :contentReference[oaicite:0]{index=0}
+
+<Feedback
+  title="Важно"
+  description="NotPetya показа, че supply chain компромис в един на пръв поглед „невинен“ софтуер може да спре цели индустрии. Киберсигурността е стратегическа — и обща — отговорност."
+/>
+
+<h2 id="nachalo">Началото на бурята</h2>
+
+В навечерието на 27 юни 2017 г. зловреден код беше внедрен чрез актуализация на украинския данъчен софтуер <strong>M.E.Doc</strong>. При първото рестартиране жертвите видяха съобщение за откуп от $300 в биткойни — маска, зад която стоеше <em>wiper</em>, целящ унищожение, а не печалба. Така supply chain компромис се превърна в национална криза. :contentReference[oaicite:1]{index=1}
+
+<h2 id="katastrofa">Катастрофата</h2>
+
+За часове банкомати, терминали, транспортни системи и болници бяха нарушени. Вълната преля границите на Украйна, косейки глобални играчи като <strong>Maersk</strong>, <strong>Merck</strong> и <strong>FedEx (TNT)</strong>. Maersk се наложи да преинсталира <strong>45 000</strong> компютъра и <strong>4 000</strong> сървъра практически от нулата — безпрецедентен логистичен подвиг. :contentReference[oaicite:2]{index=2}
+
+<h2 id="plan">Майсторският план</h2>
+
+Разпространението беше задвижено от изтекли от арсенала на <strong>NSA</strong> експлойти като <strong>EternalBlue</strong> и <strong>EternalRomance</strong>, позволявайки „скок“ между машини в мрежата и масова латерална ескалация. Атаката използваше и техники от инструменти като Mimikatz. Технически анализи показаха и „ваксина“/kill-switch: наличие на файл <code>perfc</code> в <code>C:\Windows\</code> спираше изпълнението на първичния вариант. :contentReference[oaicite:3]{index=3}
+
+<h2 id="ataciya">Кой стоеше зад атаката?</h2>
+
+САЩ, Великобритания и други държави публично приписаха NotPetya на руската група <strong>Sandworm</strong> (ГРУ) — рядък и важен акт на официално правителствено обвинение за кибератака с глобални последици. :contentReference[oaicite:4]{index=4}
+
+<h2 id="impact-table">Ключови засегнати компании и приблизителни загуби</h2>
+
+NotPetya удари едновременно различни индустрии. Ето някои от най-тежко засегнатите корпорации и ориентировъчните им щети:
+
+- <strong>Maersk</strong> (морски транспорт и логистика) – загуби за около <strong>$250–300 млн.</strong>, след като компанията беше принудена да преинсталира 45 000 компютъра и 4000 сървъра.  
+- <strong>Merck</strong> (фармацевтика) – щети в размер на приблизително <strong>$870 млн.</strong>, нарушавайки производствени линии и снабдителни вериги.  
+- <strong>FedEx (TNT Express)</strong> (куриерски и експресни услуги) – около <strong>$300–400 млн.</strong>, довели до значителни закъснения в глобалната мрежа за доставки.  
+- <strong>Saint-Gobain</strong> (строителни материали) – загуби близо <strong>$384 млн.</strong>, засегнали производството и продажбите в Европа.  
+- <strong>Mondelēz</strong> (хранителна индустрия) – приблизителни загуби <strong>$100–188 млн.</strong>, включително прекъсвания в производството на глобални марки като Oreo и Cadbury.
+ 
+ > Сумите са от публични отчети/медии и са закръглени. Диапазоните отразяват различни счетоводни периоди и преизчисления.
+<h2 id="charts">Графики</h2>
+
+<BarChart
+  title="NotPetya: загуби по компании (USD млн.)"
+  yLabel="USD млн."
+  data={[
+    { company: "Maersk", loss: 300 },
+    { company: "Merck", loss: 870 },
+    { company: "FedEx (TNT)", loss: 300 },
+    { company: "Saint-Gobain", loss: 384 },
+    { company: "Mondelez", loss: 188 }
+  ]}
+  xKey="company"
+  yKey="loss"
+/>
+
+<PieChart
+  title="Дял на загубите по компании"
+  data={[
+    { label: "Merck", value: 870 },
+    { label: "Maersk", value: 300 },
+    { label: "FedEx (TNT)", value: 300 },
+    { label: "Saint-Gobain", value: 384 },
+    { label: "Mondelez", value: 188 }
+  ]}
+  nameKey="label"
+  valueKey="value"
+/>
+
+<Feedback
+  title="Бележка"
+  description="Компонентите BarChart и PieChart са част от OnceUI Data-Viz (Recharts под капака). Ако вече имаш OnceUI конфигуриран в проекта, MDX компонентите ще се рендерират директно."
+/>
+
+<h2 id="uroci">Уроците от един сринат свят</h2>
+
+- <strong>Supply chain е ахилесова пета.</strong> Компромис на един доставчик може да срине екосистеми. :contentReference[oaicite:10]{index=10}  
+- <strong>Латералното движение убива бързо.</strong> Експлойти като EternalBlue/EternalRomance и слаба сегментация превръщат инцидента в инцидент на цялата организация. :contentReference[oaicite:11]{index=11}  
+- <strong>Правна и застрахователна лавина.</strong> Делата след NotPetya (Merck, Mondelēz) пренаписаха клаузите „war exclusion“ и модели за киберзастраховане. :contentReference[oaicite:12]{index=12}  
+
+<h2 id="pragmatic">Прагматичен чеклист за CISOs</h2>
+
+- Инвентар и пачинг по <strong>MS17-010</strong> и сродни уязвимости; приоритизиране по експлоатираност. :contentReference[oaicite:13]{index=13}  
+- <strong>Сегментация на мрежата</strong> + контрол на lateral movement (LSA, SMB, RDP), ограничаване на админския „златен билет“.  
+- <strong>Zero-trust</strong> политики и условен достъп.  
+- <strong>Backup/restore по сценарий wiper</strong> (immutable, офлайн, редовни DR учения).  
+- <strong>Supply chain due diligence</strong>: кодови ревюта, SBOM, под-подизпълнители, подправени обновления.  
+- Правни/застрахователни клаузи срещу „актове на война“ в кибер контекст; tabletop с юридическия екип.
+
+<h2 id="lichno-mnenie">Лично мнение на автора</h2>
+
+NotPetya беше <strong>повратна точка</strong>: от „инциденти по единични машини“ преминахме към системен риск с макроикономическо отражение. Следващата голяма атака вероятно няма да изглежда като рансъмуер — тя ще е <em>wiper</em> с supply chain вход и бързо латерално движение. Истинската устойчивост идва не от един продукт, а от добре репетирани процеси, архитектура и култура на защитата.
+
+<h4 id="faq">Често задавани въпроси</h4>
+
+<AccordionGroup
+  items={[
+    {
+      title: "Какво всъщност беше NotPetya – рансъмуер или wiper?",
+      content: (
+        <Text onBackground="neutral-weak">
+          Маскиран като рансъмуер, но де факто wiper без реален механизъм за дешифриране – целта бе унищожение, не откуп.
+        </Text>
+      )
+    },
+    {
+      title: "Как се разпространяваше толкова бързо?",
+      content: (
+        <Text onBackground="neutral-weak">
+          Компромис на M.E.Doc (supply chain) + експлойти от типа EternalBlue/EternalRomance и лоша мрежова сегментация.
+        </Text>
+      )
+    },
+    {
+      title: "Кой стоеше зад атаката?",
+      content: (
+        <Text onBackground="neutral-weak">
+          Официално приписана от САЩ/Обединеното кралство на Sandworm (ГРУ).
+        </Text>
+      )
+    }
+  ]}
+/>
+
+<p>
+<strong><a href="https://stanchev.bg/" target="_blank" rel="noopener">Научете уроците от NotPetya</a></strong> – прегледайте сегментацията, backup/restore и supply chain контрола си още тази седмица.
+</p>
