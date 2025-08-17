@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { CustomMDX, ScrollToHash } from "@/components";
-import { Meta, Schema, AvatarGroup, Button, Column, Heading, HeadingNav, Icon, Row, Text, AccordionGroup} from "@once-ui-system/core";
+import { Meta, Schema, AvatarGroup, Button, Column, Heading, HeadingNav, Icon, Row, Text, AccordionGroup, BarChart } from "@once-ui-system/core";
 import { baseURL, about, blog, person } from "@/resources";
 import { formatDate } from "@/app/utils/formatDate";
 import { getPosts } from "@/app/utils/utils";
@@ -131,3 +131,4 @@ export default async function Blog({
     </Row>
   );
 }
+
