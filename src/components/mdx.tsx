@@ -174,9 +174,6 @@ const components = {
   BarChart: dynamic(() => import("@once-ui-system/core").then(mod => mod.BarChart)),
   LineChart: dynamic(() => import("@once-ui-system/core").then(mod => mod.LineChart)),
   PieChart: dynamic(() => import("@once-ui-system/core").then(mod => mod.PieChart)),
-  DonutChart: dynamic(() => import("@once-ui-system/core").then(mod => mod.DonutChart)),
-  AreaChart: dynamic(() => import("@once-ui-system/core").then(mod => mod.AreaChart)),
-  StackedBarChart: dynamic(() => import("@once-ui-system/core").then(mod => mod.StackedBarChart)),
   LineBarChart: dynamic(() => import("@once-ui-system/core").then(mod => mod.LineBarChart)),
 };
 
@@ -190,4 +187,5 @@ export function CustomMDX(props: CustomMDXProps) {
   );
 
 }
+
 
