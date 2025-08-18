@@ -78,6 +78,7 @@ export default function TermsPage() {
         <Flex as="h2" textVariant="display-default-m">
           2. Обхват на услугите
         </Flex>
+        <p> Услугите на Станчев SEO включват, но не се свеждат до:</p>
         <Column as="ul" gap="s" paddingLeft="l">
           <li>SEO одит и анализ</li>
           <li>On-page оптимизация</li>
@@ -85,6 +86,7 @@ export default function TermsPage() {
           <li>SEO консултации</li>
           <li>Оптимизация на съдържание</li>
         </Column>
+        <p>За повече информация може да посетите страницата с SEO услуги.</p>
         <Feedback
           title="Важно"
           description="Услугите се предоставят след потвърждение и писмено съгласие между двете страни."
@@ -130,7 +132,7 @@ export default function TermsPage() {
           6. Авторски права
         </Flex>
         <Flex as="p">
-          Всички материали на сайта (текстове, графики, дизайн) са собственост на Стоян Станчев и не могат да бъдат използвани без разрешение.
+          Всички материали на сайта (текстове, графики, дизайн) са собственост на автора им и не могат да бъдат използвани без разрешение.
         </Flex>
 
         {/* 7. Заключителни разпоредби */}
@@ -142,10 +144,11 @@ export default function TermsPage() {
         </Flex>
 
         <Flex as="p" textVariant="body-default-s" horizontal="end">
-          Последна актуализация: 19 юни 2025 г.
+          Последна актуализация: 18 Август 2025 г.
         </Flex>
       </Column>
     </Column>
     </>
   );
 }
+
