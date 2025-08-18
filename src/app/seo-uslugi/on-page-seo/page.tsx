@@ -31,7 +31,10 @@ export async function generateMetadata() {
     title: 'On-Page SEO – оптимизация на структура и съдържание',
     description: 'Подобрете класирането си с on-page SEO: оптимизация на структура, мета данни и съдържание.',
     keywords: 'on-page seo, онпейдж оптимизация, оптимизация на съдържание, seo тагове, meta description, заглавни тагове, вътрешно линкване, ключови думи в съдържанието, структура на url, html оптимизация',
-	openGraph: {
+	alternates: {
+    canonical: `${baseURL}/seo-uslugi/on-page-seo`,
+  },   
+	  openGraph: {
       title: 'On-Page SEO – оптимизация на структура и съдържание',
       description: 'Подобрете класирането си с on-page SEO: оптимизация на структура, мета данни и съдържание.',
       url: `${baseURL}/seo-uslugi/${service.slug}`,
