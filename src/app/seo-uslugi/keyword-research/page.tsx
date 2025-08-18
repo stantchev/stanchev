@@ -34,7 +34,10 @@ export async function generateMetadata() {
     title: 'Keyword Research – основата на успешната SEO стратегия',
     description: 'Откриваме най-ценните ключови думи за вашия бизнес с професионален keyword research и анализ.',
 	keywords: 'keyword research, проучване на ключови думи, keyword анализ, търсене на ключови думи, seo ключови думи, инструмент за ключови думи, keyword strategy, подбор на ключови думи, keyword mapping, анализ на търсене',
-    openGraph: {
+    alternates: {
+    canonical: `${baseURL}/seo-uslugi/keyword-research`,
+  },
+	  openGraph: {
       title: 'Keyword Research – основата на успешната SEO стратегия',
       description: 'Откриваме най-ценните ключови думи за вашия бизнес с професионален keyword research и анализ.',
       url: `${baseURL}/seo-uslugi/${service.slug}`,
