@@ -140,7 +140,7 @@ export default function Kontakti() {
               <Text variant="body-default-s" onBackground="neutral-weak">
                 Работно време
               </Text>
-              <Text variant="body-default-m">Понеделник - Петък, 9:00 - 18:00</Text>
+              <Text variant="body-default-m">Понеделник - Петък, 9:30 - 16:30</Text>
             </Column>
           </Flex>
         </Column>
@@ -161,3 +161,4 @@ export default function Kontakti() {
       </>
   );
 }
+
