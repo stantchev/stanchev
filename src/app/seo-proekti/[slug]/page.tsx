@@ -29,6 +29,7 @@ export async function generateMetadata({
   return {
     title: post.metadata.title,
     description: post.metadata.summary,
+    keywords: post.metadata.keywords,
     alternates: {
     canonical: `${baseURL}/seo-proekti/${post.slug}`,
     },
@@ -118,3 +119,4 @@ export default async function Project({
     </Column>
   );
 }
+
