@@ -30,7 +30,10 @@ export async function generateMetadata() {
   return {
     title: 'Link Building стратегии за силно SEO – изгради авторитет и класиране в Google',
     description: 'Изгради силен линк профил с ефективна Link Building стратегия. Повиши авторитета на сайта си и се класирай по-високо в Google.',
-    keywords: 'link building, линк билдинг, линк билдинг стратегия, изграждане на линкове, външни връзки, линкове към сайт, линк билдинг цена, seo линкове, link building услуги, линк профил',
+    alternates: {
+    canonical: `${baseURL}/seo-uslugi/link-building`,
+  },
+	  keywords: 'link building, линк билдинг, линк билдинг стратегия, изграждане на линкове, външни връзки, линкове към сайт, линк билдинг цена, seo линкове, link building услуги, линк профил',
 	openGraph: {
       title: 'Link Building стратегии за силно SEO – изгради авторитет и класиране в Google',
       description: 'Изгради силен линк профил с ефективна Link Building стратегия. Повиши авторитета на сайта си и се класирай по-високо в Google.',
