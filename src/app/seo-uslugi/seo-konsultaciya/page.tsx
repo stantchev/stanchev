@@ -33,7 +33,10 @@ export async function generateMetadata() {
     title: 'SEO Консултация – експертна помощ за вашия сайт',
     description: 'Безплатна персонализирана SEO консултация и стратегия за по-добро класиране и повече трафик.',
     keywords: 'seo консултация, seo консултант, seo експерт, seo услуги, персонална seo стратегия, анализ на сайт, seo одит, консултация за оптимизация на сайт, seo съвети, професионален seo анализ',
-	openGraph: {
+	alternates: {
+    canonical: `$${baseURL}/seo-uslugi/seo-konsultaciya`,
+  },
+	  openGraph: {
       title: 'SEO Консултация – експертна помощ за вашия сайт',
       description: 'Безплатна персонализирана SEO консултация и стратегия за по-добро класиране и повече трафик.',
       url: `${baseURL}/seo-uslugi/${service.slug}`,
