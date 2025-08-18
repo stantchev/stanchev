@@ -31,7 +31,10 @@ export async function generateMetadata() {
     title: 'SEO Одит – анализ и стратегия за по-добро класиране',
     description: 'Пълен SEO одит на сайта ви с технически анализ, конкурентен анализ и препоръки за оптимизация.',
     keywords: 'seo одит, анализ на сайт, технически seo одит, seo анализ сайта, одит на уебсайт, seo проверка, одит на съдържание, seo одит инструмент, одит на линк профил, пълен seo одит',
-	openGraph: {
+	alternates: {
+    canonical: `${baseURL}/seo-uslugi/seo-odit`,
+  },
+	  openGraph: {
       title: 'SEO Одит – анализ и стратегия за по-добро класиране',
       description: 'Пълен SEO одит на сайта ви с технически анализ, конкурентен анализ и препоръки за оптимизация.',
       url: `${baseURL}/seo-uslugi/${service.slug}`,
