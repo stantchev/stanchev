@@ -29,6 +29,7 @@ export async function generateMetadata({
   return {
     title: post.metadata.title,
     description: post.metadata.summary,
+    keywords: post.metadata.keywords,
     alternates: {
       canonical: `${baseURL}/blog/${post.slug}`,
     },
@@ -131,4 +132,5 @@ export default async function Blog({
     </Row>
   );
 }
+
 
