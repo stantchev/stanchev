@@ -171,6 +171,14 @@ const components = {
   Icon: dynamic(() => import("@once-ui-system/core").then(mod => mod.Icon)),
   Media: dynamic(() => import("@once-ui-system/core").then(mod => mod.Media)),
   SmartLink: dynamic(() => import("@once-ui-system/core").then(mod => mod.SmartLink)),
+  SmartLink: dynamic(() => import("@once-ui-system/core").then(mod => mod.SmartLink)),
+  BarChart: dynamic(() => import("@once-ui-system/core").then(mod => mod.BarChart)),
+  LineChart: dynamic(() => import("@once-ui-system/core").then(mod => mod.LineChart)),
+  PieChart: dynamic(() => import("@once-ui-system/core").then(mod => mod.PieChart)),
+  DonutChart: dynamic(() => import("@once-ui-system/core").then(mod => mod.DonutChart)),
+  AreaChart: dynamic(() => import("@once-ui-system/core").then(mod => mod.AreaChart)),
+  StackedBarChart: dynamic(() => import("@once-ui-system/core").then(mod => mod.StackedBarChart)),
+  LineBarChart: dynamic(() => import("@once-ui-system/core").then(mod => mod.LineBarChart)),
 };
 
 type CustomMDXProps = MDXRemoteProps & {
@@ -181,4 +189,5 @@ export function CustomMDX(props: CustomMDXProps) {
   return (
     <MDXRemote {...props} components={{ ...components, ...(props.components || {}) }} />
   );
+
 }
