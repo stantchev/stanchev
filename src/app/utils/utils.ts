@@ -18,6 +18,7 @@ type Metadata = {
   tag?: string;
   team: Team[];
   link?: string;
+  keywords?: string[];
 };
 
 import { notFound } from 'next/navigation';
@@ -81,4 +82,5 @@ export function getPosts(customPath = ["", "", "", ""]) {
   const postsDir = path.join(process.cwd(), ...customPath);
   return getMDXData(postsDir);
 }
+
 
