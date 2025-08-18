@@ -30,6 +30,16 @@ function getMDXFiles(dir: string) {
   return fs.readdirSync(dir).filter((file) => path.extname(file) === ".mdx");
 }
 
+function normalizeKeywords(kw: unknown): string[] {
+  if (Array.isArray(kw)) {
+    return kw.map(String).map(s => s.trim()).filter(Boolean);
+  }
+  if (typeof kw === "string") {
+    return kw.split(",").map(s => s.trim()).filter(Boolean);
+  }
+  return [];
+}
+
 function readMDXFile(filePath: string) {
     if (!fs.existsSync(filePath)) {
         notFound();
@@ -47,6 +57,7 @@ function readMDXFile(filePath: string) {
     tag: data.tag || [],
     team: data.team || [],
     link: data.link || "",
+    keywords: normalizeKeywords((data as any).keywords),
   };
 
   return { metadata, content };
@@ -70,3 +81,4 @@ export function getPosts(customPath = ["", "", "", ""]) {
   const postsDir = path.join(process.cwd(), ...customPath);
   return getMDXData(postsDir);
 }
+
