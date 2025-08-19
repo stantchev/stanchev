@@ -171,12 +171,6 @@ export default function WordpressSEOPage() {
           <WordpressSEOFAQ />
         </Column>
 
-		<Column gap="xs">
-          <Text variant="body-default-m">
-            AI не е заместител, а помощник. Винаги оставям място за човешка намеса.
-			</Text>
-        </Column>
-
         <Column align="center" paddingTop="xl" fillWidth>
           <Heading as="h4" variant="display-strong-m" align="center">
             Готови ли сте за WordPress SEO, пригодено за AI и Overviews?
@@ -191,3 +185,4 @@ export default function WordpressSEOPage() {
     </>
   );
 }
+
