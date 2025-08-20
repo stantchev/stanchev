@@ -31,7 +31,7 @@ export const lbplans = [
   {
     name: "Enterprise",
     price: "350 лв.",
-    oldPrice: "360 лв.",
+    oldPrice: "380 лв.",
 	period: "/ мес.",
     features: [
       "5 премиум линка (DR 20+)",
@@ -43,4 +43,5 @@ export const lbplans = [
     cta: { label: "Започни Enterprise", href: "/kontakti" },
     featured: false,
   },
+
 ];
