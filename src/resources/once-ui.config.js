@@ -37,24 +37,24 @@ const protectedRoutes = {
 };
 
 // Import and set font for each variant
-import { Geist } from "next/font/google";
+import { Sofia_Sans } from "next/font/google";
 import { Geist_Mono } from "next/font/google";
 
-const heading = Geist({
+const heading = Sofia_Sans({
   variable: "--font-heading",
-  subsets: ["latin"],
+  subsets: ["cyrillic"],
   display: "swap",
 });
 
-const body = Geist({
+const body = Sofia_Sans({
   variable: "--font-body",
-  subsets: ["latin"],
+  subsets: ["cyrillic"],
   display: "swap",
 });
 
-const label = Geist({
+const label = Sofia_Sans({
   variable: "--font-label",
-  subsets: ["latin"],
+  subsets: ["cyrillic"],
   display: "swap",
 });
 
@@ -239,3 +239,4 @@ const llmsRules = [
 ];
 
 export { display, mailchimp, routes, protectedRoutes, baseURL, fonts, style, schema, sameAs, effects, dataStyle, llmsRules };
+
