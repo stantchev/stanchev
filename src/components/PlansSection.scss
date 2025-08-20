@@ -1,0 +1,93 @@
+.plans {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  justify-items: center;
+  padding: 2rem;
+}
+
+.plan {
+  background: #111;
+  color: #fff;
+  border: 1px solid #222;
+  border-radius: 1rem;
+  padding: 2rem;
+  max-width: 340px;
+  text-align: center;
+  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 20px rgba(0,0,0,0.4);
+  }
+
+  .price {
+    font-size: 1.5rem;
+    margin: 1rem 0;
+
+    .old {
+      text-decoration: line-through;
+      opacity: 0.6;
+      margin-right: 8px;
+    }
+
+    .period {
+      font-size: 0.9rem;
+      font-weight: normal;
+    }
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+    text-align: left;
+
+    li {
+      margin: 0.4rem 0;
+    }
+  }
+
+  .btn {
+    display: block;
+    margin-top: auto;
+    padding: 0.8rem;
+    border-radius: 0.6rem;
+    font-weight: bold;
+    background: #000;
+    border: 1px solid #444;
+    color: white;
+    text-decoration: none;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background: #fff;
+      color: #000;
+    }
+  }
+
+  &.featured {
+    background: linear-gradient(180deg, #3b0d98, #000);
+    border: 1px solid #555;
+    transform: scale(1.05);
+
+    .btn {
+      background: #fff;
+      color: #000;
+    }
+  }
+
+  .badge {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #000;
+    border-radius: 20px;
+    padding: 2px 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+}
