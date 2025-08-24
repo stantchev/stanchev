@@ -23,7 +23,7 @@ export async function generateMetadata() {
       description: 'Безплатна персонализирана SEO консултация с анализ на сайта ви и ясна стратегия за по-добро класиране, повече трафик и реални резултати.',
 	    keywords: 'seo консултация, seo консултант, seo съвети, seo експерт, консултация по seo, seo анализ, сео консултант, сео анализ онлайн',
 	    alternates: {
-    canonical: `$${baseURL}/seo-uslugi/seo-konsultaciya`,
+    canonical: `${baseURL}/seo-uslugi/seo-konsultaciya`,
   },
       openGraph: { title: 'SEO Консултация – експертна помощ за вашия сайт', description: 'Получете персонализирана SEO консултация и стратегия за по-добро класиране и повече трафик.', url: `${baseURL}/seo-uslugi/seo-konsultaciya` },
       twitter: { title: 'SEO Консултация – експертна помощ за вашия сайт', description: 'Получете персонализирана SEO консултация и стратегия за по-добро класиране и повече трафик.' },
@@ -34,7 +34,7 @@ export async function generateMetadata() {
     description: 'Безплатна персонализирана SEO консултация и стратегия за по-добро класиране и повече трафик.',
     keywords: 'seo консултация, seo консултант, seo експерт, seo услуги, персонална seo стратегия, анализ на сайт, seo одит, консултация за оптимизация на сайт, seo съвети, професионален seo анализ',
 	alternates: {
-    canonical: `$${baseURL}/seo-uslugi/seo-konsultaciya`,
+    canonical: `${baseURL}/seo-uslugi/seo-konsultaciya`,
   },
 	  openGraph: {
       title: 'SEO Консултация – експертна помощ за вашия сайт',
