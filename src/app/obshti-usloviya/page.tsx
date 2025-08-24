@@ -3,6 +3,8 @@ import Script from 'next/script';
 export const metadata: Metadata = {
   title: 'Общи условия | СтанчевSEO',
   description: 'Запознайте се с общите условия за ползване на сайта, включително права, задължения и правила за достъп до информацията и услугите ни.',
+   alternates: {
+    canonical: 'https://stanchev.bg/obshti-uslovia'},
 }
 
 import { Column, Flex, Feedback } from "@once-ui-system/core";
@@ -151,4 +153,5 @@ export default function TermsPage() {
     </>
   );
 }
+
 
