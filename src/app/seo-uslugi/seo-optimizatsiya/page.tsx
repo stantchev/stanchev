@@ -241,6 +241,10 @@ export default function SeoAuditPage() {
           </Flex>
         ))}
       </Column>
+		<Column gap="l">
+		<Heading as="h3" variant="display-default-m">
+            Пакети и цени за SEO оптимизация
+          </Heading>
 <PlansSection plans={SEOPlans} />
       <Heading as="h3" variant="display-default-s">Често задавани въпроси за SEO оптимизация</Heading>
       <SeoAuditFAQ />
@@ -261,6 +265,7 @@ export default function SeoAuditPage() {
         </Flex>
       </Column>
     </Column>
+</Column>		
    </>
   );
 }
