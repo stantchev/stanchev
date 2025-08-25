@@ -258,7 +258,7 @@ export default function SeoUslugi() {
       />
         
       <Column gap="l" paddingX="l">
-        <Heading variant="display-strong-l" marginBottom="m" as="h1">
+        <Heading variant="display-default-m" marginBottom="m" as="h1">
           SEO услуги за вашия бизнес
         </Heading>
         <Text
@@ -373,6 +373,7 @@ export default function SeoUslugi() {
      </>
   );
 }
+
 
 
 
