@@ -11,6 +11,8 @@ import {
 import SeoAuditFAQ from './faq';
 import { baseURL, seoServices } from '@/resources';
 import Script from 'next/script';
+import PlansSection from '@/components/PlansSection';
+import { SEOPlans } from "@/data/pricing/seo-pricing";
 
 const service = seoServices.services.find(s => s.slug === 'seo-optimizatsiya');
 
@@ -31,10 +33,7 @@ export async function generateMetadata() {
     title: 'SEO Оптимизация – повишете видимостта си в Google с професионален подход',
     description: 'SEO оптимизация за вашия бизнес! Подобрете класирането си в Google, увеличете трафика и осигурете устойчив растеж с нашите експертни SEO услуги.',
 	keywords: 'seo оптимизация, оптимизация на сайт, seo оптимизация на онлайн магазин, seo услуги, цени за seo оптимизация, фирма за seo оптимизация, seo консултация, seo анализ сайта, ефективна seo оптимизация, seo експерт',
-    alternates: {
-    canonical: `${baseURL}/seo-uslugi/seo-optimizatsiya`,
-  },
-	  openGraph: {
+    openGraph: {
       title: 'SEO Оптимизация – повишете видимостта си в Google с професионален подход',
       description: 'SEO оптимизация за вашия бизнес! Подобрете класирането си в Google, увеличете трафика и осигурете устойчив растеж с нашите експертни SEO услуги.',
       url: `${baseURL}/seo-uslugi/${service.slug}`,
@@ -166,8 +165,7 @@ export default function SeoAuditPage() {
         </Heading>
 
         <Text variant="display-default-s" align="center" onBackground="neutral-weak">
-          Независимо дали развивате онлайн магазин или корпоративен сайт, добре планираната SEO стратегия
-          е ключът към устойчив растеж и по-ниски разходи за интернет реклама в дългосрочен план.
+          <strong>SEO оптимизация</strong>, която превръща трафика в запитвания и продажби. Ясна стратегия, измерими KPI и съдържание, оптимизирано за <strong>AI</strong>, <strong>Google Overviews</strong> и асистенти като ChatGPT. Ако търсите цялостни <a href="/seo-uslugi">SEO услуги</a>, тук е мястото да започнете.
         </Text>
       <Flex horizontal="center">
         <Button
@@ -183,7 +181,7 @@ export default function SeoAuditPage() {
       </Column>
 
       <Flex gap="8" wrap horizontal="center">
-        {["on-page оптимизация", "линк билдинг стратегия", "Цени за SEO", "SEO Оптимизация"].map((lbl) => (
+        {["SEO оптимизация", "on-page оптимизация", "линк билдинг стратегия", "Цени за SEO"].map((lbl) => (
           <Tag key={lbl} size="l">
             {lbl}
           </Tag>
@@ -192,42 +190,35 @@ export default function SeoAuditPage() {
 
       <Column gap="l">
         <Heading as="h2" variant="display-default-m">
-          Какво включва нашата SEO оптимизация?
+          Какво включва моята SEO оптимизация?
         </Heading>
 
         <Text variant="body-default-l">
-          Извършваме пълен SEO анализ на сайта с цел да открием слабите места и да изградим дългосрочна стратегия.
-          Като опитен seo консултант, предоставям персонализирани решения за подобряване на класирането,
-          базирани на реални данни от инструменти като Ahrefs и Google Search Console.
+          Работя по ясен план: техническо здраве → съдържание → авторитет → конверсия. <strong>SEO оптимизация</strong> означава: коректно индексиране, бърз сайт, теми и ключови думи по намерение, структурирани данни и смислени вътрешни линкове. Всичко е описано, измерено и приоритизирано. Целта е проста: повече видимост в Google и по-ниска цена на придобиване.
         </Text>
 
         <Column as="ul" gap="s" paddingLeft="l">
-          <li>Технически анализ – мобилна съвместимост, Core Web Vitals, скорост и структура.</li>
-          <li>Оптимизация на съдържанието – SEO копирайтинг, ключови думи, структура на страниците.</li>
-          <li>Линк билдинг стратегия – изграждане на линкове от релевантни източници и директории.</li>
-          <li>Конкурентен анализ – как се позиционират други seo фирми и как да изпреварите конкуренцията.</li>
+          <li><strong>Технически анализ</strong> – индексиране, Core Web Vitals, скорост, структура, мобилна съвместимост.</li>
+          <li><strong>Оптимизация на съдържанието</strong> – SEO копирайтинг, намерение на търсене, заглавия и вътрешни линкове.</li>
+          <li><strong>Линк билдинг</strong> – тематични споменавания и рич препратки, които подсилват <strong>SEO оптимизация</strong>.</li>
+          <li><strong>Конкурентен анализ</strong> – какво работи при другите и как да го надскочим.</li>
         </Column>
       </Column>
 
       <Column gap="l">
         <Heading as="h2" variant="display-default-m">
-          Защо да инвестирате в SEO?
+          Защо да инвестирате в SEO оптимизация?
         </Heading>
 
         <Text variant="body-default-l">
-          Качествената seo оптимизация в Google гарантира дългосрочни резултати и по-ниска цена за придобиване на клиент.
-          Вместо временни резултати от реклами, изграждате стабилна основа, която носи трафик и след месеци.
+          <strong>SEO оптимизация</strong> изгражда актив, който расте във времето. Печелите стабилна видимост, богати резултати (schema), повече кликове и по-висока конверсия. Съдържанието, форматирано ясно (въпроси/отговори, списъци, таблици), има по-голям шанс да попадне в <strong>Overviews</strong> и AI отговори.
         </Text>
 
-        <Feedback
-          title="Съвет"
-          description="Преди да стартирате SEO, уверете се, че сайтът ви отговаря на техническите стандарти на Google."
-        />
       </Column>
 
       <Column gap="l">
         <Heading as="h2" variant="display-default-m">
-          Нашият процес в 4 етапа
+          Моят процес в 4 етапа
         </Heading>
 
         {["Анализ", "Стратегия", "Имплементация", "Проследяване"].map((step, i) => (
@@ -239,89 +230,18 @@ export default function SeoAuditPage() {
               </Heading>
               <Text variant="body-default-m">
                 {step === "Анализ"
-                  ? "Детайлен SEO анализ сайта, базиран на данни от Search Console и други инструменти."
+                  ? "Детайлен SEO анализ на сайта: индексиране, логически конфликти, дублирани страници, Core Web Vitals. Извеждам бързи победи и пречки."
                   : step === "Стратегия"
-                  ? "Изграждаме seo стратегия според спецификата на бизнеса и конкуренцията."
+                  ? "Roadmap за SEO оптимизация: теми по намерение, вътрешна архитектура, линк билдинг и schema за богати резултати."
                   : step === "Имплементация"
-                  ? "Работим със собствения ви екип или предлагаме партньорска seo фирма."
-                  : "Проследяваме позициите и правим корекции с цел максимални резултати."}
+                  ? "Приоритизирам задачите с екипа ви. Пиша/редактирам съдържание, коригирам технически детайли, изграждам релевантни линкове."
+                  : "Мониторинг на позиции, покритие, CWV и конверсии. Редовни отчети и итерации за стабилен растеж."}
               </Text>
             </Column>
           </Flex>
         ))}
       </Column>
-
-      <Column gap="l">
-        <Heading as="h2" variant="display-default-m">
-          Пакети и примерни цени
-        </Heading>
-
-        <Column gap="m">
-          <Flex
-            background="surface"
-            border="neutral-alpha-medium"
-            radius="m"
-            padding="l"
-            gap="m"
-	    mobileDirection="column"
-          >
-            <Column flex={8} gap="s" >
-              <Heading as="h3" variant="heading-strong-l">
-                Еднократна SEO Оптимизация
-              </Heading>
-              <Text variant="body-default-m">
-                Подходящ за оптимизация на онлайн магазин или малки бизнес сайтове.
-              </Text>
-            </Column>
-            <Column flex={4} align="center">
-              <Heading as="h4" variant="display-strong-s" className="price-heading">от 750&nbsp;лв.</Heading>
-        <Button
-	  className="price-button"
-          variant="secondary"
-          size="s"
-          href="/kontakti"
-          prefixIcon="chevronRight"
-          data-border="rounded"
-		  style={{ marginLeft: '50px', minWidth: '200px'}}
-        >
-          Виж повече
-        </Button>
-		</Column>
-          </Flex>
-
-          <Flex
-            background="surface"
-            border="neutral-alpha-medium"
-            radius="m"
-            padding="l"
-            gap="m"
-	    mobileDirection="column"
-          >
-            <Column flex={8} gap="s">
-              <Heading as="h3" variant="heading-strong-l">
-                Разширен SEO пакет + Link Building
-              </Heading>
-              <Text variant="body-default-m">
-                Комбинирана услуга за цялостна оптимизация на сайтове и външна SEO подкрепа.
-              </Text>
-            </Column>
-            <Column flex={4} align="end">
-              <Heading as="h4" variant="display-strong-s" className="price-heading">от 550&nbsp;лв./мес</Heading>
-		<Button
-          	variant="secondary"
-          	size="s"
-          	href="/seo-uslugi/link-building"
-          	prefixIcon="chevronRight"
-          	data-border="rounded"
-		style={{ marginLeft: '50px', minWidth: '200px'}}
-       		 >
-          	Виж повече
-        	</Button>
-            </Column>
-          </Flex>
-        </Column>
-      </Column>
-
+<PlansSection plans={SEOPlans} />
       <Heading as="h3" variant="display-default-s">Често задавани въпроси за SEO оптимизация</Heading>
       <SeoAuditFAQ />
 
@@ -336,7 +256,7 @@ export default function SeoAuditPage() {
             prefixIcon="rocket"
             href="/kontakti"
           >
-            Свържи се с нас
+            Свържи се с мен
           </Button>
         </Flex>
       </Column>
