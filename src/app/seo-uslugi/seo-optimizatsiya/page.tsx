@@ -242,11 +242,11 @@ export default function SeoAuditPage() {
         ))}
       </Column>
 		<Column gap="l">
-		<Heading as="h3" variant="display-default-m">
+		<Heading as="h3" variant="display-default-m" align="center">
             Пакети и цени за SEO оптимизация
           </Heading>
 <PlansSection plans={SEOPlans} />
-      <Heading as="h3" variant="display-default-s">Често задавани въпроси за SEO оптимизация</Heading>
+      <Heading as="h3" variant="display-default-s" align="center">Често задавани въпроси за SEO оптимизация</Heading>
       <SeoAuditFAQ />
 
       <Column gap="m" align="center" paddingTop="xl">
