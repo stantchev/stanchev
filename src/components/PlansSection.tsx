@@ -1,12 +1,22 @@
 "use client";
 
-import { lbplans } from "@/data/pricing/lb-pricing";
 import "./PlansSection.scss";
 
-export default function PlansSection() {
+type Plan = {
+  name: string;
+  price: string;
+  oldPrice?: string;
+  period?: string;
+  badge?: string;
+  featured?: boolean;
+  features: string[];
+  cta: { href: string; label: string };
+};
+
+export default function PlansSection({ plans }: { plans: Plan[] }) {
   return (
     <section className="plans">
-      {lbplans.map((p) => (
+      {plans.map((p) => (
         <div key={p.name} className={`plan ${p.featured ? "featured" : ""}`}>
           {p.badge && <div className="badge">{p.badge}</div>}
 
