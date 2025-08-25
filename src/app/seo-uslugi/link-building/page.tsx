@@ -4,6 +4,7 @@ import { baseURL, seoServices } from '@/resources';
 import Script from 'next/script';
 import type { Metadata } from 'next';
 import PlansSection from '@/components/PlansSection';
+import { lbplans } from "@/data/pricing/lb-pricing";
 
 const service = seoServices.services.find((s: { slug: string }) => s.slug === 'link-building');
 
