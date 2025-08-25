@@ -33,7 +33,10 @@ export async function generateMetadata() {
     title: 'SEO Оптимизация – повишете видимостта си в Google с професионален подход',
     description: 'SEO оптимизация за вашия бизнес! Подобрете класирането си в Google, увеличете трафика и осигурете устойчив растеж с нашите експертни SEO услуги.',
 	keywords: 'seo оптимизация, оптимизация на сайт, seo оптимизация на онлайн магазин, seo услуги, цени за seo оптимизация, фирма за seo оптимизация, seo консултация, seo анализ сайта, ефективна seo оптимизация, seo експерт',
-    openGraph: {
+    	    alternates: {
+    canonical: `${baseURL}/seo-uslugi/seo-optimizatsiya`,
+  },
+	  openGraph: {
       title: 'SEO Оптимизация – повишете видимостта си в Google с професионален подход',
       description: 'SEO оптимизация за вашия бизнес! Подобрете класирането си в Google, увеличете трафика и осигурете устойчив растеж с нашите експертни SEO услуги.',
       url: `${baseURL}/seo-uslugi/${service.slug}`,
