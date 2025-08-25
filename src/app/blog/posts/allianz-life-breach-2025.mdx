@@ -46,24 +46,24 @@ image: /images/posts/allianz-life-breach-2025.jpg
   title="Allianz Life 2025: индикативни първогодишни разходи (USD млн.)"
   yLabel="USD млн."
   data={[
-    { category: "Директни (форензика/възстановяване)", value: 35 },
-    { category: "Уведомления + защита на идентичност", value: 45 },
-    { category: "Правни разходи и уреждания", value: 70 },
-    { category: "Глоби/санкции", value: 25 },
-    { category: "Подобрения по сигурността", value: 30 }
+    { category: "Директни (форензика/възстановяване)", loss: 35 },
+    { category: "Уведомления + защита на идентичност", loss: 45 },
+    { category: "Правни разходи и уреждания", loss: 70 },
+    { category: "Глоби/санкции", loss: 25 },
+    { category: "Подобрения по сигурността", loss: 30 }
   ]}
-  xKey="company"
+  xKey="category"
   yKey="loss"
 />
 
 <PieChart
   title="Състав на разходите (индикативно разпределение)"
   data={[
-    { label: "Правни и уреждания", value: 70 },
-    { label: "Уведомления/защита на идентичност", value: 45 },
-    { label: "Форензика/възстановяване", value: 35 },
-    { label: "Подобрения по сигурността", value: 30 },
-    { label: "Глоби/санкции", value: 25 }
+    { label: "Правни и уреждания", loss: 70 },
+    { label: "Уведомления/защита на идентичност", loss: 45 },
+    { label: "Форензика/възстановяване", loss: 35 },
+    { label: "Подобрения по сигурността", loss: 30 },
+    { label: "Глоби/санкции", loss: 25 }
   ]}
   nameKey="label"
   valueKey="value"
@@ -72,10 +72,10 @@ image: /images/posts/allianz-life-breach-2025.jpg
 <BarChart
   title="Обхват по данни (публични индикатори)"
   data={[
-    { category: "Клиентска база (US)", value: 1.4 },
-    { category: "Уникално идентифицирани в изтекъл сет", value: 1.1 }
+    { category: "Клиентска база (US)", Бр. млн.: 1.4 },
+    { category: "Уникално идентифицирани в изтекъл сет", Бр. млн.: 1.1 }
   ]}
-  xKey="company"
+  xKey="category"
   yKey="Бр. (млн.)"
 />
 
