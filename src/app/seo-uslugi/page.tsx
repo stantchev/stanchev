@@ -266,7 +266,7 @@ export default function SeoUslugi() {
           onBackground="neutral-weak"
           wrap="balance"
         >
-          Предлагам цялостна <a href="/seo-uslugi/seo-optimizatsiya"><strong>SEO оптимизация</strong></a>, проектирана за <strong>реални запитвания и продажби</strong>, а не само за позиции. Комбинирам <strong>техническо SEO</strong>, <strong>on-page</strong>, <strong>съдържание</strong> и <strong>линк билдинг</strong>, за да постигнете <strong>устойчив органичен растеж</strong>. Съдържанието е <strong>AI-ready</strong> (водачи, сравнения, Q&A), със <strong>структурирани данни</strong> и отлични <strong>Core Web Vitals</strong>, така че сайтът ви да присъства и в <strong>Google Overviews</strong>. Вижте <a href="/seo-proekti">успешни проекти</a> или <a href="/kontakti">заявете консултация</a>.
+          Предлагам цялостна <a href="/seo-uslugi/seo-optimizatsiya"><strong>SEO оптимизация</strong></a>, проектирана за <strong>реални запитвания и продажби</strong>, а не само за позиции. Комбинирам <strong>техническо SEO</strong>, <strong>on-page</strong>, <strong>съдържание</strong> и <strong>линк билдинг</strong>, за да постигнете <strong>устойчив органичен растеж</strong>. Съдържанието е <strong>AI-ready</strong> (водачи, сравнения, Q&A), със <strong>структурирани данни</strong> и отлични <strong>Core Web Vitals</strong>, така че сайтът ви да присъства и в <strong>Google Overviews</strong>.
         </Text>
       </Column>
 
@@ -373,3 +373,4 @@ export default function SeoUslugi() {
      </>
   );
 }
+
