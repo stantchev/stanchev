@@ -295,7 +295,7 @@ export default function LinkBuildingPage() {
             Пакети и цени за Link Building
           </Heading>
 		  
-		  <PlansSection />
+		  <PlansSection plans={lbplans} />
 		  
           <Heading as="h3" variant="display-default-s">
             Често задавани въпроси за Link Building
