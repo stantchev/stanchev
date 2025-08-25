@@ -7,7 +7,7 @@ export async function generateMetadata() {
     title: seoServices.title,
     description: seoServices.description,
     alternates: {
-      keywords: 'seo оптимизация, seo услуги, seo цена, линк билдинг, оптимизация на сайт, seo консултант, фирма за seo, seo специалист, seo агенция, seo оптимизатор, реклама в Google, дигитален маркетинг, seo одит, seo обучение, seo стратегия, оптимизация на онлайн магазин.',
+      keywords: 'seo оптимизация, seo оптимизация цена, seo оптимизация цени, seo услуги, seo цена, линк билдинг, оптимизация на сайт, seo консултант, фирма за seo, seo специалист, seo агенция, seo оптимизатор, реклама в Google, дигитален маркетинг, seo одит, seo обучение, seo стратегия, оптимизация на онлайн магазин, ai overviews, core web vitals, structured data',
       canonical: `${baseURL}/seo-uslugi`,
     },
     openGraph: {
@@ -47,7 +47,7 @@ export default function SeoUslugi() {
               {
                 "@type": "WebPage",
                 "name": "Пълна гама от SEO услуги, цени и пакети за вашия бизнес",
-                "description": "Предлагаме SEO оптимизация, линк билдинг, on-page и off-page оптимизация, PPC кампании и др. Вижте цените и изберете пакет.",
+                "description": "SEO услуги, проектирани за реални резултати: технически одит, on-page, съдържание, линк билдинг и AI-оптимизация за Google Overviews. Ясни KPI, отчетност и устойчив растеж на органичния трафик.",
                 "url": "https://stanchev.bg/seo-uslugi",
                 "image": {
                   "@type": "ImageObject",
@@ -55,22 +55,22 @@ export default function SeoUslugi() {
                 },
                 "author": {
                   "@type": "Person",
-                  "name": "Станчев", // Използваме person.name от @/resources
+                  "name": "Станчев",
                   "url": "https://www.linkedin.com/in/stantcheff/",
-                  "image": "https://stanchev.bg/assets/avatar.jpg" // Използваме person.avatar от @/resources
+                  "image": "https://stanchev.bg/assets/avatar.jpg"
                 },
                 "publisher": {
-                  "@id": "https://stanchev.bg/#organization" // Референция към Organization в същия @graph
+                  "@id": "https://stanchev.bg/#organization"
                 }
               },
               {
                 "@type": "OfferCatalog",
                 "name": "Пълна гама от SEO услуги, цени и пакети",
-                "description": "Предлагаме SEO оптимизация, линк билдинг, on-page и off-page оптимизация, PPC кампании и др. Вижте цените и изберете пакет.",
+                "description": "Одит → стратегия → изпълнение → растеж. Техническо SEO, CWV, структурирани данни, eCommerce оптимизация, локално SEO и AI-ready съдържание за по-голямо покритие в SERP и Overviews.",
                 "url": "https://stanchev.bg/seo-uslugi",
                 "provider": {
                   "@type": "Organization",
-                  "@id": "https://stanchev.bg/#organization", // Явно дефиниране на организацията
+                  "@id": "https://stanchev.bg/#organization",
                   "name": "Станчев SEO",
                   "url": "https://stanchev.bg/",
                   "logo": "https://stanchev.bg/images/og/og.jpg",
@@ -102,7 +102,7 @@ export default function SeoUslugi() {
                     "itemOffered": {
                       "@type": "Service",
                       "name": "SEO Оптимизация",
-                      "description": "Пълна SEO оптимизация на вашия уебсайт за по-добро класиране в търсачките."
+                      "description": "Пълна SEO оптимизация: анализ на търсене, on-page/tech, вътрешно свързване и съдържание, ориентирано към конверсия."
                     },
                     "priceSpecification": {
                       "@type": "UnitPriceSpecification",
@@ -117,7 +117,7 @@ export default function SeoUslugi() {
                     "itemOffered": {
                       "@type": "Service",
                       "name": "Link Building",
-                      "description": "Ефективно изграждане на линкове за подобряване на SEO позициите и авторитета на вашия сайт."
+                      "description": "Качествени външни връзки, тематични публикации и дигитални PR активи за по-силен авторитет."
                     },
                     "priceSpecification": {
                       "@type": "UnitPriceSpecification",
@@ -132,7 +132,7 @@ export default function SeoUslugi() {
                     "itemOffered": {
                       "@type": "Service",
                       "name": "SEO Одит",
-                      "description": "Анализ на SEO състоянието на сайта и стратегии за подобрение."
+                      "description": "Детайлен технически и съдържателен одит: индексиране, CWV, структура, дублирано съдържание и приоритизиран план."
                     },
                     "priceSpecification": {
                       "@type": "UnitPriceSpecification",
@@ -148,7 +148,7 @@ export default function SeoUslugi() {
                     "itemOffered": {
                       "@type": "Service",
                       "name": "On-Page SEO",
-                      "description": "Оптимизация на структурата, мета данни и съдържание."
+                      "description": "Структура, мета данни, UX копирайтинг, вътрешни линкове и schema за богати резултати."
                     },
                     "priceSpecification": {
                       "@type": "UnitPriceSpecification",
@@ -164,7 +164,7 @@ export default function SeoUslugi() {
                     "itemOffered": {
                       "@type": "Service",
                       "name": "Keyword Research",
-                      "description": "Изследване на ключови думи и създаване на SEO стратегия."
+                      "description": "Изследване на ключови думи, намерение и теми за съдържание, готови за AI резюмета."
                     },
                     "priceSpecification": {
                       "@type": "UnitPriceSpecification",
@@ -180,7 +180,7 @@ export default function SeoUslugi() {
                     "itemOffered": {
                       "@type": "Service",
                       "name": "Локално SEO",
-                      "description": "SEO оптимизация за локални търсения и позициониране в Google Maps."
+                      "description": "Оптимизация за локални търсения и Google Business Profile с фокус върху реални запитвания."
                     },
                     "priceSpecification": {
                       "@type": "UnitPriceSpecification",
@@ -196,14 +196,14 @@ export default function SeoUslugi() {
                     "itemOffered": {
                       "@type": "Service",
                       "name": "SEO Консултация",
-                      "description": "Лична консултация със SEO експерт за вашия бизнес."
+                      "description": "Лична консултация: стратегия, приоритизация и roadmap според екип и ресурси."
                     },
                     "priceSpecification": {
                       "@type": "UnitPriceSpecification",
-                      "price": "100",
+                      "price": "0,00",
                       "priceCurrency": "BGN",
                       "unitText": "лв./час",
-                      "name": "Цена за SEO Консултация на час"
+                      "name": "Безплатна SEO Консултация"
                     },
                     "url": "https://stanchev.bg/seo-uslugi/seo-konsultaciya"
                   }
@@ -214,26 +214,26 @@ export default function SeoUslugi() {
                 "mainEntity": [
                   {
                     "@type": "Question",
-                    "name": "Какви точно SEO услуги предлага Станчев SEO?",
+                    "name": "Какви точно SEO услуги предлагате?",
                     "acceptedAnswer": {
                       "@type": "Answer",
-                      "text": "Станчев SEO предлага цялостни SEO услуги, които включват детайлен технически одит на уебсайта, оптимизация на съдържанието (on-page SEO), изграждане на качествени връзки (off-page SEO), анализ на ключови думи и мониторинг на конкуренцията. Ние се фокусираме върху дългосрочни резултати и устойчив растеж на органичния трафик, като нашата SEO стратегия е съобразена с най-новите алгоритми."
+                      "text": "Предлагам пълен набор от SEO: технически одит и фиксове, on-page оптимизация, съдържание и вътрешно свързване, линк билдинг и измерване на резултатите. Работя с ясни KPI и фокус върху продажби, не само позиции."
                     }
                   },
                   {
                     "@type": "Question",
-                    "name": "С какво услугите на Станчев SEO се отличават от конкурентните?",
+                    "name": "С какво подходът ви се отличава?",
                     "acceptedAnswer": {
                       "@type": "Answer",
-                      "text": "Станчев SEO се отличава с персонализиран подход към всеки клиент и прозрачност в работата. Ние не просто изпълняваме задачи, а задълбочено разбираме вашите бизнес цели и адаптираме стратегията си. Използваме утвърдени и етични (white-hat) SEO практики, гарантиращи сигурност и устойчивост на резултатите ви. Работим като отдаден SEO консултант за вашия онлайн успех."
+                      "text": "Персонализирана стратегия, прозрачни отчети и ориентация към възвръщаемост. Включвам AI-готови формати (водачи, сравнения, FAQ) и структурирани данни за по-добро присъствие в Google Overviews."
                     }
                   },
                   {
                     "@type": "Question",
-                    "name": "За какъв тип бизнес са подходящи SEO услугите на Станчев SEO?",
+                    "name": "За какви бизнеси са подходящи услугите?",
                     "acceptedAnswer": {
                       "@type": "Answer",
-                      "text": "Нашите SEO оптимизации са подходящи за широк кръг бизнеси, които искат да увеличат онлайн видимостта си. Работим успешно както с малки и средни предприятия, така и с големи компании от различни сектори, включително електронни магазини, фирмени уебсайтове и блогове. Важно е да имате желание за дългосрочна инвестиция в дигиталния си маркетинг. За нас е важно да сме вашата надеждна SEO фирма."
+                      "text": "Подходящи са за фирмени сайтове, онлайн магазини и B2B проекти. Мога да работя както с малки екипи, така и с големи организации – приоритетът е устойчив растеж на органичните приходи."
                     }
                   }
                 ]
@@ -258,7 +258,7 @@ export default function SeoUslugi() {
       />
         
       <Column gap="l" paddingX="l">
-        <Heading variant="display-strong-l" marginBottom="m" as="h1"> {/* <-- ЕДИНСТВЕНО H1 */}
+        <Heading variant="display-strong-l" marginBottom="m" as="h1">
           SEO услуги за вашия бизнес
         </Heading>
         <Text
@@ -266,20 +266,20 @@ export default function SeoUslugi() {
           onBackground="neutral-weak"
           wrap="balance"
         >
-          Нашият екип предлага услуги като оптимизация на сайтове, seo копирайтинг и регистрация на сайт в търсачки за различни бизнеси и онлайн магазини. Вижте нашите <a href="/seo-proekti">успешни проекти</a> или се <a href="/kontakti">свържете с нас</a> за повече информация.
+          Предлагам цялостна <a href="/seo-uslugi/seo-optimizatsiya"><strong>SEO оптимизация</strong></a>, проектирана за <strong>реални запитвания и продажби</strong>, а не само за позиции. Комбинирам <strong>техническо SEO</strong>, <strong>on-page</strong>, <strong>съдържание</strong> и <strong>линк билдинг</strong>, за да постигнете <strong>устойчив органичен растеж</strong>. Съдържанието е <strong>AI-ready</strong> (водачи, сравнения, Q&A), със <strong>структурирани данни</strong> и отлични <strong>Core Web Vitals</strong>, така че сайтът ви да присъства и в <strong>Google Overviews</strong>. Вижте <a href="/seo-proekti">успешни проекти</a> или <a href="/kontakti">заявете консултация</a>.
         </Text>
       </Column>
 
       <Column gap="m" paddingX="l">
-        <Heading variant="heading-strong-l" marginBottom="m" as="h2"> {/* <-- ЕДИНСТВЕНО H2 */}
-          Как можем да помогнем?
+        <Heading variant="heading-strong-xl" marginBottom="m" as="h2">
+          Как мога да помогна?
         </Heading>
         <Text
-          variant="body-default-l"
+          variant="body-default-xl"
           onBackground="neutral-weak"
           wrap="balance"
         >
-          Извършваме услуги като seo анализ онлайн, seo стратегия, оптимизация на сайт за мобилни устройства и off-page оптимизация за фирми, онлайн магазини и блогове. Предлагаме индивидуален подход и прозрачни резултати.
+          Започвам с <strong>одит</strong> и приоритизиран <strong>roadmap</strong>, след което изпълнявам фиксове и съдържателни подобрения по спринтове. Оптимизирам <strong>информационната архитектура</strong>, <strong>вътрешното свързване</strong> и <strong>индексирането</strong>, управлявам <strong>фасети/филтри</strong> и дублирано съдържание, внедрявам <strong>schema</strong> (Product/Offer/Review, Organization, Breadcrumb) и подобрявам <strong>CWV</strong>. За eCommerce структурирам категории и продуктови страници, а за локален бизнес – профили и локални сигнали. Всичко се измерва с ясни <strong>KPI</strong> и месечни отчети.
         </Text>
       </Column>
 
@@ -294,7 +294,7 @@ export default function SeoUslugi() {
             direction="column"
             gap="m"
           >
-            <Heading variant="heading-strong-l" marginBottom="s" as="h3"> {/* <-- Променено на H3 */}
+            <Heading variant="heading-strong-l" marginBottom="s" as="h3">
               {service.title}
             </Heading>
             <Text variant="body-default-m" onBackground="neutral-weak" marginBottom="m">
@@ -327,26 +327,26 @@ export default function SeoUslugi() {
       <AccordionGroup
         items={[
           {
-            title: "Какви точно SEO услуги предлага Станчев SEO?",
+            title: "Какви точно SEO услуги предлагате?",
             content: (
               <Text onBackground="neutral-weak">
-                Станчев SEO предлага цялостни SEO услуги, които включват детайлен технически одит на уебсайта, оптимизация на съдържанието (on-page SEO), изграждане на качествени връзки (off-page SEO), анализ на ключови думи и мониторинг на конкуренцията. Ние се фокусираме върху дългосрочни резултати и устойчив растеж на органичния трафик, като нашата SEO стратегия е съобразена с най-новите алгоритми.
+                Предлагам технически одит и фиксове, on-page оптимизация, съдържание и вътрешно свързване, линк билдинг и проследяване на KPI. Работя с AI-готови формати (водачи, сравнения, FAQ) и структурирани данни за по-силно присъствие в Overviews.
               </Text>
             )
           },
           {
-            title: "С какво услугите на Станчев SEO се отличават от конкурентните?",
+            title: "С какво подходът ви се отличава?",
             content: (
               <Text onBackground="neutral-weak">
-                Станчев SEO се отличава с персонализиран подход към всеки клиент и прозрачност в работата. Ние не просто изпълняваме задачи, а задълбочено разбираме вашите бизнес цели и адаптираме стратегията си. Използваме утвърдени и етични (white-hat) SEO практики, гарантиращи сигурност и устойчивост на резултатите ви. Работим като отдаден SEO консултант за вашия онлайн успех.
+                Персонален план по приоритет и възвръщаемост, прозрачни отчети и работа по спринтове. Фокус върху CWV, crawl ефективност и съдържание, което реално продава.
               </Text>
             )
           },
           {
-            title: "За какъв тип бизнес са подходящи SEO услугите на Станчев SEO?",
+            title: "Подходящо ли е за моя бизнес и бюджет?",
             content: (
               <Text onBackground="neutral-weak">
-                Нашите SEO оптимизации са подходящи за широк кръг бизнеси, които искат да увеличат онлайн видимостта си. Работим успешно както с малки и средни предприятия, така и с големи компании от различни сектори, включително електронни магазини, фирмени уебсайтове и блогове. Важно е да имате желание за дългосрочна инвестиция в дигиталния си маркетинг. За нас е важно да сме вашата надеждна SEO фирма.
+                Да — работя с фирмени сайтове, онлайн магазини и B2B. Предлагам гъвкави пакети и ясно дефинирани етапи, за да видите ефект още в първите месеци.
               </Text>
             )
           }
@@ -354,11 +354,11 @@ export default function SeoUslugi() {
       />
 
       <Column gap="m" paddingX="l" horizontal="center">
-        <Heading variant="display-strong-s" align="center" as="h4"> {/* <-- ЕДИНСТВЕНО H4 */}
+        <Heading variant="display-strong-s" align="center" as="h4">
           Готови за по-добри резултати?
         </Heading>
         <Text variant="body-default-l" onBackground="neutral-weak" align="center" wrap="balance">
-          Свържете се с мен за безплатна консултация и анализ на вашия сайт
+          Свържете се с мен за безплатна консултация и кратък одит — ще получите приоритизиран план с ясни KPI и очакван ефект.
         </Text>
         <Button
           href="/kontakti"
@@ -373,5 +373,3 @@ export default function SeoUslugi() {
      </>
   );
 }
-
-
