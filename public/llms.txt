@@ -1,30 +1,59 @@
-User-agent: Google-Extended
-Allow: /uslugi/
-Allow: /blog/
+# llms.txt – оптимизиран за AI и SEO
 
-User-agent: OpenAI
-Allow: /uslugi/
-Allow: /blog/
-Disallow: /
+Version: 1.0
 
-User-agent: Meta
-Allow: /uslugi/
-Allow: /blog/
-Disallow: /
+# Пълен достъп
+Dataset: /
+Name: Full Site Content
+Format: text/html
+Description: Provides full access to all website pages and content for comprehensive AI indexing.
+Keywords: SEO, SEO оптимизация, дигитален маркетинг, уеб дизайн, WordPress, оптимизация на сайт
+Importance: medium
 
-User-agent: Bingbot
-Allow: /uslugi/
-Allow: /blog/
-Disallow: /
+# Услуги
+Dataset: /uslugi/
+Name: Services Section
+Format: text/html
+Description: Professional SEO and web design services helping businesses grow their online presence.
+Keywords: SEO услуги, WordPress оптимизация, линк билдинг, техническо SEO, дигитални услуги
+Importance: high
 
-User-agent: Anthropic
-Disallow: /
+# Блог
+Dataset: /blog/
+Name: Blog Section
+Format: text/html
+Description: Blog with SEO tips, digital marketing strategies, and industry insights for entrepreneurs.
+Keywords: SEO блог, статии за SEO, маркетинг стратегии, онлайн бизнес
+Importance: high
 
-User-agent: Perplexity
-Disallow: /
+# За мен
+Dataset: /za-men/
+Name: About Me Section
+Format: text/html
+Description: Background of the site owner, expertise in SEO, web development, and digital marketing.
+Keywords: Станчев, SEO експерт, SEO консултант, уеб разработка
+Importance: critical
 
-User-agent: CCBot
-Disallow: /
+# Контакти
+Dataset: /kontakti/
+Name: Contacts Section
+Format: text/html
+Description: Contact information including email, location, and working hours for easy connection.
+Keywords: контакти SEO, връзка със SEO консултант, контакти Станчев
+Importance: critical
 
-User-agent: *
-Disallow: /
+# SEO Проекти – Премахване на счупени изображения
+Dataset: /seo-proekti/premahvane-na-schupeni-izobrazhenia
+Name: Broken Images Removal Case
+Format: text/html
+Description: Case study showing how broken images were removed from 700+ pages using SQL and PHP to improve UX, SEO, and site performance.
+Keywords: счупени изображения, SEO проекти, case study, оптимизация на сайт
+Importance: high
+
+# SEO Проекти – Интеграция ChatGPT в WordPress
+Dataset: /seo-proekti/integraciya-chatgpt-wordpress-case-study
+Name: ChatGPT-WordPress Integration Case
+Format: text/html
+Description: Case study on deploying a ChatGPT-powered WordPress plugin in three days, including SEO automation, Yoast/Rank Math integration, AI-driven keyword suggestions, multilingual support.
+Keywords: ChatGPT WordPress, интеграция на ChatGPT, AI SEO, WordPress SEO автоматизация
+Importance: high
