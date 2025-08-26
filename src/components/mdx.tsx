@@ -76,13 +76,6 @@ function slugify(str: string): string {
 }
 
 function createHeading(as: "h1" | "h2" | "h3" | "h4" | "h5" | "h6") {
-  const variants: Record<typeof as, string> = {
-    h1: "display-strong-l",
-    h2: "display-default-m",
-    h3: "heading-strong-l",
-    h4: "display-strong-m",
-  };
-
   const CustomHeading = ({ children, ...props }: Omit<React.ComponentProps<typeof HeadingLink>, 'as' | 'id'>) => {
     const slug = slugify(children as string);
     return (
@@ -91,7 +84,6 @@ function createHeading(as: "h1" | "h2" | "h3" | "h4" | "h5" | "h6") {
         marginBottom="12"
         as={as}
         id={slug}
-        variant={variants[as]}
         {...props}
       >
         {children}
@@ -195,6 +187,7 @@ export function CustomMDX(props: CustomMDXProps) {
   );
 
 }
+
 
 
 
