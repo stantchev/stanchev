@@ -7,7 +7,7 @@ const person = {
     return `${this.firstName} ${this.lastName}`;
   },
   role: "SEO Специалист",
-  avatar: "/images/avatar.jpg",
+  avatar: "/images/avatar.png",
   email: "seo@stanchev.bg",
   location: "Europe/Sofia",
   languages: ["Български", "Английски"],
@@ -386,6 +386,7 @@ export {
   contact,
   gallery,
 };
+
 
 
 
