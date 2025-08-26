@@ -44,7 +44,7 @@ const social = [
 
 const home = {
   path: "/",
-  image: "https://stanchev.vercel.app/images/og/og.jpg",
+  image: "https://stanchev.bg/images/og/og.jpg",
   label: "Начало",
 
   // За SEO и metadata
@@ -386,6 +386,7 @@ export {
   contact,
   gallery,
 };
+
 
 
 
