@@ -12,9 +12,9 @@ export const metadata: Metadata = {
   title: home.titleText,
   description: home.descriptionText,
 openGraph: {
-  title: "Станчев SEO - Експертни SEO Услуги и Оптимизация на Сайтове",
+  title: "SEO оптимизация и AI Automation за вашия бизнес",
   description:
-    "Достигнете върха на Google с персонализирани SEO стратегии от Станчев. Предлагаме цялостна оптимизация на сайтове, техническо SEO, On-page, Off-page и Link Building.",
+    "Комбинация от SEO оптимизация и AI Automation за повече трафик, по-високо класиране и автоматизирано развитие на вашия бизнес | Станчев SEO",
   url: "https://stanchev.bg/",
   siteName: "Станчев SEO",
   images: [
@@ -29,9 +29,9 @@ openGraph: {
 },
 twitter: {
   card: "summary_large_image",
-  title: "Станчев SEO - Експертни SEO Услуги и Оптимизация на Сайтове",
+  title: "SEO оптимизация и AI Automation за вашия бизнес",
   description:
-    "Достигнете върха на Google с персонализирани SEO стратегии от Станчев. Предлагаме цялостна оптимизация на сайтове, техническо SEO, On-page, Off-page и Link Building.",
+    "Комбинация от SEO оптимизация и AI Automation за повече трафик, по-високо класиране и автоматизирано развитие на вашия бизнес | Станчев SEO",
   images: [`https://stanchev.bg/images/og/og.jpg`],
 },
   verification: {
@@ -52,7 +52,7 @@ export default function Nachalo() {
             "name": "Станчев SEO",
             "url": "https://stanchev.bg/",
             "logo": "https://stanchev.bg/images/og/og.jpg",
-            "description": "Аз съм Станчев – SEO оптимизатор, който превръща хаоса в структура, съдържанието в резултати и кофеина в работещи решения. Помагам на бизнеси да увеличат видимостта си онлайн и да постигнат устойчив растеж.",
+            "description": "SEO оптимизация и AI Automation за повече трафик, по-високо класиране и автоматизирано развитие на вашия бизнес | Станчев SEO",
             "contactPoint": {
               "@type": "ContactPoint",
               "contactType": "customer service",
@@ -172,4 +172,5 @@ export default function Nachalo() {
     </>
   );
 }
+
 
