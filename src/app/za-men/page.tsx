@@ -298,6 +298,20 @@ export default function ZaMen() {
       style={{ display: "block" }}
     />
   </a>
+	  {/* AI-Powered Marketer Certificate */}
+  <a 
+    href="https://static.semrush.com/academy/certificates/dfbe013175/milen-stanchev_26.pdf" 
+    rel="noreferrer nofollow" 
+    target="_blank"
+  >
+    <img 
+      src="/images/semrush-digital-maketing-ai-certification-80x80" 
+      alt="AI-Powered Marketer Certificate" 
+      width={80} 
+      height={80} 
+      style={{ display: "block" }}
+    />
+  </a>
 </div>
               </>
             )}
@@ -501,6 +515,7 @@ export default function ZaMen() {
    </>
   );
 }
+
 
 
 
