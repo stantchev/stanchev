@@ -312,6 +312,20 @@ export default function ZaMen() {
       style={{ display: "block" }}
     />
   </a>
+	{/* On-Page SEO Essentials with Semrush Certificate */}
+  <a 
+    href="https://static.semrush.com/academy/certificates/c326ee55fe/milen-stanchev_25.pdf" 
+    rel="noreferrer nofollow" 
+    target="_blank"
+  >
+    <img 
+      src="/images/semrush-digital-maketing-ai-certification-80x80.png" 
+      alt="On-Page SEO Essentials with Semrush Certificate" 
+      width={80} 
+      height={80} 
+      style={{ display: "block" }}
+    />
+  </a>
 </div>
               </>
             )}
@@ -515,6 +529,7 @@ export default function ZaMen() {
    </>
   );
 }
+
 
 
 
