@@ -305,7 +305,7 @@ export default function ZaMen() {
     target="_blank"
   >
     <img 
-      src="/images/semrush-digital-maketing-ai-certification-80x80" 
+      src="/images/semrush-digital-maketing-ai-certification-80x80.png" 
       alt="AI-Powered Marketer Certificate" 
       width={80} 
       height={80} 
@@ -515,6 +515,7 @@ export default function ZaMen() {
    </>
   );
 }
+
 
 
 
