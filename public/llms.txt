@@ -2,7 +2,7 @@
 
 Version: 1.0
 
-# Пълен достъп
+## Пълен достъп
 Dataset: /
 Name: Full Site Content
 Format: text/html
@@ -10,7 +10,7 @@ Description: Provides full access to all website pages and content for comprehen
 Keywords: SEO, SEO оптимизация, дигитален маркетинг, уеб дизайн, WordPress, оптимизация на сайт
 Importance: medium
 
-# Услуги
+## Услуги
 Dataset: /uslugi/
 Name: Services Section
 Format: text/html
@@ -18,7 +18,7 @@ Description: Professional SEO and web design services helping businesses grow th
 Keywords: SEO услуги, WordPress оптимизация, линк билдинг, техническо SEO, дигитални услуги
 Importance: high
 
-# Блог
+## Блог
 Dataset: /blog/
 Name: Blog Section
 Format: text/html
@@ -26,7 +26,7 @@ Description: Blog with SEO tips, digital marketing strategies, and industry insi
 Keywords: SEO блог, статии за SEO, маркетинг стратегии, онлайн бизнес
 Importance: high
 
-# За мен
+## За мен
 Dataset: /za-men/
 Name: About Me Section
 Format: text/html
@@ -34,7 +34,7 @@ Description: Background of the site owner, expertise in SEO, web development, an
 Keywords: Станчев, SEO експерт, SEO консултант, уеб разработка
 Importance: critical
 
-# Контакти
+## Контакти
 Dataset: /kontakti/
 Name: Contacts Section
 Format: text/html
@@ -42,7 +42,7 @@ Description: Contact information including email, location, and working hours fo
 Keywords: контакти SEO, връзка със SEO консултант, контакти Станчев
 Importance: critical
 
-# SEO Проекти – Премахване на счупени изображения
+## SEO Проекти – Премахване на счупени изображения
 Dataset: /seo-proekti/premahvane-na-schupeni-izobrazhenia
 Name: Broken Images Removal Case
 Format: text/html
@@ -50,7 +50,7 @@ Description: Case study showing how broken images were removed from 700+ pages u
 Keywords: счупени изображения, SEO проекти, case study, оптимизация на сайт
 Importance: high
 
-# SEO Проекти – Интеграция ChatGPT в WordPress
+## SEO Проекти – Интеграция ChatGPT в WordPress
 Dataset: /seo-proekti/integraciya-chatgpt-wordpress-case-study
 Name: ChatGPT-WordPress Integration Case
 Format: text/html
