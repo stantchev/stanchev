@@ -14,9 +14,9 @@ import {
   Media,
   Line,
   Button,
-  AccordionGroup,
-  BarChart,
-  Feedback,
+  AccordionGroup, // 👈 остава
+  BarChart,       // 👈 остава
+  Feedback,       // 👈 остава
   AvatarGroup,
 } from "@once-ui-system/core";
 import { baseURL, about, blog, person } from "@/resources";
@@ -160,27 +160,6 @@ export default async function Blog({ params }: { params: Promise<{ slug: string 
             </Heading>
             <Posts exclude={[post.slug]} range={[1, 2]} columns="2" thumbnail direction="column" />
           </Column>
-
-          {/* Примерно място за AccordionGroup, BarChart и Feedback */}
-          <AccordionGroup
-            items={[
-              { title: "Какво е SEO?", content: "SEO е оптимизация за търсачки..." },
-              { title: "Какво е AI Automation?", content: "AI Automation автоматизира задачи..." },
-            ]}
-          />
-
-          <BarChart
-            data={[
-              { label: "Traffic", value: 200 },
-              { label: "Conversions", value: 50 },
-            ]}
-            height={200}
-          />
-
-          <Feedback
-            question="Полезна ли беше статията?"
-            onSubmit={(value) => console.log("Feedback:", value)}
-          />
 
           <ScrollToHash />
         </Column>
