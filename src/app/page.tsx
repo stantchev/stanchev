@@ -1,39 +1,49 @@
 import React from "react";
-
-import { Heading, Flex, Text, Button, Avatar, RevealFx, Column, Badge, Row, Schema, GlitchFx } from "@once-ui-system/core";
+import {
+  Heading,
+  Flex,
+  Text,
+  Button,
+  Avatar,
+  RevealFx,
+  Column,
+  Badge,
+  Row,
+  Schema,
+} from "@once-ui-system/core";
 import { home, about, person, newsletter, baseURL, routes } from "@/resources";
 import { Mailchimp } from "@/components";
 import { Projects } from "@/components/work/Projects";
 import { Posts } from "@/components/blog/Posts";
-import type { Metadata } from 'next';
-import Script from 'next/script';
+import type { Metadata } from "next";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: home.titleText,
   description: home.descriptionText,
-openGraph: {
-  title: "SEO оптимизация и AI Automation за вашия бизнес",
-  description:
-    "Комбинация от SEO оптимизация и AI Automation за повече трафик, по-високо класиране и автоматизирано развитие на вашия бизнес | Станчев SEO",
-  url: "https://stanchev.bg/",
-  siteName: "Станчев SEO",
-  images: [
-    {
-      url: `https://stanchev.bg/images/og/og.jpg`,
-      width: 1200,
-      height: 630,
-    },
-  ],
-  locale: "bg_BG",
-  type: "website",
-},
-twitter: {
-  card: "summary_large_image",
-  title: "SEO оптимизация и AI Automation за вашия бизнес",
-  description:
-    "Комбинация от SEO оптимизация и AI Automation за повече трафик, по-високо класиране и автоматизирано развитие на вашия бизнес | Станчев SEO",
-  images: [`https://stanchev.bg/images/og/og.jpg`],
-},
+  openGraph: {
+    title: "SEO оптимизация и AI Automation за вашия бизнес",
+    description:
+      "Комбинация от SEO оптимизация и AI Automation за повече трафик, по-високо класиране и автоматизирано развитие на вашия бизнес | Станчев SEO",
+    url: "https://stanchev.bg/",
+    siteName: "Станчев SEO",
+    images: [
+      {
+        url: `https://stanchev.bg/images/og/og.jpg`,
+        width: 1200,
+        height: 630,
+      },
+    ],
+    locale: "bg_BG",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "SEO оптимизация и AI Automation за вашия бизнес",
+    description:
+      "Комбинация от SEO оптимизация и AI Automation за повече трафик, по-високо класиране и автоматизирано развитие на вашия бизнес | Станчев SEO",
+    images: [`https://stanchev.bg/images/og/og.jpg`],
+  },
   verification: {
     google: "ULHB2WBDkeyXyEYc7jVHf2nyPUUqKl_KOVBxnuiykpo",
   },
@@ -41,7 +51,7 @@ twitter: {
 
 export default function Nachalo() {
   return (
-     <>
+    <>
       <Script
         id="organization-homepage-schema"
         type="application/ld+json"
@@ -49,128 +59,163 @@ export default function Nachalo() {
           __html: JSON.stringify({
             "@context": "http://schema.org",
             "@type": "Organization",
-            "name": "Станчев SEO",
-            "url": "https://stanchev.bg/",
-            "logo": "https://stanchev.bg/images/og/og.jpg",
-            "description": "SEO оптимизация и AI Automation за повече трафик, по-високо класиране и автоматизирано развитие на вашия бизнес | Станчев SEO",
-            "contactPoint": {
+            name: "Станчев SEO",
+            url: "https://stanchev.bg/",
+            logo: "https://stanchev.bg/images/og/og.jpg",
+            description:
+              "SEO оптимизация и AI Automation за повече трафик, по-високо класиране и автоматизирано развитие на вашия бизнес | Станчев SEO",
+            contactPoint: {
               "@type": "ContactPoint",
-              "contactType": "customer service",
-              "email": "seo@stanchev.bg"
+              contactType: "customer service",
+              email: "seo@stanchev.bg",
             },
-            "address": {
+            address: {
               "@type": "PostalAddress",
-              "streetAddress": "Бул. Г.М. Димитров 26",
-              "addressLocality": "София",
-              "addressRegion": "София",
-              "postalCode": "1797",
-              "addressCountry": "BG"
+              streetAddress: "Бул. Г.М. Димитров 26",
+              addressLocality: "София",
+              addressRegion: "София",
+              postalCode: "1797",
+              addressCountry: "BG",
             },
-            "sameAs": [
+            sameAs: [
               "https://github.com/stantchev/",
               "https://www.linkedin.com/in/stantcheff/",
-              "https://dev.to/stanchev"
-            ]
-          })
+              "https://dev.to/stanchev",
+            ],
+          }),
         }}
       />
-    <Column 
-      maxWidth="m" 
-      gap="xl" 
-      horizontal="center"
-    >
-      <Column 
-        fillWidth 
-        paddingY="24" 
-        gap="m"
-      >
-        <Column maxWidth="s">
-          {home.featured.display && (
-          <RevealFx fillWidth horizontal="start" paddingTop="16" paddingBottom="32" paddingLeft="12" speed="fast">
-            <Badge 
-              background="brand-alpha-weak" 
-              paddingX="12" 
-              paddingY="4" 
-              onBackground="neutral-strong" 
-              textVariant="label-default-s" 
-              arrow={false}
-              href={home.featured.href}
+      <Column maxWidth="m" gap="xl" horizontal="center">
+        <Column fillWidth paddingY="24" gap="m">
+          <Column maxWidth="s">
+            {home.featured.display && (
+              <RevealFx
+                fillWidth
+                horizontal="start"
+                paddingTop="16"
+                paddingBottom="32"
+                paddingLeft="12"
+                speed="fast"
+              >
+                <Badge
+                  background="brand-alpha-weak"
+                  paddingX="12"
+                  paddingY="4"
+                  onBackground="neutral-strong"
+                  textVariant="label-default-s"
+                  arrow={false}
+                  href={home.featured.href}
+                >
+                  <Row paddingY="2">{home.featured.title}</Row>
+                </Badge>
+              </RevealFx>
+            )}
+            <RevealFx
+              translateY="4"
+              fillWidth
+              horizontal="start"
+              paddingBottom="16"
+              speed="fast"
             >
-              <Row paddingY="2">{home.featured.title}</Row>
-            </Badge>
-          </RevealFx>
-          )}
-          <RevealFx translateY="4" fillWidth horizontal="start" paddingBottom="16" speed="fast">
-            <Heading 
-              wrap="balance" 
-              variant="display-strong-m"
+              <Heading wrap="balance" variant="display-strong-m">
+                SEO оптимизация и AI Automation за вашия бизнес
+              </Heading>
+            </RevealFx>
+            <RevealFx
+              translateY="8"
+              delay={0.2}
+              fillWidth
+              horizontal="start"
+              paddingBottom="32"
+              speed="fast"
             >
-              {home.headline}
-            </Heading>
-          </RevealFx>
-          <RevealFx translateY="8" delay={0.2} fillWidth horizontal="start" paddingBottom="32" speed="fast">
-            <Text 
-              wrap="balance" 
-              onBackground="neutral-weak" 
-              variant="heading-default-l"
+              <Text
+                wrap="balance"
+                onBackground="neutral-weak"
+                variant="heading-default-l"
+              >
+                Какво е това? Професионална SEO услуга, съчетана с AI Automation
+                – за да вдигнете трафика, да подобрите позициите си и да
+                автоматизирате процесите.
+              </Text>
+            </RevealFx>
+            <RevealFx
+              paddingTop="12"
+              delay={0.4}
+              horizontal="start"
+              paddingLeft="12"
+              speed="fast"
             >
-              {home.subline}
-            </Text>
-          </RevealFx>
-          <RevealFx paddingTop="12" delay={0.4} horizontal="start" paddingLeft="12" speed="fast">
-            <Button
-              id="about"
-              data-border="rounded"
-              href="/za-men"
-              variant="secondary"
-              size="m"
-              weight="default"
-              arrowIcon
+              <Text
+                wrap="balance"
+                onBackground="neutral-weak"
+                variant="heading-default-l"
+              >
+                Какво печеля аз? Повече органични клиенти, по-ниска цена на
+                придобиване и измерим ръст на продажбите.
+              </Text>
+            </RevealFx>
+            <RevealFx
+              paddingTop="12"
+              delay={0.6}
+              horizontal="start"
+              paddingLeft="12"
+              speed="fast"
             >
-              <Flex gap="8" vertical="center" paddingRight="4">
-                {about.avatar.display && (
-                  <Avatar
-                    marginRight="8"
-                    src={person.avatar}
-                    size="m"
-                  />
-                )}
-                {about.title}
-              </Flex>
-            </Button>
-          </RevealFx>
+              <Text
+                wrap="balance"
+                onBackground="neutral-weak"
+                variant="heading-default-l"
+              >
+                Защо точно тук? Защото подходът ни комбинира точни SEO стратегии
+                с AI технологии – резултатите идват по-бързо и с по-малко
+                ресурси от традиционните методи.
+              </Text>
+            </RevealFx>
+            <RevealFx
+              paddingTop="12"
+              delay={0.8}
+              horizontal="start"
+              paddingLeft="12"
+              speed="fast"
+            >
+              <Button
+                id="about"
+                data-border="rounded"
+                href="/za-men"
+                variant="secondary"
+                size="m"
+                weight="default"
+                arrowIcon
+              >
+                <Flex gap="8" vertical="center" paddingRight="4">
+                  {about.avatar.display && (
+                    <Avatar marginRight="8" src={person.avatar} size="m" />
+                  )}
+                  {about.title}
+                </Flex>
+              </Button>
+            </RevealFx>
+          </Column>
         </Column>
+        <RevealFx translateY="16" delay={1} speed="fast">
+          <Projects range={[1, 1]} />
+        </RevealFx>
+        {routes["/blog"] && (
+          <Flex fillWidth gap="24" mobileDirection="column">
+            <Flex flex={1} paddingLeft="l" paddingTop="24">
+              <Heading as="h2" variant="display-strong-xs" wrap="balance">
+                Последни публикации
+              </Heading>
+            </Flex>
+            <Flex flex={3} paddingX="20">
+              <Posts range={[1, 2]} columns="2" />
+            </Flex>
+          </Flex>
+        )}
+        <Projects range={[2]} />
+        {newsletter.display && <Mailchimp newsletter={newsletter} />}
       </Column>
-      <RevealFx translateY="16" delay={0.6} speed="fast">
-        <Projects range={[1, 1]} />
-      </RevealFx>
-      {routes["/blog"] && (
-        <Flex 
-          fillWidth 
-          gap="24" 
-          mobileDirection="column"
-        >
-          <Flex flex={1} paddingLeft="l" paddingTop="24">
-            <Heading 
-              as="h2" 
-              variant="display-strong-xs" 
-              wrap="balance"
-            >
-              Последни публикации
-            </Heading>
-          </Flex>
-          <Flex flex={3} paddingX="20">
-            <Posts range={[1, 2]} columns="2" />
-          </Flex>
-        </Flex>
-      )}
-      <Projects range={[2]} />
-      {newsletter.display && (
-        <Mailchimp newsletter={newsletter} />
-      )}
-    </Column>
     </>
   );
 }
-
-
