@@ -50,6 +50,7 @@ export default function About() {
       items: about.technical.skills.map((skill) => skill.title),
     },
   ];
+
   return (
     <Column maxWidth="m">
       <Schema
@@ -87,7 +88,6 @@ export default function About() {
             fitHeight
             position="sticky"
             s={{ position: "relative", style: { top: "auto" } }}
-            xs={{ style: { top: "auto" } }}
             minWidth="160"
             paddingX="l"
             paddingBottom="xl"
@@ -140,7 +140,7 @@ export default function About() {
                   name="calendar"
                   onBackground="brand-weak"
                 />
-                <Row paddingX="8">Schedule a call</Row>
+                <Row paddingX="8">Заяви консултация</Row>
                 <IconButton
                   href={about.calendar.link}
                   data-border="rounded"
@@ -159,6 +159,7 @@ export default function About() {
             >
               {person.role}
             </Text>
+
             {social.length > 0 && (
               <Row
                 className={styles.blockAlign}
@@ -185,7 +186,7 @@ export default function About() {
                             variant="secondary"
                           />
                         </Row>
-                        <Row hide s={{ hide: false }}>
+                        <Row s={{ hide: false }}>
                           <IconButton
                             size="l"
                             key={`${item.name}-icon`}
@@ -195,7 +196,7 @@ export default function About() {
                           />
                         </Row>
                       </React.Fragment>
-                    ),
+                    )
                 )}
               </Row>
             )}
@@ -256,15 +257,15 @@ export default function About() {
                     </Text>
                     <Column as="ul" gap="16">
                       {experience.achievements.map(
-                        (achievement: React.ReactNode, idx: number) => (
+                        (achievement: React.ReactNode, i: number) => (
                           <Text
                             as="li"
                             variant="body-default-m"
-                            key={`${experience.company}-${idx}`}
+                            key={`${experience.company}-${i}`}
                           >
                             {achievement}
                           </Text>
-                        ),
+                        )
                       )}
                     </Column>
                   </Column>
@@ -317,24 +318,29 @@ export default function About() {
               </Heading>
               <Column fillWidth gap="l">
                 {about.technical.skills.map((skill, index) => (
-                  <Column
-                    key={`${skill.title}-${index}`}
-                    fillWidth
-                    gap="4"
-                  >
+                  <Column key={`${skill.title}-${index}`} fillWidth gap="4">
                     <Text id={skill.title} variant="heading-strong-l">
                       {skill.title}
                     </Text>
-                    <Text variant="body-default-m" onBackground="neutral-weak">
+                    <Text
+                      variant="body-default-m"
+                      onBackground="neutral-weak"
+                    >
                       {skill.description}
                     </Text>
-                    <Row wrap gap="8" paddingTop="8">
-                      {skill.tools.map((tool, toolIdx) => (
-                        <Tag key={`${skill.title}-${toolIdx}`} size="l">
-                          {tool}
-                        </Tag>
-                      ))}
-                    </Row>
+                    {skill.tags && skill.tags.length > 0 && (
+                      <Row wrap gap="8" paddingTop="8">
+                        {skill.tags.map((tag, i) => (
+                          <Tag
+                            key={`${skill.title}-${i}`}
+                            size="l"
+                            prefixIcon={tag.icon}
+                          >
+                            {tag.name}
+                          </Tag>
+                        ))}
+                      </Row>
+                    )}
                   </Column>
                 ))}
               </Column>
