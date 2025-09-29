@@ -26,6 +26,8 @@ import {
   HiMoon,
   HiSun,
   HiOutlineDocument,
+  HiOutlineGlobeAsiaAustralia,
+  HiOutlineRocketLaunch,
 } from "react-icons/hi2";
 
 import {
@@ -36,7 +38,22 @@ import {
   PiImageDuotone,
 } from "react-icons/pi";
 
-import { FaDiscord, FaGithub, FaLinkedin, FaX, FaThreads, FaDev } from "react-icons/fa6";
+import {
+  FaDiscord,
+  FaGithub,
+  FaLinkedin,
+  FaX,
+  FaThreads,
+  FaDev,
+  FaXTwitter,
+  FaFacebook,
+  FaPinterest,
+  FaWhatsapp,
+  FaReddit,
+  FaTelegram,
+} from "react-icons/fa6";
+
+import { SiJavascript, SiNextdotjs, SiFigma, SiSupabase } from "react-icons/si";
 
 export const iconLibrary: Record<string, IconType> = {
   chevronUp: HiChevronUp,
@@ -45,36 +62,56 @@ export const iconLibrary: Record<string, IconType> = {
   chevronLeft: HiChevronLeft,
   refresh: HiOutlineArrowPath,
   arrowUpRight: HiArrowUpRight,
-  check: HiCheck,
   arrowRight: HiArrowRight,
   helpCircle: HiMiniQuestionMarkCircle,
   infoCircle: HiInformationCircle,
   warningTriangle: HiExclamationTriangle,
   errorCircle: HiExclamationCircle,
+  check: HiCheck,
   checkCircle: HiCheckCircle,
-  email: HiEnvelope,
-  globe: HiMiniGlobeAsiaAustralia,
-  person: PiUserCircleDuotone,
-  grid: PiGridFourDuotone,
-  book: PiBookBookmarkDuotone,
   close: HiMiniXMark,
   openLink: HiOutlineLink,
-  calendar: HiCalendarDays,
-  home: PiHouseDuotone,
-  gallery: PiImageDuotone,
-  discord: FaDiscord,
-  eye: HiOutlineEye,
-  eyeOff: HiOutlineEyeSlash,
-  github: FaGithub,
-  linkedin: FaLinkedin,
-  x: FaX,
-  threads: FaThreads,
-  devto: FaDev,
-  clipboard: HiClipboard,
   arrowUpRightFromSquare: HiArrowTopRightOnSquare,
+  clipboard: HiClipboard,
+  email: HiEnvelope,
+  calendar: HiCalendarDays,
+  globe: HiMiniGlobeAsiaAustralia, // стар вариант
+  globeOutline: HiOutlineGlobeAsiaAustralia, // нов вариант
+  rocket: HiOutlineRocketLaunch,
   moon: HiMoon,
   sun: HiSun,
   document: HiOutlineDocument,
+
+  // UI навигация
+  home: PiHouseDuotone,
+  person: PiUserCircleDuotone,
+  grid: PiGridFourDuotone,
+  book: PiBookBookmarkDuotone,
+  gallery: PiImageDuotone,
+
+  // Социални мрежи
+  discord: FaDiscord,
+  github: FaGithub,
+  linkedin: FaLinkedin,
+  x: FaX,
+  twitter: FaXTwitter,
+  threads: FaThreads,
+  devto: FaDev,
+  facebook: FaFacebook,
+  pinterest: FaPinterest,
+  whatsapp: FaWhatsapp,
+  reddit: FaReddit,
+  telegram: FaTelegram,
+
+  // Инструменти
+  javascript: SiJavascript,
+  nextjs: SiNextdotjs,
+  supabase: SiSupabase,
+  figma: SiFigma,
+
+  // Utility
+  eye: HiOutlineEye,
+  eyeOff: HiOutlineEyeSlash,
 };
 
 export type IconLibrary = typeof iconLibrary;
