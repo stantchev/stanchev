@@ -119,7 +119,7 @@ export default function Blog() {
           <Posts range={[1, 1]} thumbnail />
           <Posts range={[2, 3]} columns="2" thumbnail direction="column" />
 
-          {newsletter.display && <Mailchimp newsletter={newsletter} />}
+          {newsletter.display && <Mailchimp />}
 
           <Heading as="h2" variant="heading-strong-xl" marginLeft="l">
             Earlier posts
