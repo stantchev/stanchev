@@ -8,6 +8,7 @@ export {
   work,
   gallery,
   seoServices,
+  contact,
 } from "./content";
 
 export {
@@ -24,5 +25,6 @@ export {
   effects,
   dataStyle,
 } from "./once-ui.config";
+
 
 
