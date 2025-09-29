@@ -5,17 +5,23 @@ import {
   Flex,
   Heading,
   Icon,
+  IconButton,
+  Media,
   Tag,
   Text,
   Schema,
-  Accordion,
-  AccordionItem
 } from "@once-ui-system/core";
-import { baseURL, about, person } from "@/resources";
+import { baseURL, about, person, social } from "@/resources";
 import TableOfContents from "@/components/about/TableOfContents";
 import styles from "@/components/about/about.module.scss";
 import React from "react";
 import Script from "next/script";
+
+type ExperienceImage = {
+  src: string;
+  alt?: string;
+  width?: number;
+};
 
 export async function generateMetadata() {
   return {
@@ -113,7 +119,7 @@ export default function ZaMen() {
           }}
         />
 
-        {/* Desktop ToC */}
+        {/* ToC само за десктоп */}
         {about.tableOfContent.display && (
           <Column
             left="0"
@@ -121,25 +127,8 @@ export default function ZaMen() {
             position="fixed"
             paddingLeft="8"
             gap="32"
-            hiddenBelow="m"
           >
             <TableOfContents structure={structure} about={about} />
-          </Column>
-        )}
-
-        {/* Mobile ToC */}
-        {about.tableOfContent.display && (
-          <Column
-            fillWidth
-            padding="m"
-            gap="m"
-            hiddenAbove="s"
-          >
-            <Accordion>
-              <AccordionItem label="Съдържание">
-                <TableOfContents structure={structure} about={about} />
-              </AccordionItem>
-            </Accordion>
           </Column>
         )}
 
