@@ -9,9 +9,8 @@ import {
   Column,
   Badge,
   Row,
-  Schema,
 } from "@once-ui-system/core";
-import { home, about, person, newsletter, baseURL, routes } from "@/resources";
+import { home, about, person, newsletter, routes } from "@/resources";
 import { Mailchimp } from "@/components";
 import { Projects } from "@/components/work/Projects";
 import { Posts } from "@/components/blog/Posts";
@@ -27,13 +26,7 @@ export const metadata: Metadata = {
       "Комбинация от SEO оптимизация и AI Automation за повече трафик, по-високо класиране и автоматизирано развитие на вашия бизнес | Станчев SEO",
     url: "https://stanchev.bg/",
     siteName: "Станчев SEO",
-    images: [
-      {
-        url: `https://stanchev.bg/images/og/og.jpg`,
-        width: 1200,
-        height: 630,
-      },
-    ],
+    images: [{ url: `https://stanchev.bg/images/og/og.jpg`, width: 1200, height: 630 }],
     locale: "bg_BG",
     type: "website",
   },
@@ -43,9 +36,6 @@ export const metadata: Metadata = {
     description:
       "Комбинация от SEO оптимизация и AI Automation за повече трафик, по-високо класиране и автоматизирано развитие на вашия бизнес | Станчев SEO",
     images: [`https://stanchev.bg/images/og/og.jpg`],
-  },
-  verification: {
-    google: "ULHB2WBDkeyXyEYc7jVHf2nyPUUqKl_KOVBxnuiykpo",
   },
 };
 
@@ -64,156 +54,92 @@ export default function Nachalo() {
             logo: "https://stanchev.bg/images/og/og.jpg",
             description:
               "SEO оптимизация и AI Automation за повече трафик, по-високо класиране и автоматизирано развитие на вашия бизнес | Станчев SEO",
-            contactPoint: {
-              "@type": "ContactPoint",
-              contactType: "customer service",
-              email: "seo@stanchev.bg",
-            },
-            address: {
-              "@type": "PostalAddress",
-              streetAddress: "Бул. Г.М. Димитров 26",
-              addressLocality: "София",
-              addressRegion: "София",
-              postalCode: "1797",
-              addressCountry: "BG",
-            },
-            sameAs: [
-              "https://github.com/stantchev/",
-              "https://www.linkedin.com/in/stantcheff/",
-              "https://dev.to/stanchev",
-            ],
           }),
         }}
       />
+
       <Column maxWidth="m" gap="xl" horizontal="center">
-        <Column fillWidth paddingY="24" gap="m">
-          <Column maxWidth="s">
-            {home.featured.display && (
-              <RevealFx
-                fillWidth
-                horizontal="start"
-                paddingTop="16"
-                paddingBottom="32"
-                paddingLeft="12"
-                speed="fast"
-              >
-                <Badge
-                  background="brand-alpha-weak"
-                  paddingX="12"
-                  paddingY="4"
-                  onBackground="neutral-strong"
-                  textVariant="label-default-s"
-                  arrow={false}
-                  href={home.featured.href}
-                >
-                  <Row paddingY="2">{home.featured.title}</Row>
-                </Badge>
-              </RevealFx>
-            )}
-            <RevealFx
-              translateY="4"
-              fillWidth
-              horizontal="start"
-              paddingBottom="16"
-              speed="fast"
-            >
-              <Heading wrap="balance" variant="display-strong-m">
-                SEO оптимизация и AI Automation за вашия бизнес
-              </Heading>
-            </RevealFx>
-            <RevealFx
-              translateY="8"
-              delay={0.2}
-              fillWidth
-              horizontal="start"
-              paddingBottom="32"
-              speed="fast"
-            >
-              <Text
-                wrap="balance"
-                onBackground="neutral-weak"
-                variant="heading-default-l"
-              >
-                Какво е това? Професионална SEO услуга, съчетана с AI Automation
-                – за да вдигнете трафика, да подобрите позициите си и да
-                автоматизирате процесите.
-              </Text>
-            </RevealFx>
-            <RevealFx
-              paddingTop="12"
-              delay={0.4}
-              horizontal="start"
-              paddingLeft="12"
-              speed="fast"
-            >
-              <Text
-                wrap="balance"
-                onBackground="neutral-weak"
-                variant="heading-default-l"
-              >
-                Какво печеля аз? Повече органични клиенти, по-ниска цена на
-                придобиване и измерим ръст на продажбите.
-              </Text>
-            </RevealFx>
-            <RevealFx
-              paddingTop="12"
-              delay={0.6}
-              horizontal="start"
-              paddingLeft="12"
-              speed="fast"
-            >
-              <Text
-                wrap="balance"
-                onBackground="neutral-weak"
-                variant="heading-default-l"
-              >
-                Защо точно тук? Защото подходът ни комбинира точни SEO стратегии
-                с AI технологии – резултатите идват по-бързо и с по-малко
-                ресурси от традиционните методи.
-              </Text>
-            </RevealFx>
-            <RevealFx
-              paddingTop="12"
-              delay={0.8}
-              horizontal="start"
-              paddingLeft="12"
-              speed="fast"
-            >
-              <Button
-                id="about"
-                data-border="rounded"
-                href="/za-men"
-                variant="secondary"
-                size="m"
-                weight="default"
-                arrowIcon
-              >
-                <Flex gap="8" vertical="center" paddingRight="4">
-                  {about.avatar.display && (
-                    <Avatar marginRight="8" src={person.avatar} size="m" />
-                  )}
-                  {about.title}
-                </Flex>
-              </Button>
-            </RevealFx>
-          </Column>
-        </Column>
-        <RevealFx translateY="16" delay={1} speed="fast">
-          <Projects range={[1, 1]} />
-        </RevealFx>
-        {routes["/blog"] && (
-          <Flex fillWidth gap="24" mobileDirection="column">
-            <Flex flex={1} paddingLeft="l" paddingTop="24">
-              <Heading as="h2" variant="display-strong-xs" wrap="balance">
-                Последни публикации
-              </Heading>
-            </Flex>
-            <Flex flex={3} paddingX="20">
-              <Posts range={[1, 2]} columns="2" />
-            </Flex>
+        {/* HERO */}
+        <Column fillWidth paddingY="40" gap="m" align="center">
+          <Badge background="brand-alpha-weak">SEO + AI Automation</Badge>
+          <Heading variant="display-strong-l" align="center">
+            Повече трафик. По-високи класации. По-умна автоматизация.
+          </Heading>
+          <Text variant="heading-default-l" align="center" onBackground="neutral-weak">
+            Комбинираме SEO стратегии с AI технологии, за да изградим растеж, който не спира.
+          </Text>
+          <Flex gap="m" horizontal="center" paddingTop="24">
+            <Button href="/kontakti" variant="primary" size="l" data-border="rounded">
+              Заяви безплатна консултация
+            </Button>
+            <Button href="/za-men" variant="secondary" size="l" data-border="rounded">
+              Научи повече
+            </Button>
           </Flex>
+        </Column>
+
+        {/* WHAT IS IT / WHAT’S IN IT FOR ME */}
+        <Flex fillWidth gap="40" mobileDirection="column">
+          <Column flex={1} gap="m">
+            <Heading as="h2" variant="display-strong-s">Какво е това?</Heading>
+            <Text>
+              Професионална SEO оптимизация за онлайн магазини и бизнес сайтове,
+              комбинирана с AI Automation, която спестява време и ресурси.
+              Резултатът – устойчива видимост в Google и автоматизация на ключови процеси.
+            </Text>
+          </Column>
+          <Column flex={1} gap="m">
+            <Heading as="h2" variant="display-strong-s">Какво печеля аз?</Heading>
+            <Text>
+              Повече органичен трафик, по-ниска цена на клиент и ясни, измерими резултати.
+              Фокусът е върху ръст на продажби, а не празни отчети.
+            </Text>
+          </Column>
+        </Flex>
+
+        {/* CASE / PROJECT */}
+        <Column fillWidth gap="l" paddingY="40">
+          <Heading as="h2" variant="display-strong-s" align="center">
+            Реални проекти. Реални резултати.
+          </Heading>
+          <Projects range={[1]} />
+        </Column>
+
+        {/* BLOG */}
+        {routes["/blog"] && (
+          <Column fillWidth gap="l" paddingY="40">
+            <Heading as="h2" variant="display-strong-s" align="center">
+              Последни публикации
+            </Heading>
+            <Posts range={[1, 3]} columns="3" />
+          </Column>
         )}
-        <Projects range={[2]} />
+
+        {/* WHY YOU */}
+        <Column fillWidth gap="m" paddingY="40" align="center">
+          <Heading as="h2" variant="display-strong-s">Защо да изберете нас?</Heading>
+          <Text align="center">
+            Защото комбинираме дългогодишен SEO опит с най-новите AI технологии.
+            Получавате резултати по-бързо, по-ефективно и с по-малко риск.
+          </Text>
+          <Flex gap="m" wrap horizontal="center" paddingTop="16">
+            <Badge background="brand-alpha-weak">Техническа SEO експертиза</Badge>
+            <Badge background="brand-alpha-weak">AI автоматизация</Badge>
+            <Badge background="brand-alpha-weak">Прозрачни отчети</Badge>
+            <Badge background="brand-alpha-weak">Фокус върху ROI</Badge>
+          </Flex>
+        </Column>
+
+        {/* CTA */}
+        <Column align="center" gap="m" paddingY="40">
+          <Heading variant="display-strong-m" align="center">
+            Искате ли вашият сайт да се класира по-високо?
+          </Heading>
+          <Button href="/kontakti" variant="primary" size="l" prefixIcon="rocket">
+            Свържете се с нас
+          </Button>
+        </Column>
+
         {newsletter.display && <Mailchimp newsletter={newsletter} />}
       </Column>
     </>
