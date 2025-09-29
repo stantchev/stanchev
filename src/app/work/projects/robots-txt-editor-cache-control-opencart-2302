@@ -1,0 +1,109 @@
+---
+title: "Case Study: Robots.txt Editor & Cache Control за OpenCart 2.3.0.2"
+publishedAt: "2025-09-26"
+summary: "Създадох модул за OpenCart 2.3.0.2, който позволява редакция на robots.txt директно през админ панела и изчистване само на неговия кеш. Решение без FTP, без плъгини и с пълен SEO контрол."
+team:
+  - name: "Станчев"
+    role: "OpenCart & E-commerce Specialist"
+    avatar: "/images/avatar.jpg"
+    linkedIn: "https://www.linkedin.com/in/stantcheff"
+---
+
+<section>
+  <h2>Накратко за проекта</h2>
+
+  <p>
+    В OpenCart 2.3.0.2 липсва вграден начин за редакция на <code>robots.txt</code>. Всеки път, когато трябва да се добави нов <strong>Disallow</strong> или да се отвори достъп до ресурс, администраторите са принудени да ползват FTP достъп и да чакат кешът да се опресни. 
+  </p>
+
+  <p>
+    Това забавя SEO процесите, затруднява технически по-неопитни екипи и носи риск от грешки. Решението, което разработих, е <strong>Robots Editor модул</strong> – пълноценен UI в админ панела с директен контрол върху robots.txt и специален бутон за изчистване на неговия кеш.
+  </p>
+
+  <h3>Ключови подобрения</h3>
+
+  <ul>
+    <li><strong>Редакция на robots.txt</strong> през удобен интерфейс в админ панела.</li>
+    <li><strong>Clear robots.txt cache бутон</strong>, който премахва само кеша на файла.</li>
+    <li><strong>SEO удобство</strong> – промени се виждат веднага при crawl и одити.</li>
+    <li><strong>Без FTP/SSH</strong> – напълно достъпно за маркетинг и SEO екипи.</li>
+  </ul>
+
+  <h3>Използвани технологии</h3>
+
+  <ul>
+    <li><strong>OpenCart 2.3.0.2</strong> – основната платформа.</li>
+    <li><strong>OCMOD</strong> – за интеграция без промяна в ядрото.</li>
+    <li><strong>PHP Controller + View</strong> – backend и UI логика.</li>
+    <li><strong>Cache API</strong> – за селективно изчистване на robots.txt кеша.</li>
+  </ul>
+
+  <h3>Предизвикателства</h3>
+
+  <p>
+    Основният проблем беше, че robots.txt се кешира и след промяна новата версия не се виждаше веднага. За SEO това е критично – Search Console, Screaming Frog и други инструменти продължават да виждат старата версия, което блокира индексацията.
+  </p>
+
+  <h3>Процес на разработка</h3>
+
+  <ol>
+    <li><strong>Анализ</strong> – проверих как OpenCart зарежда robots.txt и къде се кешира.</li>
+    <li><strong>Проектиране</strong> – реших модулът да има три части: UI редактор, Save логика и Purge бутон.</li>
+    <li><strong>Имплементация</strong> – написах контролер <code>robots_editor.php</code>, view с textarea и добавих бутон „Clear robots.txt cache“.</li>
+    <li><strong>Тестване</strong> – използвах <code>curl</code> и SEO инструменти, за да проверя дали веднага се връща актуалната версия.</li>
+    <li><strong>Документация</strong> – описах инсталация и работа, за да е достъпно за всеки администратор.</li>
+  </ol>
+
+  <h3>Примерен код</h3>
+
+  <p><strong>Контролерът</strong> съдържа метод за изчистване на кеша:</p>
+
+```php
+public function clearCache() {
+    $this->load->language('extension/module/robots_editor');
+
+    // изчистване само на robots.txt кеша
+    $this->cache->delete('robots.txt');
+
+    $this->session->data['success'] = $this->language->get('text_success_cache');
+    $this->response->redirect($this->url->link('extension/module/robots_editor', 'user_token=' . $this->session->data['user_token'], true));
+}
+```
+<p><strong>View шаблонът</strong> има textarea и бутон за кеша:</p>
+```php
+<form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data">
+  <div class="form-group">
+    <label for="input-robots">robots.txt</label>
+    <textarea name="robots_content" rows="20" class="form-control"><?php echo $robots_content; ?></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary">Запази</button>
+  <a href="<?php echo $clear_cache; ?>" class="btn btn-warning">Clear robots.txt cache</a>
+</form>
+```
+<section>
+  <h3>Стъпки за репродуциране</h3>
+  <ol>
+    <li>Инсталирах модула през <strong>Extensions → Modules</strong>.</li>
+    <li>Отворих <strong>Robots Editor</strong> в админ панела.</li>
+    <li>Редактирах съдържанието на <code>robots.txt</code> и запазих.</li>
+    <li>Натиснах бутона <strong>Clear robots.txt cache</strong>.</li>
+    <li>Проверих с <code>curl</code> или SEO инструмент – получих актуалната версия.</li>
+  </ol>
+</section>
+
+<section>
+  <h3>Резултат</h3>
+  <p>
+    След внедряването на модула вече мога <strong>незабавно</strong> да прилагам промени. 
+    Crawler-ите виждат актуално съдържание, а рискът от счупени одити и забавена индексация отпадна. 
+  </p>
+</section>
+
+<section>
+  <h4>Извод</h4>
+  <p>
+    Един на пръв поглед малък проблем – кешът на <code>robots.txt</code> – може да доведе до големи SEO загуби. 
+    Чрез добре структуриран модул с OCMOD, кеш контрол и удобен UI, аз постигнах пълен контрол над 
+    <code>robots.txt</code>, без технически бариери. 
+  </p>
+</section>
