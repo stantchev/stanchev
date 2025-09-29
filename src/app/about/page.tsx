@@ -9,12 +9,12 @@ import {
   Media,
   Tag,
   Text,
-  Schema,
+  Schema
 } from "@once-ui-system/core";
 import { baseURL, about, person, social } from "@/resources";
-import TableOfContents from "@/components/about/TableOfContents";
 import styles from "@/components/about/about.module.scss";
 import React from "react";
+import type { ReactNode } from "react";
 import Script from "next/script";
 
 type ExperienceImage = {
@@ -60,29 +60,6 @@ export async function generateMetadata() {
 }
 
 export default function ZaMen() {
-  const structure = [
-    {
-      title: about.intro.title,
-      display: about.intro.display,
-      items: [],
-    },
-    {
-      title: about.work.title,
-      display: about.work.display,
-      items: about.work.experiences.map((experience) => experience.company),
-    },
-    {
-      title: about.studies.title,
-      display: about.studies.display,
-      items: about.studies.institutions.map((institution) => institution.name),
-    },
-    {
-      title: about.technical.title,
-      display: about.technical.display,
-      items: about.technical.skills.map((skill) => skill.title),
-    },
-  ];
-
   return (
     <>
       <Script
@@ -119,19 +96,6 @@ export default function ZaMen() {
           }}
         />
 
-        {/* ToC само за десктоп */}
-        {about.tableOfContent.display && (
-          <Column
-            left="0"
-            style={{ top: "50%", transform: "translateY(-50%)" }}
-            position="fixed"
-            paddingLeft="8"
-            gap="32"
-          >
-            <TableOfContents structure={structure} about={about} />
-          </Column>
-        )}
-
         <Flex fillWidth mobileDirection="column" horizontal="center">
           {about.avatar.display && (
             <Column
@@ -149,13 +113,15 @@ export default function ZaMen() {
                 <Icon onBackground="accent-weak" name="globe" />
                 <Text>{person.location}</Text>
               </Flex>
-              <Flex wrap gap="8">
-                {person.languages.map((language) => (
-                  <Tag key={language} size="l">
-                    {language}
-                  </Tag>
-                ))}
-              </Flex>
+              {person.languages.length > 0 && (
+                <Flex wrap gap="8">
+                  {person.languages.map((language, index) => (
+                    <Tag key={index} size="l">
+                      {language}
+                    </Tag>
+                  ))}
+                </Flex>
+              )}
             </Column>
           )}
 
@@ -228,12 +194,7 @@ export default function ZaMen() {
                 </Heading>
                 <Column fillWidth gap="l" marginBottom="40">
                   {about.studies.institutions.map((institution, i) => (
-                    <Flex
-                      key={i}
-                      gap="16"
-                      vertical="start"
-                      horizontal="start"
-                    >
+                    <Flex key={i} gap="16" vertical="start" horizontal="start">
                       <Column style={{ alignItems: "center", minWidth: 32 }}>
                         <Icon
                           name="checkCircle"
