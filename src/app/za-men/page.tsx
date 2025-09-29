@@ -529,10 +529,3 @@ export default function ZaMen() {
    </>
   );
 }
-
-
-
-
-
-
-
