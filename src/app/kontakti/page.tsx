@@ -4,7 +4,7 @@ import { baseURL, person, contact } from "@/resources";
 import { MdOutlineMail, MdOutlineAccessTime } from "react-icons/md";
 import { FaGlobe } from "react-icons/fa";
 import { sendEmail } from "@/lib/sendEmail";
-import Script from 'next/script';
+import Script from "next/script";
 
 export const dynamic = "force-dynamic";
 
@@ -63,102 +63,108 @@ export default function Kontakti() {
           __html: JSON.stringify({
             "@context": "http://schema.org",
             "@type": "Organization",
-            "name": "Станчев SEO",
-            "url": "https://stanchev.bg/",
-            "logo": "https://stanchev.bg/images/og/og.jpg",
-            "contactPoint": {
+            name: "Станчев SEO",
+            url: "https://stanchev.bg/",
+            logo: "https://stanchev.bg/images/og/og.jpg",
+            contactPoint: {
               "@type": "ContactPoint",
-              "contactType": "customer service",
-              "email": "seo@stanchev.bg"
+              contactType: "customer service",
+              email: "seo@stanchev.bg",
             },
-            "address": {
+            address: {
               "@type": "PostalAddress",
-              "streetAddress": "Бул. Г.М. Димитров 26",
-              "addressLocality": "София",
-              "addressRegion": "София",
-              "postalCode": "1797",
-              "addressCountry": "BG"
+              streetAddress: "Бул. Г.М. Димитров 26",
+              addressLocality: "София",
+              addressRegion: "София",
+              postalCode: "1797",
+              addressCountry: "BG",
             },
-            "sameAs": [
+            sameAs: [
               "https://github.com/stantchev/",
               "https://www.linkedin.com/in/stantcheff/",
-              "https://dev.to/stanchev"
-            ]
-          })
+              "https://dev.to/stanchev",
+            ],
+          }),
         }}
       />
-    <Column maxWidth="m" gap="xl" paddingX="l">
-      <Column gap="l">
-        <Heading as="h1" variant="display-strong-l" marginBottom="m">
-          {contact.title}
+
+      <Column maxWidth="m" gap="xl" paddingX="l">
+        <Column gap="l">
+          <Heading as="h1" variant="display-strong-l" marginBottom="m">
+            {contact.title}
+          </Heading>
+          <Text
+            variant="heading-default-xl"
+            onBackground="neutral-weak"
+            wrap="balance"
+          >
+            Ако имате въпроси относно интернет реклама, оптимизация на сайт,
+            дигитален маркетинг или търсите опитен SEO специалист, свържете се с
+            нас чрез формата по-долу. За повече информация относно нашите услуги,
+            посетете страницата за <a href="/seo-uslugi">SEO услуги</a>.
+          </Text>
+        </Column>
+
+        <Heading as="h2" variant="heading-strong-m">
+          Как да се свържете с нас
         </Heading>
-        <Text
-          variant="heading-default-xl"
-          onBackground="neutral-weak"
-          wrap="balance"
+
+        <Flex
+          fillWidth
+          gap="xl"
+          paddingX="l"
+          marginTop="xl"
+          s={{ direction: "column" }} // 👈 мобилна подредба
         >
-          Ако имате въпроси относно интернет реклама, оптимизация на сайт,
-          дигитален маркетинг или търсите опитен SEO специалист, свържете се с
-          нас чрез формата по-долу. За повече информация относно нашите услуги,
-          посетете страницата за <a href="/seo-uslugi">SEO услуги</a>.
-        </Text>
+          <Column flex={1} gap="l">
+            <Heading as="h3" variant="heading-strong-s">
+              Информация за контакт
+            </Heading>
+
+            <Flex gap="12" vertical="center">
+              <MdOutlineMail size={24} style={{ color: "var(--brand-medium)" }} />
+              <Column gap="4">
+                <Text variant="body-default-s" onBackground="neutral-weak">
+                  Email
+                </Text>
+                <Text variant="body-default-m">{person.email}</Text>
+              </Column>
+            </Flex>
+
+            <Flex gap="12" vertical="center">
+              <FaGlobe size={22} style={{ color: "var(--brand-medium)" }} />
+              <Column gap="4">
+                <Text variant="body-default-s" onBackground="neutral-weak">
+                  Локация
+                </Text>
+                <Text variant="body-default-m">София, България</Text>
+              </Column>
+            </Flex>
+
+            <Flex gap="12" vertical="center">
+              <MdOutlineAccessTime size={24} style={{ color: "var(--brand-medium)" }} />
+              <Column gap="4">
+                <Text variant="body-default-s" onBackground="neutral-weak">
+                  Работно време
+                </Text>
+                <Text variant="body-default-m">Понеделник - Петък, 9:30 - 16:30</Text>
+              </Column>
+            </Flex>
+          </Column>
+
+          <Column flex={2} gap="l">
+            <Heading as="h3" variant="heading-strong-s">
+              Изпратете съобщение чрез формата
+            </Heading>
+
+            <ContactForm handleSubmit={handleSubmit} />
+          </Column>
+        </Flex>
+
+        <Heading as="h4" variant="heading-strong-xs" align="center" paddingTop="xl">
+          SEO консултация без ангажимент – направете първата стъпка още днес!
+        </Heading>
       </Column>
-
-      <Heading as="h2" variant="heading-strong-m">
-        Как да се свържете с нас
-      </Heading>
-
-      <Flex fillWidth gap="xl" mobileDirection="column" paddingX="l" marginTop="xl">
-        <Column flex={1} gap="l">
-          <Heading as="h3" variant="heading-strong-s">
-            Информация за контакт
-          </Heading>
-
-          <Flex gap="12" vertical="center">
-            <MdOutlineMail size={24} style={{ color: "var(--brand-medium)" }} />
-            <Column gap="4">
-              <Text variant="body-default-s" onBackground="neutral-weak">
-                Email
-              </Text>
-              <Text variant="body-default-m">{person.email}</Text>
-            </Column>
-          </Flex>
-
-          <Flex gap="12" vertical="center">
-            <FaGlobe size={22} style={{ color: "var(--brand-medium)" }} />
-            <Column gap="4">
-              <Text variant="body-default-s" onBackground="neutral-weak">
-                Локация
-              </Text>
-              <Text variant="body-default-m">София, България</Text>
-            </Column>
-          </Flex>
-
-          <Flex gap="12" vertical="center">
-            <MdOutlineAccessTime size={24} style={{ color: "var(--brand-medium)" }} />
-            <Column gap="4">
-              <Text variant="body-default-s" onBackground="neutral-weak">
-                Работно време
-              </Text>
-              <Text variant="body-default-m">Понеделник - Петък, 9:30 - 16:30</Text>
-            </Column>
-          </Flex>
-        </Column>
-
-        <Column flex={2} gap="l">
-          <Heading as="h3" variant="heading-strong-s">
-            Изпратете съобщение чрез формата
-          </Heading>
-
-          <ContactForm handleSubmit={handleSubmit} />
-        </Column>
-      </Flex>
-
-      <Heading as="h4" variant="heading-strong-xs" align="center" paddingTop="xl">
-        SEO консултация без ангажимент – направете първата стъпка още днес!
-      </Heading>
-    </Column>
-      </>
+    </>
   );
 }
-
