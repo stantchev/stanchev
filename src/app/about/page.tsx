@@ -9,12 +9,11 @@ import {
   Media,
   Tag,
   Text,
-  Schema
+  Schema,
 } from "@once-ui-system/core";
 import { baseURL, about, person, social } from "@/resources";
 import styles from "@/components/about/about.module.scss";
 import React from "react";
-import type { ReactNode } from "react";
 import Script from "next/script";
 
 type ExperienceImage = {
@@ -68,15 +67,82 @@ export default function ZaMen() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "http://schema.org",
-            "@type": "WebPage",
-            name: "За Мен – Станчев SEO Консултант",
-            description:
-              "Научете повече за моя път като SEO специалист, моята философия и как мога да помогна на вашия бизнес да расте онлайн. Фокусиран върху резултатите и прозрачността.",
-            url: "https://stanchev.bg/za-men",
-            image: {
-              "@type": "ImageObject",
-              url: "https://stanchev.bg/images/og/og.jpg",
-            },
+            "@graph": [
+              {
+                "@type": "WebPage",
+                name: "За Мен – Станчев SEO Консултант",
+                description:
+                  "Научете повече за моя път като SEO специалист, моята философия и как мога да помогна на вашия бизнес да расте онлайн. Фокусиран върху резултатите и прозрачността.",
+                url: "https://stanchev.bg/za-men",
+                image: {
+                  "@type": "ImageObject",
+                  url: "https://stanchev.bg/images/og/og.jpg",
+                },
+                author: {
+                  "@type": "Person",
+                  name: "Станчев",
+                  url: "https://www.linkedin.com/in/stantcheff/",
+                  image: "https://stanchev.bg/assets/avatar.jpg",
+                },
+                publisher: {
+                  "@id": "https://stanchev.bg/#organization",
+                },
+              },
+              {
+                "@type": "Person",
+                name: "Станчев",
+                url: "https://stanchev.bg/za-men",
+                image: "https://stanchev.bg/assets/avatar.jpg",
+                alumniOf: {
+                  "@type": "EducationalOrganization",
+                  name: "Военна Академия 'Г.С.Раковски'",
+                },
+                knowsAbout: [
+                  "SEO",
+                  "Дигитален маркетинг",
+                  "Уеб разработка",
+                  "Предприемачество",
+                  "Оптимизация на търсачки",
+                ],
+                jobTitle: "SEO Консултант и Разработчик",
+                worksFor: {
+                  "@id": "https://stanchev.bg/#organization",
+                },
+                sameAs: [
+                  "https://www.linkedin.com/in/stantcheff/",
+                  "https://github.com/stantchev/",
+                  "https://dev.to/stanchev",
+                ],
+              },
+              {
+                "@type": ["Organization", "ProfessionalService"],
+                "@id": "https://stanchev.bg/#organization",
+                name: "Станчев SEO",
+                url: "https://stanchev.bg/",
+                logo: "https://stanchev.bg/images/og/og.jpg",
+                email: "seo@stanchev.bg",
+                address: {
+                  "@type": "PostalAddress",
+                  streetAddress: "Бул. Г.М. Димитров 26",
+                  addressLocality: "София",
+                  addressRegion: "София",
+                  postalCode: "1797",
+                  addressCountry: "BG",
+                },
+                sameAs: [
+                  "https://github.com/stantchev/",
+                  "https://www.linkedin.com/in/stantcheff/",
+                  "https://dev.to/stanchev",
+                ],
+                contactPoint: {
+                  "@type": "ContactPoint",
+                  contactType: "customer service",
+                  email: "seo@stanchev.bg",
+                  areaServed: "BG",
+                  availableLanguage: "bg",
+                },
+              },
+            ],
           }),
         }}
       />
@@ -96,7 +162,11 @@ export default function ZaMen() {
           }}
         />
 
-        <Flex fillWidth mobileDirection="column" horizontal="center">
+        <Flex
+          fillWidth
+          direction={{ base: "column", m: "row" }}
+          horizontal="center"
+        >
           {about.avatar.display && (
             <Column
               className={styles.avatar}
@@ -115,8 +185,8 @@ export default function ZaMen() {
               </Flex>
               {person.languages.length > 0 && (
                 <Flex wrap gap="8">
-                  {person.languages.map((language, index) => (
-                    <Tag key={index} size="l">
+                  {person.languages.map((language) => (
+                    <Tag key={language} size="l">
                       {language}
                     </Tag>
                   ))}
@@ -194,7 +264,12 @@ export default function ZaMen() {
                 </Heading>
                 <Column fillWidth gap="l" marginBottom="40">
                   {about.studies.institutions.map((institution, i) => (
-                    <Flex key={i} gap="16" vertical="start" horizontal="start">
+                    <Flex
+                      key={i}
+                      gap="16"
+                      vertical="start"
+                      horizontal="start"
+                    >
                       <Column style={{ alignItems: "center", minWidth: 32 }}>
                         <Icon
                           name="checkCircle"
