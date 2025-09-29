@@ -134,35 +134,90 @@ const about = {
       },
     ],
   },
-  studies: {
-    display: true,
-    title: "Образование",
-    institutions: [
-      {
-        name: "Военна академия „Г. С. Раковски“",
-        description: <>Специализация „Сигурност и отбрана“ с профил „Киберсигурност“, развила аналитично мислене и дисциплина.</>,
-      },
-      {
-        name: "SoftUni",
-        description: <>Завършен курс по SEO с отлична оценка (5.61). Специализация в on-page и off-page оптимизация.</>,
-      },
-      {
-        name: "Web Cactus Academy",
-        description: <>Практически курсове по SEO за WordPress, OpenCart и Magento, включващи техническа оптимизация и линк билдинг.</>,
-      },
-      {
-        name: "Сертификации",
-        description: (
-          <>
-            Придобити международни сертификати: SEMrush On-Page SEO Essentials,
-            SEMrush AI-Powered Marketer, Google Analytics, Google Ads AI-Powered
-            Performance. Постоянно обновявам знанията си, защото Google никога
-            не спира.
-          </>
-        ),
-      },
-    ],
-  },
+studies: {
+  display: true,
+  title: "Образование",
+  institutions: [
+    {
+      name: "Google Analytics",
+      description: (
+        <a 
+          href="https://skillshop.credential.net/d830b358-fac9-4299-9028-783755d639b1#acc.S5yMU1dc" 
+          target="_blank" 
+          rel="nofollow noopener noreferrer"
+        >
+          Сертификация за анализ на потребителско поведение и уеб данни.
+        </a>
+      ),
+    },
+    {
+      name: "Google Ads AI-Powered Performance",
+      description: (
+        <a 
+          href="https://skillshop.credential.net/6636f0fe-fd86-4a18-b25b-27a219fca1c8#acc.zCBJHLMX" 
+          target="_blank" 
+          rel="nofollow noopener noreferrer"
+        >
+          Сертификация за реклами с AI и оптимизация на PPC кампании.
+        </a>
+      ),
+    },
+    {
+      name: "SEMrush – Become an AI-Powered Marketer",
+      description: (
+        <a 
+          href="https://static.semrush.com/academy/certificates/dfbe013175/milen-stanchev_26.pdf" 
+          target="_blank" 
+          rel="nofollow noopener noreferrer"
+        >
+          Сертификация за AI и автоматизация в дигиталния маркетинг.
+        </a>
+      ),
+    },
+    {
+      name: "SEMrush – On-Page SEO Essentials",
+      description: (
+        <a 
+          href="https://static.semrush.com/academy/certificates/c326ee55fe/milen-stanchev_25.pdf" 
+          target="_blank" 
+          rel="nofollow noopener noreferrer"
+        >
+          Сертификация за on-page оптимизация и SEO стратегии.
+        </a>
+      ),
+    },
+    {
+      name: "Web Cactus Academy",
+      description: (
+        <a 
+          href="https://stanchev.bg/images/Web%20Cactus%20SEO%20Certificate.png" 
+          target="_blank" 
+          rel="nofollow noopener noreferrer"
+        >
+          Практически курсове по SEO за WordPress, OpenCart и Magento.
+        </a>
+      ),
+    },
+    {
+      name: "SoftUni",
+      description: (
+        <a 
+          href="https://digital.softuni.bg/certificates/details/72195/759fe551" 
+          target="_blank" 
+          rel="nofollow noopener noreferrer"
+        >
+          Завършен курс по SEO с отлична оценка (5.61).
+        </a>
+      ),
+    },
+    {
+      name: "Военна академия „Г. С. Раковски“",
+      description: (
+        <>Специализация „Сигурност и отбрана“ с профил „Киберсигурност“.</>
+      ),
+    },
+  ],
+},
   technical: {
     display: true,
     title: "Технически умения",
@@ -423,6 +478,7 @@ export {
   contact,
   gallery,
 };
+
 
 
 
