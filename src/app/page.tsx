@@ -9,6 +9,10 @@ import {
   Column,
   Badge,
   Row,
+  Pulse,
+  BarChart,
+  LineChart,
+  PieChart
 } from "@once-ui-system/core";
 import { home, about, person, newsletter, routes } from "@/resources";
 import { Mailchimp } from "@/components";
@@ -26,7 +30,13 @@ export const metadata: Metadata = {
       "Комбинация от SEO оптимизация и AI Automation за повече трафик, по-високо класиране и автоматизирано развитие на вашия бизнес | Станчев SEO",
     url: "https://stanchev.bg/",
     siteName: "Станчев SEO",
-    images: [{ url: `https://stanchev.bg/images/og/og.jpg`, width: 1200, height: 630 }],
+    images: [
+      {
+        url: `https://stanchev.bg/images/og/og.jpg`,
+        width: 1200,
+        height: 630,
+      },
+    ],
     locale: "bg_BG",
     type: "website",
   },
@@ -36,6 +46,9 @@ export const metadata: Metadata = {
     description:
       "Комбинация от SEO оптимизация и AI Automation за повече трафик, по-високо класиране и автоматизирано развитие на вашия бизнес | Станчев SEO",
     images: [`https://stanchev.bg/images/og/og.jpg`],
+  },
+  verification: {
+    google: "ULHB2WBDkeyXyEYc7jVHf2nyPUUqKl_KOVBxnuiykpo",
   },
 };
 
@@ -54,91 +67,150 @@ export default function Nachalo() {
             logo: "https://stanchev.bg/images/og/og.jpg",
             description:
               "SEO оптимизация и AI Automation за повече трафик, по-високо класиране и автоматизирано развитие на вашия бизнес | Станчев SEO",
+            contactPoint: {
+              "@type": "ContactPoint",
+              contactType: "customer service",
+              email: "seo@stanchev.bg",
+            },
+            address: {
+              "@type": "PostalAddress",
+              streetAddress: "Бул. Г.М. Димитров 26",
+              addressLocality: "София",
+              addressRegion: "София",
+              postalCode: "1797",
+              addressCountry: "BG",
+            },
+            sameAs: [
+              "https://github.com/stantchev/",
+              "https://www.linkedin.com/in/stantcheff/",
+              "https://dev.to/stanchev",
+            ],
           }),
         }}
       />
-
       <Column maxWidth="m" gap="xl" horizontal="center">
-        {/* HERO */}
-        <Column fillWidth paddingY="40" gap="m" align="center">
-          <Badge background="brand-alpha-weak">SEO + AI Automation</Badge>
-          <Heading variant="display-strong-l" align="center">
-            Повече трафик. По-високи класации. По-умна автоматизация.
+        <Column fillWidth paddingY="24" gap="m">
+          <Column maxWidth="s">
+            <RevealFx fillWidth horizontal="start" paddingBottom="16" speed="fast">
+              <Heading wrap="balance" variant="display-strong-m">
+                <Pulse size="s" variant="success" /> SEO + AI Automation
+              </Heading>
+            </RevealFx>
+            <RevealFx translateY="8" delay={0.2} fillWidth horizontal="start" paddingBottom="32" speed="fast">
+              <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-l">
+                Аз комбинирам SEO оптимизация с AI Automation, за да дам на бизнеса ви повече трафик, по-високо класиране и автоматизирано развитие.
+              </Text>
+            </RevealFx>
+            <RevealFx paddingTop="12" delay={0.4} horizontal="start" paddingLeft="12" speed="fast">
+              <Button
+                id="about"
+                data-border="rounded"
+                href="/za-men"
+                variant="secondary"
+                size="m"
+                weight="default"
+                arrowIcon
+              >
+                <Flex gap="8" vertical="center" paddingRight="4">
+                  {about.avatar.display && <Avatar marginRight="8" src={person.avatar} size="m" />}
+                  {about.title}
+                </Flex>
+              </Button>
+            </RevealFx>
+          </Column>
+        </Column>
+
+        <Column gap="xl" paddingY="40" fillWidth>
+          <Heading variant="display-strong-s" align="center">
+            Търсене с AI срещу Google Search
           </Heading>
-          <Text variant="heading-default-l" align="center" onBackground="neutral-weak">
-            Комбинираме SEO стратегии с AI технологии, за да изградим растеж, който не спира.
+          <Text align="center" onBackground="neutral-weak" variant="heading-default-m">
+            Все повече хора започват да търсят информация директно в AI системи. Аз знам как да ви позиционирам там, където конкуренцията ви още не е стъпила.
           </Text>
-          <Flex gap="m" horizontal="center" paddingTop="24">
-            <Button href="/kontakti" variant="primary" size="l" data-border="rounded">
-              Заяви безплатна консултация
-            </Button>
-            <Button href="/za-men" variant="secondary" size="l" data-border="rounded">
-              Научи повече
+
+          <LineChart
+            title="AI Search VS Google Search (2020-2025)"
+            axis="x"
+            date={{ format: "yyyy" }}
+            series={[
+              { key: "Google Search", color: "cyan" },
+              { key: "AI Search", color: "magenta" }
+            ]}
+            data={[
+              { date: new Date("2020-01-01"), "Google Search": 95, "AI Search": 1 },
+              { date: new Date("2022-01-01"), "Google Search": 93, "AI Search": 3 },
+              { date: new Date("2023-01-01"), "Google Search": 91, "AI Search": 5 },
+              { date: new Date("2024-01-01"), "Google Search": 89, "AI Search": 8 },
+              { date: new Date("2025-01-01"), "Google Search": 85, "AI Search": 12 },
+            ]}
+          />
+
+          <Text align="center" paddingTop="20" onBackground="neutral-weak">
+            До 2025 г. над 12% от глобалните търсения вече минават през AI. Аз знам как да ви изведа сред първите резултати.
+          </Text>
+
+          <BarChart
+            title="Резултати за мои клиенти"
+            axis="none"
+            barWidth="xl"
+            legend={{ position: "bottom-center" }}
+            series={[
+              { key: "AI Overviews", color: "yellow" },
+              { key: "Google Rankings", color: "aqua" }
+            ]}
+            data={[
+              { label: "Клиент A", "AI Overviews": 72, "Google Rankings": 88 },
+              { label: "Клиент B", "AI Overviews": 64, "Google Rankings": 92 },
+              { label: "Клиент C", "AI Overviews": 81, "Google Rankings": 85 }
+            ]}
+          />
+
+          <Text align="center" paddingTop="20" onBackground="neutral-weak">
+            Моите клиенти вече печелят позиции в AI Overviews, докато повечето конкуренти дори не знаят за тяхното значение.
+          </Text>
+
+          <PieChart
+            title="Дял на търсене (2025)"
+            legend={{ display: true, position: "bottom-center" }}
+            ring={{ inner: 60, outer: 70 }}
+            series={{ key: "value" }}
+            data={[
+              { name: "Google", value: 85 },
+              { name: "AI Search", value: 12 },
+              { name: "Други", value: 3 }
+            ]}
+          />
+
+          <Text align="center" paddingTop="20" onBackground="neutral-weak">
+            Google остава гигант, но делът на AI Search расте стремглаво. Ако не сте там днес, губите клиенти още утре.
+          </Text>
+        </Column>
+
+        <Column align="center" paddingY="40" fillWidth>
+          <Heading variant="display-strong-m" align="center">
+            Искате ли сайтът ви да се класира по-високо?
+          </Heading>
+          <Flex horizontal="center" paddingTop="16">
+            <Button variant="primary" prefixIcon="rocket" size="l" href="/kontakti">
+              Свържете се с мен
             </Button>
           </Flex>
         </Column>
 
-        {/* WHAT IS IT / WHAT’S IN IT FOR ME */}
-        <Flex fillWidth gap="40" mobileDirection="column">
-          <Column flex={1} gap="m">
-            <Heading as="h2" variant="display-strong-s">Какво е това?</Heading>
-            <Text>
-              Професионална SEO оптимизация за онлайн магазини и бизнес сайтове,
-              комбинирана с AI Automation, която спестява време и ресурси.
-              Резултатът – устойчива видимост в Google и автоматизация на ключови процеси.
-            </Text>
-          </Column>
-          <Column flex={1} gap="m">
-            <Heading as="h2" variant="display-strong-s">Какво печеля аз?</Heading>
-            <Text>
-              Повече органичен трафик, по-ниска цена на клиент и ясни, измерими резултати.
-              Фокусът е върху ръст на продажби, а не празни отчети.
-            </Text>
-          </Column>
-        </Flex>
-
-        {/* CASE / PROJECT */}
-        <Column fillWidth gap="l" paddingY="40">
-          <Heading as="h2" variant="display-strong-s" align="center">
-            Реални проекти. Реални резултати.
-          </Heading>
-          <Projects range={[1]} />
-        </Column>
-
-        {/* BLOG */}
         {routes["/blog"] && (
-          <Column fillWidth gap="l" paddingY="40">
-            <Heading as="h2" variant="display-strong-s" align="center">
-              Последни публикации
-            </Heading>
-            <Posts range={[1, 3]} columns="3" />
-          </Column>
+          <Flex fillWidth gap="24" mobileDirection="column">
+            <Flex flex={1} paddingLeft="l" paddingTop="24">
+              <Heading as="h2" variant="display-strong-xs" wrap="balance">
+                Последни публикации
+              </Heading>
+            </Flex>
+            <Flex flex={3} paddingX="20">
+              <Posts range={[1, 2]} columns="2" />
+            </Flex>
+          </Flex>
         )}
 
-        {/* WHY YOU */}
-        <Column fillWidth gap="m" paddingY="40" align="center">
-          <Heading as="h2" variant="display-strong-s">Защо да изберете нас?</Heading>
-          <Text align="center">
-            Защото комбинираме дългогодишен SEO опит с най-новите AI технологии.
-            Получавате резултати по-бързо, по-ефективно и с по-малко риск.
-          </Text>
-          <Flex gap="m" wrap horizontal="center" paddingTop="16">
-            <Badge background="brand-alpha-weak">Техническа SEO експертиза</Badge>
-            <Badge background="brand-alpha-weak">AI автоматизация</Badge>
-            <Badge background="brand-alpha-weak">Прозрачни отчети</Badge>
-            <Badge background="brand-alpha-weak">Фокус върху ROI</Badge>
-          </Flex>
-        </Column>
-
-        {/* CTA */}
-        <Column align="center" gap="m" paddingY="40">
-          <Heading variant="display-strong-m" align="center">
-            Искате ли вашият сайт да се класира по-високо?
-          </Heading>
-          <Button href="/kontakti" variant="primary" size="l" prefixIcon="rocket">
-            Свържете се с нас
-          </Button>
-        </Column>
+        <Projects range={[2]} />
 
         {newsletter.display && <Mailchimp newsletter={newsletter} />}
       </Column>
