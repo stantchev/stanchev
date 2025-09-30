@@ -10,9 +10,6 @@ import {
   Badge,
   Row,
   Pulse,
-  BarChart,
-  LineChart,
-  PieChart,
 } from "@once-ui-system/core";
 import { home, about, person, newsletter, routes } from "@/resources";
 import { Mailchimp } from "@/components";
@@ -115,9 +112,10 @@ export default function Nachalo() {
               align="center"
               style={{ lineHeight: "1.2" }}
             >
-              SEO + AI Automation за вашия бизнес
+              SEO оптимизация + AI Automation за вашия бизнес
             </Heading>
           </RevealFx>
+
           <RevealFx delay={0.2} speed="fast">
             <Text
               wrap="balance"
@@ -126,11 +124,12 @@ export default function Nachalo() {
               variant="heading-default-l"
               style={{ maxWidth: "720px" }}
             >
-              Аз комбинирам SEO оптимизация с AI Automation, за да дам на
-              бизнеса ви повече трафик, по-високо класиране и автоматизирано
-              развитие.
+              Искате ли повече клиенти и по-високи позиции в Google и AI
+              системите? Давам ви измерим ръст на трафика и реални резултати,
+              без да губите време и ресурси.
             </Text>
           </RevealFx>
+
           <RevealFx delay={0.4} speed="fast">
             <Flex gap="16" horizontal="center" wrap>
               <Button
@@ -149,84 +148,30 @@ export default function Nachalo() {
               >
                 <Flex vertical="center" gap="8">
                   <Avatar src={person.avatar} size="s" />
-                  {about.label}
+                  За мен
                 </Flex>
               </Button>
             </Flex>
           </RevealFx>
         </Column>
 
-        {/* Charts Section */}
-        <Column fillWidth maxWidth="s" gap="l">
-          <Heading variant="display-strong-s" align="center">
-            Търсене с AI срещу Google Search
+        {/* Why Me */}
+        <Column maxWidth="s" align="center" gap="m" paddingY="xl">
+          <Heading variant="heading-strong-m" align="center">
+            Защо да работите с мен?
           </Heading>
           <Text
             align="center"
             onBackground="neutral-weak"
             variant="body-default-l"
+            style={{ maxWidth: "640px" }}
           >
-            Все повече хора търсят информация директно в AI системи. Аз знам как
-            да ви позиционирам там, където конкуренцията ви още не е стъпила.
+            Докато повечето SEO агенции гонят само класиране в Google,
+            аз ви позиционирам и в <strong>AI системите за търсене</strong>.
+            Това ви дава двойно предимство – да излизате пред конкурентите там,
+            където те все още липсват. Работя сам, без излишни посредници, така
+            че получавате директна експертиза и бързи резултати.
           </Text>
-
-          <LineChart
-            title="AI Search VS Google Search (2020-2025)"
-            axis="x"
-            date={{ format: "yyyy" }}
-            series={[
-              { key: "Google Search", color: "cyan" },
-              { key: "AI Search", color: "magenta" },
-            ]}
-            data={[
-              { date: new Date("2020-01-01"), "Google Search": 95, "AI Search": 1 },
-              { date: new Date("2022-01-01"), "Google Search": 93, "AI Search": 3 },
-              { date: new Date("2023-01-01"), "Google Search": 91, "AI Search": 5 },
-              { date: new Date("2024-01-01"), "Google Search": 89, "AI Search": 8 },
-              { date: new Date("2025-01-01"), "Google Search": 85, "AI Search": 12 },
-            ]}
-          />
-          <BarChart
-            title="Резултати за мои клиенти"
-            axis="none"
-            barWidth="l"
-            legend={{ position: "bottom-center" }}
-            series={[
-              { key: "AI Overviews", color: "yellow" },
-              { key: "Google Rankings", color: "aqua" },
-            ]}
-            data={[
-              { label: "Клиент A", "AI Overviews": 72, "Google Rankings": 88 },
-              { label: "Клиент B", "AI Overviews": 64, "Google Rankings": 92 },
-              { label: "Клиент C", "AI Overviews": 81, "Google Rankings": 85 },
-            ]}
-          />
-          <PieChart
-            title="Дял на търсене (2025)"
-            legend={{ display: true, position: "bottom-center" }}
-            ring={{ inner: 50, outer: 60 }}
-            series={{ key: "value" }}
-            data={[
-              { name: "Google", value: 85 },
-              { name: "AI Search", value: 12 },
-              { name: "Други", value: 3 },
-            ]}
-          />
-        </Column>
-
-        {/* CTA */}
-        <Column align="center" paddingY="xl" fillWidth>
-          <Heading variant="display-strong-m" align="center">
-            Искате ли сайтът ви да се класира по-високо?
-          </Heading>
-          <Flex horizontal="center" paddingTop="m" gap="l">
-            <Button variant="primary" prefixIcon="rocket" size="l" href="/kontakti">
-              Свържете се с мен
-            </Button>
-            <Button variant="secondary" size="l" href="/za-men">
-              Научете повече
-            </Button>
-          </Flex>
         </Column>
 
         {/* Blog */}
@@ -240,7 +185,12 @@ export default function Nachalo() {
         )}
 
         {/* Projects */}
-        <Projects range={[3]} />
+        <Column fillWidth maxWidth="l" gap="m">
+          <Heading as="h2" variant="display-strong-xs" align="center">
+            Последни проекти
+          </Heading>
+          <Projects range={[3]} />
+        </Column>
 
         {/* Newsletter */}
         {newsletter.display && (
