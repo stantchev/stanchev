@@ -47,39 +47,44 @@ export const metadata: Metadata = {
 export default function Nachalo() {
   return (
     <>
-      <Script
-        id="organization-homepage-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "http://schema.org",
-            "@type": "Organization",
-            name: "Станчев SEO",
-            url: "https://stanchev.bg/",
-            logo: "https://stanchev.bg/images/og/og.jpg",
-            description:
-              "SEO оптимизация и AI Automation за повече трафик, по-високо класиране и автоматизирано развитие на вашия бизнес | Станчев SEO",
-            contactPoint: {
-              "@type": "ContactPoint",
-              contactType: "customer service",
-              email: "seo@stanchev.bg",
-            },
-            address: {
-              "@type": "PostalAddress",
-              streetAddress: "Бул. Г.М. Димитров 26",
-              addressLocality: "София",
-              addressRegion: "София",
-              postalCode: "1797",
-              addressCountry: "BG",
-            },
-            sameAs: [
-              "https://github.com/stantchev/",
-              "https://www.linkedin.com/in/stantcheff/",
-              "https://dev.to/stanchev",
-            ],
-          }),
-        }}
-      />
+<Script
+  id="organization-homepage-schema"
+  type="application/ld+json"
+  strategy="afterInteractive"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      "@context": "http://schema.org",
+      "@type": "Organization",
+      name: "Станчев SEO",
+      url: "https://stanchev.bg/",
+      logo: "https://stanchev.bg/images/og/og.jpg",
+      description:
+        "SEO оптимизация и AI Automation за повече трафик, по-високо класиране и автоматизирано развитие на вашия бизнес | Станчев SEO",
+      contactPoint: [
+        {
+          "@type": "ContactPoint",
+          contactType: "customer service",
+          email: "seo@stanchev.bg",
+        },
+      ],
+      address: [
+        {
+          "@type": "PostalAddress",
+          streetAddress: "Бул. Г.М. Димитров 26",
+          addressLocality: "София",
+          addressRegion: "София",
+          postalCode: "1797",
+          addressCountry: "BG",
+        },
+      ],
+      sameAs: [
+        "https://github.com/stantchev/",
+        "https://www.linkedin.com/in/stantcheff/",
+        "https://dev.to/stanchev",
+      ],
+    }),
+  }}
+/>
       
       <Column maxWidth="m" gap="l" horizontal="center" align="center">
         {/* Featured badge with pulse */}
@@ -231,6 +236,7 @@ export default function Nachalo() {
     </>
   );
 }
+
 
 
 
