@@ -22,12 +22,11 @@ import type { Metadata } from "next";
 import Script from "next/script";
 
 export const metadata: Metadata = {
-  title: home.titleText,
-  description: home.descriptionText,
+  title: home.title,
+  description: home.description,
   openGraph: {
-    title: "SEO оптимизация и AI Automation за вашия бизнес",
-    description:
-      "Комбинация от SEO оптимизация и AI Automation за повече трафик, по-високо класиране и автоматизирано развитие на вашия бизнес | Станчев SEO",
+    title: home.title,
+    description: home.description,
     url: "https://stanchev.bg/",
     siteName: "Станчев SEO",
     images: [
@@ -42,9 +41,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "SEO оптимизация и AI Automation за вашия бизнес",
-    description:
-      "Комбинация от SEO оптимизация и AI Automation за повече трафик, по-високо класиране и автоматизирано развитие на вашия бизнес | Станчев SEO",
+    title: home.title,
+    description: home.description,
     images: [`https://stanchev.bg/images/og/og.jpg`],
   },
   verification: {
@@ -65,8 +63,7 @@ export default function Nachalo() {
             name: "Станчев SEO",
             url: "https://stanchev.bg/",
             logo: "https://stanchev.bg/images/og/og.jpg",
-            description:
-              "SEO оптимизация и AI Automation за повече трафик, по-високо класиране и автоматизирано развитие на вашия бизнес | Станчев SEO",
+            description: home.description,
             contactPoint: {
               "@type": "ContactPoint",
               contactType: "customer service",
@@ -98,7 +95,7 @@ export default function Nachalo() {
             </RevealFx>
             <RevealFx translateY="8" delay={0.2} fillWidth horizontal="start" paddingBottom="32" speed="fast">
               <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-l">
-                Аз комбинирам SEO оптимизация с AI Automation, за да дам на бизнеса ви повече трафик, по-високо класиране и автоматизирано развитие.
+                {home.description}
               </Text>
             </RevealFx>
             <RevealFx paddingTop="12" delay={0.4} horizontal="start" paddingLeft="12" speed="fast">
@@ -198,7 +195,7 @@ export default function Nachalo() {
         </Column>
 
         {routes["/blog"] && (
-          <Flex fillWidth gap="24" mobileDirection="column">
+          <Flex fillWidth gap="24" direction="column">
             <Flex flex={1} paddingLeft="l" paddingTop="24">
               <Heading as="h2" variant="display-strong-xs" wrap="balance">
                 Последни публикации
