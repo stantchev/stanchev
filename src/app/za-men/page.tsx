@@ -558,45 +558,45 @@ export default function ZaMen() {
               </>
             )}
 
-            {/* Skills */}
-            {about.technical.display && (
-              <Column gap="l" marginTop="32">
-                <Heading
-                  as="h3"
-                  variant="display-strong-m"
-                  className={styles.textAlign}
-                >
-                  {about.technical.title}
-                </Heading>
-                {about.technical.skills.map((skill, idx) => (
-                  <Column key={skill.title} fillWidth gap="4">
-                    <Text variant="heading-strong-l">{skill.title}</Text>
-                    <Text>{skill.description}</Text>
-                    <Flex gap="4" paddingTop="4" wrap>
-                      {/* ако ползваш tags вместо tools, смени на skill.tags.map(...) */}
-                      {skill.tools?.map((tool, i) => (
-                        <Flex
-                          key={tool}
-                          className={styles.toolItem}
-                          vertical="center"
-                          gap="2"
-                        >
-                          <Icon
-                            name="check"
-                            size="s"
-                            onBackground="brand-strong"
-                          />
-                          <Text variant="body-default-s">{tool}</Text>
-                        </Flex>
-                      ))}
-                    </Flex>
-                  </Column>
-                ))}
-              </Column>
-            )}
-          </Column>
-        </Flex>
+{/* Skills */}
+{about.technical.display && (
+  <Column gap="l" marginTop="32">
+    <Heading
+      as="h3"
+      variant="display-strong-m"
+      className={styles.textAlign}
+    >
+      {about.technical.title}
+    </Heading>
+    {about.technical.skills.map((skill, idx) => (
+      <Column key={skill.title} fillWidth gap="4">
+        <Text variant="heading-strong-l">{skill.title}</Text>
+        <Text>{skill.description}</Text>
+        {skill.tags && skill.tags.length > 0 && (
+          <Flex gap="4" paddingTop="4" wrap>
+            {skill.tags.map((tag, i) => (
+              <Flex
+                key={`${skill.title}-${tag.name}-${i}`}
+                className={styles.toolItem}
+                vertical="center"
+                gap="2"
+              >
+                {tag.icon && (
+                  <Icon
+                    name={tag.icon}
+                    size="s"
+                    onBackground="brand-strong"
+                  />
+                )}
+                <Text variant="body-default-s">{tag.name}</Text>
+              </Flex>
+            ))}
+          </Flex>
+        )}
       </Column>
-    </>
+    ))}
+  </Column>
+)}
   );
 }
+
