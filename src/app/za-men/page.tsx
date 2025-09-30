@@ -442,7 +442,7 @@ export default function ZaMen() {
                     >
                       <Flex
                         fillWidth
-                        horizontal="space-between"
+                        horizontal="between"
                         vertical="end"
                         marginBottom="4"
                       >
@@ -597,3 +597,4 @@ export default function ZaMen() {
     </>
   );
 }
+
