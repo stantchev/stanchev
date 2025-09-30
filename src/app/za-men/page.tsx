@@ -9,9 +9,7 @@ import {
   Media,
   Tag,
   Text,
-  Meta,
   Schema,
-  Row,
 } from "@once-ui-system/core";
 import { baseURL, about, person, social } from "@/resources";
 import TableOfContents from "@/components/about/TableOfContents";
@@ -85,6 +83,9 @@ export default function ZaMen() {
       items: about.technical.skills.map((skill) => skill.title),
     },
   ];
+
+  // безопасност – ако липсват езици, сложи празен масив
+  const languages = person.languages ?? [];
 
   return (
     <>
@@ -178,7 +179,7 @@ export default function ZaMen() {
         }}
       />
 
-      <Column maxWidth="m">
+      <Column maxWidth={40}>
         <Schema
           as="webPage"
           baseURL={baseURL}
@@ -224,111 +225,14 @@ export default function ZaMen() {
                 <Text>{person.location}</Text>
               </Flex>
 
-              {person.languages && person.languages.length > 0 && (
-                <>
-                  <Flex wrap gap="8">
-                    {person.languages.map((language, index) => (
-                      <Tag key={language} size="l">
-                        {language}
-                      </Tag>
-                    ))}
-                  </Flex>
-
-                  {/* Сертификати */}
-                  <div
-                    style={{
-                      display: "grid",
-                      gridTemplateColumns: "repeat(2, auto)",
-                      gap: "12px",
-                      justifyContent: "center",
-                      marginTop: 16,
-                    }}
-                  >
-                    <a
-                      href="https://skillshop.credential.net/d830b358-fac9-4299-9028-783755d639b1#acc.S5yMU1dc"
-                      rel="noopener noreferrer"
-                      target="_blank"
-                    >
-                      <img
-                        src="/images/GA-badge-80x80.png"
-                        alt="Google Analytics Certified Badge"
-                        width={80}
-                        height={80}
-                        style={{ display: "block" }}
-                      />
-                    </a>
-
-                    <a
-                      href="https://skillshop.credential.net/6636f0fe-fd86-4a18-b25b-27a219fca1c8#acc.zCBJHLMX"
-                      rel="noreferrer nofollow"
-                      target="_blank"
-                    >
-                      <img
-                        src="/images/Google Ads AI-Powered Performance Certified badge.png"
-                        alt="Google Ads AI-Powered Performance Certified"
-                        width={80}
-                        height={80}
-                        style={{ display: "block" }}
-                      />
-                    </a>
-
-                    <a
-                      href="https://digital.softuni.bg/certificates/details/72195/759fe551"
-                      rel="noreferrer nofollow"
-                      target="_blank"
-                    >
-                      <img
-                        src="/images/digital-small-logo-white.png"
-                        alt="SoftUni SEO Digital Marketing Certificate"
-                        width={80}
-                        height={80}
-                        style={{ display: "block" }}
-                      />
-                    </a>
-
-                    <a
-                      href="https://stanchev.bg/images/Web%20Cactus%20SEO%20Certificate.png"
-                      rel="noreferrer nofollow"
-                      target="_blank"
-                    >
-                      <img
-                        src="/images/icon-cactus-80x80.png"
-                        alt="Web Cactus Academy SEO Certificate"
-                        width={80}
-                        height={80}
-                        style={{ display: "block" }}
-                      />
-                    </a>
-
-                    <a
-                      href="https://static.semrush.com/academy/certificates/dfbe013175/milen-stanchev_26.pdf"
-                      rel="noreferrer nofollow"
-                      target="_blank"
-                    >
-                      <img
-                        src="/images/semrush-digital-maketing-ai-certification-80x80.png"
-                        alt="AI-Powered Marketer Certificate"
-                        width={80}
-                        height={80}
-                        style={{ display: "block" }}
-                      />
-                    </a>
-
-                    <a
-                      href="https://static.semrush.com/academy/certificates/c326ee55fe/milen-stanchev_25.pdf"
-                      rel="noreferrer nofollow"
-                      target="_blank"
-                    >
-                      <img
-                        src="/images/semrush-digital-maketing-ai-certification-80x80.png"
-                        alt="On-Page SEO Essentials with Semrush Certificate"
-                        width={80}
-                        height={80}
-                        style={{ display: "block" }}
-                      />
-                    </a>
-                  </div>
-                </>
+              {languages.length > 0 && (
+                <Flex wrap gap="8">
+                  {languages.map((language, index) => (
+                    <Tag key={language} size="l">
+                      {language}
+                    </Tag>
+                  ))}
+                </Flex>
               )}
             </Column>
           )}
@@ -373,45 +277,6 @@ export default function ZaMen() {
               <Text className={styles.textAlign} variant="display-default-xs">
                 {person.role}
               </Text>
-
-              {social.length > 0 && (
-                <Flex
-                  className={styles.blockAlign}
-                  paddingTop="20"
-                  paddingBottom="8"
-                  gap="8"
-                  wrap
-                  horizontal="center"
-                  fitWidth
-                  data-border="rounded"
-                >
-                  {social.map(
-                    (item) =>
-                      item.link && (
-                        <React.Fragment key={item.name}>
-                          <Button
-                            className="s-flex-hide styled-button"
-                            key={item.name}
-                            href={item.link}
-                            prefixIcon={item.icon}
-                            label={item.name}
-                            size="s"
-                            weight="default"
-                            variant="secondary"
-                          />
-                          <IconButton
-                            className="s-flex-show styled-button"
-                            size="l"
-                            key={`${item.name}-icon`}
-                            href={item.link}
-                            icon={item.icon}
-                            variant="secondary"
-                          />
-                        </React.Fragment>
-                      )
-                  )}
-                </Flex>
-              )}
             </Column>
 
             {about.intro.display && (
@@ -471,39 +336,6 @@ export default function ZaMen() {
                           )
                         )}
                       </Column>
-
-                      {Array.isArray(experience.images) &&
-                        experience.images.length > 0 && (
-                          <Flex
-                            fillWidth
-                            paddingTop="m"
-                            paddingLeft="40"
-                            gap="12"
-                            wrap
-                          >
-                            {(experience.images as ExperienceImage[]).map(
-                              (image, idx) => (
-                                <Flex
-                                  key={idx}
-                                  border="neutral-medium"
-                                  radius="m"
-                                >
-                                  <Media
-                                    enlarge
-                                    radius="m"
-                                    sizes={
-                                      image.width
-                                        ? image.width.toString()
-                                        : undefined
-                                    }
-                                    alt={image.alt || ""}
-                                    src={image.src}
-                                  />
-                                </Flex>
-                              )
-                            )}
-                          </Flex>
-                        )}
                     </Column>
                   ))}
                 </Column>
@@ -558,45 +390,48 @@ export default function ZaMen() {
               </>
             )}
 
-{/* Skills */}
-{about.technical.display && (
-  <Column gap="l" marginTop="32">
-    <Heading
-      as="h3"
-      variant="display-strong-m"
-      className={styles.textAlign}
-    >
-      {about.technical.title}
-    </Heading>
-    {about.technical.skills.map((skill, idx) => (
-      <Column key={skill.title} fillWidth gap="4">
-        <Text variant="heading-strong-l">{skill.title}</Text>
-        <Text>{skill.description}</Text>
-        {skill.tags && skill.tags.length > 0 && (
-          <Flex gap="4" paddingTop="4" wrap>
-            {skill.tags.map((tag, i) => (
-              <Flex
-                key={`${skill.title}-${tag.name}-${i}`}
-                className={styles.toolItem}
-                vertical="center"
-                gap="2"
-              >
-                {tag.icon && (
-                  <Icon
-                    name={tag.icon}
-                    size="s"
-                    onBackground="brand-strong"
-                  />
-                )}
-                <Text variant="body-default-s">{tag.name}</Text>
-              </Flex>
-            ))}
-          </Flex>
-        )}
+            {/* Skills */}
+            {about.technical.display && (
+              <Column gap="l" marginTop="32">
+                <Heading
+                  as="h3"
+                  variant="display-strong-m"
+                  className={styles.textAlign}
+                >
+                  {about.technical.title}
+                </Heading>
+                {about.technical.skills.map((skill, idx) => (
+                  <Column key={skill.title} fillWidth gap="4">
+                    <Text variant="heading-strong-l">{skill.title}</Text>
+                    <Text>{skill.description}</Text>
+                    {skill.tags && skill.tags.length > 0 && (
+                      <Flex gap="4" paddingTop="4" wrap>
+                        {skill.tags.map((tag, i) => (
+                          <Flex
+                            key={`${skill.title}-${tag.name}-${i}`}
+                            className={styles.toolItem}
+                            vertical="center"
+                            gap="2"
+                          >
+                            {tag.icon && (
+                              <Icon
+                                name={tag.icon}
+                                size="s"
+                                onBackground="brand-strong"
+                              />
+                            )}
+                            <Text variant="body-default-s">{tag.name}</Text>
+                          </Flex>
+                        ))}
+                      </Flex>
+                    )}
+                  </Column>
+                ))}
+              </Column>
+            )}
+          </Column>
+        </Flex>
       </Column>
-    ))}
-  </Column>
-)}
+    </>
   );
 }
-
