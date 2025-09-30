@@ -34,7 +34,7 @@ export const Footer = () => {
     >
       <Flex
         fillWidth
-        horizontal="space-between"
+        horizontal="between"
         vertical="center"
         style={{ width: '100%' }}
       >
@@ -77,3 +77,4 @@ export const Footer = () => {
     </Flex>
   );
 };
+
