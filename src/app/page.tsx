@@ -48,7 +48,7 @@ export default function Nachalo() {
   return (
     <>
       {/* Schema.org JSON-LD */}
-      <Script
+      ,<Script
         id="organization-homepage-schema"
         type="application/ld+json"
         strategy="beforeInteractive"
@@ -228,5 +228,6 @@ export default function Nachalo() {
     </>
   );
 }
+
 
 
