@@ -48,7 +48,7 @@ export default function Nachalo() {
   return (
     <>
       {/* Schema.org */}
-      <Script
+      <script
         id="organization-homepage-schema"
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -227,3 +227,4 @@ export default function Nachalo() {
     </>
   );
 }
+
