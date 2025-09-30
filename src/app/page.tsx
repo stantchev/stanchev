@@ -73,7 +73,7 @@ export default function Nachalo() {
         }}
       />
 
-      <Column maxWidth="m" gap="xl" horizontal="center">
+      <Column maxWidth="m" gap="xl" horizontal="center" align="center">
         {/* Featured badge with pulse */}
         <Column fillWidth horizontal="center" gap="m">
           <Column maxWidth="s" horizontal="center" align="center">
@@ -104,7 +104,7 @@ export default function Nachalo() {
         </Column>
 
         {/* Hero */}
-        <Column maxWidth="m" align="center" gap="l" paddingBottom="xl">
+        <Column maxWidth="m" align="center" horizontal="center" gap="l" paddingBottom="xl">
           <RevealFx speed="fast">
             <Heading
               wrap="balance"
@@ -156,7 +156,7 @@ export default function Nachalo() {
         </Column>
 
         {/* Why Me */}
-        <Column maxWidth="s" align="center" gap="m" paddingY="xl">
+        <Column maxWidth="m" align="center" horizontal="center" gap="m" paddingY="xl">
           <Heading variant="heading-strong-m" align="center">
             Защо да работите с мен?
           </Heading>
@@ -176,7 +176,7 @@ export default function Nachalo() {
 
         {/* Blog */}
         {routes["/blog"] && (
-          <Column fillWidth maxWidth="l" gap="m">
+          <Column fillWidth maxWidth="l" gap="m" horizontal="center" align="center">
             <Heading as="h2" variant="display-strong-xs" align="center">
               Последни публикации
             </Heading>
@@ -185,11 +185,26 @@ export default function Nachalo() {
         )}
 
         {/* Projects */}
-        <Column fillWidth maxWidth="l" gap="m">
+        <Column fillWidth maxWidth="l" gap="m" horizontal="center" align="center">
           <Heading as="h2" variant="display-strong-xs" align="center">
             Последни проекти
           </Heading>
-          <Projects range={[3]} />
+          <Projects range={[1, 3]} /> {/* само последните 3 */}
+        </Column>
+
+        {/* CTA before Newsletter */}
+        <Column align="center" horizontal="center" paddingY="xl" fillWidth>
+          <Heading variant="display-strong-m" align="center">
+            Готови ли сте да изпреварите конкуренцията?
+          </Heading>
+          <Flex horizontal="center" paddingTop="m" gap="l">
+            <Button variant="primary" prefixIcon="rocket" size="l" href="/kontakti">
+              Свържете се с мен
+            </Button>
+            <Button variant="secondary" size="l" href="/za-men">
+              Научете повече
+            </Button>
+          </Flex>
         </Column>
 
         {/* Newsletter */}
