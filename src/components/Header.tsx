@@ -19,10 +19,9 @@ export const Header = () => {
   return (
     <>
       <Fade hide fillWidth position="fixed" height="80" zIndex={9} />
-      <Fade show fillWidth position="fixed" bottom="0" to="top" height="80" zIndex={9} />
+      <Fade fillWidth position="fixed" bottom="0" to="top" height="80" zIndex={9} />
       <Fade
         className={styles.headerBlur}
-        show="s"
         fillWidth
         position="fixed"
         top="0"
@@ -132,4 +131,5 @@ export const Header = () => {
 };
 
 export default Header;
+
 
