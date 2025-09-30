@@ -96,147 +96,21 @@ export default function SeoUslugi() {
                     "availableLanguage": "bg"
                   }
                 },
-                "itemListElement": [
-                  {
-                    "@type": "Offer",
-                    "itemOffered": {
-                      "@type": "Service",
-                      "name": "SEO Оптимизация",
-                      "description": "Пълна SEO оптимизация: анализ на търсене, on-page/tech, вътрешно свързване и съдържание, ориентирано към конверсия."
-                    },
-                    "priceSpecification": {
-                      "@type": "UnitPriceSpecification",
-                      "priceCurrency": "BGN",
-                      "unitText": "По договаряне",
-                      "name": "Цена за SEO Оптимизация по договаряне"
-                    },
-                    "url": "https://stanchev.bg/seo-uslugi/seo-optimizatsiya"
+                "itemListElement": seoServices.services.map((s) => ({
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": s.title,
+                    "description": s.description
                   },
-                  {
-                    "@type": "Offer",
-                    "itemOffered": {
-                      "@type": "Service",
-                      "name": "Link Building",
-                      "description": "Качествени външни връзки, тематични публикации и дигитални PR активи за по-силен авторитет."
-                    },
-                    "priceSpecification": {
-                      "@type": "UnitPriceSpecification",
-                      "priceCurrency": "BGN",
-                      "unitText": "По договаряне",
-                      "name": "Цена за Link Building по договаряне"
-                    },
-                    "url": "https://stanchev.bg/seo-uslugi/link-building"
+                  "priceSpecification": {
+                    "@type": "UnitPriceSpecification",
+                    "priceCurrency": "BGN",
+                    "unitText": s.price,
+                    "name": `Цена за ${s.title}`
                   },
-                  {
-                    "@type": "Offer",
-                    "itemOffered": {
-                      "@type": "Service",
-                      "name": "SEO Одит",
-                      "description": "Детайлен технически и съдържателен одит: индексиране, CWV, структура, дублирано съдържание и приоритизиран план."
-                    },
-                    "priceSpecification": {
-                      "@type": "UnitPriceSpecification",
-                      "price": "200",
-                      "priceCurrency": "BGN",
-                      "unitText": "лв.",
-                      "name": "Начална цена за SEO Одит"
-                    },
-                    "url": "https://stanchev.bg/seo-uslugi/seo-odit"
-                  },
-                  {
-                    "@type": "Offer",
-                    "itemOffered": {
-                      "@type": "Service",
-                      "name": "On-Page SEO",
-                      "description": "Структура, мета данни, UX копирайтинг, вътрешни линкове и schema за богати резултати."
-                    },
-                    "priceSpecification": {
-                      "@type": "UnitPriceSpecification",
-                      "price": "300",
-                      "priceCurrency": "BGN",
-                      "unitText": "лв.",
-                      "name": "Начална цена за On-Page SEO"
-                    },
-                    "url": "https://stanchev.bg/seo-uslugi/on-page-seo"
-                  },
-                  {
-                    "@type": "Offer",
-                    "itemOffered": {
-                      "@type": "Service",
-                      "name": "Keyword Research",
-                      "description": "Изследване на ключови думи, намерение и теми за съдържание, готови за AI резюмета."
-                    },
-                    "priceSpecification": {
-                      "@type": "UnitPriceSpecification",
-                      "price": "150",
-                      "priceCurrency": "BGN",
-                      "unitText": "лв.",
-                      "name": "Начална цена за Keyword Research"
-                    },
-                    "url": "https://stanchev.bg/seo-uslugi/keyword-research"
-                  },
-                  {
-                    "@type": "Offer",
-                    "itemOffered": {
-                      "@type": "Service",
-                      "name": "Локално SEO",
-                      "description": "Оптимизация за локални търсения и Google Business Profile с фокус върху реални запитвания."
-                    },
-                    "priceSpecification": {
-                      "@type": "UnitPriceSpecification",
-                      "price": "390",
-                      "priceCurrency": "BGN",
-                      "unitText": "лв.",
-                      "name": "Начална цена за Локално SEO"
-                    },
-                    "url": "https://stanchev.bg/seo-uslugi/lokalno-seo"
-                  },
-                  {
-                    "@type": "Offer",
-                    "itemOffered": {
-                      "@type": "Service",
-                      "name": "SEO Консултация",
-                      "description": "Лична консултация: стратегия, приоритизация и roadmap според екип и ресурси."
-                    },
-                    "priceSpecification": {
-                      "@type": "UnitPriceSpecification",
-                      "price": "0,00",
-                      "priceCurrency": "BGN",
-                      "unitText": "лв./час",
-                      "name": "Безплатна SEO Консултация"
-                    },
-                    "url": "https://stanchev.bg/seo-uslugi/seo-konsultaciya"
-                  }
-                ]
-              },
-              {
-                "@type": "FAQPage",
-                "mainEntity": [
-                  {
-                    "@type": "Question",
-                    "name": "Какви точно SEO услуги предлагате?",
-                    "acceptedAnswer": {
-                      "@type": "Answer",
-                      "text": "Предлагам пълен набор от SEO: технически одит и фиксове, on-page оптимизация, съдържание и вътрешно свързване, линк билдинг и измерване на резултатите. Работя с ясни KPI и фокус върху продажби, не само позиции."
-                    }
-                  },
-                  {
-                    "@type": "Question",
-                    "name": "С какво подходът ви се отличава?",
-                    "acceptedAnswer": {
-                      "@type": "Answer",
-                      "text": "Съчетавам традиционното SEO с нетрадиционен AI подход и при нужда за корпоративни клиенти автоматизирам ключови процеси за мащабируемост и ефективност. С фокус върху CWV, crawl ефективност и съдържание, което определено изпъква."
-                    }
-                  },
-                  {
-                    "@type": "Question",
-                    "name": "За какви бизнеси са подходящи услугите?",
-                    "acceptedAnswer": {
-                      "@type": "Answer",
-                      "text": "Подходящи са за фирмени сайтове, онлайн магазини и B2B проекти. Мога да работя както с малки екипи, така и с големи организации – приоритетът е устойчив растеж на органичните приходи."
-                    }
-                  }
-                ]
+                  "url": `https://stanchev.bg/seo-uslugi/${s.slug}`
+                }))
               }
             ]
           })
@@ -283,7 +157,8 @@ export default function SeoUslugi() {
         </Text>
       </Column>
 
-      <Grid columns={{ initial: "1", m: "2" }} gap="l" paddingX="l">
+      {/* FIX: responsive grid без TS грешки */}
+      <Grid columns="1" gap="l" paddingX="l" className="md:grid-cols-2">
         {seoServices.services.map((service, index) => (
           <Card
             key={index}
@@ -373,8 +248,3 @@ export default function SeoUslugi() {
      </>
   );
 }
-
-
-
-
-
