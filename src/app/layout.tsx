@@ -9,6 +9,7 @@ import {
   Flex,
   opacity,
   SpacingToken,
+  LayoutProvider, // 🆕 добавен
 } from "@once-ui-system/core";
 import {
   baseURL,
@@ -20,13 +21,14 @@ import {
 } from "@/resources";
 import Script from "next/script";
 import { Metadata } from "next";
-import { Header } from '@/components/Header';
-import { Footer } from '@/components/Footer';
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
 import { Providers } from "@/components/Providers";
 
 export const metadata: Metadata = {
   title: "SEO Консултант България | Станчев SEO - Професионални SEO Услуги",
-  description: "Професионален SEO консултант в България. SEO оптимизация, линк билдинг стратегия, оптимизация на сайт, SEO анализ. Повишете позициите си в Google с доказани SEO услуги.",
+  description:
+    "Професионален SEO консултант в България. SEO оптимизация, линк билдинг стратегия, оптимизация на сайт, SEO анализ. Повишете позициите си в Google с доказани SEO услуги.",
   keywords: [
     "seo консултант",
     "seo фирми",
@@ -35,7 +37,7 @@ export const metadata: Metadata = {
     "как да си направя сайт",
     "link building цена",
     "seo оптимизация цена",
-    "seo цена"
+    "seo цена",
   ],
   metadataBase: new URL(baseURL),
   authors: [{ name: "Станчев", url: baseURL }],
@@ -47,9 +49,9 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
     },
   },
   openGraph: {
@@ -58,7 +60,8 @@ export const metadata: Metadata = {
     url: baseURL,
     siteName: "Станчев SEO - Професионални SEO Услуги България",
     title: "SEO Консултант България | Станчев SEO - Професионални SEO Услуги",
-    description: "Професионален SEO консултант в България. SEO оптимизация, линк билдинг стратегия, оптимизация на сайт, SEO анализ. Повишете позициите си в Google с доказани SEO услуги.",
+    description:
+      "Професионален SEO консултант в България. SEO оптимизация, линк билдинг стратегия, оптимизация на сайт, SEO анализ. Повишете позициите си в Google с доказани SEO услуги.",
     images: [
       {
         url: "https://stanchev.bg/images/og/og.jpg",
@@ -66,7 +69,7 @@ export const metadata: Metadata = {
         height: 630,
         alt: "Станчев SEO - Професионални SEO услуги България",
         type: "image/jpeg",
-      }
+      },
     ],
   },
   twitter: {
@@ -74,7 +77,8 @@ export const metadata: Metadata = {
     site: "@stanchev_seo",
     creator: "@stanchev_seo",
     title: "SEO Консултант България | Станчев SEO - Професионални SEO Услуги",
-    description: "Професионален SEO консултант в България. SEO оптимизация, линк билдинг стратегия, оптимизация на сайт, SEO анализ. Повишете позициите си в Google с доказани SEO услуги.",
+    description:
+      "Професионален SEO консултант в България. SEO оптимизация, линк билдинг стратегия, оптимизация на сайт, SEO анализ. Повишете позициите си в Google с доказани SEO услуги.",
     images: ["https://stanchev.bg/images/og/og.jpg"],
   },
   alternates: {
@@ -103,6 +107,7 @@ export default function RootLayout({
       )}
     >
       <body className="page-background flex flex-col items-center min-h-screen">
+        {/* JSON-LD Schema */}
         <Script
           id="json-ld-professional-service"
           type="application/ld+json"
@@ -110,29 +115,30 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "ProfessionalService",
-              "name": "Станчев SEO",
-              "description": "Професионален SEO консултант в България. SEO оптимизация, линк билдинг стратегия, оптимизация на сайт, SEO анализ.",
-              "url": "https://stanchev.vercel.app",
-              "logo": "https://stanchev.vercel.app/images/og/og.jpg",
-              "image": "https://stanchev.vercel.app/images/og/og.jpg",
-              "telephone": "+359-XXX-XXX-XXX",
-              "email": "seo@stanchev.bg",
-              "address": {
+              name: "Станчев SEO",
+              description:
+                "Професионален SEO консултант в България. SEO оптимизация, линк билдинг стратегия, оптимизация на сайт, SEO анализ.",
+              url: "https://stanchev.vercel.app",
+              logo: "https://stanchev.vercel.app/images/og/og.jpg",
+              image: "https://stanchev.vercel.app/images/og/og.jpg",
+              telephone: "+359-XXX-XXX-XXX",
+              email: "seo@stanchev.bg",
+              address: {
                 "@type": "PostalAddress",
-                "addressLocality": "София",
-                "addressRegion": "София-град",
-                "addressCountry": "BG"
+                addressLocality: "София",
+                addressRegion: "София-град",
+                addressCountry: "BG",
               },
-              "geo": {
+              geo: {
                 "@type": "GeoCoordinates",
-                "latitude": "42.6977",
-                "longitude": "23.3219"
+                latitude: "42.6977",
+                longitude: "23.3219",
               },
-              "areaServed": {
+              areaServed: {
                 "@type": "Country",
-                "name": "България"
+                name: "България",
               },
-              "serviceType": [
+              serviceType: [
                 "SEO оптимизация",
                 "Линк билдинг",
                 "SEO консултация",
@@ -142,24 +148,25 @@ export default function RootLayout({
                 "On-page оптимизация",
                 "Off-page оптимизация",
                 "Keyword research",
-                "SEO копирайтинг"
+                "SEO копирайтинг",
               ],
-              "priceRange": "$$",
-              "sameAs": [
+              priceRange: "$$",
+              sameAs: [
                 "https://github.com/stantchev/",
                 "https://www.linkedin.com/in/stantcheff/",
-                "https://dev.to/stanchev"
+                "https://dev.to/stanchev",
               ],
-              "founder": {
+              founder: {
                 "@type": "Person",
-                "name": "Станчев",
-                "jobTitle": "SEO Специалист",
-                "email": "seo@stanchev.bg",
-                "url": "https://stanchev.vercel.app/za-men"
-              }
-            })
+                name: "Станчев",
+                jobTitle: "SEO Специалист",
+                email: "seo@stanchev.bg",
+                url: "https://stanchev.vercel.app/za-men",
+              },
+            }),
           }}
         />
+        {/* Theme init */}
         <Script id="theme-init" strategy="beforeInteractive" async>{`
           (function () {
             try {
@@ -185,38 +192,62 @@ export default function RootLayout({
                     ? "dark"
                     : "light"
                   : t;
-              root.setAttribute("data-theme", resolveTheme(localStorage.getItem("data-theme")));
+              root.setAttribute(
+                "data-theme",
+                resolveTheme(localStorage.getItem("data-theme"))
+              );
             } catch (e) {
               console.error(e);
               document.documentElement.setAttribute("data-theme", "dark");
             }
           })();
         `}</Script>
-        <Background
-          position="fixed"
-          mask={effects.mask}
-          gradient={{ ...effects.gradient, opacity: effects.gradient.opacity as opacity }}
-          dots={{ ...effects.dots, opacity: effects.dots.opacity as opacity, size: effects.dots.size as SpacingToken }}
-          grid={{ ...effects.grid, opacity: effects.grid.opacity as opacity }}
-          lines={{ ...effects.lines, opacity: effects.lines.opacity as opacity, size: effects.lines.size as SpacingToken }}
-        />
-        <Header />
-        <Providers>
-          <main className="main-content" style={{ 
-            width: '100%', 
-            maxWidth: '1200px', 
-            margin: '0 auto', 
-            padding: '0 24px',
-            minHeight: 'calc(100vh - 120px)',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            paddingTop: '80px',
-          }}>
-            {children}
-          </main>
-        </Providers>
-        <Footer />
+
+        {/* 🆕 Wrap всичко в LayoutProvider */}
+        <LayoutProvider>
+          <Background
+            position="fixed"
+            mask={effects.mask}
+            gradient={{
+              ...effects.gradient,
+              opacity: effects.gradient.opacity as opacity,
+            }}
+            dots={{
+              ...effects.dots,
+              opacity: effects.dots.opacity as opacity,
+              size: effects.dots.size as SpacingToken,
+            }}
+            grid={{
+              ...effects.grid,
+              opacity: effects.grid.opacity as opacity,
+            }}
+            lines={{
+              ...effects.lines,
+              opacity: effects.lines.opacity as opacity,
+              size: effects.lines.size as SpacingToken,
+            }}
+          />
+          <Header />
+          <Providers>
+            <main
+              className="main-content"
+              style={{
+                width: "100%",
+                maxWidth: "1200px",
+                margin: "0 auto",
+                padding: "0 24px",
+                minHeight: "calc(100vh - 120px)",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                paddingTop: "80px",
+              }}
+            >
+              {children}
+            </main>
+          </Providers>
+          <Footer />
+        </LayoutProvider>
       </body>
     </html>
   );
