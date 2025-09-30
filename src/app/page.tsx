@@ -124,19 +124,20 @@ export default function Nachalo() {
           </RevealFx>
 
            <RevealFx delay={0.2} speed="fast">
-      <Column align="center" horizontal="center">
-        <Text
-          wrap="balance"
-          onBackground="neutral-weak"
-          variant="heading-default-l"
-          style={{ maxWidth: "720px", textAlign: "center" }}
-        >
-          Искате ли повече клиенти и по-високи позиции в Google и AI
-          системите? Давам ви измерим ръст на трафика и реални резултати,
-          без да губите време и ресурси.
-        </Text>
-      </Column>
-    </RevealFx>
+            <Column maxWidth="m" align="center" horizontal="center">
+              <Text
+                wrap="balance"
+                onBackground="neutral-weak"
+                align="center"
+                variant="heading-default-l"
+                style={{ maxWidth: "720px", textAlign: "center" }}
+              >
+                Искате ли повече клиенти и по-високи позиции в Google и AI
+                системите? Давам ви измерим ръст на трафика и реални резултати,
+                без да губите време и ресурси.
+              </Text>
+            </Column>
+          </RevealFx>
 
           <RevealFx delay={0.4} speed="fast">
             <Flex gap="16" horizontal="center" vertical="center" wrap>
@@ -221,4 +222,5 @@ export default function Nachalo() {
     </>
   );
 }
+
 
