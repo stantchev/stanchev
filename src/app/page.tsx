@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import {
   Heading,
@@ -7,12 +9,10 @@ import {
   Avatar,
   RevealFx,
   Column,
-  Badge,
-  Row,
   Pulse,
   BarChart,
   LineChart,
-  PieChart
+  PieChart,
 } from "@once-ui-system/core";
 import { home, about, person, newsletter, routes } from "@/resources";
 import { Mailchimp } from "@/components";
@@ -53,6 +53,7 @@ export const metadata: Metadata = {
 export default function Nachalo() {
   return (
     <>
+      {/* Schema.org */}
       <Script
         id="organization-homepage-schema"
         type="application/ld+json"
@@ -85,44 +86,71 @@ export default function Nachalo() {
           }),
         }}
       />
-      <Column maxWidth="m" gap="xl" horizontal="center">
-        <Column fillWidth paddingY="24" gap="m">
-          <Column maxWidth="s">
-            <RevealFx fillWidth horizontal="start" paddingBottom="16" speed="fast">
-              <Heading wrap="balance" variant="display-strong-m">
-                <Pulse size="s" variant="success" /> SEO + AI Automation
-              </Heading>
-            </RevealFx>
-            <RevealFx translateY="8" delay={0.2} fillWidth horizontal="start" paddingBottom="32" speed="fast">
-              <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-l">
-                {home.description}
-              </Text>
-            </RevealFx>
-            <RevealFx paddingTop="12" delay={0.4} horizontal="start" paddingLeft="12" speed="fast">
+
+      <Column gap="3xl" fillWidth align="center">
+        {/* Hero Section */}
+        <Column
+          maxWidth="m"
+          align="center"
+          paddingTop="80"
+          paddingBottom="40"
+          gap="l"
+        >
+          <RevealFx speed="fast">
+            <Heading
+              wrap="balance"
+              variant="display-strong-l"
+              align="center"
+              style={{ lineHeight: "1.2" }}
+            >
+              <Pulse size="s" variant="success" /> SEO & AI Automation за вашия
+              бизнес
+            </Heading>
+          </RevealFx>
+          <RevealFx delay={0.2} speed="fast">
+            <Text
+              wrap="balance"
+              onBackground="neutral-weak"
+              align="center"
+              variant="heading-default-l"
+              style={{ maxWidth: "720px" }}
+            >
+              {home.description}
+            </Text>
+          </RevealFx>
+          <RevealFx delay={0.4} speed="fast">
+            <Flex gap="16" horizontal="center" wrap>
               <Button
-                id="about"
-                data-border="rounded"
+                href="/kontakti"
+                variant="primary"
+                size="l"
+                prefixIcon="rocket"
+              >
+                Започнете сега
+              </Button>
+              <Button
                 href="/za-men"
                 variant="secondary"
-                size="m"
-                weight="default"
-                arrowIcon
+                size="l"
+                prefixIcon="user"
               >
-                <Flex gap="8" vertical="center" paddingRight="4">
-                  {about.avatar.display && <Avatar marginRight="8" src={person.avatar} size="m" />}
-                  {about.title}
+                <Flex vertical="center" gap="8">
+                  <Avatar src={person.avatar} size="s" />
+                  {about.label}
                 </Flex>
               </Button>
-            </RevealFx>
-          </Column>
+            </Flex>
+          </RevealFx>
         </Column>
 
-        <Column gap="xl" paddingY="40" fillWidth>
+        {/* Value Proposition with Charts */}
+        <Column fillWidth maxWidth="m" gap="xl">
           <Heading variant="display-strong-s" align="center">
             Търсене с AI срещу Google Search
           </Heading>
-          <Text align="center" onBackground="neutral-weak" variant="heading-default-m">
-            Все повече хора започват да търсят информация директно в AI системи. Аз знам как да ви позиционирам там, където конкуренцията ви още не е стъпила.
+          <Text align="center" onBackground="neutral-weak" variant="body-default-l">
+            Подгответе сайта си за бъдещето. Конкуренцията все още спи, а вие
+            можете да сте първи в AI резултатите.
           </Text>
 
           <LineChart
@@ -131,7 +159,7 @@ export default function Nachalo() {
             date={{ format: "yyyy" }}
             series={[
               { key: "Google Search", color: "cyan" },
-              { key: "AI Search", color: "magenta" }
+              { key: "AI Search", color: "magenta" },
             ]}
             data={[
               { date: new Date("2020-01-01"), "Google Search": 95, "AI Search": 1 },
@@ -141,11 +169,10 @@ export default function Nachalo() {
               { date: new Date("2025-01-01"), "Google Search": 85, "AI Search": 12 },
             ]}
           />
+        </Column>
 
-          <Text align="center" paddingTop="20" onBackground="neutral-weak">
-            До 2025 г. над 12% от глобалните търсения вече минават през AI. Аз знам как да ви изведа сред първите резултати.
-          </Text>
-
+        {/* Social Proof */}
+        <Column fillWidth maxWidth="m" gap="xl">
           <BarChart
             title="Резултати за мои клиенти"
             axis="none"
@@ -153,19 +180,14 @@ export default function Nachalo() {
             legend={{ position: "bottom-center" }}
             series={[
               { key: "AI Overviews", color: "yellow" },
-              { key: "Google Rankings", color: "aqua" }
+              { key: "Google Rankings", color: "aqua" },
             ]}
             data={[
               { label: "Клиент A", "AI Overviews": 72, "Google Rankings": 88 },
               { label: "Клиент B", "AI Overviews": 64, "Google Rankings": 92 },
-              { label: "Клиент C", "AI Overviews": 81, "Google Rankings": 85 }
+              { label: "Клиент C", "AI Overviews": 81, "Google Rankings": 85 },
             ]}
           />
-
-          <Text align="center" paddingTop="20" onBackground="neutral-weak">
-            Моите клиенти вече печелят позиции в AI Overviews, докато повечето конкуренти дори не знаят за тяхното значение.
-          </Text>
-
           <PieChart
             title="Дял на търсене (2025)"
             legend={{ display: true, position: "bottom-center" }}
@@ -174,15 +196,12 @@ export default function Nachalo() {
             data={[
               { name: "Google", value: 85 },
               { name: "AI Search", value: 12 },
-              { name: "Други", value: 3 }
+              { name: "Други", value: 3 },
             ]}
           />
-
-          <Text align="center" paddingTop="20" onBackground="neutral-weak">
-            Google остава гигант, но делът на AI Search расте стремглаво. Ако не сте там днес, губите клиенти още утре.
-          </Text>
         </Column>
 
+        {/* CTA Section */}
         <Column align="center" paddingY="40" fillWidth>
           <Heading variant="display-strong-m" align="center">
             Искате ли сайтът ви да се класира по-високо?
@@ -194,24 +213,26 @@ export default function Nachalo() {
           </Flex>
         </Column>
 
+        {/* Blog Section */}
         {routes["/blog"] && (
-          <Flex fillWidth gap="24" direction="column">
-            <Flex flex={1} paddingLeft="l" paddingTop="24">
-              <Heading as="h2" variant="display-strong-xs" wrap="balance">
-                Последни публикации
-              </Heading>
-            </Flex>
-            <Flex flex={3} paddingX="20">
-              <Posts range={[1, 2]} columns="2" />
-            </Flex>
-          </Flex>
+          <Column fillWidth maxWidth="l" gap="m">
+            <Heading as="h2" variant="display-strong-xs" align="center">
+              Последни публикации
+            </Heading>
+            <Posts range={[1, 2]} columns="2" />
+          </Column>
         )}
 
+        {/* Projects */}
         <Projects range={[2]} />
 
-        {newsletter.display && <Mailchimp />}
+        {/* Newsletter */}
+        {newsletter.display && (
+          <Column fillWidth maxWidth="s" align="center" paddingY="40">
+            <Mailchimp />
+          </Column>
+        )}
       </Column>
     </>
   );
 }
-
