@@ -47,34 +47,37 @@ export const metadata: Metadata = {
 export default function Nachalo() {
   return (
     <>
-      {/* Schema.org JSON-LD */}
-      ,<Script
+      <Script
         id="organization-homepage-schema"
         type="application/ld+json"
-        strategy="beforeInteractive"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(
-            {
-              "@context": "http://schema.org",
-              "@type": "Organization",
-              name: "Станчев SEO",
-              url: "https://stanchev.bg/",
-              logo: "https://stanchev.bg/images/og/og.jpg",
-              description: home.description,
-              contactPoint: {
-                "@type": "ContactPoint",
-                contactType: "customer service",
-                email: "seo@stanchev.bg",
-              },
-              sameAs: [
-                "https://github.com/stantchev/",
-                "https://www.linkedin.com/in/stantcheff/",
-                "https://dev.to/stanchev",
-              ],
+          __html: JSON.stringify({
+            "@context": "http://schema.org",
+            "@type": "Organization",
+            name: "Станчев SEO",
+            url: "https://stanchev.bg/",
+            logo: "https://stanchev.bg/images/og/og.jpg",
+            description:
+              "SEO оптимизация и AI Automation за повече трафик, по-високо класиране и автоматизирано развитие на вашия бизнес | Станчев SEO",
+            contactPoint: {
+              "@type": "ContactPoint",
+              contactType: "customer service",
+              email: "seo@stanchev.bg",
             },
-            null,
-            2
-          ),
+            address: {
+              "@type": "PostalAddress",
+              streetAddress: "Бул. Г.М. Димитров 26",
+              addressLocality: "София",
+              addressRegion: "София",
+              postalCode: "1797",
+              addressCountry: "BG",
+            },
+            sameAs: [
+              "https://github.com/stantchev/",
+              "https://www.linkedin.com/in/stantcheff/",
+              "https://dev.to/stanchev",
+            ],
+          }),
         }}
       />
       
@@ -228,6 +231,7 @@ export default function Nachalo() {
     </>
   );
 }
+
 
 
 
