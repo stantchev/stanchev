@@ -50,7 +50,7 @@ export default function Nachalo() {
 <Script
   id="organization-homepage-schema"
   type="application/ld+json"
-  strategy="afterInteractive" // вместо beforeInteractive
+  strategy="afterInteractive"
   dangerouslySetInnerHTML={{
     __html: JSON.stringify({
       "@context": "http://schema.org",
@@ -236,6 +236,7 @@ export default function Nachalo() {
     </>
   );
 }
+
 
 
 
