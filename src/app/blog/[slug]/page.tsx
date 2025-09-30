@@ -14,9 +14,9 @@ import {
   Media,
   Line,
   Button,
-  AccordionGroup, // 👈 остава
-  BarChart,       // 👈 остава
-  Feedback,       // 👈 остава
+  AccordionGroup,
+  BarChart,
+  Feedback,
   AvatarGroup,
 } from "@once-ui-system/core";
 import { baseURL, about, blog, person } from "@/resources";
@@ -53,18 +53,26 @@ export async function generateMetadata({
     title: post.metadata.title,
     description: post.metadata.summary,
     baseURL: baseURL,
-    image: post.metadata.image || `/api/og/generate?title=${post.metadata.title}`,
+    image:
+      post.metadata.image ||
+      `/api/og/generate?title=${post.metadata.title}`,
     path: `${blog.path}/${post.slug}`,
   });
 }
 
-export default async function Blog({ params }: { params: Promise<{ slug: string | string[] }> }) {
+export default async function Blog({
+  params,
+}: {
+  params: Promise<{ slug: string | string[] }>;
+}) {
   const routeParams = await params;
   const slugPath = Array.isArray(routeParams.slug)
     ? routeParams.slug.join("/")
     : routeParams.slug || "";
 
-  let post = getPosts(["src", "app", "blog", "posts"]).find((post) => post.slug === slugPath);
+  let post = getPosts(["src", "app", "blog", "posts"]).find(
+    (post) => post.slug === slugPath
+  );
 
   if (!post) {
     notFound();
@@ -79,7 +87,13 @@ export default async function Blog({ params }: { params: Promise<{ slug: string 
     <Row fillWidth>
       <Row maxWidth={12} m={{ hide: true }} />
       <Row fillWidth horizontal="center">
-        <Column as="section" maxWidth="m" horizontal="center" gap="l" paddingTop="24">
+        <Column
+          as="section"
+          maxWidth="m"
+          horizontal="center"
+          gap="l"
+          paddingTop="24"
+        >
           <Schema
             as="blogPosting"
             baseURL={baseURL}
@@ -90,7 +104,9 @@ export default async function Blog({ params }: { params: Promise<{ slug: string 
             dateModified={post.metadata.publishedAt}
             image={
               post.metadata.image ||
-              `/api/og/generate?title=${encodeURIComponent(post.metadata.title)}`
+              `/api/og/generate?title=${encodeURIComponent(
+                post.metadata.title
+              )}`
             }
             author={{
               name: person.name,
@@ -112,12 +128,19 @@ export default async function Blog({ params }: { params: Promise<{ slug: string 
 
           <Column maxWidth="s" gap="16" horizontal="center" align="center">
             <SmartLink href="/blog">
-              <Text variant="label-strong-m">Blog</Text>
+              <Text variant="label-strong-m">Блог</Text>
             </SmartLink>
-            <Text variant="body-default-xs" onBackground="neutral-weak" marginBottom="12">
-              {post.metadata.publishedAt && formatDate(post.metadata.publishedAt)}
+            <Text
+              variant="body-default-xs"
+              onBackground="neutral-weak"
+              marginBottom="12"
+            >
+              {post.metadata.publishedAt &&
+                formatDate(post.metadata.publishedAt)}
             </Text>
-            <Heading variant="display-strong-m">{post.metadata.title}</Heading>
+            <Heading variant="display-strong-m">
+              {post.metadata.title}
+            </Heading>
           </Column>
 
           <Row marginBottom="32" horizontal="center">
@@ -126,10 +149,13 @@ export default async function Blog({ params }: { params: Promise<{ slug: string 
               <Text variant="label-default-m" onBackground="brand-weak">
                 {person.name}
               </Text>
-              {avatars.length > 0 && <AvatarGroup size="s" avatars={avatars} />}
+              {avatars.length > 0 && (
+                <AvatarGroup size="s" avatars={avatars} />
+              )}
             </Row>
           </Row>
 
+          {/* Оставяме само еднократно визуално рендериране на снимката */}
           {post.metadata.image && (
             <Media
               src={post.metadata.image}
@@ -156,9 +182,15 @@ export default async function Blog({ params }: { params: Promise<{ slug: string 
           <Column fillWidth gap="40" horizontal="center" marginTop="40">
             <Line maxWidth="40" />
             <Heading as="h2" variant="heading-strong-xl" marginBottom="24">
-              Recent posts
+              Последни публикации
             </Heading>
-            <Posts exclude={[post.slug]} range={[1, 2]} columns="2" thumbnail direction="column" />
+            <Posts
+              exclude={[post.slug]}
+              range={[1, 2]}
+              columns="2"
+              thumbnail
+              direction="column"
+            />
           </Column>
 
           <ScrollToHash />
@@ -182,7 +214,7 @@ export default async function Blog({ params }: { params: Promise<{ slug: string 
           textVariant="label-default-s"
         >
           <Icon name="document" size="xs" />
-          On this page
+          На тази страница
         </Row>
         <HeadingNav fitHeight />
       </Column>
