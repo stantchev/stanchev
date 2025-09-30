@@ -16,14 +16,16 @@ import { home, about, person, newsletter, routes } from "@/resources";
 import { Mailchimp } from "@/components";
 import { Projects } from "@/components/work/Projects";
 import { Posts } from "@/components/blog/Posts";
+import type { Metadata } from "next";
 import Script from "next/script";
 
-export const metadata = {
-  title: home.title,
-  description: home.description,
+export const metadata: Metadata = {
+  title: home.titleText,
+  description: home.descriptionText,
   openGraph: {
-    title: home.title,
-    description: home.description,
+    title: "SEO оптимизация и AI Automation за вашия бизнес",
+    description:
+      "Комбинация от SEO оптимизация и AI Automation за повече трафик, по-високо класиране и автоматизирано развитие на вашия бизнес | Станчев SEO",
     url: "https://stanchev.bg/",
     siteName: "Станчев SEO",
     images: [
@@ -38,8 +40,9 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: home.title,
-    description: home.description,
+    title: "SEO оптимизация и AI Automation за вашия бизнес",
+    description:
+      "Комбинация от SEO оптимизация и AI Automation за повече трафик, по-високо класиране и автоматизирано развитие на вашия бизнес | Станчев SEO",
     images: [`https://stanchev.bg/images/og/og.jpg`],
   },
   verification: {
@@ -47,7 +50,7 @@ export const metadata = {
   },
 };
 
-export default function HomePage() {
+export default function Nachalo() {
   return (
     <>
       {/* Schema.org */}
@@ -61,7 +64,8 @@ export default function HomePage() {
             name: "Станчев SEO",
             url: "https://stanchev.bg/",
             logo: "https://stanchev.bg/images/og/og.jpg",
-            description: home.description,
+            description:
+              "SEO оптимизация и AI Automation за повече трафик, по-високо класиране и автоматизирано развитие на вашия бизнес | Станчев SEO",
             contactPoint: {
               "@type": "ContactPoint",
               contactType: "customer service",
@@ -84,75 +88,73 @@ export default function HomePage() {
         }}
       />
 
-      {/* Landing Layout */}
-      <Column gap="xl" fillWidth align="center">
-        {/* Hero Section */}
-        <Column
-          maxWidth="m"
-          align="center"
-          paddingTop="80"
-          paddingBottom="40"
-          gap="l"
-        >
-          <RevealFx speed="fast">
-            <Heading
-              wrap="balance"
-              variant="display-strong-l"
-              align="center"
-              style={{ lineHeight: "1.2" }}
+      <Column maxWidth="m" gap="xl" horizontal="center">
+        {/* Hero */}
+        <Column fillWidth paddingY="l" gap="m">
+          <Column maxWidth="s">
+            <RevealFx fillWidth horizontal="start" paddingBottom="m" speed="fast">
+              <Heading wrap="balance" variant="display-strong-m">
+                <Pulse size="s" variant="success" /> SEO + AI Automation
+              </Heading>
+            </RevealFx>
+            <RevealFx
+              translateY="8"
+              delay={0.2}
+              fillWidth
+              horizontal="start"
+              paddingBottom="xl"
+              speed="fast"
             >
-              <Pulse size="s" variant="success" /> SEO & AI Automation за вашия
-              бизнес
-            </Heading>
-          </RevealFx>
-          <RevealFx delay={0.2} speed="fast">
-            <Text
-              wrap="balance"
-              onBackground="neutral-weak"
-              align="center"
-              variant="heading-default-l"
-              style={{ maxWidth: "720px" }}
-            >
-              {home.description}
-            </Text>
-          </RevealFx>
-          <RevealFx delay={0.4} speed="fast">
-            <Flex gap="16" horizontal="center" wrap>
-              <Button
-                href="/kontakti"
-                variant="primary"
-                size="l"
-                prefixIcon="rocket"
+              <Text
+                wrap="balance"
+                onBackground="neutral-weak"
+                variant="heading-default-l"
               >
-                Започнете сега
-              </Button>
+                Аз комбинирам SEO оптимизация с AI Automation, за да дам на
+                бизнеса ви повече трафик, по-високо класиране и автоматизирано
+                развитие.
+              </Text>
+            </RevealFx>
+            <RevealFx
+              paddingTop="m"
+              delay={0.4}
+              horizontal="start"
+              paddingLeft="m"
+              speed="fast"
+            >
               <Button
+                id="about"
+                data-border="rounded"
                 href="/za-men"
                 variant="secondary"
-                size="l"
-                prefixIcon="user"
+                size="m"
+                weight="default"
+                arrowIcon
               >
-                <Flex vertical="center" gap="8">
-                  <Avatar src={person.avatar} size="s" />
-                  {about.label}
+                <Flex gap="8" vertical="center" paddingRight="4">
+                  {about.avatar.display && (
+                    <Avatar src={person.avatar} size="m" />
+                  )}
+                  {about.title}
                 </Flex>
               </Button>
-            </Flex>
-          </RevealFx>
+            </RevealFx>
+          </Column>
         </Column>
 
-        {/* Charts Section */}
-        <Column fillWidth maxWidth="m" gap="l">
+        {/* Charts */}
+        <Column gap="xl" paddingY="xl" fillWidth>
           <Heading variant="display-strong-s" align="center">
             Търсене с AI срещу Google Search
           </Heading>
           <Text
             align="center"
             onBackground="neutral-weak"
-            variant="body-default-l"
+            variant="heading-default-m"
           >
-            Подгответе сайта си за бъдещето. Конкуренцията все още спи, а вие
-            можете да сте първи в AI резултатите.
+            Все повече хора започват да търсят информация директно в AI системи.
+            Аз знам как да ви позиционирам там, където конкуренцията ви още не е
+            стъпила.
           </Text>
 
           <LineChart
@@ -164,17 +166,39 @@ export default function HomePage() {
               { key: "AI Search", color: "magenta" },
             ]}
             data={[
-              { date: new Date("2020-01-01"), "Google Search": 95, "AI Search": 1 },
-              { date: new Date("2022-01-01"), "Google Search": 93, "AI Search": 3 },
-              { date: new Date("2023-01-01"), "Google Search": 91, "AI Search": 5 },
-              { date: new Date("2024-01-01"), "Google Search": 89, "AI Search": 8 },
-              { date: new Date("2025-01-01"), "Google Search": 85, "AI Search": 12 },
+              {
+                date: new Date("2020-01-01"),
+                "Google Search": 95,
+                "AI Search": 1,
+              },
+              {
+                date: new Date("2022-01-01"),
+                "Google Search": 93,
+                "AI Search": 3,
+              },
+              {
+                date: new Date("2023-01-01"),
+                "Google Search": 91,
+                "AI Search": 5,
+              },
+              {
+                date: new Date("2024-01-01"),
+                "Google Search": 89,
+                "AI Search": 8,
+              },
+              {
+                date: new Date("2025-01-01"),
+                "Google Search": 85,
+                "AI Search": 12,
+              },
             ]}
           />
-        </Column>
 
-        {/* Bar + Pie */}
-        <Column fillWidth maxWidth="m" gap="l">
+          <Text align="center" paddingTop="m" onBackground="neutral-weak">
+            До 2025 г. над 12% от глобалните търсения вече минават през AI. Аз
+            знам как да ви изведа сред първите резултати.
+          </Text>
+
           <BarChart
             title="Резултати за мои клиенти"
             axis="none"
@@ -190,6 +214,12 @@ export default function HomePage() {
               { label: "Клиент C", "AI Overviews": 81, "Google Rankings": 85 },
             ]}
           />
+
+          <Text align="center" paddingTop="m" onBackground="neutral-weak">
+            Моите клиенти вече печелят позиции в AI Overviews, докато повечето
+            конкуренти дори не знаят за тяхното значение.
+          </Text>
+
           <PieChart
             title="Дял на търсене (2025)"
             legend={{ display: true, position: "bottom-center" }}
@@ -201,15 +231,25 @@ export default function HomePage() {
               { name: "Други", value: 3 },
             ]}
           />
+
+          <Text align="center" paddingTop="m" onBackground="neutral-weak">
+            Google остава гигант, но делът на AI Search расте стремглаво. Ако не
+            сте там днес, губите клиенти още утре.
+          </Text>
         </Column>
 
         {/* CTA */}
-        <Column align="center" paddingY="40" fillWidth>
+        <Column align="center" paddingY="xl" fillWidth>
           <Heading variant="display-strong-m" align="center">
             Искате ли сайтът ви да се класира по-високо?
           </Heading>
-          <Flex horizontal="center" paddingTop="16">
-            <Button variant="primary" prefixIcon="rocket" size="l" href="/kontakti">
+          <Flex horizontal="center" paddingTop="m">
+            <Button
+              variant="primary"
+              prefixIcon="rocket"
+              size="l"
+              href="/kontakti"
+            >
               Свържете се с мен
             </Button>
           </Flex>
@@ -217,23 +257,23 @@ export default function HomePage() {
 
         {/* Blog */}
         {routes["/blog"] && (
-          <Column fillWidth maxWidth="l" gap="m">
-            <Heading as="h2" variant="display-strong-xs" align="center">
-              Последни публикации
-            </Heading>
-            <Posts range={[1, 2]} columns="2" />
-          </Column>
+          <Flex fillWidth gap="l" s={{ direction: "column" }}>
+            <Flex flex={1} paddingLeft="l" paddingTop="l">
+              <Heading as="h2" variant="display-strong-xs" wrap="balance">
+                Последни публикации
+              </Heading>
+            </Flex>
+            <Flex flex={3} paddingX="l">
+              <Posts range={[1, 2]} columns="2" />
+            </Flex>
+          </Flex>
         )}
 
         {/* Projects */}
         <Projects range={[2]} />
 
         {/* Newsletter */}
-        {newsletter.display && (
-          <Column fillWidth maxWidth="s" align="center" paddingY="40">
-            <Mailchimp />
-          </Column>
-        )}
+        {newsletter.display && <Mailchimp />}
       </Column>
     </>
   );
