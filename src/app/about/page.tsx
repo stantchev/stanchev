@@ -5,7 +5,6 @@ import {
   Heading,
   Icon,
   IconButton,
-  Media,
   Tag,
   Text,
   Meta,
@@ -80,14 +79,23 @@ export default function About() {
         </Column>
       )}
 
-      <Row fillWidth s={{ direction: "column" }} horizontal="center">
+      {/* Layout */}
+      <Row
+        fillWidth
+        horizontal="center"
+        s={{ direction: "column-reverse" }} // 👈 на мобилно обръща реда
+      >
+        {/* Avatar column */}
         {about.avatar.display && (
           <Column
             className={styles.avatar}
             top="64"
             fitHeight
             position="sticky"
-            s={{ position: "relative", style: { top: "auto" } }}
+            s={{
+              position: "relative",
+              style: { top: "auto" },
+            }}
             minWidth="160"
             paddingX="l"
             paddingBottom="xl"
@@ -112,6 +120,7 @@ export default function About() {
           </Column>
         )}
 
+        {/* Main content */}
         <Column className={styles.blockAlign} flex={9} maxWidth={40}>
           <Column
             id={about.intro.title}
