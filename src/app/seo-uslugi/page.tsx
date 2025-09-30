@@ -200,8 +200,8 @@ export default function SeoUslugi() {
           </Text>
         </Column>
 
-        {/* Grid за картите – Tailwind wrapper */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 px-6 items-stretch">
+        {/* Grid за картите – фиксирана широчина */}
+        <div className="flex flex-wrap justify-center gap-6 px-6">
           {seoServices.services.map((service, index) => (
             <Card
               key={index}
@@ -211,7 +211,7 @@ export default function SeoUslugi() {
               background="surface"
               direction="column"
               gap="m"
-              className="h-full flex flex-col"
+              className="w-[360px] min-h-[480px] flex flex-col justify-between"
             >
               <Heading variant="heading-strong-l" marginBottom="s" as="h3">
                 {service.title}
