@@ -5,27 +5,19 @@ import { zones } from "tzdata";
  * IANA time zone string (e.g., 'Asia/Calcutta', 'Europe/Vienna').
  * See: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
  */
-export type IANATimeZone = Extract<keyof typeof zones, string>; // Narrow to string keys for React usage
+export type IANATimeZone = string; // опростено, без tzdata
 
 /**
  * Represents a person featured in the portfolio.
  */
 export type Person = {
-  /** First name of the person */
   firstName: string;
-  /** Last name of the person */
   lastName: string;
-  /** The name you want to display, allows variations like nicknames */
   name: string;
-  /** Role or job title */
   role: string;
-  /** Path to avatar image */
   avatar: string;
-  /** Email address */
   email: string;
-  /** IANA time zone location */
-  location: IANATimeZone;
-  /** Languages spoken */
+  location: IANATimeZone; // вече просто string
   languages: string[];
 };
 
