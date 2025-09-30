@@ -152,36 +152,32 @@ export default function Nachalo() {
             </Column>
           </RevealFx>
 
-         <RevealFx delay={0.4} speed="fast">
-  <Column align="center" horizontal="center" fillWidth>
-    <Flex
-      horizontal="center"
-      vertical="center"
-      gap="16"
-      wrap
-    >
-      <Button
-        href="/kontakti"
-        variant="primary"
-        size="l"
-        prefixIcon="rocket"
-      >
-        Започнете сега
-      </Button>
-      <Button
-        href="/za-men"
-        variant="secondary"
-        size="l"
-        prefixIcon="user"
-      >
-        <Flex vertical="center" gap="8">
-          <Avatar src={person.avatar} size="s" />
-          За мен
-        </Flex>
-      </Button>
-    </Flex>
-  </Column>
-</RevealFx>
+          <RevealFx delay={0.4} speed="fast">
+            <Column align="center" horizontal="center">
+              <Flex gap="16" horizontal="center" vertical="center" wrap>
+                <Button
+                  href="/kontakti"
+                  variant="primary"
+                  size="l"
+                  prefixIcon="rocket"
+                >
+                  Започнете сега
+                </Button>
+                <Button
+                  href="/za-men"
+                  variant="secondary"
+                  size="l"
+                  prefixIcon="user"
+                >
+                  <Flex vertical="center" gap="8">
+                    <Avatar src={person.avatar} size="s" />
+                    За мен
+                  </Flex>
+                </Button>
+              </Flex>
+            </Column>
+          </RevealFx>
+        </Column>
 
         {/* Why me */}
         <Column maxWidth="m" align="center" horizontal="center" gap="l">
@@ -252,5 +248,3 @@ export default function Nachalo() {
     </>
   );
 }
-
-
