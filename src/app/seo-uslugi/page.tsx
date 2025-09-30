@@ -283,7 +283,7 @@ export default function SeoUslugi() {
         </Text>
       </Column>
 
-      <Grid columns="2" mobileColumns="1" gap="l" paddingX="l">
+      <Grid columns={{ initial: "1", m: "2" }} gap="l" paddingX="l">
         {seoServices.services.map((service, index) => (
           <Card
             key={index}
@@ -373,6 +373,7 @@ export default function SeoUslugi() {
      </>
   );
 }
+
 
 
 
