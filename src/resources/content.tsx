@@ -60,13 +60,13 @@ const social: Social = [
 
 const home: Home = {
   path: "/",
-  image: "https://stanchev.bg/images/og/og.jpg",
+  image: "/images/og/og.jpg",
   label: "Начало",
 
-  titleText: "SEO оптимизация и AI Automation за вашия бизнес",
-  descriptionText:
+  // използвай правилните ключове от BasePageConfig
+  title: "SEO оптимизация и AI Automation за вашия бизнес",
+  description:
     "Комбинация от SEO оптимизация и AI Automation за повече трафик, по-високо класиране и автоматизирано развитие на вашия бизнес | Станчев SEO",
-  featuredTitleText: "Скорошен проект: ChatGPT & WordPress",
 
   headline: <>SEO & AI Automation – интелигентни решения за растеж</>,
   subline: (
@@ -258,4 +258,5 @@ export {
   contact,
   seoServices,
 };
+
 
