@@ -6,6 +6,7 @@ import {
   Heading,
   Text,
   Button,
+  Grid,
   Card,
   AccordionGroup,
 } from "@once-ui-system/core";
@@ -52,7 +53,6 @@ export async function generateMetadata() {
 export default function SeoUslugi() {
   return (
     <>
-      {/* JSON-LD Schema */}
       <Script
         id="seo-services-schema"
         type="application/ld+json"
@@ -152,7 +152,6 @@ export default function SeoUslugi() {
           }}
         />
 
-        {/* Intro */}
         <Column gap="l" paddingX="l">
           <Heading variant="display-default-m" marginBottom="m" as="h1">
             SEO услуги за вашия бизнес
@@ -166,19 +165,18 @@ export default function SeoUslugi() {
             <a href="/seo-uslugi/seo-optimizatsiya">
               <strong>SEO оптимизация</strong>
             </a>
-            , проектирана за <strong>реални запитвания и продажби</strong>, а
-            не само за позиции. Комбинирам <strong>техническо SEO</strong>,{" "}
+            , проектирана за <strong>реални запитвания и продажби</strong>, а не
+            само за позиции. Комбинирам <strong>техническо SEO</strong>,{" "}
             <strong>on-page</strong>, <strong>съдържание</strong> и{" "}
             <strong>линк билдинг</strong>, за да постигнете{" "}
             <strong>устойчив органичен растеж</strong>. Съдържанието е{" "}
             <strong>AI-ready</strong> (водачи, сравнения, Q&A), със{" "}
             <strong>структурирани данни</strong> и отлични{" "}
-            <strong>Core Web Vitals</strong>, така че сайтът ви да присъства и
-            в <strong>Google Overviews</strong>.
+            <strong>Core Web Vitals</strong>, така че сайтът ви да присъства и в{" "}
+            <strong>Google Overviews</strong>.
           </Text>
         </Column>
 
-        {/* How I help */}
         <Column gap="m" paddingX="l">
           <Heading variant="heading-strong-xl" marginBottom="m" as="h2">
             Как мога да помогна?
@@ -203,21 +201,39 @@ export default function SeoUslugi() {
           </Text>
         </Column>
 
-        {/* Services grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 px-6">
+        {/* Grid за картите */}
+        <Grid columns="1" gap="l" paddingX="l" className="md:grid-cols-2">
           {seoServices.services.map((service, index) => (
-            <div
+            <Card
               key={index}
-              className="flex flex-col justify-between rounded-2xl border border-neutral-200 bg-white p-6 h-full"
+              padding="l"
+              radius="l"
+              border="neutral-alpha-weak"
+              background="surface"
+              direction="column"
+              gap="m"
+              className="h-full flex flex-col justify-between"
             >
-              <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
-              <p className="text-gray-600 mb-4">{service.description}</p>
-              <ul className="flex-1 mb-4 space-y-1 text-sm">
-                {service.features.map((feature, fIndex) => (
-                  <li key={fIndex}>• {feature}</li>
+              <Heading variant="heading-strong-l" marginBottom="s" as="h3">
+                {service.title}
+              </Heading>
+              <Text
+                variant="body-default-m"
+                onBackground="neutral-weak"
+                marginBottom="m"
+              >
+                {service.description}
+              </Text>
+              <Column gap="8" className="flex-1">
+                {service.features.map((feature, featureIndex) => (
+                  <Text key={featureIndex} variant="body-default-s">
+                    • {feature}
+                  </Text>
                 ))}
-              </ul>
-              <p className="font-bold text-lg mt-auto">{service.price}</p>
+              </Column>
+              <Text variant="heading-strong-m" marginTop="m">
+                {service.price}
+              </Text>
               {service.slug && (
                 <Button
                   href={`/seo-uslugi/${service.slug}`}
@@ -228,11 +244,10 @@ export default function SeoUslugi() {
                   Виж повече
                 </Button>
               )}
-            </div>
+            </Card>
           ))}
-        </div>
+        </Grid>
 
-        {/* FAQ */}
         <AccordionGroup
           items={[
             {
@@ -253,7 +268,7 @@ export default function SeoUslugi() {
                   Съчетавам традиционното SEO с нетрадиционен AI подход и при
                   нужда за корпоративни клиенти автоматизирам ключови процеси за
                   мащабируемост и ефективност. С фокус върху CWV, crawl
-                  ефективност и съдържание, което изпъква.
+                  ефективност и съдържание, което определено изпъква.
                 </Text>
               ),
             },
@@ -261,16 +276,15 @@ export default function SeoUslugi() {
               title: "Подходящо ли е за моя бизнес и бюджет?",
               content: (
                 <Text onBackground="neutral-weak">
-                  Да — работя с фирмени сайтове, онлайн магазини и B2B.
-                  Предлагам гъвкави пакети и ясно дефинирани етапи, за да видите
-                  ефект още в първите месеци.
+                  Да — работя с фирмени сайтове, онлайн магазини и B2B. Предлагам
+                  гъвкави пакети и ясно дефинирани етапи, за да видите ефект още
+                  в първите месеци.
                 </Text>
               ),
             },
           ]}
         />
 
-        {/* CTA */}
         <Column gap="m" paddingX="l" horizontal="center">
           <Heading variant="display-strong-s" align="center" as="h4">
             Готови за по-добри резултати?
