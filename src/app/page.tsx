@@ -1,49 +1,3 @@
-import React from "react";
-import {
-  Heading,
-  Flex,
-  Text,
-  Button,
-  Avatar,
-  RevealFx,
-  Column,
-  Badge,
-  Row,
-  Pulse,
-} from "@once-ui-system/core";
-import { home, about, person, newsletter, routes } from "@/resources";
-import { Mailchimp } from "@/components";
-import { Projects } from "@/components/work/Projects";
-import { Posts } from "@/components/blog/Posts";
-import type { Metadata } from "next";
-import Script from "next/script";
-
-export const metadata: Metadata = {
-  title: home.title,
-  description: home.description,
-  openGraph: {
-    title: home.title,
-    description: home.description,
-    url: "https://stanchev.bg/",
-    siteName: "Станчев SEO",
-    images: [
-      {
-        url: `https://stanchev.bg/images/og/og.jpg`,
-        width: 1200,
-        height: 630,
-      },
-    ],
-    locale: "bg_BG",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: home.title,
-    description: home.description,
-    images: [`https://stanchev.bg/images/og/og.jpg`],
-  },
-};
-
 export default function Nachalo() {
   return (
     <>
@@ -85,9 +39,7 @@ export default function Nachalo() {
           }),
         }}
       />
-    </>
-  );
-}      
+
       <Column maxWidth="m" gap="l" horizontal="center" align="center">
         {/* Featured badge секция */}
         <Column fillWidth horizontal="center" gap="m">
@@ -138,7 +90,7 @@ export default function Nachalo() {
             </Heading>
           </RevealFx>
 
-           <RevealFx delay={0.2} speed="fast">
+          <RevealFx delay={0.2} speed="fast">
             <Column maxWidth="m" align="center" horizontal="center">
               <Text
                 wrap="balance"
@@ -154,31 +106,32 @@ export default function Nachalo() {
             </Column>
           </RevealFx>
 
-        <RevealFx delay={0.4} speed="fast">
-          <Column align="center" horizontal="center">
-            <Flex gap="16" horizontal="center" vertical="center" wrap>
-              <Button
-                href="/kontakti"
-                variant="primary"
-                size="l"
-                prefixIcon="rocket"
-              >
-                Започнете сега
-              </Button>
-              <Button
-                href="/za-men"
-                variant="secondary"
-                size="l"
-                prefixIcon="user"
-              >
-                <Flex vertical="center" gap="8">
-                  <Avatar src={person.avatar} size="s" />
-                  За мен
-                </Flex>
-              </Button>
-            </Flex>
-          </Column>
-        </RevealFx>
+          <RevealFx delay={0.4} speed="fast">
+            <Column align="center" horizontal="center">
+              <Flex gap="16" horizontal="center" vertical="center" wrap>
+                <Button
+                  href="/kontakti"
+                  variant="primary"
+                  size="l"
+                  prefixIcon="rocket"
+                >
+                  Започнете сега
+                </Button>
+                <Button
+                  href="/za-men"
+                  variant="secondary"
+                  size="l"
+                  prefixIcon="user"
+                >
+                  <Flex vertical="center" gap="8">
+                    <Avatar src={person.avatar} size="s" />
+                    За мен
+                  </Flex>
+                </Button>
+              </Flex>
+            </Column>
+          </RevealFx>
+        </Column>
 
         {/* Why me */}
         <Column maxWidth="m" align="center" horizontal="center" gap="l">
@@ -205,8 +158,19 @@ export default function Nachalo() {
           <Heading variant="display-strong-m" align="center">
             Искате ли сайтът ви да се класира по-високо?
           </Heading>
-          <Flex horizontal="center" vertical="center" paddingTop="m" gap="l" wrap>
-            <Button variant="primary" prefixIcon="rocket" size="l" href="/kontakti">
+          <Flex
+            horizontal="center"
+            vertical="center"
+            paddingTop="m"
+            gap="l"
+            wrap
+          >
+            <Button
+              variant="primary"
+              prefixIcon="rocket"
+              size="l"
+              href="/kontakti"
+            >
               Свържете се с мен
             </Button>
             <Button variant="secondary" size="l" href="/za-men">
@@ -238,13 +202,3 @@ export default function Nachalo() {
     </>
   );
 }
-
-
-
-
-
-
-
-
-
-
