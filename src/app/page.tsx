@@ -20,12 +20,11 @@ import type { Metadata } from "next";
 import Script from "next/script";
 
 export const metadata: Metadata = {
-  title: home.titleText,
-  description: home.descriptionText,
+  title: home.title,
+  description: home.description,
   openGraph: {
-    title: "SEO оптимизация и AI Automation за вашия бизнес",
-    description:
-      "Комбинация от SEO оптимизация и AI Automation за повече трафик, по-високо класиране и автоматизирано развитие на вашия бизнес | Станчев SEO",
+    title: home.title,
+    description: home.description,
     url: "https://stanchev.bg/",
     siteName: "Станчев SEO",
     images: [
@@ -40,9 +39,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "SEO оптимизация и AI Automation за вашия бизнес",
-    description:
-      "Комбинация от SEO оптимизация и AI Automation за повече трафик, по-високо класиране и автоматизирано развитие на вашия бизнес | Станчев SEO",
+    title: home.title,
+    description: home.description,
     images: [`https://stanchev.bg/images/og/og.jpg`],
   },
   verification: {
@@ -64,8 +62,7 @@ export default function Nachalo() {
             name: "Станчев SEO",
             url: "https://stanchev.bg/",
             logo: "https://stanchev.bg/images/og/og.jpg",
-            description:
-              "SEO оптимизация и AI Automation за повече трафик, по-високо класиране и автоматизирано развитие на вашия бизнес | Станчев SEO",
+            description: home.description,
             contactPoint: {
               "@type": "ContactPoint",
               contactType: "customer service",
@@ -132,9 +129,7 @@ export default function Nachalo() {
                 arrowIcon
               >
                 <Flex gap="8" vertical="center" paddingRight="4">
-                  {about.avatar.display && (
-                    <Avatar src={person.avatar} size="m" />
-                  )}
+                  {about.avatar.display && <Avatar src={person.avatar} size="m" />}
                   {about.title}
                 </Flex>
               </Button>
@@ -166,31 +161,11 @@ export default function Nachalo() {
               { key: "AI Search", color: "magenta" },
             ]}
             data={[
-              {
-                date: new Date("2020-01-01"),
-                "Google Search": 95,
-                "AI Search": 1,
-              },
-              {
-                date: new Date("2022-01-01"),
-                "Google Search": 93,
-                "AI Search": 3,
-              },
-              {
-                date: new Date("2023-01-01"),
-                "Google Search": 91,
-                "AI Search": 5,
-              },
-              {
-                date: new Date("2024-01-01"),
-                "Google Search": 89,
-                "AI Search": 8,
-              },
-              {
-                date: new Date("2025-01-01"),
-                "Google Search": 85,
-                "AI Search": 12,
-              },
+              { date: new Date("2020-01-01"), "Google Search": 95, "AI Search": 1 },
+              { date: new Date("2022-01-01"), "Google Search": 93, "AI Search": 3 },
+              { date: new Date("2023-01-01"), "Google Search": 91, "AI Search": 5 },
+              { date: new Date("2024-01-01"), "Google Search": 89, "AI Search": 8 },
+              { date: new Date("2025-01-01"), "Google Search": 85, "AI Search": 12 },
             ]}
           />
 
@@ -244,12 +219,7 @@ export default function Nachalo() {
             Искате ли сайтът ви да се класира по-високо?
           </Heading>
           <Flex horizontal="center" paddingTop="m">
-            <Button
-              variant="primary"
-              prefixIcon="rocket"
-              size="l"
-              href="/kontakti"
-            >
+            <Button variant="primary" prefixIcon="rocket" size="l" href="/kontakti">
               Свържете се с мен
             </Button>
           </Flex>
