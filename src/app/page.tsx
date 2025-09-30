@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import {
   Heading,
@@ -18,10 +16,10 @@ import { home, about, person, newsletter, routes } from "@/resources";
 import { Mailchimp } from "@/components";
 import { Projects } from "@/components/work/Projects";
 import { Posts } from "@/components/blog/Posts";
-import type { Metadata } from "next";
 import Script from "next/script";
 
-export const metadata: Metadata = {
+// 🟢 Махаме ": Metadata", Next.js си извежда типовете
+export const metadata = {
   title: home.title,
   description: home.description,
   openGraph: {
@@ -87,8 +85,9 @@ export default function Nachalo() {
         }}
       />
 
+      {/* Landing Layout */}
       <Column gap="3xl" fillWidth align="center">
-        {/* Hero Section */}
+        {/* Hero */}
         <Column
           maxWidth="m"
           align="center"
@@ -143,12 +142,16 @@ export default function Nachalo() {
           </RevealFx>
         </Column>
 
-        {/* Value Proposition with Charts */}
+        {/* Charts Section */}
         <Column fillWidth maxWidth="m" gap="xl">
           <Heading variant="display-strong-s" align="center">
             Търсене с AI срещу Google Search
           </Heading>
-          <Text align="center" onBackground="neutral-weak" variant="body-default-l">
+          <Text
+            align="center"
+            onBackground="neutral-weak"
+            variant="body-default-l"
+          >
             Подгответе сайта си за бъдещето. Конкуренцията все още спи, а вие
             можете да сте първи в AI резултатите.
           </Text>
@@ -171,7 +174,7 @@ export default function Nachalo() {
           />
         </Column>
 
-        {/* Social Proof */}
+        {/* Bar + Pie */}
         <Column fillWidth maxWidth="m" gap="xl">
           <BarChart
             title="Резултати за мои клиенти"
@@ -201,7 +204,7 @@ export default function Nachalo() {
           />
         </Column>
 
-        {/* CTA Section */}
+        {/* CTA */}
         <Column align="center" paddingY="40" fillWidth>
           <Heading variant="display-strong-m" align="center">
             Искате ли сайтът ви да се класира по-високо?
@@ -213,7 +216,7 @@ export default function Nachalo() {
           </Flex>
         </Column>
 
-        {/* Blog Section */}
+        {/* Blog */}
         {routes["/blog"] && (
           <Column fillWidth maxWidth="l" gap="m">
             <Heading as="h2" variant="display-strong-xs" align="center">
