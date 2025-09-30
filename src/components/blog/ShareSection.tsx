@@ -16,13 +16,6 @@ interface SocialPlatform {
 }
 
 const socialPlatforms: Record<string, SocialPlatform> = {
-  x: {
-    name: "x",
-    icon: "twitter",
-    label: "X",
-    generateUrl: (title, url) => 
-      `https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}`,
-  },
   linkedin: {
     name: "linkedin",
     icon: "linkedin",
@@ -36,41 +29,6 @@ const socialPlatforms: Record<string, SocialPlatform> = {
     label: "Facebook",
     generateUrl: (title, url) => 
       `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`,
-  },
-  pinterest: {
-    name: "pinterest",
-    icon: "pinterest",
-    label: "Pinterest",
-    generateUrl: (title, url) => 
-      `https://pinterest.com/pin/create/button/?url=${encodeURIComponent(url)}&description=${encodeURIComponent(title)}`,
-  },
-  whatsapp: {
-    name: "whatsapp",
-    icon: "whatsapp",
-    label: "WhatsApp",
-    generateUrl: (title, url) => 
-      `https://wa.me/?text=${encodeURIComponent(`${title} ${url}`)}`,
-  },
-  reddit: {
-    name: "reddit",
-    icon: "reddit",
-    label: "Reddit",
-    generateUrl: (title, url) => 
-      `https://reddit.com/submit?url=${encodeURIComponent(url)}&title=${encodeURIComponent(title)}`,
-  },
-  telegram: {
-    name: "telegram",
-    icon: "telegram",
-    label: "Telegram",
-    generateUrl: (title, url) => 
-      `https://t.me/share/url?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title)}`,
-  },
-  email: {
-    name: "email",
-    icon: "email",
-    label: "Email",
-    generateUrl: (title, url) => 
-      `mailto:?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(`Check out this post: ${url}`)}`,
   },
 };
 
