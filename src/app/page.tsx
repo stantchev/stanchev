@@ -73,87 +73,92 @@ export default function Nachalo() {
         }}
       />
 
-      <Column maxWidth="m" gap="xl" horizontal="center" align="center">
-        {/* Featured badge with pulse */}
-        <Column fillWidth horizontal="center" gap="m">
-          <Column maxWidth="s" horizontal="center" align="center">
-            {home.featured.display && (
-              <RevealFx
-                fillWidth
-                horizontal="center"
-                paddingTop="16"
-                paddingBottom="32"
-              >
-                <Badge
-                  background="brand-alpha-weak"
-                  paddingX="12"
-                  paddingY="4"
-                  onBackground="neutral-strong"
-                  textVariant="label-default-s"
-                  arrow={false}
-                  href="https://stanchev.bg/seo-proekti/robots-txt-editor-cache-control-opencart-2302"
-                >
-                  <Row gap="8" vertical="center">
-                    <Pulse size="s" variant="success" />
-                    {home.featured.title}
-                  </Row>
-                </Badge>
-              </RevealFx>
-            )}
-          </Column>
-        </Column>
+<Column maxWidth="m" gap="xl" horizontal="center" align="center">
+  {/* Featured badge with pulse */}
+  <Column fillWidth horizontal="center" align="center" gap="m">
+    {home.featured.display && (
+      <RevealFx
+        fillWidth
+        horizontal="center"
+        paddingTop="16"
+        paddingBottom="32"
+      >
+        <Badge
+          background="brand-alpha-weak"
+          paddingX="12"
+          paddingY="4"
+          onBackground="neutral-strong"
+          textVariant="label-default-s"
+          arrow={false}
+          href="https://stanchev.bg/seo-proekti/robots-txt-editor-cache-control-opencart-2302"
+        >
+          <Row gap="8" vertical="center" horizontal="center">
+            <Pulse size="s" variant="success" />
+            {home.featured.title}
+          </Row>
+        </Badge>
+      </RevealFx>
+    )}
+  </Column>
 
-        {/* Hero */}
-        <Column maxWidth="m" align="center" horizontal="center" gap="l" paddingBottom="xl">
-          <RevealFx speed="fast">
-            <Heading
-              wrap="balance"
-              variant="display-strong-l"
-              align="center"
-              style={{ lineHeight: "1.2" }}
-            >
-              SEO оптимизация + AI Automation за вашия бизнес
-            </Heading>
-          </RevealFx>
+  {/* Hero */}
+  <Column
+    maxWidth="m"
+    horizontal="center"
+    align="center"
+    gap="l"
+    paddingBottom="xl"
+  >
+    <RevealFx speed="fast">
+      <Heading
+        wrap="balance"
+        variant="display-strong-l"
+        align="center"
+        style={{ lineHeight: "1.2", textAlign: "center" }}
+      >
+        SEO оптимизация + AI Automation за вашия бизнес
+      </Heading>
+    </RevealFx>
 
-          <RevealFx delay={0.2} speed="fast">
-            <Text
-              wrap="balance"
-              onBackground="neutral-weak"
-              align="center"
-              variant="heading-default-l"
-              style={{ maxWidth: "720px" }}
-            >
-              Искате ли повече клиенти и по-високи позиции в Google и AI
-              системите? Давам ви измерим ръст на трафика и реални резултати,
-              без да губите време и ресурси.
-            </Text>
-          </RevealFx>
+    <RevealFx delay={0.2} speed="fast">
+      <Text
+        wrap="balance"
+        onBackground="neutral-weak"
+        align="center"
+        variant="heading-default-l"
+        style={{ maxWidth: "720px", textAlign: "center" }}
+      >
+        Искате ли повече клиенти и по-високи позиции в Google и AI системите?
+        Давам ви измерим ръст на трафика и реални резултати, без да губите време
+        и ресурси.
+      </Text>
+    </RevealFx>
 
-          <RevealFx delay={0.4} speed="fast">
-            <Flex gap="16" horizontal="center" wrap>
-              <Button
-                href="/kontakti"
-                variant="primary"
-                size="l"
-                prefixIcon="rocket"
-              >
-                Започнете сега
-              </Button>
-              <Button
-                href="/za-men"
-                variant="secondary"
-                size="l"
-                prefixIcon="user"
-              >
-                <Flex vertical="center" gap="8">
-                  <Avatar src={person.avatar} size="s" />
-                  За мен
-                </Flex>
-              </Button>
-            </Flex>
-          </RevealFx>
-        </Column>
+    <RevealFx delay={0.4} speed="fast">
+      <Flex gap="16" horizontal="center" vertical="center" wrap>
+        <Button
+          href="/kontakti"
+          variant="primary"
+          size="l"
+          prefixIcon="rocket"
+        >
+          Започнете сега
+        </Button>
+        <Button
+          href="/za-men"
+          variant="secondary"
+          size="l"
+          prefixIcon="user"
+        >
+          <Flex vertical="center" horizontal="center" gap="8">
+            <Avatar src={person.avatar} size="s" />
+            За мен
+          </Flex>
+        </Button>
+      </Flex>
+    </RevealFx>
+  </Column>
+</Column>
 
         {/* Why Me */}
         <Column maxWidth="m" align="center" horizontal="center" gap="m" paddingY="xl">
@@ -217,3 +222,4 @@ export default function Nachalo() {
     </>
   );
 }
+
