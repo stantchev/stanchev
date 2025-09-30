@@ -19,7 +19,8 @@ export async function generateMetadata() {
       canonical: `${baseURL}/blog`,
     },
     openGraph: {
-      title: "SEO Блог – съвети, стратегии и новини за по-добро класиране в Google",
+      title:
+        "SEO Блог – съвети, стратегии и новини за по-добро класиране в Google",
       description:
         "Следи нашия SEO блог за практически съвети, актуални стратегии, уроци и новини от света на оптимизацията.",
       url: `${baseURL}/blog`,
@@ -36,7 +37,8 @@ export async function generateMetadata() {
     },
     twitter: {
       card: "summary_large_image",
-      title: "SEO Блог – съвети, стратегии и новини за по-добро класиране в Google",
+      title:
+        "SEO Блог – съвети, стратегии и новини за по-добро класиране в Google",
       description:
         "Следи нашия SEO блог за практически съвети, актуални стратегии, уроци и новини от света на оптимизацията.",
       images: [`https://stanchev.bg/images/og/og.jpg`],
@@ -106,23 +108,26 @@ export default function Blog() {
           marginBottom="xl"
         >
           В нашия блог ще намерите полезни статии за seo оптимизация google, seo
-          новини, класиране на сайт и seo анализатор. Разгледайте различни теми и
-          съвети за подобряване на вашето онлайн присъствие или научете повече за
-          нашите <a href="/seo-uslugi">SEO услуги</a>.
+          новини, класиране на сайт и seo анализатор. Разгледайте различни теми
+          и съвети за подобряване на вашето онлайн присъствие или научете повече
+          за нашите <a href="/seo-uslugi">SEO услуги</a>.
         </Text>
 
         <Heading as="h3" variant="heading-strong-m" marginBottom="m">
           Последни статии и SEO новини
         </Heading>
 
-        <Column fillWidth flex={1} gap="40">
+        <Column fillWidth flex={1} gap="40" marginBottom="40">
           <Posts range={[1, 1]} thumbnail />
           <Posts range={[2, 3]} columns="2" thumbnail direction="column" />
           <Posts range={[4]} columns="2" />
         </Column>
-        {newsletter.display && <Mailchimp />}
       </Column>
+      {newsletter.display && (
+        <Column fillWidth maxWidth="s" align="center" paddingY="40">
+          <Mailchimp />
+        </Column>
+      )}
     </>
   );
 }
-
