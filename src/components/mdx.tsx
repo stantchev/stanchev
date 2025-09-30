@@ -151,7 +151,6 @@ const components = {
   h4: createHeading("h4") as any,
   h5: createHeading("h5") as any,
   h6: createHeading("h6") as any,
-  img: createImage as any,
   a: CustomLink as any,
   code: createInlineCode as any,
   pre: createCodeBlock as any,
@@ -175,6 +174,14 @@ const components = {
   LineChart: dynamic(() => import("@once-ui-system/core").then(mod => mod.LineChart)),
   PieChart: dynamic(() => import("@once-ui-system/core").then(mod => mod.PieChart)),
   LineBarChart: dynamic(() => import("@once-ui-system/core").then(mod => mod.LineBarChart)),
+  img: ({ src, alt, ...props }: { src?: string; alt?: string }) => (
+    <img
+      src={src}
+      alt={alt}
+      style={{ display: "none" }}
+      {...props}
+    />
+  ),
 };
 
 type CustomMDXProps = MDXRemoteProps & {
@@ -187,6 +194,7 @@ export function CustomMDX(props: CustomMDXProps) {
   );
 
 }
+
 
 
 
