@@ -47,10 +47,11 @@ export const metadata: Metadata = {
 export default function Nachalo() {
   return (
     <>
-      {/* Schema.org */}
-      <script
+      {/* Schema.org JSON-LD */}
+      <Script
         id="organization-homepage-schema"
         type="application/ld+json"
+        strategy="beforeInteractive"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(
             {
@@ -227,4 +228,5 @@ export default function Nachalo() {
     </>
   );
 }
+
 
