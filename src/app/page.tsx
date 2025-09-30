@@ -1,3 +1,49 @@
+import React from "react";
+import {
+  Heading,
+  Flex,
+  Text,
+  Button,
+  Avatar,
+  RevealFx,
+  Column,
+  Badge,
+  Row,
+  Pulse,
+} from "@once-ui-system/core";
+import { home, about, person, newsletter, routes } from "@/resources";
+import { Mailchimp } from "@/components";
+import { Projects } from "@/components/work/Projects";
+import { Posts } from "@/components/blog/Posts";
+import type { Metadata } from "next";
+import Script from "next/script";
+
+export const metadata: Metadata = {
+  title: home.title,
+  description: home.description,
+  openGraph: {
+    title: home.title,
+    description: home.description,
+    url: "https://stanchev.bg/",
+    siteName: "Станчев SEO",
+    images: [
+      {
+        url: "https://stanchev.bg/images/og/og.jpg",
+        width: 1200,
+        height: 630,
+      },
+    ],
+    locale: "bg_BG",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: home.title,
+    description: home.description,
+    images: ["https://stanchev.bg/images/og/og.jpg"],
+  },
+};
+
 export default function Nachalo() {
   return (
     <>
@@ -202,3 +248,4 @@ export default function Nachalo() {
     </>
   );
 }
+
