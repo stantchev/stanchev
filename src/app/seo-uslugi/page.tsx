@@ -6,7 +6,6 @@ import {
   Heading,
   Text,
   Button,
-  Grid,
   Card,
   AccordionGroup,
 } from "@once-ui-system/core";
@@ -201,8 +200,8 @@ export default function SeoUslugi() {
           </Text>
         </Column>
 
-        {/* Grid за картите */}
-        <Grid columns="1" gap="l" paddingX="l" className="md:grid-cols-2">
+        {/* Grid за картите – Tailwind wrapper */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 px-6 items-stretch">
           {seoServices.services.map((service, index) => (
             <Card
               key={index}
@@ -212,7 +211,7 @@ export default function SeoUslugi() {
               background="surface"
               direction="column"
               gap="m"
-              className="h-full flex flex-col justify-between"
+              className="h-full flex flex-col"
             >
               <Heading variant="heading-strong-l" marginBottom="s" as="h3">
                 {service.title}
@@ -240,13 +239,14 @@ export default function SeoUslugi() {
                   variant="primary"
                   size="m"
                   prefixIcon="rocket"
+                  className="mt-2"
                 >
                   Виж повече
                 </Button>
               )}
             </Card>
           ))}
-        </Grid>
+        </div>
 
         <AccordionGroup
           items={[
