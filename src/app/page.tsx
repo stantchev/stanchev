@@ -87,7 +87,7 @@ export default function Nachalo() {
 />
       
       <Column maxWidth="m" gap="l" horizontal="center" align="center">
-        {/* Featured badge with pulse */}
+        {/* Featured badge */}
         <Column fillWidth horizontal="center" gap="m">
           <Column maxWidth="s" horizontal="center" align="center">
             {home.featured.display && (
@@ -236,6 +236,7 @@ export default function Nachalo() {
     </>
   );
 }
+
 
 
 
