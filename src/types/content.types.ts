@@ -194,6 +194,8 @@ export interface About extends BasePageConfig {
         name: string;
         icon?: string;
       }>;
+      /** Tools tags */
+      tools?: string[];
       /** Images related to the skill */
       images?: Array<{
         /** Image source path */
