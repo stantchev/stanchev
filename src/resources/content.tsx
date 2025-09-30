@@ -77,14 +77,14 @@ const home: Home = {
     display: true,
     title: (
       <Row gap="12" vertical="center">
-        <strong className="ml-4">ChatGPT & WordPress</strong>
+        <strong className="ml-4">Robots.txt Editor & Cache Control: OC 2.3.0.2</strong>
         <Line background="brand-alpha-strong" vert height="20" />
         <Text marginRight="4" onBackground="brand-medium">
           Скорошен проект
         </Text>
       </Row>
     ),
-    href: "/seo-proekti/integraciya-chatgpt-wordpress-case-study",
+    href: "/seo-proekti/robots-txt-editor-cache-control-opencart-2302",
   },
 };
 
@@ -92,7 +92,7 @@ const about: About = {
   path: "/za-men",
   label: "За мен",
   title: `За мен | Станчев SEO`,
-  description: `Научете повече за моя опит и философия в SEO. Прозрачност, ефективност и резултати.`,
+  description: `Научете повече за моя професионален опит и философия в SEO и AI Automation. Прозрачност, ефективност и устойчиви резултати.`,
   tableOfContent: { display: true, subItems: false },
   avatar: { display: true },
   calendar: { display: true, link: "https://cal.com/stanchevseo/15min" },
@@ -101,10 +101,19 @@ const about: About = {
     title: "Накратко",
     description: (
       <>
-        С опит в SEO оптимизацията и AI Automation знам, че това не е вълшебство,
-        а алхимия от данни, логика и въображение. SEO е пътуване – не спринт, а
-        маратон, където AI е компасът. Оптимизирам, автоматизирам и експериментирам
-        всеки ден – защото Google никога не заспива.
+        Аз съм SEO консултант с практически опит в оптимизация на сайтове,
+        дигитален маркетинг и автоматизация чрез AI. Само за една година
+        помогнах на клиенти да постигнат{" "}
+        <strong>над 200% ръст в органичния трафик</strong> за шест месеца.
+        Вярвам, че SEO е не само оптимизация за търсачки, а изграждане на
+        доверие и устойчив растеж онлайн.
+        <br />
+        <br />
+        Подхождам към всеки проект като диригент – всеки елемент е на точното
+        място: техническа оптимизация, съдържание, линк билдинг, Core Web
+        Vitals и UX подобрения. SEO е пътуване, а аз съм водачът, който
+        използва данни, логика и въображение, за да превърне алгоритмите в
+        съюзник, а не в пречка.
       </>
     ),
   },
@@ -114,11 +123,23 @@ const about: About = {
     experiences: [
       {
         company: "Webstation LTD.",
-        timeframe: "2025 - настоящем",
-        role: "Стажант - SEO",
+        timeframe: "2025 – настоящем",
+        role: "SEO специалист (стажант)",
         achievements: [
-          <>За последния месец постигнах 250% ръст в органичния трафик.</>,
-          <>Написах статия, която Google AI включи в ревю.</>,
+          <>Проведох над 50 SEO одита и внедрих Core Web Vitals оптимизации, които подобриха скоростта с 40%.</>,
+          <>Увеличих CTR с 35% и органичния трафик с над 200% за 6 месеца.</>,
+          <>Оптимизирах продуктови страници за онлайн магазини, комбинирайки техническа оптимизация и съдържание.</>,
+        ],
+        images: [],
+      },
+      {
+        company: "Министерство на отбраната – Централно военно окръжие",
+        timeframe: "2021 – 2024",
+        role: "Организатор дейности",
+        achievements: [
+          <>Координирах и организирах процеси за стратегически проекти в държавна институция.</>,
+          <>Анализирах данни и подготвях презентации за висши ръководители.</>,
+          <>Организирах обучения за над 200 участници, развивайки умения за работа в среди с висока сигурност.</>,
         ],
         images: [],
       },
@@ -129,18 +150,82 @@ const about: About = {
     title: "Образование",
     institutions: [
       {
-        name: "Военна Академия",
-        description: <>Профилиран модул по Киберсигурност.</>,
+        name: "Google Analytics",
+        description: (
+          <a
+            href="https://skillshop.credential.net/d830b358-fac9-4299-9028-783755d639b1#acc.S5yMU1dc"
+            target="_blank"
+            rel="nofollow noopener noreferrer"
+          >
+            Сертификация за анализ на потребителско поведение и уеб данни.
+          </a>
+        ),
       },
       {
-        name: "AI Innovation Summit",
-        description: <>Запознанство с иновациите в изкуствения интелект.</>,
+        name: "Google Ads AI-Powered Performance",
+        description: (
+          <a
+            href="https://skillshop.credential.net/6636f0fe-fd86-4a18-b25b-27a219fca1c8#acc.zCBJHLMX"
+            target="_blank"
+            rel="nofollow noopener noreferrer"
+          >
+            Сертификация за реклами с AI и оптимизация на PPC кампании.
+          </a>
+        ),
       },
-      { name: "OpenAI Academy", description: <>Част от OpenAI Academy.</> },
-      { name: "Web Cactus Academy", description: <>SEO курсове за WP, OpenCart & Magento.</> },
+      {
+        name: "SEMrush – Become an AI-Powered Marketer",
+        description: (
+          <a
+            href="https://static.semrush.com/academy/certificates/dfbe013175/milen-stanchev_26.pdf"
+            target="_blank"
+            rel="nofollow noopener noreferrer"
+          >
+            Сертификация за AI и автоматизация в дигиталния маркетинг.
+          </a>
+        ),
+      },
+      {
+        name: "SEMrush – On-Page SEO Essentials",
+        description: (
+          <a
+            href="https://static.semrush.com/academy/certificates/c326ee55fe/milen-stanchev_25.pdf"
+            target="_blank"
+            rel="nofollow noopener noreferrer"
+          >
+            Сертификация за on-page оптимизация и SEO стратегии.
+          </a>
+        ),
+      },
+      {
+        name: "Web Cactus Academy",
+        description: (
+          <a
+            href="https://stanchev.bg/images/Web%20Cactus%20SEO%20Certificate.png"
+            target="_blank"
+            rel="nofollow noopener noreferrer"
+          >
+            Практически курсове по SEO за WordPress, OpenCart и Magento.
+          </a>
+        ),
+      },
       {
         name: "SoftUni",
-        description: <>В момента надграждам знанията си в SoftUni.</>,
+        description: (
+          <a
+            href="https://digital.softuni.bg/certificates/details/72195/759fe551"
+            target="_blank"
+            rel="nofollow noopener noreferrer"
+          >
+            Завършен курс по SEO с отлична оценка (5.61).
+          </a>
+        ),
+      },
+      {
+        name: "Военна академия „Г. С. Раковски“",
+        description: (
+          <>Специализация „Сигурност и отбрана“ с профил „Киберсигурност“.</>
+        ),
       },
     ],
   },
@@ -150,7 +235,9 @@ const about: About = {
     skills: [
       {
         title: "SEO инструменти",
-        description: <>Опит в SEO одит, анализ и оптимизация.</>,
+        description: (
+          <>Дълбок опит в keyword research, SEO одити и оптимизация чрез професионални платформи.</>
+        ),
         tools: [
           "Google Lighthouse",
           "Ahrefs",
@@ -162,13 +249,23 @@ const about: About = {
       },
       {
         title: "Front-end разработка",
-        description: <>Бързо прототипиране с Figma и разработка.</>,
+        description: (
+          <>Разработка и оптимизация на сайтове с модерни технологии, осигуряващи бързина и UX, съобразени с Core Web Vitals.</>
+        ),
         tools: ["Next.js 15", "Tailwind CSS", "React", "Netlify"],
       },
       {
-        title: "Bonus Stack",
-        description: <>Инструменти за оптимизация и анализ.</>,
-        tools: ["PS", "LR", "Chrome DevTools", "Netlify", "npm", ".htaccess"],
+        title: "Допълнителен стек",
+        description: (
+          <>Инструменти за дизайн, анализ и техническа поддръжка на уеб среди.</>
+        ),
+        tools: [
+          "Adobe Photoshop",
+          "Adobe Lightroom",
+          "Chrome DevTools",
+          "npm",
+          ".htaccess",
+        ],
       },
     ],
   },
@@ -317,3 +414,4 @@ export {
   contact,
   seoServices,
 };
+
