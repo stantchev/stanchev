@@ -209,8 +209,9 @@ export default function Nachalo() {
 
         <Projects range={[2]} />
 
-        {newsletter.display && <Mailchimp newsletter={newsletter} />}
+        {newsletter.display && <Mailchimp />}
       </Column>
     </>
   );
 }
+
