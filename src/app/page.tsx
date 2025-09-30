@@ -10,9 +10,6 @@ import {
   Badge,
   Row,
   Pulse,
-  BarChart,
-  LineChart,
-  PieChart,
 } from "@once-ui-system/core";
 import { home, about, person, newsletter, routes } from "@/resources";
 import { Mailchimp } from "@/components";
@@ -109,8 +106,9 @@ export default function Nachalo() {
         {/* Hero */}
         <Column
           maxWidth="m"
-          align="center"
           horizontal="center"
+          vertical="center"
+          align="center"
           gap="l"
           paddingBottom="xl"
         >
@@ -119,7 +117,7 @@ export default function Nachalo() {
               wrap="balance"
               variant="display-strong-l"
               align="center"
-              style={{ lineHeight: "1.2" }}
+              style={{ lineHeight: "1.2", textAlign: "center" }}
             >
               SEO оптимизация + AI Automation за вашия бизнес
             </Heading>
@@ -131,7 +129,7 @@ export default function Nachalo() {
               onBackground="neutral-weak"
               align="center"
               variant="heading-default-l"
-              style={{ maxWidth: "720px" }}
+              style={{ maxWidth: "720px", textAlign: "center" }}
             >
               Искате ли повече клиенти и по-високи позиции в Google и AI
               системите? Давам ви измерим ръст на трафика и реални резултати,
@@ -140,7 +138,7 @@ export default function Nachalo() {
           </RevealFx>
 
           <RevealFx delay={0.4} speed="fast">
-            <Flex gap="16" horizontal="center" wrap>
+            <Flex gap="16" horizontal="center" vertical="center" wrap>
               <Button
                 href="/kontakti"
                 variant="primary"
@@ -174,7 +172,7 @@ export default function Nachalo() {
             onBackground="neutral-weak"
             align="center"
             variant="body-default-l"
-            style={{ maxWidth: "720px" }}
+            style={{ maxWidth: "720px", textAlign: "center" }}
           >
             Докато повечето SEO агенции гонят само класиране в Google, аз ви
             позиционирам и в AI системите за търсене. Това ви дава двойно
@@ -189,7 +187,7 @@ export default function Nachalo() {
           <Heading variant="display-strong-m" align="center">
             Искате ли сайтът ви да се класира по-високо?
           </Heading>
-          <Flex horizontal="center" paddingTop="m" gap="l" wrap>
+          <Flex horizontal="center" vertical="center" paddingTop="m" gap="l" wrap>
             <Button variant="primary" prefixIcon="rocket" size="l" href="/kontakti">
               Свържете се с мен
             </Button>
