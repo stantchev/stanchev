@@ -73,7 +73,7 @@ export default function Nachalo() {
         }}
       />
 
-      <Column maxWidth="m" gap="xl" horizontal="center" align="center">
+      <Column maxWidth="m" gap="l" horizontal="center" align="center">
         {/* Featured badge with pulse */}
         <Column fillWidth horizontal="center" gap="m">
           <Column maxWidth="s" horizontal="center" align="center">
@@ -139,7 +139,8 @@ export default function Nachalo() {
             </Column>
           </RevealFx>
 
-          <RevealFx delay={0.4} speed="fast">
+              <RevealFx delay={0.4} speed="fast">
+          <Column align="center" horizontal="center">
             <Flex gap="16" horizontal="center" vertical="center" wrap>
               <Button
                 href="/kontakti"
@@ -161,8 +162,8 @@ export default function Nachalo() {
                 </Flex>
               </Button>
             </Flex>
-          </RevealFx>
-        </Column>
+          </Column>
+        </RevealFx>
 
         {/* Why me */}
         <Column maxWidth="m" align="center" horizontal="center" gap="l">
@@ -222,5 +223,6 @@ export default function Nachalo() {
     </>
   );
 }
+
 
 
