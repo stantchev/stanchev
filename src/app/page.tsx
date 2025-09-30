@@ -52,27 +52,31 @@ export default function Nachalo() {
         id="organization-homepage-schema"
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "http://schema.org",
-            "@type": "Organization",
-            name: "Станчев SEO",
-            url: "https://stanchev.bg/",
-            logo: "https://stanchev.bg/images/og/og.jpg",
-            description: home.description,
-            contactPoint: {
-              "@type": "ContactPoint",
-              contactType: "customer service",
-              email: "seo@stanchev.bg",
+          __html: JSON.stringify(
+            {
+              "@context": "http://schema.org",
+              "@type": "Organization",
+              name: "Станчев SEO",
+              url: "https://stanchev.bg/",
+              logo: "https://stanchev.bg/images/og/og.jpg",
+              description: home.description,
+              contactPoint: {
+                "@type": "ContactPoint",
+                contactType: "customer service",
+                email: "seo@stanchev.bg",
+              },
+              sameAs: [
+                "https://github.com/stantchev/",
+                "https://www.linkedin.com/in/stantcheff/",
+                "https://dev.to/stanchev",
+              ],
             },
-            sameAs: [
-              "https://github.com/stantchev/",
-              "https://www.linkedin.com/in/stantcheff/",
-              "https://dev.to/stanchev",
-            ],
-          }),
+            null,
+            2
+          ),
         }}
       />
-
+      
       <Column maxWidth="m" gap="l" horizontal="center" align="center">
         {/* Featured badge with pulse */}
         <Column fillWidth horizontal="center" gap="m">
@@ -139,7 +143,7 @@ export default function Nachalo() {
             </Column>
           </RevealFx>
 
-              <RevealFx delay={0.4} speed="fast">
+        <RevealFx delay={0.4} speed="fast">
           <Column align="center" horizontal="center">
             <Flex gap="16" horizontal="center" vertical="center" wrap>
               <Button
@@ -223,6 +227,3 @@ export default function Nachalo() {
     </>
   );
 }
-
-
-
