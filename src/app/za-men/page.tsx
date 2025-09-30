@@ -10,7 +10,8 @@ import {
   Tag,
   Text,
   Meta,
-  Schema
+  Schema,
+  Row,
 } from "@once-ui-system/core";
 import { baseURL, about, person, social } from "@/resources";
 import TableOfContents from "@/components/about/TableOfContents";
@@ -222,7 +223,8 @@ export default function ZaMen() {
                 <Icon onBackground="accent-weak" name="globe" />
                 <Text>{person.location}</Text>
               </Flex>
-              {person.languages.length > 0 && (
+
+              {person.languages && person.languages.length > 0 && (
                 <>
                   <Flex wrap gap="8">
                     {person.languages.map((language, index) => (
@@ -458,7 +460,7 @@ export default function ZaMen() {
                       </Text>
                       <Column as="ul" gap="16">
                         {experience.achievements.map(
-                          (achievement: JSX.Element, index: number) => (
+                          (achievement: ReactNode, index: number) => (
                             <Text
                               as="li"
                               variant="body-default-m"
@@ -571,7 +573,8 @@ export default function ZaMen() {
                     <Text variant="heading-strong-l">{skill.title}</Text>
                     <Text>{skill.description}</Text>
                     <Flex gap="4" paddingTop="4" wrap>
-                      {skill.tools.map((tool, i) => (
+                      {/* ако ползваш tags вместо tools, смени на skill.tags.map(...) */}
+                      {skill.tools?.map((tool, i) => (
                         <Flex
                           key={tool}
                           className={styles.toolItem}
@@ -597,4 +600,3 @@ export default function ZaMen() {
     </>
   );
 }
-
