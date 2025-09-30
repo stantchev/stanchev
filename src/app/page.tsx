@@ -18,7 +18,6 @@ import { Projects } from "@/components/work/Projects";
 import { Posts } from "@/components/blog/Posts";
 import Script from "next/script";
 
-// ✅ Meta данни
 export const metadata = {
   title: home.title,
   description: home.description,
@@ -86,7 +85,7 @@ export default function HomePage() {
       />
 
       {/* Landing Layout */}
-      <Column gap="3xl" fillWidth align="center">
+      <Column gap="xl" fillWidth align="center">
         {/* Hero Section */}
         <Column
           maxWidth="m"
@@ -143,7 +142,7 @@ export default function HomePage() {
         </Column>
 
         {/* Charts Section */}
-        <Column fillWidth maxWidth="m" gap="xl">
+        <Column fillWidth maxWidth="m" gap="l">
           <Heading variant="display-strong-s" align="center">
             Търсене с AI срещу Google Search
           </Heading>
@@ -174,8 +173,8 @@ export default function HomePage() {
           />
         </Column>
 
-        {/* Bar + Pie Charts */}
-        <Column fillWidth maxWidth="m" gap="xl">
+        {/* Bar + Pie */}
+        <Column fillWidth maxWidth="m" gap="l">
           <BarChart
             title="Резултати за мои клиенти"
             axis="none"
