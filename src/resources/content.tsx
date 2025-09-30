@@ -62,10 +62,21 @@ const home: Home = {
   path: "/",
   image: "https://stanchev.bg/images/og/og.jpg",
   label: "Начало",
-  title: "SEO оптимизация и AI Automation за вашия бизнес",
-  description:
-    "Комбинация от SEO оптимизация и AI Automation за повече трафик, по-високо класиране и автоматизирано развитие на вашия бизнес  | Станчев SEO",
+
+  titleText: "SEO оптимизация и AI Automation за вашия бизнес",
+  descriptionText:
+    "Комбинация от SEO оптимизация и AI Automation за повече трафик, по-високо класиране и автоматизирано развитие на вашия бизнес | Станчев SEO",
+  featuredTitleText: "Скорошен проект: ChatGPT & WordPress",
+
   headline: <>SEO & AI Automation – интелигентни решения за растеж</>,
+  subline: (
+    <>
+      Аз съм Станчев – комбинирам SEO експертиза и AI автоматизация,
+      <br /> за да превръщам данните в стратегии, задачите в автоматизирани
+      процеси
+      <br /> и идеите в устойчив онлайн успех
+    </>
+  ),
   featured: {
     display: true,
     title: (
@@ -79,13 +90,6 @@ const home: Home = {
     ),
     href: "/seo-proekti/integraciya-chatgpt-wordpress-case-study",
   },
-  subline: (
-    <>
-      Аз съм Станчев – комбинирам SEO експертиза и AI автоматизация,
-      <br /> за да превръщам данните в стратегии, задачите в автоматизирани процеси
-      <br /> и идеите в устойчив онлайн успех
-    </>
-  ),
 };
 
 const about: About = {
@@ -254,3 +258,4 @@ export {
   contact,
   seoServices,
 };
+
