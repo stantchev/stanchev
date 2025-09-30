@@ -26,7 +26,7 @@ export type Person = {
   /** IANA time zone location */
   location: IANATimeZone;
   /** Languages spoken */
-  languages?: string[];
+  languages: string[];
 };
 
 /**
