@@ -206,11 +206,11 @@ const schema: SchemaConfig = {
 };
 
 // social links
-const sameAs: SameAsConfig = {
-  github: "https://github.com/stantchev/",
-  linkedin: "https://www.linkedin.com/in/stantcheff/",
-  devto: "https://dev.to/stanchev",
-};
+const sameAs: SameAsConfig = [
+  "https://github.com/stantchev/",
+  "https://www.linkedin.com/in/stantcheff/",
+  "https://dev.to/stanchev",
+];
 
 // social sharing configuration for blog posts
 const socialSharing: SocialSharingConfig = {
@@ -281,3 +281,4 @@ export {
   dataStyle,
   llmsRules,
 };
+
