@@ -18,7 +18,7 @@ import { Projects } from "@/components/work/Projects";
 import { Posts } from "@/components/blog/Posts";
 import Script from "next/script";
 
-// 🟢 Махаме ": Metadata", Next.js си извежда типовете
+// ✅ Meta данни
 export const metadata = {
   title: home.title,
   description: home.description,
@@ -48,7 +48,7 @@ export const metadata = {
   },
 };
 
-export default function Nachalo() {
+export default function HomePage() {
   return (
     <>
       {/* Schema.org */}
@@ -87,7 +87,7 @@ export default function Nachalo() {
 
       {/* Landing Layout */}
       <Column gap="3xl" fillWidth align="center">
-        {/* Hero */}
+        {/* Hero Section */}
         <Column
           maxWidth="m"
           align="center"
@@ -174,7 +174,7 @@ export default function Nachalo() {
           />
         </Column>
 
-        {/* Bar + Pie */}
+        {/* Bar + Pie Charts */}
         <Column fillWidth maxWidth="m" gap="xl">
           <BarChart
             title="Резултати за мои клиенти"
