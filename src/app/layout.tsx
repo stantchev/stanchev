@@ -1,4 +1,4 @@
-import "@/styles/critical.css";
+
 import "@once-ui-system/core/css/styles.css";
 import "@once-ui-system/core/css/tokens.css";
 import "@/resources/custom.css";
@@ -107,35 +107,6 @@ export default function RootLayout({
         fonts.code.variable
       )}
     >
-      <head>
-        {/* Preload critical fonts */}
-        <link
-          rel="preload"
-          href="/fonts/Sofia_Sans/SofiaSans-VariableFont_wght.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="preload"
-          href="/fonts/Geist_Mono/GeistMono-VariableFont_wght.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
-        
-        {/* DNS prefetch for external domains */}
-        <link rel="dns-prefetch" href="//fonts.googleapis.com" />
-        <link rel="dns-prefetch" href="//fonts.gstatic.com" />
-        
-        {/* Preconnect to critical origins */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        
-        {/* Resource hints */}
-        <link rel="prefetch" href="/seo-uslugi" />
-        <link rel="prefetch" href="/za-men" />
-      </head>
       <body className="page-background flex flex-col items-center min-h-screen">
         {/* JSON-LD Schema */}
         <Script
@@ -196,58 +167,6 @@ export default function RootLayout({
             }),
           }}
         />
-        {/* Service Worker Registration */}
-        <Script id="sw-register" strategy="afterInteractive">{`
-          if (typeof window !== 'undefined' && 'serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-              navigator.serviceWorker.register('/sw.js')
-                .then((registration) => {
-                  console.log('SW registered: ', registration);
-                })
-                .catch((registrationError) => {
-                  console.log('SW registration failed: ', registrationError);
-                });
-            });
-          }
-        `}</Script>
-
-        {/* Performance monitoring */}
-        <Script id="performance-init" strategy="afterInteractive">{`
-          if (typeof window !== 'undefined') {
-            // Monitor Core Web Vitals
-            if ('PerformanceObserver' in window) {
-              const observer = new PerformanceObserver((list) => {
-                for (const entry of list.getEntries()) {
-                  if (entry.name === 'LCP') {
-                    console.log('LCP:', entry.value);
-                  }
-                  if (entry.name === 'FID') {
-                    console.log('FID:', entry.value);
-                  }
-                  if (entry.name === 'CLS') {
-                    console.log('CLS:', entry.value);
-                  }
-                }
-              });
-              try {
-                observer.observe({ entryTypes: ['largest-contentful-paint', 'first-input', 'layout-shift'] });
-              } catch (e) {
-                console.log('Performance Observer not supported');
-              }
-            }
-            
-            // Preload critical images
-            const criticalImages = ['/images/avatar.jpg', '/images/og/og.jpg'];
-            criticalImages.forEach(src => {
-              const link = document.createElement('link');
-              link.rel = 'preload';
-              link.as = 'image';
-              link.href = src;
-              document.head.appendChild(link);
-            });
-          }
-        `}</Script>
-
         {/* Theme init */}
         <Script id="theme-init" strategy="beforeInteractive" async>{`
           (function () {
