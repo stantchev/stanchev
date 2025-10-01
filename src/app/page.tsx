@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React from "react";
 import {
   Heading,
   Flex,
@@ -15,13 +15,8 @@ import { home, about, person, newsletter, routes } from "@/resources";
 import { Mailchimp } from "@/components";
 import { Projects } from "@/components/work/Projects";
 import { Posts } from "@/components/blog/Posts";
-import { Loading } from "@/components/Loading";
 import type { Metadata } from "next";
 import Script from "next/script";
-
-// Lazy load heavy components
-const LazyProjects = React.lazy(() => import("@/components/work/Projects").then(module => ({ default: module.Projects })));
-const LazyPosts = React.lazy(() => import("@/components/blog/Posts").then(module => ({ default: module.Posts })));
 
 export const metadata: Metadata = {
   title: home.title,
@@ -55,7 +50,7 @@ export default function Nachalo() {
       <Script
         id="organization-homepage-schema"
         type="application/ld+json"
-        strategy="lazyOnload"
+        strategy="afterInteractive"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "http://schema.org",
@@ -181,10 +176,7 @@ export default function Nachalo() {
                   prefixIcon="user"
                 >
                   <Flex vertical="center" gap="8">
-                    <Avatar 
-                      src={person.avatar} 
-                      size="s"
-                    />
+                    <Avatar src={person.avatar} size="s" />
                     За мен
                   </Flex>
                 </Button>
@@ -245,16 +237,12 @@ export default function Nachalo() {
             <Heading as="h2" variant="display-strong-xs" align="center">
               Последни публикации
             </Heading>
-            <Suspense fallback={<Loading text="Зареждане статии..." size="s" />}>
-              <LazyPosts range={[1, 2]} columns="2" />
-            </Suspense>
+            <Posts range={[1, 2]} columns="2" />
           </Column>
         )}
 
         {/* Projects */}
-        <Suspense fallback={<Loading text="Зареждане проекти..." size="s" />}>
-          <LazyProjects range={[1, 3]} />
-        </Suspense>
+        <Projects range={[1, 3]} />
 
         {/* Newsletter */}
         {newsletter.display && (
