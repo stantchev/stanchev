@@ -86,5 +86,16 @@
 @media (max-width: breakpoints.$s) {
   .nav-label {
     display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+  }
+}
+
+/* Additional specificity for mobile */
+@media (max-width: 768px) {
+  span.nav-label {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
   }
 }
