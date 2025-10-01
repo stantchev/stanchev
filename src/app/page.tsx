@@ -153,8 +153,14 @@ export default function Nachalo() {
           </RevealFx>
 
           <RevealFx delay={0.4} speed="fast">
-            <Column align="center" horizontal="center">
-              <Flex gap="16" horizontal="center" vertical="center" wrap>
+            <Column align="center" horizontal="center" fillWidth>
+              <Flex 
+                gap="16" 
+                horizontal="center" 
+                vertical="center" 
+                wrap
+                className="justify-center w-full"
+              >
                 <Button
                   href="/kontakti"
                   variant="primary"
