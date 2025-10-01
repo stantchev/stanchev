@@ -1,4 +1,4 @@
-@import './breakpoints.scss';
+@use './breakpoints.scss' as breakpoints;
 
 .plans {
   display: grid;
@@ -7,13 +7,13 @@
   justify-items: center;
   padding: 2rem;
   
-  @include m {
+  @include breakpoints.m {
     grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
     padding: 1.5rem;
   }
   
-  @include s {
+  @include breakpoints.s {
     grid-template-columns: 1fr;
     gap: 1.5rem;
     padding: 1rem;
@@ -32,7 +32,7 @@
   position: relative;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   
-  @include s {
+  @include breakpoints.s {
     max-width: 100%;
     padding: 1.5rem;
   }
@@ -41,7 +41,7 @@
     transform: translateY(-6px);
     box-shadow: 0 12px 20px rgba(0,0,0,0.4);
     
-    @include s {
+    @include breakpoints.s {
       transform: translateY(-3px);
     }
   }
@@ -50,7 +50,7 @@
     margin-bottom: 0.5rem;
     font-size: 1.5rem;
     
-    @include s {
+    @include breakpoints.s {
       font-size: 1.3rem;
     }
   }
@@ -59,7 +59,7 @@
     font-size: 1.5rem;
     margin: 1rem 0;
     
-    @include s {
+    @include breakpoints.s {
       font-size: 1.3rem;
     }
 
@@ -87,7 +87,7 @@
       align-items: flex-start;
       line-height: 1.4;
       
-      @include s {
+      @include breakpoints.s {
         font-size: 0.95rem;
       }
     }
@@ -105,7 +105,7 @@
     text-decoration: none;
     transition: all 0.2s ease;
     
-    @include s {
+    @include breakpoints.s {
       padding: 1rem;
       margin-top: 1.5rem;
       font-size: 1.1rem;
@@ -122,11 +122,11 @@
     border: 1px solid #555;
     transform: scale(1.05);
     
-    @include m {
+    @include breakpoints.m {
       transform: scale(1.03);
     }
     
-    @include s {
+    @include breakpoints.s {
       transform: scale(1);
       order: -1; /* Move featured plan to the top on mobile */
     }
@@ -150,7 +150,7 @@
     white-space: nowrap;
     z-index: 1;
     
-    @include s {
+    @include breakpoints.s {
       font-size: 0.75rem;
       padding: 3px 14px;
     }
