@@ -7,9 +7,8 @@ import {
   contact,
 } from "@/resources";
 import styles from "./Header.module.scss";
-import { AiOutlineHome } from "react-icons/ai";
-import { FaUser, FaThLarge, FaRegNewspaper } from "react-icons/fa";
-import { MdOutlineRocketLaunch, MdOutlineMail } from "react-icons/md";
+import { PiHouseDuotone, PiUserCircleDuotone, PiGridFourDuotone, PiBookBookmarkDuotone } from "react-icons/pi";
+import { HiOutlineRocketLaunch, HiEnvelope } from "react-icons/hi2";
 import React from "react";
 
 export const Header = () => {
@@ -57,7 +56,7 @@ export const Header = () => {
               <ToggleButton
                 href="/"
                 aria-label="Начало"
-                label={<AiOutlineHome size={18} />}
+                label={<PiHouseDuotone size={18} />}
               />
               <Line background="neutral-alpha-medium" vert maxHeight="24" />
 
@@ -66,7 +65,7 @@ export const Header = () => {
                 href="/za-men"
                 label={
                   <span style={{ display: "flex", alignItems: "center", gap: 6 }}>
-                    <FaUser size={16} />
+                    <PiUserCircleDuotone size={16} />
                     <span className="nav-label">{about.label}</span>
                   </span>
                 }
@@ -77,7 +76,7 @@ export const Header = () => {
                 href="/seo-proekti"
                 label={
                   <span style={{ display: "flex", alignItems: "center", gap: 6 }}>
-                    <FaThLarge size={16} />
+                    <PiGridFourDuotone size={16} />
                     <span className="nav-label">{work.label}</span>
                   </span>
                 }
@@ -88,7 +87,7 @@ export const Header = () => {
                 href="/seo-uslugi"
                 label={
                   <span style={{ display: "flex", alignItems: "center", gap: 6 }}>
-                    <MdOutlineRocketLaunch size={18} />
+                    <HiOutlineRocketLaunch size={18} />
                     <span className="nav-label">{seoServices.label}</span>
                   </span>
                 }
@@ -99,7 +98,7 @@ export const Header = () => {
                 href="/kontakti"
                 label={
                   <span style={{ display: "flex", alignItems: "center", gap: 6 }}>
-                    <MdOutlineMail size={18} />
+                    <HiEnvelope size={18} />
                     <span className="nav-label">{contact.label}</span>
                   </span>
                 }
@@ -110,7 +109,7 @@ export const Header = () => {
                 href="/blog"
                 label={
                   <span style={{ display: "flex", alignItems: "center", gap: 6 }}>
-                    <FaRegNewspaper size={16} />
+                    <PiBookBookmarkDuotone size={16} />
                     <span className="nav-label">{blog.label}</span>
                   </span>
                 }
