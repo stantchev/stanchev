@@ -52,7 +52,7 @@ export const Header = () => {
             zIndex={1}
           >
             <Flex gap="4" vertical="center" textVariant="body-default-s">
-              {/* Homepage хеадер*/}
+              {/* Homepage */}
               <ToggleButton
                 href="/"
                 aria-label="Начало"
@@ -66,7 +66,7 @@ export const Header = () => {
                 label={
                   <span style={{ display: "flex", alignItems: "center", gap: 6 }}>
                     <PiUserCircleDuotone size={16} />
-                    <span className="nav-label">{about.label}</span>
+                    <span className="nav-label hidden md:inline">{about.label}</span>
                   </span>
                 }
               />
@@ -77,7 +77,7 @@ export const Header = () => {
                 label={
                   <span style={{ display: "flex", alignItems: "center", gap: 6 }}>
                     <PiGridFourDuotone size={16} />
-                    <span className="nav-label">{work.label}</span>
+                    <span className="nav-label hidden md:inline">{work.label}</span>
                   </span>
                 }
               />
@@ -88,7 +88,7 @@ export const Header = () => {
                 label={
                   <span style={{ display: "flex", alignItems: "center", gap: 6 }}>
                     <HiOutlineRocketLaunch size={18} />
-                    <span className="nav-label">{seoServices.label}</span>
+                    <span className="nav-label hidden md:inline">{seoServices.label}</span>
                   </span>
                 }
               />
@@ -99,7 +99,7 @@ export const Header = () => {
                 label={
                   <span style={{ display: "flex", alignItems: "center", gap: 6 }}>
                     <HiEnvelope size={18} />
-                    <span className="nav-label">{contact.label}</span>
+                    <span className="nav-label hidden md:inline">{contact.label}</span>
                   </span>
                 }
               />
@@ -110,7 +110,7 @@ export const Header = () => {
                 label={
                   <span style={{ display: "flex", alignItems: "center", gap: 6 }}>
                     <PiBookBookmarkDuotone size={16} />
-                    <span className="nav-label">{blog.label}</span>
+                    <span className="nav-label hidden md:inline">{blog.label}</span>
                   </span>
                 }
               />
@@ -123,4 +123,3 @@ export const Header = () => {
 };
 
 export default Header;
-
