@@ -1,0 +1,123 @@
+/* Critical CSS - Above the fold styles */
+:root {
+  --page-background: #ffffff;
+  --neutral-on-background-strong: #1a1a1a;
+  --brand-on-background-strong: #0066cc;
+  --neutral-alpha-weak: rgba(0, 0, 0, 0.1);
+  --brand-alpha-weak: rgba(0, 102, 204, 0.1);
+  --static-space-8: 8px;
+  --static-space-16: 16px;
+  --static-space-24: 24px;
+  --static-transparent: transparent;
+}
+
+[data-theme="dark"] {
+  --page-background: #0a0a0a;
+  --neutral-on-background-strong: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Sofia Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--page-background);
+  color: var(--neutral-on-background-strong);
+  overflow-x: hidden;
+}
+
+.page-background {
+  background: var(--page-background);
+  min-height: 100vh;
+}
+
+/* Critical layout styles */
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.min-h-screen {
+  min-height: 100vh;
+}
+
+.main-content {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  min-height: calc(100vh - 120px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 80px;
+}
+
+/* Critical button styles */
+button, .btn {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+/* Critical header styles */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 9;
+  width: 100%;
+  padding: 8px;
+  background: var(--page-background);
+  border-bottom: 1px solid var(--neutral-alpha-weak);
+}
+
+/* Critical navigation styles */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+/* Loading states */
+.loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* Critical responsive styles */
+@media (max-width: 768px) {
+  .main-content {
+    padding: 0 16px;
+    padding-top: 60px;
+  }
+  
+  header {
+    position: fixed;
+    bottom: 24px;
+    top: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+    border-bottom: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+}
