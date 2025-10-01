@@ -1,38 +1,30 @@
-'use client';
+"use client";
 
-import React, { useEffect, useState } from 'react';
-import { ToggleButton, useTheme } from '@once-ui-system/core';
+import React, { useEffect, useState } from "react";
+import { Row, ToggleButton, useTheme } from "@once-ui-system/core";
 
 export const ThemeToggle: React.FC = () => {
   const { theme, setTheme } = useTheme();
-  const [currentTheme, setCurrentTheme] = useState<string>('light');
   const [mounted, setMounted] = useState(false);
+  const [currentTheme, setCurrentTheme] = useState("light");
 
-  // 🧠 Обновяваме `currentTheme`, когато се монтира или се смени
   useEffect(() => {
     setMounted(true);
-    const appliedTheme = document.documentElement.getAttribute('data-theme') || 'light';
-    setCurrentTheme(appliedTheme);
+    setCurrentTheme(document.documentElement.getAttribute("data-theme") || "light");
   }, []);
 
   useEffect(() => {
-    const appliedTheme = document.documentElement.getAttribute('data-theme') || 'light';
-    setCurrentTheme(appliedTheme);
+    setCurrentTheme(document.documentElement.getAttribute("data-theme") || "light");
   }, [theme]);
 
-  if (!mounted) return null;
-
-  const icon = currentTheme === 'light' ? 'sun' : 'moon';
-  const nextTheme = currentTheme === 'light' ? 'dark' : 'light';
+  const icon = currentTheme === "dark" ? "light" : "dark";
+  const nextTheme = currentTheme === "light" ? "dark" : "light";
 
   return (
     <ToggleButton
       prefixIcon={icon}
-      onClick={() => {
-        setTheme(nextTheme);
-        setCurrentTheme(nextTheme); // 👈 ръчно го сетваме за моментален ъпдейт
-      }}
-      aria-label={`Превключване към ${nextTheme === 'light' ? 'светла' : 'тъмна'} тема`}
+      onClick={() => setTheme(nextTheme)}
+      aria-label={`Switch to ${nextTheme} mode`}
     />
   );
 };
