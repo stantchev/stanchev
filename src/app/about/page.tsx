@@ -51,7 +51,7 @@ export default function About() {
   ];
 
   return (
-    <Column maxWidth="m">
+    <Column fillWidth>
       <Schema
         as="webPage"
         baseURL={baseURL}
@@ -83,7 +83,7 @@ export default function About() {
       <Row
         fillWidth
         horizontal="center"
-        s={{ direction: "column-reverse" }} // 👈 на мобилно обръща реда
+        s={{ direction: "column" }} // 👈 на мобилно едно под друго
       >
         {/* Avatar column */}
         {about.avatar.display && (
@@ -95,6 +95,7 @@ export default function About() {
             s={{
               position: "relative",
               style: { top: "auto" },
+              fillWidth: true, // 👈 на мобилно 100%
             }}
             minWidth="160"
             paddingX="l"
@@ -121,7 +122,12 @@ export default function About() {
         )}
 
         {/* Main content */}
-        <Column className={styles.blockAlign} flex={9} maxWidth={40}>
+        <Column
+          className={styles.blockAlign}
+          flex={9}
+          maxWidth={80}
+          s={{ fillWidth: true }} // 👈 на мобилно 100%
+        >
           <Column
             id={about.intro.title}
             fillWidth
