@@ -1,6 +1,26 @@
-import { Flex, Meta, Schema, Column, Heading, Text, Button, Grid, Card, AccordionGroup } from "@once-ui-system/core";
+import { Flex, Meta, Schema, Column, Heading, Text, Button, Card, AccordionGroup, Row, Icon, Grid } from "@once-ui-system/core";
 import { baseURL, person, seoServices } from "@/resources";
 import Script from "next/script";
+
+// Функция за получаване на иконка за всяка услуга
+const getServiceIcon = (slug: string) => {
+  const iconMap: { [key: string]: string } = {
+    'seo-optimizatsiya': 'search',
+    'link-building': 'openLink',
+    'ecommerce-seo': 'grid',
+    'wordpress-seo': 'grid',
+    'opencart-seo': 'grid',
+    'magento-seo': 'grid',
+    'on-page-seo': 'document',
+    'off-page-seo': 'arrowUpRightFromSquare',
+    'keyword-research': 'globe',
+    'content-seo': 'document',
+    'seo-odit': 'checkCircle',
+    'lokalno-seo': 'globe',
+    'seo-konsultaciya': 'person'
+  };
+  return iconMap[slug] || 'search';
+};
 
 export async function generateMetadata() {
   return {
@@ -157,45 +177,69 @@ export default function SeoUslugi() {
           </Text>
         </Column>
 
-        {/* FIXED GRID */}
-        <Grid columns="2" gap="l" paddingX="l" className="grid grid-cols-1 md:grid-cols-2 items-stretch gap-6">
+        {/* SERVICE CARDS GRID */}
+        <Grid columns="2" s={{ columns: 1 }} fillWidth gap="l" paddingX="l">
           {seoServices.services.map((service, index) => (
-            <Card
-              key={index}
-              padding="l"
-              radius="l"
-              border="neutral-alpha-weak"
-              background="surface"
-              direction="column"
-              gap="m"
-              className="flex flex-col h-full min-w-[320px] max-w-[400px] mx-auto"
+            <Card 
+              key={index} 
+              radius="l" 
+              direction="column" 
+              border="neutral-alpha-medium" 
+              fillWidth
+              gap="0"
             >
-              <Heading variant="heading-strong-l" marginBottom="s" as="h3">
-                {service.title}
-              </Heading>
-              <Text variant="body-default-m" onBackground="neutral-weak" marginBottom="m">
-                {service.description}
-              </Text>
-              <Column gap="8" className="flex-1">
-                {service.features.map((feature, featureIndex) => (
-                  <Text key={featureIndex} variant="body-default-s">
-                    • {feature}
-                  </Text>
-                ))}
+              <Row fillWidth paddingX="m" paddingY="s" gap="s" vertical="center">
+                <Icon name={getServiceIcon(service.slug)} size="m" onBackground="brand-strong" />
+                <Text variant="label-default-s" wrap="balance">{service.title}</Text>
+              </Row>
+              
+              <div
+                style={{
+                  width: "100%",
+                  height: "192px",
+                  background: "linear-gradient(135deg, var(--brand-alpha-weak), var(--brand-alpha-medium))",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  borderTop: "1px solid var(--neutral-alpha-weak)",
+                  borderBottom: "1px solid var(--neutral-alpha-weak)"
+                }}
+              >
+                <Icon name={getServiceIcon(service.slug)} size="xl" onBackground="brand-strong" />
+              </div>
+              
+              <Column fillWidth paddingX="m" paddingY="l" gap="s" flex={1}>
+                <Text variant="body-default-xl" wrap="balance">{service.title}</Text>
+                <Text onBackground="neutral-weak" variant="body-default-s" wrap="balance">
+                  {service.description}
+                </Text>
+                <Column gap="xs">
+                  {service.features.map((feature, featureIndex) => (
+                    <Text 
+                      key={featureIndex} 
+                      variant="body-default-s" 
+                      wrap="balance"
+                    >
+                      • {feature}
+                    </Text>
+                  ))}
+                </Column>
+                <Text variant="heading-strong-m" style={{ marginTop: "auto" }}>
+                  {service.price}
+                </Text>
               </Column>
-              <Text variant="heading-strong-m" marginTop="m">
-                {service.price}
-              </Text>
+              
               {service.slug && (
-                <Button
-                  href={`/seo-uslugi/${service.slug}`}
-                  variant="primary"
-                  size="m"
-                  prefixIcon="rocket"
-                  className="mt-2"
-                >
-                  Виж повече
-                </Button>
+                <Column paddingX="m" paddingBottom="m">
+                  <Button
+                    href={`/seo-uslugi/${service.slug}`}
+                    variant="primary"
+                    size="m"
+                    prefixIcon="rocket"
+                  >
+                    Виж повече
+                  </Button>
+                </Column>
               )}
             </Card>
           ))}
