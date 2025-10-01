@@ -13,16 +13,16 @@ export function formatDate(date: string, includeRelative = false) {
   let formattedDate = "";
 
   if (yearsAgo > 0) {
-    formattedDate = `${yearsAgo}y ago`;
+    formattedDate = `преди ${yearsAgo} г.`;
   } else if (monthsAgo > 0) {
-    formattedDate = `${monthsAgo}mo ago`;
+    formattedDate = `преди ${monthsAgo} мес.`;
   } else if (daysAgo > 0) {
-    formattedDate = `${daysAgo}d ago`;
+    formattedDate = `преди ${daysAgo} дни`;
   } else {
-    formattedDate = "Today";
+    formattedDate = "Днес";
   }
 
-  const fullDate = targetDate.toLocaleString("en-us", {
+  const fullDate = targetDate.toLocaleString("bg-BG", {
     month: "long",
     day: "numeric",
     year: "numeric",
