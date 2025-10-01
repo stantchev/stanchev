@@ -5,18 +5,19 @@ export const performanceObserver = () => {
   // Monitor Core Web Vitals
   const observer = new PerformanceObserver((list) => {
     for (const entry of list.getEntries()) {
-      // Log performance metrics
-      console.log(`${entry.name}: ${entry.value}`);
+      // Log performance metrics with proper typing
+      const entryValue = (entry as any).value || (entry as any).startTime || entry.duration;
+      console.log(`${entry.name}: ${entryValue}`);
       
       // Send to analytics if needed
       if (entry.name === 'LCP') {
-        console.log('Largest Contentful Paint:', entry.value);
+        console.log('Largest Contentful Paint:', (entry as any).value);
       }
       if (entry.name === 'FID') {
-        console.log('First Input Delay:', entry.value);
+        console.log('First Input Delay:', (entry as any).value);
       }
       if (entry.name === 'CLS') {
-        console.log('Cumulative Layout Shift:', entry.value);
+        console.log('Cumulative Layout Shift:', (entry as any).value);
       }
     }
   });
