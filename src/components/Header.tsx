@@ -52,7 +52,7 @@ export const Header = () => {
             zIndex={1}
           >
             <Flex gap="4" vertical="center" textVariant="body-default-s">
-              {/* Homepage */}
+              {/* Homepage хеадер*/}
               <ToggleButton
                 href="/"
                 aria-label="Начало"
@@ -123,3 +123,4 @@ export const Header = () => {
 };
 
 export default Header;
+
