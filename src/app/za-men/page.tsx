@@ -4,13 +4,13 @@ import {
   Column,
   Flex,
   Heading,
-  Icon,
   IconButton,
   Media,
   Tag,
   Text,
   Schema,
 } from "@once-ui-system/core";
+import { HiOutlineGlobeAsiaAustralia, HiCalendarDays, HiCheckCircle } from "react-icons/hi2";
 import { baseURL, about, person, social } from "@/resources";
 import TableOfContents from "@/components/about/TableOfContents";
 import styles from "@/components/about/about.module.scss";
@@ -179,7 +179,7 @@ export default function ZaMen() {
         }}
       />
 
-      <Column maxWidth={40}>
+      <Column maxWidth={80}>
         <Schema
           as="webPage"
           baseURL={baseURL}
@@ -207,20 +207,20 @@ export default function ZaMen() {
           </Column>
         )}
 
-        <Flex fillWidth className="flex-col md:flex-row" horizontal="center">
-          {/* Мобилна версия - аватар отгоре */}
+        <Flex fillWidth className="flex-col lg:flex-row" horizontal="start" gap="xl">
+          {/* Аватар секция */}
           {about.avatar.display && (
             <Column
-              className={`${styles.avatar} md:hidden`}
+              className={`${styles.avatar} lg:sticky lg:top-24 lg:self-start`}
               paddingX="l"
               paddingBottom="xl"
               gap="m"
               horizontal="center"
-              fillWidth
+              style={{ minWidth: "250px", maxWidth: "280px", flexShrink: 0 }}
             >
               <Avatar src={person.avatar} size="xl" />
               <Flex gap="8" vertical="center">
-                <Icon onBackground="accent-weak" name="globe" />
+                <HiOutlineGlobeAsiaAustralia size={16} />
                 <Text>{person.location}</Text>
               </Flex>
 
@@ -236,45 +236,15 @@ export default function ZaMen() {
             </Column>
           )}
 
-          {/* Десктоп версия - аватар вляво */}
-          {about.avatar.display && (
-            <Column
-              className={`${styles.avatar} hidden md:block`}
-              position="sticky"
-              minWidth="160"
-              paddingX="l"
-              paddingBottom="xl"
-              gap="m"
-              flex={3}
-              horizontal="center"
-            >
-              <Avatar src={person.avatar} size="xl" />
-              <Flex gap="8" vertical="center">
-                <Icon onBackground="accent-weak" name="globe" />
-                <Text>{person.location}</Text>
-              </Flex>
-
-              {languages.length > 0 && (
-                <Flex wrap gap="8">
-                  {languages.map((language, index) => (
-                    <Tag key={language} size="l">
-                      {language}
-                    </Tag>
-                  ))}
-                </Flex>
-              )}
-            </Column>
-          )}
-
-          {/* Дясна колона със съдържание */}
-          <Column className={styles.blockAlign} flex={9} maxWidth={40}>
+          {/* Основна колона със съдържание */}
+          <Column className={styles.blockAlign} flex={1} maxWidth={50} paddingLeft="xl" paddingRight="xl" paddingY="l">
             {/* Intro */}
             <Column
               id={about.intro.title}
               fillWidth
               minHeight="160"
               vertical="center"
-              marginBottom="32"
+              marginBottom="xl"
             >
               {about.calendar.display && (
                 <Flex
@@ -286,7 +256,7 @@ export default function ZaMen() {
                   marginBottom="m"
                   vertical="center"
                 >
-                  <Icon paddingLeft="12" name="calendar" />
+                  <HiCalendarDays size={16} />
                   <Flex paddingX="8">Заяви консултация</Flex>
                   <IconButton
                     href={about.calendar.link}
@@ -373,7 +343,7 @@ export default function ZaMen() {
 
             {/* Studies */}
             {about.studies.display && (
-              <>
+              <Column marginTop="xl">
                 <Heading
                   as="h2"
                   id={about.studies.title}
@@ -391,11 +361,7 @@ export default function ZaMen() {
                       horizontal="start"
                     >
                       <Column style={{ alignItems: "center", minWidth: 32 }}>
-                        <Icon
-                          name="checkCircle"
-                          size="l"
-                          onBackground="brand-strong"
-                        />
+                        <HiCheckCircle size={20} />
                         {index < about.studies.institutions.length - 1 && (
                           <div
                             style={{
@@ -416,12 +382,12 @@ export default function ZaMen() {
                     </Flex>
                   ))}
                 </Column>
-              </>
+              </Column>
             )}
 
             {/* Skills */}
             {about.technical.display && (
-              <Column gap="l" marginTop="32">
+              <Column gap="l" marginTop="xl">
                 <Heading
                   as="h3"
                   variant="display-strong-m"
@@ -443,11 +409,7 @@ export default function ZaMen() {
                             gap="2"
                           >
                             {tag.icon && (
-                              <Icon
-                                name={tag.icon}
-                                size="s"
-                                onBackground="brand-strong"
-                              />
+                              <span>🔧</span>
                             )}
                             <Text variant="body-default-s">{tag.name}</Text>
                           </Flex>
