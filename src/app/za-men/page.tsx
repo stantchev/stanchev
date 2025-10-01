@@ -208,9 +208,38 @@ export default function ZaMen() {
         )}
 
         <Flex fillWidth className="flex-col md:flex-row" horizontal="center">
+          {/* Мобилна версия - аватар отгоре */}
           {about.avatar.display && (
             <Column
-              className={styles.avatar}
+              className={`${styles.avatar} md:hidden`}
+              paddingX="l"
+              paddingBottom="xl"
+              gap="m"
+              horizontal="center"
+              fillWidth
+            >
+              <Avatar src={person.avatar} size="xl" />
+              <Flex gap="8" vertical="center">
+                <Icon onBackground="accent-weak" name="globe" />
+                <Text>{person.location}</Text>
+              </Flex>
+
+              {languages.length > 0 && (
+                <Flex wrap gap="8" horizontal="center">
+                  {languages.map((language, index) => (
+                    <Tag key={language} size="l">
+                      {language}
+                    </Tag>
+                  ))}
+                </Flex>
+              )}
+            </Column>
+          )}
+
+          {/* Десктоп версия - аватар вляво */}
+          {about.avatar.display && (
+            <Column
+              className={`${styles.avatar} hidden md:block`}
               position="sticky"
               minWidth="160"
               paddingX="l"
