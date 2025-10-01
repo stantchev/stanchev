@@ -1,5 +1,8 @@
 import { Fade, Flex, Line, ToggleButton } from "@once-ui-system/core";
 import {
+  routes,
+  display,
+  person,
   about,
   blog,
   work,
@@ -7,24 +10,25 @@ import {
   contact,
 } from "@/resources";
 import styles from "./Header.module.scss";
-import { PiHouseDuotone, PiUserCircleDuotone, PiGridFourDuotone, PiBookBookmarkDuotone } from "react-icons/pi";
-import { HiOutlineRocketLaunch, HiEnvelope } from "react-icons/hi2";
+import { AiOutlineHome } from "react-icons/ai";
+import { FaUser, FaThLarge, FaRegNewspaper } from "react-icons/fa";
+import { MdOutlineRocketLaunch, MdOutlineMail } from "react-icons/md";
 import React from "react";
 
 export const Header = () => {
   return (
     <>
-      <Fade hide fillWidth position="fixed" height="80" zIndex={9} />
-      <Fade fillWidth position="fixed" bottom="0" to="top" height="80" zIndex={9} />
+      <Fade hide="s" fillWidth position="fixed" height="80" zIndex={9} />
+      <Fade show="s" fillWidth position="fixed" bottom="0" to="top" height="80" zIndex={9} />
       <Fade
         className={styles.headerBlur}
+        show="s"
         fillWidth
         position="fixed"
         top="0"
         height="80"
         zIndex={8}
       />
-
       <Flex
         fitHeight
         position="unset"
@@ -35,10 +39,10 @@ export const Header = () => {
         horizontal="center"
         data-border="rounded"
         style={{
-          width: "100%",
-          maxWidth: "1200px",
-          margin: "0 auto",
-          padding: "0 24px",
+          width: '100%',
+          maxWidth: '1200px',
+          margin: '0 auto',
+          padding: '0 24px'
         }}
       >
         <Flex fillWidth horizontal="center">
@@ -52,67 +56,72 @@ export const Header = () => {
             zIndex={1}
           >
             <Flex gap="4" vertical="center" textVariant="body-default-s">
-              {/* Homepage */}
-              <ToggleButton
-                href="/"
-                aria-label="Начало"
-                label={<PiHouseDuotone size={18} />}
+              {/* Homepage button: icon only, always visible */}
+              <ToggleButton 
+                href="/" 
+                aria-label="Начало" 
+                label={<AiOutlineHome size={18} />} 
               />
               <Line background="neutral-alpha-medium" vert maxHeight="24" />
-
-              {/* About */}
-              <ToggleButton
-                href="/za-men"
-                label={
-                  <span style={{ display: "flex", alignItems: "center", gap: 6 }}>
-                    <PiUserCircleDuotone size={16} />
-                    <span className="nav-label hidden md:inline">{about.label}</span>
-                  </span>
-                }
+              {/* About nav item */}
+              <ToggleButton 
+                className="s-flex-hide" 
+                href="/za-men" 
+                label={<span style={{display:'flex',alignItems:'center',gap:6}}><FaUser size={16}/>{about.label}</span>} 
               />
-
-              {/* Projects */}
-              <ToggleButton
-                href="/seo-proekti"
-                label={
-                  <span style={{ display: "flex", alignItems: "center", gap: 6 }}>
-                    <PiGridFourDuotone size={16} />
-                    <span className="nav-label hidden md:inline">{work.label}</span>
-                  </span>
-                }
+              <ToggleButton 
+                className="s-flex-show" 
+                aria-label="За мен" 
+                href="/za-men" 
+                label={<FaUser size={16} />} 
               />
-
-              {/* Services */}
-              <ToggleButton
-                href="/seo-uslugi"
-                label={
-                  <span style={{ display: "flex", alignItems: "center", gap: 6 }}>
-                    <HiOutlineRocketLaunch size={18} />
-                    <span className="nav-label hidden md:inline">{seoServices.label}</span>
-                  </span>
-                }
+              {/* Projects nav item */}
+              <ToggleButton 
+                className="s-flex-hide" 
+                href="/seo-proekti" 
+                label={<span style={{display:'flex',alignItems:'center',gap:6}}><FaThLarge size={16}/>{work.label}</span>} 
               />
-
-              {/* Contacts */}
-              <ToggleButton
-                href="/kontakti"
-                label={
-                  <span style={{ display: "flex", alignItems: "center", gap: 6 }}>
-                    <HiEnvelope size={18} />
-                    <span className="nav-label hidden md:inline">{contact.label}</span>
-                  </span>
-                }
+              <ToggleButton 
+                className="s-flex-show" 
+                aria-label="SEO проекти" 
+                href="/seo-proekti" 
+                label={<FaThLarge size={16} />} 
               />
-
-              {/* Blog */}
-              <ToggleButton
-                href="/blog"
-                label={
-                  <span style={{ display: "flex", alignItems: "center", gap: 6 }}>
-                    <PiBookBookmarkDuotone size={16} />
-                    <span className="nav-label hidden md:inline">{blog.label}</span>
-                  </span>
-                }
+              {/* Services nav item */}
+              <ToggleButton 
+                className="s-flex-hide" 
+                href="/seo-uslugi" 
+                label={<span style={{display:'flex',alignItems:'center',gap:6}}><MdOutlineRocketLaunch size={18}/>{seoServices.label}</span>} 
+              />
+              <ToggleButton 
+                className="s-flex-show" 
+                aria-label="SEO услуги" 
+                href="/seo-uslugi" 
+                label={<MdOutlineRocketLaunch size={18} />} 
+              />
+              {/* Contacts nav item */}
+              <ToggleButton 
+                className="s-flex-hide" 
+                href="/kontakti" 
+                label={<span style={{display:'flex',alignItems:'center',gap:6}}><MdOutlineMail size={18}/>{contact.label}</span>} 
+              />
+              <ToggleButton 
+                className="s-flex-show" 
+                aria-label="Контакти" 
+                href="/kontakti" 
+                label={<MdOutlineMail size={18} />} 
+              />
+              {/* Blog nav item */}
+              <ToggleButton 
+                className="s-flex-hide" 
+                href="/blog" 
+                label={<span style={{display:'flex',alignItems:'center',gap:6}}><FaRegNewspaper size={16}/>{blog.label}</span>} 
+              />
+              <ToggleButton 
+                className="s-flex-show" 
+                aria-label="SEO блог" 
+                href="/blog" 
+                label={<FaRegNewspaper size={16} />} 
               />
             </Flex>
           </Flex>
