@@ -379,6 +379,13 @@ const seoServices: SeoServices = {
       price: "От 300 лв.",
     },
     {
+      title: "Off-Page SEO",
+      slug: "off-page-seo",
+      description: "Външна оптимизация за подобряване на авторитета.",
+      features: ["Link building", "Social media signals", "Brand mentions"],
+      price: "От 400 лв.",
+    },
+    {
       title: "Keyword Research",
       slug: "keyword-research",
       description: "Проучване на ключови думи и SEO стратегия.",
@@ -414,4 +421,3 @@ export {
   contact,
   seoServices,
 };
-
