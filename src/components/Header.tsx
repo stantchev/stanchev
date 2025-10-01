@@ -63,92 +63,57 @@ export const Header = () => {
 
               {/* About */}
               <ToggleButton
-                className="s-flex-hide"
                 href="/za-men"
                 label={
                   <span style={{ display: "flex", alignItems: "center", gap: 6 }}>
                     <FaUser size={16} />
-                    {about.label}
+                    <span className="nav-label">{about.label}</span>
                   </span>
                 }
-              />
-              <ToggleButton
-                className="s-flex-show"
-                aria-label="За мен"
-                href="/za-men"
-                label={<FaUser size={16} />}
               />
 
               {/* Projects */}
               <ToggleButton
-                className="s-flex-hide"
                 href="/seo-proekti"
                 label={
                   <span style={{ display: "flex", alignItems: "center", gap: 6 }}>
                     <FaThLarge size={16} />
-                    {work.label}
+                    <span className="nav-label">{work.label}</span>
                   </span>
                 }
-              />
-              <ToggleButton
-                className="s-flex-show"
-                aria-label="SEO проекти"
-                href="/seo-proekti"
-                label={<FaThLarge size={16} />}
               />
 
               {/* Services */}
               <ToggleButton
-                className="s-flex-hide"
                 href="/seo-uslugi"
                 label={
                   <span style={{ display: "flex", alignItems: "center", gap: 6 }}>
                     <MdOutlineRocketLaunch size={18} />
-                    {seoServices.label}
+                    <span className="nav-label">{seoServices.label}</span>
                   </span>
                 }
-              />
-              <ToggleButton
-                className="s-flex-show"
-                aria-label="SEO услуги"
-                href="/seo-uslugi"
-                label={<MdOutlineRocketLaunch size={18} />}
               />
 
               {/* Contacts */}
               <ToggleButton
-                className="s-flex-hide"
                 href="/kontakti"
                 label={
                   <span style={{ display: "flex", alignItems: "center", gap: 6 }}>
                     <MdOutlineMail size={18} />
-                    {contact.label}
+                    <span className="nav-label">{contact.label}</span>
                   </span>
                 }
-              />
-              <ToggleButton
-                className="s-flex-show"
-                aria-label="Контакти"
-                href="/kontakti"
-                label={<MdOutlineMail size={18} />}
               />
 
               {/* Blog */}
               <ToggleButton
-                className="s-flex-hide"
                 href="/blog"
                 label={
                   <span style={{ display: "flex", alignItems: "center", gap: 6 }}>
                     <FaRegNewspaper size={16} />
-                    {blog.label}
+                    <span className="nav-label">{blog.label}</span>
                   </span>
                 }
-              />
-              <ToggleButton
-                className="s-flex-show"
-                aria-label="SEO блог"
-                href="/blog"
-                label={<FaRegNewspaper size={16} />}
               />
             </Flex>
           </Flex>
