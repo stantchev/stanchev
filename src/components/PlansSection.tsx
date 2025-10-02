@@ -1,42 +1,43 @@
 "use client";
 
-import "./PlansSection.scss";
+import { BorderStyle, ChartMode, ChartVariant, DataThemeProvider, IconProvider, LayoutProvider, NeutralColor, ScalingSize, Schemes, SolidStyle, SolidType, SurfaceStyle, ThemeProvider, ToastProvider, TransitionStyle } from "@once-ui-system/core";
+import { style, dataStyle } from "../resources";
+import { iconLibrary } from "../resources/icons";
 
-type Plan = {
-  name: string;
-  price: string;
-  oldPrice?: string;
-  period?: string;
-  badge?: string;
-  featured?: boolean;
-  features: string[];
-  cta: { href: string; label: string };
-};
-
-export default function PlansSection({ plans }: { plans: Plan[] }) {
+export function Providers({ children }: { children: React.ReactNode }) {
   return (
-    <section className="plans">
-      {plans.map((p) => (
-        <div key={p.name} className={`plan ${p.featured ? "featured" : ""}`}>
-          {p.badge && <div className="badge">{p.badge}</div>}
-
-          <h3>{p.name}</h3>
-          <p className="price">
-            {p.oldPrice && <span className="old">{p.oldPrice}</span>}
-            {p.price} <span className="period">{p.period}</span>
-          </p>
-
-          <ul>
-            {p.features.map((f) => (
-              <li key={f}>✔ {f}</li>
-            ))}
-          </ul>
-
-          <a href={p.cta.href} className="btn">
-            {p.cta.label}
-          </a>
-        </div>
-      ))}
-    </section>
+    <LayoutProvider>
+      <ThemeProvider
+        brand={style.brand as Schemes}
+        accent={style.accent as Schemes}
+        neutral={style.neutral as NeutralColor}
+        solid={style.solid as SolidType}
+        solidStyle={style.solidStyle as SolidStyle}
+        border={style.border as BorderStyle}
+        surface={style.surface as SurfaceStyle}
+        transition={style.transition as TransitionStyle}
+        scaling={style.scaling as ScalingSize}
+      >
+        <DataThemeProvider
+          variant={dataStyle.variant as ChartVariant}
+          mode={dataStyle.mode as ChartMode}
+          height={dataStyle.height}
+          axis={{
+            stroke: dataStyle.axis.stroke
+          }}
+          tick={{
+            fill: dataStyle.tick.fill,
+            fontSize: dataStyle.tick.fontSize,
+            line: dataStyle.tick.line
+          }}
+          >
+          <ToastProvider>
+            <IconProvider icons={iconLibrary}>
+              {children}
+            </IconProvider>
+          </ToastProvider>
+        </DataThemeProvider>
+      </ThemeProvider>
+    </LayoutProvider>
   );
 }
