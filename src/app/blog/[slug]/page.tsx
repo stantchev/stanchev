@@ -49,15 +49,30 @@ export async function generateMetadata({
 
   if (!post) return {};
 
-  return Meta.generate({
-    title: post.metadata.title,
-    description: post.metadata.summary,
-    baseURL: baseURL,
-    image:
-      post.metadata.image ||
-      `/api/og/generate?title=${post.metadata.title}`,
-    path: `${blog.path}/${post.slug}`,
-  });
+  const canonicalUrl = `${baseURL}${blog.path}/${post.slug}`;
+
+  return {
+    ...Meta.generate({
+      title: post.metadata.title,
+      description: post.metadata.summary,
+      baseURL: baseURL,
+      image:
+        post.metadata.image ||
+        `/api/og/generate?title=${post.metadata.title}`,
+      path: `${blog.path}/${post.slug}`,
+    }),
+    // Добавете canonical линк
+    additionalMetaTags: [
+      {
+        property: "og:url",
+        content: canonicalUrl,
+      },
+      {
+        name: "canonical",
+        content: canonicalUrl,
+      },
+    ],
+  };
 }
 
 export default async function Blog({
@@ -221,3 +236,4 @@ export default async function Blog({
     </Row>
   );
 }
+
