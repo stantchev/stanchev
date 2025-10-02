@@ -1,4 +1,3 @@
-
 import "@once-ui-system/core/css/styles.css";
 import "@once-ui-system/core/css/tokens.css";
 import "@/resources/custom.css";
@@ -187,16 +186,45 @@ export default function RootLayout({
               Object.entries(config).forEach(([k, v]) =>
                 root.setAttribute("data-" + k, v)
               );
-              const resolveTheme = (t) =>
-                !t || t === "system"
-                  ? window.matchMedia("(prefers-color-scheme: dark)").matches
-                    ? "dark"
-                    : "light"
-                  : t;
+              
+              // Функция за определяне на темата според времето на деня в София
+              const getTimeBasedTheme = () => {
+                const now = new Date();
+                // Използваме същия часови пояс като в TimeDisplay компонента
+                const sofiaTime = new Intl.DateTimeFormat("bg-BG", {
+                  timeZone: "Europe/Sofia",
+                  hour: "2-digit",
+                  minute: "2-digit",
+                  second: "2-digit",
+                  hour12: false,
+                }).formatToParts(now);
+                
+                const hour = parseInt(sofiaTime.find(part => part.type === "hour")?.value || "0");
+                // От 8:00 до 20:00 - светла тема, от 20:00 до 8:00 - тъмна тема
+                return hour >= 8 && hour < 20 ? "light" : "dark";
+              };
+              
+              const resolveTheme = (t) => {
+                // Ако няма запазена тема, използваме автоматичното превключване
+                if (!t) {
+                  return getTimeBasedTheme();
+                }
+                return t;
+              };
+              
               root.setAttribute(
                 "data-theme",
                 resolveTheme(localStorage.getItem("data-theme"))
               );
+              
+              // Автоматично обновяване на темата всеки час
+              setInterval(() => {
+                const currentTheme = localStorage.getItem("data-theme");
+                if (!currentTheme) {
+                  const newTheme = getTimeBasedTheme();
+                  root.setAttribute("data-theme", newTheme);
+                }
+              }, 60000); // 60 секунди
             } catch (e) {
               console.error(e);
               document.documentElement.setAttribute("data-theme", "dark");
