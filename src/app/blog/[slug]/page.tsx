@@ -40,13 +40,15 @@ export async function generateMetadata({
   params: Promise<{ slug: string | string[] }>;
 }): Promise<Metadata> {
   const routeParams = await params;
-  const slugPath = Array.isArray(routeParams.slug) ? routeParams.slug.join('/') : routeParams.slug || '';
+  const slugPath = Array.isArray(routeParams.slug)
+    ? routeParams.slug.join("/")
+    : routeParams.slug || "";
 
-  const posts = getPosts(["src", "app", "blog", "posts"])
+  const posts = getPosts(["src", "app", "blog", "posts"]);
   let post = posts.find((post) => post.slug === slugPath);
 
   if (!post) return {};
-  
+
   return {
     title: post.metadata.title,
     description: post.metadata.summary,
@@ -54,7 +56,7 @@ export async function generateMetadata({
     alternates: {
       canonical: `${baseURL}/blog/${post.slug}`,
     },
-openGraph: {
+    openGraph: {
       title: post.metadata.title,
       description: post.metadata.summary,
       url: `${baseURL}/blog/${post.slug}`,
@@ -75,7 +77,7 @@ openGraph: {
       description: post.metadata.summary,
       images: [post.metadata.image || `/api/og/generate?title=${post.metadata.title}`],
     },
-  }as any;
+  } as any;
 }
 
 export default async function Blog({
