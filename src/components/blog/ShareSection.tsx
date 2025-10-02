@@ -30,6 +30,20 @@ const socialPlatforms: Record<string, SocialPlatform> = {
     generateUrl: (title, url) => 
       `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`,
   },
+  messenger: {
+    name: "messenger",
+    icon: "messenger",
+    label: "Messenger",
+    generateUrl: (title, url) => 
+      `fb-messenger://share/?link=${encodeURIComponent(url)}`,
+  },
+  viber: {
+    name: "viber",
+    icon: "viber",
+    label: "Viber",
+    generateUrl: (title, url) => 
+      `viber://forward?text=${encodeURIComponent(title)}%20${encodeURIComponent(url)}`,
+  },
 };
 
 export function ShareSection({ title, url }: ShareSectionProps) {
