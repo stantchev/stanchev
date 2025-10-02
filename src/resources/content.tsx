@@ -41,7 +41,7 @@ const person: Person = {
   role: "SEO Специалист",
   avatar: "/images/avatar.jpg",
   email: "seo@stanchev.bg",
-  location: "Europe/Sofia",
+  location: "Европа/София",
   languages: ["Български", "Английски"],
 };
 
@@ -421,3 +421,4 @@ export {
   contact,
   seoServices,
 };
+
