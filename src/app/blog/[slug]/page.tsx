@@ -26,6 +26,7 @@ import { Metadata } from "next";
 import React from "react";
 import { Posts } from "@/components/blog/Posts";
 import { ShareSection } from "@/components/blog/ShareSection";
+import Head from "next/head";
 
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
   const posts = getPosts(["src", "app", "blog", "posts"]);
@@ -49,30 +50,15 @@ export async function generateMetadata({
 
   if (!post) return {};
 
-  const canonicalUrl = `${baseURL}${blog.path}/${post.slug}`;
-
-  return {
-    ...Meta.generate({
-      title: post.metadata.title,
-      description: post.metadata.summary,
-      baseURL: baseURL,
-      image:
-        post.metadata.image ||
-        `/api/og/generate?title=${post.metadata.title}`,
-      path: `${blog.path}/${post.slug}`,
-    }),
-    // Добавете canonical линк
-    additionalMetaTags: [
-      {
-        property: "og:url",
-        content: canonicalUrl,
-      },
-      {
-        name: "canonical",
-        content: canonicalUrl,
-      },
-    ],
-  };
+  return Meta.generate({
+    title: post.metadata.title,
+    description: post.metadata.summary,
+    baseURL: baseURL,
+    image:
+      post.metadata.image ||
+      `/api/og/generate?title=${post.metadata.title}`,
+    path: `${blog.path}/${post.slug}`,
+  });
 }
 
 export default async function Blog({
@@ -98,118 +84,126 @@ export default async function Blog({
       src: person.avatar,
     })) || [];
 
+  const canonicalUrl = `${baseURL}${blog.path}/${post.slug}`;
+
   return (
-    <Row fillWidth>
-      <Row maxWidth={12} m={{ hide: true }} />
-      <Row fillWidth horizontal="center">
-        <Column
-          as="section"
-          maxWidth="m"
-          horizontal="center"
-          gap="l"
-          paddingTop="24"
-        >
-          <Schema
-            as="blogPosting"
-            baseURL={baseURL}
-            path={`${blog.path}/${post.slug}`}
-            title={post.metadata.title}
-            description={post.metadata.summary}
-            datePublished={post.metadata.publishedAt}
-            dateModified={post.metadata.publishedAt}
-            image={
-              post.metadata.image ||
-              `/api/og/generate?title=${encodeURIComponent(
-                post.metadata.title
-              )}`
-            }
-            author={{
-              name: person.name,
-              url: `${baseURL}${about.path}`,
-              image: `${baseURL}${person.avatar}`,
-            }}
-          />
+    <>
+      <Head>
+        <link rel="canonical" href={canonicalUrl} />
+      </Head>
 
-          <Button
-            data-border="rounded"
-            href="/blog"
-            weight="default"
-            variant="tertiary"
-            size="s"
-            prefixIcon="chevronLeft"
+      <Row fillWidth>
+        <Row maxWidth={12} m={{ hide: true }} />
+        <Row fillWidth horizontal="center">
+          <Column
+            as="section"
+            maxWidth="m"
+            horizontal="center"
+            gap="l"
+            paddingTop="24"
           >
-            Към блога
-          </Button>
+            <Schema
+              as="blogPosting"
+              baseURL={baseURL}
+              path={`${blog.path}/${post.slug}`}
+              title={post.metadata.title}
+              description={post.metadata.summary}
+              datePublished={post.metadata.publishedAt}
+              dateModified={post.metadata.publishedAt}
+              image={
+                post.metadata.image ||
+                `/api/og/generate?title=${encodeURIComponent(
+                  post.metadata.title
+                )}`
+              }
+              author={{
+                name: person.name,
+                url: `${baseURL}${about.path}`,
+                image: `${baseURL}${person.avatar}`,
+              }}
+            />
 
-          <Column maxWidth="s" gap="16" horizontal="center" align="center">
-            <SmartLink href="/blog">
-              <Text variant="label-strong-m">Блог</Text>
-            </SmartLink>
-            <Text
-              variant="body-default-xs"
-              onBackground="neutral-weak"
-              marginBottom="12"
+            <Button
+              data-border="rounded"
+              href="/blog"
+              weight="default"
+              variant="tertiary"
+              size="s"
+              prefixIcon="chevronLeft"
             >
-              {post.metadata.publishedAt &&
-                formatDate(post.metadata.publishedAt)}
-            </Text>
-            <Heading variant="display-strong-m">
-              {post.metadata.title}
-            </Heading>
-          </Column>
+              Към блога
+            </Button>
 
-          <Row marginBottom="32" horizontal="center">
-            <Row gap="16" vertical="center">
-              <Avatar size="s" src={person.avatar} />
-              <Text variant="label-default-m" onBackground="brand-weak">
-                {person.name}
+            <Column maxWidth="s" gap="16" horizontal="center" align="center">
+              <SmartLink href="/blog">
+                <Text variant="label-strong-m">Блог</Text>
+              </SmartLink>
+              <Text
+                variant="body-default-xs"
+                onBackground="neutral-weak"
+                marginBottom="12"
+              >
+                {post.metadata.publishedAt &&
+                  formatDate(post.metadata.publishedAt)}
               </Text>
-              {avatars.length > 0 && (
-                <AvatarGroup size="s" avatars={avatars} />
-              )}
+              <Heading variant="display-strong-m">
+                {post.metadata.title}
+              </Heading>
+            </Column>
+
+            <Row marginBottom="32" horizontal="center">
+              <Row gap="16" vertical="center">
+                <Avatar size="s" src={person.avatar} />
+                <Text variant="label-default-m" onBackground="brand-weak">
+                  {person.name}
+                </Text>
+                {avatars.length > 0 && (
+                  <AvatarGroup size="s" avatars={avatars} />
+                )}
+              </Row>
             </Row>
-          </Row>
 
-          {/* Оставяме само еднократно визуално рендериране на снимката */}
-          {post.metadata.image && (
-            <Media
-              src={post.metadata.image}
-              alt={post.metadata.title}
-              aspectRatio="16/9"
-              priority
-              sizes="(min-width: 768px) 100vw, 768px"
-              border="neutral-alpha-weak"
-              radius="l"
-              marginTop="12"
-              marginBottom="8"
+            {/* Оставяме само еднократно визуално рендериране на снимката */}
+            {post.metadata.image && (
+              <Media
+                src={post.metadata.image}
+                alt={post.metadata.title}
+                aspectRatio="16/9"
+                priority
+                sizes="(min-width: 768px) 100vw, 768px"
+                border="neutral-alpha-weak"
+                radius="l"
+                marginTop="12"
+                marginBottom="8"
+              />
+            )}
+
+            <Column as="article" maxWidth="s">
+              <CustomMDX source={post.content} />
+            </Column>
+
+            <ShareSection
+              title={post.metadata.title}
+              url={`${baseURL}${blog.path}/${post.slug}`}
             />
-          )}
 
-          <Column as="article" maxWidth="s">
-            <CustomMDX source={post.content} />
+            <Column fillWidth gap="40" horizontal="center" marginTop="40">
+              <Line maxWidth="40" />
+              <Heading as="h2" variant="heading-strong-xl" marginBottom="24">
+                Последни публикации
+              </Heading>
+              <Posts
+                exclude={[post.slug]}
+                range={[1, 2]}
+                columns="2"
+                thumbnail
+                direction="column"
+              />
+            </Column>
+
+            <ScrollToHash />
           </Column>
-
-          <ShareSection
-            title={post.metadata.title}
-            url={`${baseURL}${blog.path}/${post.slug}`}
-          />
-
-          <Column fillWidth gap="40" horizontal="center" marginTop="40">
-            <Line maxWidth="40" />
-            <Heading as="h2" variant="heading-strong-xl" marginBottom="24">
-              Последни публикации
-            </Heading>
-            <Posts
-              exclude={[post.slug]}
-              range={[1, 2]}
-              columns="2"
-              thumbnail
-              direction="column"
-            />
-          </Column>
-
-          <ScrollToHash />
-        </Column>
+        </Row>
       </Row>
 
       <Column
@@ -233,7 +227,6 @@ export default async function Blog({
         </Row>
         <HeadingNav fitHeight />
       </Column>
-    </Row>
+    </>
   );
 }
-
