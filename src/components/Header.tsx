@@ -17,7 +17,7 @@ type TimeDisplayProps = {
   locale?: string; // Optionally allow locale, defaulting to 'en-GB'
 };
 
-const TimeDisplay: React.FC<TimeDisplayProps> = ({ timeZone, locale = "en-GB" }) => {
+const TimeDisplay: React.FC<TimeDisplayProps> = ({ timeZone, locale = "bg-BG" }) => {
   const [currentTime, setCurrentTime] = useState("");
 
   useEffect(() => {
@@ -226,3 +226,4 @@ export const Header = () => {
     </>
   );
 };
+
