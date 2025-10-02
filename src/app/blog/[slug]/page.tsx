@@ -57,7 +57,6 @@ export async function generateMetadata({
       post.metadata.image ||
       `/api/og/generate?title=${post.metadata.title}`,
     path: `${blog.path}/${post.slug}`,
-    keywords: post.metadata.keywords,
   });
 }
 
