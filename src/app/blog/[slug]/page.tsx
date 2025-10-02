@@ -49,15 +49,42 @@ export async function generateMetadata({
 
   if (!post) return {};
 
-  return Meta.generate({
+  const canonicalURL = `${baseURL}${blog.path}/${post.slug}`;
+  
+  return {
     title: post.metadata.title,
     description: post.metadata.summary,
-    baseURL: baseURL,
-    image:
-      post.metadata.image ||
-      `/api/og/generate?title=${post.metadata.title}`,
-    path: `${blog.path}/${post.slug}`,
-  });
+    keywords: post.metadata.keywords?.join(", ") || "",
+    openGraph: {
+      title: post.metadata.title,
+      description: post.metadata.summary,
+      url: canonicalURL,
+      siteName: "Станчев SEO",
+      images: [
+        {
+          url: post.metadata.image || `/api/og/generate?title=${encodeURIComponent(post.metadata.title)}`,
+          width: 1200,
+          height: 630,
+          alt: post.metadata.title,
+        },
+      ],
+      locale: "bg_BG",
+      type: "article",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.metadata.title,
+      description: post.metadata.summary,
+      images: [post.metadata.image || `/api/og/generate?title=${encodeURIComponent(post.metadata.title)}`],
+    },
+    alternates: {
+      canonical: canonicalURL,
+    },
+    other: {
+      "article:published_time": post.metadata.publishedAt,
+      "article:author": "Станчев",
+    },
+  };
 }
 
 export default async function Blog({
