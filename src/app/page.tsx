@@ -210,14 +210,7 @@ export default function Nachalo() {
             variant="body-default-l"
             style={{ maxWidth: "720px", textAlign: "center" }}
           >
-            Докато повечето SEO агенции гонят само класиране в Google, аз ви
-            позиционирам и в AI системите за търсене. SEO услуги, SEO оптимизация, 
-            оптимизация за търсачки, SEO специалист, линк билдинг, SEO анализ, 
-            on-page оптимизация, off-page оптимизация, SEO за електронни магазини, 
-            SEO за мобилни устройства, SEO консултации, SEO за WordPress. 
-            Това ви дава двойно предимство – да излизате пред конкурентите там, където те все още
-            липсват. Работя сам, без излишни посредници, така че получавате
-            директна експертиза и бързи резултати.
+            Докато повечето SEO агенции се фокусират само върху класирането в Google, аз се грижа и за позиционирането ви в AI системите за търсене. Това ви дава значително предимство – да излизате напред пред конкуренцията там, където те все още не присъстват. Работя лично с вас, без излишни посредници, така че получавате директна експертиза и бързи резултати.
           </Text>
         </Column>
 
@@ -247,7 +240,7 @@ export default function Nachalo() {
               <Column gap="m" align="center">
                 <Badge>AI Powered</Badge>
                 <Icon name="rocket" size="l" onBackground="brand-strong" />
-                <Heading variant="heading-strong-s" align="center">
+                <Heading variant="heading-strong-m" align="center">
                   AI Автоматизация
                 </Heading>
                 <Text variant="body-default-s" align="center" onBackground="neutral-weak">
@@ -737,3 +730,4 @@ export default function Nachalo() {
     </>
   );
 }
+
