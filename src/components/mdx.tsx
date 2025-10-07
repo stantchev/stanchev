@@ -10,6 +10,7 @@ import {
   Text,
   InlineCode,
   Feedback,
+  BlockQuote,
 } from "@once-ui-system/core";
 import { CodeBlock } from "@once-ui-system/core";
 import { TextProps } from "@once-ui-system/core";
@@ -174,6 +175,7 @@ const components = {
   LineChart: dynamic(() => import("@once-ui-system/core").then(mod => mod.LineChart)),
   PieChart: dynamic(() => import("@once-ui-system/core").then(mod => mod.PieChart)),
   LineBarChart: dynamic(() => import("@once-ui-system/core").then(mod => mod.LineBarChart)),
+  BlockQuote: dynamic(() => import("@once-ui-system/core").then(mod => mod.BlockQuote)),
   img: ({ src, alt, ...props }: { src?: string; alt?: string }) => (
     <img
       src={src}
@@ -194,8 +196,3 @@ export function CustomMDX(props: CustomMDXProps) {
   );
 
 }
-
-
-
-
-
