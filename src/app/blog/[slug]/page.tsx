@@ -18,6 +18,7 @@ import {
   BarChart,
   Feedback,
   AvatarGroup,
+  Quote,
 } from "@once-ui-system/core";
 import { baseURL, about, blog, person } from "@/resources";
 import { formatDate } from "@/utils/formatDate";
@@ -248,3 +249,4 @@ export default async function Blog({
     </Row>
   );
 }
+
