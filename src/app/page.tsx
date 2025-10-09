@@ -1,4 +1,3 @@
-
 import React from "react";
 import {
   Heading,
@@ -8,9 +7,6 @@ import {
   Avatar,
   RevealFx,
   Column,
-  Badge,
-  Row,
-  Pulse,
 } from "@once-ui-system/core";
 import { home, about, person, newsletter, routes } from "@/resources";
 import { Mailchimp } from "@/components";
@@ -86,7 +82,9 @@ export default function Nachalo() {
           }),
         }}
       />
-        
+
+      <Column maxWidth="m" gap="l" horizontal="center" align="center">
+        {/* Hero */}
         <Column
           maxWidth="m"
           horizontal="center"
@@ -224,5 +222,3 @@ export default function Nachalo() {
     </>
   );
 }
-
-
