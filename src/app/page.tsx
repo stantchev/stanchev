@@ -86,8 +86,7 @@ export default function Nachalo() {
           }),
         }}
       />
-      
-        {/* Hero */}
+        
         <Column
           maxWidth="m"
           horizontal="center"
@@ -225,4 +224,5 @@ export default function Nachalo() {
     </>
   );
 }
+
 
