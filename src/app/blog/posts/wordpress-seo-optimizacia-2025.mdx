@@ -180,49 +180,52 @@ tag: "SEO, WordPress"
   description="Оптимизирай сайта си с професионален подход, фокусиран върху AI, скорост и съдържание. Свържи се със Станчев SEO и изведи бизнеса си над конкуренцията."
 />
 
-<Schema
-  data={{
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Organization",
-        "name": "Станчев SEO",
-        "url": "https://stanchev.bg",
-        "logo": "https://stanchev.bg/images/logo.png",
-        "founder": {
-          "@type": "Person",
-          "name": "Георги Станчев",
-          "jobTitle": "SEO специалист"
-        },
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "бул. България 98",
-          "addressLocality": "София",
-          "postalCode": "1680",
-          "addressCountry": "BG"
-        }
-      },
-      {
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "Колко време отнема SEO за WordPress?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Първите резултати обикновено се виждат след 4–8 седмици техническа и съдържателна оптимизация."
-            }
+<script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "name": "Станчев SEO",
+          "url": "https://stanchev.bg",
+          "logo": "https://stanchev.bg/images/logo.png",
+          "founder": {
+            "@type": "Person",
+            "name": "Георги Станчев",
+            "jobTitle": "SEO специалист"
           },
-          {
-            "@type": "Question",
-            "name": "Мога ли сам да направя SEO за WordPress?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Да, но професионален SEO специалист по WordPress ще ти помогне да избегнеш грешки и да постигнеш по-добри резултати."
-            }
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "бул. България 98",
+            "addressLocality": "София",
+            "postalCode": "1680",
+            "addressCountry": "BG"
           }
-        ]
-      }
-    ]
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Колко време отнема SEO за WordPress?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Първите резултати се виждат след 4–8 седмици оптимизация."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Мога ли сам да направя SEO за WordPress?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Да, но професионален SEO специалист по WordPress ще ти помогне да избегнеш грешки."
+              }
+            }
+          ]
+        }
+      ]
+    }),
   }}
 />
