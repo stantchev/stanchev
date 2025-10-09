@@ -92,6 +92,7 @@ export default function Nachalo() {
           align="center"
           gap="l"
           paddingBottom="xl"
+          paddingTop="xl"
         >
           <RevealFx speed="fast">
             <Heading
@@ -154,7 +155,7 @@ export default function Nachalo() {
         </Column>
 
         {/* Why me */}
-        <Column maxWidth="m" align="center" horizontal="center" gap="xl">
+        <Column maxWidth="m" align="center" horizontal="center" gap="l">
           <Heading variant="display-strong-m" align="center">
             Защо да работите с мен?
           </Heading>
@@ -222,4 +223,5 @@ export default function Nachalo() {
     </>
   );
 }
+
 
