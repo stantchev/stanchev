@@ -86,37 +86,7 @@ export default function Nachalo() {
           }),
         }}
       />
-
-      <Column maxWidth="m" gap="l" horizontal="center" align="center">
-        {/* Featured badge секция */}
-        <Column fillWidth horizontal="center" gap="m">
-          <Column maxWidth="s" horizontal="center" align="center">
-            {home.featured.display && (
-              <RevealFx
-                fillWidth
-                horizontal="center"
-                paddingTop="16"
-                paddingBottom="32"
-              >
-                <Badge
-                  background="brand-alpha-weak"
-                  paddingX="12"
-                  paddingY="4"
-                  onBackground="neutral-strong"
-                  textVariant="label-default-s"
-                  arrow={false}
-                  href="https://stanchev.bg/seo-proekti/robots-txt-editor-cache-control-opencart-2302"
-                >
-                  <Row gap="8" vertical="center">
-                    <Pulse size="s" variant="success" />
-                    {home.featured.title}
-                  </Row>
-                </Badge>
-              </RevealFx>
-            )}
-          </Column>
-        </Column>
-
+      
         {/* Hero */}
         <Column
           maxWidth="m"
@@ -255,3 +225,4 @@ export default function Nachalo() {
     </>
   );
 }
+
