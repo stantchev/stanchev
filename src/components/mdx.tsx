@@ -11,6 +11,7 @@ import {
   InlineCode,
   Feedback,
   BlockQuote,
+  CodeBlock,
 } from "@once-ui-system/core";
 import { CodeBlock } from "@once-ui-system/core";
 import { TextProps } from "@once-ui-system/core";
@@ -196,3 +197,4 @@ export function CustomMDX(props: CustomMDXProps) {
   );
 
 }
+
