@@ -154,7 +154,7 @@ export default function Nachalo() {
         </Column>
 
         {/* Why me */}
-        <Column maxWidth="m" align="center" horizontal="center" gap="l">
+        <Column maxWidth="m" align="center" horizontal="center" gap="xl">
           <Heading variant="display-strong-m" align="center">
             Защо да работите с мен?
           </Heading>
@@ -222,3 +222,4 @@ export default function Nachalo() {
     </>
   );
 }
+
