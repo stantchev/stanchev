@@ -1,150 +1,234 @@
 ---
 title: "WordPress SEO: Пълно ръководство за оптимизация през 2025 г."
-summary: "Научи как да оптимизираш WordPress сайт за по-добро класиране в Google. Практически съвети, Schema, Core Web Vitals и експертни стратегии за WordPress SEO."
-keywords: ["WordPress SEO", "SEO оптимизация WordPress", "SEO специалист WordPress", "WordPress скорост", "Schema WordPress", "Core Web Vitals WordPress", "SEO услуги WordPress", "WordPress SEO 2025", "SEO за WordPress"]
+summary: "Как да направиш перфектна SEO оптимизация на WordPress сайт през 2025 г. – технически настройки, Core Web Vitals, Schema и AI стратегии."
+keywords: ["SEO за WordPress", "WordPress SEO", "SEO оптимизация WordPress", "WordPress скорост", "Schema WordPress", "Core Web Vitals", "SEO специалист WordPress", "SEO услуги WordPress", "WordPress SEO 2025"]
+author: "Станчев"
 publishedAt: "2025-09-18"
 tag: "SEO, WordPress"
 ---
 
-<img src="/images/posts/wordpress-seo-optimizacia-2025.jpg" alt="WordPress SEO 2025" />
+<Feedback
+  title="Резюме"
+  description="WordPress SEO през 2025 г. изисква повече от просто плъгин. Необходимо е техническо съвършенство, бързина, AI разпознаваемо съдържание и ясна структура. Тук ще научиш как да постигнеш всичко това."
+/>
 
-<p>WordPress остава най-популярната CMS платформа в света, но за да изведеш сайта си пред конкуренцията през 2025 г., е нужно не просто да инсталираш SEO плъгин, а да изграждаш <strong>структурирана, технически здрава и съдържателно авторитетна SEO стратегия</strong>. Това ръководство ще ти покаже как да оптимизираш всеки аспект от WordPress сайта си – така, че да се класираш високо и да се появяваш в <strong>Google Overviews</strong>.</p>
+<HeadingNav title="WordPress SEO 2025" subtitle="Ръководство за цялостна оптимизация" />
 
-<h2>Какво представлява WordPress SEO?</h2>
+<Line />
 
-<p><strong>WordPress SEO</strong> е процесът на оптимизация на WordPress сайт с цел по-добро класиране в търсачките. Това включва техническа настройка, съдържателна оптимизация, UX подобрения и изграждане на доверие чрез E-E-A-T (Опит, Експертиза, Авторитет, Доверие).</p>
+<Heading as="h2" id="wordpress-seo-definition">Какво представлява SEO за WordPress?</Heading>
+<Text>
+  <strong>SEO за WordPress</strong> е системен процес за подобряване на видимостта на WordPress сайтове в търсачките. 
+  Той включва технически настройки, съдържание, UX, и доверие (E-E-A-T). 
+  Добре оптимизираният WordPress сайт е бърз, логичен, с ясна структура и Schema, която Google може да разбере.
+</Text>
 
-<p>Добре оптимизиран WordPress сайт зарежда бързо, има ясна структура, релевантно съдържание и Schema markup, който помага на Google да разбере контекста на страниците ти.</p>
+<Heading as="h2" id="technical-seo">Основни стъпки за успешна WordPress SEO стратегия</Heading>
 
-<h2>Основни стъпки за успешна WordPress SEO стратегия</h2>
+<Heading as="h3" id="technical">1. Техническа оптимизация</Heading>
+<Text>
+  - Използвай permalink структура <strong>/postname/</strong>  
+  - Активирай HTTPS и SSL  
+  - Настрой XML Sitemap чрез Yoast SEO или Rank Math  
+  - Оптимизирай robots.txt и meta robots  
+  - Използвай кеширане и CDN  
+  - Минимизирай JavaScript и CSS с WP Rocket или Autoptimize
+</Text>
 
-<h3>1. Техническа оптимизация</h3>
+<Heading as="h3" id="core-web-vitals">2. Core Web Vitals и скорост</Heading>
+<Text>
+  Google оценява скоростта и потребителското изживяване чрез Core Web Vitals. 
+  Това са метрики, които показват колко бързо и стабилно се зарежда сайтът:
+</Text>
 
-<ul>
-  <li>Използвай SEO-friendly permalink структура: <strong>/postname/</strong></li>
-  <li>Осигури HTTPS и SSL сертификат</li>
-  <li>Настрой XML Sitemap чрез <strong>Yoast SEO</strong> или <strong>Rank Math</strong></li>
-  <li>Оптимизирай robots.txt и meta robots тагове</li>
-  <li>Активирай кеширане и CDN за по-бързо зареждане</li>
-</ul>
+<BarChart
+  title="Core Web Vitals – целеви стойности"
+  yLabel="Идеална стойност"
+  data={[
+    { category: "LCP (Largest Contentful Paint)", value: "≤ 2.5s" },
+    { category: "INP (Interaction to Next Paint)", value: "≤ 200ms" },
+    { category: "CLS (Layout Shift)", value: "≤ 0.1" }
+  ]}
+  xKey="category"
+  yKey="value"
+/>
 
-<h3>2. Core Web Vitals и скорост</h3>
+<Feedback
+  title="Съвет"
+  description="Оптимизирай изображенията във WebP формат, активирай lazy loading и премести тежките скриптове в края на страницата."
+/>
 
-<p>Google оценява скоростта и потребителското изживяване чрез <strong>Core Web Vitals</strong>. Фокусирай се върху следните показатели:</p>
+<Heading as="h3" id="content-eeat">3. Съдържание, базирано на E-E-A-T</Heading>
+<Text>
+  Публикувай съдържание, което показва опит и реална експертиза. 
+  Google класира по-високо материали, които имат авторски профил, структурирани секции и релевантни примери. 
+  Добави <em>FAQ</em> или <em>HowTo</em> блокове, за да влезеш в Overviews.
+</Text>
 
-<table>
-  <tr><th>Метрика</th><th>Цел</th></tr>
-  <tr><td>LCP (Largest Contentful Paint)</td><td>&lt; 2.5 секунди</td></tr>
-  <tr><td>INP (Interaction to Next Paint)</td><td>&lt; 200 ms</td></tr>
-  <tr><td>CLS (Cumulative Layout Shift)</td><td>&lt; 0.1</td></tr>
-</table>
+<BlockQuote>
+  “Съдържание, което звучи като човек, но мисли като алгоритъм — това е новото злато в SEO за WordPress.”
+</BlockQuote>
 
-<p>Минимизирай JavaScript, компресирай изображения и използвай lazy loading, за да подобриш показателите.</p>
+<Heading as="h3" id="schema">4. Структурирани данни (Schema)</Heading>
+<Text>
+  Добави JSON-LD типове като <strong>FAQPage</strong>, <strong>HowTo</strong>, <strong>Service</strong> и <strong>BreadCrumbList</strong>. 
+  Те помагат на Google да разбере контекста и увеличават CTR в резултатите.
+</Text>
 
-<h3>3. Съдържание, базирано на E-E-A-T</h3>
+<Schema
+  data={{
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "WordPress SEO",
+    "provider": { "@type": "Organization", "name": "Станчев SEO" }
+  }}
+/>
 
-<p>Покажи своя <strong>опит и експертиза</strong> чрез реални примери, казуси, авторски профил, връзки към авторитетни източници и собствени снимки. Google обича съдържание, което демонстрира реална компетентност и доверие.</p>
+<Heading as="h3" id="ai-overviews">5. Оптимизация за AI Overviews</Heading>
+<Text>
+  За да се класираш в AI резултати и Google Overviews:
+</Text>
+<Text>
+  - Използвай въпросни H2/H3 заглавия  
+  - Отговаряй кратко и конкретно  
+  - Използвай таблици и списъци  
+  - Повтори ключовата фраза <strong>SEO за WordPress</strong> 5+ пъти естествено
+</Text>
 
-<h3>4. Структурирани данни (Schema)</h3>
+<LineBarChart
+  title="AI готовност на съдържанието (оценка на факторите)"
+  xLabel="Фактори"
+  yLabel="Оценка (0–100)"
+  data={[
+    { label: "Ясна структура", line: 95, bar: 90 },
+    { label: "AI-достъпни формати (списъци/таблици)", line: 90, bar: 88 },
+    { label: "Оптимизация на дължината на изреченията", line: 92, bar: 91 },
+    { label: "Фокус ключови думи", line: 96, bar: 94 }
+  ]}
+  xKey="label"
+  lineKey="line"
+  barKey="bar"
+/>
 
-<p>Добави <strong>FAQPage</strong>, <strong>HowTo</strong> и <strong>Service</strong> Schema, за да улесниш Google при разчитането на информацията ти.</p>
+<Heading as="h3" id="internal-links">6. Вътрешно свързване и UX</Heading>
+<Text>
+  Вътрешните линкове са като карта за Google. Свържи страниците за <em>SEO оптимизация</em>, <em>техническо SEO</em> и <em>линкбилдинг</em>.  
+  Подобри UX чрез мобилна оптимизация, ясни CTA бутони и breadcrumb навигация.
+</Text>
 
-<h3>5. Оптимизация за AI Overviews</h3>
+<Feedback
+  title="Полезно"
+  description="Сайтът, който е структуриран добре за потребителите, винаги ще бъде структуриран добре и за Google."
+/>
 
-<p>За да се класираш в <strong>Google Overviews</strong>, структурирай съдържанието си с въпросни заглавия, кратки отговори и ясна йерархия. Използвай ключовата фраза <strong>WordPress SEO</strong> в заглавия и подзаглавия. Google предпочита:</p>
+<Line />
 
-<ul>
-  <li>Конкретни, кратки и информативни отговори</li>
-  <li>HTML структури като <strong>&lt;table&gt;</strong> и <strong>&lt;ul&gt;</strong></li>
-  <li>Въпроси в <strong>&lt;h2&gt;</strong> и <strong>&lt;h3&gt;</strong></li>
-</ul>
+<Heading as="h4" id="faq">Често задавани въпроси</Heading>
 
-<h3>6. Вътрешно свързване и UX</h3>
+<AccordionGroup
+  items={[
+    {
+      title: "Колко време отнема SEO за WordPress?",
+      content: (
+        <Text onBackground="neutral-weak">
+          Първите резултати обикновено се виждат след 4–8 седмици техническа и съдържателна оптимизация. 
+          За конкурентни ниши е нужен дългосрочен подход.
+        </Text>
+      )
+    },
+    {
+      title: "Мога ли сам да направя SEO за WordPress?",
+      content: (
+        <Text onBackground="neutral-weak">
+          Да, чрез плъгини като Yoast SEO можеш да направиш основна оптимизация. 
+          Но за професионални резултати е препоръчително съдействие от SEO специалист с опит в WordPress.
+        </Text>
+      )
+    },
+    {
+      title: "Кои плъгини са най-полезни?",
+      content: (
+        <Text onBackground="neutral-weak">
+          Най-популярните са Yoast SEO, Rank Math и All in One SEO. 
+          Те покриват мета тагове, Sitemap и Schema. 
+          За скорост — WP Rocket и Autoptimize.
+        </Text>
+      )
+    },
+    {
+      title: "Как да се класирам в AI Overviews?",
+      content: (
+        <Text onBackground="neutral-weak">
+          Използвай кратки, ясни отговори и структура с H2/H3 въпроси. 
+          Добави FAQ и HowTo блокове. 
+          Повтаряй ключовата фраза SEO за WordPress в контекста на съдържанието.
+        </Text>
+      )
+    }
+  ]}
+/>
 
-<p>Изгради вътрешни връзки между главните страници и блог публикации като „SEO оптимизация“, „Техническо SEO“ и „Link Building“. Това създава логическа структура и помага на Google да индексира по-добре сайта.</p>
+<Line />
 
-<p>Подобри потребителското изживяване чрез:</p>
+<Heading as="h3" id="cta">Заключение и следващи стъпки</Heading>
+<Text>
+  През 2025 г. <strong>SEO за WordPress</strong> означава комбинация от бързина, структура, UX и адаптивност към AI търсене. 
+  Следвай тези стъпки и сайтът ти ще бъде видим не само в SERP, но и в новите Overviews.
+</Text>
 
-<ul>
-  <li>Мобилна оптимизация</li>
-  <li>Интуитивна навигация</li>
-  <li>Ясна визуална йерархия</li>
-  <li>Контрастни CTA бутони</li>
-</ul>
+<Text>
+  Виж повече за нашето <a href="https://stanchev.bg/seo-uslugi/wordpress-seo" target="_blank"><strong>SEO за WordPress</strong></a> 
+  и открий как <strong>Станчев SEO</strong> използва AI автоматизация и персонализирани решения за максимален ефект.
+</Text>
 
-<h2>Често задавани въпроси (FAQ)</h2>
+<Feedback
+  title="Готов ли си да направиш своя WordPress сайт №1 в Google?"
+  description="Оптимизирай сайта си с професионален подход, фокусиран върху AI, скорост и съдържание. Свържи се със Станчев SEO и изведи бизнеса си над конкуренцията."
+/>
 
-<h3>Колко време отнема WordPress SEO?</h3>
-<p>Обикновено 4–8 седмици, в зависимост от състоянието на сайта и конкуренцията.</p>
-
-<h4>Мога ли сам да направя SEO на WordPress сайт?</h4>
-<p>Да, но професионален <strong>SEO специалист по WordPress</strong> ще ти спести време, грешки и ще постигне по-добри резултати с технически настройки и съдържателен анализ.</p>
-
-<p><strong>WordPress SEO през 2025 г.</strong> е комбинация от технически познания, UX, съдържание и AI оптимизация. За да се класираш високо, следвай принципите на E-E-A-T, структурирай съдържанието си, използвай Schema и оптимизирай скоростта на зареждане.</p>
-
-<p>Виж повече за нашето <a href="https://stanchev.bg/seo-uslugi/wordpress-seo" target="_blank"><strong>SEO за Wordpress</strong></a></p>
-
-<p><strong>Готов ли си да направиш своя WordPress сайт №1 в Google?</strong></p>
-
-<script
-  type="application/ld+json"
-  dangerouslySetInnerHTML={{
-    __html: `{
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "Organization",
-          "name": "Станчев SEO",
-          "url": "https://stanchev.bg",
-          "logo": "https://stanchev.bg/images/logo.png",
-          "founder": {
-            "@type": "Person",
-            "name": "Георги Станчев",
-            "jobTitle": "SEO специалист",
-            "url": "https://stanchev.bg/za-men"
-          },
-          "sameAs": [
-            "https://www.facebook.com/stanchevseo",
-            "https://www.linkedin.com/in/stanchevseo",
-            "https://x.com/stanchevseo"
-          ],
-          "contactPoint": {
-            "@type": "ContactPoint",
-            "telephone": "+359888123456",
-            "contactType": "customer support",
-            "areaServed": "BG",
-            "availableLanguage": ["Bulgarian", "English"]
-          },
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "бул. България 98",
-            "addressLocality": "София",
-            "postalCode": "1680",
-            "addressCountry": "BG"
-          }
+<Schema
+  data={{
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "name": "Станчев SEO",
+        "url": "https://stanchev.bg",
+        "logo": "https://stanchev.bg/images/logo.png",
+        "founder": {
+          "@type": "Person",
+          "name": "Георги Станчев",
+          "jobTitle": "SEO специалист"
         },
-        {
-          "@type": "FAQPage",
-          "mainEntity": [
-            {
-              "@type": "Question",
-              "name": "Колко време отнема WordPress SEO?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Първите резултати обикновено се виждат след 4–8 седмици постоянна работа и техническа оптимизация."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Мога ли сам да направя SEO на WordPress сайт?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Да, но професионален SEO специалист по WordPress ще ти помогне да избегнеш критични грешки и да постигнеш дългосрочни резултати."
-              }
-            }
-          ]
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "бул. България 98",
+          "addressLocality": "София",
+          "postalCode": "1680",
+          "addressCountry": "BG"
         }
-      ]
-    }`,
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Колко време отнема SEO за WordPress?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Първите резултати обикновено се виждат след 4–8 седмици техническа и съдържателна оптимизация."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Мога ли сам да направя SEO за WordPress?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Да, но професионален SEO специалист по WordPress ще ти помогне да избегнеш грешки и да постигнеш по-добри резултати."
+            }
+          }
+        ]
+      }
+    ]
   }}
 />
