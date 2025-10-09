@@ -176,7 +176,7 @@ export default function Nachalo() {
 
         {/* CTA */}
         <Column align="center" paddingY="xl" fillWidth>
-          <Heading variant="display-strong-m" align="center">
+          <Heading variant="display-strong-s" align="center">
             Искате ли сайтът ви да се класира по-високо?
           </Heading>
           <Flex
@@ -223,5 +223,6 @@ export default function Nachalo() {
     </>
   );
 }
+
 
 
