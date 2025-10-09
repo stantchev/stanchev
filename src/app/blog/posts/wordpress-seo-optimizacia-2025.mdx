@@ -15,40 +15,39 @@ tag: "SEO, WordPress"
 <Heading as="h2" title="WordPress SEO 2025" subtitle="Ръководство за цялостна оптимизация" />
 
 <Heading as="h3" id="wordpress-seo-definition">Какво представлява SEO за WordPress?</Heading>
-<Text>
   <strong>SEO за WordPress</strong> е системен процес за подобряване на видимостта на WordPress сайтове в търсачките. 
   Той включва технически настройки, съдържание, UX, и доверие (E-E-A-T). 
   Добре оптимизираният WordPress сайт е бърз, логичен, с ясна структура и Schema, която Google може да разбере.
-</Text>
 
 <Heading as="h2" id="technical-seo">Основни стъпки за успешна WordPress SEO стратегия</Heading>
 
 <Heading as="h3" id="technical">1. Техническа оптимизация</Heading>
-<Text>
   - Използвай permalink структура <strong>/postname/</strong>  
   - Активирай HTTPS и SSL  
   - Настрой XML Sitemap чрез Yoast SEO или Rank Math  
   - Оптимизирай robots.txt и meta robots  
   - Използвай кеширане и CDN  
   - Минимизирай JavaScript и CSS с WP Rocket или Autoptimize
-</Text>
 
 <Heading as="h3" id="core-web-vitals">2. Core Web Vitals и скорост</Heading>
-<Text>
   Google оценява скоростта и потребителското изживяване чрез Core Web Vitals. 
   Това са метрики, които показват колко бързо и стабилно се зарежда сайтът:
-</Text>
 
 <BarChart
   title="Core Web Vitals – целеви стойности"
-  yLabel="Идеална стойност"
-  data={[
-    { category: "LCP (Largest Contentful Paint)", value: "≤ 2.5s" },
-    { category: "INP (Interaction to Next Paint)", value: "≤ 200ms" },
-    { category: "CLS (Layout Shift)", value: "≤ 0.1" }
+  axis="none"
+  barWidth="xl"
+  legend={{
+    position: "bottom-center",
+  }}
+  series={[
+    { key: "LCP (Largest Contentful Paint)", color: "aqua" },
+    { key: "INP (Interaction to Next Paint)", color: "yellow" },
+    { key: "CLS (Layout Shift)", color: "orange" }
   ]}
-  xKey="category"
-  yKey="value"
+  data={[
+    { label: "Идеални стойности", "LCP (Largest Contentful Paint)": 2.5, "INP (Interaction to Next Paint)": 0.2, "CLS (Layout Shift)": 0.1 },
+  ]}
 />
 
 <Feedback
@@ -57,21 +56,17 @@ tag: "SEO, WordPress"
 />
 
 <Heading as="h3" id="content-eeat">3. Съдържание, базирано на E-E-A-T</Heading>
-<Text>
   Публикувай съдържание, което показва опит и реална експертиза. 
   Google класира по-високо материали, които имат авторски профил, структурирани секции и релевантни примери. 
   Добави <em>FAQ</em> или <em>HowTo</em> блокове, за да влезеш в Overviews.
-</Text>
 
 <BlockQuote>
   “Съдържание, което звучи като човек, но мисли като алгоритъм — това е новото злато в SEO за WordPress.”
 </BlockQuote>
 
 <Heading as="h3" id="schema">4. Структурирани данни (Schema)</Heading>
-<Text>
   Добави JSON-LD типове като <strong>FAQPage</strong>, <strong>HowTo</strong>, <strong>Service</strong> и <strong>BreadCrumbList</strong>. 
   Те помагат на Google да разбере контекста и увеличават CTR в резултатите.
-</Text>
 
 ```JS
 <Schema
@@ -85,36 +80,44 @@ tag: "SEO, WordPress"
 />
 
 <Heading as="h3" id="ai-overviews">5. Оптимизация за AI Overviews</Heading>
-<Text>
   За да се класираш в AI резултати и Google Overviews:
-</Text>
-<Text>
   - Използвай въпросни H2/H3 заглавия  
   - Отговаряй кратко и конкретно  
   - Използвай таблици и списъци  
   - Повтори ключовата фраза <strong>SEO за WordPress</strong> 5+ пъти естествено
-</Text>
 
 <LineBarChart
-  title="AI готовност на съдържанието (оценка на факторите)"
-  xLabel="Фактори"
-  yLabel="Оценка (0–100)"
-  data={[
-    { label: "Ясна структура", line: 95, bar: 90 },
-    { label: "AI-достъпни формати (списъци/таблици)", line: 90, bar: 88 },
-    { label: "Оптимизация на дължината на изреченията", line: 92, bar: 91 },
-    { label: "Фокус ключови думи", line: 96, bar: 94 }
+  marginTop="16"
+  title="AI внедряване в SEO процесите (2020–2025)"
+  axis="both"
+  date={{
+    format: "yyyy",
+    start: new Date("2020-01-01"),
+    end: new Date("2025-01-01"),
+    selector: true,
+    presets: {
+      display: true,
+      granularity: "year"
+    },
+    dual: true
+  }}
+  series={[
+    { key: "Автоматизация с AI (%)", color: "moss" },
+    { key: "Ръчна оптимизация (%)", color: "yellow" }
   ]}
-  xKey="label"
-  lineKey="line"
-  barKey="bar"
+  data={[
+    { date: new Date("2020-01-01"), "Автоматизация с AI (%)": 10, "Ръчна оптимизация (%)": 90 },
+    { date: new Date("2021-01-01"), "Автоматизация с AI (%)": 25, "Ръчна оптимизация (%)": 75 },
+    { date: new Date("2022-01-01"), "Автоматизация с AI (%)": 40, "Ръчна оптимизация (%)": 60 },
+    { date: new Date("2023-01-01"), "Автоматизация с AI (%)": 55, "Ръчна оптимизация (%)": 45 },
+    { date: new Date("2024-01-01"), "Автоматизация с AI (%)": 70, "Ръчна оптимизация (%)": 30 },
+    { date: new Date("2025-01-01"), "Автоматизация с AI (%)": 82, "Ръчна оптимизация (%)": 18 },
+  ]}
 />
 
 <Heading as="h3" id="internal-links">6. Вътрешно свързване и UX</Heading>
-<Text>
   Вътрешните линкове са като карта за Google. Свържи страниците за <em>SEO оптимизация</em>, <em>техническо SEO</em> и <em>линкбилдинг</em>.  
   Подобри UX чрез мобилна оптимизация, ясни CTA бутони и breadcrumb навигация.
-</Text>
 
 <Feedback
   title="Полезно"
@@ -167,15 +170,10 @@ tag: "SEO, WordPress"
 />
 
 <Heading as="h3" id="cta">Заключение и следващи стъпки</Heading>
-<Text>
   През 2025 г. <strong>SEO за WordPress</strong> означава комбинация от бързина, структура, UX и адаптивност към AI търсене. 
   Следвай тези стъпки и сайтът ти ще бъде видим не само в SERP, но и в новите Overviews.
-</Text>
-
-<Text>
-  Виж повече за нашето <a href="https://stanchev.bg/seo-uslugi/wordpress-seo" target="_blank"><strong>SEO за WordPress</strong></a> 
-  и открий как <strong>Станчев SEO</strong> използва AI автоматизация и персонализирани решения за максимален ефект.
-</Text>
+<p>Виж повече за нашето <a href="https://stanchev.bg/seo-uslugi/wordpress-seo" target="_blank"><strong>SEO за WordPress</strong></a>
+  и открий как <strong>Станчев SEO</strong> използва AI автоматизация и персонализирани решения за максимален ефект.</p>
 
 <Feedback
   title="Готов ли си да направиш своя WordPress сайт №1 в Google?"
