@@ -9,29 +9,39 @@ tag: "SEO, WordPress"
 
 <Feedback
   title="Резюме"
-  description="WordPress SEO през 2025 г. изисква повече от просто плъгин. Необходимо е техническо съвършенство, бързина, AI разпознаваемо съдържание и ясна структура. Тук ще научиш как да постигнеш всичко това."
+  description="WordPress SEO през 2025 г. изисква повече от плъгини. Нужно е стратегическо мислене, AI-разпознаваемо съдържание и техническо съвършенство. Тук ще откриеш най-пълното ръководство за SEO оптимизация на WordPress."
 />
 
-<Heading as="h2" title="WordPress SEO 2025" subtitle="Ръководство за цялостна оптимизация" />
+<Heading as="h2" title="WordPress SEO 2025" subtitle="Ръководство за цялостна оптимизация на WordPress сайтове" />
 
 <Heading as="h3" id="wordpress-seo-definition">Какво представлява SEO за WordPress?</Heading>
-  <strong>SEO за WordPress</strong> е системен процес за подобряване на видимостта на WordPress сайтове в търсачките. 
-  Той включва технически настройки, съдържание, UX, и доверие (E-E-A-T). 
-  Добре оптимизираният WordPress сайт е бърз, логичен, с ясна структура и Schema, която Google може да разбере.
+<p>
+<strong>SEO за WordPress</strong> е процесът на оптимизация на сайта, който комбинира техническа стабилност, бързина, UX и съдържание, базирано на E-E-A-T (Опит, Експертиза, Авторитет, Доверие).
+WordPress е мощна, но чувствителна система — без правилни SEO настройки, потенциалът й остава неоползотворен.
+</p>
 
-<Heading as="h2" id="technical-seo">Основни стъпки за успешна WordPress SEO стратегия</Heading>
+<BlockQuote>
+  “WordPress SEO не е просто оптимизация на плъгините, а изграждане на интелигентна екосистема от скорост, структура и съдържание.”
+</BlockQuote>
 
-<Heading as="h3" id="technical">1. Техническа оптимизация</Heading>
-  - Използвай permalink структура <strong>/postname/</strong>  
-  - Активирай HTTPS и SSL  
-  - Настрой XML Sitemap чрез Yoast SEO или Rank Math  
-  - Оптимизирай robots.txt и meta robots  
-  - Използвай кеширане и CDN  
-  - Минимизирай JavaScript и CSS с WP Rocket или Autoptimize
+<Heading as="h2" id="technical-seo">1. Техническа оптимизация</Heading>
+
+- Използвай permalink структура <strong>/postname/</strong>  
+- Активирай HTTPS и SSL  
+- Настрой XML Sitemap чрез Yoast SEO или Rank Math  
+- Оптимизирай robots.txt и meta robots  
+- Използвай кеширане и CDN (Cloudflare, BunnyCDN, LiteSpeed Cache)  
+- Минимизирай JavaScript и CSS чрез WP Rocket или Autoptimize  
+- Включи server-side caching, ако хостът го поддържа (NGINX FastCGI, Redis)  
+
+<Feedback
+  title="Съвет от Станчев SEO"
+  description="Използвай персонализиран robots.txt модул — както в решенията на Stanchev.bg — за фино управление на crawl поведението на Googlebot."
+/>
 
 <Heading as="h3" id="core-web-vitals">2. Core Web Vitals и скорост</Heading>
-  Google оценява скоростта и потребителското изживяване чрез Core Web Vitals. 
-  Това са метрики, които показват колко бързо и стабилно се зарежда сайтът:
+
+Google измерва реалното потребителско изживяване чрез <strong>Core Web Vitals</strong>. Това са основните показатели:
 
 <BarChart
   title="Core Web Vitals – целеви стойности"
@@ -50,41 +60,74 @@ tag: "SEO, WordPress"
   ]}
 />
 
+<p>
+  <strong>LCP</strong> измерва скоростта, <strong>INP</strong> – реактивността, а <strong>CLS</strong> – визуалната стабилност.  
+  Поддържай тяхната оптимизация чрез CDN, кеширане и правилно зареждане на изображения.
+</p>
+
 <Feedback
-  title="Съвет"
-  description="Оптимизирай изображенията във WebP формат, активирай lazy loading и премести тежките скриптове в края на страницата."
+  title="Технически трик"
+  description="Включи Critical CSS и отложено зареждане на JS. Провери резултатите в PageSpeed Insights и Search Console → Experience → Core Web Vitals."
 />
 
 <Heading as="h3" id="content-eeat">3. Съдържание, базирано на E-E-A-T</Heading>
-  Публикувай съдържание, което показва опит и реална експертиза. 
-  Google класира по-високо материали, които имат авторски профил, структурирани секции и релевантни примери. 
-  Добави <em>FAQ</em> или <em>HowTo</em> блокове, за да влезеш в Overviews.
+
+<p>
+Google през 2025 г. класира съдържание, което демонстрира <strong>реален опит</strong>.  
+Добави авторски биографии, реални проекти, снимки, case studies. Използвай tone-of-voice, който звучи естествено.  
+</p>
 
 <BlockQuote>
-  “Съдържание, което звучи като човек, но мисли като алгоритъм — това е новото злато в SEO за WordPress.”
+  “AI не може да измисли експертиза. Тя се изгражда с доверие, опит и примери.”
 </BlockQuote>
 
-<Heading as="h3" id="schema">4. Структурирани данни (Schema)</Heading>
-  Добави JSON-LD типове като <strong>FAQPage</strong>, <strong>HowTo</strong>, <strong>Service</strong> и <strong>BreadCrumbList</strong>. 
-  Те помагат на Google да разбере контекста и увеличават CTR в резултатите.
+- Включи експертен автор с профил и линкове  
+- Използвай real-world примери (напр. Stanchev.bg SEO автоматизации)  
+- Добави цитати, списъци, и FAQ секции  
+- Създай pillar страници и вътрешни линкове  
 
-```JS
-<Schema
-  data={{
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "serviceType": "WordPress SEO",
-    "provider": { "@type": "Organization", "name": "Станчев SEO" }
-  }}
-```
+<Heading as="h3" id="schema">4. Структурирани данни (Schema)</Heading>
+
+<p>
+Schema е езикът, с който Google разбира контекста на съдържанието ти.  
+Добави JSON-LD типове като <strong>FAQPage</strong>, <strong>Service</strong>, <strong>HowTo</strong> и <strong>BreadCrumbList</strong>.
+</p>
+
+<Feedback
+  title="Pro tip"
+  description="Използвай собствен Schema модул — както в Stanchev.bg — за динамично генериране на структурирани данни по тип публикация."
 />
 
-<Heading as="h3" id="ai-overviews">5. Оптимизация за AI Overviews</Heading>
-  За да се класираш в AI резултати и Google Overviews:
-  - Използвай въпросни H2/H3 заглавия  
-  - Отговаряй кратко и конкретно  
-  - Използвай таблици и списъци  
-  - Повтори ключовата фраза <strong>SEO за WordPress</strong> 5+ пъти естествено
+```js
+<script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "WordPress SEO",
+      "provider": {
+        "@type": "Organization",
+        "name": "Станчев SEO",
+        "url": "https://stanchev.bg"
+      }
+    })
+  }}
+/>
+```
+
+<Heading as="h3" id="ai-overviews">5. Оптимизация за AI Overviews и LLM търсачки</Heading>
+
+<p>
+AI системите като ChatGPT, Perplexity и Google Overviews изискват ясно структурирано съдържание с кратки отговори и семантична логика.  
+За да бъдеш включен в AI резюмета:
+</p>
+
+- Използвай H2/H3 с въпросен формат  
+- Отговаряй под 50 думи след всяко  
+- Използвай таблици и списъци  
+- Поставяй ключовата фраза <strong>SEO за WordPress</strong> естествено в контекста  
+- Пиши с човешки, обективен и експертен тон  
 
 <LineBarChart
   marginTop="16"
@@ -116,13 +159,37 @@ tag: "SEO, WordPress"
 />
 
 <Heading as="h3" id="internal-links">6. Вътрешно свързване и UX</Heading>
-  Вътрешните линкове са като карта за Google. Свържи страниците за <em>SEO оптимизация</em>, <em>техническо SEO</em> и <em>линкбилдинг</em>.  
-  Подобри UX чрез мобилна оптимизация, ясни CTA бутони и breadcrumb навигация.
+
+<p>
+Вътрешните линкове са фундаментални за SEO архитектурата.  
+Всяка страница трябва да води към контекстно свързани ресурси. Това помага на Google да разбере приоритета и темите на сайта.
+</p>
+
+- Свържи страници за <em>SEO оптимизация</em>, <em>техническо SEO</em> и <em>линкбилдинг</em>  
+- Използвай breadcrumb навигация  
+- Подобри UX чрез ясни CTA бутони, бърз достъп и мобилна адаптивност  
 
 <Feedback
-  title="Полезно"
-  description="Сайтът, който е структуриран добре за потребителите, винаги ще бъде структуриран добре и за Google."
+  title="UX и SEO вървят заедно"
+  description="Сайт, който е структуриран добре за потребителите, винаги ще бъде структуриран добре и за Google."
 />
+
+<Heading as="h3" id="media-seo">7. Image & Video SEO</Heading>
+
+- Използвай WebP и AVIF формати за изображения  
+- Добавяй описателни alt тагове с ключови думи  
+- Оптимизирай имена на файлове (пример: wordpress-seo-guide.webp)  
+- Създавай видео съдържание с транскрипции и добавен VideoObject Schema  
+
+<Heading as="h3" id="ai-monitoring">8. Мониторинг и AI анализ</Heading>
+
+- Използвай Google Search Console и Ahrefs за откриване на CTR аномалии  
+- Следи поведението на AI търсачките чрез Bing Webmaster Tools и Perplexity.ai  
+- Използвай AI модели (като GPT Vision и Claude) за одит на структура и четимост  
+
+<BlockQuote>
+  “SEO мониторингът през 2025 г. вече не е таблица с ключови думи, а разговор между човек и машина.”
+</BlockQuote>
 
 <Heading as="h4" id="faq">Често задавани въпроси</Heading>
 
@@ -132,8 +199,7 @@ tag: "SEO, WordPress"
       title: "Колко време отнема SEO за WordPress?",
       content: (
         <Text onBackground="neutral-weak">
-          Първите резултати обикновено се виждат след 4–8 седмици техническа и съдържателна оптимизация. 
-          За конкурентни ниши е нужен дългосрочен подход.
+          Първите резултати обикновено се виждат след 4–8 седмици техническа и съдържателна оптимизация. За конкурентни ниши е нужен дългосрочен подход.
         </Text>
       )
     },
@@ -141,8 +207,7 @@ tag: "SEO, WordPress"
       title: "Мога ли сам да направя SEO за WordPress?",
       content: (
         <Text onBackground="neutral-weak">
-          Да, чрез плъгини като Yoast SEO можеш да направиш основна оптимизация. 
-          Но за професионални резултати е препоръчително съдействие от SEO специалист с опит в WordPress.
+          Да, чрез плъгини като Yoast SEO можеш да направиш основна оптимизация. Но за професионални резултати е препоръчително съдействие от SEO специалист с опит в WordPress.
         </Text>
       )
     },
@@ -150,9 +215,7 @@ tag: "SEO, WordPress"
       title: "Кои плъгини са най-полезни?",
       content: (
         <Text onBackground="neutral-weak">
-          Най-популярните са Yoast SEO, Rank Math и All in One SEO. 
-          Те покриват мета тагове, Sitemap и Schema. 
-          За скорост — WP Rocket и Autoptimize.
+          Най-популярните са Yoast SEO, Rank Math и All in One SEO. Те покриват мета тагове, Sitemap и Schema. За скорост — WP Rocket и Autoptimize.
         </Text>
       )
     },
@@ -160,9 +223,7 @@ tag: "SEO, WordPress"
       title: "Как да се класирам в AI Overviews?",
       content: (
         <Text onBackground="neutral-weak">
-          Използвай кратки, ясни отговори и структура с H2/H3 въпроси. 
-          Добави FAQ и HowTo блокове. 
-          Повтаряй ключовата фраза SEO за WordPress в контекста на съдържанието.
+          Използвай кратки, ясни отговори и структура с H2/H3 въпроси. Добави FAQ и HowTo блокове. Повтаряй ключовата фраза SEO за WordPress в контекста на съдържанието.
         </Text>
       )
     }
@@ -170,10 +231,15 @@ tag: "SEO, WordPress"
 />
 
 <Heading as="h3" id="cta">Заключение и следващи стъпки</Heading>
-  През 2025 г. <strong>SEO за WordPress</strong> означава комбинация от бързина, структура, UX и адаптивност към AI търсене. 
-  Следвай тези стъпки и сайтът ти ще бъде видим не само в SERP, но и в новите Overviews.
-<p>Виж повече за нашето <a href="https://stanchev.bg/seo-uslugi/wordpress-seo" target="_blank"><strong>SEO за WordPress</strong></a>
-  и открий как <strong>Станчев SEO</strong> използва AI автоматизация и персонализирани решения за максимален ефект.</p>
+
+<p>
+През 2025 г. <strong>SEO за WordPress</strong> означава комбинация от бързина, структура, UX и адаптивност към AI търсене. Следвай тези стъпки и сайтът ти ще бъде видим не само в SERP, но и в новите Overviews.
+</p>
+
+<p>
+Виж повече за нашето <a href="https://stanchev.bg/seo-uslugi/wordpress-seo" target="_blank"><strong>SEO за WordPress</strong></a>
+и открий как <strong>Станчев SEO</strong> използва AI автоматизация и персонализирани решения за максимален ефект.
+</p>
 
 <Feedback
   title="Готов ли си да направиш своя WordPress сайт №1 в Google?"
