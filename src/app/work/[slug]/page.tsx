@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { getPosts } from "@/app/utils/utils";
-import { Meta, Schema, AvatarGroup, Button, Column, Flex, Heading, Media, Text } from "@once-ui-system/core";
+import { Meta, Schema, AvatarGroup, Button, Column, Flex, Heading, Media, Text, BarChart, LineBarChart, PieChart } from "@once-ui-system/core";
 import { baseURL, about, person, work } from "@/resources";
 import { formatDate } from "@/app/utils/formatDate";
 import { ScrollToHash, CustomMDX } from "@/components";
@@ -98,3 +98,4 @@ export default async function Project({
     </Column>
   );
 }
+
