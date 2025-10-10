@@ -5,146 +5,154 @@ publishedAt: "2025-10-10"
 summary: "Голям онлайн магазин за спортни стоки в България премина през пълна SEO оптимизация и редизайн с Next.js. Резултатът — +120% ръст в продажбите."
 team:
   - name: "Станчев"
-    role: "Technical SEO & Frontend Specialist"
+    role: "SEO & Frontend Specialist"
     avatar: "/images/avatar.jpg"
     linkedIn: "https://www.linkedin.com/in/stantcheff"
 ---
 
-<Section background="gradient" padding="xl" radius="2xl" shadow="md">
-  <h2>Началната ситуация</h2>
-  <p>
-    Онлайн магазинът предлага богата гама от <strong>спортни стоки</strong> — от фитнес уреди до туристическа екипировка.
-    При старта на SEO анализа обаче, платформата имаше сериозни технически проблеми, които директно влияеха на класирането и потребителското изживяване.
-  </p>
-</Section>
-
-<Section padding="xl" background="surface">
-  <Row gap="lg" align="center">
-    <Column span="6">
-      <h3>Констатирани грешки</h3>
-      <p>
-        Преди оптимизацията сайтът съдържаше стотици технически дублирания и липсващи елементи:
-      </p>
-      <ul>
-        <li><strong>Duplicate Titles:</strong> над 650</li>
-        <li><strong>Duplicate Meta Descriptions:</strong> около 580</li>
-        <li><strong>Missing Alt Texts:</strong> приблизително 720</li>
-      </ul>
-      <p>
-        Тези грешки водеха до <strong>ниска видимост в Google</strong> и по-слаба CTR метрика.
-      </p>
+<Column gap="xl">
+  <Card variant="elevated" background="gradient" padding="xl" radius="2xl" shadow="md">
+    <Column gap="m">
+      <Heading variant="display-strong-m">
+        Началната ситуация
+      </Heading>
+      <Text variant="body-default-l" onBackground="neutral-weak">
+        Онлайн магазинът предлага богата гама от <strong>спортни стоки</strong> — от фитнес уреди до туристическа екипировка.
+        При старта на SEO анализа обаче, платформата имаше сериозни технически проблеми, които директно влияеха на класирането и потребителското изживяване.
+      </Text>
     </Column>
-    <Column span="6">
-      <Card variant="glass" padding="lg" radius="2xl" shadow="sm">
-        <CardContent>
-          <PieChart
-            title="Основни SEO грешки преди оптимизация"
-            legend={{
-              display: true,
-              position: "bottom-center"
-            }}
-            ring={{ inner: 60, outer: 70 }}
-            series={{ key: "value" }}
-            data={[
-              { name: "Duplicate Titles", value: 650 },
-              { name: "Duplicate Meta Descriptions", value: 580 },
-              { name: "Missing Alt Texts", value: 720 }
-            ]}
-          />
-        </CardContent>
-      </Card>
-    </Column>
-  </Row>
-</Section>
-
-<Section padding="xl" background="subtle">
-  <Row gap="xl" align="center">
-    <Column span="6">
-      <h3>SEO оптимизация и първите резултати</h3>
-      <p>
-        След около месец систематична работа, всички ключови грешки бяха изчистени.  
-        Това доведе до първоначален ефект – <strong>по-висока видимост</strong>, повече посещения и <strong>около 30% ръст в продажбите</strong>.
-      </p>
-      <p>
-        Въпреки това, резултатът не беше достатъчно удовлетворяващ.  
-        Трафикът растеше, но <strong>потребителското изживяване</strong> и визуалната идентичност на сайта изоставаха.
-      </p>
-    </Column>
-    <Column span="6">
-      <Card variant="elevated" padding="xl" radius="2xl">
-        <CardContent>
-          <BarChart
-            title="Подобрения в производителността"
-            description="Сравнение на метриките преди и след редизайна"
-            axis="none"
-            legend={{ position: "bottom-center" }}
-            series={[
-              { key: "Преди" },
-              { key: "След" }
-            ]}
-            data={[
-              { label: "Performance (Mobile)", "Преди": 52, "След": 89 },
-              { label: "Време за зареждане (сек.)", "Преди": 8.0, "След": 1.5 },
-              { label: "Core Web Vitals", "Преди": 60, "След": 95 }
-            ]}
-          />
-        </CardContent>
-      </Card>
-    </Column>
-  </Row>
-</Section>
-
-<Section padding="xl" background="gradient-to-t">
-  <h3>Решението – пълен редизайн с Next.js</h3>
-  <p>
-    Екипът стигна до извода, че сайтът има нужда от <strong>технологичен и визуален рестарт</strong>.  
-    Старият интерфейс беше тежък, остарял и „циклещ“.  
-    Решението – <strong>миграция към Next.js</strong> и модерен frontend стек.
-  </p>
-</Section>
-
-<Section padding="xl" background="surface">
-  <Card variant="glass" padding="lg" radius="2xl">
-    <CardContent>
-      <LineBarChart
-        marginTop="16"
-        title="Ръст в продажбите след оптимизацията"
-        axis="both"
-        date={{
-          format: "yyyy",
-          start: new Date("2024-10-01"),
-          end: new Date("2025-10-01"),
-          selector: true,
-          presets: { display: true, granularity: "month" },
-          dual: true
-        }}
-        series={[{ key: "Ръст в продажбите (%)", color: "emerald" }]}
-        data={[
-          { date: new Date("2024-10-01"), "Ръст в продажбите (%)": 0 },
-          { date: new Date("2024-12-01"), "Ръст в продажбите (%)": 30 },
-          { date: new Date("2025-03-01"), "Ръст в продажбите (%)": 80 },
-          { date: new Date("2025-07-01"), "Ръст в продажбите (%)": 120 }
-        ]}
-      />
-    </CardContent>
   </Card>
-</Section>
 
-<Section padding="xl" background="subtle" radius="2xl">
-  <Row gap="lg" align="start">
-    <Column span="6">
-      <h4>Извод</h4>
-      <p>
-        Този проект показа, че <strong>SEO и UX не могат да съществуват отделно</strong>.  
-        Дори при перфектна техническа оптимизация, ако визуалното представяне и скоростта изостават, растежът има таван.
-      </p>
+  <Card variant="glass" background="surface" padding="xl" radius="2xl">
+    <Row gap="xl" align="center">
+      <Column span={6}>
+        <Column gap="m">
+          <Heading variant="heading-strong-l">
+            Констатирани грешки
+          </Heading>
+          <Text variant="body-default-m" onBackground="neutral-weak">
+            Преди оптимизацията сайтът съдържаше стотици технически дублирания и липсващи елементи:
+          </Text>
+          <Column gap="s">
+            <Text variant="body-default-m">
+              <strong>Duplicate Titles:</strong> над 650
+            </Text>
+            <Text variant="body-default-m">
+              <strong>Duplicate Meta Descriptions:</strong> около 580
+            </Text>
+            <Text variant="body-default-m">
+              <strong>Missing Alt Texts:</strong> приблизително 720
+            </Text>
+          </Column>
+          <Text variant="body-default-m" onBackground="neutral-weak">
+            Тези грешки водеха до <strong>ниска видимост в Google</strong> и по-слаба CTR метрика.
+          </Text>
+        </Column>
+      </Column>
+      <Column span={6}>
+        <Card variant="glass" padding="lg" radius="2xl" shadow="sm">
+          <Column gap="m">
+            <Heading variant="heading-strong-m" align="center">
+              Основни SEO грешки преди оптимизация
+            </Heading>
+            <div style={{ height: "300px", display: "flex", alignItems: "center", justifyContent: "center", background: "var(--once-neutral-subtle)", borderRadius: "12px" }}>
+              <Text variant="body-default-s" onBackground="neutral-weak">
+                [PieChart placeholder - 650, 580, 720]
+              </Text>
+            </div>
+          </Column>
+        </Card>
+      </Column>
+    </Row>
+  </Card>
+
+  <Card variant="elevated" background="subtle" padding="xl" radius="2xl">
+    <Row gap="xl" align="center">
+      <Column span={6}>
+        <Column gap="m">
+          <Heading variant="heading-strong-l">
+            SEO оптимизация и първите резултати
+          </Heading>
+          <Text variant="body-default-m" onBackground="neutral-weak">
+            След около месец систематична работа, всички ключови грешки бяха изчистени.  
+            Това доведе до първоначален ефект – <strong>по-висока видимост</strong>, повече посещения и <strong>около 30% ръст в продажбите</strong>.
+          </Text>
+          <Text variant="body-default-m" onBackground="neutral-weak">
+            Въпреки това, резултатът не беше достатъчно удовлетворяващ.  
+            Трафикът растеше, но <strong>потребителското изживяване</strong> и визуалната идентичност на сайта изоставаха.
+          </Text>
+        </Column>
+      </Column>
+      <Column span={6}>
+        <Card variant="elevated" padding="xl" radius="2xl">
+          <Column gap="m">
+            <Heading variant="heading-strong-m" align="center">
+              Подобрения в производителността
+            </Heading>
+            <Text variant="body-default-s" onBackground="neutral-weak" align="center">
+              Сравнение на метриките преди и след редизайна
+            </Text>
+            <div style={{ height: "300px", display: "flex", alignItems: "center", justifyContent: "center", background: "var(--once-neutral-subtle)", borderRadius: "12px" }}>
+              <Text variant="body-default-s" onBackground="neutral-weak">
+                [BarChart placeholder - Performance, Loading time, Core Web Vitals]
+              </Text>
+            </div>
+          </Column>
+        </Card>
+      </Column>
+    </Row>
+  </Card>
+
+  <Card variant="elevated" background="gradient-to-t" padding="xl" radius="2xl">
+    <Column gap="m">
+      <Heading variant="heading-strong-l">
+        Решението – пълен редизайн с Next.js
+      </Heading>
+      <Text variant="body-default-l" onBackground="neutral-weak">
+        Екипът стигна до извода, че сайтът има нужда от <strong>технологичен и визуален рестарт</strong>.  
+        Старият интерфейс беше тежък, остарял и „циклещ".  
+        Решението – <strong>миграция към Next.js</strong> и модерен frontend стек.
+      </Text>
     </Column>
-    <Column span="6">
-      <h4>Финални мисли</h4>
-      <p>
-        <strong>Редизайнът с Next.js</strong> не е разход, а инвестиция в скорост, видимост и доверие.  
-        Резултатите говорят сами за себе си – по-добра производителност, по-високи позиции и над 120% реален ръст в продажбите.
-      </p>
+  </Card>
+
+  <Card variant="glass" background="surface" padding="xl" radius="2xl">
+    <Column gap="m">
+      <Heading variant="heading-strong-m" align="center">
+        Ръст в продажбите след оптимизацията
+      </Heading>
+      <div style={{ height: "300px", display: "flex", alignItems: "center", justifyContent: "center", background: "var(--once-neutral-subtle)", borderRadius: "12px" }}>
+        <Text variant="body-default-s" onBackground="neutral-weak">
+          [LineChart placeholder - 0% → 30% → 80% → 120%]
+        </Text>
+      </div>
     </Column>
-  </Row>
-</Section>
+  </Card>
+
+  <Card variant="elevated" background="subtle" padding="xl" radius="2xl">
+    <Row gap="xl" align="start">
+      <Column span={6}>
+        <Column gap="m">
+          <Heading variant="heading-strong-m">
+            Извод
+          </Heading>
+          <Text variant="body-default-m" onBackground="neutral-weak">
+            Този проект показа, че <strong>SEO и UX не могат да съществуват отделно</strong>.  
+            Дори при перфектна техническа оптимизация, ако визуалното представяне и скоростта изостават, растежът има таван.
+          </Text>
+        </Column>
+      </Column>
+      <Column span={6}>
+        <Column gap="m">
+          <Heading variant="heading-strong-m">
+            Финални мисли
+          </Heading>
+          <Text variant="body-default-m" onBackground="neutral-weak">
+            <strong>Редизайнът с Next.js</strong> не е разход, а инвестиция в скорост, видимост и доверие.  
+            Резултатите говорят сами за себе си – по-добра производителност, по-високи позиции и над 120% реален ръст в продажбите.
+          </Text>
+        </Column>
+      </Column>
+    </Row>
+  </Card>
+</Column>
