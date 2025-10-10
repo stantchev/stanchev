@@ -5,69 +5,74 @@ publishedAt: "2025-10-10"
 summary: "Голям онлайн магазин за спортни стоки в България премина през пълна SEO оптимизация и редизайн с Next.js. Резултатът — +120% ръст в продажбите."
 team:
   - name: "Станчев"
-    role: "SEO & Frontend Specialist"
+    role: "Technical SEO & Frontend Specialist"
     avatar: "/images/avatar.jpg"
     linkedIn: "https://www.linkedin.com/in/stantcheff"
 ---
 
 <Column gap="xl">
-  <Card variant="elevated" background="gradient" padding="xl" radius="2xl" shadow="md">
-    <Column gap="m">
-      <Heading variant="display-strong-m">
-        Началната ситуация
-      </Heading>
-      <Text variant="body-default-l" onBackground="neutral-weak">
-        Онлайн магазинът предлага богата гама от <strong>спортни стоки</strong> — от фитнес уреди до туристическа екипировка.
-        При старта на SEO анализа обаче, платформата имаше сериозни технически проблеми, които директно влияеха на класирането и потребителското изживяване.
-      </Text>
-    </Column>
-  </Card>
+  <Column gap="m" padding="xl" background="gradient" radius="2xl" shadow="md">
+    <Heading variant="display-strong-m">
+      Началната ситуация
+    </Heading>
+    <Text variant="body-default-l" onBackground="neutral-weak">
+      Онлайн магазинът предлага богата гама от <strong>спортни стоки</strong> — от фитнес уреди до туристическа екипировка.
+      При старта на SEO анализа обаче, платформата имаше сериозни технически проблеми, които директно влияеха на класирането и потребителското изживяване.
+    </Text>
+  </Column>
 
-  <Card variant="glass" background="surface" padding="xl" radius="2xl">
-    <Row gap="xl" align="center">
-      <Column span={6}>
-        <Column gap="m">
-          <Heading variant="heading-strong-l">
-            Констатирани грешки
-          </Heading>
-          <Text variant="body-default-m" onBackground="neutral-weak">
-            Преди оптимизацията сайтът съдържаше стотици технически дублирания и липсващи елементи:
+  <Row gap="xl" align="center">
+    <Column span={6}>
+      <Column gap="m">
+        <Heading variant="heading-strong-l">
+          Констатирани грешки
+        </Heading>
+        <Text variant="body-default-m" onBackground="neutral-weak">
+          Преди оптимизацията сайтът съдържаше стотици технически дублирания и липсващи елементи:
+        </Text>
+        <Column gap="s">
+          <Text variant="body-default-m">
+            <strong>Duplicate Titles:</strong> над 650
           </Text>
-          <Column gap="s">
-            <Text variant="body-default-m">
-              <strong>Duplicate Titles:</strong> над 650
-            </Text>
-            <Text variant="body-default-m">
-              <strong>Duplicate Meta Descriptions:</strong> около 580
-            </Text>
-            <Text variant="body-default-m">
-              <strong>Missing Alt Texts:</strong> приблизително 720
-            </Text>
+          <Text variant="body-default-m">
+            <strong>Duplicate Meta Descriptions:</strong> около 580
+          </Text>
+          <Text variant="body-default-m">
+            <strong>Missing Alt Texts:</strong> приблизително 720
+          </Text>
+        </Column>
+        <Text variant="body-default-m" onBackground="neutral-weak">
+          Тези грешки водеха до <strong>ниска видимост в Google</strong> и по-слаба CTR метрика.
+        </Text>
+      </Column>
+    </Column>
+      <Column span={6}>
+        <Column gap="l" padding="xl" background="neutral-subtle" radius="2xl">
+          <Heading variant="heading-strong-m" align="center">
+            Основни SEO грешки преди оптимизация
+          </Heading>
+          <Column gap="m">
+            <Row align="center" justify="between" padding="m" background="neutral-weak" radius="l">
+              <Text variant="body-default-m" weight="strong">Duplicate Titles</Text>
+              <Text variant="body-default-m" weight="strong" onBackground="danger">650</Text>
+            </Row>
+            <Row align="center" justify="between" padding="m" background="neutral-weak" radius="l">
+              <Text variant="body-default-m" weight="strong">Duplicate Meta Descriptions</Text>
+              <Text variant="body-default-m" weight="strong" onBackground="warning">580</Text>
+            </Row>
+            <Row align="center" justify="between" padding="m" background="neutral-weak" radius="l">
+              <Text variant="body-default-m" weight="strong">Missing Alt Texts</Text>
+              <Text variant="body-default-m" weight="strong" onBackground="danger">720</Text>
+            </Row>
           </Column>
-          <Text variant="body-default-m" onBackground="neutral-weak">
-            Тези грешки водеха до <strong>ниска видимост в Google</strong> и по-слаба CTR метрика.
+          <Text variant="body-default-s" onBackground="neutral-weak" align="center">
+            Общо <strong>1,950 критични грешки</strong> открити при първия анализ
           </Text>
         </Column>
       </Column>
-      <Column span={6}>
-        <Card variant="glass" padding="lg" radius="2xl" shadow="sm">
-          <Column gap="m">
-            <Heading variant="heading-strong-m" align="center">
-              Основни SEO грешки преди оптимизация
-            </Heading>
-            <div style={{ height: "300px", display: "flex", alignItems: "center", justifyContent: "center", background: "var(--once-neutral-subtle)", borderRadius: "12px" }}>
-              <Text variant="body-default-s" onBackground="neutral-weak">
-                [PieChart placeholder - 650, 580, 720]
-              </Text>
-            </div>
-          </Column>
-        </Card>
-      </Column>
     </Row>
-  </Card>
 
-  <Card variant="elevated" background="subtle" padding="xl" radius="2xl">
-    <Row gap="xl" align="center">
+  <Row gap="xl" align="center">
       <Column span={6}>
         <Column gap="m">
           <Heading variant="heading-strong-l">
@@ -84,75 +89,124 @@ team:
         </Column>
       </Column>
       <Column span={6}>
-        <Card variant="elevated" padding="xl" radius="2xl">
+        <Column gap="l" padding="xl" background="neutral-subtle" radius="2xl">
+          <Heading variant="heading-strong-m" align="center">
+            Подобрения в производителността
+          </Heading>
+          <Text variant="body-default-s" onBackground="neutral-weak" align="center">
+            Сравнение на метриките преди и след редизайна
+          </Text>
           <Column gap="m">
-            <Heading variant="heading-strong-m" align="center">
-              Подобрения в производителността
-            </Heading>
-            <Text variant="body-default-s" onBackground="neutral-weak" align="center">
-              Сравнение на метриките преди и след редизайна
-            </Text>
-            <div style={{ height: "300px", display: "flex", alignItems: "center", justifyContent: "center", background: "var(--once-neutral-subtle)", borderRadius: "12px" }}>
-              <Text variant="body-default-s" onBackground="neutral-weak">
-                [BarChart placeholder - Performance, Loading time, Core Web Vitals]
-              </Text>
-            </div>
+            <Row align="center" justify="between" padding="m" background="neutral-weak" radius="l">
+              <Column gap="xs">
+                <Text variant="body-default-s" weight="strong">Performance (Mobile)</Text>
+                <Text variant="body-default-xs" onBackground="neutral-weak">Google PageSpeed Insights</Text>
+              </Column>
+              <Column align="end" gap="xs">
+                <Text variant="body-default-s" weight="strong" onBackground="danger">52</Text>
+                <Text variant="body-default-xs" weight="strong" onBackground="success">89</Text>
+              </Column>
+            </Row>
+            <Row align="center" justify="between" padding="m" background="neutral-weak" radius="l">
+              <Column gap="xs">
+                <Text variant="body-default-s" weight="strong">Време за зареждане</Text>
+                <Text variant="body-default-xs" onBackground="neutral-weak">Първоначално зареждане</Text>
+              </Column>
+              <Column align="end" gap="xs">
+                <Text variant="body-default-s" weight="strong" onBackground="danger">8.0s</Text>
+                <Text variant="body-default-xs" weight="strong" onBackground="success">1.5s</Text>
+              </Column>
+            </Row>
+            <Row align="center" justify="between" padding="m" background="neutral-weak" radius="l">
+              <Column gap="xs">
+                <Text variant="body-default-s" weight="strong">Core Web Vitals</Text>
+                <Text variant="body-default-xs" onBackground="neutral-weak">Google Ranking Factor</Text>
+              </Column>
+              <Column align="end" gap="xs">
+                <Text variant="body-default-s" weight="strong" onBackground="warning">60</Text>
+                <Text variant="body-default-xs" weight="strong" onBackground="success">95</Text>
+              </Column>
+            </Row>
           </Column>
-        </Card>
+          <Text variant="body-default-s" onBackground="neutral-weak" align="center">
+            <strong>+71% подобрение</strong> в общата производителност
+          </Text>
+        </Column>
       </Column>
     </Row>
-  </Card>
 
-  <Card variant="elevated" background="gradient-to-t" padding="xl" radius="2xl">
+  <Column gap="m" padding="xl" background="gradient-to-t" radius="2xl">
+    <Heading variant="heading-strong-l">
+      Решението – пълен редизайн с Next.js
+    </Heading>
+    <Text variant="body-default-l" onBackground="neutral-weak">
+      Екипът стигна до извода, че сайтът има нужда от <strong>технологичен и визуален рестарт</strong>.  
+      Старият интерфейс беше тежък, остарял и „циклещ".  
+      Решението – <strong>миграция към Next.js</strong> и модерен frontend стек.
+    </Text>
+  </Column>
+
+  <Column gap="l" padding="xl" background="surface" radius="2xl">
+    <Heading variant="heading-strong-m" align="center">
+      Ръст в продажбите след оптимизацията
+    </Heading>
     <Column gap="m">
-      <Heading variant="heading-strong-l">
-        Решението – пълен редизайн с Next.js
-      </Heading>
-      <Text variant="body-default-l" onBackground="neutral-weak">
-        Екипът стигна до извода, че сайтът има нужда от <strong>технологичен и визуален рестарт</strong>.  
-        Старият интерфейс беше тежък, остарял и „циклещ".  
-        Решението – <strong>миграция към Next.js</strong> и модерен frontend стек.
-      </Text>
+      <Row align="center" justify="between" padding="l" background="neutral-subtle" radius="l">
+        <Column gap="xs">
+          <Text variant="body-default-m" weight="strong">Октомври 2024</Text>
+          <Text variant="body-default-s" onBackground="neutral-weak">Стартова точка</Text>
+        </Column>
+        <Text variant="display-strong-s" onBackground="neutral">0%</Text>
+      </Row>
+      <Row align="center" justify="between" padding="l" background="neutral-subtle" radius="l">
+        <Column gap="xs">
+          <Text variant="body-default-m" weight="strong">Декември 2024</Text>
+          <Text variant="body-default-s" onBackground="neutral-weak">След първа SEO оптимизация</Text>
+        </Column>
+        <Text variant="display-strong-s" onBackground="success">+30%</Text>
+      </Row>
+      <Row align="center" justify="between" padding="l" background="neutral-subtle" radius="l">
+        <Column gap="xs">
+          <Text variant="body-default-m" weight="strong">Март 2025</Text>
+          <Text variant="body-default-s" onBackground="neutral-weak">След редизайн с Next.js</Text>
+        </Column>
+        <Text variant="display-strong-s" onBackground="success">+80%</Text>
+      </Row>
+      <Row align="center" justify="between" padding="l" background="brand-subtle" radius="l">
+        <Column gap="xs">
+          <Text variant="body-default-m" weight="strong">Юли 2025</Text>
+          <Text variant="body-default-s" onBackground="neutral-weak">Финален резултат</Text>
+        </Column>
+        <Text variant="display-strong-m" onBackground="brand">+120%</Text>
+      </Row>
     </Column>
-  </Card>
+    <Text variant="body-default-m" onBackground="neutral-weak" align="center">
+      <strong>Продължителен ръст</strong> през 9-месечния период на оптимизация
+    </Text>
+  </Column>
 
-  <Card variant="glass" background="surface" padding="xl" radius="2xl">
-    <Column gap="m">
-      <Heading variant="heading-strong-m" align="center">
-        Ръст в продажбите след оптимизацията
-      </Heading>
-      <div style={{ height: "300px", display: "flex", alignItems: "center", justifyContent: "center", background: "var(--once-neutral-subtle)", borderRadius: "12px" }}>
-        <Text variant="body-default-s" onBackground="neutral-weak">
-          [LineChart placeholder - 0% → 30% → 80% → 120%]
+  <Row gap="xl" align="start">
+    <Column span={6}>
+      <Column gap="m" padding="xl" background="subtle" radius="2xl">
+        <Heading variant="heading-strong-m">
+          Извод
+        </Heading>
+        <Text variant="body-default-m" onBackground="neutral-weak">
+          Този проект показа, че <strong>SEO и UX не могат да съществуват отделно</strong>.  
+          Дори при перфектна техническа оптимизация, ако визуалното представяне и скоростта изостават, растежът има таван.
         </Text>
-      </div>
+      </Column>
     </Column>
-  </Card>
-
-  <Card variant="elevated" background="subtle" padding="xl" radius="2xl">
-    <Row gap="xl" align="start">
-      <Column span={6}>
-        <Column gap="m">
-          <Heading variant="heading-strong-m">
-            Извод
-          </Heading>
-          <Text variant="body-default-m" onBackground="neutral-weak">
-            Този проект показа, че <strong>SEO и UX не могат да съществуват отделно</strong>.  
-            Дори при перфектна техническа оптимизация, ако визуалното представяне и скоростта изостават, растежът има таван.
-          </Text>
-        </Column>
+    <Column span={6}>
+      <Column gap="m" padding="xl" background="subtle" radius="2xl">
+        <Heading variant="heading-strong-m">
+          Финални мисли
+        </Heading>
+        <Text variant="body-default-m" onBackground="neutral-weak">
+          <strong>Редизайнът с Next.js</strong> не е разход, а инвестиция в скорост, видимост и доверие.  
+          Резултатите говорят сами за себе си – по-добра производителност, по-високи позиции и над 120% реален ръст в продажбите.
+        </Text>
       </Column>
-      <Column span={6}>
-        <Column gap="m">
-          <Heading variant="heading-strong-m">
-            Финални мисли
-          </Heading>
-          <Text variant="body-default-m" onBackground="neutral-weak">
-            <strong>Редизайнът с Next.js</strong> не е разход, а инвестиция в скорост, видимост и доверие.  
-            Резултатите говорят сами за себе си – по-добра производителност, по-високи позиции и над 120% реален ръст в продажбите.
-          </Text>
-        </Column>
-      </Column>
-    </Row>
-  </Card>
+    </Column>
+  </Row>
 </Column>
