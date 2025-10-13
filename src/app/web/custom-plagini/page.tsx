@@ -235,7 +235,7 @@ export default function CustomPlaginiPage() {
               <Text variant="body-default-s" onBackground="neutral-weak" align="center">
                 Персонализиран модул за OpenCart
               </Text>
-              <Text variant="display-strong-l" align="center" onBackground="brand">
+              <Text variant="display-strong-l" align="center">
                 500 лв.
               </Text>
               <Column gap="s">
@@ -344,3 +344,4 @@ export default function CustomPlaginiPage() {
     </>
   );
 }
+
