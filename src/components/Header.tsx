@@ -465,11 +465,11 @@ export const Header = () => {
           border="neutral-alpha-weak"
           radius="m-4"
           shadow="l"
-          padding="3"
+          padding="s"
           horizontal="center"
           zIndex={1}
         >
-          <Row gap="3" vertical="center" textVariant="body-default-s" suppressHydrationWarning>
+          <Row gap="s" vertical="center" textVariant="body-default-s" suppressHydrationWarning>
             {routes["/"] && (
               <ToggleButton href="/" selected={pathname === "/"}>
                 <AiOutlineHome size={18} />
