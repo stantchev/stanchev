@@ -3,13 +3,13 @@
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
-import { Fade, Flex, Line, Row, ToggleButton } from "@once-ui-system/core";
+import { Fade, Flex, Line, Row, ToggleButton, Column, Text, Card } from "@once-ui-system/core";
 
 import { routes, display, person, about, blog, work, seoServices, contact } from "@/resources";
 import { ThemeToggle } from "./ThemeToggle";
 import styles from "./Header.module.scss";
 import { AiOutlineHome } from "react-icons/ai";
-import { FaUser, FaThLarge, FaRegNewspaper } from "react-icons/fa";
+import { FaUser, FaThLarge, FaRegNewspaper,FaGlobe } from "react-icons/fa";
 import { MdOutlineRocketLaunch, MdOutlineMail } from "react-icons/md";
 
 type TimeDisplayProps = {
@@ -47,6 +47,48 @@ export default TimeDisplay;
 
 export const Header = () => {
   const pathname = usePathname() ?? "";
+  const [isSeoHovered, setIsSeoHovered] = useState(false);
+  const [isWebHovered, setIsWebHovered] = useState(false);
+  const [seoTimeoutId, setSeoTimeoutId] = useState<NodeJS.Timeout | null>(null);
+  const [webTimeoutId, setWebTimeoutId] = useState<NodeJS.Timeout | null>(null);
+
+  const handleSeoMouseEnter = () => {
+    if (seoTimeoutId) {
+      clearTimeout(seoTimeoutId);
+      setSeoTimeoutId(null);
+    }
+    setIsSeoHovered(true);
+  };
+
+  const handleSeoMouseLeave = () => {
+    const timeoutId = setTimeout(() => {
+      setIsSeoHovered(false);
+    }, 300); // 300ms забавяне
+    setSeoTimeoutId(timeoutId);
+  };
+
+  const handleWebMouseEnter = () => {
+    if (webTimeoutId) {
+      clearTimeout(webTimeoutId);
+      setWebTimeoutId(null);
+    }
+    setIsWebHovered(true);
+  };
+
+  const handleWebMouseLeave = () => {
+    const timeoutId = setTimeout(() => {
+      setIsWebHovered(false);
+    }, 300); // 300ms забавяне
+    setWebTimeoutId(timeoutId);
+  };
+
+  // Cleanup timeouts on unmount
+  useEffect(() => {
+    return () => {
+      if (seoTimeoutId) clearTimeout(seoTimeoutId);
+      if (webTimeoutId) clearTimeout(webTimeoutId);
+    };
+  }, [seoTimeoutId, webTimeoutId]);
 
   return (
     <>
@@ -140,13 +182,91 @@ export const Header = () => {
               {routes["/seo-uslugi"] && (
                 <>
                   <Row s={{ hide: true }}>
-                    <ToggleButton
-                      href="/seo-uslugi"
-                      label={seoServices.label}
-                      selected={pathname.startsWith("/seo-uslugi")}
+                    <div 
+                      style={{ position: "relative" }}
+                      onMouseEnter={handleSeoMouseEnter}
+                      onMouseLeave={handleSeoMouseLeave}
                     >
-                      <MdOutlineRocketLaunch size={18} />
-                    </ToggleButton>
+                      <ToggleButton
+                        href="/seo-uslugi"
+                        selected={pathname.startsWith("/seo-uslugi")}
+                        label={seoServices.label}
+                      >
+                        <MdOutlineRocketLaunch size={18} />
+                      </ToggleButton>
+                      
+                      {/* Hover Menu */}
+                      {isSeoHovered && (
+                        <div
+                          style={{
+                            position: "absolute",
+                            top: "100%",
+                            left: "0",
+                            zIndex: 1000,
+                            marginTop: "8px",
+                            minWidth: "200px"
+                          }}
+                          onMouseEnter={handleSeoMouseEnter}
+                          onMouseLeave={handleSeoMouseLeave}
+                        >
+                          <Card 
+                            padding="s" 
+                            radius="m" 
+                            shadow="l"
+                            background="page"
+                            border="neutral-alpha-medium"
+                          >
+                            <Column gap="xs">
+                              <a 
+                                href="/seo-uslugi/seo-optimizatsiya"
+                                style={{ 
+                                  textDecoration: "none",
+                                  padding: "8px 12px",
+                                  borderRadius: "6px",
+                                  transition: "background-color 0.2s ease"
+                                }}
+                                onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "var(--neutral-alpha-weak)"}
+                                onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}
+                              >
+                                <Text variant="body-default-s" onBackground="neutral-strong">
+                                  SEO Оптимизация
+                                </Text>
+                              </a>
+                              <a 
+                                href="/seo-uslugi/link-building"
+                                style={{ 
+                                  textDecoration: "none",
+                                  padding: "8px 12px",
+                                  borderRadius: "6px",
+                                  transition: "background-color 0.2s ease"
+                                }}
+                                onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "var(--neutral-alpha-weak)"}
+                                onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}
+                              >
+                                <Text variant="body-default-s" onBackground="neutral-strong">
+                                  Link Building
+                                </Text>
+                              </a>
+                              <a 
+                                href="/seo-uslugi/ecommerce-seo"
+                                style={{ 
+                                  textDecoration: "none",
+                                  padding: "8px 12px",
+                                  borderRadius: "6px",
+                                  transition: "background-color 0.2s ease"
+                                }}
+                                onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "var(--neutral-alpha-weak)"}
+                                onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}
+                              >
+                                <Text variant="body-default-s" onBackground="neutral-strong">
+                                  SEO за Онлайн Магазини
+                                </Text>
+                              </a>
+                            </Column>
+                          </Card>
+                        </div>
+                      )}
+                    </div>
                   </Row>
                   <Row hide s={{ hide: false }}>
                     <ToggleButton
@@ -154,6 +274,105 @@ export const Header = () => {
                       selected={pathname.startsWith("/seo-uslugi")}
                     >
                       <MdOutlineRocketLaunch size={18} />
+                    </ToggleButton>
+                  </Row>
+                </>
+              )}
+              {routes["/web"] && (
+                <>
+                  <Row s={{ hide: true }}>
+                    <div 
+                      style={{ position: "relative" }}
+                      onMouseEnter={handleWebMouseEnter}
+                      onMouseLeave={handleWebMouseLeave}
+                    >
+                      <ToggleButton
+                        href="/web"
+                        selected={pathname.startsWith("/web")}
+                        label="Уеб Услуги"
+                      >
+                        <FaGlobe size={16} />
+                      </ToggleButton>
+                      
+                      {/* Hover Menu */}
+                      {isWebHovered && (
+                        <div
+                          style={{
+                            position: "absolute",
+                            top: "100%",
+                            left: "0",
+                            zIndex: 1000,
+                            marginTop: "8px",
+                            minWidth: "200px"
+                          }}
+                          onMouseEnter={handleWebMouseEnter}
+                          onMouseLeave={handleWebMouseLeave}
+                        >
+                          <Card 
+                            padding="s" 
+                            radius="m" 
+                            shadow="l"
+                            background="page"
+                            border="neutral-alpha-medium"
+                          >
+                            <Column gap="xs">
+                              <a 
+                                href="/web/izrabotka-sajt"
+                                style={{ 
+                                  textDecoration: "none",
+                                  padding: "8px 12px",
+                                  borderRadius: "6px",
+                                  transition: "background-color 0.2s ease"
+                                }}
+                                onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "var(--neutral-alpha-weak)"}
+                                onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}
+                              >
+                                <Text variant="body-default-s" onBackground="neutral-strong">
+                                  Изработка на сайт
+                                </Text>
+                              </a>
+                              <a 
+                                href="/web/custom-plagini"
+                                style={{ 
+                                  textDecoration: "none",
+                                  padding: "8px 12px",
+                                  borderRadius: "6px",
+                                  transition: "background-color 0.2s ease"
+                                }}
+                                onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "var(--neutral-alpha-weak)"}
+                                onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}
+                              >
+                                <Text variant="body-default-s" onBackground="neutral-strong">
+                                  Custom плъгини
+                                </Text>
+                              </a>
+                              <a 
+                                href="/web/seo-integratsiya"
+                                style={{ 
+                                  textDecoration: "none",
+                                  padding: "8px 12px",
+                                  borderRadius: "6px",
+                                  transition: "background-color 0.2s ease"
+                                }}
+                                onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "var(--neutral-alpha-weak)"}
+                                onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}
+                              >
+                                <Text variant="body-default-s" onBackground="neutral-strong">
+                                  SEO интеграция
+                                </Text>
+                              </a>
+                            </Column>
+                          </Card>
+                        </div>
+                      )}
+                    </div>
+                  </Row>
+                  <Row hide s={{ hide: false }}>
+                    <ToggleButton
+                      href="/web"
+                      selected={pathname.startsWith("/web")}
+                    >
+                      <FaGlobe size={16} />
                     </ToggleButton>
                   </Row>
                 </>
@@ -226,4 +445,3 @@ export const Header = () => {
     </>
   );
 };
-
