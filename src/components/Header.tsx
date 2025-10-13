@@ -103,6 +103,7 @@ export const Header = () => {
         height="80"
         zIndex={9}
       />
+      {/* Desktop Header */}
       <Row
         fitHeight
         className={styles.position}
@@ -113,12 +114,10 @@ export const Header = () => {
         padding="8"
         horizontal="center"
         data-border="rounded"
-        s={{
-          position: "fixed",
-        }}
+        s={{ hide: true }}
       >
         <Row paddingLeft="12" fillWidth vertical="center" textVariant="body-default-s">
-          {display.location && <Row s={{ hide: true }}>{person.location}</Row>}
+          {display.location && <Row>{person.location}</Row>}
         </Row>
         <Row fillWidth horizontal="center">
           <Row
@@ -428,7 +427,7 @@ export const Header = () => {
             </Row>
           </Row>
         </Row>
-        <Flex fillWidth horizontal="end" vertical="center">
+        <Flex fillWidth horizontal="end" vertical="center" s={{ hide: true }}>
           <Flex
             paddingRight="12"
             horizontal="end"
@@ -441,6 +440,85 @@ export const Header = () => {
             </Flex>
           </Flex>
         </Flex>
+      </Row>
+
+      {/* Mobile Header */}
+      <Row
+        fitHeight
+        className={styles.position}
+        position="sticky"
+        as="header"
+        zIndex={9}
+        fillWidth
+        padding="8"
+        horizontal="center"
+        data-border="rounded"
+        s={{
+          position: "fixed",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center"
+        }}
+      >
+        <Row
+          background="page"
+          border="neutral-alpha-weak"
+          radius="m-4"
+          shadow="l"
+          padding="3"
+          horizontal="center"
+          zIndex={1}
+        >
+          <Row gap="3" vertical="center" textVariant="body-default-s" suppressHydrationWarning>
+            {routes["/"] && (
+              <ToggleButton href="/" selected={pathname === "/"}>
+                <AiOutlineHome size={18} />
+              </ToggleButton>
+            )}
+            <Line background="neutral-alpha-medium" vert maxHeight="24" />
+            {routes["/za-men"] && (
+              <ToggleButton
+                href="/za-men"
+                selected={pathname === "/za-men"}
+              >
+                <FaUser size={16} />
+              </ToggleButton>
+            )}
+            <Line background="neutral-alpha-medium" vert maxHeight="24" />
+            {routes["/seo-uslugi"] && (
+              <ToggleButton
+                href="/seo-uslugi"
+                selected={pathname.startsWith("/seo-uslugi")}
+              >
+                <MdOutlineRocketLaunch size={18} />
+              </ToggleButton>
+            )}
+            <Line background="neutral-alpha-medium" vert maxHeight="24" />
+            {routes["/web"] && (
+              <ToggleButton
+                href="/web"
+                selected={pathname.startsWith("/web")}
+              >
+                <FaGlobe size={16} />
+              </ToggleButton>
+            )}
+            <Line background="neutral-alpha-medium" vert maxHeight="24" />
+            {routes["/kontakti"] && (
+              <ToggleButton
+                href="/kontakti"
+                selected={pathname.startsWith("/kontakti")}
+              >
+                <MdOutlineMail size={18} />
+              </ToggleButton>
+            )}
+            {display.themeSwitcher && (
+              <>
+                <Line background="neutral-alpha-medium" vert maxHeight="20" />
+                <ThemeToggle />
+              </>
+            )}
+          </Row>
+        </Row>
       </Row>
     </>
   );
