@@ -37,6 +37,12 @@ const routes: RoutesConfig = {
   "/seo-uslugi/wordpress-seo": true,
   "/seo-uslugi/opencart-seo": true,
   "/seo-uslugi/magento-seo": true,
+  "/web": true,
+  "/web/custom-plagini": true,
+  "/web/optimizatsiya-sajt": true,
+  "/web/poddrzhka-nadgradzhdane": true,
+  "/web/seo-integratsiya": true,
+  "/web/izrabotka-sajt": true,
 };
 
 const display: DisplayConfig = {
@@ -281,5 +287,6 @@ export {
   dataStyle,
   llmsRules,
 };
+
 
 
