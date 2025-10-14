@@ -13,132 +13,158 @@ import { baseURL } from '@/resources';
 import Script from 'next/script';
 
 export async function generateMetadata() {
-  return {
-    title: 'Custom плъгини за OpenCart & WordPress | Персонализирани модули и разширения | Станчев SEO',
-    description: 'Разработка на персонализирани плъгини и модули за OpenCart и WordPress. Custom функционалности, WooCommerce разширения и специализирани решения за вашия бизнес.',
-    keywords: 'custom плъгини цена, WordPress плъгини България, OpenCart модули София, WooCommerce разширения цена, персонализирани модули цена, custom функционалности България, PHP разработчик, custom плъгин за WordPress, OpenCart модул цена',
-    alternates: {
-      canonical: `${baseURL}/web/custom-plagini`,
+ return {
+  title: "Custom плъгини за WordPress и OpenCart | Stanchev Digital",
+  description:
+    "Персонализирани плъгини и модули за WordPress, OpenCart и WooCommerce. Специализирани решения за бизнес функционалности и висока производителност.",
+  keywords: [
+    "custom плъгини",
+    "WordPress плъгини",
+    "OpenCart модули",
+    "WooCommerce разширения",
+    "персонализирани модули",
+    "PHP разработчик",
+    "custom функционалности",
+    "разработка на плъгини",
+    "Stanchev Digital",
+  ],
+  alternates: {
+    canonical: `${baseURL}/web/custom-plagini`,
+  },
+  openGraph: {
+    title: "Custom плъгини за WordPress и OpenCart | Stanchev Digital",
+    description:
+      "Персонализирани плъгини и модули за WordPress, OpenCart и WooCommerce. Специализирани решения за бизнес функционалности и висока производителност.",
+    url: `${baseURL}/web/custom-plagini`,
+    siteName: "Stanchev Digital",
+    images: [
+      {
+        url: "https://stanchev.bg/images/og/og.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Custom плъгини и модули за WordPress и OpenCart",
+      },
+    ],
+    locale: "bg_BG",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Custom плъгини за WordPress и OpenCart | Stanchev Digital",
+    description:
+      "Персонализирани плъгини и модули за WordPress, OpenCart и WooCommerce. Специализирани решения за бизнес функционалности и висока производителност.",
+    images: ["https://stanchev.bg/images/og/og.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
     },
-    openGraph: {
-      title: 'Custom плъгини за OpenCart & WordPress | Персонализирани модули и разширения',
-      description: 'Разработка на персонализирани плъгини и модули за OpenCart и WordPress. Custom функционалности, WooCommerce разширения и специализирани решения за вашия бизнес.',
-      url: `${baseURL}/web/custom-plagini`,
-      siteName: 'Станчев SEO',
-      images: [
-        {
-          url: `https://stanchev.bg/images/og/web.jpg`,
-          width: 1200,
-          height: 630,
-        },
-      ],
-      locale: 'bg_BG',
-      type: 'website',
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: 'Custom плъгини за OpenCart & WordPress | Персонализирани модули и разширения',
-      description: 'Разработка на персонализирани плъгини и модули за OpenCart и WordPress. Custom функционалности, WooCommerce разширения и специализирани решения за вашия бизнес.',
-      images: [`https://stanchev.bg/images/og/web.jpg`],
-    },
-  };
-}
+  },
+};
 
 export default function CustomPlaginiPage() {
   return (
     <>
-      <Script
-        id="custom-plugins-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "http://schema.org",
-            "@type": "Service",
-            "name": "Custom плъгини за OpenCart & WordPress",
-            "serviceType": "Уеб разработка",
-            "description": "Разработка на персонализирани плъгини и модули за OpenCart и WordPress. Custom функционалности, WooCommerce разширения и специализирани решения за вашия бизнес.",
-            "provider": {
-              "@type": "Organization",
-              "name": "Станчев SEO",
-              "url": "https://stanchev.bg/",
-              "logo": "https://stanchev.bg/images/og/og.jpg",
-              "contactPoint": {
-                "@type": "ContactPoint",
-                "contactType": "customer service",
-                "email": "seo@stanchev.bg"
-              }
+     <Script
+  id="custom-plugins-schema"
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "@id": "https://stanchev.bg/web/custom-plagini#service",
+      name: "Custom плъгини за WordPress и OpenCart",
+      serviceType: "Уеб разработка и програмиране",
+      keywords: [
+        "WordPress плъгини",
+        "OpenCart модули",
+        "WooCommerce разширения",
+        "custom функционалности",
+        "PHP разработка",
+        "уеб програмиране България",
+      ],
+      description:
+        "Разработка на персонализирани плъгини и модули за WordPress, OpenCart и WooCommerce. Custom функционалности и професионални решения за растеж на бизнеса.",
+      serviceOutput:
+        "Готов custom плъгин или модул с пълна интеграция, техническа SEO оптимизация и документация.",
+      provider: {
+        "@type": "Organization",
+        name: "Stanchev Digital",
+        url: "https://stanchev.bg/",
+        logo: "https://stanchev.bg/images/og/og.jpg",
+        sameAs: [
+          "https://www.linkedin.com/in/stantcheff/",
+          "https://github.com/stantchev/",
+          "https://dev.to/stanchev",
+        ],
+        contactPoint: {
+          "@type": "ContactPoint",
+          contactType: "customer service",
+          email: "seo@stanchev.bg",
+        },
+      },
+      url: "https://stanchev.bg/web/custom-plagini",
+      areaServed: {
+        "@type": "Place",
+        name: "България",
+      },
+      offers: {
+        "@type": "AggregateOffer",
+        priceCurrency: "BGN",
+        lowPrice: "500",
+        highPrice: "600",
+        offerCount: "2",
+        availability: "https://schema.org/InStock",
+      },
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: "Custom плъгини и модули",
+        itemListElement: [
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "WordPress плъгини разработка",
+              description:
+                "Професионално разработване на персонализирани WordPress плъгини с hook система и custom функционалности.",
             },
-            "url": "https://stanchev.bg/web/custom-plagini",
-            "areaServed": {
-              "@type": "Place",
-              "name": "България"
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "OpenCart модули разработка",
+              description:
+                "Специализирани OpenCart модули с административен панел и интеграция с бази данни.",
             },
-            "hasOfferCatalog": {
-              "@type": "OfferCatalog",
-              "name": "Custom плъгини услуги и цени",
-              "itemListElement": [
-                {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@type": "Service",
-                    "name": "WordPress плъгини разработка",
-                    "description": "Професионално разработване на персонализирани плъгини за WordPress с custom функционалности и hook система."
-                  }
-                },
-                {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@type": "Service",
-                    "name": "OpenCart модули разработка",
-                    "description": "Специализирани модули за OpenCart с административен панел и база данни интеграция за разширяване на функционалността."
-                  }
-                },
-                {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@type": "Service",
-                    "name": "WooCommerce разширения разработка",
-                    "description": "Custom разширения за WooCommerce с персонализирани функционалности за онлайн магазини."
-                  }
-                },
-                {
-                  "@type": "Offer",
-                  "name": "WordPress плъгин - професионален пакет",
-                  "description": "Персонализиран плъгин за WordPress с custom функционалности, settings страница, hook система и документация.",
-                  "priceSpecification": {
-                    "@type": "UnitPriceSpecification",
-                    "price": "600",
-                    "priceCurrency": "BGN",
-                    "unitText": "лв.",
-                    "valueAddedTaxIncluded": true
-                  },
-                  "availability": "https://schema.org/InStock"
-                },
-                {
-                  "@type": "Offer",
-                  "name": "OpenCart модул - бизнес пакет",
-                  "description": "Специализиран модул за OpenCart с custom функционалности, административен панел, база данни интеграция и тестване.",
-                  "priceSpecification": {
-                    "@type": "UnitPriceSpecification",
-                    "price": "500",
-                    "priceCurrency": "BGN",
-                    "unitText": "лв.",
-                    "valueAddedTaxIncluded": true
-                  },
-                  "availability": "https://schema.org/InStock"
-                }
-              ]
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "WooCommerce разширения разработка",
+              description:
+                "Custom разширения за WooCommerce с персонализирани функции за онлайн магазини.",
             },
-            "aggregateRating": {
-              "@type": "AggregateRating",
-              "ratingValue": "4.8",
-              "reviewCount": "23",
-              "bestRating": "5",
-              "worstRating": "1"
-            }
-          })
-        }}
-      />
+          },
+        ],
+      },
+      aggregateRating: {
+        "@type": "AggregateRating",
+        ratingValue: "4.8",
+        reviewCount: "23",
+        bestRating: "5",
+        worstRating: "1",
+      },
+    }),
+  }}
+/>
       <Column as="section" gap="xl" padding="xl" fillWidth>
         <Column gap="m" align="center" fillWidth>
           <Heading as="h1" variant="display-strong-l" align="center">
@@ -344,3 +370,4 @@ export default function CustomPlaginiPage() {
     </>
   );
 }
+
