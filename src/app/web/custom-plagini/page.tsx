@@ -213,20 +213,65 @@ export default function CustomPlaginiPage() {
         </Column>
 
         <Column gap="l">
-          <Heading as="h2" variant="display-default-m">
+          <Heading as="h3" variant="display-default-m">
             Защо да изберете custom плъгини?
           </Heading>
-
           <Text variant="body-default-l">
             <strong>Custom плъгини</strong> решават уникални бизнес нужди, които стандартните разширения не покриват. Персонализираните решения са оптимизирани за вашия конкретен случай, работят по-бързо и не съдържат ненужни функции. Освен това имате пълен контрол върху функционалността и бъдещите надграждания.
           </Text>
         </Column>
+   <Column gap="l">
+          <Heading as="h2" variant="display-default-m">
+            Примерен OpenCart модул: Robots.txt Editor
+          </Heading>
 
+          <Text variant="body-default-l">
+            Ето пример за <strong>практически модул</strong>, който създадох за OpenCart 2.3.0.2. 
+            <a href="https://github.com/stantchev/opencart-robots-editor" target="_blank" rel="noopener noreferrer">
+              Robots.txt Editor & Cache Control
+            </a> позволява директна редакция на robots.txt от админ панела и селективно изчистване на кеша му.
+          </Text>
+
+          <Column gap="m" padding="l" border="neutral-alpha-medium" radius="l" background="neutral-alpha-weak">
+            <Heading as="h3" variant="heading-strong-m">
+             Ключови функции на модула:
+            </Heading>
+            <Column gap="s">
+              <Text variant="body-default-s">• <strong>Директна редакция</strong> на robots.txt от админ панела</Text>
+              <Text variant="body-default-s">• <strong>Clear Cache бутон</strong> – премахва само кеша на robots.txt</Text>
+              <Text variant="body-default-s">• <strong>SEO Ready</strong> – промените са видими веднага за crawler-и</Text>
+              <Text variant="body-default-s">• <strong>Без риск</strong> – реализирано с OCMOD, не изисква промени по ядрото</Text>
+            </Column>
+            
+            <Flex gap="s" wrap>
+              <Tag size="m">OpenCart 2.3.0.2</Tag>
+              <Tag size="m">PHP</Tag>
+              <Tag size="m">SEO Tools</Tag>
+              <Tag size="m">Admin Panel</Tag>
+            </Flex>
+
+            <Button 
+              variant="secondary" 
+              size="m" 
+              href="https://github.com/stantchev/opencart-robots-editor" 
+              target="_blank"
+              rel="noopener noreferrer"
+              prefixIcon="externalLink"
+            >
+              Виж в GitHub
+            </Button>
+          </Column>
+
+          <Text variant="body-default-m" onBackground="neutral-weak">
+            Този модул демонстрира как custom решенията решават реални SEO проблеми. 
+            Вместо да се налага FTP достъп за всяка промяна в robots.txt, администраторите могат 
+            да правят промени директно от панела и да виждат резултата веднага.
+          </Text>
+        </Column>
         <Column gap="l">
           <Heading as="h2" variant="display-default-m">
             Моят процес в 4 етапа
           </Heading>
-
           {["Анализ", "Проектиране", "Разработка", "Тестване"].map((step, i) => (
             <Flex key={i} gap="8" vertical="start">
               <Icon name="checkCircle" onBackground="brand-strong" />
@@ -370,3 +415,4 @@ export default function CustomPlaginiPage() {
     </>
   );
 }
+
