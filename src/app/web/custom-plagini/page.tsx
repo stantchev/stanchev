@@ -34,20 +34,20 @@ import {
 
 export async function generateMetadata() {
   return {
-    title: 'Custom плъгини за OpenCart & WordPress | Персонализирани модули и разширения | Станчев SEO',
+    title: 'Custom плъгини за OpenCart & WordPress | Stanchev Digital',
     description: 'Разработка на персонализирани плъгини и модули за OpenCart и WordPress. Custom функционалности, WooCommerce разширения и специализирани решения за вашия бизнес.',
     keywords: 'custom плъгини цена, WordPress плъгини България, OpenCart модули София, WooCommerce разширения цена, персонализирани модули цена, custom функционалности България, PHP разработчик, custom плъгин за WordPress, OpenCart модул цена',
     alternates: {
       canonical: `${baseURL}/web/custom-plagini`,
     },
     openGraph: {
-      title: 'Custom плъгини за OpenCart & WordPress | Персонализирани модули и разширения',
+      title: 'Custom плъгини за OpenCart & WordPress | Stanchev Digital',
       description: 'Разработка на персонализирани плъгини и модули за OpenCart и WordPress. Custom функционалности, WooCommerce разширения и специализирани решения за вашия бизнес.',
       url: `${baseURL}/web/custom-plagini`,
       siteName: 'Станчев SEO',
       images: [
         {
-          url: `https://stanchev.bg/images/og/web.jpg`,
+          url: `https://stanchev.bg/images/og/og.jpg`,
           width: 1200,
           height: 630,
         },
@@ -57,9 +57,9 @@ export async function generateMetadata() {
     },
     twitter: {
       card: 'summary_large_image',
-      title: 'Custom плъгини за OpenCart & WordPress | Персонализирани модули и разширения',
+      title: 'Custom плъгини за OpenCart & WordPress | Stanchev Digital',
       description: 'Разработка на персонализирани плъгини и модули за OpenCart и WordPress. Custom функционалности, WooCommerce разширения и специализирани решения за вашия бизнес.',
-      images: [`https://stanchev.bg/images/og/web.jpg`],
+      images: [`https://stanchev.bg/images/og/og.jpg`],
     },
   };
 }
@@ -531,3 +531,4 @@ export default function CustomPlaginiPage() {
     </>
   );
 }
+
