@@ -16,26 +16,24 @@ import type { Metadata } from "next";
 import Script from "next/script";
 
 export const metadata: Metadata = {
-  title: "Stanchev Digital – SEO оптимизация и AI уеб услуги за бизнес растеж",
+  title: "Stanchev Digital – SEO и AI Уеб Услуги за Бизнес Растеж",
   description:
-    "Stanchev Digital комбинира SEO оптимизация, изработка на уебсайтове и AI автоматизация, за да издигне твоя бизнес онлайн. Създаваме сайтове и стратегии, които носят реални резултати и устойчив растеж. Избери интелигентния подход към дигиталния маркетинг.",
+    "SEO оптимизация, уеб услуги и AI решения от Stanchev Digital. Повиши онлайн видимостта и развий бизнеса си с интелигентни дигитални стратегии.",
   keywords: [
     "SEO оптимизация",
+    "уеб услуги",
+    "AI решения",
     "изработка на уебсайтове",
     "дигитален маркетинг",
-    "уеб услуги",
-    "AI автоматизация",
-    "онлайн видимост",
-    "уеб дизайн",
-    "SEO агенция",
-    "SEO услуги",
     "бизнес растеж",
+    "онлайн видимост",
+    "SEO агенция",
     "Stanchev Digital",
   ],
   openGraph: {
-    title: "Stanchev Digital – SEO оптимизация и AI уеб услуги за бизнес растеж",
+    title: "Stanchev Digital – SEO и AI Уеб Услуги за Бизнес Растеж",
     description:
-      "SEO експертиза, изработка на уебсайтове, AI автоматизация и дигитален маркетинг – всичко в едно. Stanchev Digital създава уеб решения, които увеличават онлайн видимостта и продажбите ти.",
+      "SEO оптимизация, уеб услуги и AI решения от Stanchev Digital. Повиши онлайн видимостта и развий бизнеса си с интелигентни дигитални стратегии.",
     url: "https://stanchev.bg/",
     siteName: "Stanchev Digital",
     images: [
@@ -43,7 +41,7 @@ export const metadata: Metadata = {
         url: "https://stanchev.bg/images/og/og.jpg",
         width: 1200,
         height: 630,
-        alt: "Stanchev Digital – SEO и уеб услуги за растеж",
+        alt: "Stanchev Digital – SEO и AI Уеб Услуги за Бизнес Растеж",
       },
     ],
     locale: "bg_BG",
@@ -51,9 +49,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Stanchev Digital – SEO оптимизация и AI уеб услуги за растеж",
+    title: "Stanchev Digital – SEO и AI Уеб Услуги за Бизнес Растеж",
     description:
-      "Stanchev Digital обединява SEO, уеб услуги и AI автоматизация, за да изгради дигитално присъствие, което продава. Повиши своята онлайн видимост и изпревари конкуренцията.",
+      "SEO оптимизация, уеб услуги и AI решения от Stanchev Digital. Повиши онлайн видимостта и развий бизнеса си с интелигентни дигитални стратегии.",
     images: ["https://stanchev.bg/images/og/og.jpg"],
   },
 };
@@ -62,43 +60,64 @@ export default function Nachalo() {
   return (
     <>
       <Script
-        id="organization-homepage-schema"
-        type="application/ld+json"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "http://schema.org",
-            "@type": "Organization",
-            name: "Stanchev Digital",
-            url: "https://stanchev.bg/",
-            logo: "https://stanchev.bg/images/og/og.jpg",
-            description:
-              "SEO оптимизация и AI Automation за повече трафик, по-високо класиране и автоматизирано развитие на вашия бизнес | Станчев SEO",
-            contactPoint: [
-              {
-                "@type": "ContactPoint",
-                contactType: "customer service",
-                email: "seo@stanchev.bg",
-              },
-            ],
-            address: [
-              {
-                "@type": "PostalAddress",
-                streetAddress: "Бул. Г.М. Димитров 26",
-                addressLocality: "София",
-                addressRegion: "София",
-                postalCode: "1797",
-                addressCountry: "BG",
-              },
-            ],
-            sameAs: [
-              "https://github.com/stantchev/",
-              "https://www.linkedin.com/in/stantcheff/",
-              "https://dev.to/stanchev",
-            ],
-          }),
-        }}
-      />
+  id="organization-homepage-schema"
+  type="application/ld+json"
+  strategy="afterInteractive"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      name: "Stanchev Digital",
+      url: "https://stanchev.bg/",
+      logo: "https://stanchev.bg/images/og/og.jpg",
+      description:
+        "Stanchev Digital предлага SEO оптимизация, изработка на уебсайтове, AI автоматизация и дигитален маркетинг за бизнес растеж и по-добра онлайн видимост.",
+      foundingDate: "2025",
+      founder: {
+        "@type": "Person",
+        name: "Stanchev",
+        jobTitle: "SEO & Front-End Specialist",
+      },
+      contactPoint: [
+        {
+          "@type": "ContactPoint",
+          contactType: "customer service",
+          email: "seo@stanchev.bg",
+          availableLanguage: ["Bulgarian", "English"],
+        },
+      ],
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "Бул. Г.М. Димитров 33",
+        addressLocality: "София",
+        addressRegion: "София",
+        postalCode: "1797",
+        addressCountry: "BG",
+      },
+      sameAs: [
+        "https://github.com/stantchev/",
+        "https://www.linkedin.com/in/stantcheff/",
+        "https://dev.to/stanchev",
+      ],
+      knowsAbout: [
+        "SEO оптимизация",
+        "уеб услуги",
+        "изработка на сайтове",
+        "AI автоматизация",
+        "дигитален маркетинг",
+        "онлайн видимост",
+        "уеб дизайн",
+      ],
+      mainEntityOfPage: {
+        "@type": "WebSite",
+        name: "Stanchev Digital",
+        url: "https://stanchev.bg/",
+        description:
+          "Официален сайт на Stanchev Digital – SEO оптимизация и AI уеб услуги за устойчив бизнес растеж и дигитално присъствие.",
+      },
+    }),
+  }}
+/>
 
       <Column maxWidth="m" gap="l" horizontal="center" align="center">
         {/* Hero */}
@@ -240,8 +259,3 @@ export default function Nachalo() {
     </>
   );
 }
-
-
-
-
-
