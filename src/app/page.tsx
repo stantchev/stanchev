@@ -16,11 +16,11 @@ import type { Metadata } from "next";
 import Script from "next/script";
 
 export const metadata: Metadata = {
-  title: home.title,
-  description: home.description,
+  title: Stanchev Digital – SEO и AI Уеб услуги за растеж,
+  description: Комбинирам SEO експертиза, уеб технологии и AI, за да създаваме сайтове, които мислят стратегически. Stanchev Digital – интелигентният избор за растеж.,
   openGraph: {
-    title: home.title,
-    description: home.description,
+    title: Stanchev Digital – SEO и AI Уеб услуги за растеж,
+    description: Комбинирам SEO експертиза, уеб технологии и AI, за да създаваме сайтове, които мислят стратегически. Stanchev Digital – интелигентният избор за растеж.,
     url: "https://stanchev.bg/",
     siteName: "Станчев SEO",
     images: [
@@ -35,8 +35,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: home.title,
-    description: home.description,
+    title: Stanchev Digital – SEO и AI Уеб услуги за растеж,
+    description: Комбинирам SEO експертиза, уеб технологии и AI, за да създаваме сайтове, които мислят стратегически. Stanchev Digital – интелигентният избор за растеж.,
     images: ["https://stanchev.bg/images/og/og.jpg"],
   },
 };
@@ -52,7 +52,7 @@ export default function Nachalo() {
           __html: JSON.stringify({
             "@context": "http://schema.org",
             "@type": "Organization",
-            name: "Станчев SEO",
+            name: "Stanchev Digital",
             url: "https://stanchev.bg/",
             logo: "https://stanchev.bg/images/og/og.jpg",
             description:
@@ -223,6 +223,7 @@ export default function Nachalo() {
     </>
   );
 }
+
 
 
 
