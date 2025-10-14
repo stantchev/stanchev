@@ -103,10 +103,10 @@ export const Header = () => {
         height="80"
         zIndex={9}
       />
-      {/* Desktop Header */}
+      {/* Desktop Header - Top Menu Only */}
       <Row
         fitHeight
-        className={styles.position}
+        className={`${styles.position} s-flex-hide`}
         position="sticky"
         as="header"
         zIndex={9}
@@ -114,7 +114,6 @@ export const Header = () => {
         padding="8"
         horizontal="center"
         data-border="rounded"
-        s={{ hide: true }}
       >
         <Row paddingLeft="12" fillWidth vertical="center" textVariant="body-default-s">
           {display.location && <Row>{person.location}</Row>}
@@ -442,23 +441,18 @@ export const Header = () => {
         </Flex>
       </Row>
 
-      {/* Mobile Header */}
+      {/* Mobile Header - Bottom Menu Only */}
       <Row
         fitHeight
-        className={styles.position}
-        position="sticky"
+        className={`${styles.position} s-flex-show`}
+        position="fixed"
         as="header"
         zIndex={9}
         fillWidth
         padding="8"
         horizontal="center"
         data-border="rounded"
-        s={{
-          position: "fixed",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center"
-        }}
+        bottom="0"
       >
         <Row
           background="page"
