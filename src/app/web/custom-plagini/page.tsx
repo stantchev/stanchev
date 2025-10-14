@@ -13,61 +13,61 @@ import { baseURL } from '@/resources';
 import Script from 'next/script';
 
 export async function generateMetadata() {
- return {
-  title: "Custom плъгини за WordPress и OpenCart | Stanchev Digital",
-  description:
-    "Персонализирани плъгини и модули за WordPress, OpenCart и WooCommerce. Специализирани решения за бизнес функционалности и висока производителност.",
-  keywords: [
-    "custom плъгини",
-    "WordPress плъгини",
-    "OpenCart модули",
-    "WooCommerce разширения",
-    "персонализирани модули",
-    "PHP разработчик",
-    "custom функционалности",
-    "разработка на плъгини",
-    "Stanchev Digital",
-  ],
-  alternates: {
-    canonical: `${baseURL}/web/custom-plagini`,
-  },
-  openGraph: {
+   return {
     title: "Custom плъгини за WordPress и OpenCart | Stanchev Digital",
     description:
       "Персонализирани плъгини и модули за WordPress, OpenCart и WooCommerce. Специализирани решения за бизнес функционалности и висока производителност.",
-    url: `${baseURL}/web/custom-plagini`,
-    siteName: "Stanchev Digital",
-    images: [
-      {
-        url: "https://stanchev.bg/images/og/og.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Custom плъгини и модули за WordPress и OpenCart",
-      },
+    keywords: [
+      "custom плъгини",
+      "WordPress плъгини",
+      "OpenCart модули",
+      "WooCommerce разширения",
+      "персонализирани модули",
+      "PHP разработчик",
+      "custom функционалности",
+      "разработка на плъгини",
+      "Stanchev Digital",
     ],
-    locale: "bg_BG",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Custom плъгини за WordPress и OpenCart | Stanchev Digital",
-    description:
-      "Персонализирани плъгини и модули за WordPress, OpenCart и WooCommerce. Специализирани решения за бизнес функционалности и висока производителност.",
-    images: ["https://stanchev.bg/images/og/og.jpg"],
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
+    alternates: {
+      canonical: `${baseURL}/web/custom-plagini`,
+    },
+    openGraph: {
+      title: "Custom плъгини за WordPress и OpenCart | Stanchev Digital",
+      description:
+        "Персонализирани плъгини и модули за WordPress, OpenCart и WooCommerce. Специализирани решения за бизнес функционалности и висока производителност.",
+      url: `${baseURL}/web/custom-plagini`,
+      siteName: "Stanchev Digital",
+      images: [
+        {
+          url: "https://stanchev.bg/images/og/og.jpg",
+          width: 1200,
+          height: 630,
+          alt: "Custom плъгини и модули за WordPress и OpenCart",
+        },
+      ],
+      locale: "bg_BG",
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Custom плъгини за WordPress и OpenCart | Stanchev Digital",
+      description:
+        "Персонализирани плъгини и модули за WordPress, OpenCart и WooCommerce. Специализирани решения за бизнес функционалности и висока производителност.",
+      images: ["https://stanchev.bg/images/og/og.jpg"],
+    },
+    robots: {
       index: true,
       follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
     },
-  },
-};
-
+  };
+}
 export default function CustomPlaginiPage() {
   return (
     <>
@@ -370,4 +370,5 @@ export default function CustomPlaginiPage() {
     </>
   );
 }
+
 
