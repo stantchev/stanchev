@@ -22,19 +22,38 @@ import { person, routes } from "@/resources";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Уеб разработка и дизайн | Модерни сайтове за вашия бизнес | Станчев SEO",
-  description: "Професионални услуги за уеб разработка, дизайн и SEO оптимизация в България. Създавам модерни, бързи и функционални уебсайтове с React, Next.js, Tailwind CSS. Core Web Vitals оптимизация, мобилно-първи дизайн, техническа SEO интеграция.",
-  keywords: "уеб разработка, уеб дизайн, SEO оптимизация, React разработчик, Next.js, Tailwind CSS, Core Web Vitals, мобилно приложение, лендинг страница, уебсайт за бизнес, техническа SEO, производителност на сайт, модерен дизайн, респонсивен дизайн, WordPress плъгини, OpenCart модули, WooCommerce разширения, custom плъгини",
+  export const metadata: Metadata = {
+  title: "Уеб разработка и дизайн модерни и бързи сайтове | Stanchev Digital",
+  description:
+    "Уеб разработка, дизайн и SEO оптимизация с React и Next.js. Създавам бързи, модерни и оптимизирани сайтове за реални бизнес резултати.",
+  keywords: [
+    "уеб разработка",
+    "уеб дизайн",
+    "SEO оптимизация",
+    "React разработчик",
+    "Next.js",
+    "Tailwind CSS",
+    "Core Web Vitals",
+    "лендинг страница",
+    "уебсайт за бизнес",
+    "техническа SEO",
+    "мобилен дизайн",
+    "WordPress плъгини",
+    "WooCommerce разширения",
+    "custom плъгини",
+  ],
   openGraph: {
-    title: "Уеб разработка и дизайн | Модерни сайтове за вашия бизнес | Станчев SEO",
-    description: "Професионални услуги за уеб разработка, дизайн и SEO оптимизация в България. Създавам модерни, бързи и функционални уебсайтове с React, Next.js, Tailwind CSS.",
+    title: "Уеб разработка и дизайн модерни сайтове от Stanchev Digital",
+    description:
+      "Уеб разработка, дизайн и SEO оптимизация с React и Next.js. Създавам бързи, модерни и оптимизирани сайтове за реални бизнес резултати.",
     url: "https://stanchev.bg/web",
-    siteName: "Станчев SEO",
+    siteName: "Stanchev Digital",
     images: [
       {
-        url: "https://stanchev.bg/images/og/web.jpg",
+        url: "https://stanchev.bg/images/og/og.jpg",
         width: 1200,
         height: 630,
+        alt: "Уеб разработка и дизайн от Stanchev Digital",
       },
     ],
     locale: "bg_BG",
@@ -42,8 +61,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Уеб разработка и дизайн | Модерни сайтове за вашия бизнес | Станчев SEO",
-    description: "Професионални услуги за уеб разработка, дизайн и SEO оптимизация в България. Създавам модерни, бързи и функционални уебсайтове с React, Next.js, Tailwind CSS.",
+    title: "Уеб разработка и дизайн | Модерни сайтове за бизнес",
+    description:
+      "Уеб разработка, дизайн и SEO оптимизация с React и Next.js. Създавам бързи, модерни и оптимизирани сайтове за реални бизнес резултати.",
     images: ["https://stanchev.bg/images/og/web.jpg"],
   },
   robots: {
@@ -52,9 +72,9 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
     },
   },
 };
@@ -147,7 +167,7 @@ export default function WebPage() {
         }}
       />
 
-      <Column as="section" gap="l" padding="l" fillWidth maxWidth="m" horizontal="center">
+      <Column as="section" gap="l" padding="l" maxWidth="m" horizontal="center" style={{ width: "100%", maxWidth: "100vw", overflow: "hidden" }}>
 
         {/* Hero секция */}
         <Column gap="xl" align="center" paddingBottom="xl">
@@ -215,7 +235,7 @@ export default function WebPage() {
           </Column>
         </RevealFx>
 
-        <Grid columns="3" s={{ columns: 1 }} fillWidth gap="l">
+        <Grid columns="3" s={{ columns: 1 }} gap="l" style={{ maxWidth: "100%", overflow: "hidden" }}>
           <RevealFx delay={0.1}>
             <Card 
               radius="l" 
@@ -539,8 +559,8 @@ export default function WebPage() {
                         axis="none"
                         legend={{ position: "bottom-center" }}
                         series={[
-                          { key: "Преди", color: "danger" },
-                          { key: "След", color: "success" }
+                          { key: "Преди", color: "red" },
+                          { key: "След", color: "green" }
                         ]}
                         data={[
                           { label: "LCP (секунди)", "Преди": 4.8, "След": 2.1 },
@@ -602,9 +622,9 @@ export default function WebPage() {
         </RevealFx>
 
         <RevealFx delay={0.1}>
-          <Column gap="l" fillWidth>
+          <Column gap="l" style={{ width: "100%", maxWidth: "100%" }}>
             {/* Стъпка 1 */}
-            <Row gap="l" align="center" fillWidth>
+            <Row gap="l" align="center" style={{ width: "100%" }}>
               <Column align="center">
                 <div
                   style={{
@@ -622,7 +642,7 @@ export default function WebPage() {
                 </div>
               </Column>
               <Column>
-                <Card padding="l" radius="xl" fillWidth>
+                <Card padding="l" radius="xl" style={{ width: "100%" }}>
                   <Column gap="s">
                     <Text variant="heading-strong-m">Свързване и безплатна консултация</Text>
                     <Text variant="body-default-m" onBackground="neutral-weak">
@@ -634,7 +654,7 @@ export default function WebPage() {
             </Row>
 
             {/* Стъпка 2 */}
-            <Row gap="l" align="center" fillWidth>
+            <Row gap="l" align="center" style={{ width: "100%" }}>
               <Column align="center">
                 <div
                   style={{
@@ -652,7 +672,7 @@ export default function WebPage() {
                 </div>
               </Column>
               <Column>
-                <Card padding="l" radius="xl" fillWidth>
+                <Card padding="l" radius="xl" style={{ width: "100%" }}>
                   <Column gap="s">
                     <Text variant="heading-strong-m">План и оферта</Text>
                     <Text variant="body-default-m" onBackground="neutral-weak">
@@ -664,7 +684,7 @@ export default function WebPage() {
             </Row>
 
             {/* Стъпка 3 */}
-            <Row gap="l" align="center" fillWidth>
+            <Row gap="l" align="center" style={{ width: "100%" }}>
               <Column align="center">
                 <div
                   style={{
@@ -682,7 +702,7 @@ export default function WebPage() {
                 </div>
               </Column>
               <Column>
-                <Card padding="l" radius="xl" fillWidth>
+                <Card padding="l" radius="xl" style={{ width: "100%" }}>
                   <Column gap="s">
                     <Text variant="heading-strong-m">Разработка и обратна връзка</Text>
                     <Text variant="body-default-m" onBackground="neutral-weak">
@@ -694,7 +714,7 @@ export default function WebPage() {
             </Row>
 
             {/* Стъпка 4 */}
-            <Row gap="l" align="center" fillWidth>
+            <Row gap="l" align="center" style={{ width: "100%" }}>
               <Column align="center">
                 <div
                   style={{
@@ -712,7 +732,7 @@ export default function WebPage() {
                 </div>
               </Column>
               <Column>
-                <Card padding="l" radius="xl" fillWidth>
+                <Card padding="l" radius="xl" style={{ width: "100%" }}>
                   <Column gap="s">
                     <Text variant="heading-strong-m">Пускане и поддръжка</Text>
                     <Text variant="body-default-m" onBackground="neutral-weak">
@@ -782,20 +802,19 @@ export default function WebPage() {
             dual: true
           }}
           series={[
-            { key: "Органичен трафик", color: "brand" },
-            { key: "Приходи (лв)", color: "success" },
-            { key: "Конверсия (%)", color: "warning" }
+            { key: "Органичен трафик", color: "blue" },
+            { key: "Приходи (лв)", color: "yellow" },
           ]}
           data={[
-            { date: new Date("2025-03-01"), "Органичен трафик": 1200, "Приходи (лв)": 18500, "Конверсия (%)": 4.3 },
-            { date: new Date("2025-04-01"), "Органичен трафик": 1650, "Приходи (лв)": 212400, "Конверсия (%)": 4.9 },
-            { date: new Date("2025-05-01"), "Органичен трафик": 2100, "Приходи (лв)": 216800, "Конверсия (%)": 5.4 },
-            { date: new Date("2025-06-01"), "Органичен трафик": 2750, "Приходи (лв)": 322100, "Конверсия (%)": 6.8 },
-            { date: new Date("2025-07-01"), "Органичен трафик": 3400, "Приходи (лв)": 327900, "Конверсия (%)": 7.2 },
-            { date: new Date("2025-08-01"), "Органичен трафик": 4100, "Приходи (лв)": 434200, "Конверсия (%)": 8.6 },
-            { date: new Date("2025-09-01"), "Органичен трафик": 4850, "Приходи (лв)": 441800, "Конверсия (%)": 10.9 },
-            { date: new Date("2025-10-01"), "Органичен трафик": 5600, "Приходи (лв)": 549500, "Конверсия (%)": 13.3 },
-            { date: new Date("2025-11-01"), "Органичен трафик": 6400, "Приходи (лв)": 658200, "Конверсия (%)": 15.7 }
+            { date: new Date("2025-03-01"), "Органичен трафик": 1200, "Приходи (лв)": 18500 },
+            { date: new Date("2025-04-01"), "Органичен трафик": 1650, "Приходи (лв)": 212400 },
+            { date: new Date("2025-05-01"), "Органичен трафик": 12100, "Приходи (лв)": 216800 },
+            { date: new Date("2025-06-01"), "Органичен трафик": 12750, "Приходи (лв)": 322100 },
+            { date: new Date("2025-07-01"), "Органичен трафик": 23400, "Приходи (лв)": 327900 },
+            { date: new Date("2025-08-01"), "Органичен трафик": 24100, "Приходи (лв)": 434200 },
+            { date: new Date("2025-09-01"), "Органичен трафик": 34850, "Приходи (лв)": 441800 },
+            { date: new Date("2025-10-01"), "Органичен трафик": 35600, "Приходи (лв)": 549500 },
+            { date: new Date("2025-11-01"), "Органичен трафик": 46400, "Приходи (лв)": 658200 }
           ]}
         />
       </Column>
@@ -918,7 +937,7 @@ export default function WebPage() {
         </RevealFx>
 
         <RevealFx delay={0.2}>
-          <Column align="center" fillWidth>
+          <Column align="center" style={{ width: "100%", maxWidth: "100%" }}>
             <Flex 
               gap="m" 
               horizontal="center" 
