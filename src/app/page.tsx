@@ -16,18 +16,34 @@ import type { Metadata } from "next";
 import Script from "next/script";
 
 export const metadata: Metadata = {
-  title: Stanchev Digital – SEO и AI Уеб услуги за растеж,
-  description: Комбинирам SEO експертиза, уеб технологии и AI, за да създаваме сайтове, които мислят стратегически. Stanchev Digital – интелигентният избор за растеж.,
+  title: "Stanchev Digital – SEO оптимизация и AI уеб услуги за бизнес растеж",
+  description:
+    "Stanchev Digital комбинира SEO оптимизация, изработка на уебсайтове и AI автоматизация, за да издигне твоя бизнес онлайн. Създаваме сайтове и стратегии, които носят реални резултати и устойчив растеж. Избери интелигентния подход към дигиталния маркетинг.",
+  keywords: [
+    "SEO оптимизация",
+    "изработка на уебсайтове",
+    "дигитален маркетинг",
+    "уеб услуги",
+    "AI автоматизация",
+    "онлайн видимост",
+    "уеб дизайн",
+    "SEO агенция",
+    "SEO услуги",
+    "бизнес растеж",
+    "Stanchev Digital",
+  ],
   openGraph: {
-    title: Stanchev Digital – SEO и AI Уеб услуги за растеж,
-    description: Комбинирам SEO експертиза, уеб технологии и AI, за да създаваме сайтове, които мислят стратегически. Stanchev Digital – интелигентният избор за растеж.,
+    title: "Stanchev Digital – SEO оптимизация и AI уеб услуги за бизнес растеж",
+    description:
+      "SEO експертиза, изработка на уебсайтове, AI автоматизация и дигитален маркетинг – всичко в едно. Stanchev Digital създава уеб решения, които увеличават онлайн видимостта и продажбите ти.",
     url: "https://stanchev.bg/",
-    siteName: "Станчев SEO",
+    siteName: "Stanchev Digital",
     images: [
       {
         url: "https://stanchev.bg/images/og/og.jpg",
         width: 1200,
         height: 630,
+        alt: "Stanchev Digital – SEO и уеб услуги за растеж",
       },
     ],
     locale: "bg_BG",
@@ -35,8 +51,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: Stanchev Digital – SEO и AI Уеб услуги за растеж,
-    description: Комбинирам SEO експертиза, уеб технологии и AI, за да създаваме сайтове, които мислят стратегически. Stanchev Digital – интелигентният избор за растеж.,
+    title: "Stanchev Digital – SEO оптимизация и AI уеб услуги за растеж",
+    description:
+      "Stanchev Digital обединява SEO, уеб услуги и AI автоматизация, за да изгради дигитално присъствие, което продава. Повиши своята онлайн видимост и изпревари конкуренцията.",
     images: ["https://stanchev.bg/images/og/og.jpg"],
   },
 };
@@ -223,6 +240,7 @@ export default function Nachalo() {
     </>
   );
 }
+
 
 
 
