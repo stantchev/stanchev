@@ -142,7 +142,7 @@ export default function OptimizatsiyaSajtPage() {
       <Column as="section" gap="xl" padding="xl" fillWidth>
         <Column gap="m" align="center" fillWidth>
           <Heading as="h1" variant="display-strong-l" align="center">
-            Оптимизация на съществуващ сайт – ускоряване и подобряване на производителността
+            Оптимизация на сайта – по-бърза работа и по-висока ефективност
           </Heading>
 
           <Text variant="display-default-s" align="center" onBackground="neutral-weak">
@@ -344,3 +344,4 @@ export default function OptimizatsiyaSajtPage() {
     </>
   );
 }
+
