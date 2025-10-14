@@ -20,39 +20,42 @@ import {
 } from "@once-ui-system/core";
 import { person, routes } from "@/resources";
 import type { Metadata } from "next";
+import { 
+  FaCode, 
+  FaPalette, 
+  FaMobile, 
+  FaRocket, 
+  FaShoppingCart, 
+  FaWordpress, 
+  FaStore, 
+  FaCogs, 
+  FaSearch, 
+  FaShieldAlt, 
+  FaClock, 
+  FaCheckCircle,
+  FaLaptop,
+  FaGlobe,
+  FaCog,
+  FaChartLine,
+  FaUsers,
+  FaLightbulb,
+  FaHeart
+} from 'react-icons/fa';
 
-  export const metadata: Metadata = {
-  title: "Уеб разработка и дизайн модерни и бързи сайтове | Stanchev Digital",
-  description:
-    "Уеб разработка, дизайн и SEO оптимизация с React и Next.js. Създавам бързи, модерни и оптимизирани сайтове за реални бизнес резултати.",
-  keywords: [
-    "уеб разработка",
-    "уеб дизайн",
-    "SEO оптимизация",
-    "React разработчик",
-    "Next.js",
-    "Tailwind CSS",
-    "Core Web Vitals",
-    "лендинг страница",
-    "уебсайт за бизнес",
-    "техническа SEO",
-    "мобилен дизайн",
-    "WordPress плъгини",
-    "WooCommerce разширения",
-    "custom плъгини",
-  ],
+export const metadata: Metadata = {
+  title: "Уеб разработка и дизайн | Модерни сайтове за вашия бизнес | Станчев SEO",
+  description: "Професионални услуги за уеб разработка, дизайн и SEO оптимизация в България. Създавам модерни, бързи и функционални уебсайтове с React, Next.js, Tailwind CSS. Core Web Vitals оптимизация, мобилно-първи дизайн, техническа SEO интеграция.",
+  keywords: "уеб разработка, уеб дизайн, SEO оптимизация, React разработчик, Next.js, Tailwind CSS, Core Web Vitals, мобилно приложение, лендинг страница, уебсайт за бизнес, техническа SEO, производителност на сайт, модерен дизайн, респонсивен дизайн, WordPress плъгини, OpenCart модули, WooCommerce разширения, custom плъгини",
   openGraph: {
-    title: "Уеб разработка и дизайн модерни сайтове от Stanchev Digital",
-    description:
-      "Уеб разработка, дизайн и SEO оптимизация с React и Next.js. Създавам бързи, модерни и оптимизирани сайтове за реални бизнес резултати.",
+    title: "Уеб разработка и дизайн | Модерни сайтове за вашия бизнес | Станчев SEO",
+    description: "Професионални услуги за уеб разработка, дизайн и SEO оптимизация в България. Създавам модерни, бързи и функционални уебсайтове с React, Next.js, Tailwind CSS.",
     url: "https://stanchev.bg/web",
-    siteName: "Stanchev Digital",
+    siteName: "Станчев SEO",
     images: [
       {
-        url: "https://stanchev.bg/images/og/og.jpg",
+        url: "https://stanchev.bg/images/og/web.jpg",
         width: 1200,
         height: 630,
-        alt: "Уеб разработка и дизайн от Stanchev Digital",
       },
     ],
     locale: "bg_BG",
@@ -60,9 +63,8 @@ import type { Metadata } from "next";
   },
   twitter: {
     card: "summary_large_image",
-    title: "Уеб разработка и дизайн | Модерни сайтове за бизнес",
-    description:
-      "Уеб разработка, дизайн и SEO оптимизация с React и Next.js. Създавам бързи, модерни и оптимизирани сайтове за реални бизнес резултати.",
+    title: "Уеб разработка и дизайн | Модерни сайтове за вашия бизнес | Станчев SEO",
+    description: "Професионални услуги за уеб разработка, дизайн и SEO оптимизация в България. Създавам модерни, бързи и функционални уебсайтове с React, Next.js, Tailwind CSS.",
     images: ["https://stanchev.bg/images/og/web.jpg"],
   },
   robots: {
@@ -71,9 +73,9 @@ import type { Metadata } from "next";
     googleBot: {
       index: true,
       follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
     },
   },
 };
@@ -184,9 +186,9 @@ export default function WebPage() {
                 wrap="balance"
                 onBackground="neutral-weak"
                 align="center"
-                variant="body-default-xl"
+                variant="display-default-s"
               >
-                Помагам на малки бизнеси и лични брандове да изглеждат професионално онлайн — с уебсайтове, които се зареждат светкавично и се класират по-добре в Google.
+                Всеки проект е бърз, адаптивен и оптимизиран за по-добро класиране в Google — защото впечатлението онлайн започва със скоростта и стила.
               </Text>
             </Column>
           </RevealFx>
@@ -244,7 +246,7 @@ export default function WebPage() {
               gap="0"
             >
               <Row fillWidth paddingX="m" paddingY="s" gap="s" vertical="center">
-                <Icon name="monitor" size="m" onBackground="brand-strong" />
+                <FaLaptop size={20} color="var(--brand-strong)" />
                 <Text variant="label-default-s" wrap="balance">Изработка на сайт / лендинг страница</Text>
               </Row>
               
@@ -260,7 +262,7 @@ export default function WebPage() {
                   borderBottom: "1px solid var(--neutral-alpha-weak)"
                 }}
               >
-                <Icon name="check" size="xl" onBackground="brand-strong" />
+                <FaCheckCircle size={32} color="var(--brand-strong)" />
               </div>
               
               <Column fillWidth paddingX="m" paddingY="l" gap="s" flex={1} align="center">
@@ -297,7 +299,7 @@ export default function WebPage() {
               gap="0"
             >
               <Row fillWidth paddingX="m" paddingY="s" gap="s" vertical="center">
-                <Icon name="zap" size="m" onBackground="success-strong" />
+                <FaRocket size={20} color="var(--success-strong)" />
                 <Text variant="label-default-s" wrap="balance">Оптимизация на съществуващ сайт</Text>
               </Row>
               
@@ -313,7 +315,7 @@ export default function WebPage() {
                   borderBottom: "1px solid var(--neutral-alpha-weak)"
                 }}
               >
-                <Icon name="check" size="xl" onBackground="success-strong" />
+                <FaCheckCircle size={32} color="var(--success-strong)" />
               </div>
               
               <Column fillWidth paddingX="m" paddingY="l" gap="s" flex={1} align="center">
@@ -350,7 +352,7 @@ export default function WebPage() {
               gap="0"
             >
               <Row fillWidth paddingX="m" paddingY="s" gap="s" vertical="center">
-                <Icon name="search" size="m" onBackground="warning-strong" />
+                <FaSearch size={20} color="var(--warning-strong)" />
                 <Text variant="label-default-s" wrap="balance">SEO интеграция и структура</Text>
               </Row>
               
@@ -366,7 +368,7 @@ export default function WebPage() {
                   borderBottom: "1px solid var(--neutral-alpha-weak)"
                 }}
               >
-                <Icon name="check" size="xl" onBackground="warning-strong" />
+                <FaCheckCircle size={32} color="var(--warning-strong)" />
               </div>
               
               <Column fillWidth paddingX="m" paddingY="l" gap="s" flex={1} align="center">
@@ -403,7 +405,7 @@ export default function WebPage() {
               gap="0"
             >
               <Row fillWidth paddingX="m" paddingY="s" gap="s" vertical="center">
-                <Icon name="settings" size="m" onBackground="info-strong" />
+                <FaCogs size={20} color="var(--info-strong)" />
                 <Text variant="label-default-s" wrap="balance">Поддръжка и надграждане</Text>
               </Row>
               
@@ -419,7 +421,7 @@ export default function WebPage() {
                   borderBottom: "1px solid var(--neutral-alpha-weak)"
                 }}
               >
-                <Icon name="check" size="xl" onBackground="info-strong" />
+                <FaCheckCircle size={32} color="var(--info-strong)" />
               </div>
               
               <Column fillWidth paddingX="m" paddingY="l" gap="s" flex={1} align="center">
@@ -456,7 +458,7 @@ export default function WebPage() {
               gap="0"
             >
               <Row fillWidth paddingX="m" paddingY="s" gap="s" vertical="center">
-                <Icon name="puzzle" size="m" onBackground="accent-strong" />
+                <FaCode size={20} color="var(--accent-strong)" />
                 <Text variant="label-default-s" wrap="balance">Custom плъгини за OpenCart & WordPress</Text>
               </Row>
               
@@ -472,7 +474,7 @@ export default function WebPage() {
                   borderBottom: "1px solid var(--neutral-alpha-weak)"
                 }}
               >
-                <Icon name="check" size="xl" onBackground="accent-strong" />
+                <FaCheckCircle size={32} color="var(--accent-strong)" />
               </div>
               
               <Column fillWidth paddingX="m" paddingY="l" gap="s" flex={1} align="center">
@@ -609,7 +611,6 @@ export default function WebPage() {
         <RevealFx>
           <Column gap="m" align="center">
             <Column gap="s" align="center">
-              <Icon name="route" size="l" onBackground="success-strong" />
               <Heading variant="display-strong-m" align="center">
                 Процес на работа
               </Heading>
@@ -637,7 +638,7 @@ export default function WebPage() {
                     border: "3px solid var(--brand-background-strong)"
                   }}
                 >
-                  <Text variant="heading-strong-m" onBackground="brand-strong">1</Text>
+                  <FaUsers size={24} color="var(--brand-strong)" />
                 </div>
               </Column>
               <Column>
@@ -667,7 +668,7 @@ export default function WebPage() {
                     border: "3px solid var(--success-background-strong)"
                   }}
                 >
-                  <Text variant="heading-strong-m" onBackground="success-strong">2</Text>
+                  <FaLightbulb size={24} color="var(--success-strong)" />
                 </div>
               </Column>
               <Column>
@@ -697,7 +698,7 @@ export default function WebPage() {
                     border: "3px solid var(--warning-background-strong)"
                   }}
                 >
-                  <Text variant="heading-strong-m" onBackground="warning-strong">3</Text>
+                  <FaCode size={24} color="var(--warning-strong)" />
                 </div>
               </Column>
               <Column>
@@ -727,7 +728,7 @@ export default function WebPage() {
                     border: "3px solid var(--info-background-strong)"
                   }}
                 >
-                  <Text variant="heading-strong-m" onBackground="info-strong">4</Text>
+                  <FaRocket size={24} color="var(--info-strong)" />
                 </div>
               </Column>
               <Column>
@@ -750,7 +751,6 @@ export default function WebPage() {
         <RevealFx>
           <Column gap="m" align="center">
             <Column gap="s" align="center">
-              <Icon name="trending-up" size="l" onBackground="warning-strong" />
               <Heading variant="display-strong-m" align="center">
                 Реални резултати от проектите
               </Heading>
@@ -968,4 +968,3 @@ export default function WebPage() {
     </>
   );
 }
-
