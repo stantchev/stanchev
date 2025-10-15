@@ -78,7 +78,7 @@ export const Header = () => {
   const handleWebMouseLeave = () => {
     const timeoutId = setTimeout(() => {
       setIsWebHovered(false);
-    }, 300); // 300ms забавяне
+    }, 150); // ms забавяне
     setWebTimeoutId(timeoutId);
   };
 
@@ -517,3 +517,4 @@ export const Header = () => {
     </>
   );
 };
+
