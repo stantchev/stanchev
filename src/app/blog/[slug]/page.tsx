@@ -1,7 +1,6 @@
 import { notFound } from "next/navigation";
 import { CustomMDX, ScrollToHash } from "@/components";
 import {
-  Meta,
   Schema,
   Column,
   Heading,
@@ -14,13 +13,7 @@ import {
   Media,
   Line,
   Button,
-  AccordionGroup,
-  BarChart,
-  Feedback,
   AvatarGroup,
-  BlockQuote,
-  LineBarChart,
-  CodeBlock,
 } from "@once-ui-system/core";
 import { baseURL, about, blog, person } from "@/resources";
 import { formatDate } from "@/utils/formatDate";
@@ -30,6 +23,7 @@ import React from "react";
 import { Posts } from "@/components/blog/Posts";
 import { ShareSection } from "@/components/blog/ShareSection";
 
+// ✅ Static params
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
   const posts = getPosts(["src", "app", "blog", "posts"]);
   return posts.map((post) => ({
@@ -37,6 +31,7 @@ export async function generateStaticParams(): Promise<{ slug: string }[]> {
   }));
 }
 
+// ✅ Metadata for SEO
 export async function generateMetadata({
   params,
 }: {
@@ -53,7 +48,7 @@ export async function generateMetadata({
   if (!post) return {};
 
   const canonicalURL = `${baseURL}${blog.path}/${post.slug}`;
-  
+
   return {
     title: post.metadata.title,
     description: post.metadata.summary,
@@ -65,7 +60,11 @@ export async function generateMetadata({
       siteName: "Станчев SEO",
       images: [
         {
-          url: post.metadata.image || `/api/og/generate?title=${encodeURIComponent(post.metadata.title)}`,
+          url:
+            post.metadata.image ||
+            `/api/og/generate?title=${encodeURIComponent(
+              post.metadata.title
+            )}`,
           width: 1200,
           height: 630,
           alt: post.metadata.title,
@@ -78,7 +77,10 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: post.metadata.title,
       description: post.metadata.summary,
-      images: [post.metadata.image || `/api/og/generate?title=${encodeURIComponent(post.metadata.title)}`],
+      images: [
+        post.metadata.image ||
+          `/api/og/generate?title=${encodeURIComponent(post.metadata.title)}`,
+      ],
     },
     alternates: {
       canonical: canonicalURL,
@@ -90,6 +92,7 @@ export async function generateMetadata({
   };
 }
 
+// ✅ Main Blog component
 export default async function Blog({
   params,
 }: {
@@ -108,150 +111,191 @@ export default async function Blog({
     notFound();
   }
 
+  // ✅ Team avatars
   const avatars =
     post.metadata.team?.map((person) => ({
       src: person.avatar,
     })) || [];
 
+  // ✅ JSON-LD Schema (автоматично)
+  const schemaOrgJSONLD = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${baseURL}${blog.path}/${post.slug}`,
+    },
+    headline: post.metadata.title,
+    description: post.metadata.summary,
+    image:
+      post.metadata.image ||
+      `${baseURL}/api/og/generate?title=${encodeURIComponent(
+        post.metadata.title
+      )}`,
+    author: {
+      "@type": "Person",
+      name: "Станчев",
+      url: `${baseURL}${about.path}`,
+      image: `${baseURL}${person.avatar}`,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Станчев SEO",
+      logo: {
+        "@type": "ImageObject",
+        url: `${baseURL}/images/logo.png`,
+      },
+    },
+    datePublished: post.metadata.publishedAt,
+    dateModified: post.metadata.publishedAt,
+    keywords: post.metadata.keywords?.join(", ") || "",
+  };
+
+  // ✅ Render
   return (
-    <Row fillWidth>
-      <Row maxWidth={12} m={{ hide: true }} />
-      <Row fillWidth horizontal="center">
-        <Column
-          as="section"
-          maxWidth="m"
-          horizontal="center"
-          gap="l"
-          paddingTop="24"
-        >
-          <Schema
-            as="blogPosting"
-            baseURL={baseURL}
-            path={`${blog.path}/${post.slug}`}
-            title={post.metadata.title}
-            description={post.metadata.summary}
-            datePublished={post.metadata.publishedAt}
-            dateModified={post.metadata.publishedAt}
-            image={
-              post.metadata.image ||
-              `/api/og/generate?title=${encodeURIComponent(
-                post.metadata.title
-              )}`
-            }
-            author={{
-              name: person.name,
-              url: `${baseURL}${about.path}`,
-              image: `${baseURL}${person.avatar}`,
-            }}
-          />
+    <>
+      {/* Инжектираме Schema.org JSON-LD в head */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(schemaOrgJSONLD),
+        }}
+      />
 
-          <Button
-            data-border="rounded"
-            href="/blog"
-            weight="default"
-            variant="tertiary"
-            size="s"
-            prefixIcon="chevronLeft"
+      <Row fillWidth>
+        <Row maxWidth={12} m={{ hide: true }} />
+        <Row fillWidth horizontal="center">
+          <Column
+            as="section"
+            maxWidth="m"
+            horizontal="center"
+            gap="l"
+            paddingTop="24"
           >
-            Към блога
-          </Button>
+            <Schema
+              as="blogPosting"
+              baseURL={baseURL}
+              path={`${blog.path}/${post.slug}`}
+              title={post.metadata.title}
+              description={post.metadata.summary}
+              datePublished={post.metadata.publishedAt}
+              dateModified={post.metadata.publishedAt}
+              image={
+                post.metadata.image ||
+                `/api/og/generate?title=${encodeURIComponent(
+                  post.metadata.title
+                )}`
+              }
+              author={{
+                name: person.name,
+                url: `${baseURL}${about.path}`,
+                image: `${baseURL}${person.avatar}`,
+              }}
+            />
 
-          <Column maxWidth="s" gap="16" horizontal="center" align="center">
-            <SmartLink href="/blog">
-              <Text variant="label-strong-m">Блог</Text>
-            </SmartLink>
-            <Text
-              variant="body-default-xs"
-              onBackground="neutral-weak"
-              marginBottom="12"
+            <Button
+              data-border="rounded"
+              href="/blog"
+              weight="default"
+              variant="tertiary"
+              size="s"
+              prefixIcon="chevronLeft"
             >
-              {post.metadata.publishedAt &&
-                formatDate(post.metadata.publishedAt)}
-            </Text>
-            <Heading variant="display-strong-m">
-              {post.metadata.title}
-            </Heading>
-          </Column>
+              Към блога
+            </Button>
 
-          <Row marginBottom="32" horizontal="center">
-            <Row gap="16" vertical="center">
-              <Avatar size="s" src={person.avatar} />
-              <Text variant="label-default-m" onBackground="brand-weak">
-                {person.name}
+            <Column maxWidth="s" gap="16" horizontal="center" align="center">
+              <SmartLink href="/blog">
+                <Text variant="label-strong-m">Блог</Text>
+              </SmartLink>
+              <Text
+                variant="body-default-xs"
+                onBackground="neutral-weak"
+                marginBottom="12"
+              >
+                {post.metadata.publishedAt &&
+                  formatDate(post.metadata.publishedAt)}
               </Text>
-              {avatars.length > 0 && (
-                <AvatarGroup size="s" avatars={avatars} />
-              )}
+              <Heading variant="display-strong-m">
+                {post.metadata.title}
+              </Heading>
+            </Column>
+
+            <Row marginBottom="32" horizontal="center">
+              <Row gap="16" vertical="center">
+                <Avatar size="s" src={person.avatar} />
+                <Text variant="label-default-m" onBackground="brand-weak">
+                  {person.name}
+                </Text>
+                {avatars.length > 0 && (
+                  <AvatarGroup size="s" avatars={avatars} />
+                )}
+              </Row>
             </Row>
+
+            {post.metadata.image && (
+              <Media
+                src={post.metadata.image}
+                alt={post.metadata.title}
+                aspectRatio="16/9"
+                priority
+                sizes="(min-width: 768px) 100vw, 768px"
+                border="neutral-alpha-weak"
+                radius="l"
+                marginTop="12"
+                marginBottom="8"
+              />
+            )}
+
+            <Column as="article" maxWidth="s">
+              <CustomMDX source={post.content} />
+            </Column>
+
+            <ShareSection
+              title={post.metadata.title}
+              url={`${baseURL}${blog.path}/${post.slug}`}
+            />
+
+            <Column fillWidth gap="40" horizontal="center" marginTop="40">
+              <Line maxWidth="40" />
+              <Heading as="h2" variant="heading-strong-xl" marginBottom="24">
+                Последни публикации
+              </Heading>
+              <Posts
+                exclude={[post.slug]}
+                range={[1, 2]}
+                columns="2"
+                thumbnail
+                direction="column"
+              />
+            </Column>
+
+            <ScrollToHash />
+          </Column>
+        </Row>
+
+        <Column
+          maxWidth={12}
+          paddingLeft="40"
+          fitHeight
+          position="sticky"
+          top="80"
+          gap="16"
+          m={{ hide: true }}
+        >
+          <Row
+            gap="12"
+            paddingLeft="2"
+            vertical="center"
+            onBackground="neutral-medium"
+            textVariant="label-default-s"
+          >
+            <Icon name="document" size="xs" />
+            На тази страница
           </Row>
-
-          {/* Оставяме само еднократно визуално рендериране на снимката */}
-          {post.metadata.image && (
-            <Media
-              src={post.metadata.image}
-              alt={post.metadata.title}
-              aspectRatio="16/9"
-              priority
-              sizes="(min-width: 768px) 100vw, 768px"
-              border="neutral-alpha-weak"
-              radius="l"
-              marginTop="12"
-              marginBottom="8"
-            />
-          )}
-
-          <Column as="article" maxWidth="s">
-            <CustomMDX source={post.content} />
-          </Column>
-
-          <ShareSection
-            title={post.metadata.title}
-            url={`${baseURL}${blog.path}/${post.slug}`}
-          />
-
-          <Column fillWidth gap="40" horizontal="center" marginTop="40">
-            <Line maxWidth="40" />
-            <Heading as="h2" variant="heading-strong-xl" marginBottom="24">
-              Последни публикации
-            </Heading>
-            <Posts
-              exclude={[post.slug]}
-              range={[1, 2]}
-              columns="2"
-              thumbnail
-              direction="column"
-            />
-          </Column>
-
-          <ScrollToHash />
+          <HeadingNav fitHeight />
         </Column>
       </Row>
-
-      <Column
-        maxWidth={12}
-        paddingLeft="40"
-        fitHeight
-        position="sticky"
-        top="80"
-        gap="16"
-        m={{ hide: true }}
-      >
-        <Row
-          gap="12"
-          paddingLeft="2"
-          vertical="center"
-          onBackground="neutral-medium"
-          textVariant="label-default-s"
-        >
-          <Icon name="document" size="xs" />
-          На тази страница
-        </Row>
-        <HeadingNav fitHeight />
-      </Column>
-    </Row>
+    </>
   );
 }
-
-
-
-
