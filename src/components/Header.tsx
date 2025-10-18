@@ -78,7 +78,7 @@ export const Header = () => {
   const handleWebMouseLeave = () => {
     const timeoutId = setTimeout(() => {
       setIsWebHovered(false);
-    }, 75); // ms забавяне
+    }, 300); // 300ms забавяне
     setWebTimeoutId(timeoutId);
   };
 
@@ -469,7 +469,6 @@ export const Header = () => {
                 <AiOutlineHome size={18} />
               </ToggleButton>
             )}
-            <Line background="neutral-alpha-medium" vert maxHeight="24" />
             {routes["/za-men"] && (
               <ToggleButton
                 href="/za-men"
@@ -478,7 +477,6 @@ export const Header = () => {
                 <FaUser size={16} />
               </ToggleButton>
             )}
-            <Line background="neutral-alpha-medium" vert maxHeight="24" />
             {routes["/seo-uslugi"] && (
               <ToggleButton
                 href="/seo-uslugi"
@@ -487,7 +485,6 @@ export const Header = () => {
                 <MdOutlineRocketLaunch size={18} />
               </ToggleButton>
             )}
-            <Line background="neutral-alpha-medium" vert maxHeight="24" />
             {routes["/web"] && (
               <ToggleButton
                 href="/web"
@@ -496,7 +493,14 @@ export const Header = () => {
                 <FaGlobe size={16} />
               </ToggleButton>
             )}
-            <Line background="neutral-alpha-medium" vert maxHeight="24" />
+            {routes["/blog"] && (
+              <ToggleButton
+                href="/blog"
+                selected={pathname.startsWith("/blog")}
+              >
+                <FaRegNewspaper size={16} />
+              </ToggleButton>
+            )}
             {routes["/kontakti"] && (
               <ToggleButton
                 href="/kontakti"
@@ -506,10 +510,7 @@ export const Header = () => {
               </ToggleButton>
             )}
             {display.themeSwitcher && (
-              <>
-                <Line background="neutral-alpha-medium" vert maxHeight="20" />
-                <ThemeToggle />
-              </>
+              <ThemeToggle />
             )}
           </Row>
         </Row>
@@ -517,5 +518,3 @@ export const Header = () => {
     </>
   );
 };
-
-
