@@ -18,6 +18,8 @@ const nextConfig = {
   experimental: {
     optimizeCss: true,
     optimizePackageImports: ['react-icons'],
+    webVitalsAttribution: ['CLS', 'LCP'],
+    optimizeServerReact: true,
   },
   
   // Image optimization
@@ -65,3 +67,4 @@ const nextConfig = {
 };
 
 export default withMDX(nextConfig);
+
