@@ -1,123 +1,194 @@
-/* Critical CSS - Above the fold styles */
-:root {
-  --page-background: #ffffff;
-  --neutral-on-background-strong: #1a1a1a;
-  --brand-on-background-strong: #0066cc;
-  --neutral-alpha-weak: rgba(0, 0, 0, 0.1);
-  --brand-alpha-weak: rgba(0, 102, 204, 0.1);
-  --static-space-8: 8px;
-  --static-space-16: 16px;
-  --static-space-24: 24px;
-  --static-transparent: transparent;
-}
+/* Critical CSS for above-the-fold content */
+/* This should be inlined in the HTML head for fastest loading */
 
-[data-theme="dark"] {
-  --page-background: #0a0a0a;
-  --neutral-on-background-strong: #ffffff;
-}
-
+/* Reset and base styles */
 * {
   box-sizing: border-box;
-}
-
-html {
-  font-family: 'Sofia Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
   margin: 0;
   padding: 0;
-  background-color: var(--page-background);
-  color: var(--neutral-on-background-strong);
-  overflow-x: hidden;
-}
-
-.page-background {
-  background: var(--page-background);
-  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
 }
 
 /* Critical layout styles */
-.flex {
-  display: flex;
-}
-
-.flex-col {
-  flex-direction: column;
-}
-
-.items-center {
-  align-items: center;
-}
-
-.min-h-screen {
-  min-height: 100vh;
-}
-
-.main-content {
-  width: 100%;
+.container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 24px;
-  min-height: calc(100vh - 120px);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 80px;
+  padding: 0 1rem;
+}
+
+/* Critical typography */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0 0 1rem 0;
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 2.5rem;
+  line-height: 1.1;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.5rem;
 }
 
 /* Critical button styles */
-button, .btn {
-  cursor: pointer;
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 0.375rem;
   border: none;
-  background: none;
-  font-family: inherit;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
 }
 
-/* Critical header styles */
-header {
-  position: sticky;
-  top: 0;
-  z-index: 9;
-  width: 100%;
-  padding: 8px;
-  background: var(--page-background);
-  border-bottom: 1px solid var(--neutral-alpha-weak);
+.btn:hover {
+  background-color: #0056b3;
 }
 
-/* Critical navigation styles */
-nav {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 4px;
+.btn-secondary {
+  background-color: transparent;
+  color: #007bff;
+  border: 2px solid #007bff;
 }
 
-/* Loading states */
+.btn-secondary:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+/* Critical grid system */
+.grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.grid-1 {
+  grid-template-columns: 1fr;
+}
+
+.grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 768px) {
+  .grid-2,
+  .grid-3 {
+    grid-template-columns: 1fr;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.75rem;
+  }
+}
+
+/* Critical spacing */
+.p-0 { padding: 0; }
+.p-1 { padding: 0.25rem; }
+.p-2 { padding: 0.5rem; }
+.p-3 { padding: 0.75rem; }
+.p-4 { padding: 1rem; }
+.p-6 { padding: 1.5rem; }
+.p-8 { padding: 2rem; }
+
+.m-0 { margin: 0; }
+.m-1 { margin: 0.25rem; }
+.m-2 { margin: 0.5rem; }
+.m-3 { margin: 0.75rem; }
+.m-4 { margin: 1rem; }
+.m-6 { margin: 1.5rem; }
+.m-8 { margin: 2rem; }
+
+/* Critical text styles */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.text-sm { font-size: 0.875rem; }
+.text-base { font-size: 1rem; }
+.text-lg { font-size: 1.125rem; }
+.text-xl { font-size: 1.25rem; }
+.text-2xl { font-size: 1.5rem; }
+.text-3xl { font-size: 1.875rem; }
+
+.font-normal { font-weight: 400; }
+.font-medium { font-weight: 500; }
+.font-semibold { font-weight: 600; }
+.font-bold { font-weight: 700; }
+
+/* Critical flexbox */
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.flex-row { flex-direction: row; }
+.items-center { align-items: center; }
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+
+/* Critical card styles */
+.card {
+  background: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  border: 1px solid #e5e7eb;
+}
+
+/* Critical responsive utilities */
+@media (max-width: 640px) {
+  .container {
+    padding: 0 0.75rem;
+  }
+  
+  .btn {
+    padding: 0.625rem 1.25rem;
+    font-size: 0.875rem;
+  }
+  
+  .card {
+    padding: 1rem;
+  }
+}
+
+/* Critical loading states */
 .loading {
-  opacity: 0.7;
+  opacity: 0.6;
   pointer-events: none;
 }
 
-/* Critical responsive styles */
-@media (max-width: 768px) {
-  .main-content {
-    padding: 0 16px;
-    padding-top: 60px;
+.skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
   }
-  
-  header {
-    position: fixed;
-    bottom: 24px;
-    top: auto;
-    left: 50%;
-    transform: translateX(-50%);
-    width: auto;
-    border-bottom: none;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  100% {
+    background-position: -200% 0;
   }
 }
