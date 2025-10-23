@@ -8,9 +8,7 @@ import {
   AccordionGroup,
   Button,
   Row,
-  Icon,
-  Tag,
-  Flex
+  Tag
 } from "@once-ui-system/core";
 import { baseURL } from "@/resources";
 import { FaCookie, FaShieldAlt, FaCog, FaInfoCircle } from 'react-icons/fa';
@@ -73,15 +71,15 @@ export default function CookiePolicy() {
               "url": baseURL,
               "logo": `${baseURL}/images/og/og.jpg`
             }
-          })
+          }, null, 0)
         }}
       />
 
       <Column maxWidth="l" gap="xl" paddingX="l" s={{ paddingX: "m" }}>
         {/* Header */}
         <Column gap="l" paddingY="xl" s={{ paddingY: "l" }}>
-          <Row gap="m" vertical="center" s={{ direction: "column", gap: "s" }}>
-            <FaCookie size={24} color="var(--brand-strong)"/>
+          <Row gap="m" align="center" s={{ direction: "column", gap: "s" }}>
+            <FaCookie size={24} color="var(--brand-strong)" />
             <Heading variant="display-strong-l">
               Cookie Policy
             </Heading>
@@ -89,15 +87,15 @@ export default function CookiePolicy() {
           <Text variant="body-default-l" onBackground="neutral-weak" style={{ maxWidth: "800px" }}>
             Тази страница обяснява как използваме cookies на нашия сайт и как можете да контролирате тяхното използване.
           </Text>
-          <Tag size="l" variant="info" prefixIcon="info">
+          <Tag size="l" variant="info">
             Последна актуализация: {new Date().toLocaleDateString('bg-BG')}
           </Tag>
         </Column>
 
         {/* What are cookies */}
         <Card padding="xl" radius="l" background="surface">
-          <Column gap="m" vertical="center">
-            <Row gap="m" vertical="center">
+          <Column gap="m" align="center">
+            <Row gap="m" align="center">
               <FaInfoCircle size={24} color="var(--info-strong)" />
               <Heading variant="heading-strong-l">
                 Какво са cookies?
@@ -119,7 +117,7 @@ export default function CookiePolicy() {
           <Row gap="l" wrap>
             <Card padding="l" radius="l" border="success-alpha-medium" flex={1} minWidth="300px">
               <Column gap="m">
-                <Row gap="s" vertical="center">
+                <Row gap="s" align="center">
                   <FaShieldAlt size={20} color="var(--success-strong)" />
                   <Heading variant="heading-strong-m">Необходими cookies</Heading>
                 </Row>
@@ -137,7 +135,7 @@ export default function CookiePolicy() {
 
             <Card padding="l" radius="l" border="warning-alpha-medium" flex={1} minWidth="300px">
               <Column gap="m">
-                <Row gap="s" vertical="center">
+                <Row gap="s" align="center">
                   <FaCog size={20} color="var(--warning-strong)" />
                   <Heading variant="heading-strong-m">Аналитични cookies</Heading>
                 </Row>
@@ -206,18 +204,18 @@ export default function CookiePolicy() {
         </Column>
 
         {/* Contact */}
-        <Card padding="xl" radius="l" background="brand-alpha-weak" border="brand-alpha-medium" >
-          <Row gap="m" align="center">
+        <Card padding="xl" radius="l" background="brand-alpha-weak" border="brand-alpha-medium">
+          <Column gap="m" align="center">
             <Heading variant="heading-strong-m" align="center">
               Имате въпроси за cookies?
             </Heading>
             <Text variant="body-default-m" align="center" onBackground="neutral-weak">
               Ако имате въпроси относно нашата Cookie Policy, не се колебайте да се свържете с нас.
             </Text>
-            <Button href="/kontakti" variant="primary" size="l" prefixIcon="mail" >
+            <Button href="/kontakti" variant="primary" size="l">
               Свържете се с нас
             </Button>
-          </Row>
+          </Column>
         </Card>
 
         {/* Footer info */}
@@ -241,5 +239,3 @@ export default function CookiePolicy() {
     </>
   );
 }
-
-
