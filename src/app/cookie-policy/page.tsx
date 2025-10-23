@@ -81,7 +81,7 @@ export default function CookiePolicy() {
         {/* Header */}
         <Column gap="l" paddingY="xl" s={{ paddingY: "l" }}>
           <Row gap="m" vertical="center" s={{ direction: "column", gap: "s" }}>
-            <FaCookie size={32} color="var(--brand-strong)" s={{ size: 24 }} />
+            <FaCookie size={24} color="var(--brand-strong)"/>
             <Heading variant="display-strong-l" s={{ variant: "display-strong-m" }}>
               Cookie Policy
             </Heading>
