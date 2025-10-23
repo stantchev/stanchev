@@ -86,7 +86,7 @@ export default function CookiePolicy() {
               Cookie Policy
             </Heading>
           </Row>
-          <Text variant="body-default-xl" onBackground="neutral-weak" style={{ maxWidth: "800px" }} s={{ variant: "body-default-l" }}>
+          <Text variant="body-default-l" onBackground="neutral-weak" style={{ maxWidth: "800px" }}>
             Тази страница обяснява как използваме cookies на нашия сайт и как можете да контролирате тяхното използване.
           </Text>
           <Tag size="l" variant="info" prefixIcon="info">
@@ -241,4 +241,5 @@ export default function CookiePolicy() {
     </>
   );
 }
+
 
