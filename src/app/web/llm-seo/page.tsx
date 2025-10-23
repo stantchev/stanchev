@@ -50,11 +50,11 @@ import {
 } from 'react-icons/fa';
 
 export const metadata: Metadata = {
-  title: "LLM SEO - SEO за големите езикови модели | ChatGPT, Gemini, Claude | Станчев SEO",
+  title: "LLM SEO - SEO за големите езикови модели | Stanchev Digital",
   description: "Революционна LLM SEO оптимизация за ChatGPT, Gemini, Claude и всички AI търсачки. Позиционирайте се в ерата на изкуствения интелект с генеративно SEO. Бъдещето на SEO е тук!",
   keywords: "LLM SEO, AI SEO, генеративно SEO, SEO за ChatGPT, SEO за Gemini, SEO за Claude, SEO за големите езикови модели, AI търсачки, оптимизация за AI, бъдещето на SEO, SEO в ерата на AI, генеративно търсене, AI системи за търсене, LLM оптимизация, AI-friendly SEO, ChatGPT SEO, Gemini SEO, Claude SEO",
   openGraph: {
-    title: "LLM SEO - SEO за големите езикови модели | ChatGPT, Gemini, Claude | Станчев SEO",
+    title: "LLM SEO - SEO за големите езикови модели | Stanchev Digital",
     description: "Революционна LLM SEO оптимизация за ChatGPT, Gemini, Claude и всички AI търсачки. Позиционирайте се в ерата на изкуствения интелект с генеративно SEO.",
     url: "https://stanchev.bg/web/llm-seo",
     siteName: "Станчев SEO",
@@ -70,7 +70,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "LLM SEO - SEO за големите езикови модели | ChatGPT, Gemini, Claude | Станчев SEO",
+    title: "LLM SEO - SEO за големите езикови модели | Stanchev Digital",
     description: "Революционна LLM SEO оптимизация за ChatGPT, Gemini, Claude и всички AI търсачки. Позиционирайте се в ерата на изкуствения интелект с генеративно SEO.",
     images: ["https://stanchev.bg/images/og/llm-seo.jpg"],
   },
@@ -101,7 +101,7 @@ export default function LLMSEOPage() {
             "description": "Революционна LLM SEO оптимизация за ChatGPT, Gemini, Claude и всички AI търсачки. Позиционирайте се в ерата на изкуствения интелект с генеративно SEO.",
             "provider": {
               "@type": "Person",
-              "name": "Станчев",
+              "name": "Stanhcev Digital",
               "url": "https://stanchev.bg",
               "image": "https://stanchev.bg/images/avatar.jpg",
               "sameAs": [
@@ -912,3 +912,4 @@ export default function LLMSEOPage() {
     </>
   );
 }
+
