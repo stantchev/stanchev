@@ -307,8 +307,8 @@ const contact: Contact = {
 
 const seoServices: SeoServices = {
   path: "/seo-uslugi",
-  label: "SEO Услуги | Stanchev Digital",
-  title: "Пълна гама от SEO услуги, цени и пакети за вашия бизнес",
+  label: "SEO Услуги",
+  title: "Пълна гама от SEO услуги, цени и пакети за вашия бизнес.",
   description: "SEO оптимизация, линк билдинг, on-page и off-page оптимизация.",
   services: [
     {
@@ -421,6 +421,7 @@ export {
   contact,
   seoServices,
 };
+
 
 
 
