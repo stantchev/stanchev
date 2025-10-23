@@ -14,7 +14,7 @@ import { baseURL } from "@/resources";
 import { FaCookie, FaShieldAlt, FaCog, FaInfoCircle } from 'react-icons/fa';
 
 export const metadata: Metadata = {
-  title: 'Cookie Policy | Станчев SEO',
+  title: 'Cookie Policy | Stanchev Digital',
   description: 'Информация за използването на cookies на сайта Stanchev.bg. Научете как използваме cookies за подобряване на вашия опит.',
   robots: {
     index: false,
@@ -24,16 +24,16 @@ export const metadata: Metadata = {
     canonical: `${baseURL}/cookie-policy`,
   },
   openGraph: {
-    title: 'Cookie Policy | Станчев SEO',
+    title: 'Cookie Policy | Stanchev Digital',
     description: 'Информация за използването на cookies на сайта Stanchev.bg. Научете как използваме cookies за подобряване на вашия опит.',
     url: `${baseURL}/cookie-policy`,
-    siteName: 'Станчев SEO',
+    siteName: 'Stanchev Digital',
     images: [
       {
         url: `${baseURL}/images/og/og.jpg`,
         width: 1200,
         height: 630,
-        alt: 'Cookie Policy - Станчев SEO',
+        alt: 'Cookie Policy - Stanchev Digital',
       },
     ],
     locale: "bg_BG",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: 'Cookie Policy | Станчев SEO',
+    title: 'Cookie Policy | Stanchev Digital',
     description: 'Информация за използването на cookies на сайта Stanchev.bg.',
     images: [`${baseURL}/images/og/og.jpg`],
   },
@@ -55,9 +55,9 @@ export default function CookiePolicy() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
-            "@context": "http://schema.org",
+            "@context": "https://schema.org",
             "@type": "WebPage",
-            "name": "Cookie Policy - Станчев SEO",
+            "name": "Cookie Policy - Stanchev Digital",
             "description": "Информация за използването на cookies на сайта Stanchev.bg",
             "url": `${baseURL}/cookie-policy`,
             "author": {
@@ -67,11 +67,14 @@ export default function CookiePolicy() {
             },
             "publisher": {
               "@type": "Organization",
-              "name": "Станчев SEO",
+              "name": "Stanchev Digital",
               "url": baseURL,
-              "logo": `${baseURL}/images/og/og.jpg`
+              "logo": {
+                "@type": "ImageObject",
+                "url": `${baseURL}/images/og/og.jpg`
+              }
             }
-          }, null, 0)
+          })
         }}
       />
 
@@ -84,7 +87,7 @@ export default function CookiePolicy() {
               Cookie Policy
             </Heading>
           </Row>
-          <Text variant="body-default-l" onBackground="neutral-weak" style={{ maxWidth: "800px" }}>
+          <Text variant="body-default-l" onBackground="neutral-weak" style={{ maxWidth: 800 }}>
             Тази страница обяснява как използваме cookies на нашия сайт и как можете да контролирате тяхното използване.
           </Text>
           <Tag size="l" variant="info">
@@ -115,7 +118,7 @@ export default function CookiePolicy() {
           </Heading>
           
           <Row gap="l" wrap>
-            <Card padding="l" radius="l" border="success-alpha-medium" flex={1} minWidth="300px">
+            <Card padding="l" radius="l" border="success-alpha-medium" flex={1} minWidth={300}>
               <Column gap="m">
                 <Row gap="s" align="center">
                   <FaShieldAlt size={20} color="var(--success-strong)" />
@@ -133,7 +136,7 @@ export default function CookiePolicy() {
               </Column>
             </Card>
 
-            <Card padding="l" radius="l" border="warning-alpha-medium" flex={1} minWidth="300px">
+            <Card padding="l" radius="l" border="warning-alpha-medium" flex={1} minWidth={300}>
               <Column gap="m">
                 <Row gap="s" align="center">
                   <FaCog size={20} color="var(--warning-strong)" />
