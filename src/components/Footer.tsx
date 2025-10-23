@@ -50,6 +50,26 @@ export const Footer = () => {
               cursor: 'pointer'
             }}
           >Общи условия</a>
+          <Text paddingX="4">/</Text>
+          <a href="/gdpr"
+            className={styles.footerLink}
+            style={{ 
+              textDecoration: 'underline dotted', 
+              color: 'var(--accent)', 
+              transition: 'color 0.2s',
+              cursor: 'pointer'
+            }}
+          >GDPR</a>
+          <Text paddingX="4">/</Text>
+          <a href="/cookie-policy"
+            className={styles.footerLink}
+            style={{ 
+              textDecoration: 'underline dotted', 
+              color: 'var(--accent)', 
+              transition: 'color 0.2s',
+              cursor: 'pointer'
+            }}
+          >Cookies</a>
         </Text>
         <Flex gap="16">
           {social.map(
@@ -77,4 +97,3 @@ export const Footer = () => {
     </Flex>
   );
 };
-
