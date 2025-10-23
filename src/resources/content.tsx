@@ -35,9 +35,9 @@ type SeoServices = {
 };
 
 const person: Person = {
-  firstName: "Станчев",
-  lastName: "SEO",
-  name: "Станчев SEO",
+  firstName: "Stanchev",
+  lastName: "Digital",
+  name: "Stanchev Digital",
   role: "SEO Специалист",
   avatar: "/images/avatar.jpg",
   email: "seo@stanchev.bg",
@@ -91,7 +91,7 @@ const home: Home = {
 const about: About = {
   path: "/za-men",
   label: "За мен",
-  title: `За мен | Станчев SEO`,
+  title: `За мен | Stanchev Digital`,
   description: `Научете повече за моя професионален опит и философия в SEO и AI Automation. Прозрачност, ефективност и устойчиви резултати.`,
   tableOfContent: { display: true, subItems: false },
   avatar: { display: true },
@@ -307,7 +307,7 @@ const contact: Contact = {
 
 const seoServices: SeoServices = {
   path: "/seo-uslugi",
-  label: "SEO Услуги",
+  label: "SEO Услуги | Stanchev Digital",
   title: "Пълна гама от SEO услуги, цени и пакети за вашия бизнес",
   description: "SEO оптимизация, линк билдинг, on-page и off-page оптимизация.",
   services: [
@@ -421,6 +421,7 @@ export {
   contact,
   seoServices,
 };
+
 
 
 
