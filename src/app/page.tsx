@@ -234,7 +234,7 @@ export default function Nachalo() {
               </Heading>
               <Text variant="body-default-xl" align="center" onBackground="neutral-weak">
                 Специализирам се в <strong>оптимизация за генеративно търсене</strong> и 
-                <strong>SEO в ерата на AI търсачките</strong>. Позиционирам ви в ChatGPT, 
+                <strong> SEO в ерата на AI търсачките</strong>. Позиционирам ви в ChatGPT, 
                 Gemini, Claude и всички големи езикови модели, докато поддържам 
                 отлично класиране в Google.
               </Text>
@@ -436,7 +436,7 @@ export default function Nachalo() {
               <Text variant="body-default-xl" align="center" onBackground="neutral-weak">
                 Доказани резултати от реални клиенти - средно +433% ръст в органичния трафик, 
                 +585% увеличение на приходите и +148% подобрение на конверсията. 
-                <strong>Бъдещето на SEO</strong> е тук и работи.
+                <strong> Бъдещето на SEO</strong> е тук и работи.
               </Text>
             </Column>
           </RevealFx>
@@ -573,7 +573,7 @@ export default function Nachalo() {
           <Heading variant="display-strong-m" align="center">
             Готови ли сте за AI SEO революцията?
           </Heading>
-          <Text variant="body-default-l" align="center" onBackground="neutral-weak" style={{ maxWidth: "600px", marginBottom: "24px" }}>
+          <Text variant="body-default-l" align="center" onBackground="neutral-weak">
             Не изоставайте от <strong>бъдещето на SEO</strong>. Позиционирайте се в AI системите 
             докато конкурентите ви все още спят. Започнете AI SEO оптимизацията днес.
           </Text>
@@ -623,7 +623,7 @@ export default function Nachalo() {
               </Column>
               <Text variant="body-default-xl" align="center" onBackground="neutral-weak">
                 Отговори на най-често задаваните въпроси за <strong>AI SEO</strong>, 
-                <strong>генеративно SEO</strong> и <strong>оптимизация за големите езикови модели</strong>. 
+                <strong> генеративно SEO</strong> и <strong>оптимизация за големите езикови модели</strong>. 
                 Намери информация за процеса, резултатите и всичко, което трябва да знаеш за AI SEO.
               </Text>
             </Column>
@@ -639,7 +639,7 @@ export default function Nachalo() {
                       <strong>AI SEO</strong> е оптимизация за големите езикови модели като ChatGPT, Gemini и Claude. 
                       Това е <strong>бъдещето на SEO</strong> - докато традиционното SEO се фокусира върху Google, 
                       AI SEO ви позиционира в AI системите за търсене, където потребителите отиват все повече. 
-                      <strong>Генеративно SEO</strong> ви дава двойно предимство пред конкурентите.
+                      <strong> Генеративно SEO</strong> ви дава двойно предимство пред конкурентите.
                     </Text>
                   ),
                 },
@@ -650,7 +650,7 @@ export default function Nachalo() {
                       AI системите използват различни алгоритми от Google. <strong>LLM SEO</strong> оптимизацията 
                       се фокусира върху структуриране на съдържанието по начин, който AI моделите разбират по-добре. 
                       Това включва правилна семантична структура, schema markup за AI и оптимизация за 
-                      <strong>генеративно търсене</strong>.
+                      <strong> генеративно търсене</strong>.
                     </Text>
                   ),
                 },
@@ -661,7 +661,7 @@ export default function Nachalo() {
                       <strong>SEO в ерата на изкуствения интелект</strong> не е просто тренд - това е революция. 
                       AI търсачките набират скорост и скоро ще бъдат толкова популярни колкото Google. 
                       Позиционирайте се сега в AI системите, преди конкурентите ви да се събудят. 
-                      <strong>Бъдещето на SEO</strong> е тук.
+                      <strong> Бъдещето на SEO</strong> е тук.
                     </Text>
                   ),
                 },
@@ -670,7 +670,7 @@ export default function Nachalo() {
                   content: (
                     <Text onBackground="neutral-weak">
                       Клиентите ми виждат средно +433% ръст в органичния трафик, +585% увеличение на приходите 
-                      и +148% подобрение на конверсията. <strong>Оптимизация за генеративно търсене</strong> 
+                      и +148% подобрение на конверсията. <strong> Оптимизация за генеративно търсене</strong> 
                       ви дава достъп до нови аудитории в AI системите, докато поддържа отлично класиране в Google.
                     </Text>
                   ),
@@ -691,7 +691,7 @@ export default function Nachalo() {
                   content: (
                     <Text onBackground="neutral-weak">
                       Абсолютно! Моят подход ви дава <strong>двойно покритие</strong> - отлично класиране 
-                      в Google И позициониране в AI системите. <strong>SEO в ерата на AI търсачките</strong> 
+                      в Google И позициониране в AI системите. <strong>SEO в ерата на AI търсачките </strong> 
                       не замества традиционното SEO, а го допълва. Получавате най-доброто от двата свята.
                     </Text>
                   ),
@@ -704,3 +704,4 @@ export default function Nachalo() {
     </>
   );
 }
+
