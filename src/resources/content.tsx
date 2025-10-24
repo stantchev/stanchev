@@ -262,10 +262,10 @@ const about: About = {
           <>Разработка и оптимизация на сайтове с модерни технологии, осигуряващи бързина и UX, съобразени с Core Web Vitals.</>
         ),
         tools: [
-          "⚡ Next.js 15",
-          "🎨 Tailwind CSS",
-          "⚛️ React",
-          "🚀 Netlify",
+          <SiNextdotjs />,
+          <SiTailwindcss />,
+          <SiReact />,
+          <SiNetlify />,,
         ],
       },
       {
@@ -435,6 +435,7 @@ export {
   contact,
   seoServices,
 };
+
 
 
 
