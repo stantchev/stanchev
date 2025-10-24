@@ -17,9 +17,8 @@ import {
   SiTailwindcss,
   SiReact,
   SiNetlify,
-  SiPhotoshop,
+  SiAdobephotoshop,
   SiAdobelightroom,
-  SiChrome,
   SiNpm,
   SiWordpress,
   SiMagento,
@@ -442,5 +441,6 @@ export {
   contact,
   seoServices,
 };
+
 
 
