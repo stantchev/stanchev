@@ -83,6 +83,10 @@ import {
   SiNpm,
   SiAdobephotoshop,
   SiAdobelightroom,
+  SiLighthouse,
+  SiGoogleanalytics,
+  SiGooglesearchconsole,
+  SiVercel,
 } from "react-icons/si";
 
 export const iconLibrary: Record<string, IconType> = {
@@ -146,15 +150,17 @@ export const iconLibrary: Record<string, IconType> = {
   magento: SiMagento,
   photoshop: SiAdobephotoshop,
   lightroom: SiAdobelightroom,
+  lighthouse: SiLighthouse,
+  vercel: SiVercel,
 
   // SEO & Generic Icons
   search: FaSearch,
   ahrefs: FaChartBar,
   chartBar: FaChartBar,
-  semrush: FaCog,
+  semrush: SiSemrush,
   settings: FaCog,
   chartLine: FaChartLine,
-  yoast: FaChartBar,
+  yoast: SiYoast,
   code: FaCode,
   palette: FaPalette,
   lightbulb: FaLightbulb,
@@ -164,6 +170,9 @@ export const iconLibrary: Record<string, IconType> = {
   box: FaBox,
   lock: FaLock,
   chrome: FaCode,
+  googleanalitycs: SiGoogleanalytics,
+  gsconsole: SiGooglesearchconsole,
+
 
   // Utility
   eye: HiOutlineEye,
@@ -172,3 +181,4 @@ export const iconLibrary: Record<string, IconType> = {
 
 export type IconLibrary = typeof iconLibrary;
 export type IconName = keyof IconLibrary;
+
