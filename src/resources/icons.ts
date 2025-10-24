@@ -53,7 +53,37 @@ import {
   FaTelegram,
 } from "react-icons/fa6";
 
-import { SiJavascript, SiNextdotjs, SiFigma, SiSupabase } from "react-icons/si";
+import {
+  FaSearch,
+  FaChartBar,
+  FaChartLine,
+  FaPalette,
+  FaCamera,
+  FaWrench,
+  FaBox,
+  FaLock,
+  FaCode,
+  FaLightbulb,
+  FaCloud,
+  FaCog,
+} from "react-icons/fa";
+
+import {
+  SiJavascript,
+  SiNextdotjs,
+  SiFigma,
+  SiSupabase,
+  SiReact,
+  SiTailwindcss,
+  SiNetlify,
+  SiSemrush,
+  SiYoast,
+  SiWordpress,
+  SiMagento,
+  SiNpm,
+  SiAdobephotoshop,
+  SiAdobelightroom,
+} from "react-icons/si";
 
 export const iconLibrary: Record<string, IconType> = {
   chevronUp: HiChevronUp,
@@ -75,8 +105,8 @@ export const iconLibrary: Record<string, IconType> = {
   clipboard: HiClipboard,
   email: HiEnvelope,
   calendar: HiCalendarDays,
-  globe: HiMiniGlobeAsiaAustralia, // стар вариант
-  globeOutline: HiOutlineGlobeAsiaAustralia, // нов вариант
+  globe: HiMiniGlobeAsiaAustralia,
+  globeOutline: HiOutlineGlobeAsiaAustralia,
   rocket: HiOutlineRocketLaunch,
   moon: HiMoon,
   sun: HiSun,
@@ -103,11 +133,37 @@ export const iconLibrary: Record<string, IconType> = {
   reddit: FaReddit,
   telegram: FaTelegram,
 
-  // Инструменти
+  // Web Технологии
   javascript: SiJavascript,
   nextjs: SiNextdotjs,
   supabase: SiSupabase,
   figma: SiFigma,
+  react: SiReact,
+  tailwindcss: SiTailwindcss,
+  netlify: SiNetlify,
+  npm: SiNpm,
+  wordpress: SiWordpress,
+  magento: SiMagento,
+  photoshop: SiAdobephotoshop,
+  lightroom: SiAdobelightroom,
+
+  // SEO & Generic Icons
+  search: FaSearch,
+  ahrefs: FaChartBar,
+  chartBar: FaChartBar,
+  semrush: FaCog,
+  settings: FaCog,
+  chartLine: FaChartLine,
+  yoast: FaChartBar,
+  code: FaCode,
+  palette: FaPalette,
+  lightbulb: FaLightbulb,
+  cloud: FaCloud,
+  camera: FaCamera,
+  wrench: FaWrench,
+  box: FaBox,
+  lock: FaLock,
+  chrome: FaCode,
 
   // Utility
   eye: HiOutlineEye,
