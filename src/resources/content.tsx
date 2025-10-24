@@ -233,11 +233,11 @@ const about: About = {
           <>Дълбок опит в keyword research, SEO одити и оптимизация чрез професионални платформи.</>
         ),
         tags: [
-          { name: "Google Lighthouse", icon: "search" },
+          { name: "Google Lighthouse", icon: "lighthouse" },
           { name: "Ahrefs", icon: "ahrefs" },
-          { name: "Google Analytics", icon: "chartBar" },
+          { name: "Google Analytics", icon: "googleanalitycs" },
           { name: "SEMrush", icon: "semrush" },
-          { name: "Google Search Console", icon: "chartLine" },
+          { name: "Google Search Console", icon: "gsconsole" },
           { name: "Yoast SEO", icon: "yoast" },
         ],
       },
@@ -251,6 +251,7 @@ const about: About = {
           { name: "Tailwind CSS", icon: "tailwindcss" },
           { name: "React", icon: "react" },
           { name: "Netlify", icon: "netlify" },
+          { name: "Vercel", icon: "vercel" },
         ],
       },
       {
@@ -420,3 +421,4 @@ export {
   contact,
   seoServices,
 };
+
