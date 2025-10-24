@@ -23,6 +23,19 @@ import {
   SiWordpress,
   SiMagento,
 } from "react-icons/si";
+import {
+  FaSearch,
+  FaChartBar,
+  FaCog,
+  FaChartLine,
+  FaCheckCircle,
+  FaLightbulb,
+  FaPalette,
+  FaCamera,
+  FaWrench,
+  FaBox,
+  FaLock,
+} from "react-icons/fa";
 import { FiArrowRight } from "react-icons/fi";
 
 // 🆕 Добавени типове
@@ -435,6 +448,7 @@ export {
   contact,
   seoServices,
 };
+
 
 
 
