@@ -11,7 +11,6 @@ import {
 import { Line, Row, Text } from "@once-ui-system/core";
 import {
   SiGoogle,
-  SiAhrefs,
   SiSemrush,
   SiYoast,
   SiNextdotjs,
@@ -443,4 +442,5 @@ export {
   contact,
   seoServices,
 };
+
 
