@@ -116,10 +116,7 @@ const about: About = {
     title: "Накратко",
     description: (
       <>
-        Аз съм SEO & GEO специалист и front-end разработчик, специализиран в
-        <strong> React, Next.js и Tailwind CSS</strong>. Комбинирам
-        <strong> техническа прецизност </strong>и <strong>AI SEO</strong> подходи,
-        за да създавам бързи, оптимизирани и видими сайтове.
+        Аз съм SEO & GEO специалист и front-end разработчик, специализиран в<strong> React, Next.js и Tailwind CSS</strong>. Комбинирам<strong> техническа прецизност </strong>и <strong>AI SEO</strong> подходи, за да създавам бързи, оптимизирани и видими сайтове.
         <br />
         <br />
         Фокусирам се върху <strong>GEO SEO</strong> стратегии, автоматизация и
@@ -441,6 +438,7 @@ export {
   contact,
   seoServices,
 };
+
 
 
 
