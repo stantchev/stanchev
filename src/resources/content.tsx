@@ -9,34 +9,6 @@ import {
   Work,
 } from "@/types";
 import { Line, Row, Text } from "@once-ui-system/core";
-import {
-  SiGoogle,
-  SiSemrush,
-  SiYoast,
-  SiNextdotjs,
-  SiTailwindcss,
-  SiReact,
-  SiNetlify,
-  SiAdobephotoshop,
-  SiAdobelightroom,
-  SiNpm,
-  SiWordpress,
-  SiMagento,
-} from "react-icons/si";
-import {
-  FaSearch,
-  FaChartBar,
-  FaCog,
-  FaChartLine,
-  FaCheckCircle,
-  FaLightbulb,
-  FaPalette,
-  FaCamera,
-  FaWrench,
-  FaBox,
-  FaLock,
-} from "react-icons/fa";
-import { FiArrowRight } from "react-icons/fi";
 
 // 🆕 Добавени типове
 type Contact = {
@@ -260,13 +232,13 @@ const about: About = {
         description: (
           <>Дълбок опит в keyword research, SEO одити и оптимизация чрез професионални платформи.</>
         ),
-        tools: [
-          "🔍 Google Lighthouse",
-          "🎯 Ahrefs",
-          "📊 Google Analytics",
-          "🔧 SEMrush",
-          "📈 Google Search Console",
-          "✅ Yoast SEO",
+        tags: [
+          { name: "Google Lighthouse", icon: "search" },
+          { name: "Ahrefs", icon: "ahrefs" },
+          { name: "Google Analytics", icon: "chartBar" },
+          { name: "SEMrush", icon: "semrush" },
+          { name: "Google Search Console", icon: "chartLine" },
+          { name: "Yoast SEO", icon: "yoast" },
         ],
       },
       {
@@ -274,11 +246,11 @@ const about: About = {
         description: (
           <>Разработка и оптимизация на сайтове с модерни технологии, осигуряващи бързина и UX, съобразени с Core Web Vitals.</>
         ),
-        tools: [
-          <SiNextdotjs />,
-          <SiTailwindcss />,
-          <SiReact />,
-          <SiNetlify />,,
+        tags: [
+          { name: "Next.js 15", icon: "nextjs" },
+          { name: "Tailwind CSS", icon: "tailwindcss" },
+          { name: "React", icon: "react" },
+          { name: "Netlify", icon: "netlify" },
         ],
       },
       {
@@ -286,12 +258,12 @@ const about: About = {
         description: (
           <>Инструменти за дизайн, анализ и техническа поддръжка на уеб среди.</>
         ),
-        tools: [
-          "🎨 Adobe Photoshop",
-          "📷 Adobe Lightroom",
-          "🛠️ Chrome DevTools",
-          "📦 npm",
-          "🔐 .htaccess",
+        tags: [
+          { name: "Adobe Photoshop", icon: "photoshop" },
+          { name: "Adobe Lightroom", icon: "lightroom" },
+          { name: "Chrome DevTools", icon: "chrome" },
+          { name: "npm", icon: "npm" },
+          { name: ".htaccess", icon: "lock" },
         ],
       },
     ],
@@ -448,11 +420,3 @@ export {
   contact,
   seoServices,
 };
-
-
-
-
-
-
-
-
