@@ -88,155 +88,76 @@ export const metadata: Metadata = {
 };
 
 export default function LLMSEOPage() {
-  return (
-   <>
-  {/* Структурирани данни за AI търсачки и Google */}
-  <Script
-    type="application/ld+json"
-    dangerouslySetInnerHTML={{
-      __html: JSON.stringify([
-        {
-          "@context": "https://schema.org",
-          "@type": "Service",
-          "name": "LLM SEO - Генеративно SEO за големите езикови модели",
-          "description": "Революционна LLM SEO оптимизация (GEO) за ChatGPT, Gemini, Claude и всички AI търсачки. Позиционирайте се в ерата на изкуствения интелект с генеративно SEO.",
-          "provider": {
-            "@type": "Person",
-            "name": "Stanhcev Digital",
-            "url": "https://stanchev.bg",
-            "image": "https://stanchev.bg/images/avatar.jpg",
-            "sameAs": [
-              "https://www.linkedin.com/in/stantcheff/",
-              "https://github.com/stantchev/"
-            ]
-          },
-          "areaServed": {
-            "@type": "Country",
-            "name": "България"
-          },
-          "serviceType": [
-            "LLM SEO",
-            "AI SEO",
-            "Генеративно SEO",
-            "SEO за ChatGPT",
-            "SEO за Gemini",
-            "SEO за Claude",
-            "SEO за големите езикови модели",
-            "AI търсачки оптимизация",
-            "Генеративно търсене",
-            "AI-friendly SEO"
-          ],
-          "hasOfferCatalog": {
-            "@type": "OfferCatalog",
-            "name": "LLM SEO услуги",
-            "itemListElement": [
-              {
-                "@type": "Offer",
-                "itemOffered": {
-                  "@type": "Service",
-                  "name": "LLM SEO оптимизация за ChatGPT",
-                  "description": "Специализирана оптимизация за ChatGPT и други големи езикови модели за по-добро класиране в AI системите за търсене."
+ return (
+    <>
+      {/* Структурирани данни за AI търсачки */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "name": "LLM SEO - SEO за големите езикови модели",
+            "description": "Революционна LLM SEO оптимизация за ChatGPT, Gemini, Claude и всички AI търсачки. Позиционирайте се в ерата на изкуствения интелект с генеративно SEO.",
+            "provider": {
+              "@type": "Person",
+              "name": "Stanhcev Digital",
+              "url": "https://stanchev.bg",
+              "image": "https://stanchev.bg/images/avatar.jpg",
+              "sameAs": [
+                "https://www.linkedin.com/in/stantcheff/",
+                "https://github.com/stantchev/"
+              ]
+            },
+            "areaServed": {
+              "@type": "Country",
+              "name": "България"
+            },
+            "serviceType": [
+              "LLM SEO",
+              "AI SEO", 
+              "Генеративно SEO",
+              "SEO за ChatGPT",
+              "SEO за Gemini",
+              "SEO за Claude",
+              "SEO за големите езикови модели",
+              "AI търсачки оптимизация",
+              "Генеративно търсене",
+              "AI-friendly SEO"
+            ],
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "LLM SEO услуги",
+              "itemListElement": [
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "LLM SEO оптимизация за ChatGPT",
+                    "description": "Специализирана оптимизация за ChatGPT и други големи езикови модели за по-добро класиране в AI системите за търсене."
+                  }
+                },
+                {
+                  "@type": "Offer", 
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "AI-friendly структуриране на съдържанието",
+                    "description": "Оптимизация на съдържанието за AI системи с правилна семантична структура и schema markup."
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service", 
+                    "name": "Генеративно SEO стратегия",
+                    "description": "Цялостна стратегия за позициониране в AI търсачките и големите езикови модели."
+                  }
                 }
-              },
-              {
-                "@type": "Offer",
-                "itemOffered": {
-                  "@type": "Service",
-                  "name": "AI-friendly структуриране на съдържанието",
-                  "description": "Оптимизация на съдържанието за AI системи с правилна семантична структура и schema markup."
-                }
-              },
-              {
-                "@type": "Offer",
-                "itemOffered": {
-                  "@type": "Service",
-                  "name": "Генеративно SEO стратегия",
-                  "description": "Цялостна стратегия за позициониране в AI търсачките и големите езикови модели."
-                }
-              }
-            ]
-          }
-        },
-        {
-          "@context": "https://schema.org",
-          "@type": "FAQPage",
-          "mainEntity": [
-            {
-              "@type": "Question",
-              "name": "Какво е LLM SEO и защо е важно?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "LLM SEO е оптимизация за големите езикови модели като ChatGPT, Gemini и Claude. Това е бъдещето на SEO – докато традиционното SEO се фокусира върху Google, LLM SEO ви позиционира в AI системите за търсене, където потребителите отиват все повече. Генеративно SEO ви дава двойно предимство пред конкурентите."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Как работи SEO за ChatGPT и други AI системи?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "AI системите използват различни алгоритми от Google. LLM SEO оптимизацията се фокусира върху структуриране на съдържанието по начин, който AI моделите разбират по-добре. Това включва правилна семантична структура, schema markup за AI и оптимизация за генеративно търсене."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Защо да инвестирам в LLM SEO сега?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "SEO в ерата на изкуствения интелект не е просто тренд – това е революция. AI търсачките набират скорост и скоро ще бъдат толкова популярни колкото Google. Позиционирайте се сега в AI системите, преди конкурентите ви да се събудят. Бъдещето на SEO е тук."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Какви резултати мога да очаквам от LLM SEO?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Клиентите ми виждат средно +500% ръст в AI трафика, +300% видимост в ChatGPT и +250% класиране в Gemini. Оптимизация за генеративно търсене ви дава достъп до нови аудитории в AI системите, докато поддържа отлично класиране в Google."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Колко време отнема LLM SEO оптимизацията?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Първоначалната LLM SEO оптимизация отнема 3–6 седмици, в зависимост от сложността на сайта. Включва анализ на текущото състояние, оптимизация за AI системите, технически подобрения и мониторинг на резултатите. Продължителната оптимизация е процес, който се подобрява с времето."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Работи ли LLM SEO заедно с традиционното SEO?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Абсолютно! Моят подход ви дава двойно покритие – отлично класиране в Google и позициониране в AI системите. SEO в ерата на AI търсачките не замества традиционното SEO, а го допълва. Получавате най-доброто от двата свята."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Кои AI системи покривате с LLM SEO?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "В Stanchev Digital покриваме всички основни AI системи: ChatGPT, Google Gemini, Claude, Perplexity, Bing Chat и други. Всеки AI модел има свои специфики, но общият подход за LLM SEO работи за всички големи езикови модели."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Как се измерват резултатите от LLM SEO?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "В Stanchev Digital използваме специализирани инструменти за мониторинг на AI видимостта. Следя как ChatGPT, Gemini и Claude виждат сайта ви, анализирам AI трафика и измервам видимостта в AI търсачките. LLM SEO резултатите се измерват с AI-специфични метрики."
-              },
-				{
-              "@type": "Question",
-              "name": "В Stanchev Digital предлагате ли Generative Search оптимизация?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "В Stanchev Digital предлагаме Generative Search оптимизация, покриваме всички основни AI системи: ChatGPT, Google Gemini, Claude, Perplexity, Bing Chat и други. "
-              },
+              ]
             }
-          ]
-        }
-      ])
-    }}
-  />
+          })
+        }}
+      />
 
       <Column as="section" gap="s" padding="l" maxWidth="m" horizontal="center" style={{ width: "100%", maxWidth: "100vw", overflow: "hidden" }}>
 
@@ -993,6 +914,7 @@ export default function LLMSEOPage() {
     </>
   );
 }
+
 
 
 
