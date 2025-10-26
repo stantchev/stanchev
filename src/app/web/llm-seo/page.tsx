@@ -224,13 +224,13 @@ export default function LLMSEOPage() {
                 "@type": "Answer",
                 "text": "В Stanchev Digital използваме специализирани инструменти за мониторинг на AI видимостта. Следя как ChatGPT, Gemini и Claude виждат сайта ви, анализирам AI трафика и измервам видимостта в AI търсачките. LLM SEO резултатите се измерват с AI-специфични метрики."
               },
-				{{
+				{
               "@type": "Question",
               "name": "В Stanchev Digital предлагате ли Generative Search оптимизация?",
               "acceptedAnswer": {
                 "@type": "Answer",
                 "text": "В Stanchev Digital предлагаме Generative Search оптимизация, покриваме всички основни AI системи: ChatGPT, Google Gemini, Claude, Perplexity, Bing Chat и други. "
-              }},
+              },
             }
           ]
         }
@@ -994,5 +994,6 @@ export default function LLMSEOPage() {
     </>
   );
 }
+
 
 
