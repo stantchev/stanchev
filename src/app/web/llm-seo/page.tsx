@@ -91,7 +91,7 @@ export default function LLMSEOPage() {
   return (
    <>
   {/* Структурирани данни за AI търсачки и Google */}
-  <script
+  <Script
     type="application/ld+json"
     dangerouslySetInnerHTML={{
       __html: JSON.stringify([
@@ -994,6 +994,7 @@ export default function LLMSEOPage() {
     </>
   );
 }
+
 
 
 
