@@ -237,7 +237,6 @@ export default function LLMSEOPage() {
       ])
     }}
   />
-</>
 
       <Column as="section" gap="s" padding="l" maxWidth="m" horizontal="center" style={{ width: "100%", maxWidth: "100vw", overflow: "hidden" }}>
 
@@ -994,6 +993,7 @@ export default function LLMSEOPage() {
     </>
   );
 }
+
 
 
 
