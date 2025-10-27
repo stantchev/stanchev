@@ -42,10 +42,14 @@ function readMDXFile(filePath: string) {
 
   // Извличане на JSON-LD Schema от съдържанието
   let schema = null;
+  let cleanContent = content;
+  
   const schemaMatch = content.match(/<script type="application\/ld\+json">\s*([\s\S]*?)\s*<\/script>/);
   if (schemaMatch) {
     try {
       schema = JSON.parse(schemaMatch[1]);
+      // Премахваме Schema блока от съдържанието за да не се парсира от MDX
+      cleanContent = content.replace(/<script type="application\/ld\+json">\s*[\s\S]*?\s*<\/script>\s*/, '');
     } catch (error) {
       console.warn(`Failed to parse schema in ${filePath}:`, error);
     }
@@ -64,7 +68,7 @@ function readMDXFile(filePath: string) {
     schema: schema,
   };
 
-  return { metadata, content };
+  return { metadata, content: cleanContent };
 }
 
 function getMDXData(dir: string) {
