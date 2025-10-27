@@ -207,6 +207,7 @@ export default function About() {
                 {about.work.title}
               </Heading>
               <Timeline
+                size="xs"
                 items={about.work.experiences.map((experience, index) => ({
                   label: (
                     <Column gap="2">
@@ -346,4 +347,5 @@ export default function About() {
     </Column>
   );
 }
+
 
