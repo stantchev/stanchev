@@ -14,7 +14,6 @@ import {
   Line,
   Button,
   AvatarGroup,
-  Table,
 } from "@once-ui-system/core";
 import { baseURL, about, blog, person } from "@/resources";
 import { formatDate } from "@/utils/formatDate";
@@ -118,8 +117,8 @@ export default async function Blog({
       src: person.avatar,
     })) || [];
 
-  // ✅ JSON-LD Schema (автоматично)
-  const schemaOrgJSONLD = {
+  // ✅ JSON-LD Schema (динамично от MDX файла)
+  const schemaOrgJSONLD = post.metadata.schema || {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     mainEntityOfPage: {
@@ -128,28 +127,33 @@ export default async function Blog({
     },
     headline: post.metadata.title,
     description: post.metadata.summary,
-    image:
-      post.metadata.image ||
-      `${baseURL}/api/og/generate?title=${encodeURIComponent(
-        post.metadata.title
-      )}`,
+    image: {
+      "@type": "ImageObject",
+      url: post.metadata.image || `${baseURL}/api/og/generate?title=${encodeURIComponent(post.metadata.title)}`,
+      width: 1200,
+      height: 630
+    },
     author: {
       "@type": "Person",
       name: "Станчев",
       url: `${baseURL}${about.path}`,
-      image: `${baseURL}${person.avatar}`,
+      image: {
+        "@type": "ImageObject",
+        url: `${baseURL}${person.avatar}`
+      }
     },
     publisher: {
       "@type": "Organization",
       name: "Станчев SEO",
+      url: baseURL,
       logo: {
         "@type": "ImageObject",
-        url: `${baseURL}/images/logo.png`,
-      },
+        url: `${baseURL}/images/logo.png`
+      }
     },
     datePublished: post.metadata.publishedAt,
     dateModified: post.metadata.publishedAt,
-    keywords: post.metadata.keywords?.join(", ") || "",
+    keywords: post.metadata.keywords || [],
   };
 
   // ✅ Render
@@ -300,4 +304,3 @@ export default async function Blog({
     </>
   );
 }
-
