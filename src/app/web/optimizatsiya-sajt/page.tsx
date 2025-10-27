@@ -205,28 +205,28 @@ export default function OptimizatsiyaSajtPage() {
          <Timeline
             items={[
               {
-                title: "Анализ",
+                label: "Анализ",
                 description: "Провеждам пълен технически одит на сайта: скорост, мобилна съвместимост, Core Web Vitals и функционалност.",
-                icon: "search",
-                status: "completed"
+                marker: <Icon name="search" />,
+                state: "success"
               },
               {
-                title: "Диагностика", 
+                label: "Диагностика", 
                 description: "Идентифицирам проблемите и приоритизирам оптимизациите според въздействието им върху производителността.",
-                icon: "chartBar",
-                status: "completed"
+                marker: <Icon name="chartBar" />,
+                state: "success"
               },
               {
-                title: "Оптимизация",
+                label: "Оптимизация",
                 description: "Прилагам оптимизациите: компресиране на изображения, минифициране на код, подобряване на мобилния дизайн.",
-                icon: "wrench",
-                status: "inProgress"
+                marker: <Icon name="wrench" />,
+                state: "active"
               },
               {
-                title: "Тестване",
+                label: "Тестване",
                 description: "Тествам всички подобрения и проверявам резултатите. Осигурявам стабилна работа на всички устройства.",
-                icon: "checkCircle",
-                status: "pending"
+                marker: <Icon name="checkCircle" />,
+                state: "default"
               }
             ]}
           />
@@ -354,5 +354,6 @@ export default function OptimizatsiyaSajtPage() {
     </>
   );
 }
+
 
 
