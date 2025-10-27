@@ -19,6 +19,7 @@ type Metadata = {
   team: Team[];
   link?: string;
   keywords?: string[];
+  schema?: any; // JSON-LD Schema данни
 };
 
 import { notFound } from "next/navigation";
@@ -39,6 +40,17 @@ function readMDXFile(filePath: string) {
   const rawContent = fs.readFileSync(filePath, "utf-8");
   const { data, content } = matter(rawContent);
 
+  // Извличане на JSON-LD Schema от съдържанието
+  let schema = null;
+  const schemaMatch = content.match(/<script type="application\/ld\+json">\s*([\s\S]*?)\s*<\/script>/);
+  if (schemaMatch) {
+    try {
+      schema = JSON.parse(schemaMatch[1]);
+    } catch (error) {
+      console.warn(`Failed to parse schema in ${filePath}:`, error);
+    }
+  }
+
   const metadata: Metadata = {
     title: data.title || "",
     publishedAt: data.publishedAt,
@@ -49,6 +61,7 @@ function readMDXFile(filePath: string) {
     team: data.team || [],
     link: data.link || "",
     keywords: data.keywords || [],
+    schema: schema,
   };
 
   return { metadata, content };
