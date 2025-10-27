@@ -208,19 +208,19 @@ export default function OptimizatsiyaSajtPage() {
                 label: "Анализ",
                 description: "Провеждам пълен технически одит на сайта: скорост, мобилна съвместимост, Core Web Vitals и функционалност.",
                 marker: <Icon name="search" />,
-                state: "success"
+                state: "default"
               },
               {
                 label: "Диагностика", 
                 description: "Идентифицирам проблемите и приоритизирам оптимизациите според въздействието им върху производителността.",
                 marker: <Icon name="chartBar" />,
-                state: "success"
+                state: "default"
               },
               {
                 label: "Оптимизация",
                 description: "Прилагам оптимизациите: компресиране на изображения, минифициране на код, подобряване на мобилния дизайн.",
                 marker: <Icon name="wrench" />,
-                state: "active"
+                state: "default"
               },
               {
                 label: "Тестване",
@@ -354,6 +354,7 @@ export default function OptimizatsiyaSajtPage() {
     </>
   );
 }
+
 
 
 
