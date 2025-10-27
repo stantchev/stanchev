@@ -260,7 +260,7 @@ export default function About() {
                     </Column>
                   ),
                   marker: <Icon name="briefcase" />,
-                  state: index === 0 ? "active" : "success"
+                  state: index === 0 ? "active" : "default"
                 }))}
                 marginBottom="40"
               />
@@ -346,3 +346,4 @@ export default function About() {
     </Column>
   );
 }
+
