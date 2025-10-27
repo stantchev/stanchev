@@ -8,20 +8,21 @@ import {
   Icon,
   Feedback,
   AccordionGroup,
+  Timeline,
 } from '@once-ui-system/core';
 import { baseURL } from '@/resources';
 import Script from 'next/script';
 
 export async function generateMetadata() {
   return {
-    title: 'Оптимизация на съществуващ сайт | Ускоряване и подобряване на производителността | Станчев SEO',
+    title: 'Оптимизация на съществуващ сайт | Stanchev Digital',
     description: 'Професионална оптимизация на съществуващ сайт. Ускоряване на зареждането, подобряване на мобилния изглед, фиксиране на визуални грешки и Core Web Vitals оптимизация.',
     keywords: 'оптимизация на сайт цена, ускоряване на сайт България, Core Web Vitals оптимизация, мобилна оптимизация София, скорост на сайт подобрение, производителност на сайт цена, технически одит на сайт, оптимизация на уебсайт, подобряване на скоростта на сайт, модернизация на сайт',
     alternates: {
       canonical: `${baseURL}/web/optimizatsiya-sajt`,
     },
     openGraph: {
-      title: 'Оптимизация на съществуващ сайт | Ускоряване и подобряване на производителността',
+      title: 'Оптимизация на съществуващ сайт | Stanchev Digital',
       description: 'Професионална оптимизация на съществуващ сайт. Ускоряване на зареждането, подобряване на мобилния изглед, фиксиране на визуални грешки и Core Web Vitals оптимизация.',
       url: `${baseURL}/web/optimizatsiya-sajt`,
       siteName: 'Станчев SEO',
@@ -37,7 +38,7 @@ export async function generateMetadata() {
     },
     twitter: {
       card: 'summary_large_image',
-      title: 'Оптимизация на съществуващ сайт | Ускоряване и подобряване на производителността',
+      title: 'Оптимизация на съществуващ сайт | Stanchev Digital',
       description: 'Професионална оптимизация на съществуващ сайт. Ускоряване на зареждането, подобряване на мобилния изглед, фиксиране на визуални грешки и Core Web Vitals оптимизация.',
       images: [`https://stanchev.bg/images/og/web.jpg`],
     },
@@ -59,7 +60,7 @@ export default function OptimizatsiyaSajtPage() {
             "description": "Професионална оптимизация на съществуващ сайт. Ускоряване на зареждането, подобряване на мобилния изглед, фиксиране на визуални грешки и Core Web Vitals оптимизация.",
             "provider": {
               "@type": "Organization",
-              "name": "Станчев SEO",
+              "name": "Stanchev Digital",
               "url": "https://stanchev.bg/",
               "logo": "https://stanchev.bg/images/og/og.jpg",
               "contactPoint": {
@@ -201,25 +202,34 @@ export default function OptimizatsiyaSajtPage() {
             Моят процес в 4 етапа
           </Heading>
 
-          {["Анализ", "Диагностика", "Оптимизация", "Тестване"].map((step, i) => (
-            <Flex key={i} gap="8" vertical="start">
-              <Icon name="checkCircle" onBackground="brand-strong" />
-              <Column gap="2">
-                <Heading as="h3" variant="heading-strong-l">
-                  {step}
-                </Heading>
-                <Text variant="body-default-m">
-                  {step === "Анализ"
-                    ? "Провеждам пълен технически одит на сайта: скорост, мобилна съвместимост, Core Web Vitals и функционалност."
-                    : step === "Диагностика"
-                    ? "Идентифицирам проблемите и приоритизирам оптимизациите според въздействието им върху производителността."
-                    : step === "Оптимизация"
-                    ? "Прилагам оптимизациите: компресиране на изображения, минифициране на код, подобряване на мобилния дизайн."
-                    : "Тествам всички подобрения и проверявам резултатите. Осигурявам стабилна работа на всички устройства."}
-                </Text>
-              </Column>
-            </Flex>
-          ))}
+         <Timeline
+            items={[
+              {
+                title: "Анализ",
+                description: "Провеждам пълен технически одит на сайта: скорост, мобилна съвместимост, Core Web Vitals и функционалност.",
+                icon: "search",
+                status: "completed"
+              },
+              {
+                title: "Диагностика", 
+                description: "Идентифицирам проблемите и приоритизирам оптимизациите според въздействието им върху производителността.",
+                icon: "chartBar",
+                status: "completed"
+              },
+              {
+                title: "Оптимизация",
+                description: "Прилагам оптимизациите: компресиране на изображения, минифициране на код, подобряване на мобилния дизайн.",
+                icon: "wrench",
+                status: "inProgress"
+              },
+              {
+                title: "Тестване",
+                description: "Тествам всички подобрения и проверявам резултатите. Осигурявам стабилна работа на всички устройства.",
+                icon: "checkCircle",
+                status: "pending"
+              }
+            ]}
+          />
         </Column>
 
         <Column gap="l">
@@ -344,4 +354,5 @@ export default function OptimizatsiyaSajtPage() {
     </>
   );
 }
+
 
