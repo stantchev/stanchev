@@ -11,6 +11,7 @@ import {
   Meta,
   Schema,
   Row,
+  Timeline,
 } from "@once-ui-system/core";
 import { baseURL, about, person, social } from "@/resources";
 import TableOfContents from "@/components/about/TableOfContents";
@@ -205,57 +206,64 @@ export default function About() {
               <Heading as="h2" id={about.work.title} variant="display-strong-s" marginBottom="m">
                 {about.work.title}
               </Heading>
-              <Column fillWidth gap="l" marginBottom="40">
-                {about.work.experiences.map((experience, index) => (
-                  <Column key={`${experience.company}-${experience.role}-${index}`} fillWidth>
-                    <Row fillWidth horizontal="between" vertical="end" marginBottom="4">
+              <Timeline
+                items={about.work.experiences.map((experience, index) => ({
+                  label: (
+                    <Column gap="2">
                       <Text id={experience.company} variant="heading-strong-l">
                         {experience.company}
                       </Text>
                       <Text variant="heading-default-xs" onBackground="neutral-weak">
                         {experience.timeframe}
                       </Text>
-                    </Row>
-                    <Text variant="body-default-s" onBackground="brand-weak" marginBottom="m">
-                      {experience.role}
-                    </Text>
-                    <Column as="ul" gap="16">
-                      {experience.achievements.map(
-                        (achievement: React.ReactNode, index: number) => (
-                          <Text
-                            as="li"
-                            variant="body-default-m"
-                            key={`${experience.company}-${index}`}
-                          >
-                            {achievement}
-                          </Text>
-                        ),
+                    </Column>
+                  ),
+                  description: (
+                    <Column gap="m">
+                      <Text variant="body-default-s" onBackground="brand-weak">
+                        {experience.role}
+                      </Text>
+                      <Column as="ul" gap="16">
+                        {experience.achievements.map(
+                          (achievement: React.ReactNode, achievementIndex: number) => (
+                            <Text
+                              as="li"
+                              variant="body-default-m"
+                              key={`${experience.company}-${achievementIndex}`}
+                            >
+                              {achievement}
+                            </Text>
+                          ),
+                        )}
+                      </Column>
+                      {experience.images && experience.images.length > 0 && (
+                        <Row fillWidth paddingTop="m" gap="12" wrap>
+                          {experience.images.map((image, imageIndex) => (
+                            <Row
+                              key={imageIndex}
+                              border="neutral-medium"
+                              radius="m"
+                              minWidth={image.width}
+                              height={image.height}
+                            >
+                              <Media
+                                enlarge
+                                radius="m"
+                                sizes={image.width.toString()}
+                                alt={image.alt}
+                                src={image.src}
+                              />
+                            </Row>
+                          ))}
+                        </Row>
                       )}
                     </Column>
-                    {experience.images && experience.images.length > 0 && (
-                      <Row fillWidth paddingTop="m" paddingLeft="40" gap="12" wrap>
-                        {experience.images.map((image, index) => (
-                          <Row
-                            key={index}
-                            border="neutral-medium"
-                            radius="m"
-                            minWidth={image.width}
-                            height={image.height}
-                          >
-                            <Media
-                              enlarge
-                              radius="m"
-                              sizes={image.width.toString()}
-                              alt={image.alt}
-                              src={image.src}
-                            />
-                          </Row>
-                        ))}
-                      </Row>
-                    )}
-                  </Column>
-                ))}
-              </Column>
+                  ),
+                  marker: <Icon name="briefcase" />,
+                  state: index === 0 ? "active" : "success"
+                }))}
+                marginBottom="40"
+              />
             </>
           )}
 
