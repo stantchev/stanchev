@@ -5,11 +5,13 @@ import {
   Heading,
   Icon,
   IconButton,
+  Media,
   Tag,
   Text,
   Meta,
   Schema,
   Row,
+  Timeline,
 } from "@once-ui-system/core";
 import { baseURL, about, person, social } from "@/resources";
 import TableOfContents from "@/components/about/TableOfContents";
@@ -49,9 +51,8 @@ export default function About() {
       items: about.technical.skills.map((skill) => skill.title),
     },
   ];
-
   return (
-    <Column fillWidth>
+    <Column maxWidth="m">
       <Schema
         as="webPage"
         baseURL={baseURL}
@@ -65,7 +66,6 @@ export default function About() {
           image: `${baseURL}${person.avatar}`,
         }}
       />
-
       {about.tableOfContent.display && (
         <Column
           left="0"
@@ -78,25 +78,15 @@ export default function About() {
           <TableOfContents structure={structure} about={about} />
         </Column>
       )}
-
-      {/* Layout */}
-      <Row
-        fillWidth
-        horizontal="center"
-        s={{ direction: "column" }} // 👈 на мобилно едно под друго
-      >
-        {/* Avatar column */}
+      <Row fillWidth s={{ direction: "column"}} horizontal="center">
         {about.avatar.display && (
           <Column
             className={styles.avatar}
             top="64"
             fitHeight
             position="sticky"
-            s={{
-              position: "relative",
-              style: { top: "auto" },
-              fillWidth: true, // 👈 на мобилно 100%
-            }}
+            s={{ position: "relative", style: { top: "auto" } }}
+            xs={{ style: { top: "auto" } }}
             minWidth="160"
             paddingX="l"
             paddingBottom="xl"
@@ -120,14 +110,7 @@ export default function About() {
             )}
           </Column>
         )}
-
-        {/* Main content */}
-        <Column
-          className={styles.blockAlign}
-          flex={9}
-          maxWidth={80}
-          s={{ fillWidth: true }} // 👈 на мобилно 100%
-        >
+        <Column className={styles.blockAlign} flex={9} maxWidth={40}>
           <Column
             id={about.intro.title}
             fillWidth
@@ -150,12 +133,8 @@ export default function About() {
                   backdropFilter: "blur(var(--static-space-1))",
                 }}
               >
-                <Icon
-                  paddingLeft="12"
-                  name="calendar"
-                  onBackground="brand-weak"
-                />
-                <Row paddingX="8">Заяви консултация</Row>
+                <Icon paddingLeft="12" name="calendar" onBackground="brand-weak" />
+                <Row paddingX="8">Schedule a call</Row>
                 <IconButton
                   href={about.calendar.link}
                   data-border="rounded"
@@ -174,7 +153,6 @@ export default function About() {
             >
               {person.role}
             </Text>
-
             {social.length > 0 && (
               <Row
                 className={styles.blockAlign}
@@ -201,7 +179,7 @@ export default function About() {
                             variant="secondary"
                           />
                         </Row>
-                        <Row s={{ hide: false }}>
+                        <Row hide s={{ hide: false }}>
                           <IconButton
                             size="l"
                             key={`${item.name}-icon`}
@@ -211,108 +189,96 @@ export default function About() {
                           />
                         </Row>
                       </React.Fragment>
-                    )
+                    ),
                 )}
               </Row>
             )}
           </Column>
 
           {about.intro.display && (
-            <Column
-              textVariant="body-default-l"
-              fillWidth
-              gap="m"
-              marginBottom="xl"
-            >
+            <Column textVariant="body-default-l" fillWidth gap="m" marginBottom="xl">
               {about.intro.description}
             </Column>
           )}
 
           {about.work.display && (
             <>
-              <Heading
-                as="h2"
-                id={about.work.title}
-                variant="display-strong-s"
-                marginBottom="m"
-              >
+              <Heading as="h2" id={about.work.title} variant="display-strong-s" marginBottom="m">
                 {about.work.title}
               </Heading>
-              <Column fillWidth gap="l" marginBottom="40">
-                {about.work.experiences.map((experience, index) => (
-                  <Column
-                    key={`${experience.company}-${experience.role}-${index}`}
-                    fillWidth
-                  >
-                    <Row
-                      fillWidth
-                      horizontal="between"
-                      vertical="end"
-                      marginBottom="4"
-                    >
-                      <Text
-                        id={experience.company}
-                        variant="heading-strong-l"
-                      >
+              <Timeline
+                items={about.work.experiences.map((experience, index) => ({
+                  label: (
+                    <Column gap="2">
+                      <Text id={experience.company} variant="heading-strong-l">
                         {experience.company}
                       </Text>
-                      <Text
-                        variant="heading-default-xs"
-                        onBackground="neutral-weak"
-                      >
+                      <Text variant="heading-default-xs" onBackground="neutral-weak">
                         {experience.timeframe}
                       </Text>
-                    </Row>
-                    <Text
-                      variant="body-default-s"
-                      onBackground="brand-weak"
-                      marginBottom="m"
-                    >
-                      {experience.role}
-                    </Text>
-                    <Column as="ul" gap="16">
-                      {experience.achievements.map(
-                        (achievement: React.ReactNode, i: number) => (
-                          <Text
-                            as="li"
-                            variant="body-default-m"
-                            key={`${experience.company}-${i}`}
-                          >
-                            {achievement}
-                          </Text>
-                        )
+                    </Column>
+                  ),
+                  description: (
+                    <Column gap="m">
+                      <Text variant="body-default-s" onBackground="brand-weak">
+                        {experience.role}
+                      </Text>
+                      <Column as="ul" gap="16">
+                        {experience.achievements.map(
+                          (achievement: React.ReactNode, achievementIndex: number) => (
+                            <Text
+                              as="li"
+                              variant="body-default-m"
+                              key={`${experience.company}-${achievementIndex}`}
+                            >
+                              {achievement}
+                            </Text>
+                          ),
+                        )}
+                      </Column>
+                      {experience.images && experience.images.length > 0 && (
+                        <Row fillWidth paddingTop="m" gap="12" wrap>
+                          {experience.images.map((image, imageIndex) => (
+                            <Row
+                              key={imageIndex}
+                              border="neutral-medium"
+                              radius="m"
+                              minWidth={image.width}
+                              height={image.height}
+                            >
+                              <Media
+                                enlarge
+                                radius="m"
+                                sizes={image.width.toString()}
+                                alt={image.alt}
+                                src={image.src}
+                              />
+                            </Row>
+                          ))}
+                        </Row>
                       )}
                     </Column>
-                  </Column>
-                ))}
-              </Column>
+                  ),
+                  marker: <Icon name="briefcase" />,
+                  state: index === 0 ? "active" : "success"
+                }))}
+                marginBottom="40"
+              />
             </>
           )}
 
           {about.studies.display && (
             <>
-              <Heading
-                as="h2"
-                id={about.studies.title}
-                variant="display-strong-s"
-                marginBottom="m"
-              >
+              <Heading as="h2" id={about.studies.title} variant="display-strong-s" marginBottom="m">
                 {about.studies.title}
               </Heading>
               <Column fillWidth gap="l" marginBottom="40">
                 {about.studies.institutions.map((institution, index) => (
-                  <Column
-                    key={`${institution.name}-${index}`}
-                    fillWidth
-                    gap="4"
-                  >
+                  <Column key={`${institution.name}-${index}`} fillWidth gap="4">
                     <Text id={institution.name} variant="heading-strong-l">
                       {institution.name}
                     </Text>
-                    <Text
-                      variant="heading-default-xs"
-                      onBackground="neutral-weak"
-                    >
+                    <Text variant="heading-default-xs" onBackground="neutral-weak">
                       {institution.description}
                     </Text>
                   </Column>
@@ -333,26 +299,40 @@ export default function About() {
               </Heading>
               <Column fillWidth gap="l">
                 {about.technical.skills.map((skill, index) => (
-                  <Column key={`${skill.title}-${index}`} fillWidth gap="4">
+                  <Column key={`${skill}-${index}`} fillWidth gap="4">
                     <Text id={skill.title} variant="heading-strong-l">
                       {skill.title}
                     </Text>
-                    <Text
-                      variant="body-default-m"
-                      onBackground="neutral-weak"
-                    >
+                    <Text variant="body-default-m" onBackground="neutral-weak">
                       {skill.description}
                     </Text>
                     {skill.tags && skill.tags.length > 0 && (
                       <Row wrap gap="8" paddingTop="8">
-                        {skill.tags.map((tag, i) => (
-                          <Tag
-                            key={`${skill.title}-${i}`}
-                            size="l"
-                            prefixIcon={tag.icon}
-                          >
+                        {skill.tags.map((tag, tagIndex) => (
+                          <Tag key={`${skill.title}-${tagIndex}`} size="l" prefixIcon={tag.icon}>
                             {tag.name}
                           </Tag>
+                        ))}
+                      </Row>
+                    )}
+                    {skill.images && skill.images.length > 0 && (
+                      <Row fillWidth paddingTop="m" gap="12" wrap>
+                        {skill.images.map((image, index) => (
+                          <Row
+                            key={index}
+                            border="neutral-medium"
+                            radius="m"
+                            minWidth={image.width}
+                            height={image.height}
+                          >
+                            <Media
+                              enlarge
+                              radius="m"
+                              sizes={image.width.toString()}
+                              alt={image.alt}
+                              src={image.src}
+                            />
+                          </Row>
                         ))}
                       </Row>
                     )}
