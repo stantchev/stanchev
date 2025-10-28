@@ -73,39 +73,31 @@ add_filter('the_content', function($content) {
 
 <strong>Пълна съвместимост с всички билдъри</strong>
 
-Плъгинът сканира съдържанието на публикацията, идентифицира всички H1–H6 заглавия и автоматично генерира Table of Contents преди първия <h2>. Всяка секция получава anchor с хеш линк, а фронтенд частта използва <code>IntersectionObserver</code> за „жив“ scroll spy и плавна навигация.
+Плъгинът сканира съдържанието на публикацията, идентифицира всички H1–H6 заглавия и автоматично генерира Table of Contents преди първия H2. Всяка секция получава anchor с хеш линк, а фронтенд частта използва <code>IntersectionObserver</code> за „жив“ scroll spy и плавна навигация.
 
 <strong>Основни функционалности:</strong>
 
-Автоматично генериране на TOC от H1–H6
-
-Опция за автоматично вмъкване по тип публикация или чрез shortcode/widget
-
-Поддръжка на плавно скролиране и йерархична структура
-
-Вграден брояч (вътрешен или външен)
-
-Sticky TOC widget с toggle бутон
-
-Пълна съвместимост с Classic Editor, Gutenberg, Elementor, Divi и WPBakery
-
-Напълно преводим (translation-ready), включително възможност за принудителен език в админ панела
+- Автоматично генериране на TOC от H1–H6
+- Опция за автоматично вмъкване по тип публикация или чрез shortcode/widget
+- Поддръжка на плавно скролиране и йерархична структура
+- Вграден брояч (вътрешен или външен)
+- Sticky TOC widget с toggle бутон
+- Пълна съвместимост с Classic Editor, Gutenberg, Elementor, Divi и WPBakery
+- Напълно преводим (translation-ready), включително възможност за принудителен език в админ панела
 
 <h3 id="installation">Инсталация и употреба</h3>
 
-Качи плъгина в <code>wp-content/plugins/wp-toc/</code> или инсталирай чрез WordPress Admin → Plugins.
-
-Активирай го.
-
-Отвори <strong>Settings → Table of Contents</strong>, за да конфигурираш опциите.
+1. Качи плъгина в <code>wp-content/plugins/wp-toc/</code> или инсталирай чрез WordPress Admin → Plugins.
+2. Активирай го.
+3. Отвори <strong>Settings → Table of Contents</strong>, за да конфигурираш опциите.
 
 <strong>Начини за използване:</strong>
 
-Автоматично вмъкване: Settings → Table of Contents → General → Auto Insert
+- Автоматично вмъкване: Settings → Table of Contents → General → Auto Insert
 
 Shortcode: <code>[wp-toc]</code>
 
-Sticky widget: Appearance → Widgets → TOC Sticky
+- Sticky widget: Appearance → Widgets → TOC Sticky
 
 <h4>Shortcode параметри:</h4>
 
@@ -122,11 +114,9 @@ Sticky widget: Appearance → Widgets → TOC Sticky
 ```
 <h3 id="localization">Локализация</h3>
 
-Text domain: <code>easy-table-of-contents</code>
-
-Преводи: постави .mo/.po файлове в директорията <code>languages/</code>
-
-Принудителен език на админ интерфейса: Settings → Table of Contents → General → Plugin UI Language
+- Text domain: <code>wp-table-of-contents</code>
+- Преводи: постави .mo/.po файлове в директорията <code>languages/</code>
+- Принудителен език на админ интерфейса: Settings → Table of Contents → General → Plugin UI Language
 
 <Feedback title="Философия на кода" description="Всяка функция е написана с идеята за предвидимост и стабилност. Никакви магии – само логичен, четим и оптимизиран код, който можеш да разбереш за минути." />
 
