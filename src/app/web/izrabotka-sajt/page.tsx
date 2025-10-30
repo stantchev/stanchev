@@ -51,7 +51,7 @@ export async function generateMetadata() {
       title: 'ИИзработка на сайт и лендинг страници | Stanchev Digital',
       description: 'Професионална изработка на сайт и лендинг страници с React, Next.js, Tailwind CSS. Модерни, бързи и SEO оптимизирани уебсайтове за малки и средни бизнеси.',
       url: `${baseURL}/web/izrabotka-sajt`,
-      siteName: 'Станчев SEO',
+      siteName: 'Stanchev Digital',
       images: [
         {
           url: `https://stanchev.bg/images/og/og.jpg`,
@@ -81,12 +81,12 @@ export default function IzrabotkaSajtPage() {
           __html: JSON.stringify({
             "@context": "http://schema.org",
             "@type": "Service",
-            "name": "Изработка на сайт и лендинг страници",
+            "name": "Изработка на сайт и лендинг страници | Stanchev Digital",
             "serviceType": "Уеб разработка",
             "description": "Професионална изработка на сайт и лендинг страници с React, Next.js, Tailwind CSS. Създавам модерни, бързи и SEO оптимизирани уебсайтове за малки и средни бизнеси.",
             "provider": {
               "@type": "Organization",
-              "name": "Станчев SEO",
+              "name": "Stanchev Digital",
               "url": "https://stanchev.bg/",
               "logo": "https://stanchev.bg/images/og/og.jpg",
               "contactPoint": {
@@ -198,14 +198,14 @@ export default function IzrabotkaSajtPage() {
 
         <Column gap="l">
           <Heading as="h2" variant="display-default-m">
-            Какво включва изработката на сайт?
+            Какво включва изработката на сайт от Stanchev Digital?
           </Heading>
 
           <Text variant="body-default-l">
             Работя с най-модерните технологии: <strong>React</strong>, <strong>Next.js</strong>, <strong>Tailwind CSS</strong> и <strong>TypeScript</strong>. Всеки сайт е изграден с SEO в ум от самото начало – правилна структура, бърза скорост, мобилна съвместимост и оптимизирано съдържание. Целта е проста: красив, функционален и видим сайт в Google.
           </Text>
 
-          <Grid columns={2} gap="l">
+          <Grid columns={2} s={{ columns: 1 }} gap="l" fillWidth>
             {[
               { icon: FaPaintBrush, title: "Модерен дизайн", desc: "Чист, професионален и респонсивен дизайн за всички устройства" },
               { icon: FaSearch, title: "SEO оптимизация", desc: "Core Web Vitals, мета тагове, schema markup, sitemap" },
@@ -240,7 +240,7 @@ export default function IzrabotkaSajtPage() {
             Моят процес в 4 етапа
           </Heading>
 
-          <Grid columns={4} gap="l">
+          <Grid columns={4} s={{ columns: 1 }} gap="l" fillWidth>
             {[
               { 
                 step: "Планиране", 
@@ -290,7 +290,7 @@ export default function IzrabotkaSajtPage() {
             Пакети и цени за изработка на сайт
           </Heading>
           
-          <Grid columns={2} gap="l">
+          <Grid columns={2} s={{ columns: 1 }} gap="l" fillWidth>
             {[
               {
                 title: "Лендинг страница",
@@ -390,7 +390,7 @@ export default function IzrabotkaSajtPage() {
           <AccordionGroup
             items={[
               {
-                title: "Колко време отнема изработката на един сайт?",
+                title: "Колко време отнема изработката на един сайт от Stanchev Digital?",
                 content: (
                   <Text onBackground="neutral-weak">
                     Времето за изработка зависи от сложността на проекта. Лендинг страница се прави за 1-2 седмици, 
@@ -400,7 +400,7 @@ export default function IzrabotkaSajtPage() {
                 ),
               },
               {
-                title: "Какви технологии използвате при изработката на сайтове?",
+                title: "Какви технологии използвате в Stanchev Digital при изработката на сайтове?",
                 content: (
                   <Text onBackground="neutral-weak">
                     Работя с най-модерните технологии: React, Next.js, TypeScript, Tailwind CSS. Използвам също 
@@ -410,7 +410,7 @@ export default function IzrabotkaSajtPage() {
                 ),
               },
               {
-                title: "Включвате ли SEO оптимизация в цената на изработката?",
+                title: "Включвате ли SEO оптимизация в цената на изработката в Stanchev Digital?",
                 content: (
                   <Text onBackground="neutral-weak">
                     Да, всички мои сайтове включват основна SEO оптимизация: мета тагове, правилна структура на 
@@ -440,7 +440,7 @@ export default function IzrabotkaSajtPage() {
                 ),
               },
               {
-                title: "Работите ли с малки и средни бизнеси?",
+                title: "В Stanchev Digital работите ли с малки и средни бизнеси?",
                 content: (
                   <Text onBackground="neutral-weak">
                     Да, специализирам се в работа с малки и средни бизнеси, стартъпи и лични брандове. Предлагам 
@@ -458,7 +458,7 @@ export default function IzrabotkaSajtPage() {
             Готови за професионален сайт за вашия бизнес?
           </Heading>
           
-          <Grid columns={3} gap="l" fillWidth>
+          <Grid columns={3} s={{ columns: 1 }} gap="l" fillWidth>
             {[
               { icon: FaClock, title: "Бърза изработка", desc: "1-4 седмици" },
               { icon: FaShieldAlt, title: "Гарантирано качество", desc: "100% тестване" },
