@@ -22,23 +22,42 @@ export async function sendEmail({
     }
   });
 
+  const textBody = `Нов контакт от сайта:\nИме: ${name}\nEmail: ${email}\nТема: ${subject}\n\n${message}`;
+
+  const htmlBody = `
+    <div>
+      <p><strong>Нов контакт от сайта</strong></p>
+      <p><strong>Име:</strong> ${name}</p>
+      <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
+      <p><strong>Тема:</strong> ${subject}</p>
+      <hr />
+      <p style="white-space: pre-wrap;">${message}</p>
+    </div>
+  `;
+
+  // Make sender more visible in the inbox while preserving authenticated From domain
+  const finalSubject = `[Contact] ${subject} — ${name} <${email}>`;
+  const fromDisplay = `${name} via Website`;
+
   const mailOptions = {
-    from: `"${name}" <${process.env.SMTP_USER}>`,
+    from: `${fromDisplay} <${process.env.SMTP_USER}>`,
+    sender: process.env.SMTP_USER,
     replyTo: email,
     to: process.env.SMTP_USER,
-    subject,
-    text: message
-  };
+    subject: finalSubject,
+    text: textBody,
+    html: htmlBody,
+  } as const;
 
   const result = await transporter.sendMail(mailOptions);
 
   // Изпрати телеграм съобщението СЛЕД като мейлът е успешно пратен
   try {
   await sendTelegramNotification(`
-	Ново съобщение от сайта:
-	👤 Име: ${name}
-	📧 Email: ${email}
-	📝 Съобщение: ${message}
+\tНово съобщение от сайта:
+\t👤 Име: ${name}
+\t📧 Email: ${email}
+\t📝 Съобщение: ${message}
   `);
 		} catch (err) {
   console.error('Грешка при Телеграм нотификация:', err);
