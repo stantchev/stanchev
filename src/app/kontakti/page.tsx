@@ -117,7 +117,7 @@ export default function Kontakti() {
         }}
       />
 
-      <Column maxWidth="m" gap="xl" paddingX="l">
+      <Column maxWidth="m" gap="l" paddingX="l">
         <Column gap="l">
           <Heading as="h1" variant="display-strong-l" marginBottom="m">
             {contact.title}
@@ -140,12 +140,12 @@ export default function Kontakti() {
 
         <Flex
           fillWidth
-          gap="xl"
+          gap="m"
           paddingX="l"
           marginTop="xl"
           s={{ direction: "column" }} // 👈 мобилна подредба
         >
-          <Column flex={1} gap="l">
+          <Column flex={1} gap="m">
             <Heading as="h3" variant="heading-strong-s">
               Информация за контакт
             </Heading>
@@ -207,4 +207,5 @@ export default function Kontakti() {
     </>
   );
 }
+
 
