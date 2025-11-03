@@ -2,7 +2,7 @@ import { Column, Flex, Heading, Text, Schema } from "@once-ui-system/core";
 import ContactForm from "./ContactForm";
 import { baseURL, person, contact } from "@/resources";
 import { MdOutlineMail, MdOutlineAccessTime } from "react-icons/md";
-import { FaGlobe } from "react-icons/fa";
+import { FaGlobe, FaPhone } from "react-icons/fa";
 import { sendEmail } from "@/lib/sendEmail";
 import Script from "next/script";
 
@@ -161,7 +161,7 @@ export default function Kontakti() {
             </Flex>
 
             <Flex gap="12" vertical="center">
-              <MdOutlineMail size={24} style={{ color: "var(--brand-medium)" }} />
+              <FaPhone size={24} style={{ color: "var(--brand-medium)" }} />
               <Column gap="4">
                 <Text variant="body-default-s" onBackground="neutral-weak">
                   Телефон
@@ -207,3 +207,4 @@ export default function Kontakti() {
     </>
   );
 }
+
