@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useTransition, useState } from "react";
-import { Button, Column, Input, Textarea, useToast, Checkbox, Text, Row, Link } from "@once-ui-system/core";
+import { Button, Column, Input, Textarea, useToast, Checkbox, Text, Row } from "@once-ui-system/core";
 import { FaShieldAlt, FaInfoCircle } from 'react-icons/fa';
 import Script from "next/script";
 
