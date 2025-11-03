@@ -106,7 +106,7 @@ export default function ContactForm({ handleSubmit }: Props) {
             variant="primary" 
             size="m" 
             fillWidth 
-            disabled={isPending || !gdprConsent}
+            disabled={isPending}
           >
             {isPending ? "Изпращане..." : "Изпрати съобщение"}
           </Button>
