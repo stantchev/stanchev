@@ -90,19 +90,9 @@ export default function ContactForm({ handleSubmit }: Props) {
               checked={gdprConsent}
               onChange={(e) => setGdprConsent(e.target.checked)}
               required
-            >
-              <Text variant="body-default-s" onBackground="neutral-weak">
-                Съгласие: С изпращане на формата приемам обработката на моите лични данни съгласно{" "}
-                <Link href="/gdpr" variant="info" size="s">
-                  GDPR политиката
-                </Link>
-                {" "}и{" "}
-                <Link href="/obshti-usloviya" variant="info" size="s">
-                  Общите условия
-                </Link>
-                . Данните ще се използват само за отговор на запитването ми.
-              </Text>
-            </Checkbox>
+              label="Приемам условията и политиките"
+              description="С изпращане на формата приемам обработката на моите лични данни съгласно GDPR политиката и Общите условия. Данните ще се използват само за отговор на запитването ми."
+            />
             <Row gap="xs" vertical="center" paddingTop="xs">
               <FaInfoCircle size={12} color="var(--info-weak)" />
               <Text variant="body-default-xs" onBackground="neutral-weak">
