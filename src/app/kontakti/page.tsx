@@ -10,7 +10,7 @@ export const dynamic = "force-dynamic";
 
 export async function generateMetadata() {
   return {
-    title: "Контакти | Станчев SEO",
+    title: "Контакти | Stanchev Digital",
     description:
       "Свържете се с мен за безплатна SEO консултация или запитване относно техническа и съдържателна оптимизация на вашия уебсайт.",
     keywords:
@@ -19,11 +19,11 @@ export async function generateMetadata() {
       canonical: `${baseURL}/kontakti`,
     },
     openGraph: {
-      title: "Контакти | Станчев SEO",
+      title: "Контакти | Stanchev Digital",
       description:
         "Свържете се с мен за безплатна SEO консултация или запитване относно оптимизация на сайт.",
       url: `${baseURL}/kontakti`,
-      siteName: "Контакти | Станчев SEO",
+      siteName: "Контакти | Stanchev Digital",
       images: [
         {
           url: `https://stanchev.bg/images/og/og.jpg`,
@@ -36,7 +36,7 @@ export async function generateMetadata() {
     },
     twitter: {
       card: "summary_large_image",
-      title: "Контакти | Станчев SEO",
+      title: "Контакти | Stanchev Digital",
       description:
         "Свържете се с мен за безплатна SEO консултация или запитване относно оптимизация на сайт.",
       images: [`https://stanchev.bg/images/og/og.jpg`],
@@ -51,6 +51,27 @@ export default function Kontakti() {
     const email = formData.get("email")?.toString() || "";
     const subject = formData.get("subject")?.toString() || "";
     const message = formData.get("message")?.toString() || "";
+    const recaptchaToken = formData.get("recaptchaToken")?.toString() || "";
+
+    // Verify reCAPTCHA v3 server-side
+    if (process.env.RECAPTCHA_SECRET) {
+      const verifyRes = await fetch("https://www.google.com/recaptcha/api/siteverify", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams({
+          secret: process.env.RECAPTCHA_SECRET,
+          response: recaptchaToken,
+        }).toString(),
+        // Avoid caching
+        cache: "no-store",
+      });
+
+      const verifyJson = (await verifyRes.json()) as { success: boolean; score?: number };
+      if (!verifyJson.success || (typeof verifyJson.score === "number" && verifyJson.score < 0.5)) {
+        throw new Error("reCAPTCHA verification failed");
+      }
+    }
+
     await sendEmail({ name, email, subject, message });
   }
 
@@ -63,13 +84,21 @@ export default function Kontakti() {
           __html: JSON.stringify({
             "@context": "http://schema.org",
             "@type": "Organization",
-            name: "Станчев SEO",
+            name: "Stanchev Digital",
             url: "https://stanchev.bg/",
             logo: "https://stanchev.bg/images/og/og.jpg",
             contactPoint: {
               "@type": "ContactPoint",
               contactType: "customer service",
               email: "seo@stanchev.bg",
+              telephone: "0877038729",
+              availableLanguage: "bg",
+              hoursAvailable: {
+                "@type": "OpeningHoursSpecification",
+                dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                opens: "09:30",
+                closes: "16:30"
+              }
             },
             address: {
               "@type": "PostalAddress",
@@ -128,6 +157,16 @@ export default function Kontakti() {
                   Email
                 </Text>
                 <Text variant="body-default-m">{person.email}</Text>
+              </Column>
+            </Flex>
+
+            <Flex gap="12" vertical="center">
+              <MdOutlineMail size={24} style={{ color: "var(--brand-medium)" }} />
+              <Column gap="4">
+                <Text variant="body-default-s" onBackground="neutral-weak">
+                  Телефон
+                </Text>
+                <Text variant="body-default-m">0877038729</Text>
               </Column>
             </Flex>
 
