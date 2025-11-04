@@ -18,21 +18,33 @@ export default function ContactForm({ handleSubmit }: Props) {
   const formRef = useRef<HTMLFormElement>(null);
   const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || "";
 
-  function handleInput() {
+  function validateForm() {
     const form = formRef.current;
-    if (form) setIsFormValid(form.checkValidity());
+    if (!form) {
+      setIsFormValid(false);
+      return;
+    }
+    const fd = new FormData(form);
+    const name = (fd.get("name")?.toString() || "").trim();
+    const email = (fd.get("email")?.toString() || "").trim();
+    const subject = (fd.get("subject")?.toString() || "").trim();
+    const message = (fd.get("message")?.toString() || "").trim();
+    const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    const valid = Boolean(name && emailOk && subject && message && gdprConsent);
+    setIsFormValid(valid);
+  }
+
+  function handleInput() {
+    validateForm();
   }
 
   // Periodically verify form validity every 1s to keep UI in sync
   useEffect(() => {
     const id = setInterval(() => {
-      const form = formRef.current;
-      if (!form) return;
-      const validNow = form.checkValidity();
-      setIsFormValid((prev) => (prev !== validNow ? validNow : prev));
+      validateForm();
     }, 1000);
     return () => clearInterval(id);
-  }, []);
+  }, [gdprConsent]);
 
   async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -110,9 +122,7 @@ export default function ContactForm({ handleSubmit }: Props) {
               onChange={(val: any) => {
                 const checked = typeof val === "boolean" ? val : !!val?.target?.checked;
                 setGdprConsent(checked);
-                // Recompute form validity when checkbox changes
-                const form = formRef.current;
-                if (form) setIsFormValid(form.checkValidity());
+                validateForm();
               }}
               required
             >
@@ -129,8 +139,6 @@ export default function ContactForm({ handleSubmit }: Props) {
                 Можете да оттеглите съгласието си по всяко време на: seo@stanchev.bg
               </Text>
             </Checkbox>
-            {/* Native hidden checkbox to satisfy HTML5 required validation reliably */}
-            <input type="checkbox" name="gdpr" checked={gdprConsent} required hidden readOnly />
             <Row gap="xs" vertical="center" paddingTop="xs">
               <FaInfoCircle size={12} color="var(--info-weak)" />
               <Text variant="body-default-xs" onBackground="neutral-weak">
