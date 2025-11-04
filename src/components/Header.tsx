@@ -3,7 +3,8 @@
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
-import { Fade, Flex, Line, Row, ToggleButton, Column, Text, Card } from "@once-ui-system/core";
+import { Fade, Flex, Line, Row, ToggleButton, Column, Text, Card, MegaMenu } from "@once-ui-system/core";
+import { FaSearch, FaLink, FaShoppingCart, FaWrench, FaChartLine } from "react-icons/fa";
 
 import { routes, display, person, about, blog, work, seoServices, contact } from "@/resources";
 import { ThemeToggle } from "./ThemeToggle";
@@ -180,91 +181,54 @@ export const Header = () => {
               {routes["/seo-uslugi"] && (
                 <>
                   <Row s={{ hide: true }}>
-                    <div 
-                      style={{ position: "relative" }}
-                      onMouseEnter={handleSeoMouseEnter}
-                      onMouseLeave={handleSeoMouseLeave}
-                    >
-                      <ToggleButton
-                        href="/seo-uslugi"
-                        selected={pathname.startsWith("/seo-uslugi")}
-                        label={seoServices.label}
-                      >
-                        <MdOutlineRocketLaunch size={18} />
-                      </ToggleButton>
-                      
-                      {/* Hover Menu */}
-                      {isSeoHovered && (
-                        <div
-                          style={{
-                            position: "absolute",
-                            top: "100%",
-                            left: "0",
-                            zIndex: 1000,
-                            marginTop: "8px",
-                            minWidth: "200px"
-                          }}
-                          onMouseEnter={handleSeoMouseEnter}
-                          onMouseLeave={handleSeoMouseLeave}
-                        >
-                          <Card 
-                            padding="s" 
-                            radius="m" 
-                            shadow="l"
-                            background="page"
-                            border="neutral-alpha-medium"
-                          >
-                            <Column gap="xs">
-                              <a 
-                                href="/seo-uslugi/seo-optimizatsiya"
-                                style={{ 
-                                  textDecoration: "none",
-                                  padding: "8px 12px",
-                                  borderRadius: "6px",
-                                  transition: "background-color 0.2s ease"
-                                }}
-                                onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "var(--neutral-alpha-weak)"}
-                                onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}
-                              >
-                                <Text variant="body-default-s" onBackground="neutral-strong">
-                                  SEO Оптимизация
-                                </Text>
-                              </a>
-                              <a 
-                                href="/seo-uslugi/link-building"
-                                style={{ 
-                                  textDecoration: "none",
-                                  padding: "8px 12px",
-                                  borderRadius: "6px",
-                                  transition: "background-color 0.2s ease"
-                                }}
-                                onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "var(--neutral-alpha-weak)"}
-                                onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}
-                              >
-                                <Text variant="body-default-s" onBackground="neutral-strong">
-                                  Link Building
-                                </Text>
-                              </a>
-                              <a 
-                                href="/seo-uslugi/ecommerce-seo"
-                                style={{ 
-                                  textDecoration: "none",
-                                  padding: "8px 12px",
-                                  borderRadius: "6px",
-                                  transition: "background-color 0.2s ease"
-                                }}
-                                onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "var(--neutral-alpha-weak)"}
-                                onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}
-                              >
-                                <Text variant="body-default-s" onBackground="neutral-strong">
-                                  SEO за Онлайн Магазини
-                                </Text>
-                              </a>
+                    <MegaMenu
+                      menuGroups={[
+                        {
+                          id: "seo",
+                          label: seoServices.label,
+                          suffixIcon: "chevronDown",
+                          content: (
+                            <Column gap="16" padding="8">
+                              <Text variant="heading-strong-l" marginBottom="8">SEO услуги</Text>
+                              <Row gap="12">
+                                <Card padding="16" radius="m" border="neutral-alpha-medium">
+                                  <Column gap="8">
+                                    <FaSearch size={20} color="var(--brand-medium)" />
+                                    <a href="/seo-uslugi/seo-optimizatsiya" style={{ textDecoration: "none" }}>
+                                      <Text variant="label-strong-m">SEO Оптимизация</Text>
+                                    </a>
+                                    <Text variant="body-default-s" onBackground="neutral-weak">Техническо и съдържателно SEO</Text>
+                                  </Column>
+                                </Card>
+                                <Card padding="16" radius="m" border="neutral-alpha-medium">
+                                  <Column gap="8">
+                                    <FaLink size={20} color="var(--accent-medium)" />
+                                    <a href="/seo-uslugi/link-building" style={{ textDecoration: "none" }}>
+                                      <Text variant="label-strong-m">Link Building</Text>
+                                    </a>
+                                    <Text variant="body-default-s" onBackground="neutral-weak">Авторитет и релевантност</Text>
+                                  </Column>
+                                </Card>
+                                <Card padding="16" radius="m" border="neutral-alpha-medium">
+                                  <Column gap="8">
+                                    <FaShoppingCart size={20} color="var(--success-medium)" />
+                                    <a href="/seo-uslugi/ecommerce-seo" style={{ textDecoration: "none" }}>
+                                      <Text variant="label-strong-m">SEO за Магазини</Text>
+                                    </a>
+                                    <Text variant="body-default-s" onBackground="neutral-weak">Категории, филтри, схеми</Text>
+                                  </Column>
+                                </Card>
+                              </Row>
+                              <Row>
+                                <a href="/seo-uslugi" style={{ textDecoration: "none" }}>
+                                  <Text variant="body-default-s" onBackground="brand-strong">Всички SEO услуги →</Text>
+                                </a>
+                              </Row>
                             </Column>
-                          </Card>
-                        </div>
-                      )}
-                    </div>
+                          ),
+                        },
+                      ]}
+                    />
                   </Row>
                   <Row hide s={{ hide: false }}>
                     <ToggleButton
@@ -279,91 +243,54 @@ export const Header = () => {
               {routes["/web"] && (
                 <>
                   <Row s={{ hide: true }}>
-                    <div 
-                      style={{ position: "relative" }}
-                      onMouseEnter={handleWebMouseEnter}
-                      onMouseLeave={handleWebMouseLeave}
-                    >
-                      <ToggleButton
-                        href="/web"
-                        selected={pathname.startsWith("/web")}
-                        label="Уеб Услуги"
-                      >
-                        <FaGlobe size={16} />
-                      </ToggleButton>
-                      
-                      {/* Hover Menu */}
-                      {isWebHovered && (
-                        <div
-                          style={{
-                            position: "absolute",
-                            top: "100%",
-                            left: "0",
-                            zIndex: 1000,
-                            marginTop: "8px",
-                            minWidth: "200px"
-                          }}
-                          onMouseEnter={handleWebMouseEnter}
-                          onMouseLeave={handleWebMouseLeave}
-                        >
-                          <Card 
-                            padding="s" 
-                            radius="m" 
-                            shadow="l"
-                            background="page"
-                            border="neutral-alpha-medium"
-                          >
-                            <Column gap="xs">
-                              <a 
-                                href="/web/izrabotka-sajt"
-                                style={{ 
-                                  textDecoration: "none",
-                                  padding: "8px 12px",
-                                  borderRadius: "6px",
-                                  transition: "background-color 0.2s ease"
-                                }}
-                                onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "var(--neutral-alpha-weak)"}
-                                onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}
-                              >
-                                <Text variant="body-default-s" onBackground="neutral-strong">
-                                  Изработка на сайт
-                                </Text>
-                              </a>
-                              <a 
-                                href="/web/custom-plagini"
-                                style={{ 
-                                  textDecoration: "none",
-                                  padding: "8px 12px",
-                                  borderRadius: "6px",
-                                  transition: "background-color 0.2s ease"
-                                }}
-                                onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "var(--neutral-alpha-weak)"}
-                                onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}
-                              >
-                                <Text variant="body-default-s" onBackground="neutral-strong">
-                                  Custom плъгини
-                                </Text>
-                              </a>
-                              <a 
-                                href="/web/seo-integratsiya"
-                                style={{ 
-                                  textDecoration: "none",
-                                  padding: "8px 12px",
-                                  borderRadius: "6px",
-                                  transition: "background-color 0.2s ease"
-                                }}
-                                onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "var(--neutral-alpha-weak)"}
-                                onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}
-                              >
-                                <Text variant="body-default-s" onBackground="neutral-strong">
-                                  SEO интеграция
-                                </Text>
-                              </a>
+                    <MegaMenu
+                      menuGroups={[
+                        {
+                          id: "web",
+                          label: "Уеб Услуги",
+                          suffixIcon: "chevronDown",
+                          content: (
+                            <Column gap="16" padding="8">
+                              <Text variant="heading-strong-l" marginBottom="8">Уеб услуги</Text>
+                              <Row gap="12">
+                                <Card padding="16" radius="m" border="neutral-alpha-medium">
+                                  <Column gap="8">
+                                    <FaGlobe size={20} color="var(--brand-medium)" />
+                                    <a href="/web/izrabotka-sajt" style={{ textDecoration: "none" }}>
+                                      <Text variant="label-strong-m">Изработка на сайт</Text>
+                                    </a>
+                                    <Text variant="body-default-s" onBackground="neutral-weak">Лендинги и корпоративни сайтове</Text>
+                                  </Column>
+                                </Card>
+                                <Card padding="16" radius="m" border="neutral-alpha-medium">
+                                  <Column gap="8">
+                                    <FaWrench size={20} color="var(--accent-medium)" />
+                                    <a href="/web/custom-plagini" style={{ textDecoration: "none" }}>
+                                      <Text variant="label-strong-m">Custom плъгини</Text>
+                                    </a>
+                                    <Text variant="body-default-s" onBackground="neutral-weak">WordPress, интеграции</Text>
+                                  </Column>
+                                </Card>
+                                <Card padding="16" radius="m" border="neutral-alpha-medium">
+                                  <Column gap="8">
+                                    <FaChartLine size={20} color="var(--success-medium)" />
+                                    <a href="/web/seo-integratsiya" style={{ textDecoration: "none" }}>
+                                      <Text variant="label-strong-m">SEO интеграция</Text>
+                                    </a>
+                                    <Text variant="body-default-s" onBackground="neutral-weak">Schema, CWV, Sitemaps</Text>
+                                  </Column>
+                                </Card>
+                              </Row>
+                              <Row>
+                                <a href="/web" style={{ textDecoration: "none" }}>
+                                  <Text variant="body-default-s" onBackground="brand-strong">Всички уеб услуги →</Text>
+                                </a>
+                              </Row>
                             </Column>
-                          </Card>
-                        </div>
-                      )}
-                    </div>
+                          ),
+                        },
+                      ]}
+                    />
                   </Row>
                   <Row hide s={{ hide: false }}>
                     <ToggleButton
