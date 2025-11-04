@@ -93,10 +93,16 @@ export default function ContactForm({ handleSubmit }: Props) {
                 Съгласие за обработка на лични данни
               </Text>
             </Row>
-          <Checkbox
+            <Checkbox
               id="gdpr-consent"
               checked={gdprConsent}
-              onChange={(e) => setGdprConsent(e.target.checked)}
+              onChange={(val: any) => {
+                const checked = typeof val === "boolean" ? val : !!val?.target?.checked;
+                setGdprConsent(checked);
+                // Recompute form validity when checkbox changes
+                const form = formRef.current;
+                if (form) setIsFormValid(form.checkValidity());
+              }}
               required
             >
               <Text variant="body-default-s" onBackground="neutral-weak">
@@ -112,7 +118,16 @@ export default function ContactForm({ handleSubmit }: Props) {
                 Можете да оттеглите съгласието си по всяко време на: seo@stanchev.bg
               </Text>
             </Checkbox>
+            {/* Native hidden checkbox to satisfy HTML5 required validation reliably */}
+            <input type="checkbox" name="gdpr" checked={gdprConsent} required hidden readOnly />
+            <Row gap="xs" vertical="center" paddingTop="xs">
+              <FaInfoCircle size={12} color="var(--info-weak)" />
+              <Text variant="body-default-xs" onBackground="neutral-weak">
+                Можете да оттеглите съгласието си по всяко време на: seo@stanchev.bg
+              </Text>
+            </Row>
           </Column>
+
           <Button 
             type="submit" 
             variant="primary" 
