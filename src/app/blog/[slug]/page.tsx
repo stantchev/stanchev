@@ -298,9 +298,10 @@ export default async function Blog({
             <Icon name="document" size="xs" />
             В тази статия
           </Row>
-          <HeadingNav fitHeight />
+          <HeadingNav fitHeight header={false} />
         </Column>
       </Row>
     </>
   );
 }
+
