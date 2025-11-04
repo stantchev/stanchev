@@ -19,12 +19,13 @@ export default function ContactForm({ handleSubmit }: Props) {
   async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
-    if (!gdprConsent) {
+    const form = event.currentTarget;
+    const domConsent = (form.querySelector('#gdpr-consent') as HTMLInputElement | null)?.checked ?? false;
+    if (!domConsent) {
       addToast({ variant: "danger", message: "Моля, съгласете се с обработката на личните данни." });
       return;
     }
 
-    const form = event.currentTarget;
     const formData = new FormData(form);
 
     if (typeof window !== "undefined" && (window as any).grecaptcha && siteKey) {
