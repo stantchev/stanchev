@@ -85,28 +85,32 @@ export default function ContactForm({ handleSubmit }: Props) {
                 Съгласие за обработка на лични данни
               </Text>
             </Row>
-            <Checkbox
+          <Checkbox
               id="gdpr-consent"
               checked={gdprConsent}
               onChange={(e) => setGdprConsent(e.target.checked)}
               required
-              label="Приемам условията и политиките"
-              description="С изпращане на формата приемам обработката на моите лични данни съгласно GDPR политиката и Общите условия. Данните ще се използват само за отговор на запитването ми."
-            />
-            <Row gap="xs" vertical="center" paddingTop="xs">
-              <FaInfoCircle size={12} color="var(--info-weak)" />
+            >
+              <Text variant="body-default-s" onBackground="neutral-weak">
+                Съгласие за обработка на лични данни
+              </Text>
+              <Text variant="body-default-s" onBackground="neutral-weak">
+                Приемам условията и политиките
+              </Text>
+              <Text variant="body-default-s" onBackground="neutral-weak">
+                С изпращане на формата приемам обработката на моите лични данни съгласно GDPR политиката и Общите условия. Данните ще се използват само за отговор на запитването ми.
+              </Text>
               <Text variant="body-default-xs" onBackground="neutral-weak">
                 Можете да оттеглите съгласието си по всяко време на: seo@stanchev.bg
               </Text>
-            </Row>
+            </Checkbox>
           </Column>
-
           <Button 
             type="submit" 
             variant="primary" 
             size="m" 
             fillWidth 
-            disabled={isPending}
+            disabled={isPending || !gdprConsent || !isFormValid}
           >
             {isPending ? "Изпращане..." : "Изпрати съобщение"}
           </Button>
