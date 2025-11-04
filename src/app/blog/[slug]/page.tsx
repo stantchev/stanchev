@@ -296,7 +296,7 @@ export default async function Blog({
             textVariant="label-default-s"
           >
             <Icon name="document" size="xs" />
-            На тази страница
+            В тази статия
           </Row>
           <HeadingNav fitHeight />
         </Column>
