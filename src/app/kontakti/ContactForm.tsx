@@ -89,8 +89,8 @@ export default function ContactForm({ handleSubmit }: Props) {
             <Checkbox
               id="gdpr-consent"
               name="gdpr"
-              checked={gdprConsent}
-              onChange={(val: any) => setGdprConsent(typeof val === "boolean" ? val : !!val?.target?.checked)}
+              defaultChecked={false}
+              onChange={(e: any) => setGdprConsent(!!e?.target?.checked)}
               required
             >
               <Text variant="body-default-s" onBackground="neutral-weak">
