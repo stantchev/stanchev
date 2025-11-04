@@ -90,15 +90,16 @@ export default function ContactForm({ handleSubmit }: Props) {
       )}
       <form ref={formRef} onSubmit={onSubmit} onInput={handleInput}>
         <Column gap="16">
-          <Input id="name" name="name" placeholder="Вашето име" required />
+          <Input id="name" name="name" placeholder="Вашето име" required autoComplete="name" />
           <Input
             id="email"
             name="email"
             type="email"
             placeholder="your@email.com"
             required
+            autoComplete="email"
           />
-          <Input id="subject" name="subject" placeholder="Тема на съобщението" required />
+          <Input id="subject" name="subject" placeholder="Тема на съобщението" required autoComplete="off" />
           <Textarea
             id="message"
             name="message"
@@ -106,6 +107,7 @@ export default function ContactForm({ handleSubmit }: Props) {
             placeholder="Опишете вашия проект или въпрос..."
             rows={6}
             required
+            autoComplete="off"
           />
           <input type="hidden" name="recaptchaToken" value={recaptchaToken} />
           {/* GDPR Consent */}
@@ -118,6 +120,7 @@ export default function ContactForm({ handleSubmit }: Props) {
             </Row>
             <Checkbox
               id="gdpr-consent"
+              name="gdpr"
               checked={gdprConsent}
               onChange={(val: any) => {
                 const checked = typeof val === "boolean" ? val : !!val?.target?.checked;
