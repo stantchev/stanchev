@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useTransition, useState } from "react";
+import React, { useTransition, useState, useRef } from "react";
 import { Button, Column, Input, Textarea, useToast, Checkbox, Text, Row } from "@once-ui-system/core";
 import { FaShieldAlt, FaInfoCircle } from 'react-icons/fa';
 import Script from "next/script";
@@ -14,7 +14,14 @@ export default function ContactForm({ handleSubmit }: Props) {
   const [isPending, startTransition] = useTransition();
   const [gdprConsent, setGdprConsent] = useState(false);
   const [recaptchaToken, setRecaptchaToken] = useState("");
+  const [isFormValid, setIsFormValid] = useState(false);
+  const formRef = useRef<HTMLFormElement>(null);
   const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || "";
+
+  function handleInput() {
+    const form = formRef.current;
+    if (form) setIsFormValid(form.checkValidity());
+  }
 
   async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -46,6 +53,7 @@ export default function ContactForm({ handleSubmit }: Props) {
         form.reset();
         setGdprConsent(false);
         setRecaptchaToken("");
+        setIsFormValid(false);
       } catch {
         addToast({ variant: "danger", message: "Функцията е временно недостъпна." });
       }
@@ -57,7 +65,7 @@ export default function ContactForm({ handleSubmit }: Props) {
       {siteKey && (
         <Script src={`https://www.google.com/recaptcha/api.js?render=${siteKey}`} strategy="lazyOnload" />
       )}
-      <form onSubmit={onSubmit}>
+      <form ref={formRef} onSubmit={onSubmit} onInput={handleInput}>
         <Column gap="16">
           <Input id="name" name="name" placeholder="Вашето име" required />
           <Input
