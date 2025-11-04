@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useTransition, useState, useRef } from "react";
+import React, { useTransition, useState, useRef, useEffect } from "react";
 import { Button, Column, Input, Textarea, useToast, Checkbox, Text, Row } from "@once-ui-system/core";
 import { FaShieldAlt, FaInfoCircle } from 'react-icons/fa';
 import Script from "next/script";
@@ -22,6 +22,17 @@ export default function ContactForm({ handleSubmit }: Props) {
     const form = formRef.current;
     if (form) setIsFormValid(form.checkValidity());
   }
+
+  // Periodically verify form validity every 1s to keep UI in sync
+  useEffect(() => {
+    const id = setInterval(() => {
+      const form = formRef.current;
+      if (!form) return;
+      const validNow = form.checkValidity();
+      setIsFormValid((prev) => (prev !== validNow ? validNow : prev));
+    }, 1000);
+    return () => clearInterval(id);
+  }, []);
 
   async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
