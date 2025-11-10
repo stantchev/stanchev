@@ -66,6 +66,10 @@ import {
   FaLightbulb,
   FaCloud,
   FaCog,
+  FaPlay,
+  FaPause,
+  FaStop,
+  FaVolumeUp,
 } from "react-icons/fa";
 
 import {
@@ -177,8 +181,15 @@ export const iconLibrary: Record<string, IconType> = {
   // Utility
   eye: HiOutlineEye,
   eyeOff: HiOutlineEyeSlash,
+  
+  // Audio controls
+  play: FaPlay,
+  pause: FaPause,
+  stop: FaStop,
+  speaker: FaVolumeUp,
 };
 
 export type IconLibrary = typeof iconLibrary;
 export type IconName = keyof IconLibrary;
+
 
