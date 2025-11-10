@@ -42,7 +42,7 @@ import {
 } from 'react-icons/fa';
 
 export const metadata: Metadata = {
-  title: "Stanchev Digital – SEO и AI Уеб Услуги за Бизнес Растеж",
+  title: "Stanchev Digital – SEO, генеративно SEO & уеб услуги за малкия бизнес",
   description:
     "SEO оптимизация, уеб услуги и AI решения от Stanchev Digital. Повиши онлайн видимостта и развий бизнеса си с интелигентни дигитални стратегии.",
   keywords: [
@@ -55,9 +55,16 @@ export const metadata: Metadata = {
     "онлайн видимост",
     "SEO агенция",
     "Stanchev Digital",
+    "seo за малък бизнес", 
+    "generative seo", 
+    "front-end разработка", 
+    "бързи сайтове", 
+    "оптимизация на съдържание", 
+    "локално seo",
+    "генеративно seo",
   ],
   openGraph: {
-    title: "Stanchev Digital – SEO и AI Уеб Услуги за Бизнес Растеж",
+    title: "Stanchev Digital – SEO, генеративно SEO & уеб услуги за малкия бизнес",
     description:
       "SEO оптимизация, уеб услуги и AI решения от Stanchev Digital. Повиши онлайн видимостта и развий бизнеса си с интелигентни дигитални стратегии.",
     url: "https://stanchev.bg/",
@@ -75,7 +82,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Stanchev Digital – SEO и AI Уеб Услуги за Бизнес Растеж",
+    title: "Stanchev Digital – SEO, генеративно SEO & уеб услуги за малкия бизнес",
     description:
       "SEO оптимизация, уеб услуги и AI решения от Stanchev Digital. Повиши онлайн видимостта и развий бизнеса си с интелигентни дигитални стратегии.",
     images: ["https://stanchev.bg/images/og/og.jpg"],
@@ -704,4 +711,5 @@ export default function Nachalo() {
     </>
   );
 }
+
 
