@@ -22,6 +22,7 @@ import { Metadata } from "next";
 import React from "react";
 import { Posts } from "@/components/blog/Posts";
 import { ShareSection } from "@/components/blog/ShareSection";
+import { TextToSpeech } from "@/components/blog/TextToSpeech";
 
 // ✅ Static params
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
@@ -251,7 +252,7 @@ export default async function Blog({
                 marginBottom="8"
               />
             )}
-
+            <TextToSpeech title={post.metadata.title} articleSelector="article" />
             <Column as="article" maxWidth="s">
               <CustomMDX source={post.content} />
             </Column>
@@ -304,4 +305,5 @@ export default async function Blog({
     </>
   );
 }
+
 
