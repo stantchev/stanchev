@@ -121,8 +121,8 @@ export function TextToSpeech({ title, articleSelector = "article" }: TextToSpeec
       utteranceRef.current = null;
     };
 
-    utterance.onerror = (event) => {
-      console.error("Speech synthesis error:", event);
+    utterance.onerror = (event: SpeechSynthesisErrorEvent) => {
+      console.error("Speech synthesis error:", event.error);
       setIsPlaying(false);
       setIsPaused(false);
       utteranceRef.current = null;
@@ -242,7 +242,7 @@ export function TextToSpeech({ title, articleSelector = "article" }: TextToSpeec
             <Button
               key={speed}
               variant={rate === speed ? "primary" : "tertiary"}
-              size="xs"
+              size="s"
               onClick={() => handleRateChange(speed)}
               data-border="rounded"
             >
