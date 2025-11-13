@@ -20,11 +20,11 @@ export async function generateMetadata() {
     },
     openGraph: {
       title:
-        "SEO Блог – съвети, стратегии и новини за по-добро класиране в Google",
+        "SEO Блог – съвети, стратегии и новини за по-добро класиране в Google | Stanchev Digital",
       description:
         "Следи нашия SEO блог за практически съвети, актуални стратегии, уроци и новини от света на оптимизацията.",
       url: `${baseURL}/blog`,
-      siteName: "Станчев SEO",
+      siteName: "Stanchev Digital",
       images: [
         {
           url: `https://stanchev.bg/images/og/og.jpg`,
@@ -57,13 +57,13 @@ export default function Blog() {
           __html: JSON.stringify({
             "@context": "http://schema.org",
             "@type": ["Blog", "CollectionPage"],
-            name: "Блог | Станчев SEO",
+            name: "Блог | Stanchev Digital",
             url: "https://stanchev.bg/blog",
             description:
-              "Разгледайте последните статии и актуални новини от света на SEO оптимизацията, дигиталния маркетинг и уеб разработването от Станчев SEO.",
+              "Разгледайте последните статии и актуални новини от света на SEO оптимизацията, дигиталния маркетинг и уеб разработването от Stanchev Digital.",
             publisher: {
               "@type": "Organization",
-              name: "Станчев SEO",
+              name: "Stanchev Digital",
               url: "https://stanchev.bg/",
               logo: {
                 "@type": "ImageObject",
@@ -108,10 +108,38 @@ export default function Blog() {
           marginBottom="xl"
         >
           В нашия блог ще намерите полезни статии за seo оптимизация google, seo
-          новини, класиране на сайт и seo анализатор. Разгледайте различни теми
-          и съвети за подобряване на вашето онлайн присъствие или научете повече
-          за нашите <a href="/seo-uslugi">SEO услуги</a>.
+          новини, класиране на сайт и seo анализатор. На блога има информация за
+          киберсигурност, SEO и AI, взета от най-новите публикации на Stanchev
+          Digital. Разгледайте различни теми и съвети за подобряване на вашето
+          онлайн присъствие или научете повече за нашите <a href="/seo-uslugi">SEO
+          услуги</a>.
         </Text>
+
+        <Column gap="m" marginBottom="xl">
+          <Heading as="h3" variant="heading-strong-m">
+            Какво ще откриете в SEO блога на Станчев
+          </Heading>
+          <Text variant="body-default-l" onBackground="neutral-weak" wrap="balance">
+            Публикациите са групирани по теми за техническо SEO, оптимизация на съдържание,
+            локално SEO, линк билдинг и анализ на резултатите. Всеки материал е написан на
+            български език и включва реални примери, чеклисти и стратегии, които прилагам в
+            ежедневната си работа с клиенти. Ако търсите конкретна информация за Core Web Vitals,
+            миграция на сайт към HTTPS или изграждане на устойчив SEO план за онлайн магазин,
+            ще намерите стъпка по стъпка инструкции.
+          </Text>
+          <Text variant="body-default-l" onBackground="neutral-weak" wrap="balance">
+            Поддържам блога актуален с новини за Google алгоритми, тенденции в изкуствения интелект,
+            локални SERP промени и тактически възможности за малък и среден бизнес. Статиите обхващат
+            както стратегическо, така и оперативно ниво: от проучване на ключови думи и SEO копирайтинг
+            до автоматизация, проследяване на резултати и интеграция с други маркетинг канали.
+          </Text>
+          <Text variant="body-default-l" onBackground="neutral-weak" wrap="balance">
+            За начинаещи съм събрал ръководства „първи стъпки“, а за напреднали – детайлни анализи,
+            таблици с KPI и процеси за оптимизация на екипни workflows. Ако имате нужда от персонализирана
+            стратегия, можете да резервирате консултация от страницата <a href="/seo-uslugi/seo-konsultaciya">SEO консултация</a>
+            или да ми пишете директно през <a href="/kontakti">формата за контакт</a>.
+          </Text>
+        </Column>
 
         <Heading as="h3" variant="heading-strong-m" marginBottom="m">
           Последни статии и SEO новини
@@ -121,6 +149,25 @@ export default function Blog() {
           <Posts range={[1, 1]} thumbnail />
           <Posts range={[2, 3]} columns="2" thumbnail direction="column" />
           <Posts range={[4]} columns="2" />
+        </Column>
+
+        <Column gap="m" marginBottom="48">
+          <Heading as="h3" variant="heading-strong-m">
+            Как да извлечете максимума от съдържанието
+          </Heading>
+          <Text variant="body-default-l" onBackground="neutral-weak" wrap="balance">
+            Препоръчвам да си запишете конкретни цели преди да започнете четенето – например
+            подобряване на метаданните, ускоряване на сайта или изграждане на съдържателен календар.
+            Използвайте вградените навигации и категорийни страници, за да намирате по-бързо релевантни
+            материали, а ако се нуждаете от технически ресурси, разгледайте и секцията с инструменти и шаблони,
+            която обновявам ежемесечно.
+          </Text>
+          <Text variant="body-default-l" onBackground="neutral-weak" wrap="balance">
+            След всяка статия ще откриете препоръчани следващи стъпки, свързани публикации и ръководства
+            за прилагане на прочетеното. Ако имате въпроси или искате да споделите конкретен казус, оставете
+            коментар или пишете на <a href="/kontakti">kontakti@stanchev.bg</a>. Така ще мога да подготвя още
+            по-полезни материали и да подобрявам блога според реалните нужди на бизнеса ви.
+          </Text>
         </Column>
       </Column>
       {newsletter.display && (
