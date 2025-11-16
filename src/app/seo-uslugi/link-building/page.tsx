@@ -14,24 +14,24 @@ export async function generateMetadata(): Promise<Metadata> {
   // Fallback if service is missing
   if (!service) {
     return {
-      title: 'Link Building стратегии за SEO – изгради авторитет в Google',
+      title: 'Линк Билдинг стратегии за SEO – изгради авторитет в Google',
       description:
-        'Изгради силен линк профил с ефективна Link Building стратегия. Повиши авторитета на сайта си и се класирай по-високо в Google.',
+        'Изгради силен линк профил с ефективна Линк Билдинг стратегия. Повиши авторитета на сайта си и се класирай по-високо в Google.',
       keywords:
-        'линк билдинг, линк билдинг стратегия, изграждане на линкове, линк билдинг цени, линк билдинг цена, качествени линкове, обратни връзки, link building',
+        'линк билдинг, линк билдинг стратегия, изграждане на линкове, линк билдинг цени, линк билдинг цена, качествени линкове, обратни връзки, Линк Билдинг',
       alternates: { canonical },
       openGraph: {
         title:
-          'Link Building стратегии за силно SEO – изгради авторитет и класиране в Google',
+          'Линк Билдинг стратегии за силно SEO – изгради авторитет и класиране в Google',
         description:
-          'Изгради силен линк профил с ефективна Link Building стратегия. Повиши авторитета на сайта си и се класирай по-високо в Google.',
+          'Изгради силен линк профил с ефективна Линк Билдинг стратегия. Повиши авторитета на сайта си и се класирай по-високо в Google.',
         url: `${baseURL}/seo-uslugi/link-building`,
       },
       twitter: {
         title:
-          'Link Building стратегии за силно SEO – изгради авторитет и класиране в Google',
+          'Линк Билдинг стратегии за силно SEO – изгради авторитет и класиране в Google',
         description:
-          'Изгради силен линк профил с ефективна Link Building стратегия. Повиши авторитета на сайта си и се класирай по-високо в Google.',
+          'Изгради силен линк профил с ефективна Линк Билдинг стратегия. Повиши авторитета на сайта си и се класирай по-високо в Google.',
       },
     };
   }
@@ -39,17 +39,17 @@ export async function generateMetadata(): Promise<Metadata> {
   // Normal case when service exists
   return {
     title:
-      'Link Building стратегии за силно SEO – изгради авторитет и класиране в Google',
+      'Линк Билдинг стратегии за силно SEO – изгради авторитет и класиране в Google',
     description:
-      'Изгради силен линк профил с ефективна Link Building стратегия. Повиши авторитета на сайта си и се класирай по-високо в Google.',
+      'Изгради силен линк профил с ефективна Линк Билдинг стратегия. Повиши авторитета на сайта си и се класирай по-високо в Google.',
     keywords:
-      'link building, линк билдинг, линк билдинг стратегия, изграждане на линкове, външни връзки, линкове към сайт, линк билдинг цена, seo линкове, link building услуги, линк профил',
+      'Линк Билдинг, линк билдинг, линк билдинг стратегия, изграждане на линкове, външни връзки, линкове към сайт, линк билдинг цена, seo линкове, Линк Билдинг услуги, линк профил',
     alternates: { canonical },
     openGraph: {
       title:
-        'Link Building стратегии за силно SEO – изгради авторитет и класиране в Google',
+        'Линк Билдинг стратегии за силно SEO – изгради авторитет и класиране в Google',
       description:
-        'Изгради силен линк профил с ефективна Link Building стратегия. Повиши авторитета на сайта си и се класирай по-високо в Google.',
+        'Изгради силен линк профил с ефективна Линк Билдинг стратегия. Повиши авторитета на сайта си и се класирай по-високо в Google.',
       url: canonical,
       siteName: seoServices.title,
       images: [
@@ -65,9 +65,9 @@ export async function generateMetadata(): Promise<Metadata> {
     twitter: {
       card: 'summary_large_image',
       title:
-        'Link Building стратегии за силно SEO – изгради авторитет и класиране в Google',
+        'Линк Билдинг стратегии за силно SEO – изгради авторитет и класиране в Google',
       description:
-        'Изгради силен линк профил с ефективна Link Building стратегия. Повиши авторитета на сайта си и се класирай по-високо в Google.',
+        'Изгради силен линк профил с ефективна Линк Билдинг стратегия. Повиши авторитета на сайта си и се класирай по-високо в Google.',
       images: ['https://stanchev.bg/images/og/og.jpg'],
     },
   };
@@ -85,9 +85,9 @@ export default function LinkBuildingPage() {
             '@graph': [
               {
                 '@type': 'WebPage',
-                name: 'Link Building – изградете авторитет и класиране с качествени връзки',
+                name: 'Линк Билдинг – изградете авторитет и класиране с качествени връзки',
                 description:
-                  'Добре планираната Link Building стратегия е основа за всяка успешна SEO оптимизация. Чрез изграждане на качествени външни връзки подобряваме вашия SEO рейтинг и видимост в Google.',
+                  'Добре планираната Линк Билдинг стратегия е основа за всяка успешна SEO оптимизация. Чрез изграждане на качествени външни връзки подобряваме вашия SEO рейтинг и видимост в Google.',
                 url: 'https://stanchev.bg/seo-uslugi/link-building',
                 image: {
                   '@type': 'ImageObject',
@@ -107,16 +107,16 @@ export default function LinkBuildingPage() {
               },
               {
                 '@type': 'Service',
-                serviceType: 'Link Building',
-                name: 'Link Building стратегии за силно SEO',
+                serviceType: 'Линк Билдинг',
+                name: 'Линк Билдинг стратегии за силно SEO',
                 description:
-                  'Изграждане на силен линк профил с ефективна Link Building стратегия за повишаване на авторитета и класирането в Google.',
+                  'Изграждане на силен линк профил с ефективна Линк Билдинг стратегия за повишаване на авторитета и класирането в Google.',
                 url: 'https://stanchev.bg/seo-uslugi/link-building',
                 provider: { '@id': 'https://stanchev.bg/#organization' },
                 offers: [
                   {
                     '@type': 'Offer',
-                    name: 'Стартов Link Building пакет',
+                    name: 'Стартов Линк Билдинг пакет',
                     priceCurrency: 'BGN',
                     price: '790',
                     unitText: 'лв.',
@@ -127,7 +127,7 @@ export default function LinkBuildingPage() {
                   },
                   {
                     '@type': 'Offer',
-                    name: 'Premium Link Building + SEO поддръжка',
+                    name: 'Premium Линк Билдинг + SEO поддръжка',
                     priceCurrency: 'BGN',
                     price: '550', // месечна цена – уточнено в описанието
                     unitText: 'лв./мес.',
@@ -171,16 +171,16 @@ export default function LinkBuildingPage() {
                 mainEntity: [
                   {
                     '@type': 'Question',
-                    name: 'Какво е Link Building и защо е важен?',
+                    name: 'Какво е Линк Билдинг и защо е важен?',
                     acceptedAnswer: {
                       '@type': 'Answer',
                       text:
-                        'Link Building е процесът на изграждане на качествени външни връзки (backlinks) към вашия уебсайт. Той е ключов за SEO, защото Google разглежда тези връзки като сигнал за авторитет и доверие, което пряко влияе върху класирането ви в търсачките.',
+                        'Линк Билдинг е процесът на изграждане на качествени външни връзки (backlinks) към вашия уебсайт. Той е ключов за SEO, защото Google разглежда тези връзки като сигнал за авторитет и доверие, което пряко влияе върху класирането ви в търсачките.',
                     },
                   },
                   {
                     '@type': 'Question',
-                    name: 'Какви методи за Link Building използвате?',
+                    name: 'Какви методи за Линк Билдинг използвате?',
                     acceptedAnswer: {
                       '@type': 'Answer',
                       text:
@@ -189,11 +189,11 @@ export default function LinkBuildingPage() {
                   },
                   {
                     '@type': 'Question',
-                    name: 'Колко време отнема да се видят резултати от Link Building?',
+                    name: 'Колко време отнема да се видят резултати от Линк Билдинг?',
                     acceptedAnswer: {
                       '@type': 'Answer',
                       text:
-                        'Link Building е дългосрочна стратегия. Първите резултати могат да се забележат след 3–6 месеца, но пълният потенциал и трайното подобрение на авторитета се развиват постепенно с течение на времето. Важно е постоянството и качеството на връзките.',
+                        'Линк Билдинг е дългосрочна стратегия. Първите резултати могат да се забележат след 3–6 месеца, но пълният потенциал и трайното подобрение на авторитета се развиват постепенно с течение на времето. Важно е постоянството и качеството на връзките.',
                     },
                   },
                 ],
@@ -206,10 +206,10 @@ export default function LinkBuildingPage() {
       <Column as="section" gap="xl" padding="xl" fillWidth>
         <Column gap="m" align="center" fillWidth>
           <Heading as="h1" variant="display-strong-l" align="center">
-            Link Building – изградете авторитет и класиране с качествени връзки
+            Линк Билдинг – изградете авторитет и класиране с качествени връзки
           </Heading>
           <Text variant="heading-default-xl" onBackground="neutral-weak" wrap="balance">
-            Добре планираната Link Building стратегия е основа за всяка успешна{' '}
+            Добре планираната Линк Билдинг стратегия е основа за всяка успешна{' '}
             <a href="/seo-uslugi/seo-optimizatsiya">SEO Оптимизация.</a> С изграждане на качествени външни връзки подобрявам вашия SEO рейтинг и видимост в Google.
           </Text>
           <Flex horizontal="center">
@@ -226,7 +226,7 @@ export default function LinkBuildingPage() {
         </Column>
 
         <Flex gap="8" wrap horizontal="center">
-          {['link building', 'линк билдинг стратегия', 'онлайн репутация', 'директории за регистрации'].map(
+          {['Линк Билдинг', 'линк билдинг стратегия', 'онлайн репутация', 'директории за регистрации'].map(
             (lbl) => (
               <Tag key={lbl} size="l">
                 {lbl}
@@ -237,7 +237,7 @@ export default function LinkBuildingPage() {
 
         <Column gap="l">
           <Heading as="h2" variant="display-default-m">
-            Какво включва моят Link Building процес?
+            Какво включва моят Линк Билдинг процес?
           </Heading>
           <Text variant="body-default-l">
             Всяка ефективна SEO стратегия трябва да бъде подкрепена от <strong>естествени и надеждни линкове</strong>, които Google разпознава като сигнал за доверие. Като опитен <strong>seo консултант</strong>, подбирам точните източници за връзки, които ще повишат авторитета и органичното класиране на вашия сайт.
@@ -253,14 +253,14 @@ export default function LinkBuildingPage() {
               <strong>Онлайн репутация</strong> – комбиниране на линкове с управлението на публичния имидж на бранда.
             </li>
             <li>
-              <strong>Мониторинг и отчет</strong> – проследяване на позициите и формиране на <strong>Link Building цена</strong> спрямо постигнатия резултат.
+              <strong>Мониторинг и отчет</strong> – проследяване на позициите и формиране на <strong>Линк Билдинг цена</strong> спрямо постигнатия резултат.
             </li>
           </Column>
         </Column>
 
         <Column gap="l">
           <Heading as="h2" variant="display-default-m">
-            Защо Link Building е ключов за Google?
+            Защо Линк Билдинг е ключов за Google?
           </Heading>
           <Text variant="body-default-l">
             Външните връзки са сред най-силните фактори за класиране в Google. Когато бъдат изградени правилно от <strong>SEO фирма</strong>, те носят не само трафик, но и доверие, подобрявайки цялостното представяне на сайта в търсачките.
@@ -282,7 +282,7 @@ export default function LinkBuildingPage() {
                   {step === 'Анализ'
                     ? 'Изследваме линк профила и идентифицираме приоритетни цели.'
                     : step === 'Планиране'
-                    ? 'Изготвяме Link Building стратегия, съобразена с нишата и бюджета.'
+                    ? 'Изготвяме Линк Билдинг стратегия, съобразена с нишата и бюджета.'
                     : step === 'Изграждане'
                     ? 'Създаваме партньорства, SEO статии и релевантни връзки към сайта.'
                     : 'Предоставяме отчет и препоръки за поддръжка на постигнатите резултати.'}
@@ -293,13 +293,13 @@ export default function LinkBuildingPage() {
         </Column>
         <Column gap="l">
           <Heading as="h2" variant="display-default-m">
-            Пакети и цени за Link Building
+            Пакети и цени за Линк Билдинг
           </Heading>
 		  
 		  <PlansSection plans={lbplans} />
 		  
           <Heading as="h3" variant="display-default-s">
-            Често задавани въпроси за Link Building
+            Често задавани въпроси за Линк Билдинг
           </Heading>
           <SeoAuditFAQ />
 
