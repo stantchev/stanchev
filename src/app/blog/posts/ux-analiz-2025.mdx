@@ -180,9 +180,18 @@ UX фуниите показват целия път на потребителя
 <LineBarChart
   marginTop={16}
   title="Потребителски фунии — от начална страница до покупка"
-  axis="vertical"
-  categoryKey="step"
-  valueKey="users"
+  axis="both"
+  date={{
+    format: "step",
+    start: new Date(2025, 0, 1),
+    end: new Date(2025, 0, 5),
+    selector: false,
+    presets: { display: true, granularity: "step" },
+    dual: false
+  }}
+  series={[
+    { key: "users", color: "blue" }
+  ]}
   data={[
     { step: "Начална страница", users: 1000 },
     { step: "Категория", users: 720 },
@@ -190,6 +199,8 @@ UX фуниите показват целия път на потребителя
     { step: "Кошница", users: 210 },
     { step: "Завършена покупка", users: 120 }
   ]}
+  categoryKey="step"
+  valueKey="users"
 />
 
 Анализът на отпаданията (drop-offs) показва:
