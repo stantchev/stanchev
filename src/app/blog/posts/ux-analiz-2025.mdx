@@ -178,29 +178,30 @@ Heatmap анализът визуализира как потребителит�
 UX фуниите показват целия път на потребителя – от входа в сайта до финалното действие.
 
 <LineBarChart
-  marginTop={16}
+  marginTop="16"
   title="Потребителски фунии — от начална страница до покупка"
   axis="both"
   date={{
     format: "step",
-    start: new Date(2025, 0, 1),
-    end: new Date(2025, 0, 5),
+    start: new Date("2025-01-01"),
+    end: new Date("2025-01-05"),
     selector: false,
-    presets: { display: true, granularity: "step" },
+    presets: {
+      display: true,
+      granularity: "step"
+    },
     dual: false
   }}
   series={[
     { key: "users", color: "blue" }
   ]}
   data={[
-    { step: "Начална страница", users: 1000 },
-    { step: "Категория", users: 720 },
-    { step: "Продукт", users: 410 },
-    { step: "Кошница", users: 210 },
-    { step: "Завършена покупка", users: 120 }
+    { date: new Date("2025-01-01"), users: 1000 },
+    { date: new Date("2025-01-02"), users: 720 },
+    { date: new Date("2025-01-03"), users: 410 },
+    { date: new Date("2025-01-04"), users: 210 },
+    { date: new Date("2025-01-05"), users: 120 }
   ]}
-  categoryKey="step"
-  valueKey="users"
 />
 
 Анализът на отпаданията (drop-offs) показва:
