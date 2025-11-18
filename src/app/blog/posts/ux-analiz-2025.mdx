@@ -177,20 +177,11 @@ Heatmap анализът визуализира как потребителит�
 
 UX фуниите показват целия път на потребителя – от входа в сайта до финалното действие.
 
-<LineBarChart
-  marginTop="16"
+<LineChart
   title="Потребителски фунии — от начална страница до покупка"
-  axis="both"
+  axis="x"
   date={{
-    format: "step",
-    start: new Date("2025-01-01"),
-    end: new Date("2025-01-05"),
-    selector: false,
-    presets: {
-      display: true,
-      granularity: "step"
-    },
-    dual: false
+    format: "step"
   }}
   series={[
     { key: "users", color: "blue" }
