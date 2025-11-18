@@ -70,6 +70,8 @@ import {
   FaPause,
   FaStop,
   FaVolumeUp,
+  FaShoppingCart,
+  FaOpencart,
 } from "react-icons/fa";
 
 import {
@@ -92,6 +94,12 @@ import {
   SiGooglesearchconsole,
   SiVercel,
 } from "react-icons/si";
+
+import { GrOptimize } from "react-icons/gr";
+import { VscSymbolKeyword } from "react-icons/vsc";
+import { MdContentPasteSearch } from "react-icons/md";
+import { AiOutlineAudit } from "react-icons/ai";
+import { FiMapPin } from "react-icons/fi";
 
 export const iconLibrary: Record<string, IconType> = {
   chevronUp: HiChevronUp,
@@ -152,6 +160,7 @@ export const iconLibrary: Record<string, IconType> = {
   npm: SiNpm,
   wordpress: SiWordpress,
   magento: SiMagento,
+  opencart: FaOpencart,
   photoshop: SiAdobephotoshop,
   lightroom: SiAdobelightroom,
   lighthouse: SiLighthouse,
@@ -187,9 +196,18 @@ export const iconLibrary: Record<string, IconType> = {
   pause: FaPause,
   stop: FaStop,
   speaker: FaVolumeUp,
+
+  // Addidional icons
+  seoopt: GrOptimize,
+  seoecommerce: FaShoppingCart,
+  keywordresearch: VscSymbolKeyword,
+  contentseo: MdContentPasteSearch,
+  seoaudit: AiOutlineAudit,
+  localseo: FiMapPin,
 };
 
 export type IconLibrary = typeof iconLibrary;
 export type IconName = keyof IconLibrary;
+
 
 
