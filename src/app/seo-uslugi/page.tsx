@@ -5,18 +5,18 @@ import Script from "next/script";
 // Функция за получаване на иконка за всяка услуга
 const getServiceIcon = (slug: string) => {
   const iconMap: { [key: string]: string } = {
-    'seo-optimizatsiya': 'search',
+    'seo-optimizatsiya': 'seoopt',
     'link-building': 'openLink',
-    'ecommerce-seo': 'grid',
-    'wordpress-seo': 'grid',
-    'opencart-seo': 'grid',
-    'magento-seo': 'grid',
+    'ecommerce-seo': 'seoecommerce',
+    'wordpress-seo': 'wordpress',
+    'opencart-seo': 'opencart',
+    'magento-seo': 'magento',
     'on-page-seo': 'document',
     'off-page-seo': 'arrowUpRightFromSquare',
-    'keyword-research': 'globe',
-    'content-seo': 'document',
-    'seo-odit': 'checkCircle',
-    'lokalno-seo': 'globe',
+    'keyword-research': 'keywordresearch',
+    'content-seo': 'contentseo',
+    'seo-odit': 'seoaudit',
+    'lokalno-seo': 'localseo',
     'seo-konsultaciya': 'person'
   };
   return iconMap[slug] || 'search';
@@ -298,3 +298,4 @@ export default function SeoUslugi() {
     </>
   );
 }
+
