@@ -12,6 +12,7 @@ import styles from "./Header.module.scss";
 import { AiOutlineHome } from "react-icons/ai";
 import { FaUser, FaThLarge, FaRegNewspaper,FaGlobe } from "react-icons/fa";
 import { MdOutlineRocketLaunch, MdOutlineMail } from "react-icons/md";
+import { TbSeo } from "react-icons/tb";
 
 type TimeDisplayProps = {
   timeZone: string;
@@ -191,6 +192,15 @@ export const Header = () => {
                             <Column gap="16" padding="8">
                               <Text variant="heading-strong-l" marginBottom="8">SEO услуги</Text>
                               <Row gap="12">
+                                <Card padding="16" radius="m" border="neutral-alpha-medium">
+                                  <Column gap="8">
+                                    <TbSeo size={20} color="var(--accent-medium)" />
+                                    <a href="/seo-uslugi/" style={{ textDecoration: "none" }}>
+                                      <Text variant="label-strong-m">SEO услуги</Text>
+                                    </a>
+                                    <Text variant="body-default-s" onBackground="neutral-weak">Всички SEO услуги</Text>
+                                  </Column>
+                                </Card>
                                 <Card padding="16" radius="m" border="neutral-alpha-medium">
                                   <Column gap="8">
                                     <FaSearch size={20} color="var(--brand-medium)" />
@@ -445,3 +455,4 @@ export const Header = () => {
     </>
   );
 };
+
