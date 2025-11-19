@@ -49,7 +49,7 @@ export async function generateMetadata() {
     twitter: {
       card: "summary_large_image",
       title: "Цени за SEO пакети и услуги | Stanchev Digital",
-      description: s"SEO услуги и актуални SEO цени – прозрачни пакети, реални резултати и стратегии, съобразени с вашия бизнес.",
+      description: "SEO услуги и актуални SEO цени – прозрачни пакети, реални резултати и стратегии, съобразени с вашия бизнес.",
       images: [`/api/og/generate?title=${encodeURIComponent(seoServices.title)}`],
     },
   };
@@ -298,5 +298,6 @@ export default function SeoUslugi() {
     </>
   );
 }
+
 
 
