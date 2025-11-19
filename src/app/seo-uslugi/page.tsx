@@ -24,16 +24,16 @@ const getServiceIcon = (slug: string) => {
 
 export async function generateMetadata() {
   return {
-    title: seoServices.title,
-    description: seoServices.description,
+    title: "Цени за SEO пакети и услуги | Stanchev Digital",
+    description: "SEO услуги и актуални SEO цени – прозрачни пакети, реални резултати и стратегии, съобразени с вашия бизнес.",
     alternates: {
       keywords:
-        "seo оптимизация, seo услуги, seo цена, линк билдинг, оптимизация на сайт, seo консултант, фирма за seo, seo специалист, seo агенция, seo оптимизатор, реклама в Google, дигитален маркетинг, seo одит, seo обучение, seo стратегия, оптимизация на онлайн магазин.",
+        "seo цени, seo оптимизация, seo услуги, seo цена, линк билдинг, оптимизация на сайт, seo консултант, фирма за seo, seo специалист, seo агенция, seo оптимизатор, реклама в Google, дигитален маркетинг, seo одит, seo обучение, seo стратегия, оптимизация на онлайн магазин.",
       canonical: `${baseURL}/seo-uslugi`,
     },
     openGraph: {
-      title: seoServices.title,
-      description: seoServices.description,
+      title: "Цени за SEO пакети и услуги | Stanchev Digital",
+      description: "SEO услуги и актуални SEO цени – прозрачни пакети, реални резултати и стратегии, съобразени с вашия бизнес.",
       url: `${baseURL}/seo-uslugi`,
       siteName: seoServices.title,
       images: [
@@ -48,8 +48,8 @@ export async function generateMetadata() {
     },
     twitter: {
       card: "summary_large_image",
-      title: seoServices.title,
-      description: seoServices.description,
+      title: "Цени за SEO пакети и услуги | Stanchev Digital",
+      description: s"SEO услуги и актуални SEO цени – прозрачни пакети, реални резултати и стратегии, съобразени с вашия бизнес.",
       images: [`/api/og/generate?title=${encodeURIComponent(seoServices.title)}`],
     },
   };
@@ -298,4 +298,5 @@ export default function SeoUslugi() {
     </>
   );
 }
+
 
