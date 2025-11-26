@@ -13,7 +13,7 @@ import {
   Row,
   Timeline,
 } from "@once-ui-system/core";
-import { baseURL, about, person, social } from "@/resources";
+import { baseURL, about, person, social, routes } from "@/resources";
 import TableOfContents from "@/components/about/TableOfContents";
 import styles from "@/components/about/about.module.scss";
 import React from "react";
@@ -347,6 +347,7 @@ export default function About() {
     </Column>
   );
 }
+
 
 
 
