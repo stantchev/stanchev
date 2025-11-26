@@ -22,14 +22,12 @@ export async function generateMetadata() {
   return Meta.generate({
     title: about.title,
     description: about.description,
-      alternates: {
+    alternates: {
       canonical: `${baseURL}/za-men`,
-      },
-    image: `/api/og/generate?title=${encodeURIComponent(about.title)}`,
-    path: about.path,
+    },
+    url: `${baseURL}${about.path}`,
   });
 }
-
 export default function About() {
   const structure = [
     {
@@ -349,6 +347,7 @@ export default function About() {
     </Column>
   );
 }
+
 
 
 
