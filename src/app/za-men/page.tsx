@@ -22,7 +22,7 @@ export async function generateMetadata() {
   return Meta.generate({
     title: about.title,
     description: about.description,
-    canonical: `${baseURL}/za-men`,
+    baseURL: `${baseURL}/za-men`,
     image: `/api/og/generate?title=${encodeURIComponent(about.title)}`,
     path: about.path,
   });
@@ -346,6 +346,7 @@ export default function About() {
     </Column>
   );
 }
+
 
 
 
