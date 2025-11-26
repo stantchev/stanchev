@@ -38,7 +38,7 @@ export async function generateMetadata() {
       siteName: seoServices.title,
       images: [
         {
-          url: `/api/og/generate?title=${encodeURIComponent(seoServices.title)}`,
+          url: "https://stanchev.bg/images/og/og.jpg",
           width: 1200,
           height: 630,
         },
@@ -50,7 +50,7 @@ export async function generateMetadata() {
       card: "summary_large_image",
       title: "Цени за SEO пакети и услуги | Stanchev Digital",
       description: "SEO услуги и актуални SEO цени – прозрачни пакети, реални резултати и стратегии, съобразени с вашия бизнес.",
-      images: [`/api/og/generate?title=${encodeURIComponent(seoServices.title)}`],
+      images: ["https://stanchev.bg/images/og/og.jpg"],
     },
   };
 }
@@ -298,6 +298,7 @@ export default function SeoUslugi() {
     </>
   );
 }
+
 
 
 
