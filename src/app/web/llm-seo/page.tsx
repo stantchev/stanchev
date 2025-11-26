@@ -19,7 +19,7 @@ import {
   BarChart,
   Tag,
 } from "@once-ui-system/core";
-import { person, routes } from "@/resources";
+import { person, routes, baseURL } from "@/resources";
 import type { Metadata } from "next";
 import Script from "next/script";
 import { 
@@ -53,7 +53,10 @@ export const metadata: Metadata = {
   title: "LLM SEO - SEO за големите езикови модели | Stanchev Digital",
   description: "Революционна LLM SEO оптимизация за ChatGPT, Gemini, Claude и всички AI търсачки. Позиционирайте се в ерата на изкуствения интелект с генеративно SEO. Бъдещето на SEO е тук!",
   keywords: "LLM SEO, AI SEO, генеративно SEO, SEO за ChatGPT, SEO за Gemini, SEO за Claude, SEO за големите езикови модели, AI търсачки, оптимизация за AI, бъдещето на SEO, SEO в ерата на AI, генеративно търсене, AI системи за търсене, LLM оптимизация, AI-friendly SEO, ChatGPT SEO, Gemini SEO, Claude SEO",
-  openGraph: {
+  alternates: {
+      canonical: `${baseURL}/llm-seo`,
+    },
+	openGraph: {
     title: "LLM SEO - SEO за големите езикови модели | Stanchev Digital",
     description: "Революционна LLM SEO оптимизация за ChatGPT, Gemini, Claude и всички AI търсачки. Позиционирайте се в ерата на изкуствения интелект с генеративно SEO.",
     url: "https://stanchev.bg/web/llm-seo",
@@ -914,6 +917,7 @@ export default function LLMSEOPage() {
     </>
   );
 }
+
 
 
 
