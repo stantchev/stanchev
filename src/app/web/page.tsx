@@ -18,7 +18,7 @@ import {
   PieChart,
   BarChart,
 } from "@once-ui-system/core";
-import { person, routes } from "@/resources";
+import { person, routes, baseURL } from "@/resources";
 import type { Metadata } from "next";
 import { 
   FaCode, 
@@ -971,5 +971,6 @@ export default function WebPage() {
     </>
   );
 }
+
 
 
