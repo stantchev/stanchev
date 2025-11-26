@@ -45,8 +45,8 @@ import {
 export const metadata: Metadata = {
   title: "Уеб разработка и дизайн | Модерни сайтове за вашия бизнес | Станчев SEO",
   description: "Професионални услуги за уеб разработка, дизайн и SEO оптимизация в България. Създавам модерни, бързи и функционални уебсайтове с React, Next.js, Tailwind CSS. Core Web Vitals оптимизация, мобилно-първи дизайн, техническа SEO интеграция.",
+  keywords: "уеб разработка, уеб дизайн, SEO оптимизация, React разработчик, Next.js, Tailwind CSS, Core Web Vitals, мобилно приложение, лендинг страница, уебсайт за бизнес, техническа SEO, производителност на сайт, модерен дизайн, респонсивен дизайн, WordPress плъгини, OpenCart модули, WooCommerce разширения, custom плъгини",
   alternates: {
-      keywords: "уеб разработка, уеб дизайн, SEO оптимизация, React разработчик, Next.js, Tailwind CSS, Core Web Vitals, мобилно приложение, лендинг страница, уебсайт за бизнес, техническа SEO, производителност на сайт, модерен дизайн, респонсивен дизайн, WordPress плъгини, OpenCart модули, WooCommerce разширения, custom плъгини",
       canonical: `${baseURL}/web`,
     },
   openGraph: {
@@ -971,4 +971,5 @@ export default function WebPage() {
     </>
   );
 }
+
 
