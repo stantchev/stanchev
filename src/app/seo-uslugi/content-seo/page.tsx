@@ -228,7 +228,7 @@ export default function ContentSEOPage() {
         {/* Call to action */}
         <Column align="center" paddingTop="xl" fillWidth>
           <RevealFx translateY="8" delay={0.2}>
-            <Heading variant="display-strong-m" align="center">
+            <Heading as="h4" variant="display-strong-m" align="center">
               Готови ли сте да повишите органичното си присъствие?
             </Heading>
           </RevealFx>
