@@ -289,7 +289,7 @@ export default function LocalSEOPage() {
               </Text>
             </Column>
             <Column flex={4} align="end">
-              <Heading variant="display-strong-s">от 300&nbsp;лв.</Heading>
+              <Heading as="h3" variant="display-strong-s">от 300&nbsp;лв.</Heading>
             </Column>
           </Flex>
 
