@@ -54,7 +54,7 @@ export const metadata: Metadata = {
   description: "Революционна LLM SEO оптимизация за ChatGPT, Gemini, Claude и всички AI търсачки. Позиционирайте се в ерата на изкуствения интелект с генеративно SEO. Бъдещето на SEO е тук!",
   keywords: "LLM SEO, AI SEO, генеративно SEO, SEO за ChatGPT, SEO за Gemini, SEO за Claude, SEO за големите езикови модели, AI търсачки, оптимизация за AI, бъдещето на SEO, SEO в ерата на AI, генеративно търсене, AI системи за търсене, LLM оптимизация, AI-friendly SEO, ChatGPT SEO, Gemini SEO, Claude SEO",
   alternates: {
-      canonical: `${baseURL}/llm-seo`,
+      canonical: `${baseURL}/web/llm-seo`,
     },
 	openGraph: {
     title: "LLM SEO - SEO за големите езикови модели | Stanchev Digital",
@@ -917,6 +917,7 @@ export default function LLMSEOPage() {
     </>
   );
 }
+
 
 
 
