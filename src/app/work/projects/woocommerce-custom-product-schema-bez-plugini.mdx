@@ -1,0 +1,119 @@
+---
+title: "Case Study: Custom Product Schema за WooCommerce без скъпи плъгини"
+publishedAt: "2025-09-15"
+summary: "Решение за Product Schema в WooCommerce без платени плъгини: лек, стабилен и съвместим код с JSON-LD, който елиминира конфликти и намалява разходите."
+team:
+  - name: "Станчев"
+    role: "WordPress & WooCommerce Specialist"
+    avatar: "/images/avatar.jpg"
+    linkedIn: "https://www.linkedin.com/in/stantcheff"
+---
+
+<section>
+  <h2>Накратко за проекта</h2>
+
+  <p>
+    Множество WooCommerce сайтове разчитат на Yoast и допълнителния им плъгин за <strong>Product Schema</strong>, с цел да получат богати резултати в Google. Проблемът е, че този плъгин е <strong>скъп</strong>, а след ъпдейти често води до <strong>несъвместимости с други плъгини</strong>, което причинява грешки, счупени функционалности и загуба на rich snippets.
+  </p>
+
+  <p>
+    Това е като да платиш за скъпа касова система, която всеки път след обновяване блокира магазина – и вместо да печелиш време и пари, губиш и двете.
+  </p>
+
+  <h3>Ключови подобрения</h3>
+
+  <ul>
+    <li>
+      <strong>Пълна замяна на Product Schema функционалността</strong>, без използване на плъгини.
+    </li>
+    <li>
+      <strong>Стабилно JSON-LD внедряване</strong>, генерирано динамично от WooCommerce.
+    </li>
+    <li>
+      <strong>Подобрена производителност и SEO</strong> чрез намаляване на зависимостите и конфликтите.
+    </li>
+  </ul>
+
+  <h3>Използвани технологии</h3>
+
+  <ul>
+    <li><strong>WooCommerce</strong> – източник на продуктови данни.</li>
+    <li><strong>WordPress hooks</strong> – за инжектиране на schema в <code>&lt;head&gt;</code>.</li>
+    <li><strong>JSON-LD</strong> – стандартът за структурирани данни.</li>
+  </ul>
+
+  <h3>Предизвикателства</h3>
+
+  <p>
+    Проблемът се криеше не в липсата на schema, а в зависимостта от тежки и нестабилни плъгини, които след ъпдейти чупеха front-end елементи, забавяха сайтовете и водеха до временна загуба на rich snippets в Google.
+  </p>
+
+  <p>
+    Това е все едно да имаш магазин, но управлението на витрината да е поверено на външен екип, който може да реши да смени подредбата всеки път, когато си обнови софтуера.
+  </p>
+
+  <h3>Решение с custom код</h3>
+
+  <p>
+    Внедрих лек код, който автоматично генерира <strong>валиден Product Schema</strong> за всяка продуктова страница, без нужда от допълнителни плъгини или API заявки:
+  </p>
+</section>
+
+```php
+add_action('wp_head', function() {
+    if ( is_product() ) {
+        global $product;
+        ?>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "<?php echo $product->get_name(); ?>",
+  "image": "<?php echo wp_get_attachment_url( $product->get_image_id() ); ?>",
+  "description": "<?php echo wp_strip_all_tags( $product->get_short_description() ); ?>",
+  "sku": "<?php echo $product->get_sku(); ?>",
+  "offers": {
+    "@type": "Offer",
+    "url": "<?php echo get_permalink(); ?>",
+    "priceCurrency": "BGN",
+    "price": "<?php echo $product->get_price(); ?>",
+    "availability": "https://schema.org/<?php echo $product->is_in_stock() ? 'InStock' : 'OutOfStock'; ?>"
+  }
+}
+</script>
+<?php
+    }
+});
+```
+<section>
+
+  <p>
+    Кодът използва <code>wp_head</code> hook и динамично извлича данни от <code>$product</code>, като гарантира валидни стойности за Google и други търсачки.
+  </p>
+
+  <h3>Стъпки за имплементация</h3>
+
+  <ol>
+    <li>Поставете кода в <code>functions.php</code> на child тема или custom plugin.</li>
+    <li>Тествайте на продуктова страница и валидирайте с Rich Results Test.</li>
+    <li>Премахнете конфликтни плъгини (ако има).</li>
+    <li>Регенерирайте sitemap и изпратете в Search Console.</li>
+  </ol>
+
+  <h3>Резултат</h3>
+
+  <p>
+    След внедряване на решението сайтовете намалиха зависимостта от платен софтуер, получиха <strong>стабилен Product Schema</strong> и премахнаха риска от конфликт след ъпдейти.
+  </p>
+
+  <p>
+    Това доведе до по-добро crawl-ване от Google, по-висок CTR от rich results и по-малко време за поддръжка от екипа.
+  </p>
+
+  <h4>Извод</h4>
+
+  <p>
+    Понякога най-доброто решение не е по-скъп плъгин, а <strong>интелигентно, минималистично внедряване</strong>, което използва вградените възможности на платформата. С custom JSON-LD WooCommerce може да постигне топ SEO резултати, без да разчита на тежки и нестабилни добавки.
+  </p>
+
+</section>
