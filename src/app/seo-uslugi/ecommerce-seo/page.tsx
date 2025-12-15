@@ -17,7 +17,7 @@ export async function generateMetadata(): Promise<Metadata> {
       description:
         'Комплексно SEO за онлайн магазини: техническа оптимизация, категории и продукти, скорост, schema и AI-оптимизирано съдържание за Google Overviews.',
       keywords:
-        'seo за онлайн магазини, ecommerce seo, seo оптимизация магазин, структурирани данни продукти, core web vitals, скорост на сайт, категории, филтри, каноникал, merchant center, ai overviews, chatgpt',
+        'seo за онлайн магазини, seo оптимизация на онлайн магазин, оптимизация на онлайн магазин, ecommerce seo, seo оптимизация магазин, структурирани данни продукти, core web vitals, скорост на сайт, категории, филтри, каноникал, merchant center, ai overviews, chatgpt',
       alternates: { canonical },
       openGraph: {
         title: 'SEO за Онлайн Магазини – повече продажби и видимост в Google',
@@ -167,7 +167,7 @@ export default function EcommerceSEOPage() {
       <Column as="section" gap="xl" padding="xl" fillWidth>
         <Column gap="m" align="center" fillWidth>
           <Heading as="h1" variant="display-strong-l" align="center">
-            SEO за Онлайн Магазини – повече продажби и видимост в Google
+            SEO оптимизация на онлайн магазин – повече продажби и видимост в Google
           </Heading>
           <Text variant="heading-default-xl" onBackground="neutral-weak" wrap="balance">
             AI-оптимизирана стратегия за <a href="/seo-uslugi/seo-optimizatsiya">SEO оптимизация</a> на eCommerce: технически фундамент, структура на категории и продукти, Core Web Vitals, структурирани данни и съдържание, което се класира в Google Overviews и асистенти като ChatGPT. Подхождам систематично – от корекция на индексирането и фасетите до изграждане на авторитет и повишаване на конверсиите, за да превърна органичния трафик в реални поръчки.
@@ -209,7 +209,7 @@ export default function EcommerceSEOPage() {
             Какво включва професионалното SEO за онлайн магазини?
           </Heading>
           <Text variant="body-default-l">
-            Ефективното eCommerce SEO комбинира <strong>техническа стабилност</strong>, ясна <strong>информационна архитектура</strong> и <strong>AI-готово съдържание</strong>. Целта е повече органичен трафик, видимост в богати резултати и по-висока конверсия през категории, вътрешно търсене и продуктови страници.
+            Ефективната seo оптимизация на онлайн магазин <strong>техническа стабилност</strong>, ясна <strong>информационна архитектура</strong> и <strong>AI-готово съдържание</strong>. Целта е повече органичен трафик, видимост в богати резултати и по-висока конверсия през категории, вътрешно търсене и продуктови страници.
           </Text>
           <Text variant="body-default-l">
             Моят подход адресира както основите – индексиране, каноникализация и скорост – така и детайлите, които правят магазина конкурентен в AI-епохата: структурирани данни, последователни именувания, ясни спецификации и стойностни сравнения. Така съдържанието ви се разбира от търсачките и се цитира в AI отговори.
@@ -237,7 +237,7 @@ export default function EcommerceSEOPage() {
         </Column>
 
         <Column gap="l">
-          <Heading as="h3" variant="heading-strong-xl">Техническо SEO за eCommerce</Heading>
+          <Heading as="h3" variant="heading-strong-xl">Техническа seo оптимизация на онлайн магазин</Heading>
           <Text variant="body-default-l">
             Управлявам фасети и филтри с ясни правила (indexability, canonical, nofollow където е уместно), оптимизирам пагинация, вариации, UTM и параметри за сортиране. Предотвратявам раздуване на индекса и фокусиране върху страници с намерение за покупка.
           </Text>
