@@ -1,6 +1,6 @@
 {
-  "name": "Станчев-SEO-Портфолио",
-  "version": "2.2.0",
+  "name": "StanchevDigital-Website",
+  "version": "2.2.1",
   "scripts": {
     "dev": "next dev",
     "export": "next export",
@@ -10,12 +10,12 @@
   },
   "dependencies": {
     "@mdx-js/loader": "^3.1.0",
-    "@next/mdx": "^15.3.1",
+    "@next/mdx": "^16.0.10",
     "@once-ui-system/core": "^1.4.31",
     "classnames": "^2.5.1",
     "cookie": "^1.0.2",
     "gray-matter": "^4.0.3",
-    "next": "^15.3.1",
+    "next": "^15.3.2",
     "next-mdx-remote": "^5.0.0",
     "nodemailer": "^7.0.3",
     "react": "19.0.0",
@@ -35,5 +35,3 @@
     "typescript": "^5.8.3"
   }
 }
-
-
