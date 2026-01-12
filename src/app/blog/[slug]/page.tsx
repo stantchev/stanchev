@@ -136,7 +136,8 @@ export default async function Blog({
     },
     author: {
       "@type": "Person",
-      name: "Станчев",
+      "@id": "https://stanchev.bg/#person",
+      "name": "Stanchev",
       url: `${baseURL}${about.path}`,
       image: {
         "@type": "ImageObject",
@@ -305,5 +306,6 @@ export default async function Blog({
     </>
   );
 }
+
 
 
