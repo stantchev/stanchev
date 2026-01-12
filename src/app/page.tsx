@@ -104,12 +104,19 @@ export default function Nachalo() {
       url: "https://stanchev.bg/",
       logo: "https://stanchev.bg/images/og/og.jpg",
       description:
-        "Stanchev Digital предлага SEO оптимизация, изработка на уебсайтове, AI автоматизация и дигитален маркетинг за бизнес растеж и по-добра онлайн видимост.",
+        "Stanchev Digital предлага SEO оптимизация, изработка на уебсайтове и дигитален маркетинг за бизнес растеж и по-добра онлайн видимост.",
       foundingDate: "2025",
-      founder: {
+  "founder": {
         "@type": "Person",
-        name: "Stanchev",
-        jobTitle: "SEO & Front-End Specialist",
+        "@id": "https://stanchev.bg/#person", 
+        "name": "Stanchev",
+        "jobTitle": "SEO & Front-End Specialist",
+        "disambiguatingDescription": "Founder of Stanchev Digital and SEO expert at stanchev.bg.",
+        "subjectOf": {
+          "@id": "https://stanchev.bg/za-men"
+        },
+        "url": "https://stanchev.bg/za-men",
+        "email": "seo@stanchev.bg"
       },
       contactPoint: [
         {
@@ -129,7 +136,7 @@ export default function Nachalo() {
       },
       sameAs: [
         "https://github.com/stantchev/",
-        "https://www.linkedin.com/in/stantcheff/",
+        "https://www.linkedin.com/in/stanchev-seo/",
         "https://dev.to/stanchev",
       ],
       knowsAbout: [
@@ -711,5 +718,6 @@ export default function Nachalo() {
     </>
   );
 }
+
 
 
