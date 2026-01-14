@@ -246,7 +246,7 @@ export default function OptimizatsiyaSajtPage() {
                 Основни подобрения в скоростта и функционалността
               </Text>
               <Text variant="display-strong-l" align="center" onBackground="brand-strong">
-                450 лв.
+                230 €
               </Text>
               <Column gap="s">
                 <Text variant="body-default-s">• Технически одит</Text>
@@ -268,7 +268,7 @@ export default function OptimizatsiyaSajtPage() {
                 Цялостна оптимизация с Core Web Vitals подобрения
               </Text>
               <Text variant="display-strong-l" align="center" onBackground="brand-strong">
-                750 лв.
+                380 €
               </Text>
               <Column gap="s">
                 <Text variant="body-default-s">• Всичко от базовия пакет</Text>
@@ -354,3 +354,4 @@ export default function OptimizatsiyaSajtPage() {
     </>
   );
 }
+
