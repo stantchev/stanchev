@@ -339,7 +339,7 @@ export default function CustomPlaginiPage() {
               {
                 title: "OpenCart модул",
                 subtitle: "Персонализиран модул за OpenCart",
-                price: "500 лв.",
+                price: "250 €",
                 features: [
                   "Custom функционалности",
                   "Административен панел", 
@@ -353,7 +353,7 @@ export default function CustomPlaginiPage() {
               {
                 title: "WordPress плъгин",
                 subtitle: "Персонализиран плъгин за WordPress",
-                price: "600 лв.",
+                price: "300 €",
                 features: [
                   "Custom функционалности",
                   "Settings страница",
@@ -531,4 +531,5 @@ export default function CustomPlaginiPage() {
     </>
   );
 }
+
 
