@@ -1,8 +1,8 @@
 export const SEOPlans = [
   {
     name: "Basic",
-    price: "290 лв.",
-    oldPrice: "390 лв.",
+    price: "148 €",
+    oldPrice: "199 €",
     period: "/ мес.",
     features: [
       "Техн. одит",
@@ -19,8 +19,8 @@ export const SEOPlans = [
   },
   {
     name: "Pro",
-    price: "550 лв.",
-    oldPrice: "690 лв.",
+    price: "280 €",
+    oldPrice: "350 €",
     period: "/ мес.",
     features: [
       "Пълен одит",
@@ -38,8 +38,8 @@ export const SEOPlans = [
   },
   {
     name: "Enterprise",
-    price: "800 лв.",
-    oldPrice: "990 лв.",
+    price: "409 €",
+    oldPrice: "505 €",
     period: "/ мес.",
     features: [
       "Dev поддръжка",
@@ -55,3 +55,4 @@ export const SEOPlans = [
     featured: false,
   },
 ];
+
