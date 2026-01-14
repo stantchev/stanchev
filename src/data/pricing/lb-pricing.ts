@@ -1,8 +1,8 @@
 export const lbplans = [
   {
     name: "Basic",
-    price: "260 лв.",
-	oldPrice: "300 лв.",
+    price: "130 €",
+	oldPrice: "150 €",
 	period: "/ мес.",
     features: [
       "5 качествени линка от малки медии и блогове",
@@ -16,8 +16,8 @@ export const lbplans = [
   },
   {
     name: "Pro",
-    price: "300 лв.",
-    oldPrice: "499 лв.",
+    price: "150 €",
+    oldPrice: "255 €",
 	period: "/ мес.",
     features: [
 		
@@ -34,8 +34,8 @@ export const lbplans = [
   },
   {
     name: "Enterprise",
-    price: "350 лв.",
-    oldPrice: "380 лв.",
+    price: "178 €",
+    oldPrice: "194 €",
 	period: "/ мес.",
     features: [
       "5 премиум линка (DR 20+)",
@@ -50,5 +50,6 @@ export const lbplans = [
   },
 
 ];
+
 
 
