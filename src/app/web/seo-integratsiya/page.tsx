@@ -236,7 +236,7 @@ export default function SeoIntegratsiyaPage() {
                 Основни SEO елементи и техническа оптимизация
               </Text>
               <Text variant="display-strong-l" align="center" onBackground="brand-strong">
-                350 лв.
+                170 €
               </Text>
               <Column gap="s">
                 <Text variant="body-default-s">• Мета тагове оптимизация</Text>
@@ -258,7 +258,7 @@ export default function SeoIntegratsiyaPage() {
                 Цялостна SEO интеграция с schema markup
               </Text>
               <Text variant="display-strong-l" align="center" onBackground="brand-strong">
-                550 лв.
+                280 €
               </Text>
               <Column gap="s">
                 <Text variant="body-default-s">• Всичко от базовия пакет</Text>
@@ -344,3 +344,4 @@ export default function SeoIntegratsiyaPage() {
     </>
   );
 }
+
