@@ -1,8 +1,8 @@
 export const ecommercePlans = [
   {
     name: "Basic",
-    price: "590 лв.",
-    oldPrice: "690 лв.",
+    price: "300 €",
+    oldPrice: "350 €",
     period: "/ мес.",
     features: [
       "Техн. одит",
@@ -19,8 +19,8 @@ export const ecommercePlans = [
   },
   {
     name: "Pro",
-    price: "750 лв.",
-    oldPrice: "990 лв.",
+    price: "380 €",
+    oldPrice: "500 €",
     period: "/ мес.",
     features: [
       "Пълен одит",
@@ -38,8 +38,8 @@ export const ecommercePlans = [
   },
   {
     name: "Enterprise",
-    price: "1 190 лв.",
-    oldPrice: "1 490 лв.",
+    price: "600 €",
+    oldPrice: "760 €",
     period: "/ мес.",
     features: [
       "Dev поддръжка",
@@ -55,3 +55,4 @@ export const ecommercePlans = [
     featured: false,
   },
 ];
+
