@@ -295,7 +295,7 @@ export default function IzrabotkaSajtPage() {
               {
                 title: "Лендинг страница",
                 subtitle: "Една лендинг страница за промоции или услуги",
-                price: "800 лв.",
+                price: "400 €",
                 features: [
                   "Модерен дизайн",
                   "SEO оптимизация",
@@ -309,7 +309,7 @@ export default function IzrabotkaSajtPage() {
               {
                 title: "Корпоративен сайт",
                 subtitle: "Стандартен корпоративен сайт с CMS",
-                price: "1500 лв.",
+                price: "765 €",
                 features: [
                   "До 5 страници",
                   "Административен панел",
@@ -505,3 +505,4 @@ export default function IzrabotkaSajtPage() {
     </>
   );
 }
+
