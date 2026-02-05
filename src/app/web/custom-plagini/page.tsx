@@ -198,7 +198,7 @@ export default function CustomPlaginiPage() {
             <strong>Custom плъгини</strong> са персонализирани решения, създадени специално за вашите бизнес нужди. Разработвам модули за WordPress, OpenCart и WooCommerce, които добавят уникални функционалности, които не се намират в стандартните разширения. Всички плъгини са оптимизирани за производителност и съвместимост.
           </Text>
 
-          <Grid columns={2} gap="l">
+          <Grid columns={2} s={{ columns: 1 }} gap="l">
             {[
               { icon: FaWordpress, title: "WordPress плъгини", desc: "Персонализирани функционалности за WordPress сайтове" },
               { icon: FaShoppingCart, title: "OpenCart модули", desc: "Специализирани модули за разширяване на функционалността на онлайн магазина" },
@@ -531,5 +531,6 @@ export default function CustomPlaginiPage() {
     </>
   );
 }
+
 
 
