@@ -7,27 +7,27 @@ import Script from "next/script";
 export async function generateMetadata() {
   return {
     ...Meta.generate({
-      title: blog.title,
-      description: blog.description,
+      title: "SEO и Киберсигурност блог – Съвети, стратегии и новини за по-добро класиране и защита | Stanchev Digital",
+      description: "Открийте практически съвети по SEO оптимизация, киберсигурност, новини за Google алгоритми, защита от хакерски атаки и стратегии за дигитален маркетинг в нашия блог.",
       baseURL: baseURL,
-      image: `/api/og/generate?title=${encodeURIComponent(blog.title)}`,
-      path: blog.path,
+      image: `/api/og/generate?title=${encodeURIComponent("SEO и Киберсигурност Блог | Stanchev Digital")}`,
+      path: "/blog",
     }),
     keywords:
-      "seo блог, seo съвети, seo новини, seo уроци, seo обучение, seo копирайтинг, seo стратегии, как се прави seo оптимизация, анализ на сайт, оптимизация на сайт",
+      "seo блог, seo съвети, seo новини, seo уроци, seo обучение, seo копирайтинг, seo стратегии, как се прави seo оптимизация, анализ на сайт, оптимизация на сайт, киберсигурност блог, киберсигурност съвети, защита от хакери, киберсигурност новини, онлайн сигурност, seo и киберсигурност, google класиране, уеб защита, дигитален маркетинг",
     alternates: {
       canonical: `${baseURL}/blog`,
     },
     openGraph: {
       title:
-        "SEO Блог – съвети, стратегии и новини за по-добро класиране в Google | Stanchev Digital",
+        "SEO и Киберсигурност блог – Съвети, стратегии и новини за по-добро класиране и защита | Stanchev Digital",
       description:
-        "Следи нашия SEO блог за практически съвети, актуални стратегии, уроци и новини от света на оптимизацията.",
+        "Следи нашия блог за практически съвети по SEO оптимизация, киберсигурност, актуални стратегии, уроци и новини от света на дигиталната защита и оптимизация.",
       url: `${baseURL}/blog`,
       siteName: "Stanchev Digital",
       images: [
         {
-          url: `https://stanchev.bg/images/og/og.jpg`,
+          url: `https://stanchev.bg/images/og/og-seo-cyber.jpg`,
           width: 1200,
           height: 630,
         },
@@ -38,10 +38,10 @@ export async function generateMetadata() {
     twitter: {
       card: "summary_large_image",
       title:
-        "SEO Блог – съвети, стратегии и новини за по-добро класиране в Google",
+        "SEO и Киберсигурност блог – Съвети, стратегии и новини за по-добро класиране и защита | Stanchev Digital",
       description:
-        "Следи нашия SEO блог за практически съвети, актуални стратегии, уроци и новини от света на оптимизацията.",
-      images: [`https://stanchev.bg/images/og/og.jpg`],
+        "Следи нашия блог за практически съвети по SEO оптимизация, киберсигурност, актуални стратегии, уроци и новини от света на дигиталната защита и оптимизация.",
+      images: [`https://stanchev.bg/images/og/og-seo-cyber.jpg`],
     },
   };
 }
@@ -49,7 +49,7 @@ export async function generateMetadata() {
 export default function Blog() {
   return (
     <>
-      {/* JSON-LD Schema */}
+      {/* JSON-LD Schema for Enhanced SEO */}
       <Script
         id="blog-schema"
         type="application/ld+json"
@@ -57,122 +57,111 @@ export default function Blog() {
           __html: JSON.stringify({
             "@context": "http://schema.org",
             "@type": ["Blog", "CollectionPage"],
-            name: "Блог | Stanchev Digital",
+            name: "SEO и Киберсигурност Блог | Stanchev Digital",
             url: "https://stanchev.bg/blog",
             description:
-              "Разгледайте последните статии и актуални новини от света на SEO оптимизацията, дигиталния маркетинг и уеб разработването от Stanchev Digital.",
+              "Разгледайте последните статии и актуални новини от света на SEO оптимизацията, киберсигурността, дигиталния маркетинг и уеб разработването от Stanchev Digital. Практически съвети за класиране в Google и защита от онлайн заплахи.",
             publisher: {
               "@type": "Organization",
               name: "Stanchev Digital",
               url: "https://stanchev.bg/",
               logo: {
                 "@type": "ImageObject",
-                url: "https://stanchev.bg/images/og/og.jpg",
+                url: "https://stanchev.bg/images/og/og-seo-cyber.jpg",
               },
             },
             mainEntityOfPage: {
               "@type": "WebPage",
               "@id": "https://stanchev.bg/blog",
             },
+            keywords: [
+              "seo оптимизация",
+              "киберсигурност",
+              "google класиране",
+              "онлайн защита",
+              "дигитален маркетинг",
+              "seo съвети",
+              "киберсигурност новини",
+            ],
           }),
         }}
       />
+      <Column maxWidth="l" paddingTop="32" paddingBottom="32" gap="xl" responsive>
+        {/* Hero Section for Landing Page Feel */}
+        <Column align="center" gap="m" paddingY="40" background="neutral-weak" borderRadius="m" fillWidth>
+          <Heading as="h1" variant="display-strong-xl" textAlign="center">
+            SEO и Киберсигурност Блог
+          </Heading>
+          <Text variant="heading-default-l" onBackground="neutral-weak" textAlign="center" wrap="balance" maxWidth="m">
+            Практически съвети, стратегии и новини за по-добро класиране в Google и сигурна онлайн защита. Открийте как да оптимизирате сайта си и да го защитите от заплахи.
+          </Text>
+          <Schema
+            as="blogPosting"
+            baseURL={baseURL}
+            title="SEO и Киберсигурност Блог | Stanchev Digital"
+            description="Практически съвети по SEO и киберсигурност за бизнеса ви."
+            path="/blog"
+            image={`/api/og/generate?title=${encodeURIComponent("SEO и Киберсигурност Блог")}`}
+            author={{
+              name: person.name,
+              url: `${baseURL}/blog`,
+              image: `${baseURL}${person.avatar}`,
+            }}
+          />
+        </Column>
 
-      <Column maxWidth="m" paddingTop="24">
-        <Schema
-          as="blogPosting"
-          baseURL={baseURL}
-          title={blog.title}
-          description={blog.description}
-          path={blog.path}
-          image={`/api/og/generate?title=${encodeURIComponent(blog.title)}`}
-          author={{
-            name: person.name,
-            url: `${baseURL}/blog`,
-            image: `${baseURL}${person.avatar}`,
-          }}
-        />
+        {/* Introduction Section */}
+        <Column gap="m" marginBottom="xl">
+          <Heading as="h2" variant="heading-strong-l" marginBottom="s">
+            Стратегии за SEO Оптимизация и Киберсигурност
+          </Heading>
+          <Text
+            variant="body-default-xl"
+            onBackground="neutral-weak"
+            wrap="balance"
+          >
+            В нашия блог ще намерите полезни статии за SEO оптимизация в Google, киберсигурност съвети, новини за алгоритми, класиране на сайт, анализ на уязвимости и инструменти за защита. Информация за SEO, AI и киберсигурност от най-новите публикации на Stanchev Digital. Разгледайте теми за подобряване на онлайн присъствието ви или научете повече за нашите <a href="/seo-uslugi">SEO услуги</a> и <a href="/kibersigurnost-uslugi">Киберсигурност услуги</a>.
+          </Text>
+        </Column>
 
-        <Heading as="h1" variant="display-strong-l" marginBottom="m">
-          {blog.title}
-        </Heading>
-
-        <Heading as="h2" variant="heading-strong-m" marginBottom="s">
-          Стратегии и SEO съвети за по-добро класиране в Google
-        </Heading>
-
-        <Text
-          variant="heading-default-xl"
-          onBackground="neutral-weak"
-          wrap="balance"
-          marginBottom="xl"
-        >
-          В нашия блог ще намерите полезни статии за seo оптимизация google, seo
-          новини, класиране на сайт и seo анализатор. На блога има информация за
-          киберсигурност, SEO и AI, взета от най-новите публикации на Stanchev
-          Digital. Разгледайте различни теми и съвети за подобряване на вашето
-          онлайн присъствие или научете повече за нашите <a href="/seo-uslugi">SEO
-          услуги</a>.
-        </Text>
-
+        {/* What You'll Find Section */}
         <Column gap="m" marginBottom="xl">
           <Heading as="h3" variant="heading-strong-m">
-            Какво ще откриете в SEO блога на Станчев
+            Какво Ще Откриете в Блога на Stanchev Digital
           </Heading>
           <Text variant="body-default-l" onBackground="neutral-weak" wrap="balance">
-            Публикациите са групирани по теми за техническо SEO, оптимизация на съдържание,
-            локално SEO, линк билдинг и анализ на резултатите. Всеки материал е написан на
-            български език и включва реални примери, чеклисти и стратегии, които прилагам в
-            ежедневната си работа с клиенти. Ако търсите конкретна информация за Core Web Vitals,
-            миграция на сайт към HTTPS или изграждане на устойчив SEO план за онлайн магазин,
-            ще намерите стъпка по стъпка инструкции.
+            Публикациите са групирани по теми за техническо SEO, оптимизация на съдържание, локално SEO, линк билдинг, анализ на резултатите, киберсигурност стратегии, защита от хакерски атаки, SSL сертификати и уеб сигурност. Всеки материал е на български език с реални примери, чеклисти и стратегии от ежедневната ни работа.
           </Text>
           <Text variant="body-default-l" onBackground="neutral-weak" wrap="balance">
-            Поддържам блога актуален с новини за Google алгоритми, тенденции в изкуствения интелект,
-            локални SERP промени и тактически възможности за малък и среден бизнес. Статиите обхващат
-            както стратегическо, така и оперативно ниво: от проучване на ключови думи и SEO копирайтинг
-            до автоматизация, проследяване на резултати и интеграция с други маркетинг канали.
+            Поддържаме блога актуален с новини за Google алгоритми, тенденции в AI, киберсигурност заплахи, локални SERP промени и тактики за малък и среден бизнес. От проучване на ключови думи и SEO копирайтинг до защита от DDoS атаки и интеграция с маркетинг канали.
           </Text>
           <Text variant="body-default-l" onBackground="neutral-weak" wrap="balance">
-            За начинаещи съм събрал ръководства „първи стъпки“, а за напреднали – детайлни анализи,
-            таблици с KPI и процеси за оптимизация на екипни workflows. Ако имате нужда от персонализирана
-            стратегия, можете да резервирате консултация от страницата <a href="/seo-uslugi/seo-konsultaciya">SEO консултация</a>
-            или да ми пишете директно през <a href="/kontakti">формата за контакт</a>.
+            За начинаещи: Ръководства за първи стъпки в SEO и киберсигурност. За напреднали: Анализи, KPI таблици и workflows. Резервирайте <a href="/seo-uslugi/seo-konsultaciya">SEO консултация</a> или <a href="/kibersigurnost-konsultaciya">Киберсигурност консултация</a> през <a href="/kontakti">контактната форма</a>.
           </Text>
         </Column>
 
-        <Heading as="h3" variant="heading-strong-m" marginBottom="m">
-          Последни статии и SEO новини
-        </Heading>
-
-        <Column fillWidth flex={1} gap="40" marginBottom="40">
-          <Posts range={[1, 1]} thumbnail />
-          <Posts range={[2, 3]} columns="2" thumbnail direction="column" />
-          <Posts range={[4]} columns="2" />
+        {/* Latest Posts Section */}
+        <Column gap="m" marginBottom="xl">
+          <Heading as="h3" variant="heading-strong-m" marginBottom="m">
+            Последни Статии и Новини по SEO и Киберсигурност
+          </Heading>
+          <Column fillWidth flex={1} gap="40" columns={{ sm: 1, md: 2, lg: 3 }} responsive>
+            <Posts range={[1, 3]} thumbnail />
+            <Posts range={[4, 6]} columns="1" />
+          </Column>
         </Column>
 
+        {/* Maximizing Content Section */}
         <Column gap="m" marginBottom="48">
           <Heading as="h3" variant="heading-strong-m">
-            Как да извлечете максимума от съдържанието
+            Как да Извлечете Максимума от Нашия Блог
           </Heading>
           <Text variant="body-default-l" onBackground="neutral-weak" wrap="balance">
-            Препоръчвам да си запишете конкретни цели преди да започнете четенето – например
-            подобряване на метаданните, ускоряване на сайта или изграждане на съдържателен календар.
-            Използвайте вградените навигации и категорийни страници, за да намирате по-бързо релевантни
-            материали, а ако се нуждаете от технически ресурси, разгледайте и секцията с инструменти и шаблони,
-            която обновявам ежемесечно.
+            Запишете цели като подобряване на метаданни, ускоряване на сайта, защита от уязвимости или съдържателен календар. Използвайте категории за бързо търсене, разгледайте инструменти и шаблони.
           </Text>
           <Text variant="body-default-l" onBackground="neutral-weak" wrap="balance">
-            След всяка статия ще откриете препоръчани следващи стъпки, свързани публикации и ръководства
-            за прилагане на прочетеното. Ако имате въпроси или искате да споделите конкретен казус, оставете
-            коментар или пишете на <a href="/kontakti">kontakti@stanchev.bg</a>. Така ще мога да подготвя още
-            по-полезни материали и да подобрявам блога според реалните нужди на бизнеса ви.
+            След всяка статия: Препоръки, свързани публикации и ръководства. Споделете казуси в коментари или на <a href="/kontakti">seo@stanchev.bg</a> за персонализирани материали.
           </Text>
-        </Column>
-      </Column>
-      {newsletter.display && (
-        <Column fillWidth maxWidth="s" align="center" paddingY="40">
-          <Mailchimp />
         </Column>
       )}
     </>
