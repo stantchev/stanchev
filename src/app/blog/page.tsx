@@ -127,7 +127,7 @@ export default function BlogPage() {
             Актуални прогнози за SEO тенденции като EEAT, AI-медиирани SERPs, човешко съдържание над AI. Тенденции в web разработка: AI-first development, мета-фреймуърки като Next.js, React Compiler. Ръководства за оптимизация, анализи на Google updates и бонус теми за киберсигурност: AI в кибер атаки, геополитика в сигурността.
           </Text>
 
-          <Grid columns={4} s={{ columns: 2 }} gap="s" fillWidth>
+          <Grid columns={4} s={{ columns: 1 }} gap="s" fillWidth>
             {[
               { icon: FaSearch, title: "SEO оптимизация", desc: "Ключови думи, EEAT, AI SERPs" },
               { icon: FaRocket, title: "Web разработка", desc: "Next.js, AI-first, Performance" },
@@ -257,4 +257,5 @@ export default function BlogPage() {
     </>
   );
 }
+
 
