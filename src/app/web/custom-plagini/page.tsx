@@ -284,7 +284,7 @@ export default function CustomPlaginiPage() {
             Моят процес в 4 етапа
           </Heading>
 
-          <Grid columns={4} gap="l">
+          <Grid columns={4} s={{ columns: 1 }} gap="l">
             {[
               { 
                 step: "Анализ", 
@@ -334,7 +334,7 @@ export default function CustomPlaginiPage() {
             Пакети и цени за custom плъгини
           </Heading>
           
-          <Grid columns={2} gap="m" align="center">
+          <Grid columns={2} s={{ columns: 1 }} gap="m" align="center">
             {[
               {
                 title: "OpenCart модул",
@@ -531,6 +531,7 @@ export default function CustomPlaginiPage() {
     </>
   );
 }
+
 
 
 
