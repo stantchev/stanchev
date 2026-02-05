@@ -90,7 +90,7 @@ export default function Blog() {
         <Column
           gap="m"
           align="center"
-          paddingTop="2xl"          // статичен, но голям – изглежда добре на всички екрани
+          paddingTop="xl"          // статичен, но голям – изглежда добре на всички екрани
           fillWidth
         >
           <Heading as="h1" variant="display-strong-xl" align="center">
@@ -176,7 +176,7 @@ export default function Blog() {
         <Column
           gap="l"
           align="center"
-          paddingTop="2xl"
+          paddingTop="xl"
           fillWidth
         >
           <Heading as="h3" variant="display-strong-m" align="center">
@@ -200,5 +200,6 @@ export default function Blog() {
     </>
   );
 }
+
 
 
