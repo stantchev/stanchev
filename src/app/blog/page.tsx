@@ -80,12 +80,30 @@ export default function Blog() {
         as="main"
         maxWidth="l"
         align="center"
-        paddingTop={{ initial: "24", s: "32", m: "40" }}
-        paddingBottom="32"
+        paddingTop={{
+          initial: "16",    // малки екрани (мобилни)
+          s: "24",
+          m: "32",
+          l: "40",
+          xl: "48"          // големи десктоп екрани
+        }}
+        paddingBottom={{
+          initial: "24",
+          m: "32",
+          xl: "40"
+        }}
         gap="xl"
       >
         {/* Hero / Въведение */}
-        <Column align="center" gap="m" paddingY={{ initial: "32", m: "48" }}>
+        <Column
+          align="center"
+          gap="m"
+          paddingY={{
+            initial: "24",
+            m: "40",
+            xl: "48"
+          }}
+        >
           <Heading as="h1" variant="display-strong-xl" textAlign="center">
             SEO и Киберсигурност Блог
           </Heading>
