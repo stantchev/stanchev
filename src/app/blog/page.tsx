@@ -164,20 +164,18 @@ export default function BlogPage() {
           </Heading>
 
           <Column gap="xl" fillWidth>
-            {/* Всички постове без thumbnail */}
-
-            {/* Последният пост – с thumbnail */}
-            <Posts limit={1} thumbnail={true} latest={true} />
+			<Posts range={[2, 3]} columns="2" thumbnail direction="column" />
+          <Posts range={[4]} columns="2" />
           </Column>
         </Column>
 
         {/* Финален CTA – по-прибрани статистики */}
-        <Column gap="l" align="center" paddingTop="xl">
+        <Column gap="l" align="center" paddingTop="m">
           <Heading as="h4" variant="display-strong-m" align="center">
             Готови за актуални SEO и Web стратегии за 2026?
           </Heading>
 		  
-<Column gap="l" paddingTop="xl">
+<Column gap="l" paddingTop="s">
   <Heading as="h3" variant="display-default-m">
     Често задавани въпроси за блога на Stanchev Digital
   </Heading>
@@ -240,7 +238,7 @@ export default function BlogPage() {
     ]}
   />
 </Column>
-          <Flex gap="m" wrap horizontal="center" paddingTop="m">
+          <Flex gap="s" wrap horizontal="center" paddingTop="xs">
             <Button variant="primary" size="l" href="/kontakti">
               <Flex gap="s" vertical="center">
                 <FaRocket size={16} />
