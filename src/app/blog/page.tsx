@@ -7,7 +7,6 @@ import {
   Flex,
   Grid,
   Card,
-  Badge,
 } from "@once-ui-system/core";
 import { Posts } from "@/components/blog/Posts";
 import { baseURL, person } from "@/resources";
@@ -16,14 +15,9 @@ import { FaSearch, FaShieldAlt, FaRocket, FaChartLine } from "react-icons/fa";
 
 export async function generateMetadata() {
   return {
-    ...Meta.generate({
-      title: "SEO и Киберсигурност Блог – Съвети, Стратегии и Новини | Stanchev Digital",
-      description:
-        "Практически съвети по SEO оптимизация, киберсигурност, новини за Google алгоритми, защита от хакерски атаки и стратегии за дигитален успех.",
-      baseURL: baseURL,
-      image: `/api/og/generate?title=${encodeURIComponent("SEO и Киберсигурност Блог | Stanchev Digital")}`,
-      path: "/blog",
-    }),
+    title: "SEO и Киберсигурност Блог – Съвети, Стратегии и Новини | Stanchev Digital",
+    description:
+      "Практически съвети по SEO оптимизация, киберсигурност, новини за Google алгоритми, защита от хакерски атаки и стратегии за дигитален успех.",
     keywords:
       "seo блог, seo съвети, seo новини, киберсигурност, онлайн сигурност, seo оптимизация, защита от хакери, google класиране, seo стратегии, киберсигурност новини, дигитален маркетинг, уеб защита, core web vitals, локално seo, линк билдинг",
     alternates: {
@@ -110,11 +104,7 @@ export default function Blog() {
           </Text>
 
           <Flex horizontal="center" gap="m" wrap>
-            <Button
-              variant="primary"
-              size="l"
-              href="/kontakti"
-            >
+            <Button variant="primary" size="l" href="/kontakti">
               Задай въпрос или казус
             </Button>
           </Flex>
@@ -138,11 +128,7 @@ export default function Blog() {
             Полезни статии за техническо SEO, On-Page оптимизация, локално SEO, линк билдинг, защита от DDoS, SSL/HTTPS, firewall, AI в SEO и киберсигурност. Реални примери, чеклисти и стратегии, които работят през 2025–2026 г.
           </Text>
 
-          <Grid
-            columns={{ initial: 1, m: 2, l: 4 }}
-            gap="l"
-            fillWidth
-          >
+          <Grid columns={{ initial: 1, m: 2, l: 4 }} gap="l" fillWidth>
             {[
               { icon: FaSearch, title: "SEO оптимизация", desc: "От ключови думи до Core Web Vitals" },
               { icon: FaShieldAlt, title: "Киберсигурност", desc: "Защита от хакери, DDoS, malware" },
@@ -170,12 +156,7 @@ export default function Blog() {
             Последни статии и новини
           </Heading>
 
-          <Column
-            fillWidth
-            gap="xl"
-            columns={{ initial: 1, m: 2, l: 3 }}
-            responsive
-          >
+          <Column fillWidth gap="xl" columns={{ initial: 1, m: 2, l: 3 }} responsive>
             <Posts range={[1, 3]} thumbnail />
             <Posts range={[4, 6]} thumbnail />
           </Column>
