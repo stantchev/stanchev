@@ -24,38 +24,69 @@ import {
 
 export async function generateMetadata() {
   return {
-    title: 'SEO и Web Разработка Блог – Актуални Съвети, Прогнози и Ръководства | Stanchev Digital',
+    title:
+      'SEO и Web Разработка Блог – Практични Ръководства и Тенденции за 2026 | Stanchev Digital',
+
     description:
-      'Практически съвети по SEO оптимизация, web разработка, прогнози за 2026, анализи на тенденции и ръководства за успех в дигиталния свят. Киберсигурността като бонус тема.',
+      'Практически SEO ръководства, анализи и web разработки с React и Next.js. Реални стратегии за класиране, performance и видимост през 2026. Писано от практик.',
+
+    // meta keywords – минимални, чисти, intent-based
     keywords:
-      'seo блог, seo съвети, seo новини, web разработка, тенденции в web dev, seo прогнози 2026, web тенденции 2026, дигитален маркетинг, core web vitals, react next.js, локално seo, линк билдинг',
+      'seo блог, seo ръководства, seo тенденции 2026, web разработка, next.js seo, core web vitals, линк билдинг',
+
     alternates: {
       canonical: `${baseURL}/blog`,
     },
+
+    authors: [
+      {
+        name: 'Stanchev Digital',
+        url: baseURL,
+      },
+    ],
+
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-snippet': -1,
+        'max-image-preview': 'large',
+        'max-video-preview': -1,
+      },
+    },
+
     openGraph: {
-      title: 'SEO и Web Разработка Блог – Актуални Прогнози и Анализи | Stanchev Digital',
-      description:
-        'Актуални стратегии, ръководства и прогнози по SEO и web разработка за 2026. Киберсигурност като допълнителна тема за защита.',
+      type: 'website',
+      locale: 'bg_BG',
       url: `${baseURL}/blog`,
       siteName: 'Stanchev Digital',
+      title:
+        'SEO и Web Разработка Блог – Анализи и Ръководства за 2026',
+      description:
+        'Реални SEO стратегии, web разработки и анализи на Google updates. Съдържание, писано от практик – без AI пълнеж.',
       images: [
         {
-          url: `https://stanchev.bg/images/og/og-seo-web.jpg`,
+          url: 'https://stanchev.bg/images/og/og-seo-web.jpg',
           width: 1200,
           height: 630,
+          alt: 'SEO и Web Разработка – Stanchev Digital',
         },
       ],
-      locale: 'bg_BG',
-      type: 'website',
     },
+
     twitter: {
       card: 'summary_large_image',
-      title: 'SEO и Web Разработка Блог – Прогнози и Ръководства',
-      description: 'Практически материали по SEO, web разработка и бонус киберсигурност за бизнеса ви.',
-      images: [`https://stanchev.bg/images/og/og-seo-web.jpg`],
+      title:
+        'SEO и Web Разработка Блог – Реални стратегии за 2026',
+      description:
+        'Практически SEO и web ръководства за класиране, performance и видимост през 2026.',
+      images: ['https://stanchev.bg/images/og/og-seo-web.jpg'],
     },
   };
 }
+
 
 export default function BlogPage() {
   return (
@@ -257,6 +288,7 @@ export default function BlogPage() {
     </>
   );
 }
+
 
 
 
