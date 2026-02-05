@@ -164,8 +164,8 @@ export default function BlogPage() {
           </Heading>
 
           <Column gap="xl" fillWidth>
-			<Posts range={[2, 3]} columns="2" thumbnail direction="column" />
-          <Posts range={[4]} columns="2" />
+			<Posts range={[1, 2]} columns="2" thumbnail direction="column" />
+          <Posts range={[4]} columns="2" thumbnail={false} />
           </Column>
         </Column>
 
@@ -257,5 +257,6 @@ export default function BlogPage() {
     </>
   );
 }
+
 
 
