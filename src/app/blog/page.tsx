@@ -52,7 +52,6 @@ export async function generateMetadata() {
 export default function Blog() {
   return (
     <>
-      {/* JSON-LD Schema */}
       <Script
         id="blog-schema"
         type="application/ld+json"
@@ -84,15 +83,14 @@ export default function Blog() {
       <Column
         as="main"
         gap="xl"
-        paddingY={{ initial: "xl", m: "2xl" }}     // responsive top + bottom
-        paddingX={{ initial: "s", m: "l", l: "xl" }} // responsive left + right
+        padding="l"               // статичен – безопасен и responsive чрез дизайна
         fillWidth
       >
         {/* Hero Section */}
         <Column
           gap="m"
           align="center"
-          paddingY={{ initial: "xl", m: "2xl" }}
+          paddingY="2xl"          // статичен, но голям – изглежда добре на всички екрани
           fillWidth
         >
           <Heading as="h1" variant="display-strong-xl" align="center">
@@ -174,11 +172,11 @@ export default function Blog() {
           </Flex>
         </Column>
 
-        {/* CTA / Финална секция */}
+        {/* CTA */}
         <Column
           gap="l"
           align="center"
-          paddingY={{ initial: "xl", m: "2xl" }}
+          paddingY="2xl"
           fillWidth
         >
           <Heading as="h3" variant="display-strong-m" align="center">
