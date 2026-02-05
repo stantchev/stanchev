@@ -1,6 +1,6 @@
 import { Column, Heading, Meta, Schema, Text } from "@once-ui-system/core";
 import { Posts } from "@/components/blog/Posts";
-import { baseURL, blog, person } from "@/resources";
+import { baseURL, person } from "@/resources";
 import Script from "next/script";
 
 export async function generateMetadata() {
@@ -14,7 +14,7 @@ export async function generateMetadata() {
       path: "/blog",
     }),
     keywords:
-      "seo блог, seo съвети, seo новини, киберсигурност, онлайн сигурност, seo оптимизация, защита от хакери, google класиране, seo стратегии, киберсигурност новини, дигитален маркетинг, уеб защита",
+      "seo блог, seo съвети, seo новини, киберсигурност, онлайн сигурност, seo оптимизация, защита от хакери, google класиране, seo стратегии, киберсигурност новини, дигитален маркетинг, уеб защита, core web vitals, локално seo, линк билдинг",
     alternates: {
       canonical: `${baseURL}/blog`,
     },
@@ -79,12 +79,12 @@ export default function Blog() {
       <Column
         as="main"
         maxWidth="l"
-        marginX="auto"
+        align="center"
         paddingTop={{ initial: "24", s: "32", m: "40" }}
         paddingBottom="32"
         gap="xl"
       >
-        {/* Hero / Intro Block */}
+        {/* Hero / Въведение */}
         <Column align="center" gap="m" paddingY={{ initial: "32", m: "48" }}>
           <Heading as="h1" variant="display-strong-xl" textAlign="center">
             SEO и Киберсигурност Блог
@@ -114,8 +114,8 @@ export default function Blog() {
           />
         </Column>
 
-        {/* Основен текст */}
-        <Column gap="xl">
+        {/* Основно съдържание */}
+        <Column gap="xl" maxWidth="xl" align="center">
           <Column gap="m">
             <Heading as="h2" variant="heading-strong-l">
               Стратегии за SEO и Киберсигурност
@@ -160,7 +160,9 @@ export default function Blog() {
               Задайте си ясна цел преди четене – подобряване на скорост, оптимизация на метаданни, защита от атаки или изграждане на съдържателен план. След всяка статия ще намерите препоръки и свързани материали.
             </Text>
             <Text variant="body-default-l" onBackground="neutral-weak" wrap="balance">
-              Имате конкретен казус? Пишете ни на <a href="/kontakti">kontakti@stanchev.bg</a> или през <a href="/kontakti">формата за контакт</a> – ще ви помогнем с персонализирани съвети и ще подготвим още по-полезно съдържание.
+              Имате конкретен казус? Пишете ни на{" "}
+              <a href="/kontakti">kontakti@stanchev.bg</a> или през{" "}
+              <a href="/kontakti">формата за контакт</a> – ще ви помогнем с персонализирани съвети и ще подготвим още по-полезно съдържание.
             </Text>
           </Column>
         </Column>
