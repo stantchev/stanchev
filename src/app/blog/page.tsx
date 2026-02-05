@@ -102,7 +102,6 @@ export default function Blog() {
             onBackground="neutral-weak"
             align="center"
             wrap="balance"
-            maxWidth="m"
           >
             Практически съвети, актуални стратегии и новини за по-добро класиране в Google и защита на сайта ви от онлайн заплахи.
           </Text>
@@ -200,6 +199,7 @@ export default function Blog() {
     </>
   );
 }
+
 
 
 
