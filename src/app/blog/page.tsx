@@ -81,7 +81,13 @@ export default function Blog() {
         }}
       />
 
-      <Column as="main" gap="xl" padding={{ initial: "s", m: "l" }} fillWidth>
+      <Column
+        as="main"
+        gap="xl"
+        paddingY={{ initial: "xl", m: "2xl" }}     // responsive top + bottom
+        paddingX={{ initial: "s", m: "l", l: "xl" }} // responsive left + right
+        fillWidth
+      >
         {/* Hero Section */}
         <Column
           gap="m"
@@ -119,7 +125,7 @@ export default function Blog() {
         </Column>
 
         {/* Какво ще намерите */}
-        <Column gap="l" align="center" maxWidth="xl" marginX="auto">
+        <Column gap="l" align="center" maxWidth="xl">
           <Heading as="h2" variant="display-default-m" align="center">
             Какво ще откриете в блога
           </Heading>
