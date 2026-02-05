@@ -484,7 +484,7 @@ export default function CustomPlaginiPage() {
             Готови за персонализиран плъгин за вашия бизнес?
           </Heading>
           
-          <Grid columns={3} gap="l" fillWidth>
+          <Grid columns={3} gap="l" s={{ columns: 1 }} fillWidth>
             {[
               { icon: FaClock, title: "Бърза разработка", desc: "1-3 седмици" },
               { icon: FaShieldAlt, title: "Гарантирано качество", desc: "100% тестване" },
@@ -531,6 +531,7 @@ export default function CustomPlaginiPage() {
     </>
   );
 }
+
 
 
 
