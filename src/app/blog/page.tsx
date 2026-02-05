@@ -1,7 +1,18 @@
-import { Column, Heading, Meta, Schema, Text } from "@once-ui-system/core";
+import {
+  Column,
+  Heading,
+  Text,
+  Button,
+  Tag,
+  Flex,
+  Grid,
+  Card,
+  Badge,
+} from "@once-ui-system/core";
 import { Posts } from "@/components/blog/Posts";
 import { baseURL, person } from "@/resources";
 import Script from "next/script";
+import { FaSearch, FaShieldAlt, FaRocket, FaChartLine } from "react-icons/fa";
 
 export async function generateMetadata() {
   return {
@@ -10,9 +21,7 @@ export async function generateMetadata() {
       description:
         "Практически съвети по SEO оптимизация, киберсигурност, новини за Google алгоритми, защита от хакерски атаки и стратегии за дигитален успех.",
       baseURL: baseURL,
-      image: `/api/og/generate?title=${encodeURIComponent(
-        "SEO и Киберсигурност Блог | Stanchev Digital"
-      )}`,
+      image: `/api/og/generate?title=${encodeURIComponent("SEO и Киберсигурност Блог | Stanchev Digital")}`,
       path: "/blog",
     }),
     keywords:
@@ -21,15 +30,14 @@ export async function generateMetadata() {
       canonical: `${baseURL}/blog`,
     },
     openGraph: {
-      title:
-        "SEO и Киберсигурност Блог – Съвети и Новини за Класиране и Защита | Stanchev Digital",
+      title: "SEO и Киберсигурност Блог – Съвети и Новини за Класиране и Защита | Stanchev Digital",
       description:
         "Актуални стратегии, уроци и новини по SEO и киберсигурност за по-добро класиране в Google и сигурност на сайта ви.",
       url: `${baseURL}/blog`,
       siteName: "Stanchev Digital",
       images: [
         {
-          url: "https://stanchev.bg/images/og/og-seo-cyber.jpg",
+          url: `https://stanchev.bg/images/og/og-seo-cyber.jpg`,
           width: 1200,
           height: 630,
         },
@@ -42,7 +50,7 @@ export async function generateMetadata() {
       title: "SEO и Киберсигурност Блог – Съвети и Новини",
       description:
         "Практически материали по SEO оптимизация и киберсигурност за бизнеса ви.",
-      images: ["https://stanchev.bg/images/og/og-seo-cyber.jpg"],
+      images: [`https://stanchev.bg/images/og/og-seo-cyber.jpg`],
     },
   };
 }
@@ -79,135 +87,129 @@ export default function Blog() {
         }}
       />
 
-      <Column
-        as="main"
-        maxWidth="l"
-        align="center"
-        gap="xl"
-        paddingBottom="32"
-        paddingTop="24"
-        s={{ paddingTop: "32" }}
-        m={{ paddingTop: "40" }}
-      >
-        {/* Hero */}
+      <Column as="main" gap="xl" padding={{ initial: "s", m: "l" }} fillWidth>
+        {/* Hero Section */}
         <Column
-          align="center"
           gap="m"
-          paddingTop="32"
-          paddingBottom="32"
-          m={{ paddingTop: "48", paddingBottom: "48" }}
+          align="center"
+          paddingY={{ initial: "xl", m: "2xl" }}
+          fillWidth
         >
-          <Heading as="h1" variant="display-strong-xl" textAlign="center">
+          <Heading as="h1" variant="display-strong-xl" align="center">
             SEO и Киберсигурност Блог
           </Heading>
 
           <Text
             variant="heading-default-l"
             onBackground="neutral-weak"
-            textAlign="center"
+            align="center"
             wrap="balance"
             maxWidth="m"
           >
-            Практически съвети, актуални стратегии и новини за по-добро класиране
-            в Google и защита на сайта ви от онлайн заплахи.
+            Практически съвети, актуални стратегии и новини за по-добро класиране в Google и защита на сайта ви от онлайн заплахи.
           </Text>
 
-          <Schema
-            as="blogPosting"
-            baseURL={baseURL}
-            title="SEO и Киберсигурност Блог | Stanchev Digital"
-            description="Полезни материали по SEO оптимизация и киберсигурност."
-            path="/blog"
-            image={`/api/og/generate?title=${encodeURIComponent(
-              "SEO и Киберсигурност Блог"
-            )}`}
-            author={{
-              name: person.name,
-              url: `${baseURL}/blog`,
-              image: `${baseURL}${person.avatar}`,
-            }}
-          />
+          <Flex horizontal="center" gap="m" wrap>
+            <Button
+              variant="primary"
+              size="l"
+              href="/kontakti"
+            >
+              Задай въпрос или казус
+            </Button>
+          </Flex>
+
+          <Flex gap="s" wrap horizontal="center">
+            {["SEO", "Киберсигурност", "Google", "AI", "Core Web Vitals"].map((tag) => (
+              <Tag key={tag} variant="brand" size="m">
+                {tag}
+              </Tag>
+            ))}
+          </Flex>
         </Column>
 
-        {/* Content */}
-        <Column gap="xl" maxWidth="xl" align="center">
-          <Column gap="m">
-            <Heading as="h2" variant="heading-strong-l">
-              Стратегии за SEO и Киберсигурност
-            </Heading>
-            <Text
-              variant="body-default-xl"
-              onBackground="neutral-weak"
-              wrap="balance"
-            >
-              В блога ще откриете полезни статии за{" "}
-              <strong>SEO оптимизация</strong>,{" "}
-              <strong>киберсигурност</strong>, Google алгоритми, защита от
-              хакерски атаки, класиране на сайтове, анализ на уязвимости и
-              модерни дигитални стратегии.
-            </Text>
+        {/* Какво ще намерите */}
+        <Column gap="l" align="center" maxWidth="xl" marginX="auto">
+          <Heading as="h2" variant="display-default-m" align="center">
+            Какво ще откриете в блога
+          </Heading>
+
+          <Text variant="body-default-l" onBackground="neutral-weak" align="center">
+            Полезни статии за техническо SEO, On-Page оптимизация, локално SEO, линк билдинг, защита от DDoS, SSL/HTTPS, firewall, AI в SEO и киберсигурност. Реални примери, чеклисти и стратегии, които работят през 2025–2026 г.
+          </Text>
+
+          <Grid
+            columns={{ initial: 1, m: 2, l: 4 }}
+            gap="l"
+            fillWidth
+          >
+            {[
+              { icon: FaSearch, title: "SEO оптимизация", desc: "От ключови думи до Core Web Vitals" },
+              { icon: FaShieldAlt, title: "Киберсигурност", desc: "Защита от хакери, DDoS, malware" },
+              { icon: FaRocket, title: "Бързи сайтове", desc: "Скорост + Google класиране" },
+              { icon: FaChartLine, title: "Анализи & Новини", desc: "Google updates и тенденции" },
+            ].map((item) => (
+              <Card key={item.title} padding="l" radius="l" border="neutral-alpha-medium">
+                <Column gap="m" align="center">
+                  <item.icon size={32} color="var(--brand-strong)" />
+                  <Heading as="h3" variant="heading-strong-m" align="center">
+                    {item.title}
+                  </Heading>
+                  <Text variant="body-default-s" onBackground="neutral-weak" align="center">
+                    {item.desc}
+                  </Text>
+                </Column>
+              </Card>
+            ))}
+          </Grid>
+        </Column>
+
+        {/* Последни статии */}
+        <Column gap="l">
+          <Heading as="h2" variant="display-default-m" align="center">
+            Последни статии и новини
+          </Heading>
+
+          <Column
+            fillWidth
+            gap="xl"
+            columns={{ initial: 1, m: 2, l: 3 }}
+            responsive
+          >
+            <Posts range={[1, 3]} thumbnail />
+            <Posts range={[4, 6]} thumbnail />
           </Column>
 
-          <Column gap="m">
-            <Heading as="h3" variant="heading-strong-m">
-              Какво ще намерите тук
-            </Heading>
-            <Text
-              variant="body-default-l"
-              onBackground="neutral-weak"
-              wrap="balance"
-            >
-              Теми като техническо SEO, On-Page оптимизация, локално SEO, линк
-              билдинг, Core Web Vitals, защита от DDoS, SSL/HTTPS, firewall
-              конфигурации, AI в SEO и киберсигурност.
-            </Text>
-            <Text
-              variant="body-default-l"
-              onBackground="neutral-weak"
-              wrap="balance"
-            >
-              Следим последните Google updates и реални тактики, които работят
-              за малък и среден бизнес през 2025–2026 г.
-            </Text>
-          </Column>
+          <Flex horizontal="center" paddingTop="l">
+            <Button variant="secondary" size="m" href="/blog">
+              Виж всички статии
+            </Button>
+          </Flex>
+        </Column>
 
-          <Column gap="m">
-            <Heading as="h3" variant="heading-strong-m">
-              Последни статии
-            </Heading>
-            <Column
-              fillWidth
-              gap="40"
-              columns={{ initial: 1, m: 2, l: 3 }}
-              responsive
-            >
-              <Posts range={[1, 3]} thumbnail />
-              <Posts range={[4, 6]} thumbnail />
-            </Column>
-          </Column>
+        {/* CTA / Финална секция */}
+        <Column
+          gap="l"
+          align="center"
+          paddingY={{ initial: "xl", m: "2xl" }}
+          fillWidth
+        >
+          <Heading as="h3" variant="display-strong-m" align="center">
+            Готови да подобрите класирането и сигурността си?
+          </Heading>
 
-          <Column gap="m">
-            <Heading as="h3" variant="heading-strong-m">
-              Как да получите максимума
-            </Heading>
-            <Text
-              variant="body-default-l"
-              onBackground="neutral-weak"
-              wrap="balance"
-            >
-              Задайте си ясна цел – скорост, метаданни, защита или съдържание.
-              След всяка статия ще намерите конкретни препоръки.
-            </Text>
-            <Text
-              variant="body-default-l"
-              onBackground="neutral-weak"
-              wrap="balance"
-            >
-              Имате конкретен казус? Пишете на{" "}
-              <a href="/kontakti">kontakti@stanchev.bg</a> или през{" "}
-              <a href="/kontakti">формата за контакт</a>.
-            </Text>
-          </Column>
+          <Text variant="body-default-l" onBackground="neutral-weak" align="center">
+            Споделете казус или задайте въпрос – ще ви отговоря персонално.
+          </Text>
+
+          <Flex gap="m" wrap horizontal="center">
+            <Button variant="primary" size="l" href="/kontakti">
+              Пиши ми сега
+            </Button>
+            <Button variant="secondary" size="l" href="/kontakti">
+              Безплатна консултация
+            </Button>
+          </Flex>
         </Column>
       </Column>
     </>
