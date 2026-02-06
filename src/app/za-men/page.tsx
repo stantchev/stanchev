@@ -18,13 +18,49 @@ import TableOfContents from "@/components/about/TableOfContents";
 import styles from "@/components/about/about.module.scss";
 import React from "react";
 
-return Meta.generate({
-  title: about.title,
-  description: about.description,
-  metadataBase: new URL(baseURL),
-  path: '/za-men',
-  image: `/api/og/og.jpg`,
-});
+export async function generateMetadata() {
+  return {
+    title: about.title,
+
+    description: about.description,
+
+    alternates: {
+      canonical: `${baseURL}/za-men`,
+    },
+
+    openGraph: {
+      type: 'website',
+      locale: 'bg_BG',
+      url: `${baseURL}/za-men`,
+      siteName: 'Stanchev Digital',
+      title: about.title,
+      description: about.description,
+      images: [
+        {
+          url: `/api/og/og.jpg`,
+          width: 1200,
+          height: 630,
+          alt: about.title,
+        },
+      ],
+    },
+
+    twitter: {
+      card: 'summary_large_image',
+      title: about.title,
+      description: about.description,
+      images: [
+        `/api/og/og.jpg`,
+      ],
+    },
+
+    robots: {
+      index: true,
+      follow: true,
+    },
+  };
+}
+
 export default function About() {
   const structure = [
     {
@@ -344,6 +380,7 @@ export default function About() {
     </Column>
   );
 }
+
 
 
 
