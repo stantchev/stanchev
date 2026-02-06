@@ -18,18 +18,13 @@ import TableOfContents from "@/components/about/TableOfContents";
 import styles from "@/components/about/about.module.scss";
 import React from "react";
 
-export async function generateMetadata() {
-  return Meta.generate({
-    title: about.title,
-    description: about.description,
-    baseURL: `${baseURL}/za-men`,
-    image: `/api/og/generate?title=${encodeURIComponent(about.title)}`,
-    path: about.path,
-    alternates: {
-      canonical: `${baseURL}/za-men`,
-    },
-  });
-}
+return Meta.generate({
+  title: about.title,
+  description: about.description,
+  metadataBase: new URL(baseURL),
+  path: '/za-men',
+  image: `/api/og/og.jpg`,
+});
 export default function About() {
   const structure = [
     {
@@ -349,6 +344,7 @@ export default function About() {
     </Column>
   );
 }
+
 
 
 
