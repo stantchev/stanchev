@@ -25,6 +25,9 @@ export async function generateMetadata() {
     baseURL: `${baseURL}/za-men`,
     image: `/api/og/generate?title=${encodeURIComponent(about.title)}`,
     path: about.path,
+    alternates: {
+      canonical: `${baseURL}/za-men`,
+    },
   });
 }
 export default function About() {
@@ -346,6 +349,7 @@ export default function About() {
     </Column>
   );
 }
+
 
 
 
