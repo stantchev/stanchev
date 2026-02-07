@@ -705,39 +705,8 @@ export default function Nachalo() {
             />
           </RevealFx>
         </Column>
-        {/* Social Integration */}
-        <Column gap="m" align="center" paddingY="l">
-          <Heading variant="display-strong-s" align="center">
-            Свържете се с Мен в Социалните Мрежи
-          </Heading>
-          <Flex gap="l" horizontal="center" wrap>
-            <Button
-              href="https://www.linkedin.com/in/stanchev-seo/"
-              variant="secondary"
-              size="m"
-              prefixIcon={<FaLinkedin />}
-            >
-              LinkedIn
-            </Button>
-            <Button
-              href="https://github.com/stantchev/"
-              variant="secondary"
-              size="m"
-              prefixIcon={<FaGithub />}
-            >
-              GitHub
-            </Button>
-            <Button
-              href="https://dev.to/stanchev"
-              variant="secondary"
-              size="m"
-              prefixIcon={<FaDev />}
-            >
-              Dev.to
-            </Button>
-          </Flex>
-        </Column>
       </Column>
     </>
   );
 }
+
