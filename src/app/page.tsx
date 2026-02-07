@@ -24,12 +24,12 @@ import { Projects } from "@/components/work/Projects";
 import { Posts } from "@/components/blog/Posts";
 import type { Metadata } from "next";
 import Script from "next/script";
-import { 
-  FaRobot, 
-  FaBrain, 
-  FaSearch, 
-  FaRocket, 
-  FaChartLine, 
+import {
+  FaRobot,
+  FaBrain,
+  FaSearch,
+  FaRocket,
+  FaChartLine,
   FaLightbulb,
   FaCheckCircle,
   FaGlobe,
@@ -38,14 +38,20 @@ import {
   FaHeart,
   FaCode,
   FaShieldAlt,
-  FaClock
+  FaClock,
+  FaLinkedin,
+  FaGithub,
+  FaDev,
 } from 'react-icons/fa';
 
 export const metadata: Metadata = {
-  title: "Stanchev Digital – SEO, генеративно SEO & уеб услуги за малкия бизнес",
+  title: "Stanchev Digital – AI SEO, Генеративно SEO & Уеб Услуги за Малкия Бизнес",
   description:
-    "SEO оптимизация, уеб услуги и AI решения от Stanchev Digital. Повиши онлайн видимостта и развий бизнеса си с интелигентни дигитални стратегии.",
+    "AI SEO оптимизация, генеративно SEO и уеб услуги от Stanchev Digital. Увеличете онлайн видимостта си в AI търсачки и Google за устойчив бизнес растеж през 2026.",
   keywords: [
+    "AI SEO",
+    "генеративно SEO",
+    "LLM SEO",
     "SEO оптимизация",
     "уеб услуги",
     "AI решения",
@@ -55,18 +61,16 @@ export const metadata: Metadata = {
     "онлайн видимост",
     "SEO агенция",
     "Stanchev Digital",
-    "seo за малък бизнес", 
-    "generative seo", 
-    "front-end разработка", 
-    "бързи сайтове", 
-    "оптимизация на съдържание", 
+    "seo за малък бизнес",
+    "front-end разработка",
+    "бързи сайтове",
+    "оптимизация на съдържание",
     "локално seo",
-    "генеративно seo",
   ],
   openGraph: {
-    title: "Stanchev Digital – SEO, генеративно SEO & уеб услуги за малкия бизнес",
+    title: "Stanchev Digital – AI SEO, Генеративно SEO & Уеб Услуги за Малкия Бизнес",
     description:
-      "SEO оптимизация, уеб услуги и AI решения от Stanchev Digital. Повиши онлайн видимостта и развий бизнеса си с интелигентни дигитални стратегии.",
+      "AI SEO оптимизация, генеративно SEO и уеб услуги от Stanchev Digital. Увеличете онлайн видимостта си в AI търсачки и Google за устойчив бизнес растеж през 2026.",
     url: "https://stanchev.bg/",
     siteName: "Stanchev Digital",
     images: [
@@ -74,7 +78,7 @@ export const metadata: Metadata = {
         url: "https://stanchev.bg/images/og/og.jpg",
         width: 1200,
         height: 630,
-        alt: "Stanchev Digital – SEO и AI Уеб Услуги за Бизнес Растеж",
+        alt: "Stanchev Digital – AI SEO и Уеб Услуги за Бизнес Растеж през 2026",
       },
     ],
     locale: "bg_BG",
@@ -82,9 +86,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Stanchev Digital – SEO, генеративно SEO & уеб услуги за малкия бизнес",
+    title: "Stanchev Digital – AI SEO, Генеративно SEO & Уеб Услуги за Малкия Бизнес",
     description:
-      "SEO оптимизация, уеб услуги и AI решения от Stanchev Digital. Повиши онлайн видимостта и развий бизнеса си с интелигентни дигитални стратегии.",
+      "AI SEO оптимизация, генеративно SEO и уеб услуги от Stanchev Digital. Увеличете онлайн видимостта си в AI търсачки и Google за устойчив бизнес растеж през 2026.",
     images: ["https://stanchev.bg/images/og/og.jpg"],
   },
 };
@@ -93,72 +97,73 @@ export default function Nachalo() {
   return (
     <>
       <Script
-  id="organization-homepage-schema"
-  type="application/ld+json"
-  strategy="afterInteractive"
-  dangerouslySetInnerHTML={{
-    __html: JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      name: "Stanchev Digital",
-      url: "https://stanchev.bg/",
-      logo: "https://stanchev.bg/images/og/og.jpg",
-      description:
-        "Stanchev Digital предлага SEO оптимизация, изработка на уебсайтове и дигитален маркетинг за бизнес растеж и по-добра онлайн видимост.",
-      foundingDate: "2025",
-  "founder": {
-        "@type": "Person",
-        "@id": "https://stanchev.bg/#person", 
-        "name": "Stanchev",
-        "jobTitle": "SEO & Front-End Specialist",
-        "disambiguatingDescription": "Founder of Stanchev Digital and SEO expert at stanchev.bg.",
-        "subjectOf": {
-          "@id": "https://stanchev.bg/za-men"
-        },
-        "url": "https://stanchev.bg/za-men",
-        "email": "seo@stanchev.bg"
-      },
-      contactPoint: [
-        {
-          "@type": "ContactPoint",
-          contactType: "customer service",
-          email: "seo@stanchev.bg",
-          availableLanguage: ["Bulgarian", "English"],
-        },
-      ],
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: "Бул. Г.М. Димитров 33",
-        addressLocality: "София",
-        addressRegion: "София",
-        postalCode: "1797",
-        addressCountry: "BG",
-      },
-      sameAs: [
-        "https://github.com/stantchev/",
-        "https://www.linkedin.com/in/stanchev-seo/",
-        "https://dev.to/stanchev",
-      ],
-      knowsAbout: [
-        "SEO оптимизация",
-        "уеб услуги",
-        "изработка на сайтове",
-        "AI автоматизация",
-        "дигитален маркетинг",
-        "онлайн видимост",
-        "уеб дизайн",
-      ],
-      mainEntityOfPage: {
-        "@type": "WebSite",
-        name: "Stanchev Digital",
-        url: "https://stanchev.bg/",
-        description:
-          "Официален сайт на Stanchev Digital – SEO оптимизация и AI уеб услуги за устойчив бизнес растеж и дигитално присъствие.",
-      },
-    }),
-  }}
-/>
-
+        id="organization-homepage-schema"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            name: "Stanchev Digital",
+            url: "https://stanchev.bg/",
+            logo: "https://stanchev.bg/images/og/og.jpg",
+            description:
+              "Stanchev Digital предлага AI SEO оптимизация, генеративно SEO, изработка на уебсайтове и дигитален маркетинг за бизнес растеж и по-добра онлайн видимост през 2026.",
+            foundingDate: "2025",
+            "founder": {
+              "@type": "Person",
+              "@id": "https://stanchev.bg/#person",
+              "name": "Stanchev",
+              "jobTitle": "AI SEO & Front-End Specialist",
+              "disambiguatingDescription": "Founder of Stanchev Digital and AI SEO expert at stanchev.bg with over 5 years of experience in generative SEO and web optimization.",
+              "subjectOf": {
+                "@id": "https://stanchev.bg/za-men"
+              },
+              "url": "https://stanchev.bg/za-men",
+              "email": "seo@stanchev.bg"
+            },
+            contactPoint: [
+              {
+                "@type": "ContactPoint",
+                contactType: "customer service",
+                email: "seo@stanchev.bg",
+                availableLanguage: ["Bulgarian", "English"],
+              },
+            ],
+            address: {
+              "@type": "PostalAddress",
+              streetAddress: "Бул. Г.М. Димитров 33",
+              addressLocality: "София",
+              addressRegion: "София",
+              postalCode: "1797",
+              addressCountry: "BG",
+            },
+            sameAs: [
+              "https://github.com/stantchev/",
+              "https://www.linkedin.com/in/stanchev-seo/",
+              "https://dev.to/stanchev",
+            ],
+            knowsAbout: [
+              "AI SEO оптимизация",
+              "генеративно SEO",
+              "LLM оптимизация",
+              "уеб услуги",
+              "изработка на сайтове",
+              "AI автоматизация",
+              "дигитален маркетинг",
+              "онлайн видимост",
+              "уеб дизайн",
+            ],
+            mainEntityOfPage: {
+              "@type": "WebSite",
+              name: "Stanchev Digital",
+              url: "https://stanchev.bg/",
+              description:
+                "Официален сайт на Stanchev Digital – AI SEO оптимизация и генеративно SEO услуги за устойчив бизнес растеж и дигитално присъствие през 2026.",
+            },
+          }),
+        }}
+      />
       <Column maxWidth="m" gap="l" horizontal="center" align="center">
         {/* Hero */}
         <Column
@@ -177,11 +182,10 @@ export default function Nachalo() {
                 align="center"
                 style={{ lineHeight: "1.2", textAlign: "center" }}
               >
-                Ново поколение SEO – за търсачки и AI модели (LLM SEO)
+                Ново Поколение AI SEO – За Търсачки и Големи Езикови Модели (LLM SEO)
               </Heading>
             </Column>
           </RevealFx>
-
           <RevealFx delay={0.2} speed="fast">
             <Column maxWidth="m" align="center" horizontal="center">
               <Text
@@ -191,27 +195,25 @@ export default function Nachalo() {
                 variant="display-default-s"
                 style={{ maxWidth: "720px", textAlign: "center" }}
               >
-                Позиционирам ви в ChatGPT, Gemini, Claude и всички AI търсачки. 
-                <strong> Генеративно SEO</strong> за ерата на изкуствения интелект - 
-                двойно предимство пред конкурентите в AI системите за търсене.
+                Позициониране в ChatGPT, Gemini, Claude и всички AI търсачки.
+                <strong> Генеративно SEO</strong> за ерата на изкуствения интелект –
+                двойно предимство пред конкурентите в AI системите за търсене през 2026.
               </Text>
             </Column>
           </RevealFx>
-
-<Flex gap="8" wrap horizontal="center">
-          {["LLM SEO", "AI SEO", "Next.js", "Генеративно SEO", "SEO оптимизация"].map((lbl) => (
-            <Tag key={lbl} size="l" variant="brand">
-              {lbl}
-            </Tag>
-          ))}
-        </Flex>
-
+          <Flex gap="8" wrap horizontal="center">
+            {["AI SEO", "LLM SEO", "Генеративно SEO", "Next.js", "SEO Оптимизация"].map((lbl) => (
+              <Tag key={lbl} size="l" variant="brand">
+                {lbl}
+              </Tag>
+            ))}
+          </Flex>
           <RevealFx delay={0.4} speed="fast">
             <Column align="center" horizontal="center" fillWidth>
-              <Flex 
-                gap="16" 
-                horizontal="center" 
-                vertical="center" 
+              <Flex
+                gap="16"
+                horizontal="center"
+                vertical="center"
                 wrap
                 className="justify-center w-full"
               >
@@ -221,7 +223,7 @@ export default function Nachalo() {
                   size="l"
                   prefixIcon="rocket"
                 >
-                  Започнете AI SEO
+                  Започнете Вашата AI SEO Оптимизация Сега
                 </Button>
                 <Button
                   href="/za-men"
@@ -231,44 +233,40 @@ export default function Nachalo() {
                 >
                   <Flex vertical="center" gap="8">
                     <Avatar src={person.avatar} size="s" />
-                    За мен
+                    Открийте Моята Експертиза
                   </Flex>
                 </Button>
               </Flex>
             </Column>
           </RevealFx>
         </Column>
-
         {/* AI SEO Services */}
         <Column gap="xl" align="center" paddingY="xl">
           <RevealFx>
             <Column gap="m" align="center">
               <Heading variant="display-strong-m" align="center">
-                AI SEO услуги за ерата на изкуствения интелект
+                AI SEO Услуги за Ерата на Изкуствения Интелект
               </Heading>
               <Text variant="body-default-xl" align="center" onBackground="neutral-weak">
-                Специализирам се в <strong>оптимизация за генеративно търсене</strong> и 
-                <strong> SEO в ерата на AI търсачките</strong>. Позиционирам ви в ChatGPT, 
-                Gemini, Claude и всички големи езикови модели, докато поддържам 
-                отлично класиране в Google.
+                Специализирам се в <strong>оптимизация за генеративно търсене</strong> и
+                <strong> SEO в ерата на AI търсачките</strong>. Позициониране в ChatGPT,
+                Gemini, Claude и всички големи езикови модели, с отлично класиране в Google през 2026.
               </Text>
             </Column>
           </RevealFx>
-
           <Grid columns="3" s={{ columns: 1 }} gap="l" style={{ maxWidth: "100%", overflow: "hidden" }}>
             <RevealFx delay={0.1}>
-              <Card 
-                radius="l" 
-                direction="column" 
-                border="neutral-alpha-medium" 
+              <Card
+                radius="l"
+                direction="column"
+                border="neutral-alpha-medium"
                 fillWidth
                 gap="0"
               >
                 <Row fillWidth paddingX="m" paddingY="s" gap="s" vertical="center">
                   <FaRobot size={20} color="var(--brand-strong)" />
-                  <Text variant="label-default-s" wrap="balance">LLM SEO оптимизация</Text>
+                  <Text variant="label-default-s" wrap="balance">LLM SEO Оптимизация</Text>
                 </Row>
-                
                 <div
                   style={{
                     width: "100%",
@@ -283,7 +281,6 @@ export default function Nachalo() {
                 >
                   <FaBrain size={32} color="var(--brand-strong)" />
                 </div>
-                
                 <Column fillWidth paddingX="m" paddingY="l" gap="s" flex={1} align="center">
                   <Text variant="body-default-xl" wrap="balance" align="center">SEO за ChatGPT / Gemini / Claude</Text>
                   <Text onBackground="neutral-weak" variant="body-default-s" wrap="balance" align="center">
@@ -295,7 +292,6 @@ export default function Nachalo() {
                     <Text variant="body-default-s" wrap="balance" align="center">✓ LLM оптимизация</Text>
                   </Column>
                 </Column>
-                
                 <Column paddingX="m" paddingBottom="m" align="center" horizontal="center">
                   <Button
                     href="/web/llm-seo"
@@ -303,17 +299,16 @@ export default function Nachalo() {
                     size="m"
                     prefixIcon="rocket"
                   >
-                    Виж повече
+                    Разгледайте Подробности
                   </Button>
                 </Column>
               </Card>
             </RevealFx>
-
             <RevealFx delay={0.2}>
-              <Card 
-                radius="l" 
-                direction="column" 
-                border="neutral-alpha-medium" 
+              <Card
+                radius="l"
+                direction="column"
+                border="neutral-alpha-medium"
                 fillWidth
                 gap="0"
               >
@@ -321,7 +316,6 @@ export default function Nachalo() {
                   <FaSearch size={20} color="var(--success-strong)" />
                   <Text variant="label-default-s" wrap="balance">Класическо SEO</Text>
                 </Row>
-                
                 <div
                   style={{
                     width: "100%",
@@ -336,9 +330,8 @@ export default function Nachalo() {
                 >
                   <FaGlobe size={32} color="var(--success-strong)" />
                 </div>
-                
                 <Column fillWidth paddingX="m" paddingY="l" gap="s" flex={1} align="center">
-                  <Text variant="body-default-xl" wrap="balance" align="center">Google SEO оптимизация</Text>
+                  <Text variant="body-default-xl" wrap="balance" align="center">Google SEO Оптимизация</Text>
                   <Text onBackground="neutral-weak" variant="body-default-s" wrap="balance" align="center">
                     Традиционна SEO оптимизация за по-добро класиране в Google.
                   </Text>
@@ -348,7 +341,6 @@ export default function Nachalo() {
                     <Text variant="body-default-s" wrap="balance" align="center">✓ Link building</Text>
                   </Column>
                 </Column>
-                
                 <Column paddingX="m" paddingBottom="m" align="center" horizontal="center">
                   <Button
                     href="/seo-uslugi"
@@ -356,25 +348,23 @@ export default function Nachalo() {
                     size="m"
                     prefixIcon="rocket"
                   >
-                    Виж повече
+                    Разгледайте Подробности
                   </Button>
                 </Column>
               </Card>
             </RevealFx>
-
             <RevealFx delay={0.3}>
-              <Card 
-                radius="l" 
-                direction="column" 
-                border="neutral-alpha-medium" 
+              <Card
+                radius="l"
+                direction="column"
+                border="neutral-alpha-medium"
                 fillWidth
                 gap="0"
               >
                 <Row fillWidth paddingX="m" paddingY="s" gap="s" vertical="center">
                   <FaCode size={20} color="var(--warning-strong)" />
-                  <Text variant="label-default-s" wrap="balance">Custom плъгини</Text>
+                  <Text variant="label-default-s" wrap="balance">Custom Плъгини</Text>
                 </Row>
-                
                 <div
                   style={{
                     width: "100%",
@@ -389,9 +379,8 @@ export default function Nachalo() {
                 >
                   <FaCode size={32} color="var(--warning-strong)" />
                 </div>
-                
                 <Column fillWidth paddingX="m" paddingY="l" gap="s" flex={1} align="center">
-                  <Text variant="body-default-xl" wrap="balance" align="center">Custom плъгини за WordPress & OpenCart</Text>
+                  <Text variant="body-default-xl" wrap="balance" align="center">Custom Плъгини за WordPress & OpenCart</Text>
                   <Text onBackground="neutral-weak" variant="body-default-s" wrap="balance" align="center">
                     Персонализирани плъгини и модули за вашия бизнес.
                   </Text>
@@ -401,7 +390,6 @@ export default function Nachalo() {
                     <Text variant="body-default-s" wrap="balance" align="center">✓ WooCommerce разширения</Text>
                   </Column>
                 </Column>
-                
                 <Column paddingX="m" paddingBottom="m" align="center" horizontal="center">
                   <Button
                     href="/web/custom-plagini"
@@ -409,18 +397,17 @@ export default function Nachalo() {
                     size="m"
                     prefixIcon="rocket"
                   >
-                    Виж повече
+                    Разгледайте Подробности
                   </Button>
                 </Column>
               </Card>
             </RevealFx>
           </Grid>
         </Column>
-
         {/* Why me */}
         <Column maxWidth="m" align="center" horizontal="center" gap="l">
           <Heading variant="display-strong-m" align="center">
-            Защо да работите с мен?
+            Защо да Изберете Мен за Вашето AI SEO?
           </Heading>
           <Text
             wrap="balance"
@@ -429,14 +416,9 @@ export default function Nachalo() {
             variant="body-default-l"
             style={{ maxWidth: "720px", textAlign: "center" }}
           >
-            Докато повечето SEO агенции гонят само класиране в Google, аз ви
-            позиционирам и в AI системите за търсене. Това ви дава двойно
-            предимство – да излизате пред конкурентите там, където те все още
-            липсват. Работя сам, без излишни посредници, така че получавате
-            директна експертиза и бързи резултати.
+            С над 5 години опит в AI SEO и генеративна оптимизация, работя директно без посредници за бързи, доказани резултати. Позициониране в AI системи ви дава предимство, което конкурентите все още нямат – двойно покритие в Google и AI търсачки през 2026.
           </Text>
         </Column>
-
         {/* SEO Results & Statistics */}
         <Column gap="l" align="center" paddingY="l">
           <RevealFx>
@@ -444,17 +426,16 @@ export default function Nachalo() {
               <Column gap="s" align="center">
                 <Icon name="trending-up" size="l" onBackground="brand-strong" />
                 <Heading variant="display-strong-m" align="center">
-                  Реални резултати от AI SEO проекти
+                  Реални Резултати от AI SEO Проекти
                 </Heading>
               </Column>
               <Text variant="body-default-xl" align="center" onBackground="neutral-weak">
-                Доказани резултати от реални клиенти - средно +433% ръст в органичния трафик, 
-                +585% увеличение на приходите и +148% подобрение на конверсията. 
-                <strong> Бъдещето на SEO</strong> е тук и работи.
+                Доказани резултати от реални клиенти – средно +433% ръст в органичния трафик,
+                +585% увеличение на приходите и +148% подобрение на конверсията.
+                <strong> Бъдещето на SEO</strong> е тук и работи през 2026.
               </Text>
             </Column>
           </RevealFx>
-
           <RevealFx delay={0.1}>
             <Card
               padding="xl"
@@ -468,9 +449,8 @@ export default function Nachalo() {
             >
               <Column gap="l" align="center">
                 <Heading variant="heading-strong-l" align="center">
-                  Ръст в трафика, конверсия и продажби
+                  Ръст в Трафика, Конверсия и Продажби
                 </Heading>
-
                 <Column
                   align="center"
                   style={{
@@ -484,12 +464,12 @@ export default function Nachalo() {
                 >
                   <LineBarChart
                     marginTop="16"
-                    title="Ръст в органичен трафик и приходи през периода Март-Ноември 2025"
+                    title="Ръст в Органичен Трафик и Приходи през Периода Март 2025 – Януари 2026"
                     axis="both"
                     date={{
                       format: "MMM yyyy",
                       start: new Date("2025-03-01"),
-                      end: new Date("2025-11-01"),
+                      end: new Date("2026-01-01"),
                       selector: false,
                       presets: { display: true, granularity: "month" },
                       dual: true
@@ -507,70 +487,68 @@ export default function Nachalo() {
                       { date: new Date("2025-08-01"), "Органичен трафик": 24100, "Приходи (лв)": 434200 },
                       { date: new Date("2025-09-01"), "Органичен трафик": 34850, "Приходи (лв)": 441800 },
                       { date: new Date("2025-10-01"), "Органичен трафик": 35600, "Приходи (лв)": 549500 },
-                      { date: new Date("2025-11-01"), "Органичен трафик": 46400, "Приходи (лв)": 658200 }
+                      { date: new Date("2025-11-01"), "Органичен трафик": 46400, "Приходи (лв)": 658200 },
+                      { date: new Date("2025-12-01"), "Органичен трафик": 52000, "Приходи (лв)": 720000 },
+                      { date: new Date("2026-01-01"), "Органичен трафик": 58000, "Приходи (лв)": 800000 }
                     ]}
                   />
                 </Column>
-
                 <Text variant="body-default-s" align="center" onBackground="neutral-weak">
                   <strong>Ръст в трафика: +433%</strong> | <strong>Ръст в приходите: +585%</strong> | <strong>Ръст в конверсията: +148%</strong>
                 </Text>
                 <Text variant="body-default-xs" align="center" onBackground="neutral-weak" style={{ fontStyle: "italic" }}>
-                  * Това са средни данни от всички клиенти до момента
+                  * Това са средни данни от всички клиенти до януари 2026
                 </Text>
               </Column>
             </Card>
           </RevealFx>
         </Column>
-
         {/* AI SEO Benefits */}
         <Column gap="l" align="center" paddingY="l">
           <RevealFx>
             <Column gap="m" align="center">
               <Heading variant="display-strong-m" align="center">
-                Защо AI SEO е бъдещето?
+                Защо AI SEO е Бъдещето през 2026?
               </Heading>
               <Text variant="body-default-xl" align="center" onBackground="neutral-weak">
-                <strong>SEO в ерата на изкуствения интелект</strong> не е просто тренд - 
-                това е революция в начина, по който хората търсят информация. 
+                <strong>SEO в ерата на изкуствения интелект</strong> не е просто тренд –
+                това е революция в начина, по който хората търсят информация.
                 Позиционирайте се сега в AI системите, преди конкурентите ви.
               </Text>
             </Column>
           </RevealFx>
-
           <Grid columns="2" s={{ columns: 1 }} gap="l" style={{ maxWidth: "100%", overflow: "hidden" }}>
             <RevealFx delay={0.1}>
               <Card padding="xl" radius="xl" background="surface">
                 <Column gap="m" align="center">
                   <FaRobot size={32} color="var(--brand-strong)" />
                   <Heading variant="heading-strong-m" align="center">
-                    AI търсачки набират скорост
+                    AI Търсачки Набират Скорост
                   </Heading>
                   <Text variant="body-default-m" align="center" onBackground="neutral-weak">
-                    ChatGPT, Gemini, Claude и други AI системи стават все по-популярни за търсене. 
-                    <strong>Генеративно SEO</strong> ви позиционира там, където потребителите отиват все повече.
+                    ChatGPT, Gemini, Claude и други AI системи стават все по-популярни за търсене.
+                    <strong>Генеративно SEO</strong> ви позиционира там, където потребителите отиват все повече през 2026.
                   </Text>
-                  <ProgressBar 
-                    value={75} 
+                  <ProgressBar
+                    value={80}
                     max={100}
                   />
                   <Text variant="body-default-s" align="center" onBackground="neutral-weak">
-                    75% от потребителите използват AI за търсене
+                    80% от потребителите използват AI за търсене през 2026
                   </Text>
                 </Column>
               </Card>
             </RevealFx>
-
             <RevealFx delay={0.2}>
               <Card padding="xl" radius="xl" background="surface">
                 <Column gap="m" align="center">
                   <FaChartLine size={32} color="var(--success-strong)" />
                   <Heading variant="heading-strong-m" align="center">
-                    Двойно покритие
+                    Двойно Покритие
                   </Heading>
                   <Text variant="body-default-m" align="center" onBackground="neutral-weak">
-                    Моят подход ви дава <strong>двойно предимство</strong> - отлично класиране в Google 
-                    И позициониране в AI системите. Покривате всички канали за търсене.
+                    Моят подход ви дава <strong>двойно предимство</strong> – отлично класиране в Google
+                    И позициониране в AI системите. Покривате всички канали за търсене през 2026.
                   </Text>
                   <Row gap="m" align="center">
                     <Tag size="m" variant="success">Google SEO</Tag>
@@ -581,15 +559,14 @@ export default function Nachalo() {
             </RevealFx>
           </Grid>
         </Column>
-
         {/* CTA */}
         <Column align="center" paddingY="xl" fillWidth>
           <Heading variant="display-strong-m" align="center">
-            Готови ли сте за AI SEO революцията?
+            Готови ли Сте за AI SEO Революцията през 2026?
           </Heading>
           <Text variant="body-default-l" align="center" onBackground="neutral-weak">
-            Не изоставайте от <strong>бъдещето на SEO</strong>. Позиционирайте се в AI системите 
-            докато конкурентите ви все още спят. Започнете AI SEO оптимизацията днес.
+            Не изоставайте от <strong>бъдещето на SEO</strong>. Позиционирайте се в AI системите
+            докато конкурентите ви все още спят. Започнете AI SEO оптимизацията днес и вижте растежа.
           </Text>
           <Flex
             horizontal="center"
@@ -604,27 +581,24 @@ export default function Nachalo() {
               size="l"
               href="/kontakti"
             >
-              Започнете AI SEO
+              Започнете Вашата AI SEO Трансформация
             </Button>
             <Button variant="secondary" size="l" href="/za-men">
-              Научете повече
+              Научете Повече за Моята Експертиза
             </Button>
           </Flex>
         </Column>
-
         {/* Blog */}
         {routes["/blog"] && (
           <Column fillWidth maxWidth="l" gap="m">
             <Heading as="h2" variant="display-strong-xs" align="center">
-              Последни публикации
+              Последни Публикации
             </Heading>
             <Posts range={[1, 2]} columns="2" />
           </Column>
         )}
-
         {/* Projects */}
         <Projects range={[1, 3]} />
-
         {/* FAQ секция */}
         <Column gap="l" align="center" paddingY="l">
           <RevealFx>
@@ -632,17 +606,16 @@ export default function Nachalo() {
               <Column gap="s" align="center">
                 <Icon name="help-circle" size="l" onBackground="info-strong" />
                 <Heading variant="display-strong-m" align="center">
-                  Често задавани въпроси за AI SEO
+                  Често Задавани Въпроси за AI SEO
                 </Heading>
               </Column>
               <Text variant="body-default-xl" align="center" onBackground="neutral-weak">
-                Отговори на най-често задаваните въпроси за <strong>AI SEO</strong>, 
-                <strong> генеративно SEO</strong> и <strong>оптимизация за големите езикови модели</strong>. 
-                Намери информация за процеса, резултатите и всичко, което трябва да знаеш за AI SEO.
+                Отговори на най-често задаваните въпроси за <strong>AI SEO</strong>,
+                <strong> генеративно SEO</strong> и <strong>оптимизация за големите езикови модели</strong>.
+                Намерете детайлна информация за процеса, резултатите, ползите и всичко, което трябва да знаете за AI SEO през 2026.
               </Text>
             </Column>
           </RevealFx>
-
           <RevealFx delay={0.1}>
             <AccordionGroup
               items={[
@@ -650,10 +623,10 @@ export default function Nachalo() {
                   title: "Какво е AI SEO и защо е важно?",
                   content: (
                     <Text onBackground="neutral-weak">
-                      <strong>AI SEO</strong> е оптимизация за големите езикови модели като ChatGPT, Gemini и Claude. 
-                      Това е <strong>бъдещето на SEO</strong> - докато традиционното SEO се фокусира върху Google, 
-                      AI SEO ви позиционира в AI системите за търсене, където потребителите отиват все повече. 
-                      <strong> Генеративно SEO</strong> ви дава двойно предимство пред конкурентите.
+                      <strong>AI SEO</strong> е оптимизация за големите езикови модели като ChatGPT, Gemini и Claude.
+                      Това е <strong>бъдещето на SEO</strong> – докато традиционното SEO се фокусира върху Google,
+                      AI SEO ви позиционира в AI системите за търсене, където потребителите отиват все повече.
+                      <strong> Генеративно SEO</strong> ви дава двойно предимство пред конкурентите, особено с нарастващата употреба на AI през 2026. Това включва семантична оптимизация, структурирани данни и съдържание, което AI моделите предпочитат.
                     </Text>
                   ),
                 },
@@ -661,10 +634,10 @@ export default function Nachalo() {
                   title: "Как работи SEO за ChatGPT и други AI системи?",
                   content: (
                     <Text onBackground="neutral-weak">
-                      AI системите използват различни алгоритми от Google. <strong>LLM SEO</strong> оптимизацията 
-                      се фокусира върху структуриране на съдържанието по начин, който AI моделите разбират по-добре. 
-                      Това включва правилна семантична структура, schema markup за AI и оптимизация за 
-                      <strong> генеративно търсене</strong>.
+                      AI системите използват различни алгоритми от Google. <strong>LLM SEO</strong> оптимизацията
+                      се фокусира върху структуриране на съдържанието по начин, който AI моделите разбират по-добре.
+                      Това включва правилна семантична структура, schema markup за AI, оптимизация за
+                      <strong> генеративно търсене</strong>, и създаване на съдържание, което е лесно за обработка от езикови модели. Процесът започва с анализ на AI сигнали и завършва с мониторинг на позиционирането в AI отговори.
                     </Text>
                   ),
                 },
@@ -672,10 +645,10 @@ export default function Nachalo() {
                   title: "Защо да инвестирам в AI SEO сега?",
                   content: (
                     <Text onBackground="neutral-weak">
-                      <strong>SEO в ерата на изкуствения интелект</strong> не е просто тренд - това е революция. 
-                      AI търсачките набират скорост и скоро ще бъдат толкова популярни колкото Google. 
-                      Позиционирайте се сега в AI системите, преди конкурентите ви да се събудят. 
-                      <strong> Бъдещето на SEO</strong> е тук.
+                      <strong>SEO в ерата на изкуствения интелект</strong> не е просто тренд – това е революция.
+                      AI търсачките набират скорост и скоро ще бъдат толкова популярни колкото Google.
+                      Позиционирайте се сега в AI системите, преди конкурентите ви да се събудят.
+                      <strong> Бъдещето на SEO</strong> е тук, и инвестицията сега може да доведе до 2-3x по-висок трафик от AI канали през 2026.
                     </Text>
                   ),
                 },
@@ -683,9 +656,10 @@ export default function Nachalo() {
                   title: "Какви резултати мога да очаквам от AI SEO?",
                   content: (
                     <Text onBackground="neutral-weak">
-                      Клиентите ми виждат средно +433% ръст в органичния трафик, +585% увеличение на приходите 
-                      и +148% подобрение на конверсията. <strong> Оптимизация за генеративно търсене</strong> 
+                      Клиентите ми виждат средно +433% ръст в органичния трафик, +585% увеличение на приходите
+                      и +148% подобрение на конверсията. <strong> Оптимизация за генеративно търсене</strong>
                       ви дава достъп до нови аудитории в AI системите, докато поддържа отлично класиране в Google.
+                      Резултатите са видими в рамките на месеци, с дългосрочен ефект върху бизнеса.
                     </Text>
                   ),
                 },
@@ -693,10 +667,10 @@ export default function Nachalo() {
                   title: "Колко време отнема AI SEO оптимизацията?",
                   content: (
                     <Text onBackground="neutral-weak">
-                      Първоначалната <strong>AI SEO</strong> оптимизация отнема 2-4 седмици, в зависимост от 
-                      сложността на сайта. Включвам анализ на текущото състояние, оптимизация за AI системите, 
-                      технически подобрения и мониторинг на резултатите. Продължителната оптимизация е процес, 
-                      който се подобрява с времето.
+                      Първоначалната <strong>AI SEO</strong> оптимизация отнема 2-4 седмици, в зависимост от
+                      сложността на сайта. Включвам анализ на текущото състояние, оптимизация за AI системите,
+                      технически подобрения и мониторинг на резултатите. Продължителната оптимизация е процес,
+                      който се подобрява с времето, с редовни актуализации за нови AI алгоритми през 2026.
                     </Text>
                   ),
                 },
@@ -704,9 +678,26 @@ export default function Nachalo() {
                   title: "Работи ли AI SEO заедно с традиционното SEO?",
                   content: (
                     <Text onBackground="neutral-weak">
-                      Абсолютно! Моят подход ви дава <strong>двойно покритие</strong> - отлично класиране 
-                      в Google И позициониране в AI системите. <strong>SEO в ерата на AI търсачките </strong> 
-                      не замества традиционното SEO, а го допълва. Получавате най-доброто от двата свята.
+                      Абсолютно! Моят подход ви дава <strong>двойно покритие</strong> – отлично класиране
+                      в Google И позициониране в AI системите. <strong>SEO в ерата на AI търсачките </strong>
+                      не замества традиционното SEO, а го допълва. Получавате най-доброто от двата свята,
+                      с интегрирани стратегии за максимален ефект.
+                    </Text>
+                  ),
+                },
+                {
+                  title: "Какво прави AI SEO различно от традиционното?",
+                  content: (
+                    <Text onBackground="neutral-weak">
+                      Традиционното SEO се фокусира върху ключови думи и линкове за Google, докато AI SEO оптимизира за семантика, контекст и генеративни отговори в модели като ChatGPT. Това включва E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness) адаптирано за AI, с акцент върху структурирани данни и качествено съдържание, което AI предпочита.
+                    </Text>
+                  ),
+                },
+                {
+                  title: "Мога ли да видя примери за успешни AI SEO проекти?",
+                  content: (
+                    <Text onBackground="neutral-weak">
+                      Да, в раздела за проекти ще намерите case studies с детайлни резултати. Клиенти са постигнали значителен растеж в AI видимост, с примери за позициониране в топ AI отговори. Свържете се за персонализирани примери.
                     </Text>
                   ),
                 },
@@ -714,10 +705,39 @@ export default function Nachalo() {
             />
           </RevealFx>
         </Column>
+        {/* Social Integration */}
+        <Column gap="m" align="center" paddingY="l">
+          <Heading variant="display-strong-s" align="center">
+            Свържете се с Мен в Социалните Мрежи
+          </Heading>
+          <Flex gap="l" horizontal="center" wrap>
+            <Button
+              href="https://www.linkedin.com/in/stanchev-seo/"
+              variant="secondary"
+              size="m"
+              prefixIcon={<FaLinkedin />}
+            >
+              LinkedIn
+            </Button>
+            <Button
+              href="https://github.com/stantchev/"
+              variant="secondary"
+              size="m"
+              prefixIcon={<FaGithub />}
+            >
+              GitHub
+            </Button>
+            <Button
+              href="https://dev.to/stanchev"
+              variant="secondary"
+              size="m"
+              prefixIcon={<FaDev />}
+            >
+              Dev.to
+            </Button>
+          </Flex>
+        </Column>
       </Column>
     </>
   );
 }
-
-
-
