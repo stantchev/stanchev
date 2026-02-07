@@ -20,9 +20,6 @@ import {
   CelebrationFx,
   GlitchFx,
   LetterFx,
-  FaLinkedin,
-  FaGithub,
-  FaDev,
 } from '@once-ui-system/core';
 import { baseURL } from '@/resources';
 import Script from 'next/script';
@@ -634,3 +631,4 @@ export default function IzrabotkaSajtPage() {
     </>
   );
 }
+
