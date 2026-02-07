@@ -9,13 +9,13 @@ import {
   Card,
   Grid,
   Badge,
-  RevealFx,
   Timeline,
   HoverCard,
-  CelebrationFx,
-  GlitchFx,
-  LetterFx,
   Row,
+  RevealFx,
+  LetterFx,
+  GlitchFx,
+  CelebrationFx,
 } from '@once-ui-system/core';
 import { baseURL } from '@/resources';
 import Script from 'next/script';
@@ -64,32 +64,47 @@ export default function IzrabotkaSajtPage() {
         }}
       />
 
-      {/* ROOT SECTION – padding EXACT като референтния файл */}
-      <Column as="section" gap="l" padding="s" fillWidth>
+      {/* ROOT SECTION */}
+      <Column as="section" padding="s" gap="l" fillWidth>
 
         {/* HERO */}
-        <RevealFx trigger="inview">
-          <Column gap="s" align="center" fillWidth>
-            <GlitchFx>
-              <LetterFx trigger="inview">
-                <Heading as="h1" variant="display-strong-l" align="center">
+        <Column gap="s" align="center" fillWidth>
+          <RevealFx>
+            <GlitchFx fillWidth speed="medium">
+              <Column align="center" fillWidth gap="8">
+                <LetterFx
+                  speed="medium"
+                  trigger="instant"
+                  charset="X$@aHz0y#?*01+"
+                >
                   Изработка на Сайт и Лендинг Страници 2026
-                </Heading>
-              </LetterFx>
+                </LetterFx>
+              </Column>
             </GlitchFx>
+          </RevealFx>
 
-            <Text variant="display-default-s" align="center" onBackground="neutral-weak">
-              Модерни, бързи и SEO-готови уебсайтове с React, Next.js, Tailwind CSS
-              и AI интеграции – създадени да конвертират.
+          <RevealFx delay={0.2} translateY={0.5}>
+            <Text
+              variant="display-default-s"
+              align="center"
+              onBackground="neutral-weak"
+            >
+              Модерни, бързи и SEO-готови уебсайтове с React, Next.js,
+              Tailwind CSS и AI интеграции – създадени да конвертират.
             </Text>
+          </RevealFx>
 
-            <Flex horizontal="center">
-              <Button variant="primary" size="l" href="/kontakti" prefixIcon="rocket">
-                Започни проект
-              </Button>
-            </Flex>
-          </Column>
-        </RevealFx>
+          <RevealFx delay={0.4} translateY={1}>
+            <Button
+              variant="primary"
+              size="l"
+              href="/kontakti"
+              prefixIcon="rocket"
+            >
+              Започни проект
+            </Button>
+          </RevealFx>
+        </Column>
 
         {/* TAGS */}
         <Flex gap="8" wrap horizontal="center">
@@ -99,20 +114,24 @@ export default function IzrabotkaSajtPage() {
             'AI Интеграция',
             'SEO 2026',
             'Бързи сайтове',
-          ].map((lbl) => (
-            <Tag key={lbl} size="l" variant="brand">
-              {lbl}
-            </Tag>
+          ].map((label) => (
+            <RevealFx key={label}>
+              <Tag size="l" variant="brand">
+                {label}
+              </Tag>
+            </RevealFx>
           ))}
         </Flex>
 
         {/* TIMELINE */}
-        <RevealFx>
-          <Column gap="l">
+        <Column gap="l">
+          <RevealFx>
             <Heading as="h2" variant="display-default-m" align="center">
               Процесът в 4 ясни етапа
             </Heading>
+          </RevealFx>
 
+          <RevealFx delay={0.2}>
             <Timeline
               fillWidth
               direction={{ base: 'column', m: 'row' }}
@@ -160,85 +179,97 @@ export default function IzrabotkaSajtPage() {
                 },
               ]}
             />
-          </Column>
-        </RevealFx>
+          </RevealFx>
+        </Column>
 
         {/* BENEFITS */}
-        <RevealFx>
-          <Column gap="l">
+        <Column gap="l">
+          <RevealFx>
             <Heading as="h2" variant="display-default-m" align="center">
               Защо професионален сайт?
             </Heading>
+          </RevealFx>
 
-            <Grid columns={3} s={{ columns: 1 }} gap="l" fillWidth>
-              {[
-                { icon: FaRocket, title: 'Бърз', desc: 'Core Web Vitals 90+' },
-                { icon: FaSearch, title: 'SEO', desc: 'Schema + AI ready' },
-                { icon: FaMobile, title: 'Responsive', desc: 'Mobile-first' },
-                { icon: FaRobot, title: 'AI', desc: 'Интеграции' },
-                { icon: FaShieldAlt, title: 'Сигурен', desc: 'HTTPS + защита' },
-                { icon: FaChartLine, title: 'Конверсии', desc: 'UX фокус' },
-              ].map((item) => (
-                <HoverCard key={item.title}>
+          <Grid columns={3} s={{ columns: 1 }} gap="l" fillWidth>
+            {[
+              { icon: FaRocket, title: 'Бърз', desc: 'Core Web Vitals 90+' },
+              { icon: FaSearch, title: 'SEO', desc: 'Schema + AI ready' },
+              { icon: FaMobile, title: 'Responsive', desc: 'Mobile-first' },
+              { icon: FaRobot, title: 'AI', desc: 'Интеграции' },
+              { icon: FaShieldAlt, title: 'Сигурен', desc: 'HTTPS + защита' },
+              { icon: FaChartLine, title: 'Конверсии', desc: 'UX фокус' },
+            ].map((item, i) => (
+              <RevealFx key={item.title} delay={i * 0.1}>
+                <HoverCard>
                   <Card padding="l" border="neutral-alpha-medium" radius="l">
                     <Column gap="m" align="center">
-                      <item.icon size={32} color="var(--brand-strong)" />
+                      <item.icon size={32} />
                       <Heading variant="heading-strong-m" align="center">
                         {item.title}
                       </Heading>
-                      <Text variant="body-default-s" align="center" onBackground="neutral-weak">
+                      <Text
+                        variant="body-default-s"
+                        align="center"
+                        onBackground="neutral-weak"
+                      >
                         {item.desc}
                       </Text>
                     </Column>
                   </Card>
                 </HoverCard>
-              ))}
-            </Grid>
-          </Column>
-        </RevealFx>
+              </RevealFx>
+            ))}
+          </Grid>
+        </Column>
 
         {/* PACKAGES */}
-        <RevealFx>
-          <Column gap="l">
+        <Column gap="l">
+          <RevealFx>
             <Heading as="h2" variant="display-default-m" align="center">
               Пакети и цени
             </Heading>
+          </RevealFx>
 
-            <Grid columns={2} s={{ columns: 1 }} gap="l" fillWidth>
-              {[
-                {
-                  title: 'Лендинг страница',
-                  price: '900 лв.',
-                  popular: false,
-                  features: [
-                    'Модерен дизайн',
-                    'SEO оптимизация',
-                    'Контактна форма',
-                  ],
-                },
-                {
-                  title: 'Корпоративен сайт',
-                  price: '1800 лв.',
-                  popular: true,
-                  features: [
-                    'До 7 страници',
-                    'CMS панел',
-                    'SEO + AI оптимизация',
-                  ],
-                },
-              ].map((pkg) => (
+          <Grid columns={2} s={{ columns: 1 }} gap="l" fillWidth>
+            {[
+              {
+                title: 'Лендинг страница',
+                price: '900 лв.',
+                popular: false,
+                features: [
+                  'Модерен дизайн',
+                  'SEO оптимизация',
+                  'Контактна форма',
+                ],
+              },
+              {
+                title: 'Корпоративен сайт',
+                price: '1800 лв.',
+                popular: true,
+                features: [
+                  'До 7 страници',
+                  'CMS панел',
+                  'SEO + AI оптимизация',
+                ],
+              },
+            ].map((pkg, i) => (
+              <RevealFx key={pkg.title} delay={i * 0.15}>
                 <Card
-                  key={pkg.title}
                   padding="l"
-                  border={pkg.popular ? 'brand-alpha-medium' : 'neutral-alpha-medium'}
+                  border={
+                    pkg.popular
+                      ? 'brand-alpha-medium'
+                      : 'neutral-alpha-medium'
+                  }
                   radius="l"
-                  style={pkg.popular ? { background: 'brand-alpha-weak' } : undefined}
                 >
                   {pkg.popular && <Badge>Най-избран</Badge>}
 
                   <Column gap="m" align="center">
-                    <Heading variant="heading-strong-l">{pkg.title}</Heading>
-                    <Text variant="display-strong-l" onBackground="brand-strong">
+                    <Heading variant="heading-strong-l">
+                      {pkg.title}
+                    </Heading>
+                    <Text variant="display-strong-l">
                       {pkg.price}
                     </Text>
 
@@ -253,7 +284,6 @@ export default function IzrabotkaSajtPage() {
 
                     <Button
                       variant={pkg.popular ? 'primary' : 'secondary'}
-                      size="m"
                       fillWidth
                       href="/kontakti"
                     >
@@ -261,18 +291,20 @@ export default function IzrabotkaSajtPage() {
                     </Button>
                   </Column>
                 </Card>
-              ))}
-            </Grid>
-          </Column>
-        </RevealFx>
+              </RevealFx>
+            ))}
+          </Grid>
+        </Column>
 
         {/* FAQ */}
-        <RevealFx>
-          <Column gap="l">
+        <Column gap="l">
+          <RevealFx>
             <Heading as="h2" variant="display-default-m" align="center">
               Често задавани въпроси
             </Heading>
+          </RevealFx>
 
+          <RevealFx delay={0.2}>
             <AccordionGroup
               items={[
                 {
@@ -293,18 +325,20 @@ export default function IzrabotkaSajtPage() {
                 },
               ]}
             />
-          </Column>
-        </RevealFx>
+          </RevealFx>
+        </Column>
 
         {/* FINAL CTA */}
-        <RevealFx>
-          <Column gap="l" align="center">
-            <CelebrationFx trigger="inview">
+        <Column gap="l" align="center">
+          <RevealFx>
+            <CelebrationFx>
               <Heading variant="display-strong-m" align="center">
                 Готови ли сте да стартираме?
               </Heading>
             </CelebrationFx>
+          </RevealFx>
 
+          <RevealFx delay={0.2}>
             <Flex gap="m" wrap horizontal="center">
               <Button variant="primary" size="l" href="/kontakti">
                 Заяви проект
@@ -313,13 +347,18 @@ export default function IzrabotkaSajtPage() {
                 Консултация
               </Button>
             </Flex>
-          </Column>
-        </RevealFx>
+          </RevealFx>
+        </Column>
 
         {/* SOCIAL */}
-        <RevealFx>
-          <Column gap="m" align="center">
-            <Heading variant="display-strong-s">Свържи се</Heading>
+        <Column gap="m" align="center">
+          <RevealFx>
+            <Heading variant="display-strong-s">
+              Свържи се
+            </Heading>
+          </RevealFx>
+
+          <RevealFx delay={0.2}>
             <Flex gap="l" wrap horizontal="center">
               <Button href="https://linkedin.com" variant="secondary" prefixIcon={<FaLinkedin />}>
                 LinkedIn
@@ -331,8 +370,8 @@ export default function IzrabotkaSajtPage() {
                 Dev.to
               </Button>
             </Flex>
-          </Column>
-        </RevealFx>
+          </RevealFx>
+        </Column>
 
       </Column>
     </>
