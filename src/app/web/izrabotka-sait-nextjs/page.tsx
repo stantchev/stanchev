@@ -36,7 +36,7 @@ export async function generateMetadata() {
   const description =
     'Професионален Next.js сайт в България. Доказано 3x по-бързо зареждане, по-добро SEO класиране и 0 WordPress уязвимости. Безплатен performance одит. От 1200 лв.';
   const pageUrl = `${baseURL}/web/nextjs-sajt`;
-  const ogImageUrl = `${baseURL}/images/nextjs-og-image.jpg`; // 1200×630 препоръчително
+  const ogImageUrl = `${baseURL}/images/og/nextjs-og-image.jpg`; // 1200×630 препоръчително
 
   return {
     title,
@@ -1174,3 +1174,4 @@ export default function NextJsPage() {
     </>
   );
 }
+
