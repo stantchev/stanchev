@@ -73,7 +73,7 @@ export async function generateMetadata() {
       card: 'summary_large_image',
       title: 'Next.js Сайт България | 3x По-Бърз от WordPress | Stanchev Digital',
       description:
-        'Професионален Next.js сайт в България. Доказано 3x по-бързо зареждане, по-добро SEO класиране и 0 WordPress уязвимости. Безплатен performance одит. От 1200 лв.',
+        'Професионален Next.js сайт в България. Доказано 3x по-бързо зареждане, по-добро SEO класиране и 0 WordPress уязвимости. Безплатен performance одит. От 610 €.',
       site: '@stanchev_digital',     // ← смени ако имаш реален handle
       creator: '@stanchev',          // ← смени ако искаш
       images: [`${baseURL}/images/og/nextjs-og-image.jpg`],
@@ -122,22 +122,22 @@ export default function NextJsPage() {
             category: 'Next.js Development',
             offers: {
               '@type': 'AggregateOffer',
-              priceCurrency: 'BGN',
-              lowPrice: '1200',
-              highPrice: '5000',
+              priceCurrency: 'EUR',
+              lowPrice: '610',
+              highPrice: '2500',
               offers: [
                 {
                   '@type': 'Offer',
                   name: 'Next.js Starter',
-                  price: '1200',
-                  priceCurrency: 'BGN',
+                  price: '610',
+                  priceCurrency: 'EUR',
                   description: 'До 5 страници, SEO оптимизация, Responsive дизайн',
                 },
                 {
                   '@type': 'Offer',
                   name: 'Next.js Business',
-                  price: '2200',
-                  priceCurrency: 'BGN',
+                  price: '1100',
+                  priceCurrency: 'EUR',
                   description: 'До 15 страници, Blog система, API интеграции',
                 },
               ],
@@ -331,8 +331,8 @@ export default function NextJsPage() {
             offers: {
               '@type': 'Offer',
               url: 'https://stanchev.bg/web/nextjs-sajt',
-              priceCurrency: 'BGN',
-              price: '1200',
+              priceCurrency: 'EUR',
+              price: '610',
               priceValidUntil: '2026-12-31',
               availability: 'https://schema.org/InStock',
               seller: {
@@ -715,7 +715,7 @@ export default function NextJsPage() {
                   <Heading as="h3">Next.js Starter</Heading>
                   <Flex gap="4" align="left">
                     <Text variant="display-strong-l" style={{ color: primaryColor }}>
-                      1200 лв.
+                      610 €
                     </Text>
                     <Text onBackground="neutral-weak" variant="body-default-s">
                       еднократно
@@ -771,7 +771,7 @@ export default function NextJsPage() {
                   <Heading as="h3">Next.js Business</Heading>
                   <Flex gap="4" align="left">
                     <Text variant="display-strong-l" style={{ color: primaryColor }}>
-                      2200 лв.
+                      1100 €
                     </Text>
                     <Text onBackground="neutral-weak" variant="body-default-s">
                       еднократно
@@ -1171,6 +1171,7 @@ export default function NextJsPage() {
     </>
   );
 }
+
 
 
 
