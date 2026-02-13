@@ -5,41 +5,68 @@ import {
   Text,
   Button,
   Tag,
+  Icon,
+  Feedback,
   AccordionGroup,
   Card,
   Grid,
   Badge,
-  Timeline,
-  HoverCard,
-  Row,
-  RevealFx,
-  LetterFx,
-  GlitchFx,
-  CelebrationFx,
 } from '@once-ui-system/core';
 import { baseURL } from '@/resources';
 import Script from 'next/script';
-import {
-  FaCode,
-  FaPalette,
-  FaMobile,
-  FaRocket,
-  FaSearch,
-  FaShieldAlt,
+import { 
+  FaCode, 
+  FaPalette, 
+  FaMobile, 
+  FaRocket, 
+  FaShoppingCart, 
+  FaWordpress, 
+  FaStore, 
+  FaCogs, 
+  FaSearch, 
+  FaShieldAlt, 
+  FaClock, 
   FaCheckCircle,
+  FaLaptop,
+  FaGlobe,
+  FaCog,
   FaChartLine,
   FaUsers,
-  FaRobot,
+  FaLightbulb,
+  FaHeart,
+  FaWrench,
+  FaPaintBrush,
+  FaStar
 } from 'react-icons/fa';
-import { FaLinkedin, FaGithub, FaDev } from 'react-icons/fa';
 
 export async function generateMetadata() {
   return {
-    title: 'Изработка на Сайт и Лендинг Страници 2026 | Stanchev Digital',
-    description:
-      'Професионална изработка на модерни уебсайтове и лендинг страници с React, Next.js, Tailwind CSS и AI интеграции.',
+    title: 'Изработка на сайт и лендинг страници | Stanchev Digital',
+    description: 'Професионална изработка на сайт и лендинг страници с React, Next.js, Tailwind CSS. Модерни, бързи и SEO оптимизирани уебсайтове за малки и средни бизнеси.',
+    keywords: 'изработка на сайт България, лендинг страница цена, уеб дизайн София, React разработчик България, Next.js уебсайт, Tailwind CSS дизайн, модерен корпоративен сайт, респонсивен уебсайт, SEO оптимизиран сайт цена, професионален уебсайт за бизнес, изработка на уебсайт цена, лендинг страница дизайн, корпоративен сайт цена, уеб разработка услуги, персонализиран уебсайт',
     alternates: {
       canonical: `${baseURL}/web/izrabotka-sajt`,
+    },
+    openGraph: {
+      title: 'ИИзработка на сайт и лендинг страници | Stanchev Digital',
+      description: 'Професионална изработка на сайт и лендинг страници с React, Next.js, Tailwind CSS. Модерни, бързи и SEO оптимизирани уебсайтове за малки и средни бизнеси.',
+      url: `${baseURL}/web/izrabotka-sajt`,
+      siteName: 'Stanchev Digital',
+      images: [
+        {
+          url: `https://stanchev.bg/images/og/og.jpg`,
+          width: 1200,
+          height: 630,
+        },
+      ],
+      locale: 'bg_BG',
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: 'Изработка на сайт и лендинг страници | Stanchev Digital',
+      description: 'Професионална изработка на сайт и лендинг страници с React, Next.js, Tailwind CSS. Модерни, бързи и SEO оптимизирани уебсайтове за малки и средни бизнеси.',
+      images: [`https://stanchev.bg/images/og/og.jpg`],
     },
   };
 }
@@ -52,327 +79,428 @@ export default function IzrabotkaSajtPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
-            '@context': 'http://schema.org',
-            '@type': 'Service',
-            name: 'Изработка на сайт и лендинг страници 2026 | Stanchev Digital',
-            provider: {
-              '@type': 'Organization',
-              name: 'Stanchev Digital',
-              url: 'https://stanchev.bg/',
+            "@context": "http://schema.org",
+            "@type": "Service",
+            "name": "Изработка на сайт и лендинг страници | Stanchev Digital",
+            "serviceType": "Уеб разработка",
+            "description": "Професионална изработка на сайт и лендинг страници с React, Next.js, Tailwind CSS. Създавам модерни, бързи и SEO оптимизирани уебсайтове за малки и средни бизнеси.",
+            "provider": {
+              "@type": "Organization",
+              "name": "Stanchev Digital",
+              "url": "https://stanchev.bg/",
+              "logo": "https://stanchev.bg/images/og/og.jpg",
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "contactType": "customer service",
+                "email": "seo@stanchev.bg"
+              }
             },
-          }),
+            "url": "https://stanchev.bg/web/izrabotka-sajt",
+            "areaServed": {
+              "@type": "Place",
+              "name": "България"
+            },
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Уеб разработка услуги и цени",
+              "itemListElement": [
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Лендинг страница с модерен дизайн",
+                    "description": "Професионална едностранична лендинг страница за промоции, услуги или продукти с фокус върху конверсията и SEO оптимизация."
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Корпоративен сайт с CMS",
+                    "description": "Многопланинков корпоративен сайт с административен панел, SEO оптимизация и респонсивен дизайн за управление на съдържанието."
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Портфолио сайт за творци",
+                    "description": "Персонализиран портфолио сайт за творци, фотографи, дизайнери и фрийлансери с модерен дизайн и SEO оптимизация."
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "name": "Лендинг страница - професионален пакет",
+                  "description": "Едностранична лендинг страница с модерен дизайн, SEO оптимизация, контактна форма и социални мрежи.",
+                  "priceSpecification": {
+                    "@type": "UnitPriceSpecification",
+                    "price": "800",
+                    "priceCurrency": "BGN",
+                    "unitText": "лв.",
+                    "valueAddedTaxIncluded": true
+                  },
+                  "availability": "https://schema.org/InStock"
+                },
+                {
+                  "@type": "Offer",
+                  "name": "Корпоративен сайт - бизнес пакет",
+                  "description": "Многопланинков корпоративен сайт с CMS, SEO оптимизация, административен панел и блог секция.",
+                  "priceSpecification": {
+                    "@type": "UnitPriceSpecification",
+                    "price": "1500",
+                    "priceCurrency": "BGN",
+                    "unitText": "лв.",
+                    "valueAddedTaxIncluded": true
+                  },
+                  "availability": "https://schema.org/InStock"
+                }
+              ]
+            },
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.9",
+              "reviewCount": "47",
+              "bestRating": "5",
+              "worstRating": "1"
+            }
+          })
         }}
       />
-
-      {/* ROOT SECTION */}
-      <Column as="section" padding="s" gap="l" fillWidth>
-
-        {/* HERO */}
+      <Column as="section" gap="l" padding="s" fillWidth>
         <Column gap="s" align="center" fillWidth>
-          <RevealFx>
-            <GlitchFx fillWidth speed="medium">
-              <Column align="center" fillWidth gap="8">
-                <LetterFx
-                  speed="medium"
-                  trigger="instant"
-                  charset="X$@aHz0y#?*01+"
-                >
-                  Изработка на Сайт и Лендинг Страници 2026
-                </LetterFx>
-              </Column>
-            </GlitchFx>
-          </RevealFx>
+          <Heading as="h1" variant="display-strong-l" align="center">
+            Изработка на сайт и лендинг страници – модерни уебсайтове за вашия бизнес
+          </Heading>
 
-          <RevealFx delay={0.2} translateY={0.5}>
-            <Text
-              variant="display-default-s"
-              align="center"
-              onBackground="neutral-weak"
-            >
-              Модерни, бързи и SEO-готови уебсайтове с React, Next.js,
-              Tailwind CSS и AI интеграции – създадени да конвертират.
-            </Text>
-          </RevealFx>
-
-          <RevealFx delay={0.4} translateY={1}>
+          <Text variant="display-default-s" align="center" onBackground="neutral-weak">
+            <strong>Изработка на сайт</strong> с React, Next.js и Tailwind CSS. Създавам модерни, бързи и SEO оптимизирани уебсайтове, които привличат клиенти и конвертират посетители. Ако търсите цялостни <a href="/web">уеб разработка услуги</a>, тук е мястото да започнете.
+          </Text>
+          <Flex horizontal="center">
             <Button
               variant="primary"
               size="l"
               href="/kontakti"
-              prefixIcon="rocket"
+              prefixIcon="checkCircle"
+              data-border="rounded"
             >
-              Започни проект
+              Заяви безплатна консултация
             </Button>
-          </RevealFx>
+          </Flex>
         </Column>
 
-        {/* TAGS */}
         <Flex gap="8" wrap horizontal="center">
-          {[
-            'React + Next.js',
-            'Tailwind CSS',
-            'AI Интеграция',
-            'SEO 2026',
-            'Бързи сайтове',
-          ].map((label) => (
-            <RevealFx key={label}>
-              <Tag size="l" variant="brand">
-                {label}
-              </Tag>
-            </RevealFx>
+          {["Уеб разработка", "React", "Next.js", "Tailwind CSS", "SEO оптимизация"].map((lbl) => (
+            <Tag key={lbl} size="l" variant="brand">
+              {lbl}
+            </Tag>
           ))}
         </Flex>
 
-        {/* TIMELINE */}
         <Column gap="l">
-          <RevealFx>
-            <Heading as="h2" variant="display-default-m" align="center">
-              Процесът в 4 ясни етапа
-            </Heading>
-          </RevealFx>
+          <Heading as="h2" variant="display-default-m">
+            Какво включва изработката на сайт от Stanchev Digital?
+          </Heading>
 
-          <RevealFx delay={0.2}>
-            <Timeline
-              fillWidth
-              direction={{ base: 'column', m: 'row' }}
-              gap={{ base: 'l', m: 'm' }}
-              items={[
-                {
-                  state: 'completed',
-                  label: (
-                    <Row vertical="center" gap="8">
-                      <FaUsers />
-                      <Text>Планиране</Text>
-                    </Row>
-                  ),
-                  description: 'Анализ на цели и аудитория.',
-                },
-                {
-                  state: 'active',
-                  label: (
-                    <Row vertical="center" gap="8">
-                      <FaPalette />
-                      <Text>Дизайн</Text>
-                    </Row>
-                  ),
-                  description: 'UX/UI + AI предложения.',
-                },
-                {
-                  state: 'default',
-                  label: (
-                    <Row vertical="center" gap="8">
-                      <FaCode />
-                      <Text>Разработка</Text>
-                    </Row>
-                  ),
-                  description: 'Next.js, SEO, оптимизация.',
-                },
-                {
-                  state: 'default',
-                  label: (
-                    <Row vertical="center" gap="8">
-                      <FaCheckCircle />
-                      <Text>Launch</Text>
-                    </Row>
-                  ),
-                  description: 'Тестване и пускане.',
-                },
-              ]}
-            />
-          </RevealFx>
-        </Column>
-
-        {/* BENEFITS */}
-        <Column gap="l">
-          <RevealFx>
-            <Heading as="h2" variant="display-default-m" align="center">
-              Защо професионален сайт?
-            </Heading>
-          </RevealFx>
-
-          <Grid columns={3} s={{ columns: 1 }} gap="l" fillWidth>
-            {[
-              { icon: FaRocket, title: 'Бърз', desc: 'Core Web Vitals 90+' },
-              { icon: FaSearch, title: 'SEO', desc: 'Schema + AI ready' },
-              { icon: FaMobile, title: 'Responsive', desc: 'Mobile-first' },
-              { icon: FaRobot, title: 'AI', desc: 'Интеграции' },
-              { icon: FaShieldAlt, title: 'Сигурен', desc: 'HTTPS + защита' },
-              { icon: FaChartLine, title: 'Конверсии', desc: 'UX фокус' },
-            ].map((item, i) => (
-              <RevealFx key={item.title} delay={i * 0.1}>
-                <HoverCard>
-                  <Card padding="l" border="neutral-alpha-medium" radius="l">
-                    <Column gap="m" align="center">
-                      <item.icon size={32} />
-                      <Heading variant="heading-strong-m" align="center">
-                        {item.title}
-                      </Heading>
-                      <Text
-                        variant="body-default-s"
-                        align="center"
-                        onBackground="neutral-weak"
-                      >
-                        {item.desc}
-                      </Text>
-                    </Column>
-                  </Card>
-                </HoverCard>
-              </RevealFx>
-            ))}
-          </Grid>
-        </Column>
-
-        {/* PACKAGES */}
-        <Column gap="l">
-          <RevealFx>
-            <Heading as="h2" variant="display-default-m" align="center">
-              Пакети и цени
-            </Heading>
-          </RevealFx>
+          <Text variant="body-default-l">
+            Работя с най-модерните технологии: <strong>React</strong>, <strong>Next.js</strong>, <strong>Tailwind CSS</strong> и <strong>TypeScript</strong>. Всеки сайт е изграден с SEO в ум от самото начало – правилна структура, бърза скорост, мобилна съвместимост и оптимизирано съдържание. Целта е проста: красив, функционален и видим сайт в Google.
+          </Text>
 
           <Grid columns={2} s={{ columns: 1 }} gap="l" fillWidth>
             {[
-              {
-                title: 'Лендинг страница',
-                price: '900 лв.',
-                popular: false,
-                features: [
-                  'Модерен дизайн',
-                  'SEO оптимизация',
-                  'Контактна форма',
-                ],
-              },
-              {
-                title: 'Корпоративен сайт',
-                price: '1800 лв.',
-                popular: true,
-                features: [
-                  'До 7 страници',
-                  'CMS панел',
-                  'SEO + AI оптимизация',
-                ],
-              },
-            ].map((pkg, i) => (
-              <RevealFx key={pkg.title} delay={i * 0.15}>
-                <Card
-                  padding="l"
-                  border={
-                    pkg.popular
-                      ? 'brand-alpha-medium'
-                      : 'neutral-alpha-medium'
-                  }
-                  radius="l"
-                >
-                  {pkg.popular && <Badge>Най-избран</Badge>}
-
-                  <Column gap="m" align="center">
-                    <Heading variant="heading-strong-l">
-                      {pkg.title}
-                    </Heading>
-                    <Text variant="display-strong-l">
-                      {pkg.price}
-                    </Text>
-
-                    <Column gap="s" fillWidth>
-                      {pkg.features.map((f) => (
-                        <Flex key={f} gap="s" vertical="center">
-                          <FaCheckCircle size={16} />
-                          <Text variant="body-default-s">{f}</Text>
-                        </Flex>
-                      ))}
-                    </Column>
-
-                    <Button
-                      variant={pkg.popular ? 'primary' : 'secondary'}
-                      fillWidth
-                      href="/kontakti"
-                    >
-                      Избери пакет
-                    </Button>
+              { icon: FaPaintBrush, title: "Модерен дизайн", desc: "Чист, професионален и респонсивен дизайн за всички устройства" },
+              { icon: FaSearch, title: "SEO оптимизация", desc: "Core Web Vitals, мета тагове, schema markup, sitemap" },
+              { icon: FaRocket, title: "Бърза скорост", desc: "Оптимизиран код, компресирани изображения, CDN интеграция" },
+              { icon: FaMobile, title: "Мобилна съвместимост", desc: "Перфектно изглежда на всички устройства и екрани" }
+            ].map((item, index) => (
+              <Card key={item.title} padding="l" border="neutral-alpha-medium" radius="l">
+                <Flex gap="m" vertical="start">
+                  <item.icon size={24} color="var(--brand-strong)" />
+                  <Column gap="xs">
+                    <Heading as="h3" variant="heading-strong-m">{item.title}</Heading>
+                    <Text variant="body-default-s" onBackground="neutral-weak">{item.desc}</Text>
                   </Column>
-                </Card>
-              </RevealFx>
+                </Flex>
+              </Card>
             ))}
           </Grid>
         </Column>
 
-        {/* FAQ */}
         <Column gap="l">
-          <RevealFx>
-            <Heading as="h2" variant="display-default-m" align="center">
-              Често задавани въпроси
-            </Heading>
-          </RevealFx>
+          <Heading as="h2" variant="display-default-m">
+            Защо да инвестирате в професионален сайт?
+          </Heading>
 
-          <RevealFx delay={0.2}>
-            <AccordionGroup
-              items={[
-                {
-                  title: 'Колко време отнема?',
-                  content: (
-                    <Text onBackground="neutral-weak">
-                      Лендинг – 1–2 седмици, корпоративен сайт – 3–5 седмици.
-                    </Text>
-                  ),
-                },
-                {
-                  title: 'Включено ли е SEO?',
-                  content: (
-                    <Text onBackground="neutral-weak">
-                      Да – мета тагове, schema, Core Web Vitals.
-                    </Text>
-                  ),
-                },
-              ]}
-            />
-          </RevealFx>
+          <Text variant="body-default-l">
+            <strong>Изработка на сайт</strong> е инвестиция в бъдещето на вашия бизнес. Модерният сайт привлича клиенти, изгражда доверие и работи 24/7 за вас. Със SEO оптимизацията видими сте в Google, а с бързата скорост посетителите остават по-дълго на сайта.
+          </Text>
         </Column>
 
-        {/* FINAL CTA */}
-        <Column gap="l" align="center">
-          <RevealFx>
-            <CelebrationFx>
-              <Heading variant="display-strong-m" align="center">
-                Готови ли сте да стартираме?
-              </Heading>
-            </CelebrationFx>
-          </RevealFx>
+        <Column gap="l">
+          <Heading as="h2" variant="display-default-m" align="center">
+            Моят процес в 4 етапа
+          </Heading>
 
-          <RevealFx delay={0.2}>
-            <Flex gap="m" wrap horizontal="center">
-              <Button variant="primary" size="l" href="/kontakti">
-                Заяви проект
-              </Button>
-              <Button variant="secondary" size="l" href="/kontakti">
-                Консултация
-              </Button>
-            </Flex>
-          </RevealFx>
+          <Grid columns={4} s={{ columns: 1 }} gap="l" fillWidth>
+            {[
+              { 
+                step: "Планиране", 
+                icon: FaUsers, 
+                desc: "Анализирам вашите нужди, целева аудитория и бизнес цели. Изграждам структура и план за съдържанието.",
+                color: "var(--brand-strong)"
+              },
+              { 
+                step: "Дизайн", 
+                icon: FaPalette, 
+                desc: "Създавам модерен дизайн с фокус върху потребителското изживяване и конверсията.",
+                color: "var(--success-strong)"
+              },
+              { 
+                step: "Разработка", 
+                icon: FaCode, 
+                desc: "Програмирам сайта с React, Next.js и Tailwind CSS. Интегрирам SEO оптимизация и функционалности.",
+                color: "var(--warning-strong)"
+              },
+              { 
+                step: "Тестване", 
+                icon: FaCheckCircle, 
+                desc: "Тествам всички функционалности, скоростта и съвместимостта. Оптимизирам за Google и мобилни устройства.",
+                color: "var(--info-strong)"
+              }
+            ].map((item, i) => (
+              <Card key={item.step} padding="l" border="neutral-alpha-medium" radius="l">
+                <Column gap="m" align="center">
+                  <item.icon size={32} color={item.color} />
+                  <Heading as="h3" variant="heading-strong-m" align="center">
+                    {item.step}
+                  </Heading>
+                  <Text variant="body-default-s" align="center" onBackground="neutral-weak">
+                    {item.desc}
+                  </Text>
+                  <Badge>
+                    Етап {i + 1}
+                  </Badge>
+                </Column>
+              </Card>
+            ))}
+          </Grid>
         </Column>
 
-        {/* SOCIAL */}
-        <Column gap="m" align="center">
-          <RevealFx>
-            <Heading variant="display-strong-s">
-              Свържи се
-            </Heading>
-          </RevealFx>
-
-          <RevealFx delay={0.2}>
-            <Flex gap="l" wrap horizontal="center">
-              <Button href="https://linkedin.com" variant="secondary" prefixIcon={<FaLinkedin />}>
-                LinkedIn
-              </Button>
-              <Button href="https://github.com" variant="secondary" prefixIcon={<FaGithub />}>
-                GitHub
-              </Button>
-              <Button href="https://dev.to" variant="secondary" prefixIcon={<FaDev />}>
-                Dev.to
-              </Button>
-            </Flex>
-          </RevealFx>
+        <Column gap="l">
+          <Heading as="h3" variant="display-default-m" align="center">
+            Пакети и цени за изработка на сайт
+          </Heading>
+          
+          <Grid columns={2} s={{ columns: 1 }} gap="l" fillWidth>
+            {[
+              {
+                title: "Лендинг страница",
+                subtitle: "Една лендинг страница за промоции или услуги",
+                price: "800 лв.",
+                features: [
+                  "Модерен дизайн",
+                  "SEO оптимизация",
+                  "Мобилна съвместимост",
+                  "Контактна форма",
+                  "Социални мрежи"
+                ],
+                icon: FaGlobe,
+                popular: false
+              },
+              {
+                title: "Корпоративен сайт",
+                subtitle: "Стандартен корпоративен сайт с CMS",
+                price: "1500 лв.",
+                features: [
+                  "До 5 страници",
+                  "Административен панел",
+                  "SEO оптимизация",
+                  "Контактна форма",
+                  "Блог секция"
+                ],
+                icon: FaLaptop,
+                popular: true
+              }
+            ].map((pkg, index) => (
+              <Card 
+                key={pkg.title}
+                padding="l" 
+                border={pkg.popular ? "brand-alpha-medium" : "neutral-alpha-medium"} 
+                radius="l" 
+                style={{ 
+                  minWidth: "300px",
+                  position: "relative",
+                  ...(pkg.popular && { 
+                    background: "brand-alpha-weak",
+                    transform: "scale(1.05)"
+                  })
+                }}
+              >
+                {pkg.popular && (
+                  <Badge 
+                    style={{ 
+                      position: "absolute", 
+                      top: "-8px", 
+                      right: "16px" 
+                    }}
+                  >
+                    Популярен
+                  </Badge>
+                )}
+                
+                <Column gap="m" align="center">
+                  <pkg.icon size={32} color="var(--brand-strong)" />
+                  <Heading as="h4" variant="heading-strong-l" align="center">
+                    {pkg.title}
+                  </Heading>
+                  <Text variant="body-default-s" onBackground="neutral-weak" align="center">
+                    {pkg.subtitle}
+                  </Text>
+                  <Text variant="display-strong-l" align="center" onBackground="brand-strong">
+                    {pkg.price}
+                  </Text>
+                  
+                  <Column gap="s" fillWidth>
+                    {pkg.features.map((feature, i) => (
+                      <Flex key={i} gap="s" vertical="center">
+                        <FaCheckCircle size={16} color="var(--brand-strong)" />
+                        <Text variant="body-default-s">{feature}</Text>
+                      </Flex>
+                    ))}
+                  </Column>
+                  
+                  <Button 
+                    variant={pkg.popular ? "primary" : "secondary"} 
+                    size="m" 
+                    href="/kontakti"
+                    fillWidth
+                  >
+                    Избери този пакет
+                  </Button>
+                </Column>
+              </Card>
+            ))}
+          </Grid>
         </Column>
 
+        <Column gap="l">
+          <Heading as="h3" variant="display-default-m" align="center">
+            Често задавани въпроси за изработка на сайт
+          </Heading>
+          
+          <AccordionGroup
+            items={[
+              {
+                title: "Колко време отнема изработката на един сайт от Stanchev Digital?",
+                content: (
+                  <Text onBackground="neutral-weak">
+                    Времето за изработка зависи от сложността на проекта. Лендинг страница се прави за 1-2 седмици, 
+                    докато корпоративен сайт с множество страници може да отнеме 3-4 седмици. Включвам време за 
+                    планиране, дизайн, разработка, тестване и пускане в експлоатация.
+                  </Text>
+                ),
+              },
+              {
+                title: "Какви технологии използвате в Stanchev Digital при изработката на сайтове?",
+                content: (
+                  <Text onBackground="neutral-weak">
+                    Работя с най-модерните технологии: React, Next.js, TypeScript, Tailwind CSS. Използвам също 
+                    Node.js, PostgreSQL, MongoDB в зависимост от нуждите на проекта. Всички сайтове са оптимизирани 
+                    за SEO и имат отлични Core Web Vitals резултати.
+                  </Text>
+                ),
+              },
+              {
+                title: "Включвате ли SEO оптимизация в цената на изработката в Stanchev Digital?",
+                content: (
+                  <Text onBackground="neutral-weak">
+                    Да, всички мои сайтове включват основна SEO оптимизация: мета тагове, правилна структура на 
+                    заглавията, schema markup, sitemap, robots.txt и Core Web Vitals оптимизация. Това е част от 
+                    стандартния пакет и не се заплаща допълнително.
+                  </Text>
+                ),
+              },
+              {
+                title: "Предоставяте ли поддръжка след пускането на сайта?",
+                content: (
+                  <Text onBackground="neutral-weak">
+                    Да, предлагам различни пакети за поддръжка - от месечна поддръжка с актуализации и бекъп, до 
+                    пълноценна поддръжка включваща добавени функционалности. Също така осигурявам обучение за 
+                    управление на съдържанието и техническа документация.
+                  </Text>
+                ),
+              },
+              {
+                title: "Могат ли да се правят промени по сайта след завършването?",
+                content: (
+                  <Text onBackground="neutral-weak">
+                    Разбира се! Всички мои сайтове са изградени с модерни технологии, което позволява лесни 
+                    промени и надграждания. Предлагам поддръжка за промени в съдържанието, дизайна и функционалността. 
+                    Цените зависят от сложността на промените.
+                  </Text>
+                ),
+              },
+              {
+                title: "В Stanchev Digital работите ли с малки и средни бизнеси?",
+                content: (
+                  <Text onBackground="neutral-weak">
+                    Да, специализирам се в работа с малки и средни бизнеси, стартъпи и лични брандове. Предлагам 
+                    персонализиран подход и разбирам ограниченията в бюджета. Работя директно с собствениците на 
+                    бизнеси без посредници, което позволява по-бърза комуникация и по-добри цени.
+                  </Text>
+                ),
+              },
+            ]}
+          />
+        </Column>
+
+        <Column gap="l" align="center" paddingTop="xl">
+          <Heading as="h4" variant="display-strong-m" align="center">
+            Готови за професионален сайт за вашия бизнес?
+          </Heading>
+          
+          <Grid columns={3} s={{ columns: 1 }} gap="l" fillWidth>
+            {[
+              { icon: FaClock, title: "Бърза изработка", desc: "1-4 седмици" },
+              { icon: FaShieldAlt, title: "Гарантирано качество", desc: "100% тестване" },
+              { icon: FaStar, title: "SEO готов", desc: "Оптимизиран за Google" }
+            ].map((stat, index) => (
+              <Card key={stat.title} padding="l" border="neutral-alpha-medium" radius="l" align="center">
+                <Column gap="s" align="center">
+                  <stat.icon size={24} color="var(--brand-strong)" />
+                  <Heading as="h5" variant="heading-strong-s" align="center">
+                    {stat.title}
+                  </Heading>
+                  <Text variant="body-default-s" align="center" onBackground="neutral-weak">
+                    {stat.desc}
+                  </Text>
+                </Column>
+              </Card>
+            ))}
+          </Grid>
+
+          <Flex gap="m" wrap horizontal="center">
+            <Button
+              variant="primary"
+              size="l"
+              href="/kontakti"
+            >
+              <Flex gap="s" vertical="center">
+                <FaRocket size={16} />
+                <Text>Свържи се с мен</Text>
+              </Flex>
+            </Button>
+            <Button
+              variant="secondary"
+              size="l"
+              href="/kontakti"
+            >
+              <Flex gap="s" vertical="center">
+                <FaUsers size={16} />
+                <Text>Безплатна консултация</Text>
+              </Flex>
+            </Button>
+          </Flex>
+        </Column>
       </Column>
     </>
   );
