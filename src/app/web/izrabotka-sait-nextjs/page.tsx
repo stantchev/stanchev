@@ -318,16 +318,14 @@ export default function NextJsPage() {
 
       {/* Main Content */}
       <Column as="section" fillWidth padding="l">
-        <Column fillWidth style={{ maxWidth: '80rem', margin: '0 auto' }} gap="xl">
+        <Column fillWidth style={{ maxWidth: '80rem', margin: '0 auto' }} gap="l">
           
           {/* HERO SECTION */}
-          <Column fillWidth gap="l" align="center">
-            <Badge size="l" style={{ backgroundColor: primaryColor, color: 'white' }}>
-              <Flex gap="4" align="center">
-                <FaCheckCircle />
-                <Text>12 завършени Next.js проекта в България</Text>
-              </Flex>
-            </Badge>
+          <Column fillWidth gap="m" align="center">
+			<Badge href="#" id="badge-3" paddingY="4" paddingLeft="4" paddingRight="16" radius="m" gap="12" textVariant="label-default-s" border="neutral-medium" background="neutral-alpha-weak">
+			  <Tag>5</Tag>
+			  завършени Next.js проекта в България
+			</Badge>
 
             <Heading as="h1" variant="display-strong-l" align="center">
               Next.js Сайт, Който Зарежда 3x По-Бързо от WordPress
