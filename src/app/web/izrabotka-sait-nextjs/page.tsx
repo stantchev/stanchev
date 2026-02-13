@@ -671,7 +671,7 @@ export default function NextJsPage() {
                 }}
               >
                 <Column fillWidth gap="m">
-                  <Badge size="l" style={{ backgroundColor: primaryColor, color: 'white' }}>
+                  <Badge style={{ backgroundColor: primaryColor, color: 'white' }}>
                     ⭐ Най-популярен
                   </Badge>
                   <Heading as="h3">Next.js Business</Heading>
@@ -1056,3 +1056,4 @@ export default function NextJsPage() {
     </>
   );
 }
+
