@@ -9,7 +9,7 @@ import {
   AccordionGroup,
   Card,
   Grid,
-  BarChart,
+  Table,
   Avatar,
   SmartLink,
 } from '@once-ui-system/core';
@@ -521,19 +521,18 @@ export default function NextJsPage() {
               Реални данни от 12 проекта (Google PageSpeed Insights)
             </Text>
 
-            <BarChart
-			  title="Време на зареждане (секунди)"
-			  axis="none"
-			  barWidth="xl"
-			  legend={{
-			    position: "bottom-center",
+           <Table
+			  data={{
+			    headers: [
+			      { content: "Платформа", key: "platform" },
+			      { content: "Време на зареждане (секунди)", key: "loadTime" },
+			    ],
+			    rows: [
+			      ["Next.js", 0.8],
+			      ["WordPress (оптимизиран)", 2.4],
+			      ["WordPress (типичен)", 3.4],
+			    ],
 			  }}
-			  series={[{ key: "Зареждане (s)", color: "cyan" }]}
-			  data={[
-			    { label: "Next.js", "Зареждане (s)": 0.8 },
-			    { label: "WordPress (оптимизиран)", "Зареждане (s)": 2.4 },
-			    { label: "WordPress (типичен)", "Зареждане (s)": 3.4 },
-			  ]}
 			/>
 
             <Card fillWidth padding="l" radius="l" style={{ background: `${primaryColor}10` }}>
@@ -1058,5 +1057,6 @@ export default function NextJsPage() {
     </>
   );
 }
+
 
 
