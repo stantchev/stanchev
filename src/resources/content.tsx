@@ -53,7 +53,7 @@ const newsletter: Newsletter = {
 
 const social: Social = [
   { name: "GitHub", icon: "github", link: "https://github.com/stantchev/" },
-  { name: "LinkedIn", icon: "linkedin", link: "https://www.linkedin.com/in/stantcheff/" },
+  { name: "LinkedIn", icon: "linkedin", link: "https://www.linkedin.com/in/stanchev-seo/" },
   { name: "dev.to", icon: "devto", link: "https://dev.to/stanchev" },
   { name: "Email", icon: "email", link: `mailto:${person.email}` },
 ];
@@ -433,5 +433,6 @@ export {
   contact,
   seoServices,
 };
+
 
 
