@@ -32,15 +32,10 @@ import {
 } from 'react-icons/fa';
 
 export async function generateMetadata() {
-  const title = 'Next.js Сайт България | 3x По-Бърз от WordPress | Безплатен Одит';
-  const description =
-    'Професионален Next.js сайт в България. Доказано 3x по-бързо зареждане, по-добро SEO класиране и 0 WordPress уязвимости. Безплатен performance одит. От 1200 лв.';
-  const pageUrl = `${baseURL}/web/izrabotka-sait-nextjs`;
-  const ogImageUrl = `${baseURL}/images/og/nextjs-og-image.jpg`; // 1200×630 препоръчително
-
   return {
-    title,
-    description,
+    title: 'Next.js Сайт България | 3x По-Бърз от WordPress | Stanchev Digital',
+    description:
+      'Професионален Next.js сайт в България. Доказано 3x по-бързо зареждане, по-добро SEO класиране и 0 WordPress уязвимости. Безплатен performance одит. От 1200 лв.',
     keywords: [
       'Next.js сайт България',
       'бърз сайт',
@@ -51,18 +46,19 @@ export async function generateMetadata() {
       'modern web development',
     ],
     alternates: {
-      canonical: pageUrl,
+      canonical: `${baseURL}/web/izrabotka-sait-nextjs`,
     },
 
     // ── Open Graph ───────────────────────────────────────────────
     openGraph: {
-      title,
-      description,
-      url: pageUrl,
+      title: 'Next.js Сайт България | 3x По-Бърз от WordPress | Stanchev Digital',
+      description:
+        'Професионален Next.js сайт в България. Доказано 3x по-бързо зареждане, по-добро SEO класиране и 0 WordPress уязвимости. Безплатен performance одит. От 1200 лв.',
+      url: `${baseURL}/web/izrabotka-sait-nextjs`,
       siteName: 'Stanchev Digital',
       images: [
         {
-          url: ogImageUrl,
+          url: `${baseURL}/images/og/nextjs-og-image.jpg`,
           width: 1200,
           height: 630,
           alt: 'Next.js сайт България – 3x по-бърз от WordPress',
@@ -75,11 +71,12 @@ export async function generateMetadata() {
     // ── Twitter / X Cards ────────────────────────────────────────
     twitter: {
       card: 'summary_large_image',
-      title,
-      description,
-      site: '@stanchev_digital',     // смени с твоя X handle ако имаш
-      creator: '@stanchev',          // личен handle ако искаш
-      images: [ogImageUrl],
+      title: 'Next.js Сайт България | 3x По-Бърз от WordPress | Stanchev Digital',
+      description:
+        'Професионален Next.js сайт в България. Доказано 3x по-бързо зареждане, по-добро SEO класиране и 0 WordPress уязвимости. Безплатен performance одит. От 1200 лв.',
+      site: '@stanchev_digital',     // ← смени ако имаш реален handle
+      creator: '@stanchev',          // ← смени ако искаш
+      images: [`${baseURL}/images/og/nextjs-og-image.jpg`],
     },
   };
 }
@@ -1174,5 +1171,6 @@ export default function NextJsPage() {
     </>
   );
 }
+
 
 
