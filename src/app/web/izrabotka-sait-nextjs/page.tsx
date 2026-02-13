@@ -522,17 +522,19 @@ export default function NextJsPage() {
             </Text>
 
             <BarChart
-              fillWidth
-              title="Време на зареждане (секунди) - По-малко е по-добре"
-              axis="y"
-              legend={{ position: 'bottom-center' }}
-              series={[{ key: 'Зареждане (s)' }]}
-              data={[
-                { label: 'Next.js', 'Зареждане (s)': 0.8 },
-                { label: 'WordPress (оптимизиран)', 'Зареждане (s)': 2.4 },
-                { label: 'WordPress (типичен)', 'Зареждане (s)': 3.4 },
-              ]}
-            />
+			  title="Време на зареждане (секунди)"
+			  axis="none"
+			  barWidth="xl"
+			  legend={{
+			    position: "bottom-center",
+			  }}
+			  series={[{ key: "Зареждане (s)", color: "cyan" }]}
+			  data={[
+			    { label: "Next.js", "Зареждане (s)": 0.8 },
+			    { label: "WordPress (оптимизиран)", "Зареждане (s)": 2.4 },
+			    { label: "WordPress (типичен)", "Зареждане (s)": 3.4 },
+			  ]}
+			/>
 
             <Card fillWidth padding="l" radius="l" style={{ background: `${primaryColor}10` }}>
               <Text align="center" onBackground="neutral-weak">
@@ -1056,4 +1058,5 @@ export default function NextJsPage() {
     </>
   );
 }
+
 
