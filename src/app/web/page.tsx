@@ -39,8 +39,10 @@ import {
   FaChartLine,
   FaUsers,
   FaLightbulb,
-  FaHeart
+  FaHeart,
+  FaBolt
 } from 'react-icons/fa';
+import { RiNextjsFill } from "react-icons/ri";
 
 export const metadata: Metadata = {
   title: "Уеб разработка и дизайн | Модерни сайтове за вашия бизнес | Станчев SEO",
@@ -240,6 +242,87 @@ export default function WebPage() {
         </RevealFx>
 
         <Grid columns="3" s={{ columns: 1 }} gap="l" style={{ maxWidth: "100%", overflow: "hidden" }}>
+		
+		<RevealFx delay={0}>
+		  <Card
+  radius="l"
+  direction="column"
+  border="neutral-alpha-medium"
+  fillWidth
+  gap="0"
+  style={{
+    "--brand": "#7C3AED",
+    "--brand-strong": "#6D28D9",
+    "--brand-alpha-weak": "rgba(124,58,237,0.08)",
+    "--brand-alpha-medium": "rgba(124,58,237,0.18)"
+  } as React.CSSProperties}
+>
+  <Row fillWidth paddingX="m" paddingY="s" gap="s" vertical="center">
+    <RiNextjsFill size={20} color="var(--brand)" />
+    <Text variant="label-default-s" wrap="balance">
+      Next.js Бизнес Сайт
+    </Text>
+  </Row>
+
+  <div
+    style={{
+      width: "100%",
+      height: "192px",
+      background:
+        "linear-gradient(135deg, var(--brand-alpha-weak), var(--brand-alpha-medium))",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      borderTop: "1px solid var(--neutral-alpha-weak)",
+      borderBottom: "1px solid var(--neutral-alpha-weak)"
+    }}
+  >
+    <RiNextjsFill size={40} color="var(--brand-strong)" />
+  </div>
+
+  <Column fillWidth paddingX="m" paddingY="l" gap="s" flex={1} align="center">
+    <Text variant="body-default-xl" wrap="balance" align="center">
+      Next.js сайт за бизнес клиенти
+    </Text>
+
+    <Text
+      onBackground="neutral-weak"
+      variant="body-default-s"
+      wrap="balance"
+      align="center"
+    >
+      Модерен, SEO оптимизиран и до 3x по-бърз от WordPress.
+      По-добро класиране в Google, по-нисък bounce rate и по-висока
+      конверсия благодарение на светкавично зареждане.
+    </Text>
+
+    <Column gap="xs" align="center">
+      <Text variant="body-default-s" align="center">
+        ✓ &lt;1s зареждане
+      </Text>
+      <Text variant="body-default-s" align="center">
+        ✓ 100/100 SEO performance
+      </Text>
+      <Text variant="body-default-s" align="center">
+        ✓ €0 месечни плъгини
+      </Text>
+    </Column>
+  </Column>
+
+  <Column paddingX="m" paddingBottom="m" align="center" horizontal="center">
+    <Button
+      href="/web/izrabotka-sait-nextjs"
+      variant="primary"
+      size="m"
+      prefixIcon="rocket"
+    >
+      Виж повече
+    </Button>
+  </Column>
+</Card>
+		</RevealFx>
+
+		
           <RevealFx delay={0.1}>
             <Card 
               radius="l" 
@@ -971,6 +1054,3 @@ export default function WebPage() {
     </>
   );
 }
-
-
-
