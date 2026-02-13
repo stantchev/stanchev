@@ -43,6 +43,7 @@ const routes: RoutesConfig = {
   "/web/poddrzhka-nadgradzhdane": true,
   "/web/seo-integratsiya": true,
   "/web/izrabotka-sajt": true,
+  "/web/izrabotka-sait-nextjs": true,
 };
 
 const display: DisplayConfig = {
@@ -287,6 +288,7 @@ export {
   dataStyle,
   llmsRules,
 };
+
 
 
 
