@@ -619,7 +619,7 @@ export default function NextJsPage() {
                 <Column fillWidth gap="m">
                   <Tag variant="neutral">За малки бизнеси</Tag>
                   <Heading as="h3">Next.js Starter</Heading>
-                  <Flex gap="4" align="baseline">
+                  <Flex gap="4" align="left">
                     <Text variant="display-strong-l" style={{ color: primaryColor }}>1200 лв.</Text>
                     <Text onBackground="neutral-weak" variant="body-default-s">
                       еднократно
@@ -675,7 +675,7 @@ export default function NextJsPage() {
                     ⭐ Най-популярен
                   </Badge>
                   <Heading as="h3">Next.js Business</Heading>
-                  <Flex gap="4" align="baseline">
+                  <Flex gap="4" align="left">
                     <Text variant="display-strong-l" style={{ color: primaryColor }}>2200 лв.</Text>
                     <Text onBackground="neutral-weak" variant="body-default-s">
                       еднократно
@@ -723,7 +723,7 @@ export default function NextJsPage() {
                 <Column fillWidth gap="m">
                   <Tag variant="neutral">За корпоративни клиенти</Tag>
                   <Heading as="h3">Next.js Enterprise</Heading>
-                  <Flex gap="4" align="baseline">
+                  <Flex gap="4" align="left">
                     <Text variant="display-strong-m" style={{ color: primaryColor }}>По договаряне</Text>
                   </Flex>
 
