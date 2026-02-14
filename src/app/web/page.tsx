@@ -684,7 +684,7 @@ export default function WebPage() {
 
                   <Column paddingX="m" paddingBottom="m" align="center">
                     <Button
-                      href="/web/nextjs-sajt"
+                      href="/web/izrabotka-sait-nextjs"
                       variant="primary"
                       size="m"
                       prefixIcon="rocket"
@@ -1631,3 +1631,4 @@ export default function WebPage() {
     </>
   );
 }
+
