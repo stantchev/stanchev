@@ -1230,7 +1230,7 @@ export default function HeadlessWordPressPage() {
                   <Column fillWidth gap="m">
                     <Tag variant="neutral">За малки сайтове</Tag>
                     <Heading as="h3">Headless WP Starter</Heading>
-                    <Flex gap="4" align="baseline">
+                    <Flex gap="4" align="left">
                       <Text variant="display-strong-l" style={{ color: primaryColor }}>€1500</Text>
                       <Text onBackground="neutral-weak" variant="body-default-s">еднократно</Text>
                     </Flex>
@@ -1286,7 +1286,7 @@ export default function HeadlessWordPressPage() {
                       ⭐ Най-популярен
                     </Badge>
                     <Heading as="h3">Headless WP Business</Heading>
-                    <Flex gap="4" align="baseline">
+                    <Flex gap="4" align="left">
                       <Text variant="display-strong-l" style={{ color: primaryColor }}>€3500</Text>
                       <Text onBackground="neutral-weak" variant="body-default-s">еднократно</Text>
                     </Flex>
@@ -1332,7 +1332,7 @@ export default function HeadlessWordPressPage() {
                   <Column fillWidth gap="m">
                     <Tag variant="neutral">За корпорации</Tag>
                     <Heading as="h3">Headless WP Enterprise</Heading>
-                    <Flex gap="4" align="baseline">
+                    <Flex gap="4" align="left">
                       <Text variant="display-strong-l" style={{ color: primaryColor }}>€6000+</Text>
                     </Flex>
 
