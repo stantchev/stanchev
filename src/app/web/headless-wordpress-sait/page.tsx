@@ -379,7 +379,7 @@ export default function HeadlessWordPressPage() {
           <Column fillWidth gap="xl" align="center" paddingBottom="xl">
             <RevealFx speed="fast">
               <Column fillWidth gap="l" align="center">
-                <Badge size="l" style={{ backgroundColor: primaryColor, color: 'white' }}>
+                <Badge style={{ backgroundColor: primaryColor, color: 'white' }}>
                   <Flex gap="4" align="center">
                     <SiWordpress size={20} />
                     <Text>+</Text>
@@ -1282,7 +1282,7 @@ export default function HeadlessWordPressPage() {
                   }}
                 >
                   <Column fillWidth gap="m">
-                    <Badge size="l" style={{ backgroundColor: primaryColor, color: 'white' }}>
+                    <Badge style={{ backgroundColor: primaryColor, color: 'white' }}>
                       ⭐ Най-популярен
                     </Badge>
                     <Heading as="h3">Headless WP Business</Heading>
