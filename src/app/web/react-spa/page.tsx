@@ -332,7 +332,7 @@ export default function ReactSPAPage() {
           <Column fillWidth gap="xl" align="center" paddingBottom="xl">
             <RevealFx speed="fast">
               <Column fillWidth gap="l" align="center">
-                <Badge size="l" style={{ backgroundColor: primaryColor, color: 'white' }}>
+                <Badge style={{ backgroundColor: primaryColor, color: 'white' }}>
                   <Flex gap="4" align="center">
                     <SiReact size={20} />
                     <Text>React 18 + TypeScript + Modern Stack</Text>
@@ -904,7 +904,7 @@ export default function ReactSPAPage() {
                   <Column fillWidth gap="m">
                     <Tag variant="neutral">За стартиращи</Tag>
                     <Heading as="h3">React SPA Starter</Heading>
-                    <Flex gap="4" align="baseline">
+                    <Flex gap="4" align="left">
                       <Text variant="display-strong-l" style={{ color: primaryColor }}>2500 лв.</Text>
                       <Text onBackground="neutral-weak" variant="body-default-s">еднократно</Text>
                     </Flex>
@@ -956,11 +956,11 @@ export default function ReactSPAPage() {
                   }}
                 >
                   <Column fillWidth gap="m">
-                    <Badge size="l" style={{ backgroundColor: primaryColor, color: 'white' }}>
+                    <Badge style={{ backgroundColor: primaryColor, color: 'white' }}>
                       ⭐ Най-популярен
                     </Badge>
                     <Heading as="h3">React SPA Business</Heading>
-                    <Flex gap="4" align="baseline">
+                    <Flex gap="4" align="left">
                       <Text variant="display-strong-l" style={{ color: primaryColor }}>5500 лв.</Text>
                       <Text onBackground="neutral-weak" variant="body-default-s">еднократно</Text>
                     </Flex>
@@ -1006,7 +1006,7 @@ export default function ReactSPAPage() {
                   <Column fillWidth gap="m">
                     <Tag variant="neutral">За корпорации</Tag>
                     <Heading as="h3">React SPA Enterprise</Heading>
-                    <Flex gap="4" align="baseline">
+                    <Flex gap="4" align="left">
                       <Text variant="display-strong-l" style={{ color: primaryColor }}>10000+ лв.</Text>
                     </Flex>
 
