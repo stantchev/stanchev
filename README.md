@@ -222,7 +222,13 @@ yarn start
 - **13 SEO услуги** общо с детайлни описания
 - **Професионални иконки** за всяка услуга
 - **Responsive дизайн** за всички устройства
+    **💻 Web Development**
+- Next.js Business сайт – модерна алтернатива на WordPress с 3× по-бърза скорост
+- React SPA приложения – интерактивни web apps, dashboards и admin панели
+-Headless WordPress – WordPress CMS + React/Next.js frontend за най-доброто от двата свята
+-Technology Comparison – детайлна сравнителна таблица (Next.js vs React vs WordPress vs Headless WP)
 
+Refined Web Services страница – подобрена структура и visual hierarchy
 ## 📱 Responsive дизайн
 
 ### **Breakpoints**
@@ -319,7 +325,7 @@ npm run export
 **Станчев** - SEO експерт
 - 📧 Email: seo@stanchev.bg
 - 🌐 Website: https://stanchev.bg/
-- 💼 LinkedIn: [[LinkedIn профил]](https://www.linkedin.com/in/stantcheff/)
+- 💼 LinkedIn: [[LinkedIn профил]](https://www.linkedin.com/in/stanchev-seo/)
 
 ---
 
