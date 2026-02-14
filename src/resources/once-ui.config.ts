@@ -44,6 +44,8 @@ const routes: RoutesConfig = {
   "/web/seo-integratsiya": true,
   "/web/izrabotka-sajt": true,
   "/web/izrabotka-sait-nextjs": true,
+  "/web/react-spa": true,
+  "/web/headless-wordpress-sait": true,
 };
 
 const display: DisplayConfig = {
@@ -288,6 +290,7 @@ export {
   dataStyle,
   llmsRules,
 };
+
 
 
 
