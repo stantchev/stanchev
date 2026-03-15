@@ -1,0 +1,263 @@
+---
+title: "Как да стартираш новинарски сайт с WordPress през 2025 г."
+keywords: ["новинарски сайт WordPress", "WordPress за медии", "как да направя новинарски сайт", "WordPress тема за новини", "стартиране на онлайн медия", "WordPress setup", "PressGrid тема", "SEO за новинарски сайт", "Google News WordPress"]
+summary: "Пълно ръководство за стартиране на новинарски сайт с WordPress: от хостинг и тема до категории, SEO и Google News. Реален опит, реални грешки."
+author: "Станчев"
+publishedAt: "2026-03-15"
+tag: "WordPress & Media"
+image: /images/posts/how-to-start-news-site-wordpress.jpg
+---
+
+Искаш да стартираш новинарски сайт. Имаш идея, може би екип, може би само ентусиазъм.  
+Отваряш Google, търсиш „как да направя новинарски сайт с WordPress" — и се давиш в статии от 2019 г. с препоръки за плъгини, половината от които вече не съществуват.
+
+Това ръководство е написано от реален опит. Не теория.
+
+<h2 id="why-wordpress">Защо WordPress — и кога не е правилният избор</h2>
+
+WordPress захранва <strong>приблизително 43% от всички уебсайтове</strong> в интернет. Сред новинарските сайтове процентът е още по-висок — Reuters, TechCrunch, The New York Post, TechRadar — всички работят на WordPress.
+
+Причините са прости:
+
+- Огромна екосистема от теми и плъгини
+- SEO инфраструктурата е добре позната на Google
+- Лесна работа за нетехнически екипи
+- REST API за headless setup, ако растеш
+
+<strong>Кога WordPress не е правилният избор:</strong> ако пишеш по 200+ статии на ден и имаш сериозен инженерен екип — Ghost или custom решение може да е по-ефективно. За 99% от стартиращите медии обаче WordPress е правилният избор.
+
+<Feedback
+  title="Ключовото решение"
+  description="WordPress.org (self-hosted, твоят хостинг) vs WordPress.com (SaaS). За новинарски сайт — винаги WordPress.org. Имаш нужда от пълен контрол върху плъгините, темата и данните."
+/>
+
+<h2 id="hosting">Стъпка 1 — Хостинг</h2>
+
+Хостингът е най-важното решение и най-честата грешка при стартиране.
+
+<Table
+  data={{
+    headers: [
+      { content: "Тип хостинг", key: "type" },
+      { content: "Подходящ за", key: "for" },
+      { content: "Цена/месец", key: "price" }
+    ],
+    rows: [
+      ["Shared hosting (SiteGround, Hostinger)", "Старт, до 10K посетители/ден", "5–15 лв."],
+      ["VPS (Hetzner, DigitalOcean)", "10K–200K посетители/ден", "20–60 лв."],
+      ["Managed WordPress (Kinsta, WP Engine)", "Бърз старт, без DevOps", "60–200 лв."],
+      ["Dedicated / Cloud (AWS, GCP)", "200K+ посетители/ден", "200+ лв."]
+    ]
+  }}
+/>
+
+За повечето нови новинарски сайтове — <strong>SiteGround или Hetzner VPS с RunCloud</strong> е оптималната комбинация цена/перформанс.
+
+Задължително: <strong>SSL сертификат</strong> (безплатен с Let's Encrypt), <strong>CDN</strong> (Cloudflare free tier върши работа), <strong>бекъп</strong> (UpdraftPlus или хостинг-вграден).
+
+<h2 id="theme">Стъпка 2 — Темата</h2>
+
+Темата определя структурата, скоростта и визуалния характер на сайта. Грешната тема може да те забави с месеци.
+
+<strong>Критерии за новинарска тема:</strong>
+
+- Lighthouse Performance 90+ (бързо зареждане = по-добро SEO)
+- Без зависимости от page builders (Elementor забавя)
+- Структуриран NewsArticle JSON-LD schema (нужен за Google News)
+- Responsive и добре изглеждащ на мобилно
+
+<Feedback
+  title="Платена vs безплатна тема"
+  description="Много платени теми за новини ($59–$89) са претоварени с функции, бавни и зависими от плъгини. Понякога добра безплатна тема с минимален footprint е по-добър старт — особено ако ще я кастомизираш."
+/>
+
+Ако искаш да видиш как изглежда тема, проектирана специално за перформанс и новинарски сайтове — разработвам <strong>PressGrid</strong> (open source, GPL-2.0+). Има Auto Setup с един бутон, 6 визуални скина и Lighthouse 95+.
+
+<h2 id="structure">Стъпка 3 — Категории и структура</h2>
+
+Категориите са гръбнакът на новинарски сайт. Трябва да ги определиш <strong>преди да публикуваш първата статия</strong>.
+
+<strong>Честата грешка:</strong> хора започват с 30 категории и след три месеца имат по 1-2 статии в повечето. Google вижда thin content по категорийни страници — лошо за SEO.
+
+<strong>Правилният подход:</strong> стартирай с 6–8 основни категории и разширявай само когато имаш достатъчно съдържание.
+
+За новинарски сайт с общ характер — стандартна структура:
+
+<Table
+  data={{
+    headers: [
+      { content: "Категория", key: "cat" },
+      { content: "Подкатегории (по-късно)", key: "sub" }
+    ],
+    rows: [
+      ["Политика", "Парламент, Избори"],
+      ["Икономика", "Банки и финанси, Пазари"],
+      ["Свят", "—"],
+      ["Технологии", "AI, Стартъпи"],
+      ["Общество", "—"],
+      ["Спорт", "Футбол"],
+      ["Мнения", "—"],
+      ["Култура", "—"]
+    ]
+  }}
+/>
+
+<h2 id="seo">Стъпка 4 — SEO от ден 1</h2>
+
+SEO за новинарски сайт е различно от класическото SEO. Имаш два различни потока трафик, които трябва да оптимизираш паралелно:
+
+<strong>1. Google News / Discover трафик</strong> — изисква свежо съдържание, NewsArticle schema, бързо зареждане и <strong>Google News Publisher Center</strong> акаунт.
+
+<strong>2. Органичен Google трафик</strong> — изисква evergreen статии, добри заглавия, вътрешно свързване и авторитет с времето.
+
+<Feedback
+  title="NewsArticle JSON-LD Schema"
+  description="Задължително за Google News. Трябва да съдържа headline, datePublished, dateModified, author (с url), publisher (с logo) и image. Темата трябва да го генерира автоматично — ако не го прави, добави го ръчно или с плъгин."
+/>
+
+Задължителни плъгини за SEO:
+
+- <strong>Yoast SEO</strong> или <strong>RankMath</strong> — мета тагове, sitemap, schema (ако темата не генерира)
+- <strong>Google Site Kit</strong> — Analytics + Search Console директно в WP admin
+- <strong>WP Rocket</strong> или <strong>LiteSpeed Cache</strong> — кеширане и оптимизация
+
+<h2 id="performance">Стъпка 5 — Перформанс</h2>
+
+Бавен новинарски сайт губи читатели преди дори да прочетат заглавието. Целта е <strong>под 2 секунди Time to First Contentful Paint</strong> на мобилно.
+
+<PieChart
+  title="Основни фактори за забавяне на WordPress сайтове"
+  data={[
+    { label: "Неоптимизирани изображения", value: 38 },
+    { label: "Тежки теми и page builders", value: 27 },
+    { label: "Прекалено много плъгини", value: 19 },
+    { label: "Лош хостинг / без кеш", value: 16 }
+  ]}
+  nameKey="label"
+  valueKey="value"
+/>
+
+<strong>Практически чеклист за перформанс:</strong>
+
+- Изображения в WebP формат (ShortPixel или Imagify)
+- Lazy loading за снимки под fold-а
+- Минифициран CSS и JS
+- Cloudflare CDN (дори безплатният план)
+- Critical CSS inline в `<head>` (основните стилове да не блокират render-а)
+
+<h2 id="google-news">Стъпка 6 — Google News</h2>
+
+Google News е най-важният трафик канал за нов новинарски сайт — потенциално стотици хиляди посетители на ден при вирусна статия.
+
+За да бъдеш включен:
+
+1. <strong>Google News Publisher Center</strong> — регистрирай сайта на news.google.com/publisher
+2. <strong>Верификация</strong> — чрез Google Search Console
+3. <strong>News Sitemap</strong> — специален XML sitemap само с последните 48 часа статии (Yoast го генерира автоматично)
+4. <strong>HTTPS</strong> — задължително
+5. <strong>Оригинално съдържание</strong> — Google News отхвърля агрегатори
+
+<Feedback
+  title="Реалистично очакване"
+  description="Google News одобрението отнема от 2 седмици до 3 месеца. Няма гаранция за включване. Продължавай да публикуваш качествено съдържание дори преди одобрение — историята на сайта има значение."
+/>
+
+<h2 id="editorial">Стъпка 7 — Редакционен workflow</h2>
+
+Технологията е само средство. Новинарският сайт живее от редакционната дисциплина.
+
+<strong>Минимален workflow за малък екип:</strong>
+
+- <strong>WordPress User Roles</strong> — Editor пише и публикува, Author пише, Administrator управлява
+- <strong>Editorial Calendar плъгин</strong> — визуален календар на публикациите
+- <strong>Featured image политика</strong> — всяка статия с изображение (Google Discover изисква снимки минимум 1200px ширина)
+- <strong>Заглавия</strong> — описателни, не clickbait. Google News депенализира clickbait заглавия
+
+<Table
+  data={{
+    headers: [
+      { content: "Роля", key: "role" },
+      { content: "Права в WordPress", key: "rights" },
+      { content: "За кого", key: "for" }
+    ],
+    rows: [
+      ["Administrator", "Всичко", "Технически управител"],
+      ["Editor", "Публикува, редактира всички постове", "Главен редактор"],
+      ["Author", "Пише и публикува само своите постове", "Журналист"],
+      ["Contributor", "Пише, но не публикува", "Freelancer / стажант"]
+    ]
+  }}
+/>
+
+<h2 id="legal">Стъпка 8 — Правни и административни неща</h2>
+
+Скучното, но задължителното:
+
+- <strong>GDPR / ЗЗЛД</strong> — ако събираш emails или ползваш Analytics, трябва Cookie banner и Privacy Policy
+- <strong>Импресум</strong> — кой стои зад медията (изискване по Закона за електронните съобщителни мрежи)
+- <strong>Авторски права</strong> — изображенията трябва да са лицензирани (Unsplash, Pexels, платени стокови агенции, или собствени)
+- <strong>Регистрация</strong> — ако монетизираш, нужна е фирма или ЕТ
+
+<Feedback
+  title="Практически съвет"
+  description="Много нови медии пропускат импресума и GDPR и после плащат глоби. Отдели час и го наредѝ преди първата публикация — по-лесно е от после."
+/>
+
+<h2 id="monetization">Монетизация — кога и как</h2>
+
+Грешката е да мислиш за монетизация преди да имаш трафик. Правилният ред е:
+
+1. <strong>0–3 месеца</strong> — само съдържание, нула реклами
+2. <strong>3–6 месеца</strong> — Google AdSense (изисква 10K+ посетители/месец за одобрение)
+3. <strong>6–12 месеца</strong> — директни рекламодатели, sponsored content, newsletter
+
+<strong>За по-амбициозни:</strong> newsletter платена абонаментна модел (Substack логика, но на твоя домейн с Mailchimp или ConvertKit).
+
+<h2 id="checklist">Пълен checklist преди launch</h2>
+
+<Table
+  data={{
+    headers: [
+      { content: "Задача", key: "task" },
+      { content: "Статус", key: "status" }
+    ],
+    rows: [
+      ["Хостинг + домейн", "✓ задължително"],
+      ["SSL сертификат (HTTPS)", "✓ задължително"],
+      ["WordPress инсталиран", "✓ задължително"],
+      ["Тема активирана и конфигурирана", "✓ задължително"],
+      ["Категории създадени", "✓ задължително"],
+      ["Primary Menu нареден", "✓ задължително"],
+      ["Yoast SEO / RankMath инсталиран", "✓ задължително"],
+      ["Google Search Console верифициран", "✓ задължително"],
+      ["News Sitemap генерира се", "✓ задължително"],
+      ["NewsArticle JSON-LD schema работи", "✓ задължително"],
+      ["Google Analytics / GA4 свързан", "✓ препоръчително"],
+      ["Cloudflare CDN активиран", "✓ препоръчително"],
+      ["Privacy Policy + Cookie banner", "✓ задължително (GDPR)"],
+      ["Импресум страница", "✓ задължително"],
+      ["Lighthouse Performance 85+", "✓ препоръчително"],
+      ["Google News Publisher Center регистриран", "✓ след launch"]
+    ]
+  }}
+/>
+
+<h2 id="summary">Накратко</h2>
+
+Стартирането на новинарски сайт с WordPress не е сложно технически — сложното е <strong>дисциплината след launch-а</strong>.  
+Технологията е инструмент. Ако публикуваш редовно, с качество и коректно структурирано съдържание, трафикът идва.
+
+Ако искаш да пропуснеш настройването на категории, менюта и schema от нулата — <strong>PressGrid Auto Setup</strong> прави всичко това с един бутон.
+
+<Feedback
+  title="Въпроси?"
+  description="Ако имаш конкретен въпрос за setup-а, технологията или редакционния workflow — пиши в GitHub Issues или в коментарите."
+/>
+
+<hr />
+
+<p>
+  Ръководството е базирано на личен опит при разработката на <strong>PressGrid</strong> —
+  open source WordPress тема за новинарски сайтове.  
+  GitHub: <a href="https://github.com/stantchev/PressGrid-WordPress-Theme">github.com/stantchev/PressGrid-WordPress-Theme</a>
+</p>
