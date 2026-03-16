@@ -1,0 +1,415 @@
+---
+title: "Server Components vs Client Components в Next.js 16 - Кога да използваш кое?"
+keywords: ["server components", "client components", "next.js 16", "react server components", "use client next.js", "next.js performance", "server components vs client components", "next.js app router", "react server components примери"]
+summary: "Пълно практическо ръководство за Server Components и Client Components в Next.js 16 - разлики, реални примери от production проекти, чести грешки и ясна логика кога да използваш кое."
+author: "Станчев"
+publishedAt: "2026-03-16"
+tag: "Next.js"
+image: /images/posts/server-vs-client-components-nextjs-16.jpg
+---
+
+Когато за първи път се сблъсках с App Router в Next.js и концепцията за React Server Components, реакцията ми беше нещо между объркване и лек паник. Свикнал с класическия React модел - `useEffect` за данни, `useState` за всичко, `'use client'` навсякъде по навик - изведнъж трябваше да преосмисля как изобщо мисля за компонентите.
+
+Истината е, че разграничението между <strong>Server Components</strong> и <strong>Client Components</strong> е едно от най-важните концептуални изменения в модерния React екосистем. В Next.js 16, с матурирания App Router, то вече не е просто "нова функция" - то е основата, върху която се гради всяко производително приложение.
+
+В тази статия ще разгледаме двата типа компоненти в дълбочина - не само теоретично, но и с реални примери от production код, чести грешки, които съм виждал (и правил), и ясна рамка за вземане на решения.
+
+<Feedback
+  title="Важно за Next.js 16"
+  description="В Next.js 16 всички компоненти вътре в app/ директорията са Server Components по подразбиране. За да използваш Client Component, трябва изрично да добавиш директивата 'use client' в самото начало на файла - преди всякакви imports."
+/>
+
+<h2 id="kakvo-sa-server-components">Какво представляват React Server Components?</h2>
+
+<strong>React Server Components (RSC)</strong> са компоненти, които се изпълняват изцяло на сървъра и никога не изпращат своя JavaScript код към браузъра. Резултатът от тяхното изпълнение е сериализирано дърво от React елементи - или по-просто казано, готов HTML, който пристига при потребителя без допълнителен bundle overhead.
+
+Концепцията е въведена от екипа на React и е пълноценно интегрирана в Next.js от версия 13 нагоре. В Next.js 16 тя е стабилна, production-ready и е препоръчаният начин за изграждане на нови приложения.
+
+Най-важното, което трябва да разбереш: <strong>Server Components не са просто SSR (Server-Side Rendering)</strong>. SSR рендира компонента на сървъра, но все пак изпраща JavaScript кода към клиента за хидратация. Server Components изобщо не изпращат код - те остават на сървъра завинаги.
+
+Ето как изглежда типичен Server Component в Next.js 16, който зарежда данни директно от база данни:
+
+```tsx
+// app/products/page.tsx
+// Това е Server Component - няма нужда от маркиране
+import { db } from '@/lib/db'
+
+export default async function ProductsPage() {
+  // Директна заявка към базата данни - само на сървъра
+  const products = await db.product.findMany({
+    orderBy: { createdAt: 'desc' },
+    take: 20,
+  })
+
+  return (
+    <section>
+      <h1>Нашите продукти</h1>
+      <ul>
+        {products.map((product) => (
+          <li key={product.id}>
+            <strong>{product.name}</strong> - {product.price} лв.
+          </li>
+        ))}
+      </ul>
+    </section>
+  )
+}
+```
+
+Забележи какво липсва: няма `useState`, няма `useEffect`, няма `fetch` от клиента, няма loading state. Компонентът е `async` функция, която директно `await`-ва данните. Prisma клиентът, database credentials, цялата логика - всичко остава на сървъра. До браузъра стига само готовият HTML.
+
+<strong>Какво могат Server Components:</strong>
+
+- Директен достъп до бази данни, файлова система, вътрешни services
+- Четене на `process.env` - включително тайни ключове като `DATABASE_URL` или `STRIPE_SECRET_KEY`
+- Извикване на `async/await` директно в тялото на компонента
+- Импортиране на тежки библиотеки без да увеличават bundle-а на клиента
+- Кеширане на резултати с вградения Next.js fetch caching механизъм
+
+<strong>Какво НЕ могат Server Components:</strong>
+
+- Да използват React hooks като `useState`, `useReducer`, `useEffect`, `useRef`
+- Да слушат браузърни събития - `onClick`, `onChange`, `onSubmit`
+- Да достъпват browser-only APIs като `window`, `document`, `localStorage`, `navigator`
+- Да използват React Context директно
+- Да се ъпдейтват динамично след началното рендиране без Server Action или route refresh
+
+<h2 id="kakvo-sa-client-components">Какво представляват Client Components?</h2>
+
+<strong>Client Components</strong> са стандартните React компоненти, с които повечето разработчици са запознати. Те се маркират с директивата `'use client'` в началото на файла и се изпълняват в браузъра - с пълен достъп до React API, hooks и всички браузърни функционалности.
+
+Важен нюанс: Client Components в Next.js 16 все още се pre-render-ват на сървъра при първоначалното зареждане (SSR), след което се хидратират в браузъра. Така съчетават добро First Contentful Paint с пълна интерактивност след зареждане.
+
+```tsx
+'use client'
+// components/SearchBar.tsx
+
+import { useState, useTransition } from 'react'
+import { useRouter } from 'next/navigation'
+
+export default function SearchBar() {
+  const [query, setQuery] = useState('')
+  const [isPending, startTransition] = useTransition()
+  const router = useRouter()
+
+  const handleSearch = (value: string) => {
+    setQuery(value)
+    startTransition(() => {
+      router.push(`/search?q=${encodeURIComponent(value)}`)
+    })
+  }
+
+  return (
+    <div>
+      <input
+        type="search"
+        value={query}
+        onChange={(e) => handleSearch(e.target.value)}
+        placeholder="Търси продукт..."
+        className={isPending ? 'opacity-50' : ''}
+      />
+    </div>
+  )
+}
+```
+
+Тук `useState`, `useTransition` и `useRouter` правят компонента задължително клиентски. Потребителят въвежда текст в реално време - това е чисто браузърна операция, която не може да живее на сървъра.
+
+<strong>Кога трябва да използваш Client Component:</strong>
+
+- Всякаква интерактивност, управлявана от потребителя - форми, бутони с логика, dropdown-и, modals
+- React hooks - `useState`, `useEffect`, `useContext`, `useRef`, `useReducer`
+- Браузърни API-та - `localStorage`, `sessionStorage`, `navigator.geolocation`, `window.matchMedia`
+- Event listeners - `onClick`, `onChange`, `onSubmit`, `onKeyDown`
+- Анимации с библиотеки като Framer Motion или React Spring, които изискват DOM достъп
+- Компоненти, зависещи от runtime browser информация (viewport size, scroll position, theme)
+- Legacy библиотеки, които не поддържат Server Components
+
+<h2 id="realni-primeri">Реални примери от production проекти</h2>
+
+Теорията е ясна - нека видим как изглежда всичко в реален контекст. Примерите по-долу идват от архитектурни решения, с които съм се сблъсквал в реални проекти.
+
+<h3 id="primer-blog">Пример 1 - Статия в блог с интерактивни елементи</h3>
+
+Класическият случай: страницата трябва да зарежда съдържание бързо и да е SEO-friendly, но някои части изискват интерактивност.
+
+```tsx
+// app/blog/[slug]/page.tsx - Server Component
+import { getPostBySlug, getRelatedPosts } from '@/lib/posts'
+import { LikeButton } from '@/components/LikeButton'     // Client
+import { ShareMenu } from '@/components/ShareMenu'        // Client
+import { RelatedPosts } from '@/components/RelatedPosts'  // Server
+
+export default async function BlogPostPage({
+  params,
+}: {
+  params: { slug: string }
+}) {
+  const [post, related] = await Promise.all([
+    getPostBySlug(params.slug),
+    getRelatedPosts(params.slug),
+  ])
+
+  if (!post) notFound()
+
+  return (
+    <article>
+      <h1>{post.title}</h1>
+      <p className="text-gray-500">{post.publishedAt}</p>
+      <div dangerouslySetInnerHTML={{ __html: post.contentHtml }} />
+
+      {/* Само интерактивните части са Client Components */}
+      <div className="flex gap-4 mt-8">
+        <LikeButton postId={post.id} initialLikes={post.likes} />
+        <ShareMenu url={post.url} title={post.title} />
+      </div>
+
+      {/* Свързани постове са чист Server Component */}
+      <RelatedPosts posts={related} />
+    </article>
+  )
+}
+```
+
+Резултатът: цялото съдържание на статията се рендира на сървъра - Google вижда пълния текст, изображения, metadata. Само `LikeButton` и `ShareMenu` изпращат JavaScript към браузъра. Bundle-ът е минимален, First Contentful Paint е отличен.
+
+<h3 id="primer-modal">Пример 2 - Modal с Server Component съдържание (children pattern)</h3>
+
+Един от най-елегантните patterns в Next.js: предаваш Server Component като `children` на Client Component. Така получаваш интерактивна обвивка с server-rendered съдържание вътре.
+
+```tsx
+'use client'
+// components/Modal.tsx
+
+import { useState, useEffect } from 'react'
+
+export default function Modal({
+  trigger,
+  children,
+}: {
+  trigger: React.ReactNode
+  children: React.ReactNode
+}) {
+  const [isOpen, setIsOpen] = useState(false)
+
+  useEffect(() => {
+    const handleEsc = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setIsOpen(false)
+    }
+    document.addEventListener('keydown', handleEsc)
+    return () => document.removeEventListener('keydown', handleEsc)
+  }, [])
+
+  return (
+    <>
+      <div onClick={() => setIsOpen(true)}>{trigger}</div>
+      {isOpen && (
+        <div className="modal-overlay" onClick={() => setIsOpen(false)}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            {children}
+          </div>
+        </div>
+      )}
+    </>
+  )
+}
+```
+
+```tsx
+// app/products/page.tsx - Server Component
+import Modal from '@/components/Modal'
+import ProductDetails from '@/components/ProductDetails' // Server Component
+
+export default async function ProductsPage() {
+  const products = await db.product.findMany()
+
+  return (
+    <div>
+      {products.map((product) => (
+        <Modal
+          key={product.id}
+          trigger={<button>Виж детайли</button>}
+        >
+          {/* ProductDetails е Server Component като children */}
+          <ProductDetails productId={product.id} />
+        </Modal>
+      ))}
+    </div>
+  )
+}
+```
+
+`Modal` управлява отварянето и затварянето - чиста клиентска логика. `ProductDetails` зарежда детайлите от базата данни - чисто сървърна логика. Двата свята работят заедно без компромиси.
+
+<Feedback
+  title="Ключово архитектурно правило"
+  description="Server Components могат да импортират Client Components. Client Components НЕ могат да импортират Server Components - но могат да ги получават като children или props. Това е границата, която трябва да помниш."
+/>
+
+<h2 id="chesti-greshki">Чести грешки и как да ги избегнеш</h2>
+
+След като съм преглеждал немалко Next.js кодбази, има три грешки, които се повтарят почти навсякъде.
+
+<h3 id="greshka-1">Грешка 1 - 'use client' навсякъде по навик</h3>
+
+Разработчиците, идващи от чист React, слагат `'use client'` по навик. Резултатът е приложение, което технически работи с App Router, но пропуска всички ползи от Server Components.
+
+```tsx
+// ❌ Излишен Client Component - няма hooks, няма events
+'use client'
+export default function ProductCard({ name, price, description }) {
+  return (
+    <div className="card">
+      <h3>{name}</h3>
+      <p>{description}</p>
+      <strong>{price} лв.</strong>
+    </div>
+  )
+}
+
+// ✅ Server Component - нулев JavaScript към клиента
+export default function ProductCard({ name, price, description }) {
+  return (
+    <div className="card">
+      <h3>{name}</h3>
+      <p>{description}</p>
+      <strong>{price} лв.</strong>
+    </div>
+  )
+}
+```
+
+Ако имаш списък от 50 продукта, разликата е 50 компонента, изпратени към браузъра - срещу нула.
+
+<h3 id="greshka-2">Грешка 2 - useEffect за данни вместо async Server Component</h3>
+
+Един от най-разпространените anti-patterns: зареждане на данни в `useEffect` на Client Component, когато можеш да го направиш в Server Component.
+
+```tsx
+// ❌ Стар паттерн - waterfall заявки, loading state, излишен JS
+'use client'
+import { useState, useEffect } from 'react'
+
+export default function UserProfile({ userId }: { userId: string }) {
+  const [user, setUser] = useState(null)
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    fetch(`/api/users/${userId}`)
+      .then((r) => r.json())
+      .then((data) => { setUser(data); setLoading(false) })
+  }, [userId])
+
+  if (loading) return <div>Зареждане...</div>
+  return <div>{user?.name}</div>
+}
+
+// ✅ Server Component - директен достъп, без loading state, без API route
+import { db } from '@/lib/db'
+
+export default async function UserProfile({ userId }: { userId: string }) {
+  const user = await db.user.findUnique({ where: { id: userId } })
+  if (!user) return <div>Потребителят не е намерен.</div>
+  return <div>{user.name}</div>
+}
+```
+
+Втората версия е по-кратка, по-бърза, не изисква отделен API route и не изпраща JavaScript.
+
+<h3 id="greshka-3">Грешка 3 - Прекалено широки 'use client' граници</h3>
+
+Слагането на `'use client'` в parent компонент автоматично прави всички негови деца клиентски - дори ако не е необходимо. Решението: изолирай интерактивната логика в малък компонент и предавай останалите като `children`.
+
+<h2 id="spravochnik">Бърз справочник - Server или Client?</h2>
+
+<Table
+  data={{
+    headers: [
+      { content: "Случай на употреба", key: "case" },
+      { content: "Тип", key: "type" },
+      { content: "Причина", key: "reason" },
+    ],
+    rows: [
+      ["Зареждане на данни от база данни", "Server", "Директен DB достъп, без API route"],
+      ["Показване на статично съдържание", "Server", "Нулев JS bundle"],
+      ["SEO критично съдържание", "Server", "Пълен HTML за crawlers"],
+      ["useState / useReducer", "Client", "Браузърно runtime изискване"],
+      ["useEffect / useLayoutEffect", "Client", "DOM lifecycle hooks"],
+      ["onClick / onChange / onSubmit", "Client", "Браузърни event handlers"],
+      ["localStorage / sessionStorage", "Client", "Browser-only APIs"],
+      ["usePathname / useRouter", "Client", "Навигационни hooks"],
+      ["Анимации с Framer Motion", "Client", "Изисква DOM достъп"],
+      ["Toast / Modal / Dropdown", "Client", "Интерактивни UI компоненти"],
+      ["Тайни env variables", "Server", "Сигурност - не се изпращат към клиента"],
+      ["Графики (Recharts, Chart.js)", "Client", "Canvas/SVG манипулация в браузъра"],
+    ],
+  }}
+/>
+
+<h2 id="performance">Влияние върху производителността и Core Web Vitals</h2>
+
+Правилното разграничение между Server и Client Components има пряко измеримо влияние върху Core Web Vitals - метриките, които Google използва при ранкирането.
+
+<strong>Largest Contentful Paint (LCP)</strong> - Server Components се рендират преди HTML-ът да напусне сървъра. Главното съдържание на страницата пристига при потребителя без да чака JavaScript bundle-а. В реални проекти съм виждал подобрения от 800ms до под 200ms само от преместването на data fetching от `useEffect` в Server Component.
+
+<strong>Total Blocking Time (TBT) и Interaction to Next Paint (INP)</strong> - по-малко JavaScript на главния thread означава по-малко блокиране. Когато само интерактивните компоненти изпращат код, браузърът има значително повече ресурси за потребителските взаимодействия.
+
+<strong>Cumulative Layout Shift (CLS)</strong> - Server Components елиминират типичния layout shift от "зареждане..." към "заредено съдържание", защото данните са вградени директно в HTML-а.
+
+<Feedback
+  title="Принципът за минимален JS"
+  description="Целта не е нула Client Components - целта е минимален необходим JavaScript. Всяко 'use client' е съзнателно решение, не default избор."
+/>
+
+<h2 id="faq">Често задавани въпроси</h2>
+
+<AccordionGroup
+  items={[
+    {
+      title: "Ако добавя 'use client' в parent компонент, всички деца стават ли Client Components?",
+      content: (
+        <Text onBackground="neutral-weak">
+          Да - всички компоненти, импортирани директно в Client Component, автоматично стават клиентски, дори без да имат 'use client'. Изключение: компоненти, предадени като children или props от Server Component - те запазват своята природа. Затова children pattern-ът е толкова мощен.
+        </Text>
+      )
+    },
+    {
+      title: "Може ли Server Component да прави fetch заявки към external API?",
+      content: (
+        <Text onBackground="neutral-weak">
+          Да - и това е препоръчителният подход. Server Components поддържат native fetch с вградено кеширане от Next.js. Можеш да използваш cache: 'force-cache' за статични данни или next: revalidate за ISR-подобно поведение. Данните се зареждат на сървъра, API ключовете остават скрити.
+        </Text>
+      )
+    },
+    {
+      title: "Как да предам данни от Server Component към Client Component?",
+      content: (
+        <Text onBackground="neutral-weak">
+          Чрез props - Server Component зарежда данните и ги предава като props на Client Component. Важното ограничение: данните трябва да са сериализируеми (JSON-compatible). Не можеш да предаваш функции, класови инстанции или Date обекти директно - те трябва да се трансформират в примитиви.
+        </Text>
+      )
+    },
+    {
+      title: "Работи ли React Context с Server Components?",
+      content: (
+        <Text onBackground="neutral-weak">
+          Не директно - Context Provider изисква 'use client'. Можеш да обвиеш приложението в Client Component Provider, но стойностите от Context не са достъпни в Server Components. За споделено server-side състояние използвай database queries, cookies() от next/headers или URL searchParams.
+        </Text>
+      )
+    },
+    {
+      title: "Каква е разликата между Server Components и SSR в pages/ директорията?",
+      content: (
+        <Text onBackground="neutral-weak">
+          В pages/ директорията SSR чрез getServerSideProps зарежда данните на сървъра, но JavaScript кодът на компонента все пак се изпраща към клиента за хидратация. Server Components в app/ директорията изобщо не изпращат своя JS код - само HTML. Резултатът е значително по-малък bundle и по-бърза хидратация.
+        </Text>
+      )
+    }
+  ]}
+/>
+
+<hr />
+
+<p>
+Разграничението между Server Components и Client Components в Next.js 16 не е просто технически детайл - то е архитектурно решение с директно влияние върху скоростта, SEO и потребителското изживяване на твоето приложение. Правилото е просто: <strong>започвай с Server Component и добавяй 'use client' само когато наистина имаш нужда от интерактивност, браузърни APIs или React hooks.</strong> Всяко 'use client' е съзнателен компромис - JavaScript, изпратен към браузъра, срещу функционалност, която не може да живее на сървъра. Разбирането на тази граница е разликата между добро и отлично Next.js приложение.
+</p>
