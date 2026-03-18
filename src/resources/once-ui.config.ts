@@ -209,7 +209,7 @@ const mailchimp: MailchimpConfig = {
 const schema: SchemaConfig = {
   logo: "",
   type: "Organization",
-  name: "Станчев SEO",
+  name: "Stanchev Digital",
   description: home.description,
   email: "seo@stanchev.bg",
 };
@@ -217,7 +217,7 @@ const schema: SchemaConfig = {
 // social links
 const sameAs: SameAsConfig = {
   github: "https://github.com/stantchev/",
-  linkedin: "https://www.linkedin.com/in/stantcheff/",
+  linkedin: "https://www.linkedin.com/in/stanchev-seo/",
   devto: "https://dev.to/stanchev",
 };
 
@@ -290,8 +290,3 @@ export {
   dataStyle,
   llmsRules,
 };
-
-
-
-
-
