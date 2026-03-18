@@ -12,12 +12,24 @@ export default async function sitemap() {
     lastModified: post.metadata.publishedAt,
   }));
 
-  const activeRoutes = Object.keys(routesConfig).filter((route) => routesConfig[route as keyof typeof routesConfig]);
+  const activeRoutes = Object.keys(routesConfig).filter(
+    (route) => routesConfig[route as keyof typeof routesConfig]
+  );
 
   const routes = activeRoutes.map((route) => ({
-    url: `${baseURL}${route !== "/" ? route : ""}`,
+    url: `${baseURL}${route === "/" ? "" : route}`,
     lastModified: new Date().toISOString().split("T")[0],
   }));
 
-  return [...routes, ...blogs, ...works];
+  const extraRoutes = [
+    "/web/react-spa",
+    "/web/headless-wordpress-sait",
+    "/seo-uslugi/seo-odit",
+    "/blog/headless-wordpress-react-nextjs-frontend-seo",
+  ].map((route) => ({
+    url: `${baseURL}${route}`,
+    lastModified: new Date().toISOString().split("T")[0],
+  }));
+
+  return [...routes, ...blogs, ...works, ...extraRoutes];
 }
