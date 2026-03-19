@@ -1,0 +1,471 @@
+---
+title: "App Router vs Pages Router в Next.js - Миграция и Какво да Очакваш"
+keywords: ["app router", "pages router", "next.js app router", "next.js pages router", "миграция next.js", "app router vs pages router", "next.js 16 миграция", "next.js app directory", "преминаване към app router"]
+summary: "App Router или Pages Router - кое да избереш и как да мигрираш? Честен поглед върху плюсовете, минусите и стъпките за преминаване от pages/ към app/ директорията в Next.js."
+author: "Станчев"
+publishedAt: "2025-07-22"
+tag: "Next.js"
+image: /images/posts/app-router-vs-pages-router-nextjs.jpg
+---
+
+Имах проект - среден по размер e-commerce сайт, изграден с Next.js 12 и Pages Router. Работеше. Бързо беше. Екипът го познаваше добре. И въпреки това, в даден момент дойде неизбежният въпрос: <strong>трябва ли да мигрираме към App Router?</strong>
+
+Отговорът не беше прост. Не беше "да" или "не" - беше "зависи от много неща, и трябва да ги разбереш преди да докоснеш каквото и да е". Именно тази статия е написана за теб, ако се намираш в същата ситуация - или ако изграждаш нов проект и се чудиш кое е правилното начало.
+
+<Feedback
+  title="Важно за новите проекти"
+  description="За всеки нов Next.js проект, стартиран след версия 13.4, App Router е препоръчаният подход от Vercel и екипа на Next.js. Pages Router остава поддържан, но няма да получава нови функционалности."
+/>
+
+<h2 id="kratka-historia">Кратка история - откъде идваме</h2>
+
+<strong>Pages Router</strong> съществува от самото начало на Next.js. Моделът е прост и интуитивен: всеки файл в `pages/` директорията автоматично става route. `pages/about.tsx` е `/about`. `pages/blog/[slug].tsx` е `/blog/:slug`. Data fetching се случва чрез специални функции - `getServerSideProps` за SSR, `getStaticProps` за SSG, `getStaticPaths` за динамични статични routes.
+
+Моделът работи отлично в продължение на години. Лесен за разбиране, предвидим, с огромна документация и ecosystem.
+
+<strong>App Router</strong> е представен с Next.js 13 и стабилизиран в 13.4. Той е пълно преосмисляне на routing архитектурата, базирано на React Server Components, нови file conventions и вградена поддръжка за Suspense, streaming и layouts. В Next.js 16 App Router е зрял, production-ready и е посоката, в която се движи целият framework.
+
+<h2 id="klyuchovi-razliki">Ключови разлики между двата подхода</h2>
+
+Преди да влезем в плюсовете и минусите, важно е да разбереш архитектурните разлики - защото те определят всичко останало.
+
+В <strong>Pages Router</strong> всеки компонент е Client Component по подразбиране. Data fetching е отделен от компонента - чрез `getServerSideProps` или `getStaticProps`, които се изпълняват на сървъра и предават данните като props. Layouts се управляват ръчно чрез `_app.tsx` и `_document.tsx`.
+
+В <strong>App Router</strong> всеки компонент е Server Component по подразбиране. Data fetching се случва директно в компонента чрез `async/await`. Layouts са вградена file convention - файл `layout.tsx` автоматично обвива всички routes в директорията. Добавят се и нови специални файлове: `loading.tsx`, `error.tsx`, `not-found.tsx`.
+
+```
+// Pages Router структура
+pages/
+  _app.tsx          // Global layout и providers
+  _document.tsx     // HTML структура
+  index.tsx         // /
+  about.tsx         // /about
+  blog/
+    index.tsx       // /blog
+    [slug].tsx      // /blog/:slug
+  api/
+    posts.ts        // /api/posts
+
+// App Router структура
+app/
+  layout.tsx        // Root layout (задължителен)
+  page.tsx          // /
+  about/
+    page.tsx        // /about
+  blog/
+    layout.tsx      // Layout за всички blog routes
+    page.tsx        // /blog
+    [slug]/
+      page.tsx      // /blog/:slug
+      loading.tsx   // Loading UI за този route
+      error.tsx     // Error UI за този route
+  api/
+    posts/
+      route.ts      // /api/posts (Route Handlers)
+```
+
+<h2 id="plusove-app-router">Плюсове на App Router</h2>
+
+<h3 id="server-components">React Server Components по подразбиране</h3>
+
+Най-голямото предимство е вече разгледано подробно в отделна статия - Server Components означават по-малко JavaScript към клиента, директен database достъп в компонентите и значително по-добри Core Web Vitals. В Pages Router всеки компонент е клиентски, а data fetching е изкуствено отделен в специални функции. В App Router компонентът и данните му са едно цяло.
+
+```tsx
+// Pages Router - data fetching е отделен от компонента
+export default function ProductPage({ product }) {
+  return <div>{product.name}</div>
+}
+
+export async function getServerSideProps({ params }) {
+  const product = await db.product.findUnique({
+    where: { id: params.id }
+  })
+  return { props: { product } }
+}
+
+// App Router - данните живеят в компонента
+export default async function ProductPage({ params }) {
+  const product = await db.product.findUnique({
+    where: { id: params.id }
+  })
+  return <div>{product.name}</div>
+}
+```
+
+<h3 id="nested-layouts">Вградени Nested Layouts</h3>
+
+В Pages Router, ако искаш различен layout за различни секции на сайта, трябва да го управляваш ръчно в `_app.tsx` с условна логика. В App Router layouts са file convention - просто създаваш `layout.tsx` файл в директорията и той автоматично се прилага за всички routes вътре.
+
+```tsx
+// app/dashboard/layout.tsx
+// Този layout се прилага за /dashboard, /dashboard/settings, /dashboard/profile и т.н.
+
+import { Sidebar } from '@/components/Sidebar'
+import { requireAuth } from '@/lib/auth'
+
+export default async function DashboardLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  await requireAuth() // Auth проверка за всички dashboard routes наведнъж
+
+  return (
+    <div className="flex">
+      <Sidebar />
+      <main className="flex-1 p-6">{children}</main>
+    </div>
+  )
+}
+```
+
+Резултатът: auth логиката, sidebar-ът и структурата се дефинират веднъж и се прилагат автоматично за целия dashboard. Без повтарящ се код, без условна логика в `_app.tsx`.
+
+<h3 id="streaming-suspense">Streaming и Suspense</h3>
+
+App Router има вградена поддръжка за React Suspense и HTTP streaming. Това означава, че бавни части на страницата могат да се зареждат прогресивно - браузърът получава и рендира HTML на части, без да чака всичко да е готово.
+
+```tsx
+// app/dashboard/page.tsx
+import { Suspense } from 'react'
+import { RevenueChart } from './RevenueChart'
+import { RecentOrders } from './RecentOrders'
+import { StatsSkeleton } from '@/components/skeletons'
+
+export default function DashboardPage() {
+  return (
+    <div>
+      <h1>Dashboard</h1>
+
+      {/* RevenueChart е бавен - зарежда се независимо */}
+      <Suspense fallback={<StatsSkeleton />}>
+        <RevenueChart />
+      </Suspense>
+
+      {/* RecentOrders не чака RevenueChart */}
+      <Suspense fallback={<StatsSkeleton />}>
+        <RecentOrders />
+      </Suspense>
+    </div>
+  )
+}
+```
+
+В Pages Router трябваше да чакаш `getServerSideProps` да завърши изцяло преди HTML-ът да тръгне към клиента. В App Router бързите части пристигат веднага, бавните - когато са готови.
+
+<h3 id="server-actions">Server Actions</h3>
+
+Server Actions са може би най-радикалната промяна. Те позволяват да дефинираш server-side функции директно в компонентите и да ги извикваш от клиента - без ръчно създаване на API routes.
+
+```tsx
+// app/contact/page.tsx
+async function submitContactForm(formData: FormData) {
+  'use server' // Тази функция се изпълнява само на сървъра
+
+  const name = formData.get('name') as string
+  const email = formData.get('email') as string
+  const message = formData.get('message') as string
+
+  await db.contactMessage.create({
+    data: { name, email, message }
+  })
+
+  await sendEmailNotification({ name, email, message })
+}
+
+export default function ContactPage() {
+  return (
+    <form action={submitContactForm}>
+      <input name="name" placeholder="Твоето име" />
+      <input name="email" type="email" placeholder="Имейл" />
+      <textarea name="message" placeholder="Съобщение" />
+      <button type="submit">Изпрати</button>
+    </form>
+  )
+}
+```
+
+Няма API route, няма `fetch` от клиента, няма state management за формата. Работи дори без JavaScript в браузъра - progressive enhancement по дефиниция.
+
+<h2 id="minusi-app-router">Минуси на App Router - честен поглед</h2>
+
+Би ми дошло лесно да напиша само похвали за App Router. Но реалността е по-нюансирана и справедливостта изисква да кажа и какво не работи добре - особено ако мислиш за миграция на съществуващ проект.
+
+<h3 id="kriva-na-uchene">Стръмна крива на учене</h3>
+
+App Router въвежда едновременно много нови концепции: Server Components, Client Components, Server Actions, Route Handlers, Parallel Routes, Intercepting Routes, новите file conventions. За разработчик, свикнал с Pages Router, това е значително когнитивно натоварване. В първите седмици на работа с App Router съм допускал грешки, които в Pages Router изобщо не биха съществували.
+
+<h3 id="treta-strana-biblioteki">Проблеми с библиотеки на трети страни</h3>
+
+Не всички библиотеки са адаптирани за Server Components. Много популярни пакети - особено UI библиотеки, state management решения и analytics инструменти - изискват клиентска среда. Преди да мигрираш, трябва да провериш всяка зависимост.
+
+Типичните проблеми: библиотека, използваща `window` или `document` на top level, Context Provider, който трябва да обвие цялото приложение, или компонент, импортиращ browser-only код без условна проверка. Решението обикновено е `'use client'` wrapper или `dynamic import` с `{ ssr: false }`, но това изисква допълнителна работа.
+
+<h3 id="caching-complexity">Кеширането е сложно</h3>
+
+App Router има агресивна кеширащ стратегия с четири различни нива: Request Memoization, Data Cache, Full Route Cache и Router Cache. В Pages Router кешът беше по-прост и предвидим. В App Router е мощен, но изисква разбиране - иначе получаваш или остарели данни, или ненужни заявки.
+
+```tsx
+// Различни стратегии за кеширане в App Router
+const data1 = await fetch('/api/data')                          // Кешира се неограничено
+const data2 = await fetch('/api/data', { cache: 'no-store' })  // Никога не се кешира
+const data3 = await fetch('/api/data', { next: { revalidate: 60 } }) // Revalidate на 60 секунди
+const data4 = await fetch('/api/data', { next: { tags: ['products'] } }) // Tag-based revalidation
+```
+
+<h3 id="debugging">Debugging е по-труден</h3>
+
+Когато нещо се счупи в App Router, намирането на причината е по-трудно. Кодът се изпълнява на две места - сървъра и клиента - и грешките понякога се появяват само на едното. Server Component грешките са видими в терминала, не в browser console-а. Това изисква промяна в debugging навиците.
+
+<h2 id="migraciya">Стъпки за миграция от Pages Router към App Router</h2>
+
+Добрата новина: Next.js поддържа <strong>инкрементална миграция</strong>. `pages/` и `app/` директориите могат да съществуват едновременно в един проект. Можеш да мигрираш route по route, без да пипаш цялото приложение наведнъж.
+
+<Feedback
+  title="Стратегия за миграция"
+  description="Не мигрирай всичко наведнъж. Започни с нови routes в app/, остави съществуващите в pages/ и мигрирай постепенно. Next.js поддържа двете директории едновременно без конфликти."
+/>
+
+<h3 id="stypka-1">Стъпка 1 - Подготовка и одит</h3>
+
+Преди да докоснеш каквото и да е, направи одит на проекта:
+
+- Провери всяка зависимост в `package.json` за Server Components съвместимост
+- Идентифицирай компонентите, използващи `useState`, `useEffect`, browser APIs - те ще изискват `'use client'`
+- Прегледай `_app.tsx` - всичко там трябва да се пренесе в `app/layout.tsx`
+- Провери дали имаш `getServerSideProps`, `getStaticProps` или `getInitialProps` - всяка се мигрира по различен начин
+
+<h3 id="stypka-2">Стъпка 2 - Създай root layout</h3>
+
+Първото нещо в `app/` директорията е задължителният root layout:
+
+```tsx
+// app/layout.tsx
+import { Inter } from 'next/font/google'
+import { Providers } from './providers' // Client Component за Context Providers
+import './globals.css'
+
+const inter = Inter({ subsets: ['latin'] })
+
+export const metadata = {
+  title: 'Моят сайт',
+  description: 'Описание на сайта',
+}
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  return (
+    <html lang="bg">
+      <body className={inter.className}>
+        <Providers>{children}</Providers>
+      </body>
+    </html>
+  )
+}
+```
+
+```tsx
+'use client'
+// app/providers.tsx
+// Всички Context Providers, изискващи 'use client', отиват тук
+
+import { ThemeProvider } from 'next-themes'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { useState } from 'react'
+
+export function Providers({ children }: { children: React.ReactNode }) {
+  const [queryClient] = useState(() => new QueryClient())
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      <ThemeProvider attribute="class">
+        {children}
+      </ThemeProvider>
+    </QueryClientProvider>
+  )
+}
+```
+
+<h3 id="stypka-3">Стъпка 3 - Мигрирай data fetching</h3>
+
+Всеки `getServerSideProps` се трансформира в async Server Component:
+
+```tsx
+// ПРЕДИ - pages/products/[id].tsx
+export default function ProductPage({ product, reviews }) {
+  return (
+    <div>
+      <h1>{product.name}</h1>
+      <ReviewsList reviews={reviews} />
+    </div>
+  )
+}
+
+export async function getServerSideProps({ params }) {
+  const [product, reviews] = await Promise.all([
+    db.product.findUnique({ where: { id: params.id } }),
+    db.review.findMany({ where: { productId: params.id } }),
+  ])
+  return { props: { product, reviews } }
+}
+```
+
+```tsx
+// СЛЕД - app/products/[id]/page.tsx
+import { ReviewsList } from '@/components/ReviewsList'
+
+export default async function ProductPage({
+  params,
+}: {
+  params: { id: string }
+}) {
+  const [product, reviews] = await Promise.all([
+    db.product.findUnique({ where: { id: params.id } }),
+    db.review.findMany({ where: { productId: params.id } }),
+  ])
+
+  return (
+    <div>
+      <h1>{product.name}</h1>
+      <ReviewsList reviews={reviews} />
+    </div>
+  )
+}
+```
+
+За `getStaticProps` с `revalidate` използвай `fetch` с `next: { revalidate }`:
+
+```tsx
+// ПРЕДИ - getStaticProps с revalidate
+export async function getStaticProps() {
+  const posts = await getPosts()
+  return { props: { posts }, revalidate: 60 }
+}
+
+// СЛЕД - fetch с revalidate в Server Component
+export default async function BlogPage() {
+  const posts = await fetch('https://api.example.com/posts', {
+    next: { revalidate: 60 }
+  }).then(r => r.json())
+
+  return <PostList posts={posts} />
+}
+```
+
+<h3 id="stypka-4">Стъпка 4 - Мигрирай API Routes към Route Handlers</h3>
+
+```tsx
+// ПРЕДИ - pages/api/products.ts
+import type { NextApiRequest, NextApiResponse } from 'next'
+
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
+  if (req.method === 'GET') {
+    const products = await db.product.findMany()
+    return res.status(200).json(products)
+  }
+
+  if (req.method === 'POST') {
+    const product = await db.product.create({ data: req.body })
+    return res.status(201).json(product)
+  }
+}
+```
+
+```tsx
+// СЛЕД - app/api/products/route.ts
+import { NextRequest, NextResponse } from 'next/server'
+
+export async function GET() {
+  const products = await db.product.findMany()
+  return NextResponse.json(products)
+}
+
+export async function POST(request: NextRequest) {
+  const body = await request.json()
+  const product = await db.product.create({ data: body })
+  return NextResponse.json(product, { status: 201 })
+}
+```
+
+<h3 id="stypka-5">Стъпка 5 - Добави 'use client' там, където е необходимо</h3>
+
+Всеки компонент, използващ hooks или browser APIs, трябва да получи `'use client'`. Добрата практика е да идентифицираш тези компоненти предварително и да ги изолираш - придвижи интерактивната логика надолу в компонентното дърво, така че `'use client'` границата да е колкото е възможно по-малка.
+
+<h2 id="koe-da-izberesh">Кое да избереш - ръководство за решението</h2>
+
+<Table
+  data={{
+    headers: [
+      { content: "Ситуация", key: "situation" },
+      { content: "Препоръка", key: "recommendation" },
+      { content: "Причина", key: "reason" },
+    ],
+    rows: [
+      ["Нов проект от нулата", "App Router", "Препоръчан от Next.js, всички нови функции"],
+      ["Съществуващ малък проект (< 10 routes)", "Мигрирай изцяло", "Малко риск, голяма полза"],
+      ["Съществуващ среден проект", "Инкрементална миграция", "Мигрирай route по route"],
+      ["Голям enterprise проект", "Изчакай или мигрирай бавно", "Висок риск, нужно е планиране"],
+      ["Проект с много legacy библиотеки", "Провери съвместимостта първо", "Може да блокира миграцията"],
+      ["Проект с Pages Router, работи добре", "Не бързай", "Pages Router се поддържа дългосрочно"],
+    ],
+  }}
+/>
+
+<h2 id="faq">Често задавани въпроси</h2>
+
+<AccordionGroup
+  items={[
+    {
+      title: "Ще спре ли Vercel да поддържа Pages Router?",
+      content: (
+        <Text onBackground="neutral-weak">
+          Не - Vercel изрично е заявил, че Pages Router ще продължи да се поддържа дългосрочно. Няма да получава нови функционалности, но bug fixes и security patches ще продължат. Не е нужно да мигрираш само защото излезе App Router.
+        </Text>
+      )
+    },
+    {
+      title: "Могат ли pages/ и app/ да съществуват едновременно?",
+      content: (
+        <Text onBackground="neutral-weak">
+          Да - Next.js поддържа двете директории едновременно без конфликти. Единственото ограничение е, че един и същи route не може да съществува и в двете. Например, ако имаш app/about/page.tsx, не може да имаш и pages/about.tsx. Това е основата на инкременталната миграция.
+        </Text>
+      )
+    },
+    {
+      title: "Как да мигрирам getInitialProps?",
+      content: (
+        <Text onBackground="neutral-weak">
+          getInitialProps е най-трудният за миграция, защото се изпълнява и на сървъра, и на клиента. В App Router заменяш server-side частта с async Server Component, а client-side частта - с useEffect или Server Actions. Ако използваш getInitialProps само в _app.tsx, мигрирай логиката в app/layout.tsx.
+        </Text>
+      )
+    },
+    {
+      title: "Работи ли next-auth с App Router?",
+      content: (
+        <Text onBackground="neutral-weak">
+          Да - Auth.js (новото наименование на next-auth) поддържа App Router от версия 5. Конфигурацията е различна от Pages Router версията - използва Route Handler вместо pages/api/auth/[...nextauth].ts. Препоръчвам да прочетеш официалната документация за App Router миграция преди да преминеш.
+        </Text>
+      )
+    },
+    {
+      title: "По-бавен ли е App Router от Pages Router?",
+      content: (
+        <Text onBackground="neutral-weak">
+          В production не - App Router обикновено е по-бърз благодарение на Server Components, streaming и по-добро кеширане. В development режим App Router исторически беше по-бавен, но Next.js 15 и 16 значително подобриха dev server производителността с Turbopack. За production приложения App Router е по-добрият избор по отношение на производителност.
+        </Text>
+      )
+    }
+  ]}
+/>
+
+<hr />
+
+<p>
+Миграцията от Pages Router към App Router не е спринт - тя е marathon, който изисква планиране, търпение и добро разбиране на новите концепции. Ако проектът ти работи добре с Pages Router, не мигрирай само защото "трябва". Мигрирай, когато имаш конкретна причина: нужда от Server Components, Streaming, Server Actions или nested layouts. За нови проекти обаче изборът е ясен - <strong>App Router е бъдещето на Next.js и правилният старт за всяко ново приложение днес.</strong>
+</p>
