@@ -1,0 +1,555 @@
+---
+title: "Next.js Performance Optimization: Image, Font и Script Оптимизация от Нулата (2026)"
+keywords: ["next.js performance", "next.js оптимизация", "lighthouse 100", "next/image next.js 16", "next/font", "next/script", "core web vitals next.js 16", "next.js бързина 2026", "turbopack performance", "react compiler next.js", "use cache next.js 16"]
+summary: "Пълно ръководство за оптимизация на Next.js 16.2 приложения: next/image с новия preload prop и LRU disk cache, next/font, next/script, React Compiler, use cache директивата и вградения Bundle Analyzer. Актуално за март 2026 г."
+author: "Станчев"
+publishedAt: "2026-03-20"
+tag: "Next.js"
+image: /images/posts/nextjs-performance-optimization-lighthouse-100.jpg
+---
+
+Преди около година получих задачата да оптимизирам Next.js сайт с Lighthouse score от 54 на мобилни устройства. Сайтът не беше лош - беше изграден внимателно, с чист код и добра структура. Проблемът беше, че никой не беше мислил за производителност по време на разработката. Изображения без оптимизация, Google Fonts зареждани по стария начин, няколко тежки скрипта, блокиращи рендирането.
+
+Три седмици по-късно score-ът беше 97 на мобилни и 100 на десктоп. Без смяна на хостинг, без радикална промяна на архитектурата - само систематична оптимизация на три области: изображения, шрифтове и скриптове.
+
+Тази статия е актуализирана напълно за <strong>Next.js 16.2 (март 2026 г.)</strong> - с всички breaking changes в `next/image`, новия вграден Bundle Analyzer, React Compiler и `use cache` директивата. Ако имаш по-стара статия по темата на друг сайт - вероятно съдържа остаряла информация за `priority` prop, implicit caching и Webpack конфигурации. Тук ще намериш само актуалното.
+
+<Feedback
+  title="Next.js 16.2 - актуална версия"
+  description="Текущата версия на Next.js е 16.2, пусната на 18 март 2026 г. Turbopack е default bundler от версия 16. React Compiler е stable. Ако използваш Next.js 15 или по-стара версия, някои части от тази статия няма да се отнасят директно за теб."
+/>
+
+<h2 id="zashto-performance-ima-znachenie">Защо производителността има значение през 2026 г.</h2>
+
+<strong>Core Web Vitals</strong> са ранкиращ фактор за Google от 2021 г. и с всяка следваща година тежестта им расте. През 2026 г. разликата между бавен и бърз сайт се усеща директно в органичния трафик и конверсиите.
+
+Трите метрики, които Lighthouse измерва и Google следи:
+
+- <strong>Largest Contentful Paint (LCP)</strong> - колко бързо се зарежда основното съдържание. Цел: под 2.5 секунди.
+- <strong>Interaction to Next Paint (INP)</strong> - колко бързо реагира страницата на потребителски взаимодействия. Цел: под 200ms. INP замени First Input Delay (FID) от март 2024 г.
+- <strong>Cumulative Layout Shift (CLS)</strong> - колко се мести съдържанието по време на зареждане. Цел: под 0.1.
+
+Next.js 16 има вградени инструменти за всяка от тези метрики. Въпросът е да ги използваш правилно - и да знаеш кои API-та са се променили от предишните версии.
+
+<h2 id="image-optimization">Оптимизация на изображения с next/image в Next.js 16</h2>
+
+Изображенията са причина номер едно за лош Lighthouse score. В проекта, за който споменах, изображенията съставляваха над 70% от общото тегло на страниците. Всички бяха PNG файлове, сервирани в оригиналния си размер, без lazy loading, без оптимизация.
+
+<strong>Компонентът `next/image`</strong> решава повечето от тези проблеми автоматично - но в Next.js 16 има важни промени в API-то, за които трябва да знаеш.
+
+<h3 id="priority-deprecated">Breaking change: priority е deprecated, използвай preload</h3>
+
+Едно от най-важните изменения в Next.js 16: <strong>prop-ът `priority` е deprecated</strong> в полза на по-ясния `preload`. Ако имаш съществуващ код с `priority`, той все още работи, но ще получаваш deprecation warning при build-а.
+
+```tsx
+// ❌ Deprecated в Next.js 16 - все още работи, но показва warning
+import Image from 'next/image'
+
+<Image
+  src="/images/hero.jpg"
+  alt="Hero изображение"
+  width={1920}
+  height={1080}
+  priority         // Deprecated!
+/>
+
+// ✅ Актуален Next.js 16 API
+<Image
+  src="/images/hero.jpg"
+  alt="Hero изображение"
+  width={1920}
+  height={1080}
+  preload          // Новият prop - ясно казва "предзареди"
+  quality={85}
+  placeholder="blur"
+  blurDataURL="data:image/jpeg;base64,..."
+/>
+```
+
+Промяната е концептуална: `preload` е по-точен термин за това, което се случва - браузърът получава `<link rel="preload">` hint. Поведението е идентично с `priority`, просто наименованието е по-ясно.
+
+<h3 id="qualities-required">Breaking change: images.qualities е задължителен</h3>
+
+От Next.js 16, конфигурационното поле `images.qualities` е <strong>задължително</strong>. Без него build-ът ще хвърли грешка. Причината: неограниченият достъп до quality параметъра позволяваше на злонамерени актьори да генерират безброй варианти на едно изображение.
+
+```javascript
+// next.config.ts - актуален за Next.js 16
+import type { NextConfig } from 'next'
+
+const nextConfig: NextConfig = {
+  images: {
+    // Задължително от Next.js 16 - дефинирай позволените quality стойности
+    qualities: [25, 50, 75, 85, 100],
+
+    // LRU disk cache - нов от Next.js 16.1.7
+    // По подразбиране: 50% от наличното дисково пространство
+    maximumDiskCacheSize: 1024 * 1024 * 1024, // 1 GB
+
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cdn.example.com',
+        pathname: '/products/**',
+      },
+    ],
+
+    // AVIF за максимална компресия, WebP като fallback
+    formats: ['image/avif', 'image/webp'],
+  },
+}
+
+export default nextConfig
+```
+
+<h3 id="lru-disk-cache">Новият LRU disk cache за изображения</h3>
+
+От версия 16.1.7 Next.js въведе <strong>LRU (Least Recently Used) disk cache</strong> за image optimization. Преди тази версия кешът на оптимизираните изображения можеше да расте неограничено - потенциална DoS уязвимост (CVE-2026-27980).
+
+Сега cache-ът автоматично изтрива най-рядко използваните записи когато се достигне лимитът. По подразбиране лимитът е 50% от наличното дисково пространство на сървъра.
+
+```javascript
+// next.config.ts
+const nextConfig: NextConfig = {
+  images: {
+    qualities: [75, 85, 100],
+
+    // Ограничи disk cache до 500 MB
+    maximumDiskCacheSize: 500 * 1024 * 1024,
+
+    // Или деактивирай disk cache напълно (не препоръчително за production)
+    // maximumDiskCacheSize: 0,
+  },
+}
+```
+
+За self-hosted Next.js приложения с ограничено дисково пространство - например VPS с 20 GB SSD - задай явен лимит. Иначе image cache може да изяде значителна част от дисковото пространство при натоварен сайт с много уникални изображения.
+
+<h3 id="osnoven-primer-next-image">Правилна употреба на next/image в Next.js 16</h3>
+
+```tsx
+// app/page.tsx
+import Image from 'next/image'
+
+export default function HomePage() {
+  return (
+    <main>
+      {/* Hero изображение - предзареди, видимо веднага */}
+      <Image
+        src="/images/hero.jpg"
+        alt="Главно изображение"
+        width={1920}
+        height={1080}
+        preload                     // Заменя deprecated priority
+        quality={85}
+        placeholder="blur"
+        blurDataURL="data:image/jpeg;base64,/9j/4AAQ..."
+      />
+
+      {/* Изображения в списък - lazy loading по подразбиране */}
+      {products.map((product) => (
+        <Image
+          key={product.id}
+          src={product.image}
+          alt={product.name}
+          width={400}
+          height={400}
+          // Без preload - ще се заредят когато влязат в viewport
+        />
+      ))}
+    </main>
+  )
+}
+```
+
+<h3 id="fill-prop">Responsive изображения с fill и sizes</h3>
+
+```tsx
+{/* Responsive изображение с fill */}
+<div className="relative w-full aspect-video">
+  <Image
+    src={post.coverImage}
+    alt={post.title}
+    fill
+    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+    className="object-cover"
+  />
+</div>
+```
+
+<strong>Атрибутът `sizes` е критичен</strong> при `fill`. Без него браузърът изтегля максималния размер на изображението за всеки viewport. На мобилно устройство с 390px ширина изтегляш изображение, оразмерено за 1920px монитор - точно обратното на целта.
+
+<h3 id="image-results">Измерими резултати от image оптимизацията</h3>
+
+<Table
+  data={{
+    headers: [
+      { content: "Метрика", key: "metric" },
+      { content: "Преди оптимизация", key: "before" },
+      { content: "След оптимизация", key: "after" },
+      { content: "Подобрение", key: "improvement" },
+    ],
+    rows: [
+      ["Общо тегло на изображенията", "4.2 MB", "680 KB", "-84%"],
+      ["LCP (мобилни)", "5.8s", "1.9s", "-67%"],
+      ["CLS", "0.24", "0.01", "-96%"],
+      ["Lighthouse Performance (мобилни)", "54", "81", "+27 точки"],
+    ],
+  }}
+/>
+
+<h2 id="font-optimization">Оптимизация на шрифтове с next/font</h2>
+
+Google Fonts зареждани по класическия начин - `<link>` таг към fonts.googleapis.com - изискват допълнителни DNS lookup, TCP connection и HTTP заявки преди шрифтът да е наличен. Резултатът: FOUT (Flash of Unstyled Text) или FOIT (Flash of Invisible Text) и удар по LCP.
+
+<strong>`next/font`</strong> решава проблема изцяло: изтегля шрифтовете по време на build-а, хоства ги локално и елиминира всякакви external requests. В Next.js 16 поведението е непроменено, но конфигурацията сега се пише в `next.config.ts` (TypeScript по подразбиране с Turbopack).
+
+<h3 id="google-fonts">Google Fonts с next/font в Next.js 16</h3>
+
+```tsx
+// app/layout.tsx
+import { Inter, Playfair_Display } from 'next/font/google'
+
+const inter = Inter({
+  subsets: ['latin', 'cyrillic'], // Задължително за кирилица!
+  display: 'swap',
+  variable: '--font-inter',
+  preload: true,
+})
+
+const playfair = Playfair_Display({
+  subsets: ['latin', 'cyrillic'],
+  weight: ['400', '700'],         // Само weights, които използваш
+  style: ['normal', 'italic'],
+  display: 'swap',
+  variable: '--font-playfair',
+})
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  return (
+    <html lang="bg" className={`${inter.variable} ${playfair.variable}`}>
+      <body className={inter.className}>
+        {children}
+      </body>
+    </html>
+  )
+}
+```
+
+<Feedback
+  title="Кирилица и subsets"
+  description="Ако сайтът ти е на български, задължително добави 'cyrillic' в subsets масива. Без него Next.js зарежда само latin символите и кирилицата ще fallback-не към системния шрифт - FOUT на всяка страница."
+/>
+
+<h3 id="font-display-strategy">Стратегия за font-display</h3>
+
+- <strong>`swap`</strong> - показва fallback шрифт веднага, превключва към custom шрифта когато е готов. Може да причини FOUT, но е добър за LCP. Препоръчително за повечето проекти.
+- <strong>`optional`</strong> - зарежда шрифта само ако е готов бързо (300ms), иначе използва fallback за цялата сесия. Най-добър за производителност, но потребителят може никога да не види custom шрифта при бавна мрежа.
+- <strong>`block`</strong> - скрива текста докато шрифтът се зареди (FOIT). Избягвай за основни шрифтове.
+
+За кирилица `swap` е правилният избор - системните fallback шрифтове са визуално значително различни от повечето custom шрифтове.
+
+<h2 id="script-optimization">Оптимизация на скриптове с next/script</h2>
+
+JavaScript скриптовете на трети страни - Google Analytics, Facebook Pixel, chat widgets, A/B testing инструменти - са втората голяма причина за лош INP и TBT. Всеки от тях добавя latency и блокира main thread.
+
+<strong>`next/script`</strong> дава контрол върху кога и как се зарежда всеки скрипт. В Next.js 16 компонентът е непроменен, но контекстът около него се е променил: с Turbopack като default bundler и React Compiler, базовият JavaScript bundle вече е значително по-малък - което прави third-party скриптовете относително по-голям дял от общото натоварване.
+
+<h3 id="script-strategies">Четирите стратегии за зареждане</h3>
+
+```tsx
+import Script from 'next/script'
+
+// beforeInteractive - зарежда се преди хидратацията
+// Само за критични полифили - рядко необходимо
+<Script src="/scripts/critical-polyfill.js" strategy="beforeInteractive" />
+
+// afterInteractive (по подразбиране) - зарежда се след хидратацията
+// За analytics, tag managers
+<Script
+  src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+  strategy="afterInteractive"
+/>
+
+// lazyOnload - зарежда се когато браузърът е idle
+// За chat widgets, social share бутони, non-critical функции
+<Script src="https://cdn.intercom.com/widget.js" strategy="lazyOnload" />
+
+// worker - зарежда скрипта в Web Worker (experimental)
+// Премества тежката работа от main thread
+<Script src="/scripts/heavy-computation.js" strategy="worker" />
+```
+
+<h3 id="google-analytics-pravilno">Google Analytics 4 правилно в Next.js 16</h3>
+
+```tsx
+// app/layout.tsx
+import Script from 'next/script'
+
+const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="bg">
+      <body>
+        {children}
+
+        {GA_MEASUREMENT_ID && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+              strategy="afterInteractive"
+            />
+            <Script
+              id="google-analytics"   // Задължителен id при dangerouslySetInnerHTML!
+              strategy="afterInteractive"
+              dangerouslySetInnerHTML={{
+                __html: `
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                  gtag('config', '${GA_MEASUREMENT_ID}');
+                `,
+              }}
+            />
+          </>
+        )}
+      </body>
+    </html>
+  )
+}
+```
+
+<h3 id="lazy-chat-widget">Забавено зареждане на chat widgets</h3>
+
+За особено тежки скриптове комбинирай `lazyOnload` с условно зареждане след user interaction:
+
+```tsx
+'use client'
+// components/ChatWidget.tsx
+
+import Script from 'next/script'
+import { useState, useEffect } from 'react'
+
+export default function ChatWidget() {
+  const [shouldLoad, setShouldLoad] = useState(false)
+
+  useEffect(() => {
+    // Зареди едва след 3 секунди или при първа user interaction
+    const timer = setTimeout(() => setShouldLoad(true), 3000)
+    const handleInteraction = () => { setShouldLoad(true); clearTimeout(timer) }
+
+    window.addEventListener('mousemove', handleInteraction, { once: true })
+    window.addEventListener('touchstart', handleInteraction, { once: true })
+
+    return () => {
+      clearTimeout(timer)
+      window.removeEventListener('mousemove', handleInteraction)
+      window.removeEventListener('touchstart', handleInteraction)
+    }
+  }, [])
+
+  if (!shouldLoad) return null
+
+  return (
+    <Script
+      src="https://cdn.example-chat.com/widget.js"
+      strategy="lazyOnload"
+      onLoad={() => window.ChatWidget?.init({ appId: 'YOUR_APP_ID' })}
+    />
+  )
+}
+```
+
+<h2 id="react-compiler">React Compiler - автоматична мемоизация</h2>
+
+Едно от най-значимите нови неща в Next.js 16 е, че <strong>React Compiler е stable</strong>. React Compiler е инструмент, разработен от Meta, който автоматично мемоизира компонентите - елиминира ненужните ре-рендирания без ръчно `useMemo`, `useCallback` или `React.memo`.
+
+```typescript
+// next.config.ts
+import type { NextConfig } from 'next'
+
+const nextConfig: NextConfig = {
+  // React Compiler е stable в Next.js 16
+  // Не е включен по подразбиране - Vercel все още събира данни
+  reactCompiler: true,
+
+  images: {
+    qualities: [75, 85, 100],
+    maximumDiskCacheSize: 500 * 1024 * 1024,
+    formats: ['image/avif', 'image/webp'],
+  },
+}
+
+export default nextConfig
+```
+
+Кога да го включиш: ако приложението ти има сложни Client Components с много state и props, или използва тежки UI библиотеки с чести ре-рендирания. За server-heavy приложения, където по-голямата част от компонентите са Server Components, ефектът е по-малък - но вредата е нула.
+
+<Feedback
+  title="React Compiler и ръчна мемоизация"
+  description="Ако включиш React Compiler, можеш постепенно да премахваш ръчните useMemo и useCallback - компилаторът ги заменя автоматично. Не е нужно да ги премахваш веднага, но новият код не се нуждае от тях."
+/>
+
+<h2 id="use-cache">use cache - новият подход към кеширането</h2>
+
+В Next.js 15 и по-ранните версии кеширането беше имплицитно - `fetch` заявките се кешираха автоматично, освен ако изрично не ги изключеш. Това беше источник на объркване и неочаквани проблеми.
+
+В Next.js 16 кеширането е <strong>изцяло opt-in</strong> чрез директивата `'use cache'`. По подразбиране всичко е динамично - изпълнява се при всяка заявка.
+
+```tsx
+// Кеширане на ниво функция
+async function getProducts() {
+  'use cache'
+  // cacheLife и cacheTag са stable в Next.js 16 (без unstable_ prefix)
+  cacheLife('hours')              // Кешира за часове
+  cacheTag('products')            // Таг за targeted revalidation
+
+  return await db.product.findMany()
+}
+
+// Кеширане на ниво компонент
+async function ProductList() {
+  'use cache'
+  cacheLife('minutes')
+  cacheTag('products', 'featured')
+
+  const products = await getProducts()
+  return <ul>{products.map(p => <li key={p.id}>{p.name}</li>)}</ul>
+}
+
+// Revalidation по таг от Server Action
+async function updateProduct(id: string, data: Partial<Product>) {
+  'use server'
+  await db.product.update({ where: { id }, data })
+  revalidateTag('products')       // Инвалидира всичко с таг 'products'
+}
+```
+
+За performance оптимизация разликата е значима: с имплицитното кеширане от Next.js 15 беше лесно да сервираш остарели данни без да разбереш защо. С `'use cache'` знаеш точно кое е кеширано и за колко дълго.
+
+<h2 id="bundle-analyzer">Вграден Bundle Analyzer в Next.js 16.1</h2>
+
+От версия 16.1, Next.js има <strong>вграден Bundle Analyzer</strong>, работещ с Turbopack. Не е нужен отделен пакет `@next/bundle-analyzer`.
+
+```bash
+# Анализирай bundle-а директно
+npx next build --analyze
+# или
+ANALYZE=true npx next build
+```
+
+Резултатът е интерактивна treemap визуализация, показваща кои модули заемат най-много място и защо са включени в bundle-а. За разлика от стария webpack-bundle-analyzer, новият инструмент показва и server bundle-а - не само client-side JavaScript.
+
+Типичните находки след анализ: moment.js (~300KB) когато нужни са само 2-3 функции, пълен icon set когато използваш 5 икони, lodash (~70KB) вместо es-модулна алтернатива. За всеки такъв случай има по-лека опция.
+
+<h2 id="turbopack">Turbopack като default bundler</h2>
+
+От Next.js 16, <strong>Turbopack е default bundler</strong> за всички проекти - не е нужна допълнителна конфигурация. В Next.js 16.2 dev server стартира ~400% по-бързо, а рендирането е ~50% по-бързо спрямо 16.1.
+
+За производителността на крайния потребител директният ефект е при build времето, а не при runtime. Но по-бързите builds означават по-бързи deploys, по-кратко CI/CD и по-малко чакане при итерации.
+
+Ако self-hostiш и имаш специфична Webpack конфигурация, провери дали е съвместима с Turbopack - повечето популярни плъгини вече са портирани, но все още има изключения.
+
+<h2 id="procес-na-optimizaciya">Пълен процес на оптимизация стъпка по стъпка</h2>
+
+<Table
+  data={{
+    headers: [
+      { content: "Стъпка", key: "step" },
+      { content: "Действие", key: "action" },
+      { content: "Очакван ефект", key: "effect" },
+    ],
+    rows: [
+      ["1", "Замени <img> с next/image навсякъде", "LCP -30-50%, CLS близо до 0"],
+      ["2", "Замени priority с preload (Next.js 16)", "Премахва deprecation warnings"],
+      ["3", "Добави images.qualities в next.config.ts", "Задължително от Next.js 16"],
+      ["4", "Конфигурирай maximumDiskCacheSize", "Предотвратява DoS, контролира disk usage"],
+      ["5", "Добави sizes при fill изображения", "Тегло -40-60% на мобилни"],
+      ["6", "Мигрирай към next/font с cyrillic subset", "Елиминира render-blocking fonts, FOUT"],
+      ["7", "Замени <script> тагове с next/script", "TBT и INP подобрение"],
+      ["8", "Мигрирай analytics към afterInteractive", "TBT -20-40ms"],
+      ["9", "Забави chat widget с lazyOnload", "INP -30-50ms"],
+      ["10", "Включи React Compiler в next.config.ts", "Авт. мемоизация, по-малко ре-рендирания"],
+      ["11", "Мигрирай fetch кеширане към use cache", "Предсказуемо кеширане, без изненади"],
+      ["12", "Анализирай bundle с npx next build --analyze", "Идентифицирай тежки зависимости"],
+    ],
+  }}
+/>
+
+<h2 id="chesti-greshki">Чести грешки в Next.js 16</h2>
+
+<strong>Грешка 1 - Все още използваш priority вместо preload.</strong> След upgrade към Next.js 16, `priority` показва deprecation warning при всеки build. Коди мигрирането е тривиално - просто смени prop наименованието.
+
+<strong>Грешка 2 - Липсващ images.qualities в next.config.ts.</strong> В Next.js 16 build-ът хвърля грешка ако `images.qualities` липсва. Добави го преди upgrade - `qualities: [75, 85, 100]` е добро начало за повечето проекти.
+
+<strong>Грешка 3 - preload на всички изображения.</strong> Виждал съм проекти, в които разработчикът е добавил `preload` на всяко `next/image` "за сигурност". Браузърът опитва да предзареди всичко паралелно, забавя LCP изображението и увеличава общото зареждане. Използвай `preload` само за изображения above the fold.
+
+<strong>Грешка 4 - Имплицитно кеширане от Next.js 15 в Next.js 16 проект.</strong> Ако мигрираш от Next.js 15, старите `fetch` заявки без `cache` опция вече не се кешират автоматично - всичко е dynamic по подразбиране. Провери кои данни трябва да се кешират и добави `'use cache'` директивата.
+
+<strong>Грешка 5 - Inline скриптове без id в next/script.</strong> При `dangerouslySetInnerHTML` в `next/script`, задължителен `id` атрибут. Без него Next.js не може да дедуплицира скрипта при client-side navigation.
+
+<Feedback
+  title="Инструмент за проверка"
+  description="Измервай с PageSpeed Insights (pagespeed.web.dev), не само с локалния Lighthouse. PageSpeed измерва от реални мрежови условия. За реални потребителски данни - следи Core Web Vitals в Google Search Console."
+/>
+
+<h2 id="faq">Често задавани въпроси</h2>
+
+<AccordionGroup
+  items={[
+    {
+      title: "priority ли или preload в Next.js 16?",
+      content: (
+        <Text onBackground="neutral-weak">
+          В Next.js 16 използвай preload - priority е deprecated и ще бъде премахнат в бъдеща версия. Поведението е идентично: добавя link rel='preload' hint и деактивира lazy loading за изображението. Ако имаш съществуващ код с priority, той все още работи, но ще получаваш warning при build.
+        </Text>
+      )
+    },
+    {
+      title: "Трябва ли да добавя images.qualities ако upgrade-вам от Next.js 15?",
+      content: (
+        <Text onBackground="neutral-weak">
+          Да - images.qualities е задължително от Next.js 16. Без него build-ът ще се провали. Добави го преди да upgrade-неш: qualities: [75, 85, 100] е добро начало. Ако използваш quality prop на конкретни изображения с различни стойности, добави и тях в масива.
+        </Text>
+      )
+    },
+    {
+      title: "Трябва ли да включа React Compiler?",
+      content: (
+        <Text onBackground="neutral-weak">
+          Зависи от проекта. За server-heavy приложения с много Server Components ефектът е минимален. За Client Component-интензивни приложения - форми, дашборди, UI-heavy интерфейси - може да донесе измеримо подобрение на INP без никакви code промени. Не е включен по подразбиране: Vercel все още събира данни за build performance при различни типове проекти.
+        </Text>
+      )
+    },
+    {
+      title: "Как работи use cache в сравнение с ISR от Next.js 15?",
+      content: (
+        <Text onBackground="neutral-weak">
+          use cache е по-гъвкав и по-явен от ISR. С ISR задаваш revalidate на ниво route. С use cache можеш да кешираш на ниво компонент, функция или дори конкретна заявка - с различни времена за различните части на страницата. PPR (Partial Pre-Rendering) и use cache работят заедно: статичната обвивка се сервира мигновено, динамичните части се стриймват.
+        </Text>
+      )
+    },
+    {
+      title: "Колко важен е Lighthouse score за Google ранкирането?",
+      content: (
+        <Text onBackground="neutral-weak">
+          Google използва Core Web Vitals (LCP, INP, CLS) като ранкиращ сигнал, не директно Lighthouse score-а. Lighthouse е диагностичен инструмент. Фокусирай се върху реалните метрики в Search Console - те идват от Chrome User Experience Report (CrUX) и отразяват реални потребителски сесии, не симулирани условия.
+        </Text>
+      )
+    }
+  ]}
+/>
+
+<hr />
+
+<p>
+Производителността на Next.js 16 приложение не е еднократна задача - тя е навик и процес. Next.js 16.2 донесе значителни подобрения в dev experience, но основните принципи остават: <strong>next/image с preload (не priority) и задължителен qualities конфиг, next/font с правилния subset, next/script с правилната стратегия.</strong> Добавете React Compiler за автоматична мемоизация и use cache за предсказуемо кеширане - и имате основата на бързо, production-ready Next.js приложение за 2026 г. Сайт с 97 в Lighthouse, зареждащ се за 1.8 секунди на мобилно, ще надминава конкурент с теоретично 100, но бавен в реални условия - всеки път.
+</p>
