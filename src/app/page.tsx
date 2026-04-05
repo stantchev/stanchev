@@ -310,7 +310,7 @@ export default function Nachalo() {
           paddingTop="xl"
         >
           <RevealFx speed="fast">
-            <Badge title="New release" icon="rocket" arrow={false} effect={false}/>
+            <Badge title="Услуги" icon="rocket" arrow={false} effect={false}/>
               SEO + React + Next.js · София, България
             </Badge>
           </RevealFx>
