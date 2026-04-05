@@ -423,7 +423,7 @@ export default function Nachalo() {
         <Column gap="xl" align="center" paddingY="xl" fillWidth>
           <RevealFx>
             <Column gap="s" align="center">
-              <Badge variant="neutral" size="m">Услуги</Badge>
+              <Badge title="Услуги" icon="check" arrow={false} effect={false}/>
               <Heading variant="display-strong-m" align="center">
                 SEO + Next.js — Двойното Предимство
               </Heading>
@@ -492,7 +492,7 @@ export default function Nachalo() {
         <Column gap="l" align="center" paddingY="l" fillWidth>
           <RevealFx>
             <Column gap="s" align="center">
-              <Badge variant="neutral" size="m">Tech Stack</Badge>
+              <Badge title="Tech stack" icon="check" arrow={false} effect={false}/>
               <Heading variant="display-strong-m" align="center">
                 Инструментите, с Които Работя
               </Heading>
@@ -524,7 +524,7 @@ export default function Nachalo() {
         <Column gap="l" align="center" paddingY="xl" fillWidth>
           <RevealFx>
             <Column gap="s" align="center">
-              <Badge variant="brand" size="m">Доказани резултати</Badge>
+              <Badge title="Доказани резултати" icon="check" arrow={false} effect={false}/>
               <Heading variant="display-strong-m" align="center">
                 Числата Говорят Сами
               </Heading>
@@ -562,7 +562,7 @@ export default function Nachalo() {
         <Column gap="l" align="center" paddingY="xl" fillWidth>
           <RevealFx>
             <Column gap="s" align="center">
-              <Badge variant="neutral" size="m">Клиентски отзиви</Badge>
+              <Badge title="Клиентски отзиви" icon="check" arrow={false} effect={false}/>
               <Heading variant="display-strong-m" align="center">
                 Какво Казват Клиентите
               </Heading>
@@ -626,7 +626,7 @@ export default function Nachalo() {
         <Column gap="l" align="center" paddingY="l" fillWidth>
           <RevealFx>
             <Column gap="s" align="center">
-              <Badge variant="neutral" size="m">Как работим</Badge>
+              <Badge title="Как работим" icon="check" arrow={false} effect={false}/>
               <Heading variant="display-strong-m" align="center">
                 4 Стъпки до Реални Резултати
               </Heading>
@@ -699,7 +699,7 @@ export default function Nachalo() {
         <Column gap="l" align="center" paddingY="xl" fillWidth>
           <RevealFx>
             <Column gap="s" align="center">
-              <Badge variant="neutral" size="m">FAQ</Badge>
+              <Badge title="FAQ" icon="check" arrow={false} effect={false}/>
               <Heading variant="display-strong-m" align="center">
                 Често Задавани Въпроси
               </Heading>
@@ -766,7 +766,7 @@ export default function Nachalo() {
         <Column align="center" paddingY="xl" gap="l" fillWidth>
           <RevealFx>
             <Column gap="m" align="center">
-              <Badge variant="brand" size="m">Готови ли сте?</Badge>
+              <Badge title="Готови ли сте?" icon="rocket" arrow={false} effect={false}/>
               <Heading variant="display-strong-l" align="center" style={{ maxWidth: "700px" }}>
                 Нека Изградим Сайт, Който{" "}
                 <span style={{ color: "var(--brand-strong)" }}>Работи за Вас</span> 24/7
