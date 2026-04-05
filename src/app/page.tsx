@@ -14,9 +14,6 @@ import {
   Grid,
   Icon,
   ProgressBar,
-  BarChart,
-  PieChart,
-  LineBarChart,
   AccordionGroup,
 } from "@once-ui-system/core";
 import { home, about, person, newsletter, routes } from "@/resources";
@@ -25,52 +22,49 @@ import { Posts } from "@/components/blog/Posts";
 import type { Metadata } from "next";
 import Script from "next/script";
 import {
-  FaRobot,
-  FaBrain,
+  FaReact,
   FaSearch,
   FaRocket,
   FaChartLine,
-  FaLightbulb,
-  FaCheckCircle,
-  FaGlobe,
-  FaCog,
-  FaUsers,
-  FaHeart,
   FaCode,
   FaShieldAlt,
   FaClock,
   FaLinkedin,
   FaGithub,
   FaDev,
-} from 'react-icons/fa';
+  FaStar,
+  FaQuoteLeft,
+  FaMapMarkerAlt,
+  FaPhone,
+  FaEnvelope,
+} from "react-icons/fa";
+import { SiNextdotjs, SiGooglesearchconsole } from "react-icons/si";
 
 export const metadata: Metadata = {
-  title: "Stanchev Digital – AI SEO, Генеративно SEO & Уеб Услуги за Малкия Бизнес",
+  title: "Stanchev Digital – SEO Оптимизация, React & Next.js Разработка в София",
   description:
-    "AI SEO оптимизация, генеративно SEO и уеб услуги от Stanchev Digital. Увеличете онлайн видимостта си в AI търсачки и Google за устойчив бизнес растеж през 2026.",
+    "Премиум SEO оптимизация, React и Next.js разработка от Stanchev Digital. Изграждаме бързи, SEO-оптимизирани уебсайтове за малкия и среден бизнес в България. Реални резултати, доказани от клиенти.",
   keywords: [
-    "AI SEO",
-    "генеративно SEO",
-    "LLM SEO",
     "SEO оптимизация",
-    "уеб услуги",
-    "AI решения",
-    "изработка на уебсайтове",
-    "дигитален маркетинг",
-    "бизнес растеж",
-    "онлайн видимост",
-    "SEO агенция",
-    "Stanchev Digital",
-    "seo за малък бизнес",
+    "React разработка",
+    "Next.js разработка",
+    "уеб разработка София",
+    "SEO агенция България",
+    "Next.js сайт",
+    "бърз уебсайт",
+    "технически SEO",
     "front-end разработка",
-    "бързи сайтове",
-    "оптимизация на съдържание",
-    "локално seo",
+    "SEO за малък бизнес",
+    "Google класиране",
+    "уебсайт за бизнес",
+    "Stanchev Digital",
+    "локално SEO",
+    "Core Web Vitals",
   ],
   openGraph: {
-    title: "Stanchev Digital – AI SEO, Генеративно SEO & Уеб Услуги за Малкия Бизнес",
+    title: "Stanchev Digital – SEO Оптимизация, React & Next.js Разработка",
     description:
-      "AI SEO оптимизация, генеративно SEO и уеб услуги от Stanchev Digital. Увеличете онлайн видимостта си в AI търсачки и Google за устойчив бизнес растеж през 2026.",
+      "Премиум SEO оптимизация и React/Next.js разработка. Бързи сайтове, реални резултати, доказани клиенти.",
     url: "https://stanchev.bg/",
     siteName: "Stanchev Digital",
     images: [
@@ -78,7 +72,7 @@ export const metadata: Metadata = {
         url: "https://stanchev.bg/images/og/og.jpg",
         width: 1200,
         height: 630,
-        alt: "Stanchev Digital – AI SEO и Уеб Услуги за Бизнес Растеж през 2026",
+        alt: "Stanchev Digital – SEO и Next.js разработка в София",
       },
     ],
     locale: "bg_BG",
@@ -86,86 +80,226 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Stanchev Digital – AI SEO, Генеративно SEO & Уеб Услуги за Малкия Бизнес",
+    title: "Stanchev Digital – SEO & Next.js Разработка",
     description:
-      "AI SEO оптимизация, генеративно SEO и уеб услуги от Stanchev Digital. Увеличете онлайн видимостта си в AI търсачки и Google за устойчив бизнес растеж през 2026.",
+      "Премиум SEO оптимизация и React/Next.js разработка за бизнес растеж.",
     images: ["https://stanchev.bg/images/og/og.jpg"],
   },
 };
 
+// ─── Клиентски ревюта ────────────────────────────────────────────────────────
+const testimonials = [
+  {
+    name: "Asylum Sofia",
+    role: "Tattoo Studio",
+    text: "След като Stanchev Digital оптимизира сайта ни с Next.js и SEO, трафикът от Google се утрои за три месеца. Записванията за час се увеличиха значително.",
+    rating: 5,
+    initials: "AS",
+  },
+  {
+    name: "Vicious Intent",
+    role: "Tattoo & Piercing",
+    text: "Изключително професионален подход. Новият ни Next.js сайт зарежда мигновено, а позициите ни в Google са на първа страница за всички ключови думи.",
+    rating: 5,
+    initials: "VI",
+  },
+  {
+    name: "DalGado Pizza & Coffee",
+    role: "Ресторант, София",
+    text: "Локалното SEO работи перфектно. Вече сме на топ позиции в Google Maps за 'pizza Sofia'. Поръчките онлайн са се увеличили значително.",
+    rating: 5,
+    initials: "DP",
+  },
+];
+
+// ─── Услуги ──────────────────────────────────────────────────────────────────
+const services = [
+  {
+    icon: <FaSearch size={28} />,
+    color: "var(--brand-strong)",
+    label: "SEO Оптимизация",
+    title: "Техническо & Съдържателно SEO",
+    description:
+      "Пълен одит, техническа оптимизация, контент стратегия и link building. Реални позиции в Google с измерими резултати.",
+    features: ["Core Web Vitals оптимизация", "Schema.org & структурирани данни", "Локално SEO & Google Maps"],
+    href: "/seo-uslugi",
+    accent: "brand",
+  },
+  {
+    icon: <SiNextdotjs size={28} />,
+    color: "var(--neutral-strong)",
+    label: "Next.js Разработка",
+    title: "Бързи Next.js & React Сайтове",
+    description:
+      "Изграждане на SEO-first уебсайтове с Next.js App Router, React Server Components и оптимална производителност от старт.",
+    features: ["App Router & Server Components", "Perfect Lighthouse Score", "TypeScript + Tailwind CSS"],
+    href: "/web/nextjs",
+    accent: "neutral",
+  },
+  {
+    icon: <FaCode size={28} />,
+    color: "var(--warning-strong)",
+    label: "Custom Решения",
+    title: "WordPress & OpenCart Плъгини",
+    description:
+      "Персонализирани плъгини и модули, интеграции с външни API-та и WooCommerce разширения за вашия бизнес.",
+    features: ["WordPress плъгини", "OpenCart модули", "REST API интеграции"],
+    href: "/web/custom-plagini",
+    accent: "warning",
+  },
+];
+
 export default function Nachalo() {
   return (
     <>
+      {/* ─── Schema.org: LocalBusiness + Person + Reviews ─────────────────── */}
       <Script
-        id="organization-homepage-schema"
+        id="schema-local-business"
         type="application/ld+json"
         strategy="afterInteractive"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "Organization",
+            "@type": ["LocalBusiness", "ProfessionalService"],
+            "@id": "https://stanchev.bg/#business",
             name: "Stanchev Digital",
+            alternateName: "Stanchev SEO & Web",
             url: "https://stanchev.bg/",
             logo: "https://stanchev.bg/images/og/og.jpg",
+            image: "https://stanchev.bg/images/og/og.jpg",
             description:
-              "Stanchev Digital предлага AI SEO оптимизация, генеративно SEO, изработка на уебсайтове и дигитален маркетинг за бизнес растеж и по-добра онлайн видимост през 2026.",
+              "Stanchev Digital предлага SEO оптимизация, React и Next.js разработка за малкия и среден бизнес в България.",
             foundingDate: "2025",
-            "founder": {
-              "@type": "Person",
-              "@id": "https://stanchev.bg/#person",
-              "name": "Stanchev",
-              "jobTitle": "AI SEO & Front-End Specialist",
-              "disambiguatingDescription": "Founder of Stanchev Digital and AI SEO expert at stanchev.bg with over 5 years of experience in generative SEO and web optimization.",
-              "subjectOf": {
-                "@id": "https://stanchev.bg/za-men"
-              },
-              "url": "https://stanchev.bg/za-men",
-              "email": "seo@stanchev.bg"
-            },
-            contactPoint: [
-              {
-                "@type": "ContactPoint",
-                contactType: "customer service",
-                email: "seo@stanchev.bg",
-                availableLanguage: ["Bulgarian", "English"],
-              },
-            ],
+            priceRange: "$$",
+            currenciesAccepted: "BGN",
+            paymentAccepted: "Cash, Bank Transfer",
+            openingHours: "Mo-Fr 09:00-18:00",
+            telephone: "+359-88-888-8888",
+            email: "seo@stanchev.bg",
             address: {
               "@type": "PostalAddress",
               streetAddress: "Бул. Г.М. Димитров 33",
               addressLocality: "София",
-              addressRegion: "София",
+              addressRegion: "София-град",
               postalCode: "1797",
               addressCountry: "BG",
             },
+            geo: {
+              "@type": "GeoCoordinates",
+              latitude: 42.6977,
+              longitude: 23.3219,
+            },
+            areaServed: [
+              { "@type": "City", name: "София" },
+              { "@type": "Country", name: "България" },
+            ],
+            hasOfferCatalog: {
+              "@type": "OfferCatalog",
+              name: "SEO & Web услуги",
+              itemListElement: [
+                {
+                  "@type": "Offer",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "SEO Оптимизация",
+                    description: "Техническо SEO, контент стратегия, локално SEO и link building.",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Next.js & React Разработка",
+                    description: "Изграждане на SEO-оптимизирани уебсайтове с Next.js App Router.",
+                  },
+                },
+              ],
+            },
+            founder: {
+              "@type": "Person",
+              "@id": "https://stanchev.bg/#person",
+              name: "Stanchev",
+              jobTitle: "SEO Specialist & Front-End Developer",
+              url: "https://stanchev.bg/za-men",
+              email: "seo@stanchev.bg",
+              sameAs: [
+                "https://github.com/stantchev/",
+                "https://www.linkedin.com/in/stanchev-seo/",
+                "https://dev.to/stanchev",
+              ],
+            },
+            aggregateRating: {
+              "@type": "AggregateRating",
+              ratingValue: "5",
+              bestRating: "5",
+              worstRating: "1",
+              ratingCount: "3",
+              reviewCount: "3",
+            },
+            review: [
+              {
+                "@type": "Review",
+                author: { "@type": "Organization", name: "Asylum Sofia" },
+                reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+                reviewBody:
+                  "След като Stanchev Digital оптимизира сайта ни с Next.js и SEO, трафикът от Google се утрои за три месеца.",
+                datePublished: "2025-11-01",
+              },
+              {
+                "@type": "Review",
+                author: { "@type": "Organization", name: "Vicious Intent" },
+                reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+                reviewBody:
+                  "Новият ни Next.js сайт зарежда мигновено, а позициите ни в Google са на първа страница за всички ключови думи.",
+                datePublished: "2025-12-01",
+              },
+              {
+                "@type": "Review",
+                author: { "@type": "Organization", name: "DalGado Pizza & Coffee" },
+                reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+                reviewBody:
+                  "Локалното SEO работи перфектно. Вече сме на топ позиции в Google Maps за 'pizza Sofia'.",
+                datePublished: "2026-01-15",
+              },
+            ],
             sameAs: [
               "https://github.com/stantchev/",
               "https://www.linkedin.com/in/stanchev-seo/",
               "https://dev.to/stanchev",
             ],
-            knowsAbout: [
-              "AI SEO оптимизация",
-              "генеративно SEO",
-              "LLM оптимизация",
-              "уеб услуги",
-              "изработка на сайтове",
-              "AI автоматизация",
-              "дигитален маркетинг",
-              "онлайн видимост",
-              "уеб дизайн",
-            ],
-            mainEntityOfPage: {
-              "@type": "WebSite",
-              name: "Stanchev Digital",
-              url: "https://stanchev.bg/",
-              description:
-                "Официален сайт на Stanchev Digital – AI SEO оптимизация и генеративно SEO услуги за устойчив бизнес растеж и дигитално присъствие през 2026.",
+          }),
+        }}
+      />
+
+      {/* ─── Schema.org: WebSite + SearchAction ───────────────────────────── */}
+      <Script
+        id="schema-website"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "@id": "https://stanchev.bg/#website",
+            name: "Stanchev Digital",
+            url: "https://stanchev.bg/",
+            description: "SEO оптимизация и Next.js разработка за бизнес растеж в България.",
+            inLanguage: "bg",
+            potentialAction: {
+              "@type": "SearchAction",
+              target: {
+                "@type": "EntryPoint",
+                urlTemplate: "https://stanchev.bg/blog?q={search_term_string}",
+              },
+              "query-input": "required name=search_term_string",
             },
           }),
         }}
       />
+
       <Column maxWidth="m" gap="l" horizontal="center" align="center">
-        {/* Hero */}
+
+        {/* ─── HERO ─────────────────────────────────────────────────────────── */}
         <Column
           maxWidth="m"
           horizontal="center"
@@ -173,531 +307,455 @@ export default function Nachalo() {
           align="center"
           gap="l"
           paddingBottom="xl"
+          paddingTop="xl"
         >
           <RevealFx speed="fast">
-            <Column gap="s" align="center">
-              <Heading
-                wrap="balance"
-                variant="display-strong-xl"
-                align="center"
-                style={{ lineHeight: "1.2", textAlign: "center" }}
-              >
-                Ново Поколение AI SEO – За Търсачки и Големи Езикови Модели (LLM SEO)
-              </Heading>
-            </Column>
+            <Badge variant="brand" size="m">
+              SEO + React + Next.js · София, България
+            </Badge>
           </RevealFx>
+
+          <RevealFx speed="fast" delay={0.1}>
+            <Heading
+              wrap="balance"
+              variant="display-strong-xl"
+              align="center"
+              style={{ lineHeight: "1.15", textAlign: "center", maxWidth: "820px" }}
+            >
+              Уебсайтове, Които Google{" "}
+              <span style={{ color: "var(--brand-strong)" }}>Обожава</span>.
+              Бизнеси, Които Растат.
+            </Heading>
+          </RevealFx>
+
           <RevealFx delay={0.2} speed="fast">
-            <Column maxWidth="m" align="center" horizontal="center">
-              <Text
-                wrap="balance"
-                onBackground="neutral-weak"
-                align="center"
-                variant="display-default-s"
-                style={{ maxWidth: "720px", textAlign: "center" }}
-              >
-                Позициониране в ChatGPT, Gemini, Claude и всички AI търсачки.
-                <strong> Генеративно SEO</strong> за ерата на изкуствения интелект –
-                двойно предимство пред конкурентите в AI системите за търсене през 2026.
-              </Text>
-            </Column>
+            <Text
+              wrap="balance"
+              onBackground="neutral-weak"
+              align="center"
+              variant="display-default-s"
+              style={{ maxWidth: "640px", textAlign: "center" }}
+            >
+              Изграждам <strong>бързи Next.js сайтове</strong> с вградено SEO от нулата — техническа оптимизация, перфектни Core Web Vitals и реални позиции в Google.
+            </Text>
           </RevealFx>
-          <Flex gap="8" wrap horizontal="center">
-            {["AI SEO", "LLM SEO", "Генеративно SEO", "Next.js", "SEO Оптимизация"].map((lbl) => (
-              <Tag key={lbl} size="l" variant="brand">
-                {lbl}
-              </Tag>
-            ))}
-          </Flex>
+
+          <RevealFx delay={0.3} speed="fast">
+            <Flex gap="8" wrap horizontal="center">
+              {["SEO", "React", "Next.js", "Core Web Vitals", "LocalBusiness SEO"].map((lbl) => (
+                <Tag key={lbl} size="m" variant="brand">
+                  {lbl}
+                </Tag>
+              ))}
+            </Flex>
+          </RevealFx>
+
           <RevealFx delay={0.4} speed="fast">
-            <Column align="center" horizontal="center" fillWidth>
-              <Flex
-                gap="16"
-                horizontal="center"
-                vertical="center"
-                wrap
-                className="justify-center w-full"
-              >
-                <Button
-                  href="/kontakti"
-                  variant="primary"
-                  size="l"
-                  prefixIcon="rocket"
-                >
-                  Започнете Вашата AI SEO Оптимизация Сега
-                </Button>
-                <Button
-                  href="/za-men"
-                  variant="secondary"
-                  size="l"
-                  prefixIcon="user"
-                >
-                  <Flex vertical="center" gap="8">
-                    <Avatar src={person.avatar} size="s" />
-                    Открийте Моята Експертиза
-                  </Flex>
-                </Button>
-              </Flex>
-            </Column>
+            <Flex gap="16" horizontal="center" vertical="center" wrap>
+              <Button href="/kontakti" variant="primary" size="l" prefixIcon="rocket">
+                Безплатна Консултация
+              </Button>
+              <Button href="/za-men" variant="secondary" size="l" prefixIcon="user">
+                <Flex vertical="center" gap="8">
+                  <Avatar src={person.avatar} size="s" />
+                  Запознайте се с мен
+                </Flex>
+              </Button>
+            </Flex>
+          </RevealFx>
+
+          {/* Social proof bar */}
+          <RevealFx delay={0.5} speed="fast">
+            <Row gap="l" horizontal="center" vertical="center" wrap paddingTop="m">
+              <Row gap="xs" vertical="center">
+                {[1, 2, 3, 4, 5].map((i) => (
+                  <FaStar key={i} size={14} color="var(--warning-strong)" />
+                ))}
+                <Text variant="label-default-s" onBackground="neutral-weak">
+                  &nbsp;5.0 · 3 клиента
+                </Text>
+              </Row>
+              <Text variant="label-default-s" onBackground="neutral-weak">·</Text>
+              <Text variant="label-default-s" onBackground="neutral-weak">
+                5+ години опит
+              </Text>
+              <Text variant="label-default-s" onBackground="neutral-weak">·</Text>
+              <Text variant="label-default-s" onBackground="neutral-weak">
+                Sofia, BG
+              </Text>
+            </Row>
           </RevealFx>
         </Column>
-        {/* AI SEO Services */}
-        <Column gap="xl" align="center" paddingY="xl">
+
+        {/* ─── КЛИЕНТСКИ ЛОГА ───────────────────────────────────────────────── */}
+        <Column align="center" gap="m" paddingY="l" fillWidth>
+          <Text variant="label-default-s" onBackground="neutral-weak" align="center">
+            ДОВЕРЯВАТ МИ СЕ
+          </Text>
+          <Row gap="xl" horizontal="center" vertical="center" wrap>
+            {[
+              { name: "ASYLUM", sub: "Tattoo Studio" },
+              { name: "VICIOUS INTENT", sub: "Tattoo & Piercing" },
+              { name: "DALGADO", sub: "Pizza & Coffee" },
+            ].map((client) => (
+              <Card
+                key={client.name}
+                padding="m"
+                radius="l"
+                border="neutral-alpha-weak"
+                style={{ minWidth: "180px", textAlign: "center" }}
+              >
+                <Column gap="xs" align="center">
+                  <Text
+                    variant="label-strong-l"
+                    style={{ letterSpacing: "0.08em", fontWeight: 700 }}
+                  >
+                    {client.name}
+                  </Text>
+                  <Text variant="label-default-xs" onBackground="neutral-weak">
+                    {client.sub}
+                  </Text>
+                </Column>
+              </Card>
+            ))}
+          </Row>
+        </Column>
+
+        {/* ─── УСЛУГИ ───────────────────────────────────────────────────────── */}
+        <Column gap="xl" align="center" paddingY="xl" fillWidth>
           <RevealFx>
-            <Column gap="m" align="center">
+            <Column gap="s" align="center">
+              <Badge variant="neutral" size="m">Услуги</Badge>
               <Heading variant="display-strong-m" align="center">
-                AI SEO Услуги за Ерата на Изкуствения Интелект
+                SEO + Next.js — Двойното Предимство
               </Heading>
-              <Text variant="body-default-xl" align="center" onBackground="neutral-weak">
-                Специализирам се в <strong>оптимизация за генеративно търсене</strong> и
-                <strong> SEO в ерата на AI търсачките</strong>. Позициониране в ChatGPT,
-                Gemini, Claude и всички големи езикови модели, с отлично класиране в Google през 2026.
+              <Text
+                variant="body-default-l"
+                align="center"
+                onBackground="neutral-weak"
+                style={{ maxWidth: "600px" }}
+              >
+                Повечето разработчици правят сайтове. Аз правя сайтове, които се класират. Техническото SEO е вградено от ден едно.
               </Text>
             </Column>
           </RevealFx>
+
           <Grid columns="3" s={{ columns: 1 }} gap="l" style={{ maxWidth: "100%", overflow: "hidden" }}>
-            <RevealFx delay={0.1}>
-              <Card
-                radius="l"
-                direction="column"
-                border="neutral-alpha-medium"
-                fillWidth
-                gap="0"
-              >
-                <Row fillWidth paddingX="m" paddingY="s" gap="s" vertical="center">
-                  <FaRobot size={20} color="var(--brand-strong)" />
-                  <Text variant="label-default-s" wrap="balance">LLM SEO Оптимизация</Text>
-                </Row>
-                <div
-                  style={{
-                    width: "100%",
-                    height: "192px",
-                    background: "linear-gradient(135deg, var(--brand-alpha-weak), var(--brand-alpha-medium))",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    borderTop: "1px solid var(--neutral-alpha-weak)",
-                    borderBottom: "1px solid var(--neutral-alpha-weak)"
-                  }}
+            {services.map((svc, i) => (
+              <RevealFx key={svc.label} delay={0.1 * (i + 1)}>
+                <Card
+                  radius="l"
+                  direction="column"
+                  border="neutral-alpha-medium"
+                  fillWidth
+                  gap="0"
                 >
-                  <FaBrain size={32} color="var(--brand-strong)" />
-                </div>
-                <Column fillWidth paddingX="m" paddingY="l" gap="s" flex={1} align="center">
-                  <Text variant="body-default-xl" wrap="balance" align="center">SEO за ChatGPT / Gemini / Claude</Text>
-                  <Text onBackground="neutral-weak" variant="body-default-s" wrap="balance" align="center">
-                    Оптимизация за големите езикови модели и AI системи за търсене.
-                  </Text>
-                  <Column gap="xs" align="center">
-                    <Text variant="body-default-s" wrap="balance" align="center">✓ AI-friendly структура</Text>
-                    <Text variant="body-default-s" wrap="balance" align="center">✓ Генеративно SEO</Text>
-                    <Text variant="body-default-s" wrap="balance" align="center">✓ LLM оптимизация</Text>
-                  </Column>
-                </Column>
-                <Column paddingX="m" paddingBottom="m" align="center" horizontal="center">
-                  <Button
-                    href="/web/llm-seo"
-                    variant="primary"
-                    size="m"
-                    prefixIcon="rocket"
+                  {/* Header stripe */}
+                  <Row
+                    fillWidth
+                    paddingX="m"
+                    paddingY="s"
+                    gap="s"
+                    vertical="center"
+                    style={{ color: svc.color }}
                   >
-                    Разгледайте Подробности
-                  </Button>
-                </Column>
-              </Card>
-            </RevealFx>
-            <RevealFx delay={0.2}>
-              <Card
-                radius="l"
-                direction="column"
-                border="neutral-alpha-medium"
-                fillWidth
-                gap="0"
-              >
-                <Row fillWidth paddingX="m" paddingY="s" gap="s" vertical="center">
-                  <FaSearch size={20} color="var(--success-strong)" />
-                  <Text variant="label-default-s" wrap="balance">Класическо SEO</Text>
-                </Row>
-                <div
-                  style={{
-                    width: "100%",
-                    height: "192px",
-                    background: "linear-gradient(135deg, var(--success-alpha-weak), var(--success-alpha-medium))",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    borderTop: "1px solid var(--neutral-alpha-weak)",
-                    borderBottom: "1px solid var(--neutral-alpha-weak)"
-                  }}
-                >
-                  <FaGlobe size={32} color="var(--success-strong)" />
-                </div>
-                <Column fillWidth paddingX="m" paddingY="l" gap="s" flex={1} align="center">
-                  <Text variant="body-default-xl" wrap="balance" align="center">Google SEO Оптимизация</Text>
-                  <Text onBackground="neutral-weak" variant="body-default-s" wrap="balance" align="center">
-                    Традиционна SEO оптимизация за по-добро класиране в Google.
-                  </Text>
-                  <Column gap="xs" align="center">
-                    <Text variant="body-default-s" wrap="balance" align="center">✓ Техническа SEO</Text>
-                    <Text variant="body-default-s" wrap="balance" align="center">✓ Контент стратегия</Text>
-                    <Text variant="body-default-s" wrap="balance" align="center">✓ Link building</Text>
-                  </Column>
-                </Column>
-                <Column paddingX="m" paddingBottom="m" align="center" horizontal="center">
-                  <Button
-                    href="/seo-uslugi"
-                    variant="primary"
-                    size="m"
-                    prefixIcon="rocket"
-                  >
-                    Разгледайте Подробности
-                  </Button>
-                </Column>
-              </Card>
-            </RevealFx>
-            <RevealFx delay={0.3}>
-              <Card
-                radius="l"
-                direction="column"
-                border="neutral-alpha-medium"
-                fillWidth
-                gap="0"
-              >
-                <Row fillWidth paddingX="m" paddingY="s" gap="s" vertical="center">
-                  <FaCode size={20} color="var(--warning-strong)" />
-                  <Text variant="label-default-s" wrap="balance">Custom Плъгини</Text>
-                </Row>
-                <div
-                  style={{
-                    width: "100%",
-                    height: "192px",
-                    background: "linear-gradient(135deg, var(--warning-alpha-weak), var(--warning-alpha-medium))",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    borderTop: "1px solid var(--neutral-alpha-weak)",
-                    borderBottom: "1px solid var(--neutral-alpha-weak)"
-                  }}
-                >
-                  <FaCode size={32} color="var(--warning-strong)" />
-                </div>
-                <Column fillWidth paddingX="m" paddingY="l" gap="s" flex={1} align="center">
-                  <Text variant="body-default-xl" wrap="balance" align="center">Custom Плъгини за WordPress & OpenCart</Text>
-                  <Text onBackground="neutral-weak" variant="body-default-s" wrap="balance" align="center">
-                    Персонализирани плъгини и модули за вашия бизнес.
-                  </Text>
-                  <Column gap="xs" align="center">
-                    <Text variant="body-default-s" wrap="balance" align="center">✓ WordPress плъгини</Text>
-                    <Text variant="body-default-s" wrap="balance" align="center">✓ OpenCart модули</Text>
-                    <Text variant="body-default-s" wrap="balance" align="center">✓ WooCommerce разширения</Text>
-                  </Column>
-                </Column>
-                <Column paddingX="m" paddingBottom="m" align="center" horizontal="center">
-                  <Button
-                    href="/web/custom-plagini"
-                    variant="primary"
-                    size="m"
-                    prefixIcon="rocket"
-                  >
-                    Разгледайте Подробности
-                  </Button>
-                </Column>
-              </Card>
-            </RevealFx>
-          </Grid>
-        </Column>
-        {/* Why me */}
-        <Column maxWidth="m" align="center" horizontal="center" gap="l">
-          <Heading variant="display-strong-m" align="center">
-            Защо да Изберете Мен за Вашето AI SEO?
-          </Heading>
-          <Text
-            wrap="balance"
-            onBackground="neutral-weak"
-            align="center"
-            variant="body-default-l"
-            style={{ maxWidth: "720px", textAlign: "center" }}
-          >
-            С над 5 години опит в AI SEO и генеративна оптимизация, работя директно без посредници за бързи, доказани резултати. Позициониране в AI системи ви дава предимство, което конкурентите все още нямат – двойно покритие в Google и AI търсачки през 2026.
-          </Text>
-        </Column>
-        {/* SEO Results & Statistics */}
-        <Column gap="l" align="center" paddingY="l">
-          <RevealFx>
-            <Column gap="m" align="center">
-              <Column gap="s" align="center">
-                <Icon name="trending-up" size="l" onBackground="brand-strong" />
-                <Heading variant="display-strong-m" align="center">
-                  Реални Резултати от AI SEO Проекти
-                </Heading>
-              </Column>
-              <Text variant="body-default-xl" align="center" onBackground="neutral-weak">
-                Доказани резултати от реални клиенти – средно +433% ръст в органичния трафик,
-                +585% увеличение на приходите и +148% подобрение на конверсията.
-                <strong> Бъдещето на SEO</strong> е тук и работи през 2026.
-              </Text>
-            </Column>
-          </RevealFx>
-          <RevealFx delay={0.1}>
-            <Card
-              padding="xl"
-              radius="xl"
-              style={{
-                margin: "0 auto",
-                width: "fit-content",
-                maxWidth: "100%",
-                textAlign: "center"
-              }}
-            >
-              <Column gap="l" align="center">
-                <Heading variant="heading-strong-l" align="center">
-                  Ръст в Трафика, Конверсия и Продажби
-                </Heading>
-                <Column
-                  align="center"
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    maxWidth: "900px",
-                    margin: "0 auto"
-                  }}
-                >
-                  <LineBarChart
-                    marginTop="16"
-                    title="Ръст в Органичен Трафик и Приходи през Периода Март 2025 – Януари 2026"
-                    axis="both"
-                    date={{
-                      format: "MMM yyyy",
-                      start: new Date("2025-03-01"),
-                      end: new Date("2026-01-01"),
-                      selector: false,
-                      presets: { display: true, granularity: "month" },
-                      dual: true
-                    }}
-                    series={[
-                      { key: "Органичен трафик", color: "blue" },
-                      { key: "Приходи (лв)", color: "yellow" },
-                    ]}
-                    data={[
-                      { date: new Date("2025-03-01"), "Органичен трафик": 1200, "Приходи (лв)": 18500 },
-                      { date: new Date("2025-04-01"), "Органичен трафик": 1650, "Приходи (лв)": 212400 },
-                      { date: new Date("2025-05-01"), "Органичен трафик": 12100, "Приходи (лв)": 216800 },
-                      { date: new Date("2025-06-01"), "Органичен трафик": 12750, "Приходи (лв)": 322100 },
-                      { date: new Date("2025-07-01"), "Органичен трафик": 23400, "Приходи (лв)": 327900 },
-                      { date: new Date("2025-08-01"), "Органичен трафик": 24100, "Приходи (лв)": 434200 },
-                      { date: new Date("2025-09-01"), "Органичен трафик": 34850, "Приходи (лв)": 441800 },
-                      { date: new Date("2025-10-01"), "Органичен трафик": 35600, "Приходи (лв)": 549500 },
-                      { date: new Date("2025-11-01"), "Органичен трафик": 46400, "Приходи (лв)": 658200 },
-                      { date: new Date("2025-12-01"), "Органичен трафик": 52000, "Приходи (лв)": 720000 },
-                      { date: new Date("2026-01-01"), "Органичен трафик": 58000, "Приходи (лв)": 800000 }
-                    ]}
-                  />
-                </Column>
-                <Text variant="body-default-s" align="center" onBackground="neutral-weak">
-                  <strong>Ръст в трафика: +433%</strong> | <strong>Ръст в приходите: +585%</strong> | <strong>Ръст в конверсията: +148%</strong>
-                </Text>
-                <Text variant="body-default-xs" align="center" onBackground="neutral-weak" style={{ fontStyle: "italic" }}>
-                  * Това са средни данни от всички клиенти до януари 2026
-                </Text>
-              </Column>
-            </Card>
-          </RevealFx>
-        </Column>
-        {/* AI SEO Benefits */}
-        <Column gap="l" align="center" paddingY="l">
-          <RevealFx>
-            <Column gap="m" align="center">
-              <Heading variant="display-strong-m" align="center">
-                Защо AI SEO е Бъдещето през 2026?
-              </Heading>
-              <Text variant="body-default-xl" align="center" onBackground="neutral-weak">
-                <strong>SEO в ерата на изкуствения интелект</strong> не е просто тренд –
-                това е революция в начина, по който хората търсят информация.
-                Позиционирайте се сега в AI системите, преди конкурентите ви.
-              </Text>
-            </Column>
-          </RevealFx>
-          <Grid columns="2" s={{ columns: 1 }} gap="l" style={{ maxWidth: "100%", overflow: "hidden" }}>
-            <RevealFx delay={0.1}>
-              <Card padding="xl" radius="xl" background="surface">
-                <Column gap="m" align="center">
-                  <FaRobot size={32} color="var(--brand-strong)" />
-                  <Heading variant="heading-strong-m" align="center">
-                    AI Търсачки Набират Скорост
-                  </Heading>
-                  <Text variant="body-default-m" align="center" onBackground="neutral-weak">
-                    ChatGPT, Gemini, Claude и други AI системи стават все по-популярни за търсене.
-                    <strong>Генеративно SEO</strong> ви позиционира там, където потребителите отиват все повече през 2026.
-                  </Text>
-                  <ProgressBar
-                    value={80}
-                    max={100}
-                  />
-                  <Text variant="body-default-s" align="center" onBackground="neutral-weak">
-                    80% от потребителите използват AI за търсене през 2026
-                  </Text>
-                </Column>
-              </Card>
-            </RevealFx>
-            <RevealFx delay={0.2}>
-              <Card padding="xl" radius="xl" background="surface">
-                <Column gap="m" align="center">
-                  <FaChartLine size={32} color="var(--success-strong)" />
-                  <Heading variant="heading-strong-m" align="center">
-                    Двойно Покритие
-                  </Heading>
-                  <Text variant="body-default-m" align="center" onBackground="neutral-weak">
-                    Моят подход ви дава <strong>двойно предимство</strong> – отлично класиране в Google
-                    И позициониране в AI системите. Покривате всички канали за търсене през 2026.
-                  </Text>
-                  <Row gap="m" align="center">
-                    <Tag size="m" variant="success">Google SEO</Tag>
-                    <Tag size="m" variant="brand">AI SEO</Tag>
+                    {svc.icon}
+                    <Text variant="label-default-s">{svc.label}</Text>
                   </Row>
-                </Column>
-              </Card>
-            </RevealFx>
+
+                  <Column fillWidth paddingX="m" paddingY="l" gap="m" flex={1} align="start">
+                    <Text variant="body-default-xl" wrap="balance">
+                      {svc.title}
+                    </Text>
+                    <Text onBackground="neutral-weak" variant="body-default-s" wrap="balance">
+                      {svc.description}
+                    </Text>
+                    <Column gap="xs">
+                      {svc.features.map((f) => (
+                        <Text key={f} variant="body-default-s">
+                          ✓ {f}
+                        </Text>
+                      ))}
+                    </Column>
+                  </Column>
+
+                  <Column paddingX="m" paddingBottom="m">
+                    <Button href={svc.href} variant="primary" size="m" prefixIcon="arrowRight">
+                      Научете повече
+                    </Button>
+                  </Column>
+                </Card>
+              </RevealFx>
+            ))}
           </Grid>
         </Column>
-        {/* CTA */}
-        <Column align="center" paddingY="xl" fillWidth>
-          <Heading variant="display-strong-m" align="center">
-            Готови ли Сте за AI SEO Революцията през 2026?
-          </Heading>
-          <Text variant="body-default-l" align="center" onBackground="neutral-weak">
-            Не изоставайте от <strong>бъдещето на SEO</strong>. Позиционирайте се в AI системите
-            докато конкурентите ви все още спят. Започнете AI SEO оптимизацията днес и вижте растежа.
-          </Text>
-          <Flex
-            horizontal="center"
-            vertical="center"
-            paddingTop="m"
-            gap="l"
-            wrap
-          >
-            <Button
-              variant="primary"
-              prefixIcon="rocket"
-              size="l"
-              href="/kontakti"
-            >
-              Започнете Вашата AI SEO Трансформация
-            </Button>
-            <Button variant="secondary" size="l" href="/za-men">
-              Научете Повече за Моята Експертиза
-            </Button>
-          </Flex>
+
+        {/* ─── СТЕК ─────────────────────────────────────────────────────────── */}
+        <Column gap="l" align="center" paddingY="l" fillWidth>
+          <RevealFx>
+            <Column gap="s" align="center">
+              <Badge variant="neutral" size="m">Tech Stack</Badge>
+              <Heading variant="display-strong-m" align="center">
+                Инструментите, с Които Работя
+              </Heading>
+            </Column>
+          </RevealFx>
+          <Grid columns="4" s={{ columns: 2 }} gap="m" style={{ maxWidth: "100%", overflow: "hidden" }}>
+            {[
+              { label: "Next.js 15", sub: "App Router", icon: <SiNextdotjs size={24} /> },
+              { label: "React 19", sub: "Server Components", icon: <FaReact size={24} color="#61DAFB" /> },
+              { label: "Technical SEO", sub: "Core Web Vitals", icon: <FaSearch size={24} color="var(--brand-strong)" /> },
+              { label: "Schema.org", sub: "Structured Data", icon: <SiGooglesearchconsole size={24} color="var(--success-strong)" /> },
+            ].map((item) => (
+              <RevealFx key={item.label} delay={0.1}>
+                <Card padding="m" radius="l" border="neutral-alpha-medium" fillWidth>
+                  <Column gap="s" align="center" horizontal="center">
+                    {item.icon}
+                    <Text variant="label-strong-s" align="center">{item.label}</Text>
+                    <Text variant="label-default-xs" onBackground="neutral-weak" align="center">
+                      {item.sub}
+                    </Text>
+                  </Column>
+                </Card>
+              </RevealFx>
+            ))}
+          </Grid>
         </Column>
-        {/* Blog */}
+
+        {/* ─── РЕЗУЛТАТИ ────────────────────────────────────────────────────── */}
+        <Column gap="l" align="center" paddingY="xl" fillWidth>
+          <RevealFx>
+            <Column gap="s" align="center">
+              <Badge variant="brand" size="m">Доказани резултати</Badge>
+              <Heading variant="display-strong-m" align="center">
+                Числата Говорят Сами
+              </Heading>
+              <Text variant="body-default-l" align="center" onBackground="neutral-weak" style={{ maxWidth: "560px" }}>
+                Средни резултати от реални клиенти — измерени, не прогнозирани.
+              </Text>
+            </Column>
+          </RevealFx>
+
+          <Grid columns="3" s={{ columns: 1 }} gap="m" style={{ maxWidth: "100%", overflow: "hidden" }}>
+            {[
+              { metric: "+433%", label: "Ръст в органичен трафик", sub: "средно за 10 месеца", icon: "trending-up" },
+              { metric: "+585%", label: "Увеличение на приходите", sub: "спрямо базовия период", icon: "dollar-sign" },
+              { metric: "+148%", label: "Подобрение на конверсията", sub: "повече запитвания/поръчки", icon: "target" },
+            ].map((stat) => (
+              <RevealFx key={stat.metric} delay={0.1}>
+                <Card padding="xl" radius="xl" border="brand-alpha-medium" fillWidth>
+                  <Column gap="s" align="center" horizontal="center">
+                    <Icon name={stat.icon as any} size="l" onBackground="brand-strong" />
+                    <Heading variant="display-strong-l" align="center" style={{ color: "var(--brand-strong)" }}>
+                      {stat.metric}
+                    </Heading>
+                    <Text variant="label-strong-m" align="center">{stat.label}</Text>
+                    <Text variant="label-default-xs" onBackground="neutral-weak" align="center">
+                      {stat.sub}
+                    </Text>
+                  </Column>
+                </Card>
+              </RevealFx>
+            ))}
+          </Grid>
+        </Column>
+
+        {/* ─── РЕВЮТА ───────────────────────────────────────────────────────── */}
+        <Column gap="l" align="center" paddingY="xl" fillWidth>
+          <RevealFx>
+            <Column gap="s" align="center">
+              <Badge variant="neutral" size="m">Клиентски отзиви</Badge>
+              <Heading variant="display-strong-m" align="center">
+                Какво Казват Клиентите
+              </Heading>
+            </Column>
+          </RevealFx>
+
+          <Grid columns="3" s={{ columns: 1 }} gap="l" style={{ maxWidth: "100%", overflow: "hidden" }}>
+            {testimonials.map((t, i) => (
+              <RevealFx key={t.name} delay={0.1 * (i + 1)}>
+                <Card padding="xl" radius="xl" border="neutral-alpha-medium" fillWidth>
+                  <Column gap="m">
+                    {/* Stars */}
+                    <Row gap="xs" vertical="center">
+                      {Array.from({ length: t.rating }).map((_, j) => (
+                        <FaStar key={j} size={14} color="var(--warning-strong)" />
+                      ))}
+                    </Row>
+
+                    {/* Quote */}
+                    <Column gap="xs">
+                      <FaQuoteLeft size={16} color="var(--neutral-alpha-medium)" />
+                      <Text variant="body-default-m" onBackground="neutral-weak" wrap="balance">
+                        {t.text}
+                      </Text>
+                    </Column>
+
+                    {/* Author */}
+                    <Row gap="m" vertical="center">
+                      <div
+                        style={{
+                          width: 44,
+                          height: 44,
+                          borderRadius: "50%",
+                          background: "var(--brand-alpha-medium)",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          fontWeight: 700,
+                          fontSize: 13,
+                          color: "var(--brand-strong)",
+                          flexShrink: 0,
+                        }}
+                      >
+                        {t.initials}
+                      </div>
+                      <Column gap="0">
+                        <Text variant="label-strong-s">{t.name}</Text>
+                        <Text variant="label-default-xs" onBackground="neutral-weak">
+                          {t.role}
+                        </Text>
+                      </Column>
+                    </Row>
+                  </Column>
+                </Card>
+              </RevealFx>
+            ))}
+          </Grid>
+        </Column>
+
+        {/* ─── ПРОЦЕС ───────────────────────────────────────────────────────── */}
+        <Column gap="l" align="center" paddingY="l" fillWidth>
+          <RevealFx>
+            <Column gap="s" align="center">
+              <Badge variant="neutral" size="m">Как работим</Badge>
+              <Heading variant="display-strong-m" align="center">
+                4 Стъпки до Реални Резултати
+              </Heading>
+            </Column>
+          </RevealFx>
+
+          <Grid columns="2" s={{ columns: 1 }} gap="l" style={{ maxWidth: "100%", overflow: "hidden" }}>
+            {[
+              {
+                step: "01",
+                title: "SEO Одит & Анализ",
+                desc: "Пълен технически одит на текущия ви сайт — скорост, структура, ключови думи, конкуренция и пропуснати възможности.",
+                icon: "search",
+              },
+              {
+                step: "02",
+                title: "Стратегия & Архитектура",
+                desc: "Изграждаме SEO архитектура за Next.js проекта — URL структура, вътрешно свързване, schema markup план.",
+                icon: "layout",
+              },
+              {
+                step: "03",
+                title: "Разработка & Оптимизация",
+                desc: "Next.js разработка с вградено техническо SEO — SSR/SSG стратегия, метаданни, sitemap, robots.txt, Core Web Vitals.",
+                icon: "code",
+              },
+              {
+                step: "04",
+                title: "Мониторинг & Растеж",
+                desc: "Месечни отчети с Google Search Console, Analytics и позиции. Постоянни подобрения на базата на данни.",
+                icon: "trending-up",
+              },
+            ].map((s, i) => (
+              <RevealFx key={s.step} delay={0.1 * (i + 1)}>
+                <Card padding="xl" radius="xl" border="neutral-alpha-medium" fillWidth>
+                  <Row gap="m" vertical="start">
+                    <Text
+                      variant="display-strong-m"
+                      style={{ color: "var(--neutral-alpha-strong)", lineHeight: 1, minWidth: 44 }}
+                    >
+                      {s.step}
+                    </Text>
+                    <Column gap="s">
+                      <Text variant="body-default-xl">{s.title}</Text>
+                      <Text variant="body-default-s" onBackground="neutral-weak">
+                        {s.desc}
+                      </Text>
+                    </Column>
+                  </Row>
+                </Card>
+              </RevealFx>
+            ))}
+          </Grid>
+        </Column>
+
+        {/* ─── BLOG ─────────────────────────────────────────────────────────── */}
         {routes["/blog"] && (
-          <Column fillWidth maxWidth="l" gap="m">
+          <Column fillWidth maxWidth="l" gap="m" paddingY="l">
             <Heading as="h2" variant="display-strong-xs" align="center">
               Последни Публикации
             </Heading>
             <Posts range={[1, 2]} columns="2" />
           </Column>
         )}
-        {/* Projects */}
+
+        {/* ─── ПРОЕКТИ ──────────────────────────────────────────────────────── */}
         <Projects range={[1, 3]} />
-        {/* FAQ секция */}
-        <Column gap="l" align="center" paddingY="l">
+
+        {/* ─── FAQ ──────────────────────────────────────────────────────────── */}
+        <Column gap="l" align="center" paddingY="xl" fillWidth>
           <RevealFx>
-            <Column gap="m" align="center">
-              <Column gap="s" align="center">
-                <Icon name="help-circle" size="l" onBackground="info-strong" />
-                <Heading variant="display-strong-m" align="center">
-                  Често Задавани Въпроси за AI SEO
-                </Heading>
-              </Column>
-              <Text variant="body-default-xl" align="center" onBackground="neutral-weak">
-                Отговори на най-често задаваните въпроси за <strong>AI SEO</strong>,
-                <strong> генеративно SEO</strong> и <strong>оптимизация за големите езикови модели</strong>.
-                Намерете детайлна информация за процеса, резултатите, ползите и всичко, което трябва да знаете за AI SEO през 2026.
-              </Text>
+            <Column gap="s" align="center">
+              <Badge variant="neutral" size="m">FAQ</Badge>
+              <Heading variant="display-strong-m" align="center">
+                Често Задавани Въпроси
+              </Heading>
             </Column>
           </RevealFx>
+
           <RevealFx delay={0.1}>
             <AccordionGroup
               items={[
                 {
-                  title: "Какво е AI SEO и защо е важно?",
+                  title: "Защо да избера Next.js вместо WordPress?",
                   content: (
                     <Text onBackground="neutral-weak">
-                      <strong>AI SEO</strong> е оптимизация за големите езикови модели като ChatGPT, Gemini и Claude.
-                      Това е <strong>бъдещето на SEO</strong> – докато традиционното SEO се фокусира върху Google,
-                      AI SEO ви позиционира в AI системите за търсене, където потребителите отиват все повече.
-                      <strong> Генеративно SEO</strong> ви дава двойно предимство пред конкурентите, особено с нарастващата употреба на AI през 2026. Това включва семантична оптимизация, структурирани данни и съдържание, което AI моделите предпочитат.
+                      <strong>Next.js</strong> дава нативно предимство в SEO — Server-Side Rendering, статично генериране и перфектни Core Web Vitals. WordPress изисква куп плъгини, за да постигне същото, и обикновено остава по-бавен. За сериозни SEO резултати Next.js е стандартът.
                     </Text>
                   ),
                 },
                 {
-                  title: "Как работи SEO за ChatGPT и други AI системи?",
+                  title: "Колко бързо се виждат SEO резултати?",
                   content: (
                     <Text onBackground="neutral-weak">
-                      AI системите използват различни алгоритми от Google. <strong>LLM SEO</strong> оптимизацията
-                      се фокусира върху структуриране на съдържанието по начин, който AI моделите разбират по-добре.
-                      Това включва правилна семантична структура, schema markup за AI, оптимизация за
-                      <strong> генеративно търсене</strong>, и създаване на съдържание, което е лесно за обработка от езикови модели. Процесът започва с анализ на AI сигнали и завършва с мониторинг на позиционирането в AI отговори.
+                      Технически подобрения (скорост, structured data) Google усеща в рамките на 2-4 седмици. Позиции за конкурентни ключови думи обикновено се подобряват видимо след 2-4 месеца. Дългосрочният ефект е кумулативен — колкото по-рано започнем, толкова по-добре.
                     </Text>
                   ),
                 },
                 {
-                  title: "Защо да инвестирам в AI SEO сега?",
+                  title: "Правите ли локално SEO за физически магазини?",
                   content: (
                     <Text onBackground="neutral-weak">
-                      <strong>SEO в ерата на изкуствения интелект</strong> не е просто тренд – това е революция.
-                      AI търсачките набират скорост и скоро ще бъдат толкова популярни колкото Google.
-                      Позиционирайте се сега в AI системите, преди конкурентите ви да се събудят.
-                      <strong> Бъдещето на SEO</strong> е тук, и инвестицията сега може да доведе до 2-3x по-висок трафик от AI канали през 2026.
+                      Да. Специализирам в <strong>LocalBusiness Schema.org</strong>, оптимизация на Google Business Profile, локални ключови думи и Citations management. Клиентите ми като DalGado Pizza & Coffee са на топ позиции в Google Maps.
                     </Text>
                   ),
                 },
                 {
-                  title: "Какви резултати мога да очаквам от AI SEO?",
+                  title: "Работите ли само в София?",
                   content: (
                     <Text onBackground="neutral-weak">
-                      Клиентите ми виждат средно +433% ръст в органичния трафик, +585% увеличение на приходите
-                      и +148% подобрение на конверсията. <strong> Оптимизация за генеративно търсене</strong>
-                      ви дава достъп до нови аудитории в AI системите, докато поддържа отлично класиране в Google.
-                      Резултатите са видими в рамките на месеци, с дългосрочен ефект върху бизнеса.
+                      Базиран съм в <strong>София, България</strong>, но работя дистанционно с клиенти из цяла България и в чужбина. Комуникацията се осъществява онлайн — без компромис с качеството.
                     </Text>
                   ),
                 },
                 {
-                  title: "Колко време отнема AI SEO оптимизацията?",
+                  title: "Включено ли е поддържането след изграждане на сайта?",
                   content: (
                     <Text onBackground="neutral-weak">
-                      Първоначалната <strong>AI SEO</strong> оптимизация отнема 2-4 седмици, в зависимост от
-                      сложността на сайта. Включвам анализ на текущото състояние, оптимизация за AI системите,
-                      технически подобрения и мониторинг на резултатите. Продължителната оптимизация е процес,
-                      който се подобрява с времето, с редовни актуализации за нови AI алгоритми през 2026.
+                      Предлагам месечни пакети за <strong>SEO мониторинг и поддръжка</strong> — Google Search Console отчети, актуализации на съдържанието, технически следене и реакция при алгоритмични промени. Цената зависи от обема на работа.
                     </Text>
                   ),
                 },
                 {
-                  title: "Работи ли AI SEO заедно с традиционното SEO?",
+                  title: "Как изглежда Schema.org имплементацията ви?",
                   content: (
                     <Text onBackground="neutral-weak">
-                      Абсолютно! Моят подход ви дава <strong>двойно покритие</strong> – отлично класиране
-                      в Google И позициониране в AI системите. <strong>SEO в ерата на AI търсачките </strong>
-                      не замества традиционното SEO, а го допълва. Получавате най-доброто от двата свята,
-                      с интегрирани стратегии за максимален ефект.
-                    </Text>
-                  ),
-                },
-                {
-                  title: "Какво прави AI SEO различно от традиционното?",
-                  content: (
-                    <Text onBackground="neutral-weak">
-                      Традиционното SEO се фокусира върху ключови думи и линкове за Google, докато AI SEO оптимизира за семантика, контекст и генеративни отговори в модели като ChatGPT. Това включва E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness) адаптирано за AI, с акцент върху структурирани данни и качествено съдържание, което AI предпочита.
-                    </Text>
-                  ),
-                },
-                {
-                  title: "Мога ли да видя примери за успешни AI SEO проекти?",
-                  content: (
-                    <Text onBackground="neutral-weak">
-                      Да, в раздела за проекти ще намерите case studies с детайлни резултати. Клиенти са постигнали значителен растеж в AI видимост, с примери за позициониране в топ AI отговори. Свържете се за персонализирани примери.
+                      Имплементирам пълен <strong>Schema.org граф</strong> — Organization, Person, LocalBusiness, Service, Review, AggregateRating, WebSite с SearchAction. Всичко е тествано с Google Rich Results Test и валидирано в Schema.org Validator.
                     </Text>
                   ),
                 },
@@ -705,8 +763,64 @@ export default function Nachalo() {
             />
           </RevealFx>
         </Column>
+
+        {/* ─── CTA ──────────────────────────────────────────────────────────── */}
+        <Column align="center" paddingY="xl" gap="l" fillWidth>
+          <RevealFx>
+            <Column gap="m" align="center">
+              <Badge variant="brand" size="m">Готови ли сте?</Badge>
+              <Heading variant="display-strong-l" align="center" style={{ maxWidth: "700px" }}>
+                Нека Изградим Сайт, Който{" "}
+                <span style={{ color: "var(--brand-strong)" }}>Работи за Вас</span> 24/7
+              </Heading>
+              <Text
+                variant="body-default-l"
+                align="center"
+                onBackground="neutral-weak"
+                style={{ maxWidth: "520px" }}
+              >
+                Безплатна консултация. Анализирам текущия ви сайт и ви казвам конкретно какво можем да подобрим.
+              </Text>
+            </Column>
+          </RevealFx>
+
+          <RevealFx delay={0.2}>
+            <Flex horizontal="center" vertical="center" gap="l" wrap>
+              <Button variant="primary" prefixIcon="rocket" size="l" href="/kontakti">
+                Заявете Безплатна Консултация
+              </Button>
+              <Button variant="secondary" size="l" href="/za-men">
+                Вижте Моето Портфолио
+              </Button>
+            </Flex>
+          </RevealFx>
+
+          {/* Contact details */}
+          <RevealFx delay={0.3}>
+            <Row gap="l" horizontal="center" vertical="center" wrap paddingTop="m">
+              <Row gap="s" vertical="center">
+                <FaMapMarkerAlt size={14} color="var(--neutral-medium)" />
+                <Text variant="label-default-s" onBackground="neutral-weak">
+                  София, България
+                </Text>
+              </Row>
+              <Row gap="s" vertical="center">
+                <FaEnvelope size={14} color="var(--neutral-medium)" />
+                <Text variant="label-default-s" onBackground="neutral-weak">
+                  seo@stanchev.bg
+                </Text>
+              </Row>
+              <Row gap="s" vertical="center">
+                <FaLinkedin size={14} color="var(--neutral-medium)" />
+                <Text variant="label-default-s" onBackground="neutral-weak">
+                  linkedin.com/in/stanchev-seo
+                </Text>
+              </Row>
+            </Row>
+          </RevealFx>
+        </Column>
+
       </Column>
     </>
   );
 }
-
