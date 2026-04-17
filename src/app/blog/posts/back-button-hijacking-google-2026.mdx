@@ -45,21 +45,32 @@ Adam Thompson, директор по дигитално в BCS - the Chartered I
 
 Злоупотребата изглежда така:
 
-```javascript
-// ❌ Back button hijacking - добавя фиктивни записи при зареждане на страницата
-window.addEventListener('load', function() {
-  // Добавя множество идентични записи в историята
-  history.pushState(null, null, window.location.href)
-  history.pushState(null, null, window.location.href)
-  history.pushState(null, null, window.location.href)
-})
+<CodeBlock
+  codes={[
+    {
+      language: "bash",
+      label: "Before / After",
+      startLineNumber: 1,
+      code:
+`- // ❌ Back button hijacking - добавя фиктивни записи при зареждане на страницата
+- window.addEventListener('load', function() {
+-   history.pushState(null, null, window.location.href)
+-   history.pushState(null, null, window.location.href)
+-   history.pushState(null, null, window.location.href)
+- })
 
-// Прихваща опита за навигация назад
-window.addEventListener('popstate', function(e) {
-  // Вместо да позволи излизане, пренасочва към рекламна страница
-  window.location.href = '/special-offer-you-cant-miss'
-})
-```
+- window.addEventListener('popstate', function(e) {
+-   window.location.href = '/special-offer-you-cant-miss'
+- })
+
++ // ✅ Чист вариант – без манипулация на history
++ // Позволява нормално back поведение на браузъра
++ window.addEventListener('popstate', function(e) {
++   console.log('User navigated back');
++ })`,
+    },
+  ]}
+/>
 
 Когато потребителят натисне Назад, браузърът се връща към предишния запис в историята - но тъй като са добавени три фиктивни записа при зареждане, трябва да натиснеш четири пъти, преди да излезеш от сайта. На практика - в капан.
 
