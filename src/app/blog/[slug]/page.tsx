@@ -255,7 +255,7 @@ export default async function Blog({
 			  placement="top"
 			  trigger={<Avatar size="l" src="/images/avatar2.jpg" tabIndex={0} />}
 			>
-			<Column padding="20" gap="20" radius="l" maxWidth={24} background="page" border="neutral-alpha-weak" href="https://stanchev.bg">
+			<Column padding="20" gap="20" radius="l" maxWidth={24} background="page" border="neutral-alpha-weak">
 			  <Row gap="20" fillWidth vertical="center">
 				<Avatar size={3} src="/images/avatar2.jpg" />
 				<Column gap="4">
