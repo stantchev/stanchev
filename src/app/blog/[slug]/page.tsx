@@ -15,6 +15,8 @@ import {
   Button,
   AvatarGroup,
   AccordionGroup,
+  HoverCard,
+  Tag,
 } from "@once-ui-system/core";
 import { baseURL, about, blog, person } from "@/resources";
 import { formatDate } from "@/utils/formatDate";
@@ -90,7 +92,7 @@ export async function generateMetadata({
     },
     other: {
       "article:published_time": post.metadata.publishedAt,
-      "article:author": "Станчев",
+      "article:author": "Милен Станчев",
     },
   };
 }
@@ -147,7 +149,7 @@ export default async function Blog({
     },
     publisher: {
       "@type": "Organization",
-      name: "Станчев SEO",
+      name: "Stanchev Digital",
       url: baseURL,
       logo: {
         "@type": "ImageObject",
@@ -229,18 +231,6 @@ export default async function Blog({
               </Heading>
             </Column>
 
-            <Row marginBottom="32" horizontal="center">
-              <Row gap="16" vertical="center">
-                <Avatar size="s" src={person.avatar} />
-                <Text variant="label-default-m" onBackground="brand-weak">
-                  {person.name}
-                </Text>
-                {avatars.length > 0 && (
-                  <AvatarGroup size="s" avatars={avatars} />
-                )}
-              </Row>
-            </Row>
-
             {post.metadata.image && (
               <Media
                 src={post.metadata.image}
@@ -258,6 +248,33 @@ export default async function Blog({
             <Column as="article" maxWidth="s">
               <CustomMDX source={post.content} />
             </Column>
+			<Text variant="body-default-m">
+			  За автора
+			</Text>
+			<HoverCard
+			  placement="top"
+			  trigger={<Avatar size="l" src="/images/avatar2.jpg" tabIndex={0} />}
+			>
+			<Column padding="20" gap="20" radius="l" maxWidth={24} background="page" border="neutral-alpha-weak" href="https://stanchev.bg">
+			  <Row gap="20" fillWidth vertical="center">
+				<Avatar size={3} src="/images/avatar2.jpg" />
+				<Column gap="4">
+				  <Text variant="heading-strong-m">Милен Станчев</Text>
+				  <Text variant="body-default-s" onBackground="neutral-weak">
+					SEO Специалист
+				  </Text>
+				</Column>
+			  </Row>
+			  <Text variant="body-default-s" onBackground="neutral-weak">
+				Над 80 публикации за последната година, засягащи всички важни аспекти и ъпдейти от света на SEO-то и киберсигурността.
+			  </Text>
+			  <Row gap="8" wrap>
+				<Tag>SEO</Tag>
+				<Tag>Frontend</Tag>
+				<Tag>Cybersecurity</Tag>
+			  </Row>
+			</Column>
+			</HoverCard>
 
             <ShareSection
               title={post.metadata.title}
@@ -307,3 +324,5 @@ export default async function Blog({
     </>
   );
 }
+
+
