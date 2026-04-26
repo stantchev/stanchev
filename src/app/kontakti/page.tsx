@@ -166,7 +166,7 @@ export default function Kontakti() {
                 <Text variant="body-default-s" onBackground="neutral-weak">
                   Телефон
                 </Text>
-                <Text variant="body-default-m">0877038729</Text>
+                <Text variant="body-default-m">0898509650</Text>
               </Column>
             </Flex>
 
