@@ -1,0 +1,311 @@
+---
+title: "WordPress 7.0 'Armstrong' - Всичко Ново, Реалното Положение и Как да Ъпгрейдваш Безопасно"
+keywords: ["wordpress 7.0", "wordpress 7.0 нови функции", "wordpress 7.0 дата на излизане", "wordpress 7.0 ai", "wordpress 7.0 abilities api", "wordpress 7.0 dataviews", "wordpress 7.0 upgrade", "wordpress 7 нови функции 2026", "wp ai client wordpress", "wordpress 7.0 armstrong"]
+summary: "WordPress 7.0 'Armstrong' е официално пуснат на 20 май 2026 г. Нативна AI интеграция чрез WP AI Client и Abilities API, пълен редизайн на admin панела с DataViews, нови блокове, browser-side медия обработка и PHP-only блокове. Real-time колаборацията беше премахната 12 дни преди пускането. Пълно ръководство с всичко, което трябва да знаеш."
+author: "Станчев"
+publishedAt: "2026-05-21"
+tag: "WordPress"
+image: /images/posts/wordpress-7-0-armstrong-2026.jpg
+---
+
+На 20 май 2026 г. WordPress пусна версия 7.0 - официално наречена <strong>"Armstrong"</strong>, в чест на джаз легендата Louis Armstrong. След почти шест седмици закъснение спрямо оригиналната дата (9 април), след четири Release Candidate версии и след едно от най-обсъжданите решения в историята на проекта - премахването на real-time колаборацията само 12 дни преди финалното пускане - WordPress 7.0 е вече тук.
+
+И е значително по-важна версия от повечето хора очакват - не заради функцията, която не е вътре, а заради инфраструктурата, която е.
+
+<Feedback
+  title="Важно преди четене"
+  description="WordPress 7.0 е пуснат на 20 май 2026 г. Real-time колаборацията НЕ е включена - премахната е от Matt Mullenweg на 8 май 2026 г. Минималното изискване е PHP 7.4, препоръчан е PHP 8.3+. Препоръчваме да тествате на staging среда преди production ъпгрейд."
+/>
+
+<h2 id="kontekst">Контекст - откъде идваме и какво е WordPress 7.0</h2>
+
+<strong>WordPress 7.0 е първата major версия на 2026 г. и официалната отправна точка на Phase 3 от Gutenberg roadmap-а</strong> - фазата, фокусирана върху колаборация, AI интеграция и модернизация на платформата. Две допълнителни версии са планирани за годината: WordPress 7.1 (19 август 2026, ориентиран към WordCamp US) и WordPress 7.2 (декември 2026).
+
+Версията обединява Gutenberg plugin версии от 22.0 до 22.6 в core. Разработката мина през публична бета фаза (19 февруари - 12 март), последвана от Release Candidate фаза, удължена в april заради технически проблеми с database стабилността. RC3 пристигна на 8 май, RC4 на 14 май, code freeze на 19 май. Финалното пускане - 20 май.
+
+Закъснението от оригиналната дата (9 април) се дължи на фундаментален архитектурен проблем, открит при RC тестването. Системата за real-time синхронизация записваше данни по начин, генериращ race conditions при паралелни потребители и сериозно натоварване на сървърната памет при fuzz тестове. Решението: изтриване на кода - не само деактивиране, а пълно премахване от core за RC3.
+
+Така стигаме до въпроса, който всички задават.
+
+<h2 id="real-time-collaboration">Real-time колаборацията - какво се случи</h2>
+
+<strong>Real-time колаборацията не е в WordPress 7.0.</strong> Matt Mullenweg взе решението на 8 май 2026 г. - 12 дни преди финалното пускане. Кодът беше изтрит от core за RC3, не просто disabled чрез feature flag.
+
+Причините, официално посочени: race conditions при едновременно редактиране от множество потребители, сериозна сървърна памет при concurrent натоварване и неуспешни fuzz tests. Архитектурният проблем беше по-дълбок от очакваното - системата записваше sync данни чрез post meta по начин, несъвместим с WordPress database слоя при реален concurrent трафик.
+
+Real-time колаборацията не е включена в WordPress 7.0 и беше премахната по време на release candidate тестването. Ранното й връщане е малко вероятно преди 2027 г.
+
+Кога можем да я очакваме? WordPress 7.1 е насочен към август 2026 г. и real-time редактирането е вероятен headline кандидат веднъж щом архитектурата се стабилизира. Но това не е гаранция - ако проблемите не са решени, може да плъзне към 7.2 или по-нататък.
+
+Важното: отсъствието на real-time колаборацията не прави 7.0 лоша версия. Прави я различна от очакваното - но съдържанието, което реално е вътре, е значително.
+
+<h2 id="wp-ai-client">WP AI Client и Abilities API - нативна AI инфраструктура в core</h2>
+
+<strong>WP AI Client е най-значимата нова функция в WordPress 7.0.</strong> Той представлява стандартизиран, provider-agnostic интерфейс за свързване на WordPress с външни AI модели - директно в core, без нужда от трети страни плъгини за самата интеграция.
+
+Конкретно: WordPress 7.0 въвежда Web Client AI API в core, предоставящ стандартизиран интерфейс за плъгини и теми за свързване с външни generative AI доставчици. API-то е provider-agnostic - AI моделите остават външни за WordPress core и всеки плъгин може да регистрира доставчик.
+
+AI Client е включен в core с PHP API `wp_ai_client_prompt()`, използващ fluent builder с методи `using_system_instruction`, `using_max_tokens` и `generate_text`. Плъгините за Anthropic, Google и OpenAI се инсталират отделно от wordpress.org и се конфигурират в Settings > Connectors.
+
+Практически - конфигурираш предпочитания AI доставчик веднъж в Settings > Connectors с API ключ. Оттам нататък всеки съвместим плъгин на сайта използва тези credentials автоматично. Край на управлението на отделни API ключове за всеки плъгин поотделно.
+
+<strong>Abilities API</strong> - разширен от версия 6.9 - е допълващата страна на уравнението. WordPress 7.0 разширява тази основа с hybrid abilities, комбиниращи множество capabilities в сложни workflows, и с JavaScript пакет `@wordpress/abilities` за discovery и изпълнение на WordPress capabilities от client-side код.
+
+Abilities API осигурява на разработчиците стандартизирани методи за интегриране на AI услуги в WordPress workflows. Той обработва автентикация, rate limiting, content sanitization и context management - елиминирайки нуждата всеки разработчик на плъгини да изгражда тези сложни системи самостоятелно.
+
+За крайния потребител това означава: тоново коригиране на текст, автоматично генериране на alt text, content summarization и генериране на block patterns директно в редактора - без инсталиране на тежки AI плъгини. За разработчика: стандартен way за изграждане на AI-powered функционалности, без да се занимаваш с authentication и rate limiting от нулата.
+
+<h2 id="admin-redesign">Пълен редизайн на admin панела - DataViews</h2>
+
+<strong>WordPress admin панелът получава първия си сериозен визуален редизайн от 2013 г.</strong> Промяната не е козметична - архитектурата зад нея е фундаментално различна.
+
+DataViews заменя legacy admin таблиците с динамична, React-базирана система. Администраторският панел получава нова "Modern" цветова схема и view transitions. Конкретно засегнатите екрани: Posts, Pages и Media list views - три от най-масово персонализираните части на WordPress dashboard.
+
+DataViews и DataForm API добавят нови layouts, controls (combobox, adaptiveSelect) и пълна валидация с error съобщения, правейки DataViews/DataForm компонентите пълноценен framework за собствени admin интерфейси.
+
+Допълнително в admin редизайна: унифицирана система за дизайн с design tokens за цветове, разстояния и типография, освежени admin таблици в DataViews стила, модерни dashboard widgets. Нова command palette, достъпна навсякъде в admin чрез Cmd+K (Mac) или Ctrl+K (Windows), позволява бърза навигация между съдържание, достъп до настройки и извършване на действия без множество кликвания.
+
+<Feedback
+  title="Внимание за собственици на сайтове"
+  description="DataViews заменя legacy admin таблиците - едни от най-масово персонализираните части на WordPress dashboard. Плъгини, добавящи custom колони в Posts или Pages списъците, трябва да бъдат тествани внимателно преди ъпгрейд."
+/>
+
+<h2 id="novi-blokove">Нови блокове и подобрения в редактора</h2>
+
+<h3 id="breadcrumbs">Breadcrumbs блок</h3>
+
+До WordPress 7.0, добавянето на breadcrumbs изискваше плъгин, тема с вградена функционалност или ръчен код. Сега breadcrumbs са нативен блок - конфигурируеми директно от редактора, без зависимости.
+
+<h3 id="icons-block">Icons блок</h3>
+
+Нов нативен Icons блок позволява добавяне на векторни икони директно в съдържанието, без SVG плъгини или custom HTML. Блокът е преминал accessibility review от WordPress Accessibility Team преди включването в core.
+
+<h3 id="block-level-notes">Block-level Notes - колаборацията, която всъщност е вътре</h3>
+
+Block-level Notes система е включена в WordPress 7.0 с поддръжка за @mentions, Suggestions режим и нов dashboard widget, показващ последните notes в целия сайт. Можеш да оставяш коментари към конкретни блокове, да споменаваш колеги с @mention и да получаваш нотификации - всичко вътре в WordPress, без email нишки.
+
+Коментарите вече могат да обхващат множество блокове - перфектно за обратна връзка върху цели секции от съдържание.
+
+Това е единственото, което реално е пуснато от колаборационните функции в 7.0 - и за редакционни екипи е значително по-полезно от нищо, докато real-time редактирането чака.
+
+<h3 id="visual-revisions">Визуален revision екран</h3>
+
+WordPress 7.0 въвежда по-ясен визуален интерфейс за версиите в редактора: подчертани промени, ясно цветово кодиране (добавяния, изтривания, модификации) и директен preview близо до финалния резултат. Сравняването на версии вече не изисква четене на HTML diff.
+
+<h3 id="conditional-block-visibility">Conditional display на блокове по устройство</h3>
+
+Вече можеш да скриваш блок в зависимост от типа устройство на потребителя (мобилно, таблет, десктоп) от block options, без да пишеш код. Класическа функционалност, изискваща досега плъгин или custom CSS.
+
+<h3 id="custom-css-block">Custom CSS на ниво блок</h3>
+
+Вече е възможно добавянето на CSS директно към конкретен блок, без да засяга останалите елементи на сайта, чрез dedicated поле в Settings > Advanced.
+
+<h3 id="enhanced-html-block">Подобрен Custom HTML блок</h3>
+
+Custom HTML блокът вече позволява добавяне и редактиране не само на HTML, но и на CSS и JavaScript директно от редактора чрез dedicated табове.
+
+<h3 id="navigation-overlays">Персонализируеми навигационни overlays</h3>
+
+WordPress 7.0 въвежда нови възможности за създаване на мобилни менюта чрез customizable navigation overlays. Контролираш тяхното показване в зависимост от типа устройство и ги запазваш като template parts.
+
+<h3 id="font-library">Font library за всички теми</h3>
+
+Font library, въведена в WordPress 6.5, беше ограничена до block-based теми. С WordPress 7.0 тя е достъпна за всички теми, включително "класическите", чрез Appearance > Fonts - без трети страни плъгин.
+
+<h2 id="developer-changes">Промени за разработчиците</h2>
+
+WordPress 7.0 носи значителни промени за разработчиците - някои много добри, някои изискващи внимание при ъпгрейд.
+
+<h3 id="php-only-blocks">PHP-only блокове</h3>
+
+<strong>PHP-only блок регистрацията е може би най-доброто нещо в 7.0 за разработчиците на плъгини.</strong> Блоковете вече могат да бъдат регистрирани и рендирани изцяло чрез PHP - без JavaScript или build pipeline. WordPress генерира Inspector controls за common attribute types автоматично.
+
+Преди 7.0, дори прост custom блок изискваше JavaScript файл, webpack конфигурация или @wordpress/scripts setup. Сега - `register_block_type()` с PHP render callback е напълно достатъчно за функционален блок с settings panel. Огромно намаляване на entry barrier за WordPress разработчиците.
+
+<h3 id="block-bindings">Block Bindings API подобрения</h3>
+
+Pattern overrides вече работят с всякакви custom блокове, не само с core блоковете. Това прави свързването на динамични данни към блокове значително по-гъвкаво.
+
+<h3 id="browser-media">Browser-side медия обработка</h3>
+
+WordPress 7.0 въвежда browser-side медия обработка чрез WebAssembly - оразмеряване и компресия на изображения в браузъра преди upload, намалявайки сървърното натоварване. На практика: по-бързи uploads, по-малко server load, по-малко timeout проблеми при качване на тежки изображения.
+
+<h3 id="mcp-adapter">MCP Adapter</h3>
+
+WordPress 7.0 включва MCP (Model Context Protocol) Adapter - стандартизиран начин за AI агенти да четат от и да взаимодействат с WordPress сайт. MCP е протоколът, използван от Claude, ChatGPT и Gemini за свързване с external инструменти. Наличието му в WordPress core означава, че WordPress сайтовете стават директно достъпни за AI агенти по стандартизиран начин.
+
+<h3 id="iframe-editor">iframed Post Editor промяна</h3>
+
+От WordPress 7.0, редакторът проверява само блоковете, реално вмъкнати в публикацията - не всички регистрирани блокове. Това подобрява производителността на редактора при сайтове с много регистрирани блокове, но може да засегне плъгини, разчитащи на предишното поведение.
+
+<h2 id="performance">Производителност</h2>
+
+WordPress 7.0 включва и редица performance подобрения, които не са в заглавията, но имат реален ефект:
+
+- Оптимизирано HTML генериране за страници с комплексни или дълбоко вложени блок layouts, подобрени database заявки за по-нисък TTFB и по-бърз server response.
+- Подобрено lazy loading поведение за изображения, зареждащи се при scroll, намаляващо initial page weight при image-heavy pages.
+- Browser-side медия обработка намалява сървърното натоварване при uploads.
+- iframed редактор с оптимизирана блок детекция.
+
+<h2 id="iziskvaniya">Системни изисквания на WordPress 7.0</h2>
+
+<Table
+  data={{
+    headers: [
+      { content: "Компонент", key: "component" },
+      { content: "Минимум", key: "minimum" },
+      { content: "Препоръчан", key: "recommended" },
+    ],
+    rows: [
+      ["PHP", "7.2.24+", "PHP 8.3+"],
+      ["MySQL", "5.5.5+", "MySQL 8.0+ или MariaDB 10.6+"],
+      ["WordPress (за upgrade)", "6.x", "6.7+ за по-лесна миграция"],
+      ["Gutenberg plugin (ако ползваш)", "22.0+", "Не е нужен - merged в core"],
+    ],
+  }}
+/>
+
+<Feedback
+  title="PHP версия - внимавай"
+  description="WordPress 7.0 официално прекратява поддръжката за PHP 7.2 и 7.3. Ако хостингът ти работи на тези версии, ъпгрейдът към WordPress 7.0 може да причини проблеми. Провери PHP версията в Site Health преди да продължиш."
+/>
+
+<h2 id="kak-da-upgradnesh">Как да ъпгрейдваш безопасно</h2>
+
+WordPress 7.0 е значителна версия с много промени в core - DataViews, AI Client, PHP минимум. Рутинният "Update Now" клик без подготовка на сложен сайт е риск. Ето правилният процес:
+
+<h3 id="stypka-1">Стъпка 1 - Пълен backup</h3>
+
+Преди всичко - backup на файлове и база данни. UpdraftPlus, BlogVault или хостинг-нативен snapshot. Без backup - без ъпгрейд. Ако нещо се счупи, имаш нужда от отправна точка.
+
+<h3 id="stypka-2">Стъпка 2 - Провери PHP версията</h3>
+
+WordPress admin > Tools > Site Health > Info > Server. Ако PHP е под 7.4 - ъпгрейдни PHP първо. Повечето managed WordPress хостинги го правят с един клик от control panel.
+
+<h3 id="stypka-3">Стъпка 3 - Тест на staging среда</h3>
+
+Препоръката е тест в staging среда, след което go live - особено при сложни конфигурации. Повечето managed WordPress хостинги (Kinsta, WP Engine, SiteGround) предлагат staging с един клик. Ако нямаш staging - Local by Flywheel е безплатна опция за локален тест.
+
+<h3 id="stypka-4">Стъпка 4 - Провери плъгините</h3>
+
+WordPress 7.0 е версия с висок риск за plugin compatibility. Приоритетно тествай:
+
+- Page builders (Elementor, Divi, Beaver Builder) - засегнати от iframed editor промените
+- SEO плъгини (Rank Math, Yoast) - бележките в редактора може да конфликтват
+- Плъгини, добавящи custom колони в Posts/Pages списъците - засегнати от DataViews
+- Multilingual плъгини (WPML, Polylang)
+- WooCommerce и разширенията му
+
+<h3 id="stypka-5">Стъпка 5 - Изчакай 1-2 седмици (по преценка)</h3>
+
+Препоръчително е да изчакаш 1-2 седмици преди ъпгрейд на production сайт. Не от страх, а от практичност - в първите дни след major пускане, плъгин авторите публикуват compatibility updates, хостингите публикуват notes за специфични конфигурации и първите user reports идентифицират edge cases. За некритични сайтове, изчакването е разумно.
+
+<h3 id="stypka-6">Стъпка 6 - Ъпгрейдни и мониторирай</h3>
+
+След успешен staging тест - ъпгрейдни production. Мониторирай Site Health за PHP грешки и Connectors екрана за AI provider грешки няколко дни след ъпгрейда.
+
+<h2 id="koe-ne-e-vutrem">Какво НЕ е в WordPress 7.0 - изчистване на объркването</h2>
+
+Поради интензивното предварително отразяване, много статии описват функции, реално не включени в финалното пускане. За яснота:
+
+<Table
+  data={{
+    headers: [
+      { content: "Функция", key: "feature" },
+      { content: "Статус", key: "status" },
+      { content: "Кога очаквана", key: "when" },
+    ],
+    rows: [
+      ["Real-time колаборация", "Премахната на 8 май 2026", "Не преди 2027 (реалистично 7.3)"],
+      ["Post management Abilities", "Deferred", "WordPress 7.1 (август 2026)"],
+      ["WebSocket sync за колаборация", "Deferred", "Заедно с real-time колаборацията"],
+      ["Connectors API за non-AI услуги", "Частично", "Разширяване в 7.1"],
+      ["Client-side JS registration за Connectors UI", "Deferred", "Бъдеща версия"],
+    ],
+  }}
+/>
+
+<h2 id="nakratko">Накратко - какво реално е в WordPress 7.0</h2>
+
+<Table
+  data={{
+    headers: [
+      { content: "Функция", key: "feature" },
+      { content: "За кого е важна", key: "who" },
+      { content: "Значимост", key: "importance" },
+    ],
+    rows: [
+      ["WP AI Client + Abilities API", "Всички - потребители и разработчици", "Висока - фундаментална AI инфраструктура"],
+      ["DataViews admin редизайн", "Администратори, редактори", "Висока - засяга ежедневната работа"],
+      ["PHP-only блокове", "Разработчици на плъгини", "Висока - намалява complexity значително"],
+      ["Block-level Notes + @mentions", "Редакционни екипи", "Средна - полезно, но не real-time"],
+      ["Breadcrumbs и Icons блокове", "Контент екипи", "Средна - елиминира плъгини"],
+      ["Browser-side медия обработка", "Всички потребители", "Средна - по-бързи uploads"],
+      ["Visual Revisions", "Редактори", "Средна - по-добър comparison UI"],
+      ["Conditional block visibility", "Дизайнери, контент екипи", "Ниска-средна - удобство без код"],
+      ["Font library за всички теми", "Дизайнери", "Ниска-средна - елиминира плъгини"],
+      ["MCP Adapter", "Разработчици, power users", "Висока дългосрочно - AI agent интеграция"],
+    ],
+  }}
+/>
+
+<h2 id="faq">Често задавани въпроси</h2>
+
+<AccordionGroup
+  items={[
+    {
+      title: "Кога беше пуснат WordPress 7.0 и защо се забави?",
+      content: (
+        <Text onBackground="neutral-weak">
+          WordPress 7.0 беше официално пуснат на 20 май 2026 г. Оригиналната дата беше 9 април 2026 г. Забавянето се дължи на фундаментален архитектурен проблем в real-time колаборационния модул - race conditions при паралелни потребители и сериозно сървърно натоварване при fuzz тестове. Проблемът доведе не само до забавяне, но и до пълно премахване на real-time колаборацията от версията.
+        </Text>
+      )
+    },
+    {
+      title: "Включена ли е real-time колаборацията в WordPress 7.0?",
+      content: (
+        <Text onBackground="neutral-weak">
+          Не. Real-time колаборацията беше премахната от Matt Mullenweg на 8 май 2026 г., дванадесет дни преди финалното пускане. Кодът е изтрит от core за RC3 - не само деактивиран. Ранното й връщане е малко вероятно преди 2027 г., с реалистична цел WordPress 7.3. Block-level Notes с @mentions е включен като заместваща колаборационна функция.
+        </Text>
+      )
+    },
+    {
+      title: "Какво е WP AI Client и как се конфигурира?",
+      content: (
+        <Text onBackground="neutral-weak">
+          WP AI Client е нативна AI инфраструктура в WordPress core - стандартизиран, provider-agnostic интерфейс за свързване с AI модели. Конфигурира се в Settings > Connectors, където добавяш API ключ за предпочитания доставчик (OpenAI, Google Gemini или Anthropic Claude - инсталирани като отделни плъгини от wordpress.org). След конфигурацията, всеки съвместим плъгин на сайта използва тези credentials автоматично.
+        </Text>
+      )
+    },
+    {
+      title: "Трябва ли да ъпгрейдна PHP преди WordPress 7.0?",
+      content: (
+        <Text onBackground="neutral-weak">
+          Зависи от текущата ти PHP версия. WordPress 7.0 официално прекратява поддръжката за PHP 7.2 и 7.3 - минималното изискване е PHP 7.2.24+, но препоръчан е PHP 8.3+. Ако сайтът работи на PHP 7.2 или 7.3, ъпгрейдни PHP първо. Провери текущата версия в WordPress admin > Tools > Site Health > Info > Server.
+        </Text>
+      )
+    },
+    {
+      title: "Какво е DataViews и защо засяга плъгините ми?",
+      content: (
+        <Text onBackground="neutral-weak">
+          DataViews е нова React-базирана система, заменяща традиционните admin list таблици в Posts, Pages и Media екраните. Плъгини, добавящи custom колони, filter dropdowns или bulk actions в тези екрани чрез legacy WordPress hooks, може да не работят правилно след ъпгрейд. Провери changelog-а на засегнатите плъгини или ги тествай на staging преди production ъпгрейд.
+        </Text>
+      )
+    },
+    {
+      title: "Какво са PHP-only блокове и защо са важни за разработчиците?",
+      content: (
+        <Text onBackground="neutral-weak">
+          PHP-only блоковете позволяват регистриране и рендиране на custom блокове изцяло чрез PHP, без JavaScript или build pipeline. WordPress автоматично генерира Inspector controls за common attribute types. Преди 7.0, дори прост custom блок изискваше JavaScript файл и webpack конфигурация. Сега register_block_type() с PHP render callback е достатъчно - значително намаляване на entry barrier и development complexity.
+        </Text>
+      )
+    }
+  ]}
+/>
+
+<hr />
+
+<p>
+WordPress 7.0 "Armstrong" не е версията, която очаквахме - real-time колаборацията отсъства и вероятно ще отсъства до 2027 г. Но е версията, от която платформата се нуждаеше: <strong>нативна AI инфраструктура с WP AI Client и Abilities API, модернизиран admin с DataViews след тринадесет години без сериозен редизайн, PHP-only блокове, намаляващи complexity за разработчиците, и MCP Adapter, правещ WordPress директно достъпен за AI агенти.</strong> Фундаментът за следващото десетилетие на WordPress е положен в 7.0. Надстройката - real-time колаборацията, разширеният Connectors API, post management Abilities - идва в 7.1 и 7.2. Ъпгрейдни внимателно, тествай на staging и не бързай с production - но не се съмнявай, че тази версия има значение.
+</p>
