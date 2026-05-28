@@ -1,5 +1,5 @@
 ---
-title: "WordPress 7.0 'Armstrong' - Всичко Ново, Реалното Положение и Как да Ъпгрейдваш Безопасно"
+title: "WordPress 7.0 Armstrong - Всичко Ново, Реалното Положение и Как да Ъпгрейдваш Безопасно"
 keywords: ["wordpress 7.0", "wordpress 7.0 нови функции", "wordpress 7.0 дата на излизане", "wordpress 7.0 ai", "wordpress 7.0 abilities api", "wordpress 7.0 dataviews", "wordpress 7.0 upgrade", "wordpress 7 нови функции 2026", "wp ai client wordpress", "wordpress 7.0 armstrong"]
 summary: "WordPress 7.0 'Armstrong' е официално пуснат на 20 май 2026 г. Нативна AI интеграция чрез WP AI Client и Abilities API, пълен редизайн на admin панела с DataViews, нови блокове, browser-side медия обработка и PHP-only блокове. Real-time колаборацията беше премахната 12 дни преди пускането. Пълно ръководство с всичко, което трябва да знаеш."
 author: "Станчев"
@@ -49,7 +49,7 @@ AI Client е включен в core с PHP API `wp_ai_client_prompt()`, изпо
 
 Практически - конфигурираш предпочитания AI доставчик веднъж в Settings > Connectors с API ключ. Оттам нататък всеки съвместим плъгин на сайта използва тези credentials автоматично. Край на управлението на отделни API ключове за всеки плъгин поотделно.
 
-<strong>Abilities API</strong> - разширен от версия 6.9 - е допълващата страна на уравнението. WordPress 7.0 разширява тази основа с hybrid abilities, комбиниращи множество capabilities в сложни workflows, и с JavaScript пакет `@wordpress/abilities` за discovery и изпълнение на WordPress capabilities от client-side код.
+<strong>Abilities API</strong> - разширен от версия 6.9 - е допълващата страна на уравнението. WordPress 7.0 разширява тази основа с hybrid abilities, комбиниращи множество capabilities в сложни workflows, и с JavaScript пакет `wordpress/abilities` за discovery и изпълнение на WordPress capabilities от client-side код.
 
 Abilities API осигурява на разработчиците стандартизирани методи за интегриране на AI услуги в WordPress workflows. Той обработва автентикация, rate limiting, content sanitization и context management - елиминирайки нуждата всеки разработчик на плъгини да изгражда тези сложни системи самостоятелно.
 
@@ -82,7 +82,7 @@ DataViews и DataForm API добавят нови layouts, controls (combobox, a
 
 <h3 id="block-level-notes">Block-level Notes - колаборацията, която всъщност е вътре</h3>
 
-Block-level Notes система е включена в WordPress 7.0 с поддръжка за @mentions, Suggestions режим и нов dashboard widget, показващ последните notes в целия сайт. Можеш да оставяш коментари към конкретни блокове, да споменаваш колеги с @mention и да получаваш нотификации - всичко вътре в WordPress, без email нишки.
+Block-level Notes система е включена в WordPress 7.0 с поддръжка за mentions, Suggestions режим и нов dashboard widget, показващ последните notes в целия сайт. Можеш да оставяш коментари към конкретни блокове, да споменаваш колеги с mention и да получаваш нотификации - всичко вътре в WordPress, без email нишки.
 
 Коментарите вече могат да обхващат множество блокове - перфектно за обратна връзка върху цели секции от съдържание.
 
@@ -120,7 +120,7 @@ WordPress 7.0 носи значителни промени за разработ
 
 <strong>PHP-only блок регистрацията е може би най-доброто нещо в 7.0 за разработчиците на плъгини.</strong> Блоковете вече могат да бъдат регистрирани и рендирани изцяло чрез PHP - без JavaScript или build pipeline. WordPress генерира Inspector controls за common attribute types автоматично.
 
-Преди 7.0, дори прост custom блок изискваше JavaScript файл, webpack конфигурация или @wordpress/scripts setup. Сега - `register_block_type()` с PHP render callback е напълно достатъчно за функционален блок с settings panel. Огромно намаляване на entry barrier за WordPress разработчиците.
+Преди 7.0, дори прост custom блок изискваше JavaScript файл, webpack конфигурация или wordpress/scripts setup. Сега - `register_block_type()` с PHP render callback е напълно достатъчно за функционален блок с settings panel. Огромно намаляване на entry barrier за WordPress разработчиците.
 
 <h3 id="block-bindings">Block Bindings API подобрения</h3>
 
@@ -238,7 +238,7 @@ WordPress 7.0 е версия с висок риск за plugin compatibility. 
       ["WP AI Client + Abilities API", "Всички - потребители и разработчици", "Висока - фундаментална AI инфраструктура"],
       ["DataViews admin редизайн", "Администратори, редактори", "Висока - засяга ежедневната работа"],
       ["PHP-only блокове", "Разработчици на плъгини", "Висока - намалява complexity значително"],
-      ["Block-level Notes + @mentions", "Редакционни екипи", "Средна - полезно, но не real-time"],
+      ["Block-level Notes + mentions", "Редакционни екипи", "Средна - полезно, но не real-time"],
       ["Breadcrumbs и Icons блокове", "Контент екипи", "Средна - елиминира плъгини"],
       ["Browser-side медия обработка", "Всички потребители", "Средна - по-бързи uploads"],
       ["Visual Revisions", "Редактори", "Средна - по-добър comparison UI"],
@@ -265,7 +265,7 @@ WordPress 7.0 е версия с висок риск за plugin compatibility. 
       title: "Включена ли е real-time колаборацията в WordPress 7.0?",
       content: (
         <Text onBackground="neutral-weak">
-          Не. Real-time колаборацията беше премахната от Matt Mullenweg на 8 май 2026 г., дванадесет дни преди финалното пускане. Кодът е изтрит от core за RC3 - не само деактивиран. Ранното й връщане е малко вероятно преди 2027 г., с реалистична цел WordPress 7.3. Block-level Notes с @mentions е включен като заместваща колаборационна функция.
+          Не. Real-time колаборацията беше премахната от Matt Mullenweg на 8 май 2026 г., дванадесет дни преди финалното пускане. Кодът е изтрит от core за RC3 - не само деактивиран. Ранното й връщане е малко вероятно преди 2027 г., с реалистична цел WordPress 7.3. Block-level Notes с mentions е включен като заместваща колаборационна функция.
         </Text>
       )
     },
