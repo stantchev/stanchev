@@ -64,7 +64,7 @@ export async function generateMetadata({
       title: post.metadata.title,
       description: post.metadata.summary,
       url: canonicalURL,
-      siteName: "Станчев SEO",
+      siteName: "Stanchev Digital",
       images: [
         {
           url:
@@ -326,5 +326,3 @@ export default async function Blog({
     </>
   );
 }
-
-
