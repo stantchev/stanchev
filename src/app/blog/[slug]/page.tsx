@@ -18,6 +18,7 @@ import {
   HoverCard,
   Tag,
   BlockQuote,
+  Timeline,
 } from "@once-ui-system/core";
 import { baseURL, about, blog, person } from "@/resources";
 import { formatDate } from "@/utils/formatDate";
