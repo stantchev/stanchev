@@ -176,6 +176,7 @@ const components = {
   PieChart: dynamic(() => import("@once-ui-system/core").then(mod => mod.PieChart)),
   LineBarChart: dynamic(() => import("@once-ui-system/core").then(mod => mod.LineBarChart)),
   BlockQuote: dynamic(() => import("@once-ui-system/core").then(mod => mod.BlockQuote)),
+  Timeline: dynamic(() => import("@once-ui-system/core").then(mod => mod.Timeline)),
   img: ({ src, alt, ...props }: { src?: string; alt?: string }) => (
     <img
       src={src}
@@ -196,5 +197,3 @@ export function CustomMDX(props: CustomMDXProps) {
   );
 
 }
-
-
