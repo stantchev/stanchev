@@ -26,9 +26,12 @@ import {
   FaDownload,
   FaExclamationTriangle
 } from 'react-icons/fa';
+import { protectJson } from "@/lib/contact";
+import { ContactButton, ContactText } from "@/components/ProtectedContact";
+import { EMAIL_PARTS, PHONE_GROUPS } from "@/lib/contact";
 
 export const metadata: Metadata = {
-  title: 'GDPR и Защита на личните данни | Станчев SEO',
+  title: 'GDPR и Защита на личните данни | Stanchev Digital',
   description: 'Информация за обработката на личните данни съгласно GDPR. Вашите права и как защитаваме вашата поверителност.',
   robots: {
     index: false,
@@ -38,16 +41,16 @@ export const metadata: Metadata = {
     canonical: `${baseURL}/gdpr`,
   },
   openGraph: {
-    title: 'GDPR и Защита на личните данни | Станчев SEO',
+    title: 'GDPR и Защита на личните данни | Stanchev Digital',
     description: 'Информация за обработката на личните данни съгласно GDPR. Вашите права и как защитаваме вашата поверителност.',
     url: `${baseURL}/gdpr`,
-    siteName: 'Станчев SEO',
+    siteName: 'Stanchev Digital',
     images: [
       {
         url: `${baseURL}/images/og/og.jpg`,
         width: 1200,
         height: 630,
-        alt: 'GDPR и Защита на личните данни - Станчев SEO',
+        alt: 'GDPR и Защита на личните данни - Stanchev Digital',
       },
     ],
     locale: "bg_BG",
@@ -55,7 +58,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: 'GDPR и Защита на личните данни | Станчев SEO',
+    title: 'GDPR и Защита на личните данни | Stanchev Digital',
     description: 'Информация за обработката на личните данни съгласно GDPR.',
     images: [`${baseURL}/images/og/og.jpg`],
   },
@@ -64,14 +67,11 @@ export const metadata: Metadata = {
 export default function GDPR() {
   return (
     <>
-      <Script
-        id="gdpr-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
+      <script type="application/ld+json" dangerouslySetInnerHTML={{
+          __html: protectJson(JSON.stringify({
             "@context": "http://schema.org",
             "@type": "WebPage",
-            "name": "GDPR и Защита на личните данни - Станчев SEO",
+            "name": "GDPR и Защита на личните данни - Stanchev Digital",
             "description": "Информация за обработката на личните данни съгласно GDPR",
             "url": `${baseURL}/gdpr`,
             "author": {
@@ -81,16 +81,15 @@ export default function GDPR() {
             },
             "publisher": {
               "@type": "Organization",
-              "name": "Станчев SEO",
+              "name": "Stanchev Digital",
               "url": baseURL,
               "logo": `${baseURL}/images/og/og.jpg`
             }
-          })
+          }))
         }}
       />
 
       <Column maxWidth="l" gap="xl">
-        {/* Header */}
         <Column gap="l" paddingX="l">
           <Heading variant="display-strong-l" marginBottom="m" as="h1">
             GDPR и Защита на личните данни
@@ -101,27 +100,25 @@ export default function GDPR() {
           </Text>
         </Column>
 
-        {/* Data Controller */}
         <Card padding="xl" radius="l" background="surface" border="success-alpha-medium">
           <Column gap="m">
             <Row gap="m" vertical="center">
               <FaUser size={24} color="var(--success-strong)" />
-              <Heading variant="heading-strong-l">
+              <Heading as="h3" variant="heading-strong-l">
                 Администратор на личните данни
               </Heading>
             </Row>
             <Text variant="body-default-m" onBackground="neutral-weak">
               <strong>Име:</strong> Станчев<br/>
               <strong>Адрес:</strong> Бул. Г.М. Димитров 26, София 1797, България<br/>
-              <strong>Телефон:</strong> 0877038729<br/>
-              <strong>Email:</strong> seo@stanchev.bg<br/>
+              <strong>Телефон:</strong> <ContactText kind="phone" parts={PHONE_GROUPS} /><br/>
+              <strong>Email:</strong> <ContactText kind="email" parts={EMAIL_PARTS} /><br/>
               <strong>Уебсайт:</strong> https://stanchev.bg<br/>
               <strong>Работно време:</strong> Понедлник-Петък 9:30-16:30 ч.
             </Text>
           </Column>
         </Card>
 
-        {/* What data we collect */}
         <Column gap="l" paddingX="l">
           <Heading variant="heading-strong-l" marginBottom="m" as="h2">
             Какви данни събираме
@@ -203,12 +200,11 @@ export default function GDPR() {
           </Card>
         </Grid>
 
-        {/* Legal basis */}
         <Card padding="xl" radius="l" background="surface">
           <Column gap="m">
             <Row gap="m" vertical="center">
               <FaLock size={24} color="var(--brand-strong)" />
-              <Heading variant="heading-strong-l">
+              <Heading as="h3" variant="heading-strong-l">
                 Правно основание за обработка
               </Heading>
             </Row>
@@ -223,7 +219,6 @@ export default function GDPR() {
           </Column>
         </Card>
 
-        {/* Your rights */}
         <Column gap="l" paddingX="l">
           <Heading variant="heading-default-l" marginBottom="m" as="h2">
             Вашите права
@@ -351,12 +346,11 @@ export default function GDPR() {
           </Card>
         </Grid>
 
-        {/* Data retention */}
         <Card padding="xl" radius="l" background="surface">
           <Column gap="m">
             <Row gap="m" vertical="center">
               <FaDatabase size={24} color="var(--info-strong)" />
-              <Heading variant="heading-strong-l">
+              <Heading as="h3" variant="heading-strong-l">
                 Срок на съхранение
               </Heading>
             </Row>
@@ -371,7 +365,6 @@ export default function GDPR() {
           </Column>
         </Card>
 
-        {/* FAQ */}
         <Column gap="l" paddingX="l">
           <Heading variant="heading-strong-l" marginBottom="m" as="h2">
             Често задавани въпроси
@@ -387,7 +380,7 @@ export default function GDPR() {
               title: "Как мога да упражня правата си?",
               content: (
                 <Text onBackground="neutral-weak">
-                  Можете да се свържете с нас на email: seo@stanchev.bg с предмет "GDPR заявка". 
+                  Можете да се свържете с нас на email: <ContactText kind="email" parts={EMAIL_PARTS} /> с предмет "GDPR заявка". 
                   Ще отговорим в срок до 30 дни. В заявката посочете какво точно искате да направим с вашите данни.
                 </Text>
               ),
@@ -422,26 +415,22 @@ export default function GDPR() {
           ]}
         />
 
-        {/* Contact for GDPR */}
         <Column gap="l" paddingX="l" align="center">
           <Heading variant="heading-strong-l" align="center" marginBottom="m" as="h2">
             Имате въпроси за GDPR?
           </Heading>
           <Text variant="body-default-l" onBackground="neutral-weak" wrap="balance">
             За упражняване на правата си или въпроси относно обработката на данни, 
-            свържете се с нас на: <strong>seo@stanchev.bg</strong>
+            свържете се с нас на: <strong><ContactText kind="email" parts={EMAIL_PARTS} /></strong>
           </Text>
           <Row gap="l" wrap horizontal="center">
             <Button href="/kontakti" variant="primary" size="l" prefixIcon="mail">
               Свържете се с нас
             </Button>
-            <Button href="mailto:seo@stanchev.bg?subject=GDPR%20заявка" variant="secondary" size="l" prefixIcon="mail">
-              GDPR заявка
-            </Button>
+            <ContactButton kind="email" parts={EMAIL_PARTS} subject="GDPR заявка" icon="mail" size="l">GDPR заявка</ContactButton>
           </Row>
         </Column>
 
-        {/* Footer info */}
         <Column gap="s" align="center" paddingY="l">
           <Text variant="body-default-s" align="center" onBackground="neutral-weak">
             Тази GDPR политика е част от нашите Общи условия за ползване.

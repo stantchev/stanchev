@@ -128,7 +128,7 @@
     
     @include breakpoints.s {
       transform: scale(1);
-      order: -1; /* Move featured plan to the top on mobile */
+      order: -1; 
     }
 
     .btn {

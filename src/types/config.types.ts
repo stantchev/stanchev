@@ -1,7 +1,6 @@
+import type { ChartMode, ChartVariant } from "@once-ui-system/core/data";
 import {
   BorderStyle,
-  ChartMode,
-  ChartVariant,
   NeutralColor,
   ScalingSize,
   Schemes,
@@ -13,28 +12,16 @@ import {
 } from "@once-ui-system/core";
 import { NextFontWithVariable } from "next/dist/compiled/@next/font";
 
-/**
- * Display configuration for UI elements.
- */
 export type DisplayConfig = {
   location: boolean;
   time: boolean;
   themeSwitcher: boolean;
 };
 
-/**
- * Route configuration for enabled/disabled routes.
- */
 export type RoutesConfig = Record<`/${string}`, boolean>;
 
-/**
- * Protected route configuration.
- */
 export type ProtectedRoutesConfig = Record<`/${string}`, boolean>;
 
-/**
- * Font configuration for each variant.
- */
 export type FontsConfig = {
   heading: NextFontWithVariable;
   body: NextFontWithVariable;
@@ -42,9 +29,6 @@ export type FontsConfig = {
   code: NextFontWithVariable;
 };
 
-/**
- * Style customization for main layout.
- */
 export type StyleConfig = {
   theme: Theme;
   neutral: NeutralColor;
@@ -58,9 +42,6 @@ export type StyleConfig = {
   scaling: ScalingSize;
 };
 
-/**
- * Data style configuration for charts.
- */
 export type DataStyleConfig = {
   variant: ChartVariant;
   mode: ChartMode;
@@ -75,9 +56,6 @@ export type DataStyleConfig = {
   };
 };
 
-/**
- * Effects configuration for UI visuals.
- */
 export type EffectsConfig = {
   mask: {
     cursor: boolean;
@@ -119,17 +97,11 @@ export type EffectsConfig = {
   };
 };
 
-/**
- * Mailchimp configuration for newsletter forms.
- */
 export type MailchimpConfig = {
   action: string;
   effects: EffectsConfig;
 };
 
-/**
- * Schema data for SEO/meta tags.
- */
 export type SchemaConfig = {
   logo: string;
   type: string;
@@ -138,18 +110,12 @@ export type SchemaConfig = {
   email: string;
 };
 
-/**
- * Social links for organization.
- */
 export type SameAsConfig = {
   linkedin: string;
   github: string;
   devto: string;
 };
 
-/**
- * Social sharing configuration for blog posts.
- */
 export type SocialSharingConfig = {
   display: boolean;
   platforms: {
@@ -165,9 +131,6 @@ export type SocialSharingConfig = {
   };
 };
 
-/**
- * Top-level config types for once-ui.config.js
- */
 export type OnceUIConfig = {
   display: DisplayConfig;
   mailchimp: MailchimpConfig;

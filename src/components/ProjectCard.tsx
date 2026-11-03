@@ -38,7 +38,6 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         }))}
       />
 
-      {/* Flex за layout – махаме mobileDirection */}
       <Flex
         direction="column"
         fillWidth

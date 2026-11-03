@@ -95,7 +95,7 @@ export default async function Project({
         <Button data-border="rounded" href="/seo-proekti" variant="tertiary" weight="default" size="s" prefixIcon="chevronLeft">
           Проекти
         </Button>
-        <Heading variant="display-strong-s">{post.metadata.title}</Heading>
+        <Heading as="h1" variant="display-strong-s">{post.metadata.title}</Heading>
       </Column>
       {post.metadata.images.length > 0 && (
         <Media

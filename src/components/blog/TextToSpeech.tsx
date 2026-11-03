@@ -19,7 +19,6 @@ export function TextToSpeech({ title, articleSelector = "article" }: TextToSpeec
   const synthRef = useRef<SpeechSynthesis | null>(null);
 
   useEffect(() => {
-    // Check if browser supports speech synthesis
     if (typeof window !== "undefined" && "speechSynthesis" in window) {
       setIsSupported(true);
       synthRef.current = window.speechSynthesis;
@@ -27,7 +26,6 @@ export function TextToSpeech({ title, articleSelector = "article" }: TextToSpeec
       setIsSupported(false);
     }
 
-    // Cleanup on unmount
     return () => {
       if (synthRef.current) {
         synthRef.current.cancel();
@@ -35,39 +33,31 @@ export function TextToSpeech({ title, articleSelector = "article" }: TextToSpeec
     };
   }, []);
 
-  // Extract clean text from rendered article DOM
   const getCleanText = useCallback(() => {
     try {
-      // Find the article element
       const articleElement = document.querySelector(articleSelector);
       if (!articleElement) {
         console.warn(`Article element not found with selector: ${articleSelector}`);
         return title;
       }
 
-      // Clone the element to avoid modifying the original
       const clone = articleElement.cloneNode(true) as HTMLElement;
       
-      // Remove elements that shouldn't be read
       const elementsToRemove = clone.querySelectorAll(
         'script, style, nav, aside, .skip-to-content, button, [role="button"]'
       );
       elementsToRemove.forEach((el) => el.remove());
 
-      // Extract text content
       let text = clone.textContent || clone.innerText || "";
       
-      // Clean up text: remove extra whitespace, newlines, etc.
       text = text
-        .replace(/\s+/g, " ") // Replace multiple spaces with single space
-        .replace(/\n+/g, " ") // Replace newlines with space
+        .replace(/\s+/g, " ")
+        .replace(/\n+/g, " ")
         .trim();
       
-      // Combine title and content
       const fullText = `${title}. ${text}`;
       
-      // Limit text length to avoid issues (Web Speech API has limits)
-      const maxLength = 50000; // Safe limit
+      const maxLength = 50000;
       if (fullText.length > maxLength) {
         return fullText.substring(0, maxLength) + "...";
       }
@@ -88,7 +78,6 @@ export function TextToSpeech({ title, articleSelector = "article" }: TextToSpeec
       return;
     }
 
-    // If paused, resume
     if (isPaused && utteranceRef.current) {
       synthRef.current.resume();
       setIsPlaying(true);
@@ -96,20 +85,16 @@ export function TextToSpeech({ title, articleSelector = "article" }: TextToSpeec
       return;
     }
 
-    // Cancel any ongoing speech
     synthRef.current.cancel();
 
-    // Create new utterance
     const text = getCleanText();
     const utterance = new SpeechSynthesisUtterance(text);
     
-    // Configure utterance
-    utterance.lang = "bg-BG"; // Bulgarian
+    utterance.lang = "bg-BG";
     utterance.rate = rate;
     utterance.pitch = 1;
     utterance.volume = 1;
 
-    // Event handlers
     utterance.onstart = () => {
       setIsPlaying(true);
       setIsPaused(false);
@@ -154,13 +139,11 @@ export function TextToSpeech({ title, articleSelector = "article" }: TextToSpeec
 
   const handleRateChange = useCallback((newRate: number) => {
     setRate(newRate);
-    // If currently playing, update the rate
     if (isPlaying && utteranceRef.current) {
       utteranceRef.current.rate = newRate;
     }
   }, [isPlaying]);
 
-  // Don't render if not supported
   if (!isSupported) {
     return null;
   }

@@ -1,7 +1,7 @@
 ---
-title: "Headless WordPress с Next.js/Vite + React – какво е, как работи и защо е критично важен за модерните уеб приложения"
+title: "Headless WordPress с Next.js/Vite + React - какво е, как работи и защо е критично важен за модерните уеб приложения"
 keywords: ["headless wordpress", "headless wordpress next.js", "headless wordpress react", "wordpress api", "wp rest api", "wpgraphql", "frontend decoupling", "api-driven cms", "performance", "seo оптимизация"]
-summary: "Подробен технически и seo анализ на headless WordPress архитектурата с Next.js/Vite + React – как функционира, какви rendering стратегии използва, как се оптимизира производителността и защо този модел е критично важен за модерни, скалируеми уеб приложения."
+summary: "Подробен технически и seo анализ на headless WordPress архитектурата с Next.js/Vite + React - как функционира, какви rendering стратегии използва, как се оптимизира производителността и защо този модел е критично важен за модерни, скалируеми уеб приложения."
 author: "Stanchev Digital"
 publishedAt: "2026-02-04"
 tag: "Уеб разработка"
@@ -50,7 +50,7 @@ Next.js позволява SSR, SSG и ISR, а Vite осигурява изкл�
 Няма PHP overhead при всяко зареждане.
 
 <strong>3. Реална frontend свобода</strong>  
-React, Tailwind, Framer Motion, React Query, Three.js – без ограничения от WP теми.
+React, Tailwind, Framer Motion, React Query, Three.js - без ограничения от WP теми.
 
 <strong>4. SEO без компромиси</strong>  
 Server-side и static rendering позволяват пълна индексация, нисък TTFB и отлични Core Web Vitals.
@@ -60,12 +60,10 @@ Frontend-ът е напълно отделен. Уязвимостите в Word
 
 <BarChart
   title="Сравнение на производителността: традиционен WordPress срещу headless"
-  yLabel="Време за зареждане (ms)"
   data={[
     { category: "Традиционен WordPress", loadTime: 2500 },
     { category: "Headless WordPress + Next.js/Vite", loadTime: 500 }
   ]}
-  xKey="category"
   yKeys={["loadTime"]}
 />
 
@@ -78,7 +76,6 @@ Frontend-ът е напълно отделен. Уязвимостите в Word
     { label: "Скалируемост", value: 10 }
   ]}
   nameKey="label"
-  valueKey="value"
 />
 
 <h2 id="how-it-works">Как работи Headless WordPress с Next.js/Vite + React</h2>
@@ -114,9 +111,9 @@ WordPress → API → Frontend services → React UI → Browser
 <h2 id="rendering">Rendering стратегии</h2>
 
 <strong>Next.js</strong>:
-- SSG – блогове, landing pages
-- SSR – динамично съдържание
-- ISR – често обновявани страници
+- SSG - блогове, landing pages
+- SSR - динамично съдържание
+- ISR - често обновявани страници
 
 <strong>Vite + React</strong>:
 - SPA модел

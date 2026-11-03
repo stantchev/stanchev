@@ -7,9 +7,8 @@ import {
   Background,
   Column,
   Flex,
-  opacity,
+  Opacity,
   SpacingToken,
-  LayoutProvider, // 🆕 добавен
 } from "@once-ui-system/core";
 import {
   baseURL,
@@ -24,11 +23,12 @@ import { Metadata } from "next";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Providers } from "@/components/Providers";
+import { protectJson } from "@/lib/contact";
 
 export const metadata: Metadata = {
-  title: "SEO Консултант България | Станчев SEO - Професионални SEO Услуги",
+  title: "SEO Консултант България | Stanchev Digital",
   description:
-    "Професионален SEO консултант в България. SEO оптимизация, линк билдинг стратегия, оптимизация на сайт, SEO анализ. Повишете позициите си в Google с доказани SEO услуги.",
+    "Професионален SEO консултант в България: SEO оптимизация, линк билдинг и SEO анализ. Повишете позициите си в Google с доказани услуги.",
   keywords: [
     "seo консултант",
     "seo фирми",
@@ -41,8 +41,8 @@ export const metadata: Metadata = {
   ],
   metadataBase: new URL(baseURL),
   authors: [{ name: "Станчев", url: baseURL }],
-  creator: "Станчев SEO",
-  publisher: "Станчев SEO",
+  creator: "Stanchev Digital",
+  publisher: "Stanchev Digital",
   robots: {
     index: true,
     follow: true,
@@ -58,16 +58,16 @@ export const metadata: Metadata = {
     type: "website",
     locale: "bg_BG",
     url: baseURL,
-    siteName: "Станчев SEO - Професионални SEO Услуги България",
-    title: "SEO Консултант България | Станчев SEO - Професионални SEO Услуги",
+    siteName: "Stanchev Digital - Професионални SEO Услуги България",
+    title: "SEO Консултант България | Stanchev Digital",
     description:
-      "Професионален SEO консултант в България. SEO оптимизация, линк билдинг стратегия, оптимизация на сайт, SEO анализ. Повишете позициите си в Google с доказани SEO услуги.",
+      "Професионален SEO консултант в България: SEO оптимизация, линк билдинг и SEO анализ. Повишете позициите си в Google с доказани услуги.",
     images: [
       {
         url: "https://stanchev.bg/images/og/og.jpg",
         width: 1200,
         height: 630,
-        alt: "Станчев SEO - Професионални SEO услуги България",
+        alt: "Stanchev Digital - Професионални SEO услуги България",
         type: "image/jpeg",
       },
     ],
@@ -76,9 +76,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@stanchev_seo",
     creator: "@stanchev_seo",
-    title: "SEO Консултант България | Станчев SEO - Професионални SEO Услуги",
+    title: "SEO Консултант България | Stanchev Digital",
     description:
-      "Професионален SEO консултант в България. SEO оптимизация, линк билдинг стратегия, оптимизация на сайт, SEO анализ. Повишете позициите си в Google с доказани SEO услуги.",
+      "Професионален SEO консултант в България: SEO оптимизация, линк билдинг и SEO анализ. Повишете позициите си в Google с доказани услуги.",
     images: ["https://stanchev.bg/images/og/og.jpg"],
   },
   alternates: {
@@ -107,21 +107,17 @@ export default function RootLayout({
       )}
     >
       <body className="page-background flex flex-col items-center min-h-screen">
-        {/* JSON-LD Schema */}
-        <Script
-          id="json-ld-professional-service"
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
+        <script type="application/ld+json" dangerouslySetInnerHTML={{
+            __html: protectJson(JSON.stringify({
               "@context": "https://schema.org",
               "@type": "ProfessionalService",
-              name: "Станчев SEO",
+              name: "Stanchev Digital",
               description:
                 "Професионален SEO консултант в България. SEO оптимизация, линк билдинг стратегия, оптимизация на сайт, SEO анализ.",
-              url: "https://stanchev.vercel.app",
-              logo: "https://stanchev.vercel.app/images/og/og.jpg",
-              image: "https://stanchev.vercel.app/images/og/og.jpg",
-              telephone: "+359-XXX-XXX-XXX",
+              url: "https://stanchev.bg",
+              logo: "https://stanchev.bg/images/og/og.jpg",
+              image: "https://stanchev.bg/images/og/og.jpg",
+              telephone: "+359898509650",
               email: "seo@stanchev.bg",
               address: {
                 "@type": "PostalAddress",
@@ -159,14 +155,13 @@ export default function RootLayout({
               founder: {
                 "@type": "Person",
                 name: "Станчев",
-                jobTitle: "SEO Специалист",
+                jobTitle: "SEO консултант, SEO специалист и уеб разработчик",
                 email: "seo@stanchev.bg",
-                url: "https://stanchev.vercel.app/za-men",
+                url: "https://stanchev.bg/za-men",
               },
-            }),
+            })),
           }}
         />
-        {/* Theme init */}
         <Script id="theme-init" strategy="beforeInteractive" async>{`
           (function () {
             try {
@@ -187,10 +182,8 @@ export default function RootLayout({
                 root.setAttribute("data-" + k, v)
               );
               
-              // Функция за определяне на темата според времето на деня в София
               const getTimeBasedTheme = () => {
                 const now = new Date();
-                // Използваме същия часови пояс като в TimeDisplay компонента
                 const sofiaTime = new Intl.DateTimeFormat("bg-BG", {
                   timeZone: "Europe/Sofia",
                   hour: "2-digit",
@@ -200,12 +193,10 @@ export default function RootLayout({
                 }).formatToParts(now);
                 
                 const hour = parseInt(sofiaTime.find(part => part.type === "hour")?.value || "0");
-                // От 8:00 до 20:00 - светла тема, от 20:00 до 8:00 - тъмна тема
                 return hour >= 8 && hour < 20 ? "light" : "dark";
               };
               
               const resolveTheme = (t) => {
-                // Ако няма запазена тема, използваме автоматичното превключване
                 if (!t) {
                   return getTimeBasedTheme();
                 }
@@ -217,14 +208,13 @@ export default function RootLayout({
                 resolveTheme(localStorage.getItem("data-theme"))
               );
               
-              // Автоматично обновяване на темата всеки час
               setInterval(() => {
                 const currentTheme = localStorage.getItem("data-theme");
                 if (!currentTheme) {
                   const newTheme = getTimeBasedTheme();
                   root.setAttribute("data-theme", newTheme);
                 }
-              }, 60000); // 60 секунди
+              }, 60000);
             } catch (e) {
               console.error(e);
               document.documentElement.setAttribute("data-theme", "dark");
@@ -232,32 +222,30 @@ export default function RootLayout({
           })();
         `}</Script>
 
-        {/* 🆕 Wrap всичко в LayoutProvider */}
-        <LayoutProvider>
-          <Background
-            position="fixed"
-            mask={effects.mask}
-            gradient={{
-              ...effects.gradient,
-              opacity: effects.gradient.opacity as opacity,
-            }}
-            dots={{
-              ...effects.dots,
-              opacity: effects.dots.opacity as opacity,
-              size: effects.dots.size as SpacingToken,
-            }}
-            grid={{
-              ...effects.grid,
-              opacity: effects.grid.opacity as opacity,
-            }}
-            lines={{
-              ...effects.lines,
-              opacity: effects.lines.opacity as opacity,
-              size: effects.lines.size as SpacingToken,
-            }}
-          />
-          <Header />
           <Providers>
+            <Background
+              position="fixed"
+              mask={effects.mask}
+              gradient={{
+                ...effects.gradient,
+                opacity: effects.gradient.opacity as Opacity,
+              }}
+              dots={{
+                ...effects.dots,
+                opacity: effects.dots.opacity as Opacity,
+                size: effects.dots.size as SpacingToken,
+              }}
+              grid={{
+                ...effects.grid,
+                opacity: effects.grid.opacity as Opacity,
+              }}
+              lines={{
+                ...effects.lines,
+                opacity: effects.lines.opacity as Opacity,
+                size: effects.lines.size as SpacingToken,
+              }}
+            />
+            <Header />
             <main
               className="main-content"
               style={{
@@ -269,14 +257,13 @@ export default function RootLayout({
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
-                paddingTop: "80px",
+                paddingTop: "24px",
               }}
             >
               {children}
             </main>
+            <Footer />
           </Providers>
-          <Footer />
-        </LayoutProvider>
       </body>
     </html>
   );

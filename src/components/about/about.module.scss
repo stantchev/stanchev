@@ -1,6 +1,6 @@
 @use "../breakpoints.scss" as breakpoints;
 
-/* Hover ефект */
+
 .hover {
   transition: var(--transition-micro-medium);
 
@@ -9,12 +9,12 @@
   }
 }
 
-/* Блок с аватара */
+
 .avatar {
   height: fit-content;
 }
 
-/* Sticky версия на аватара – само на ≥ 769px */
+
 .avatarSticky {
   position: sticky;
   top: var(--static-space-64);
@@ -25,7 +25,7 @@
   }
 }
 
-/* Таблица с инструментите */
+
 .toolItem {
   flex-basis: calc(50% - 6px);
 
@@ -34,7 +34,7 @@
   }
 }
 
-/* Подравнявания */
+
 .textAlign {
   text-align: center;
 }
@@ -43,7 +43,7 @@
   align-self: center;
 }
 
-/* Responsive overrides */
+
 @media (max-width: breakpoints.$s) {
   .textAlign {
     text-align: center;

@@ -7,7 +7,6 @@ const TimeDisplay = ({
   timeZone: string;
   locale?: string;
 }) => {
-  // Server-side initial time
   const now = new Date();
   const options: Intl.DateTimeFormatOptions = {
     timeZone,

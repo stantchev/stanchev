@@ -35,7 +35,6 @@ export async function sendEmail({
     </div>
   `;
 
-  // Make sender more visible in the inbox while preserving authenticated From domain
   const finalSubject = `[Contact] ${subject} — ${name} <${email}>`;
   const fromDisplay = `${name} via Website`;
 
@@ -51,7 +50,6 @@ export async function sendEmail({
 
   const result = await transporter.sendMail(mailOptions);
 
-  // Изпрати телеграм съобщението СЛЕД като мейлът е успешно пратен
   try {
   await sendTelegramNotification(`
 \tНово съобщение от сайта:

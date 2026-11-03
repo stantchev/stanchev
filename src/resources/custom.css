@@ -1,61 +1,10 @@
-/* :root {
-  /*
-  /* Example setup for custom colors */
-/* Generate at: https://once-ui.com/customize */
-/*
-  --scheme-brand-100: #08002f;
-  --scheme-brand-200:  #04025c;
-  --scheme-brand-300:  #1f398e;
-  --scheme-brand-400:  #3856ae;
-  --scheme-brand-500:  #5071cc;
-  --scheme-brand-600:  #6f94f1;
-  --scheme-brand-700:  #8db3ff;
-  --scheme-brand-800:  #b2dbff;
-  --scheme-brand-900:  #bfe8ff;
-  --scheme-brand-1000: #ccf6ff;
-  --scheme-brand-1100: #d2fcff;
-  --scheme-brand-1200: #d2fcff;
-  --scheme-brand-600-10: rgba(111,148,241,0.1);
-  --scheme-brand-600-30: rgba(111,148,241,0.3);
-  --scheme-brand-600-50: rgba(111,148,241,0.5);
 
-  --scheme-accent-100:  #030b10;
-  --scheme-accent-200:  #0d181d;
-  --scheme-accent-300:  #364248;
-  --scheme-accent-400:  #505d64;
-  --scheme-accent-500:  #69777e;
-  --scheme-accent-600:  #8a989f;
-  --scheme-accent-700:  #a8b7bf;
-  --scheme-accent-800:  #c8d7df;
-  --scheme-accent-900:  #d5e4ec;
-  --scheme-accent-1000: #e2f1f9;
-  --scheme-accent-1100: #e9f8ff;
-  --scheme-accent-1200: #efffff;
-  --scheme-accent-600-10: rgba(138,152,159,0.1);
-  --scheme-accent-600-30: rgba(138,152,159,0.3);
-  --scheme-accent-600-50: rgba(138,152,159,0.5);
 
-  --scheme-neutral-100:  #020b10;
-  --scheme-neutral-200:  #0b181d;
-  --scheme-neutral-300:  #344248;
-  --scheme-neutral-400:  #4f5d64;
-  --scheme-neutral-500:  #68777e;
-  --scheme-neutral-600:  #89989f;
-  --scheme-neutral-700:  #a7b7be;
-  --scheme-neutral-800:  #c7d7df;
-  --scheme-neutral-900:  #d4e4ec;
-  --scheme-neutral-1000: #e1f2f9;
-  --scheme-neutral-1100: #e7f8ff;
-  --scheme-neutral-1200: #eeffff;
-  --scheme-neutral-600-10: rgba(137,152,159,0.1);
-  --scheme-neutral-600-30: rgba(137,152,159,0.3);
-  --scheme-neutral-600-50: rgba(137,152,159,0.5);
-  /*
-}*/
 
-/* Hover effects for styled components */
+
+
 .styled-badge {
-  transition: all 0.3s ease;
+  transition: all 0.15s ease;
 }
 
 .styled-badge:hover {
@@ -64,7 +13,7 @@
 }
 
 .styled-button {
-  transition: all 0.3s ease;
+  transition: all 0.15s ease;
 }
 
 .styled-button:hover {
@@ -72,7 +21,7 @@
   box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5) !important;
 }
 
-/* Glass morphism effects */
+
 .glass-card {
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
@@ -86,7 +35,7 @@
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
 }
 
-/* Gradient text effects */
+
 .gradient-text {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   -webkit-background-clip: text;
@@ -94,12 +43,14 @@
   background-clip: text;
 }
 
-/* Smooth transitions for all interactive elements */
+
 * {
-  transition: all 0.2s ease;
+  transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow;
+  transition-duration: 0.1s;
+  transition-timing-function: ease;
 }
 
-/* Enhanced focus states */
+
 button:focus,
 a:focus {
   outline: 2px solid rgba(102, 126, 234, 0.5);
@@ -124,3 +75,40 @@ a:focus {
   }
 }
 
+
+html,
+body {
+  overflow-x: clip;
+}
+
+
+
+[data-transition="all"],
+[data-transition="micro"] {
+  --transition-duration-micro-short: 0.05s;
+  --transition-duration-micro-medium: 0.1s;
+  --transition-duration-micro-long: 0.18s;
+}
+[data-transition="all"],
+[data-transition="macro"] {
+  --transition-duration-macro-short: 0.08s;
+  --transition-duration-macro-medium: 0.14s;
+  --transition-duration-macro-long: 0.25s;
+}
+
+.bento-wide { grid-column: span 2; }
+@media (max-width: 768px) { .bento-wide { grid-column: auto; } }
+
+.ai-caret { display: inline-block; width: 2px; height: 1em; margin-left: 2px; vertical-align: text-bottom; background: var(--brand-solid-strong); animation: ai-blink 0.9s steps(1) infinite; }
+@keyframes ai-blink { 50% { opacity: 0; } }
+.ai-sources { animation: ai-rise 0.3s ease both; }
+@keyframes ai-rise { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .ai-caret, .ai-sources { animation: none; } }
+
+.flow-wire { width: 100%; min-width: 32px; height: 2px; background-image: repeating-linear-gradient(90deg, var(--brand-solid-strong) 0 6px, transparent 6px 12px); background-size: 12px 2px; animation: flow-move 0.8s linear infinite; opacity: 0.7; }
+@keyframes flow-move { from { background-position: 0 0; } to { background-position: 12px 0; } }
+@media (prefers-reduced-motion: reduce) { .flow-wire { animation: none; } }
+
+.flow-wire-v { width: 2px; height: 20px; background-image: repeating-linear-gradient(180deg, var(--brand-solid-strong) 0 6px, transparent 6px 12px); background-size: 2px 12px; animation: flow-move-v 0.8s linear infinite; opacity: 0.7; }
+@keyframes flow-move-v { from { background-position: 0 0; } to { background-position: 0 12px; } }
+@media (prefers-reduced-motion: reduce) { .flow-wire-v { animation: none; } }

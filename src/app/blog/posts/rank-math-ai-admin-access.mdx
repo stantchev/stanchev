@@ -63,16 +63,15 @@ description="Rank Math 1.0.277 въведе Support Agent, който изпол
 Това е важно, защото Application Password не е самостоятелна sandboxed identity. Той е credential, асоцииран с конкретен WordPress user.
 </Text>
 
-<CodeBlock
-code={`WordPress User
+```text
+WordPress User
       ↓
 Application Password
       ↓
 Authentication as that user
       ↓
-User capabilities`}
-language="text"
-/>
+User capabilities
+```
 
 <Text variant="body-default-l">
 Следователно ако credential-ът е свързан с Administrator, security model-ът е фундаментално различен от този при отделен read-only service account.
@@ -87,7 +86,7 @@ title: "Rank Math 1.0.277",
 description: "Въвежда Support Agent функционалността."
 },
 {
-title: "28–30 август 2026",
+title: "28-30 август 2026",
 description: "Sybre Waaijer публикува технически анализ на Application Password flow-а и поставя въпроси за credential creation, scope и consent."
 },
 {
@@ -141,23 +140,22 @@ Security проблемът започва при начина, по който 
 Публичният security анализ твърди, че credential creation и transfer flow-ът са започвали преди потребителят да бъде поставен пред достатъчно ясен consent decision. Това е критична разлика между:
 </Text>
 
-<CodeBlock
-code={`User opens feature
+```text
+User opens feature
       ↓
 Credential created
       ↓
 External access begins
       ↓
-User sees explanation`}
-language="text"
-/>
+User sees explanation
+```
 
 <Text variant="body-default-l">
 и:
 </Text>
 
-<CodeBlock
-code={`User opens feature
+```text
+User opens feature
       ↓
 Clear explanation
       ↓
@@ -165,9 +163,8 @@ Explicit approval
       ↓
 Credential created
       ↓
-Access begins`}
-language="text"
-/>
+Access begins
+```
 
 <Text variant="body-default-l">
 Вторият модел е security-oriented, защото authorization decision-ът предхожда credential creation.
@@ -223,14 +220,13 @@ language="text"
 
 <h3 id="behavioral">Модел A: „Обещаваме да не използваме повече права“</h3>
 
-<CodeBlock
-code={`Administrator credential
+```text
+Administrator credential
         ↓
 AI Agent
         ↓
-"Няма да използвам write operations"`}
-language="text"
-/>
+"Няма да използвам write operations"
+```
 
 <Text variant="body-default-l">
 Тук технически credential-ът има широки права. Ограничението е логическо: software-ът <em>обещава</em> да не използва част от тях.
@@ -238,16 +234,15 @@ language="text"
 
 <h3 id="architectural">Модел B: „Няма техническа възможност да използва повече права“</h3>
 
-<CodeBlock
-code={`Scoped credential
+```text
+Scoped credential
         ↓
 Read-only capability
         ↓
 AI Agent
         ↓
-Required operation only`}
-language="text"
-/>
+Required operation only
+```
 
 <Text variant="body-default-l">
 Това е по-силният security модел. Ако системата бъде компрометирана, злоупотребата е ограничена от самата архитектура.
@@ -263,23 +258,22 @@ language="text"
 При традиционна API интеграция developer-ът предварително определя сравнително тесен набор от операции.
 </Text>
 
-<CodeBlock
-code={`Plugin
+```text
+Plugin
   ↓
 API token
   ↓
 Endpoint
   ↓
-Specific operation`}
-language="text"
-/>
+Specific operation
+```
 
 <Text variant="body-default-l">
 При agentic architecture имаме допълнителен decision-making слой:
 </Text>
 
-<CodeBlock
-code={`Plugin
+```text
+Plugin
   ↓
 Credential
   ↓
@@ -289,9 +283,8 @@ AI Agent
   ↓
 Decision
   ↓
-WordPress operation`}
-language="text"
-/>
+WordPress operation
+```
 
 <Text variant="body-default-l">
 Това означава, че security моделът вече трябва да разглежда не само API endpoint-а, а и поведението на системата, която получава identity-то.
@@ -303,8 +296,8 @@ language="text"
 Това е може би най-важният архитектурен урок от случая.
 </Text>
 
-<CodeBlock
-code={`Before
+```text
+Before
 
 WordPress
 ↓
@@ -320,9 +313,8 @@ Third-party service
 ↓
 AI infrastructure
 ↓
-AI agent`}
-language="text"
-/>
+AI agent
+```
 
 <Text variant="body-default-l">
 Всеки допълнителен слой означава нова trust boundary.
@@ -433,13 +425,12 @@ Rank Math вече е публикувал 1.0.277.2, която временн�
 
 <h3>2. Проверете Application Passwords</h3>
 
-<CodeBlock
-code={`WP Admin
+```text
+WP Admin
 → Users
 → Profile
-→ Application Passwords`}
-language="text"
-/>
+→ Application Passwords
+```
 
 <Text variant="body-default-l">
 Публичният анализ посочва credential с име <code>WAP - Rank Math Support Agent</code>. Ако такъв credential съществува, прегледайте го и го revoke-нете, ако не е необходим.
@@ -468,8 +459,8 @@ description="[ ] Update Rank Math · [ ] Review Application Passwords · [ ] Rev
 Един security-oriented AI support flow би изглеждал приблизително така:
 </Text>
 
-<CodeBlock
-code={`User requests support
+```text
+User requests support
         ↓
 Clear explanation of required access
         ↓
@@ -485,9 +476,8 @@ AI support session
         ↓
 Audit trail
         ↓
-Automatic expiration`}
-language="text"
-/>
+Automatic expiration
+```
 
 <Text variant="body-default-l">
 Това е много по-добър модел от използването на широк user identity и разчитането единствено на application logic да не злоупотребява с него.

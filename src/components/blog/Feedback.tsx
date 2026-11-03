@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react";
-import { Icon, Flex, Text, Column } from "@once-ui-system/core";
+import { Icon, Flex, Text, Column, type IconName } from "@once-ui-system/core";
 
 interface FeedbackProps {
   variant?: "info" | "danger" | "warning" | "success";
@@ -12,7 +12,7 @@ interface FeedbackProps {
 }
 
 const variantIconMap: {
-  [key in "info" | "danger" | "warning" | "success"]: string;
+  [key in "info" | "danger" | "warning" | "success"]: IconName;
 } = {
   info: "info",
   danger: "danger",

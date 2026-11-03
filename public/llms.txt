@@ -1,170 +1,35 @@
-# llms.txt
-# Версия: 2.0
+# Stanchev Digital
 
-## Пълен достъп
-Dataset: /
-Name: Цялостно съдържание на сайта
-Format: text/html
-Description: Пълен достъп до всички страници за AI индексиране и анализ на структура, съдържание и връзки в Headless WordPress платформа с React и Next.js.
-Keywords: Headless WordPress, AI SEO, GEO SEO, уеб разработка, Next.js, Tailwind CSS, React
-Importance: high
+> SEO консултант в България: SEO оптимизация, AI/генеративно SEO (GEO, LLM SEO) и уеб услуги (Next.js, WordPress, headless WordPress) за малкия и средния бизнес.
 
-## Услуги
-Dataset: /uslugi/
-Name: SEO и Уеб Услуги
-Format: text/html
-Description: Професионални услуги по SEO, уеб разработка и AI интеграции. Оптимизация на сайтове, Core Web Vitals и GEO стратегии за бизнес растеж.
-Keywords: SEO услуги, уеб разработка, AI SEO, GEO оптимизация, техническо SEO, WordPress
-Importance: high
+## Основни страници
+- [Начало](https://stanchev.bg/): SEO за търсачки и AI модели
+- [За мен](https://stanchev.bg/za-men): Опит и подход
+- [SEO проекти](https://stanchev.bg/seo-proekti): Case studies и реални резултати
+- [Контакти](https://stanchev.bg/kontakti): Връзка и запитвания
+- [Блог](https://stanchev.bg/blog): Статии за SEO, GEO, AI и уеб технологии
 
-## Блог
-Dataset: /blog/
-Name: SEO и Уеб Блог
-Format: text/html
-Description: Блог с експертни статии за Headless WordPress, Next.js, Tailwind CSS, SEO автоматизация и изкуствен интелект в дигиталния маркетинг.
-Keywords: Headless WordPress, React, Next.js, Tailwind CSS, SEO блог, AI SEO, GEO SEO
-Importance: high
+## SEO услуги
+- [SEO консултант](https://stanchev.bg/seo-konsultant): SEO консултант в България – одит, стратегия, GEO/AI SEO
+- [SEO услуги и цени](https://stanchev.bg/seo-uslugi): Преглед на всички услуги и цени
+- [SEO одит](https://stanchev.bg/seo-uslugi/seo-odit)
+- [SEO консултация](https://stanchev.bg/seo-uslugi/seo-konsultaciya)
+- [SEO оптимизация](https://stanchev.bg/seo-uslugi/seo-optimizatsiya)
+- [On-page SEO](https://stanchev.bg/seo-uslugi/on-page-seo)
+- [Keyword research](https://stanchev.bg/seo-uslugi/keyword-research)
+- [Линк билдинг](https://stanchev.bg/seo-uslugi/link-building)
+- [Локално SEO](https://stanchev.bg/seo-uslugi/lokalno-seo)
+- [Content SEO](https://stanchev.bg/seo-uslugi/content-seo)
+- [E-commerce SEO](https://stanchev.bg/seo-uslugi/ecommerce-seo)
+- [WordPress SEO](https://stanchev.bg/seo-uslugi/wordpress-seo)
 
-## За мен
-Dataset: /za-men/
-Name: За мен
-Format: text/html
-Description: Представяне на SEO консултант и уеб разработчик с опит в React, Next.js и Headless WordPress. Специализация в AI SEO и GEO оптимизация.
-Keywords: SEO консултант, уеб разработчик, Headless WordPress, AI SEO, GEO SEO
-Importance: critical
+## Уеб услуги
+- [Уеб услуги](https://stanchev.bg/web): Изработка и оптимизация на сайтове
+- [Изработка на сайт](https://stanchev.bg/web/izrabotka-sajt)
+- [Изработка на сайт с Next.js](https://stanchev.bg/web/izrabotka-sait-nextjs)
+- [Headless WordPress](https://stanchev.bg/web/headless-wordpress-sait)
+- [React SPA](https://stanchev.bg/web/react-spa)
+- [SEO интеграция](https://stanchev.bg/web/seo-integratsiya)
 
-## Контакти
-Dataset: /kontakti/
-Name: Контакт с SEO консултант
-Format: text/html
-Description: Контактна информация за директна връзка – имейл, локация и форма за заявка на уеб и SEO услуги.
-Keywords: контакти SEO, консултация, уеб разработка, SEO експерт
-Importance: critical
-
-## SEO Проекти – Оптимизация и AI интеграции
-Dataset: /seo-proekti/
-Name: SEO Проекти и Казуси
-Format: text/html
-Description: Портфолио от SEO проекти и реални казуси с AI SEO, Core Web Vitals оптимизация, ChatGPT интеграции и GEO стратегии.
-Keywords: SEO проекти, AI SEO, GEO оптимизация, ChatGPT WordPress, техническо SEO
-Importance: high
-
-## SEO Проекти – Премахване на счупени изображения
-Dataset: /seo-proekti/premahvane-na-schupeni-izobrazhenia
-Name: Case Study – Премахване на счупени изображения
-Format: text/html
-Description: Казус, показващ как чрез SQL и PHP автоматизация са премахнати над 700 счупени изображения за по-добро UX и SEO.
-Keywords: счупени изображения, WordPress оптимизация, SEO казус, UX подобрение
-Importance: medium
-
-## SEO Проекти – Интеграция ChatGPT в WordPress
-Dataset: /seo-proekti/integraciya-chatgpt-wordpress-case-study
-Name: Case Study – Интеграция на ChatGPT в WordPress
-Format: text/html
-Description: Реален проект за внедряване на ChatGPT в WordPress с автоматизация на SEO процеси, AI анализ и многоезично съдържание.
-Keywords: ChatGPT WordPress, AI SEO, автоматизация, WordPress интеграция
-Importance: high
-
-## SEO Услуги
-Dataset: /seo-uslugi/
-Name: SEO Услуги
-Format: text/html
-Description: Комплексни SEO услуги с фокус върху Headless WordPress, GEO позициониране и AI SEO анализи за бизнес растеж.
-Keywords: SEO услуги, AI SEO, GEO SEO, Headless WordPress, техническо SEO
-Importance: high
-
-## SEO Одит
-Dataset: /seo-uslugi/seo-odit
-Name: SEO Одит
-Format: text/html
-Description: Подробен SEO одит на WordPress, React и Next.js сайтове – техническа диагностика, Core Web Vitals и AI препоръки.
-Keywords: SEO одит, техническо SEO, AI анализ, Core Web Vitals
-Importance: high
-
-## On-Page SEO
-Dataset: /seo-uslugi/on-page-seo
-Name: On-Page SEO
-Format: text/html
-Description: Оптимизация на съдържание, структура и мета елементи. AI-базирани препоръки за Headless WordPress и Next.js.
-Keywords: on-page SEO, AI SEO, WordPress оптимизация, структура на сайт
-Importance: high
-
-## Keyword Research
-Dataset: /seo-uslugi/keyword-research
-Name: Keyword Research
-Format: text/html
-Description: Изкуствен интелект и GEO данни за прецизен подбор на ключови думи, съобразен с локални и международни търсения.
-Keywords: keyword research, AI SEO, GEO анализ, ключови думи
-Importance: high
-
-## SEO Консултация
-Dataset: /seo-uslugi/seo-konsultaciya
-Name: SEO Консултация
-Format: text/html
-Description: Лична SEO консултация за бизнеси, които искат да внедрят AI SEO, GEO оптимизация и технически подобрения в сайта си.
-Keywords: SEO консултация, AI SEO, GEO SEO, WordPress експерт
-Importance: high
-
-## Link Building
-Dataset: /seo-uslugi/link-building
-Name: Линк Билдинг
-Format: text/html
-Description: Стратегически линк билдинг с фокус върху тематичен авторитет и AI откриване на качествени домейни.
-Keywords: линк билдинг, backlinks, AI SEO, авторитет на сайт
-Importance: high
-
-## Локално SEO
-Dataset: /seo-uslugi/lokalno-seo
-Name: Локално SEO
-Format: text/html
-Description: Оптимизация за локални търсения и Google Maps. GEO стратегии за видимост в конкретни градове и региони.
-Keywords: локално SEO, GEO SEO, Google Business, локален маркетинг
-Importance: high
-
-## Уеб Услуги
-Dataset: /web/
-Name: Уеб Разработка
-Format: text/html
-Description: Headless WordPress сайтове, изградени с React, Next.js и Tailwind CSS. Висока скорост, UX и SEO оптимизация.
-Keywords: Headless WordPress, уеб разработка, React, Next.js, Tailwind CSS
-Importance: high
-
-## Custom Плъгини
-Dataset: /web/custom-plagini
-Name: Custom Плъгини за WordPress
-Format: text/html
-Description: Изработка на персонализирани WordPress плъгини и AI интеграции за автоматизация на SEO и съдържание.
-Keywords: WordPress плъгини, AI автоматизация, уеб разработка
-Importance: medium
-
-## Оптимизация на сайт
-Dataset: /web/optimizatsiya-sajt
-Name: Оптимизация на сайт
-Format: text/html
-Description: Техническа оптимизация и Core Web Vitals подобрения с React, Next.js и Tailwind CSS. Подобряване на скорост и SEO.
-Keywords: оптимизация сайт, Core Web Vitals, React, Next.js, SEO скорост
-Importance: high
-
-## Поддръжка и надграждане
-Dataset: /web/poddrzhka-nadgradzhdane
-Name: Поддръжка и надграждане на сайтове
-Format: text/html
-Description: Постоянна поддръжка на Headless WordPress сайтове и внедряване на AI-базирани подобрения.
-Keywords: поддръжка сайт, WordPress, AI SEO, надграждане
-Importance: medium
-
-## SEO Интеграция
-Dataset: /web/seo-integratsiya
-Name: SEO Интеграция в уеб разработка
-Format: text/html
-Description: Вграждане на SEO при разработка на сайтове с React и Next.js. Структурирани данни и AI мета оптимизация.
-Keywords: SEO интеграция, React SEO, Next.js SEO, AI SEO
-Importance: high
-
-## Изработка на сайт
-Dataset: /web/izrabotka-sajt
-Name: Изработка на сайт
-Format: text/html
-Description: Професионална изработка на уебсайтове с Headless WordPress, React, Next.js и Tailwind CSS за висока скорост и SEO резултати.
-Keywords: изработка сайт, Headless WordPress, Next.js, React, Tailwind CSS
-Importance: high
+## Optional
+- [Sitemap](https://stanchev.bg/sitemap.xml)

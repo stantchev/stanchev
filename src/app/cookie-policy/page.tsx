@@ -12,6 +12,7 @@ import {
 } from "@once-ui-system/core";
 import { baseURL } from "@/resources";
 import { FaCookie, FaShieldAlt, FaCog, FaInfoCircle } from 'react-icons/fa';
+import { protectJson } from "@/lib/contact";
 
 export const metadata: Metadata = {
   title: 'Cookie Policy | Stanchev Digital',
@@ -50,11 +51,8 @@ export const metadata: Metadata = {
 export default function CookiePolicy() {
   return (
     <>
-      <Script
-        id="cookie-policy-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
+      <script type="application/ld+json" dangerouslySetInnerHTML={{
+          __html: protectJson(JSON.stringify({
             "@context": "https://schema.org",
             "@type": "WebPage",
             "name": "Cookie Policy - Stanchev Digital",
@@ -74,33 +72,31 @@ export default function CookiePolicy() {
                 "url": `${baseURL}/images/og/og.jpg`
               }
             }
-          })
+          }))
         }}
       />
 
       <Column maxWidth="l" gap="xl" paddingX="l" s={{ paddingX: "m" }}>
-        {/* Header */}
         <Column gap="l" paddingY="xl" s={{ paddingY: "l" }}>
           <Row gap="m" align="center" s={{ direction: "column", gap: "s" }}>
             <FaCookie size={24} color="var(--brand-strong)" />
-            <Heading variant="display-strong-l">
+            <Heading as="h1" variant="display-strong-l">
               Cookie Policy
             </Heading>
           </Row>
           <Text variant="body-default-l" onBackground="neutral-weak" style={{ maxWidth: 800 }}>
             Тази страница обяснява как използваме cookies на нашия сайт и как можете да контролирате тяхното използване.
           </Text>
-          <Tag size="l" variant="info">
+          <Tag size="l" scheme="info">
             Последна актуализация: {new Date().toLocaleDateString('bg-BG')}
           </Tag>
         </Column>
 
-        {/* What are cookies */}
         <Card padding="xl" radius="l" background="surface">
           <Column gap="m" align="center">
             <Row gap="m" align="center">
               <FaInfoCircle size={24} color="var(--info-strong)" />
-              <Heading variant="heading-strong-l">
+              <Heading as="h3" variant="heading-strong-l">
                 Какво са cookies?
               </Heading>
             </Row>
@@ -111,9 +107,8 @@ export default function CookiePolicy() {
           </Column>
         </Card>
 
-        {/* Types of cookies */}
         <Column gap="l">
-          <Heading variant="display-strong-m" align="center">
+          <Heading as="h2" variant="display-strong-m" align="center">
             Видове cookies, които използваме
           </Heading>
           
@@ -122,7 +117,7 @@ export default function CookiePolicy() {
               <Column gap="m">
                 <Row gap="s" align="center">
                   <FaShieldAlt size={20} color="var(--success-strong)" />
-                  <Heading variant="heading-strong-m">Необходими cookies</Heading>
+                  <Heading as="h3" variant="heading-strong-m">Необходими cookies</Heading>
                 </Row>
                 <Text variant="body-default-s" onBackground="neutral-weak">
                   Тези cookies са от съществено значение за функционирането на сайта. 
@@ -140,7 +135,7 @@ export default function CookiePolicy() {
               <Column gap="m">
                 <Row gap="s" align="center">
                   <FaCog size={20} color="var(--warning-strong)" />
-                  <Heading variant="heading-strong-m">Аналитични cookies</Heading>
+                  <Heading as="h3" variant="heading-strong-m">Аналитични cookies</Heading>
                 </Row>
                 <Text variant="body-default-s" onBackground="neutral-weak">
                   Помагат ни да разберем как посетителите използват сайта, 
@@ -156,9 +151,8 @@ export default function CookiePolicy() {
           </Row>
         </Column>
 
-        {/* FAQ */}
         <Column gap="l">
-          <Heading variant="display-strong-m" align="center">
+          <Heading as="h2" variant="display-strong-m" align="center">
             Често задавани въпроси
           </Heading>
           
@@ -206,10 +200,9 @@ export default function CookiePolicy() {
           />
         </Column>
 
-        {/* Contact */}
         <Card padding="xl" radius="l" background="brand-alpha-weak" border="brand-alpha-medium">
           <Column gap="m" align="center">
-            <Heading variant="heading-strong-m" align="center">
+            <Heading as="h3" variant="heading-strong-m" align="center">
               Имате въпроси за cookies?
             </Heading>
             <Text variant="body-default-m" align="center" onBackground="neutral-weak">
@@ -221,7 +214,6 @@ export default function CookiePolicy() {
           </Column>
         </Card>
 
-        {/* Footer info */}
         <Column gap="s" align="center" paddingY="l">
           <Text variant="body-default-s" align="center" onBackground="neutral-weak">
             Тази Cookie Policy е част от нашите Общи условия за ползване.

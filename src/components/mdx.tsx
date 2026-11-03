@@ -11,8 +11,9 @@ import {
   InlineCode,
   Feedback,
   BlockQuote,
+  Table,
 } from "@once-ui-system/core";
-import { CodeBlock } from "@once-ui-system/core";
+import { CodeBlock } from "@once-ui-system/core/code";
 import { TextProps } from "@once-ui-system/core";
 import { MediaProps } from "@once-ui-system/core";
 
@@ -70,10 +71,10 @@ function createImage({ alt, src, ...props }: MediaProps & { src: string }) {
 function slugify(str: string): string {
   return str
     .toLowerCase()
-    .replace(/\s+/g, "-") // Replace spaces with -
-    .replace(/&/g, "-and-") // Replace & with 'and'
-    .replace(/[^\w\-]+/g, "") // Remove all non-word characters except for -
-    .replace(/\-\-+/g, "-"); // Replace multiple - with single -
+    .replace(/\s+/g, "-")
+    .replace(/&/g, "-and-")
+    .replace(/[^\w\-]+/g, "")
+    .replace(/\-\-+/g, "-");
 }
 
 function createHeading(as: "h1" | "h2" | "h3" | "h4" | "h5" | "h6") {
@@ -116,11 +117,9 @@ function createInlineCode({ children }: { children: ReactNode }) {
 }
 
 function createCodeBlock(props: any) {
-  // For pre tags that contain code blocks
   if (props.children && props.children.props && props.children.props.className) {
     const { className, children } = props.children.props;
     
-    // Extract language from className (format: language-xxx)
     const language = className.replace('language-', '');
     const label = language.charAt(0).toUpperCase() + language.slice(1);
     
@@ -140,7 +139,6 @@ function createCodeBlock(props: any) {
     );
   }
   
-  // Fallback for other pre tags or empty code blocks
   return <pre {...props} />;
 }
 
@@ -161,7 +159,7 @@ const components = {
   InlineCode,
   Accordion: dynamic(() => import("@once-ui-system/core").then(mod => mod.Accordion)),
   AccordionGroup: dynamic(() => import("@once-ui-system/core").then(mod => mod.AccordionGroup)),
-  Table: dynamic(() => import("@once-ui-system/core").then(mod => mod.Table)),
+  Table,
   Feedback: dynamic(() => import("@once-ui-system/core").then(mod => mod.Feedback)),
   Button: dynamic(() => import("@once-ui-system/core").then(mod => mod.Button)),
   Card: dynamic(() => import("@once-ui-system/core").then(mod => mod.Card)),
@@ -171,10 +169,10 @@ const components = {
   Icon: dynamic(() => import("@once-ui-system/core").then(mod => mod.Icon)),
   Media: dynamic(() => import("@once-ui-system/core").then(mod => mod.Media)),
   SmartLink: dynamic(() => import("@once-ui-system/core").then(mod => mod.SmartLink)),
-  BarChart: dynamic(() => import("@once-ui-system/core").then(mod => mod.BarChart)),
-  LineChart: dynamic(() => import("@once-ui-system/core").then(mod => mod.LineChart)),
-  PieChart: dynamic(() => import("@once-ui-system/core").then(mod => mod.PieChart)),
-  LineBarChart: dynamic(() => import("@once-ui-system/core").then(mod => mod.LineBarChart)),
+  BarChart: dynamic(() => import("@once-ui-system/core/data").then(mod => mod.BarChart)),
+  LineChart: dynamic(() => import("@once-ui-system/core/data").then(mod => mod.LineChart)),
+  PieChart: dynamic(() => import("@once-ui-system/core/data").then(mod => mod.PieChart)),
+  LineBarChart: dynamic(() => import("@once-ui-system/core/data").then(mod => mod.LineBarChart)),
   BlockQuote: dynamic(() => import("@once-ui-system/core").then(mod => mod.BlockQuote)),
   Timeline: dynamic(() => import("@once-ui-system/core").then(mod => mod.Timeline)),
   img: ({ src, alt, ...props }: { src?: string; alt?: string }) => (
@@ -193,7 +191,11 @@ type CustomMDXProps = MDXRemoteProps & {
 
 export function CustomMDX(props: CustomMDXProps) {
   return (
-    <MDXRemote {...props} components={{ ...components, ...(props.components || {}) }} />
+  <MDXRemote
+      {...props}
+      options={{ ...props.options, blockJS: false }}
+      components={{ ...components, ...(props.components || {}) }}
+    />
   );
 
 }

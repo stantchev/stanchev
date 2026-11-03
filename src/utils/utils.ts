@@ -12,6 +12,7 @@ type Team = {
 type Metadata = {
   title: string;
   publishedAt: string;
+  updatedAt?: string;
   summary: string;
   image?: string;
   images: string[];
@@ -19,7 +20,7 @@ type Metadata = {
   team: Team[];
   link?: string;
   keywords?: string[];
-  schema?: any; // JSON-LD Schema данни
+  schema?: any;
 };
 
 import { notFound } from "next/navigation";
@@ -40,7 +41,6 @@ function readMDXFile(filePath: string) {
   const rawContent = fs.readFileSync(filePath, "utf-8");
   const { data, content } = matter(rawContent);
 
-  // Извличане на JSON-LD Schema от съдържанието
   let schema = null;
   let cleanContent = content;
   
@@ -48,7 +48,6 @@ function readMDXFile(filePath: string) {
   if (schemaMatch) {
     try {
       schema = JSON.parse(schemaMatch[1]);
-      // Премахваме Schema блока от съдържанието за да не се парсира от MDX
       cleanContent = content.replace(/<script type="application\/ld\+json">\s*[\s\S]*?\s*<\/script>\s*/, '');
     } catch (error) {
       console.warn(`Failed to parse schema in ${filePath}:`, error);
@@ -58,6 +57,7 @@ function readMDXFile(filePath: string) {
   const metadata: Metadata = {
     title: data.title || "",
     publishedAt: data.publishedAt,
+    updatedAt: data.updatedAt ? String(data.updatedAt) : "",
     summary: data.summary || "",
     image: data.image || "",
     images: data.images || [],
@@ -86,6 +86,6 @@ function getMDXData(dir: string) {
 }
 
 export function getPosts(customPath = ["", "", "", ""]) {
-  const postsDir = path.join(process.cwd(), ...customPath);
+  const postsDir = path.join(/*turbopackIgnore: true*/ process.cwd(), ...customPath);
   return getMDXData(postsDir);
 }

@@ -12,6 +12,7 @@ type Team = {
 type Metadata = {
   title: string;
   publishedAt: string;
+  updatedAt?: string;
   summary: string;
   image?: string;
   images: string[];
@@ -52,6 +53,7 @@ function readMDXFile(filePath: string) {
   const metadata: Metadata = {
     title: data.title || "",
     publishedAt: data.publishedAt,
+    updatedAt: data.updatedAt ? String(data.updatedAt) : "",
     summary: data.summary || "",
     image: data.image || "",
     images: data.images || [],
@@ -79,7 +81,7 @@ function getMDXData(dir: string) {
 }
 
 export function getPosts(customPath = ["", "", "", ""]) {
-  const postsDir = path.join(process.cwd(), ...customPath);
+  const postsDir = path.join(/*turbopackIgnore: true*/ process.cwd(), ...customPath);
   return getMDXData(postsDir);
 }
 

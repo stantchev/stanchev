@@ -1,7 +1,7 @@
 ---
-title: "Shopify и валутна конверсия – анализ и устойчиво решение"
+title: "Shopify и валутна конверсия - анализ и устойчиво решение"
 keywords: ["Shopify валутен конвертор", "Shopify checkout проблем", "Shopify subtotal EUR", "Shopify обфускирани класове", "Shopify JS checkout"]
-summary: "Какво наистина пречи на валутната конверсия в количката и checkout-а в Shopify – практически съвети от опит с Kalles и други теми."
+summary: "Какво наистина пречи на валутната конверсия в количката и checkout-а в Shopify - практически съвети от опит с Kalles и други теми."
 author: "Станчев"
 publishedAt: "2025-07-30"
 tag: "Shopify"
@@ -20,20 +20,20 @@ image: /images/posts/shopify-cart-currency.jpg
 <p>Ако използваш Shopify и се чудиш защо цените в количката и при поръчка не се показват в евро, проблемът обикновено идва от две различни места:</p>
 
 <ul>
-  <li><strong>Количката (cart page)</strong> – JavaScript може да се изпълни, но селекторите не улавят правилно елементите с цените.</li>
-  <li><strong>Checkout страницата</strong> – това е защитена зона, където JS от темата не се изпълнява поради ограниченията на Shopify.</li>
+  <li><strong>Количката (cart page)</strong> - JavaScript може да се изпълни, но селекторите не улавят правилно елементите с цените.</li>
+  <li><strong>Checkout страницата</strong> - това е защитена зона, където JS от темата не се изпълнява поради ограниченията на Shopify.</li>
 </ul>
 
 ---
 
 <h3 id="cart-problem">Проблем с количката (Cart)</h3>
 
-<p>На страницата с количката JavaScript обикновено работи, защото тя е част от темата ти (например Kalles). Но често селекторите не намират правилно стойностите на междинната сума или крайната сума. Причината – обфускирани класове или нестандартна HTML структура.</p>
+<p>На страницата с количката JavaScript обикновено работи, защото тя е част от темата ти (например Kalles). Но често селекторите не намират правилно стойностите на междинната сума или крайната сума. Причината - обфускирани класове или нестандартна HTML структура.</p>
 
 <p>За да се реши това:</p>
 
 <ol>
-  <li>Провери чрез инспектиране (десен клик > Inspect) какви класове има около междинната сума – често това са елементи като <code>.cart_tot_price</code> или <code>.totals__subtotal-value</code>.</li>
+  <li>Провери чрез инспектиране (десен клик > Inspect) какви класове има около междинната сума - често това са елементи като <code>.cart_tot_price</code> или <code>.totals__subtotal-value</code>.</li>
   <li>Актуализирай JavaScript-а си и добави тези класове в масива със селектори.</li>
   <li>Изпробвай отново, като добавиш продукт в количката и следиш дали се появява конверсията в евро.</li>
 </ol>
@@ -48,13 +48,13 @@ image: /images/posts/shopify-cart-currency.jpg
 
 <ul>
   <li>Конверсионният скрипт <strong>няма да се изпълни</strong> в checkout стъпките (доставка, плащане и т.н.).</li>
-  <li>Можеш да използваш секцията „Additional scripts“, но тя работи само за страниците след поръчката – <strong>Thank you page</strong> и <strong>Order status page</strong>.</li>
+  <li>Можеш да използваш секцията „Additional scripts“, но тя работи само за страниците след поръчката - <strong>Thank you page</strong> и <strong>Order status page</strong>.</li>
 </ul>
 
 <p>Реалистични опции:</p>
 
 <ol>
-  <li>Ако си на Shopify Plus – използвай Checkout UI Extensions, за да вкараш JS функционалности.</li>
+  <li>Ако си на Shopify Plus - използвай Checkout UI Extensions, за да вкараш JS функционалности.</li>
   <li>Инсталирай валутен конвертор от App Store, който работи <strong>и в checkout-а</strong>. Потърси “<strong>currency converter checkout</strong>”.</li>
   <li>Остави checkout-а на оригиналната валута, но покажи прозрачна конверсия още в количката.</li>
 </ol>
@@ -66,7 +66,7 @@ image: /images/posts/shopify-cart-currency.jpg
 <p>За клиенти с подобни казуси правя следното:</p>
 
 <ol>
-  <li>Първо валидирам дали проблемът е в селекторите – ръчно проверявам с инспектор.</li>
+  <li>Първо валидирам дали проблемът е в селекторите - ръчно проверявам с инспектор.</li>
   <li>Ако е необходимо, добавям JS, който улавя елементите и извършва конверсия само на места, където това е възможно.</li>
   <li>Предлагам алтернативи за checkout чрез легитимни приложения, без да нарушаваме Shopify TOS.</li>
 </ol>
@@ -87,7 +87,7 @@ image: /images/posts/shopify-cart-currency.jpg
       title: "Кой е най-добрият начин за валутна конверсия в Shopify?",
       content: (
         <Text onBackground="neutral-weak">
-          В количката – чрез JS и коректни селектори. В checkout – чрез app, поддържащ checkout conversion.
+          В количката - чрез JS и коректни селектори. В checkout - чрез app, поддържащ checkout conversion.
         </Text>
       )
     },
@@ -103,7 +103,7 @@ image: /images/posts/shopify-cart-currency.jpg
       title: "Работи ли решението с теми като Kalles?",
       content: (
         <Text onBackground="neutral-weak">
-          Да – с уточнението, че трябва ръчно да се инспектира HTML и да се настроят правилните селектори.
+          Да - с уточнението, че трябва ръчно да се инспектира HTML и да се настроят правилните селектори.
         </Text>
       )
     }
@@ -113,6 +113,6 @@ image: /images/posts/shopify-cart-currency.jpg
 <h4 id="kontakt">Имаш Shopify и искаш реална помощ?</h4>
 
 <p>
-Свържи се с мен чрез <a href="https://stanchev.bg/kontakti" rel="noopener">контактната форма</a> и ще направя анализ на твоята количка, checkout и валутна логика. Без guesswork – само проверени методи.
+Свържи се с мен чрез <a href="https://stanchev.bg/kontakti" rel="noopener">контактната форма</a> и ще направя анализ на твоята количка, checkout и валутна логика. Без guesswork - само проверени методи.
 Ако искаш повече яснота как се справих с проблема, виж този блог пост: <a href="https://stanchev.bg/seo-proekti/shopify-euro-price-tag" rel="noopener">Shopify EUR Цена: Динамично добавяне под BGN с фиксиран курс</a>.
 </p>

@@ -1,1634 +1,451 @@
-import React from "react";
-import {
-  Column,
-  Row,
-  Heading,
-  Text,
-  Button,
-  Card,
-  RevealFx,
-  Badge,
-  Flex,
-  Avatar,
-  Grid,
-  Icon,
-  AccordionGroup,
-  LineBarChart,
-  PieChart,
-  BarChart,
-} from "@once-ui-system/core";
-import { person, baseURL } from "@/resources";
+import { Background, Button, Column, Grid, Heading, Icon, Line, Mask, MatrixFx, Row, Table, Tag, Text, type IconName } from "@once-ui-system/core";
+import { CodeBlock } from "@once-ui-system/core/code";
+import { GeoBackground } from "@/components/seo/GeoBackground";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { RevealOnView } from "@/components/seo/RevealOnView";
+import { buildMetadata } from "@/components/seo/metadata";
+import { Checklist, Faq, SectionTitle, Trail } from "@/components/seo/blocks";
+import { FeaturesBordered } from "@/components/seo/Features";
+import { FeaturesTimeline } from "@/components/seo/FeaturesMore";
+import { baseURL } from "@/resources";
+import { servicePath, servicesOf } from "@/resources/services";
+
+const path = "/web";
+const title = "Изработка на сайт и уеб разработка - цени | Stanchev Digital";
+const description =
+  "Изработка на сайт и уеб разработка със SEO в кода: Next.js, WordPress, цени в евро, какво е включено и как да сравните оферти. Работя дистанционно.";
+
+export const metadata = buildMetadata({
+  title,
+  description,
+  path,
+  keywords: ["изработка на сайт", "изработка на уебсайт", "цена на изработка на сайт", "колко струва сайт", "изработка на фирмен сайт", "изработка на онлайн магазин", "уеб разработка", "next.js сайт", "headless wordpress", "оптимизация на сайт", "core web vitals", "geo оптимизация", "уеб разработчик"],
+});
+
+const list = servicesOf("web");
+
+const heroCode = `// app/uslugi/page.tsx - SEO е част от кода, не добавка
 import type { Metadata } from "next";
-import Script from "next/script";
-import { 
-  FaCode, 
-  FaMobile, 
-  FaRocket, 
-  FaWordpress, 
-  FaCogs, 
-  FaSearch, 
-  FaShieldAlt, 
-  FaClock, 
-  FaCheckCircle,
-  FaLaptop,
-  FaChartLine,
-  FaUsers,
-  FaLightbulb,
-  FaBolt,
-  FaEnvelope,
-  FaPhone,
-  FaMoneyBillWave,
-} from 'react-icons/fa';
-import { RiNextjsFill } from "react-icons/ri";
 
 export const metadata: Metadata = {
-  title: "Уеб разработка и дизайн | Модерни Next.js сайтове | Stanchev Digital",
-  description: "Професионални услуги за уеб разработка в България. Създавам модерни, бързи Next.js сайтове с отлично SEO. От 1200 лв. Core Web Vitals оптимизация, 3x по-бързо от WordPress.",
-  keywords: "уеб разработка, Next.js сайт, React разработчик, SEO оптимизация, Core Web Vitals, модерен дизайн, респонсивен дизайн, WordPress алтернатива, бърз сайт България",
-  alternates: {
-    canonical: `${baseURL}/web`,
-  },
-  openGraph: {
-    title: "Уеб разработка и дизайн | Модерни Next.js сайтове | Stanchev Digital",
-    description: "Професионални услуги за уеб разработка в България. Модерни Next.js сайтове с отлично SEO, 3x по-бързи от WordPress.",
-    url: `${baseURL}/web`,
-    siteName: "Stanchev Digital",
-    images: [
-      {
-        url: `${baseURL}/images/og/web-services.jpg`,
-        width: 1200,
-        height: 630,
-        alt: "Stanchev Digital - Уеб Разработка",
-      },
-    ],
-    locale: "bg_BG",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Уеб разработка и дизайн | Модерни Next.js сайтове",
-    description: "Професионални Next.js сайтове - 3x по-бързи от WordPress, с отлично SEO",
-    images: [`${baseURL}/images/og/web-services.jpg`],
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
-  },
+  title: "Услуги | Бранд",
+  description: "Кратко, конкретно описание на страницата.",
+  alternates: { canonical: "/uslugi" },
 };
 
-const primaryColor = "#005b96"; // Тъмно синьо
+export default function Page() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: "Изработка на сайт",
+    areaServed: "BG",
+  };
+  return (
+    <main>
+      <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
+      <h1>Изработка на сайт</h1>
+    </main>
+  );
+}`;
+
+const lighthouseCode = `# Измерване преди и след всяка промяна
+npx lighthouse https://example.com \\
+  --only-categories=performance,seo,accessibility \\
+  --output=html --output-path=./report.html`;
+
+const flow: { icon: IconName; title: string; text: string }[] = [
+  { icon: "globe", title: "Браузър и обхождащи ботове", text: "Получават готов HTML, не празна страница." },
+  { icon: "cloud", title: "CDN и кеш", text: "Статичното съдържание идва от най-близкия сървър." },
+  { icon: "nextjs", title: "Next.js", text: "SSG и SSR, metadata, sitemap, оптимизирани изображения." },
+  { icon: "wordpress", title: "Съдържание (по избор)", text: "WordPress или друг CMS през API за редакторите." },
+];
+
+const spec: [string, string, string][] = [
+  ["Рендиране", "SSG или SSR на сървъра", "Търсачките и AI ботовете виждат съдържанието без изпълнение на JavaScript"],
+  ["Метаданни", "Metadata API на Next.js", "Уникални title, description, canonical и Open Graph за всяка страница"],
+  ["Структурирани данни", "JSON-LD в HTML", "Ясна идентичност на организация, услуги и статии за Google и AI"],
+  ["Sitemap и robots", "Генерирани от кода", "Картата на сайта винаги съответства на реалните страници"],
+  ["Изображения", "next/image, AVIF и WebP", "По-малки файлове и зададени размери срещу скокове на оформлението"],
+  ["Шрифтове", "next/font", "Без външни заявки и мигане на текста"],
+  ["Пренасочвания", "301 карта при миграция", "Запазват се позициите и линковете от стария сайт"],
+  ["Достъпност", "Семантичен HTML", "По-добро изживяване и по-ясна структура за обхождане"],
+];
+
+const budgets: { metric: string; target: string; note: string }[] = [
+  { metric: "LCP", target: "≤ 2,5 s", note: "Най-голямото съдържание се зарежда бързо" },
+  { metric: "INP", target: "≤ 200 ms", note: "Страницата реагира веднага на действие" },
+  { metric: "CLS", target: "≤ 0,1", note: "Нищо не подскача по време на зареждане" },
+];
+
+const matrix: [string, string, string, string][] = [
+  ["Скорост", "Много висока", "Зависи от теми и плъгини", "Много висока"],
+  ["Редакторско изживяване", "Нужен е панел или CMS", "Познат панел", "Познат панел"],
+  ["Контрол над SEO", "Пълен, в кода", "Чрез плъгини", "Пълен, в кода"],
+  ["Сложност и цена", "По-висока", "По-ниска", "Средна до висока"],
+  ["Подходящо за", "Бързи сайтове и приложения", "Малки сайтове и блогове", "Екипи на WordPress с нужда от скорост"],
+];
+
+const included: { icon: IconName; title: string; description: string }[] = [
+  { icon: "code", title: "Чист код и бързо зареждане", description: "Сървърно рендиране, оптимизирани изображения и шрифтове, цели за Core Web Vitals." },
+  { icon: "search", title: "SEO основа", description: "Структура на заглавията, адреси, метаданни, sitemap, robots и canonical." },
+  { icon: "document", title: "Структурирани данни", description: "JSON-LD за организация, услуги и статии, валидиран преди пускане." },
+  { icon: "globe", title: "Мобилна версия", description: "Адаптивен дизайн, тестван на реални размери на екрана." },
+  { icon: "lock", title: "HTTPS и сигурност", description: "Защитена връзка, обновени зависимости и ограничени достъпи." },
+  { icon: "box", title: "Предаване на проекта", description: "Получавате кода, достъпите и кратка документация. Сайтът е ваш." },
+];
+
+const siteTypes: { icon: IconName; title: string; description: string }[] = [
+  { icon: "briefcase", title: "Фирмен сайт", description: "Представяне на услуги, екип и контакти, с акцент върху запитванията." },
+  { icon: "box", title: "Онлайн магазин", description: "WooCommerce, OpenCart, Magento или персонализирано решение с SEO за категориите." },
+  { icon: "target", title: "Landing страница", description: "Една страница за една цел: реклама, събитие или нова услуга." },
+  { icon: "document", title: "Блог и медия", description: "Бързо публикуване, добра структура и готовност за търсачките." },
+  { icon: "react", title: "Уеб приложение", description: "Интерактивни React приложения, които остават видими за търсачките." },
+  { icon: "trendingUp", title: "Миграция и редизайн", description: "Нов сайт без загуба на позиции: карта на 301 и проверки преди пускане." },
+];
+
+const costDrivers = [
+  "Брой и тип страници: малък фирмен сайт или каталог с много продукти.",
+  "Дизайн: готова основа или изцяло индивидуален дизайн.",
+  "Функционалност: форми, плащания, интеграции, потребителски акаунти.",
+  "Съдържание: имате ли готови текстове и изображения, или трябва да се подготвят.",
+  "Платформа: Next.js, WordPress, headless или магазин на OpenCart и Magento.",
+  "След пускането: поддръжка, хостинг и домейн, които се плащат отделно на доставчиците им.",
+];
+
+const quoteChecklist = [
+  "Фиксирана цена и обхват в писмен вид, а не само цена на час без таван.",
+  "Какво точно е включено: дизайн, SEO основа, структурирани данни, пренасочвания.",
+  "Срок с ясни етапи и дата за приемане.",
+  "Кой притежава кода, домейна и достъпите след края на проекта.",
+  "Какви са скритите разходи: хостинг, лицензи за плъгини, поддръжка.",
+  "Измерима скорост: цели за Core Web Vitals и проверка преди пускане.",
+  "Реални примери и проекти, които можете да отворите и проверите.",
+];
+
+const templateMatrix: [string, string, string][] = [
+  ["Скорост на старта", "По-бързо", "По-дълго"],
+  ["Уникалност и марка", "Ограничена от темата", "Пълна"],
+  ["Скорост на сайта", "Зависи от темата и плъгините", "Оптимизирана за целта"],
+  ["SEO и структурирани данни", "Чрез плъгини", "Вградени в кода"],
+  ["Подходящо за", "Малък бюджет и прост сайт", "Бизнес, който разчита на сайта"],
+];
+
+const faq = [
+  { q: "Next.js или WordPress?", a: "Next.js дава най-добра скорост и пълен контрол над SEO в кода. WordPress е по-познат за редакторите и по-евтин за малки сайтове. Често най-добрият избор е headless WordPress - удобно управление със скоростта на Next.js." },
+  { q: "Включено ли е SEO в изработката?", a: "Да. Основите - структура, заглавия, адреси, скорост, структурирани данни, sitemap и canonical - са част от изработката, не допълнителна услуга." },
+  { q: "Какво е headless WordPress?", a: "WordPress остава панел за съдържание, а сайтът, който виждат посетителите, е изграден с Next.js и взема съдържанието през API. Така редакторите работят с познатия панел, а сайтът е бърз." },
+  { q: "Кой притежава сайта след приключване?", a: "Вие. Предавам кода, достъпите и кратка документация." },
+  { q: "Гарантирате ли оценка 100 в Lighthouse?", a: "Не. Оценката зависи от съдържанието, скриптовете на трети страни и устройството. Поставям цели за Core Web Vitals и измервам преди и след промените." },
+  { q: "Как сайтът става видим за AI търсачки?", a: "Чрез съдържание в HTML, ясна структура, директни отговори, структурирани данни и достъп за AI обхождащите ботове. Никой не може да гарантира цитиране, но тези основи го правят по-вероятно." },
+  { q: "Поддържате ли сайтове, които не сте правили?", a: "Да, след кратък преглед на състоянието им." },
+  { q: "Колко струва изработката на сайт?", a: "Изработка на сайт е от 410 €, сайт с Next.js е от 250 €, а оптимизация на съществуващ сайт е от 230 €. Цената зависи от броя страници, дизайна и функциите, затова давам писмена оферта след кратък преглед." },
+  { q: "Какво влиза в цената и какво се плаща отделно?", a: "В цената на изработката влизат разработката, SEO основата, структурираните данни, мобилната версия и предаването на проекта. Хостингът и домейнът се плащат отделно на доставчиците им, а поддръжката след пускането е по желание." },
+  { q: "Готов шаблон или изцяло индивидуален сайт?", a: "Шаблонът е по-бърз и по-евтин, но ограничава уникалността и често товари сайта с ненужен код. Индивидуалният сайт е оптимизиран за вашата цел и има SEO в кода. Избираме заедно според бюджета и ролята на сайта за бизнеса ви." },
+  { q: "Можете ли да изработите сайта по наш готов дизайн?", a: "Да. Ако имате дизайн или фирмена идентичност, изграждам сайта по тях и ги адаптирам за мобилни устройства и скорост." },
+  { q: "Ще мога ли сам да редактирам съдържанието?", a: "Да, ако изберем WordPress или headless WordPress с познат панел. При чист Next.js редакциите минават през код или през CMS, който включваме в проекта." },
+  { q: "Нужно ли е да се срещаме лично?", a: "Не е задължително. Работя дистанционно с клиенти от цялата страна, а при нужда провеждаме видеоразговор." },
+  { q: "Колко време отнема изработката на сайт?", a: "Малък сайт - обикновено няколко седмици. По-голям сайт, магазин или такъв с интеграции - според обхвата, който уточняваме предварително." },
+  { q: "Колко струва уеб услугата?", a: "Изработка на сайт е от 410 €, сайт с Next.js от 250 €, оптимизация на сайт от 230 €, а поддръжка от 75 €. Крайната цена зависи от обхвата, затова давам оферта след кратък преглед." },
+];
 
 export default function WebPage() {
+  const url = `${baseURL}${path}`;
+  const schema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      { "@type": "CollectionPage", "@id": `${url}#webpage`, url, name: title, description, inLanguage: "bg-BG", breadcrumb: { "@id": `${url}#breadcrumb` }, mainEntity: { "@id": `${url}#list` } },
+      {
+        "@type": "ItemList",
+        "@id": `${url}#list`,
+        itemListElement: list.map((s, i) => ({ "@type": "ListItem", position: i + 1, name: s.name, url: `${baseURL}${servicePath(s)}` })),
+      },
+      {
+        "@type": "Service",
+        "@id": `${url}#service`,
+        serviceType: "Изработка на сайт и уеб разработка",
+        name: "Изработка на сайт",
+        description,
+        url,
+        areaServed: { "@type": "Country", name: "България" },
+        provider: { "@type": "ProfessionalService", name: "Stanchev Digital", url: baseURL },
+        offers: { "@type": "Offer", priceSpecification: { "@type": "PriceSpecification", minPrice: 410, priceCurrency: "EUR" } },
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${url}#breadcrumb`,
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Начало", item: baseURL },
+          { "@type": "ListItem", position: 2, name: "Уеб услуги", item: url },
+        ],
+      },
+    ],
+  };
+
   return (
-    <>
-      {/* ============================================ */}
-      {/* ЗВЕРСКО SEO - EXTENSIVE RICH SCHEMA */}
-      {/* ============================================ */}
+    <Column fillWidth horizontal="center" paddingBottom="64" gap="48" s={{ paddingBottom: "40", gap: "32" }}>
+      <JsonLd data={schema} />
 
-      {/* 1. Organization Schema */}
-      <Script
-        id="organization-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            name: "Stanchev Digital",
-            url: baseURL,
-            logo: `${baseURL}/images/logo.png`,
-            description: "Професионални Next.js и уеб разработка услуги в България. Специализирани в създаване на бързи, SEO оптимизирани сайтове.",
-            address: {
-              "@type": "PostalAddress",
-              addressCountry: "BG",
-              addressLocality: "София",
-            },
-            contactPoint: {
-              "@type": "ContactPoint",
-              telephone: "+359-877-038-729",
-              contactType: "Sales",
-              email: "seo@stanchev.bg",
-              areaServed: "BG",
-              availableLanguage: ["Bulgarian", "English"],
-            },
-            founder: {
-              "@type": "Person",
-              name: "Stanchev",
-            },
-            sameAs: [
-              "https://www.linkedin.com/in/stantcheff/",
-              "https://github.com/stantchev/"
-            ],
-          }),
-        }}
-      />
-
-      {/* 2. Service Schema */}
-      <Script
-        id="service-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Service",
-            name: "Уеб разработка и дизайн услуги",
-            description: "Професионални услуги за уеб разработка с Next.js, React и SEO оптимизация. Създавам модерни сайтове, които се зареждат 3x по-бързо от WordPress.",
-            provider: {
-              "@type": "Organization",
-              name: "Stanchev Digital",
-              url: baseURL,
-            },
-            areaServed: {
-              "@type": "Country",
-              name: "България",
-            },
-            serviceType: [
-              "Next.js разработка",
-              "React разработка",
-              "Уеб дизайн", 
-              "SEO оптимизация",
-              "Core Web Vitals оптимизация",
-              "WordPress плъгини",
-              "OpenCart модули",
-            ],
-            hasOfferCatalog: {
-              "@type": "OfferCatalog",
-              name: "Уеб разработка услуги",
-              itemListElement: [
-                {
-                  "@type": "Offer",
-                  itemOffered: {
-                    "@type": "Service",
-                    name: "Next.js бизнес сайт",
-                    description: "Модерен Next.js сайт - 3x по-бърз от WordPress, отлично SEO",
-                  },
-                  priceCurrency: "BGN",
-                  price: "1200",
-                },
-                {
-                  "@type": "Offer", 
-                  itemOffered: {
-                    "@type": "Service",
-                    name: "Изработка на лендинг страница",
-                    description: "Професионална лендинг страница с React/Next.js и SEO",
-                  },
-                  priceCurrency: "BGN",
-                  price: "800",
-                },
-                {
-                  "@type": "Offer",
-                  itemOffered: {
-                    "@type": "Service", 
-                    name: "SEO оптимизация на сайт",
-                    description: "Техническа SEO, schema markup, Core Web Vitals оптимизация",
-                  },
-                },
-                {
-                  "@type": "Offer",
-                  itemOffered: {
-                    "@type": "Service",
-                    name: "WordPress/OpenCart плъгини", 
-                    description: "Custom плъгини за специфични бизнес нужди",
-                  },
-                },
-              ]
-            },
-            aggregateRating: {
-              "@type": "AggregateRating",
-              ratingValue: "4.9",
-              reviewCount: "12",
-              bestRating: "5",
-              worstRating: "1",
-            },
-          }),
-        }}
-      />
-
-      {/* 3. FAQ Schema */}
-      <Script
-        id="faq-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            mainEntity: [
-              {
-                "@type": "Question",
-                name: "Колко време отнема изработката на един уебсайт?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "Лендинг страница се прави за 1-2 седмици, пълноценен уебсайт - 3-6 седмици. Включва планиране, дизайн, разработка, тестване и пускане.",
-                },
-              },
-              {
-                "@type": "Question",
-                name: "Какви технологии използвате при уеб разработката?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "React, Next.js, TypeScript, Tailwind CSS, Node.js. Всички сайтове са оптимизирани за SEO с отлични Core Web Vitals резултати.",
-                },
-              },
-              {
-                "@type": "Question",
-                name: "Колко струва изработката на уебсайт?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "Лендинг страница от 800-1500 лв, корпоративен сайт 2000-5000 лв. Next.js сайт от 1200 лв. Безплатна консултация и конкретна оферта.",
-                },
-              },
-              {
-                "@type": "Question",
-                name: "Предоставяте ли поддръжка след пускането?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "Да, предлагам месечна поддръжка с актуализации, бекъп и техническа помощ. Осигурявам обучение за управление на съдържанието.",
-                },
-              },
-            ],
-          }),
-        }}
-      />
-
-      {/* 4. BreadcrumbList Schema */}
-      <Script
-        id="breadcrumb-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            itemListElement: [
-              {
-                "@type": "ListItem",
-                position: 1,
-                name: "Начало",
-                item: baseURL,
-              },
-              {
-                "@type": "ListItem",
-                position: 2,
-                name: "Уеб Услуги",
-                item: `${baseURL}/web`,
-              },
-            ],
-          }),
-        }}
-      />
-
-      {/* 5. Review Schema */}
-      <Script
-        id="reviews-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify([
-            {
-              "@context": "https://schema.org",
-              "@type": "Review",
-              itemReviewed: {
-                "@type": "Service",
-                name: "Next.js Разработка",
-              },
-              author: {
-                "@type": "Person",
-                name: "Петър М.",
-              },
-              reviewRating: {
-                "@type": "Rating",
-                ratingValue: "5",
-                bestRating: "5",
-              },
-              reviewBody: "Отличен Next.js сайт - много по-бърз от предишния WordPress. Google класирането се подобри драстично.",
-            },
-            {
-              "@context": "https://schema.org",
-              "@type": "Review",
-              itemReviewed: {
-                "@type": "Service",
-                name: "Уеб Разработка",
-              },
-              author: {
-                "@type": "Person",
-                name: "Мария С.",
-              },
-              reviewRating: {
-                "@type": "Rating",
-                ratingValue: "5",
-                bestRating: "5",
-              },
-              reviewBody: "Професионална работа и отлична комуникация. Сайтът е бърз, красив и с перфектно SEO.",
-            },
-          ]),
-        }}
-      />
-
-      {/* Main Content */}
-      <Column 
-        as="section" 
-        fillWidth 
-        padding="l"
-        style={{ 
-          width: "100%", 
-          maxWidth: "100vw", 
-          overflow: "hidden",
-        }}
-      >
-        <Column fillWidth style={{ maxWidth: "80rem", margin: "0 auto" }} gap="xl">
-
-          {/* HERO SECTION */}
-          <Column fillWidth gap="xl" align="center" paddingBottom="xl">
-            <RevealFx speed="fast">
-              <Column fillWidth gap="l" align="center">
-                <Heading
-                  wrap="balance"
-                  variant="display-strong-xl"
-                  align="center"
-                  style={{ lineHeight: "1.2" }}
-                >
-                  Модерни, бързи и SEO-оптимизирани уебсайтове
-                </Heading>
-                <Text
-                  wrap="balance"
-                  onBackground="neutral-weak"
-                  align="center"
-                  variant="display-default-s"
-                  style={{ maxWidth: "48rem", margin: "0 auto" }}
-                >
-                  Всеки проект е бърз, адаптивен и оптимизиран за по-добро класиране в Google — 
-                  защото впечатлението онлайн започва със скоростта и стила.
-                </Text>
-              </Column>
-            </RevealFx>
-
-            <RevealFx delay={0.2} speed="fast">
-              <Flex fillWidth gap="m" horizontal="center" vertical="center" wrap>
-                <Button
-                  href="/seo-proekti"
-                  variant="primary"
-                  size="l"
-                  prefixIcon="eye"
-                  style={{ backgroundColor: primaryColor }}
-                >
-                  Виж проекти
-                </Button>
-                <Button
-                  href="/kontakti"
-                  variant="secondary"
-                  size="l"
-                  prefixIcon="message-circle"
-                >
-                  Изпрати запитване
-                </Button>
-              </Flex>
-            </RevealFx>
-
-            {/* Quick Stats */}
-            <RevealFx delay={0.3}>
-              <Flex fillWidth gap="12" wrap horizontal="center" paddingTop="m">
-                <Flex gap="4" align="center">
-                  <FaBolt color={primaryColor} size={20} />
-                  <Text onBackground="neutral-weak">&lt;1s зареждане</Text>
-                </Flex>
-                <Flex gap="4" align="center">
-                  <FaSearch color={primaryColor} size={20} />
-                  <Text onBackground="neutral-weak">100/100 SEO score</Text>
-                </Flex>
-                <Flex gap="4" align="center">
-                  <FaCheckCircle color={primaryColor} size={20} />
-                  <Text onBackground="neutral-weak">12+ завършени проекта</Text>
-                </Flex>
-              </Flex>
-            </RevealFx>
-          </Column>
-
-          {/* TECHNOLOGY COMPARISON SECTION */}
-          <Column fillWidth gap="xl" align="center" paddingY="s">
-            <RevealFx>
-              <Column fillWidth gap="m" align="center">
-                <Heading variant="display-strong-m" align="center">
-                  Кой тип сайт е подходящ за теб?
-                </Heading>
-                <Text 
-                  variant="body-default-xl" 
-                  align="center" 
-                  onBackground="neutral-weak"
-                  style={{ maxWidth: "48rem", margin: "0 auto" }}
-                >
-                  Сравнение на технологиите - Next.js, React, WordPress и Headless WordPress. 
-                  Всяка има предимства в зависимост от твоите нужди и цели.
-                </Text>
-              </Column>
-            </RevealFx>
-
-            <RevealFx delay={0.1}>
-              <Card fillWidth padding="xl" radius="xl" style={{ maxWidth: "1200px", margin: "0 auto" }}>
-                <Column fillWidth gap="l">
-                  <Heading variant="heading-strong-l" align="center">
-                    Сравнение на технологиите
-                  </Heading>
-
-                  {/* Comparison Table */}
-                  <Grid fillWidth columns={5} s={{ columns: 1 }} gap="m">
-                    {/* Header Row */}
-                    <Column gap="4">
-                      <Text variant="heading-strong-s">Характеристика</Text>
-                    </Column>
-                    <Column gap="4" align="center">
-                      <RiNextjsFill size={24} color={primaryColor} />
-                      <Text variant="heading-strong-s" align="center">Next.js</Text>
-                    </Column>
-                    <Column gap="4" align="center">
-                      <FaCode size={24} color={primaryColor} />
-                      <Text variant="heading-strong-s" align="center">React SPA</Text>
-                    </Column>
-                    <Column gap="4" align="center">
-                      <FaWordpress size={24} color={primaryColor} />
-                      <Text variant="heading-strong-s" align="center">WordPress</Text>
-                    </Column>
-                    <Column gap="4" align="center">
-                      <FaRocket size={24} color={primaryColor} />
-                      <Text variant="heading-strong-s" align="center">Headless WP</Text>
-                    </Column>
-
-                    {/* Speed Row */}
-                    <Text variant="body-default-s" onBackground="neutral-weak">Скорост</Text>
-                    <Flex gap="4" align="center" horizontal="center">
-                      <FaCheckCircle color="#22c55e" size={16} />
-                      <Text variant="body-default-s" align="center">Отлична (0.8s)</Text>
-                    </Flex>
-                    <Flex gap="4" align="center" horizontal="center">
-                      <FaCheckCircle color="#fbbf24" size={16} />
-                      <Text variant="body-default-s" align="center">Добра (1.5s)</Text>
-                    </Flex>
-                    <Flex gap="4" align="center" horizontal="center">
-                      <FaCheckCircle color="#ef4444" size={16} />
-                      <Text variant="body-default-s" align="center">Бавна (3.4s)</Text>
-                    </Flex>
-                    <Flex gap="4" align="center" horizontal="center">
-                      <FaCheckCircle color="#22c55e" size={16} />
-                      <Text variant="body-default-s" align="center">Отлична (1.0s)</Text>
-                    </Flex>
-
-                    {/* SEO Row */}
-                    <Text variant="body-default-s" onBackground="neutral-weak">SEO</Text>
-                    <Flex gap="4" align="center" horizontal="center">
-                      <FaCheckCircle color="#22c55e" size={16} />
-                      <Text variant="body-default-s" align="center">Отлично (SSR)</Text>
-                    </Flex>
-                    <Flex gap="4" align="center" horizontal="center">
-                      <FaCheckCircle color="#fbbf24" size={16} />
-                      <Text variant="body-default-s" align="center">Средно (CSR)</Text>
-                    </Flex>
-                    <Flex gap="4" align="center" horizontal="center">
-                      <FaCheckCircle color="#22c55e" size={16} />
-                      <Text variant="body-default-s" align="center">Добро</Text>
-                    </Flex>
-                    <Flex gap="4" align="center" horizontal="center">
-                      <FaCheckCircle color="#22c55e" size={16} />
-                      <Text variant="body-default-s" align="center">Отлично</Text>
-                    </Flex>
-
-                    {/* Security Row */}
-                    <Text variant="body-default-s" onBackground="neutral-weak">Сигурност</Text>
-                    <Flex gap="4" align="center" horizontal="center">
-                      <FaShieldAlt color="#22c55e" size={16} />
-                      <Text variant="body-default-s" align="center">Отлична</Text>
-                    </Flex>
-                    <Flex gap="4" align="center" horizontal="center">
-                      <FaShieldAlt color="#22c55e" size={16} />
-                      <Text variant="body-default-s" align="center">Отлична</Text>
-                    </Flex>
-                    <Flex gap="4" align="center" horizontal="center">
-                      <FaShieldAlt color="#ef4444" size={16} />
-                      <Text variant="body-default-s" align="center">Рискове</Text>
-                    </Flex>
-                    <Flex gap="4" align="center" horizontal="center">
-                      <FaShieldAlt color="#22c55e" size={16} />
-                      <Text variant="body-default-s" align="center">Добра</Text>
-                    </Flex>
-
-                    {/* Cost Row */}
-                    <Text variant="body-default-s" onBackground="neutral-weak">Месечни разходи</Text>
-                    <Flex gap="4" align="center" horizontal="center">
-                      <FaMoneyBillWave color="#22c55e" size={16} />
-                      <Text variant="body-default-s" align="center">€0-10</Text>
-                    </Flex>
-                    <Flex gap="4" align="center" horizontal="center">
-                      <FaMoneyBillWave color="#22c55e" size={16} />
-                      <Text variant="body-default-s" align="center">€0-10</Text>
-                    </Flex>
-                    <Flex gap="4" align="center" horizontal="center">
-                      <FaMoneyBillWave color="#ef4444" size={16} />
-                      <Text variant="body-default-s" align="center">€30-50</Text>
-                    </Flex>
-                    <Flex gap="4" align="center" horizontal="center">
-                      <FaMoneyBillWave color="#fbbf24" size={16} />
-                      <Text variant="body-default-s" align="center">€10-20</Text>
-                    </Flex>
-
-                    {/* Maintenance Row */}
-                    <Text variant="body-default-s" onBackground="neutral-weak">Поддръжка</Text>
-                    <Flex gap="4" align="center" horizontal="center">
-                      <FaClock color="#22c55e" size={16} />
-                      <Text variant="body-default-s" align="center">Минимална</Text>
-                    </Flex>
-                    <Flex gap="4" align="center" horizontal="center">
-                      <FaClock color="#22c55e" size={16} />
-                      <Text variant="body-default-s" align="center">Минимална</Text>
-                    </Flex>
-                    <Flex gap="4" align="center" horizontal="center">
-                      <FaClock color="#ef4444" size={16} />
-                      <Text variant="body-default-s" align="center">Много</Text>
-                    </Flex>
-                    <Flex gap="4" align="center" horizontal="center">
-                      <FaClock color="#fbbf24" size={16} />
-                      <Text variant="body-default-s" align="center">Средна</Text>
-                    </Flex>
-
-                    {/* Content Management Row */}
-                    <Text variant="body-default-s" onBackground="neutral-weak">Управление</Text>
-                    <Flex gap="4" align="center" horizontal="center">
-                      <Text variant="body-default-s" align="center">CMS/Code</Text>
-                    </Flex>
-                    <Flex gap="4" align="center" horizontal="center">
-                      <Text variant="body-default-s" align="center">Само код</Text>
-                    </Flex>
-                    <Flex gap="4" align="center" horizontal="center">
-                      <Text variant="body-default-s" align="center">WP Admin</Text>
-                    </Flex>
-                    <Flex gap="4" align="center" horizontal="center">
-                      <Text variant="body-default-s" align="center">WP Admin</Text>
-                    </Flex>
-
-                    {/* Best For Row */}
-                    <Text variant="body-default-s" onBackground="neutral-weak">Подходящ за</Text>
-                    <Text variant="body-default-s" align="center">Бизнес сайтове, SaaS</Text>
-                    <Text variant="body-default-s" align="center">Web apps, Dashboards</Text>
-                    <Text variant="body-default-s" align="center">Блогове, Прости сайтове</Text>
-                    <Text variant="body-default-s" align="center">Сложни сайтове с CMS</Text>
-                  </Grid>
-
-                  {/* Recommendation */}
-                  <Card fillWidth padding="m" radius="l" style={{ background: `${primaryColor}10`, border: `2px solid ${primaryColor}30` }}>
-                    <Column fillWidth gap="s" align="center">
-                      <Text variant="heading-strong-m" align="center" style={{ color: primaryColor }}>
-                        💡 Моята препоръка
-                      </Text>
-                      <Text variant="body-default-m" align="center" onBackground="neutral-weak">
-                        <strong>Next.js</strong> за бизнес сайтове и лендинг страници (най-добро SEO + скорост)
-                      </Text>
-                      <Text variant="body-default-m" align="center" onBackground="neutral-weak">
-                        <strong>React SPA</strong> за сложни web приложения и dashboards
-                      </Text>
-                      <Text variant="body-default-m" align="center" onBackground="neutral-weak">
-                        <strong>Headless WordPress</strong> за сайтове с много съдържание + екип редактори
-                      </Text>
-                      <Text variant="body-default-m" align="center" onBackground="neutral-weak">
-                        <strong>WordPress</strong> само ако имаш много специфични WP плъгини, които са критични
-                      </Text>
-                    </Column>
-                  </Card>
-                </Column>
-              </Card>
-            </RevealFx>
-          </Column>
-
-          {/* SERVICES SECTION */}
-          <Column fillWidth gap="l" align="center" paddingY="s">
-            <RevealFx>
-              <Column fillWidth gap="m" align="center">
-                <Heading variant="display-strong-m" align="center">
-                  Какво получаваш
-                </Heading>
-                <Text 
-                  variant="body-default-xl" 
-                  align="center" 
-                  onBackground="neutral-weak"
-                  style={{ maxWidth: "48rem", margin: "0 auto" }}
-                >
-                  Професионални уеб услуги за модерни бизнеси - от изработка на Next.js сайтове 
-                  до SEO оптимизация и поддръжка. Всеки проект е бърз, сигурен и оптимизиран за конверсия.
-                </Text>
-              </Column>
-            </RevealFx>
-
-            <Grid fillWidth columns={4} s={{ columns: 1 }} gap="l">
-              
-              {/* Next.js Service Card */}
-              <RevealFx delay={0}>
-                <Card
-                  fillWidth
-                  radius="l"
-                  direction="column"
-                  style={{
-                    border: `2px solid ${primaryColor}30`,
-                    gap: 0,
-                  }}
-                >
-                  <Row fillWidth paddingX="m" paddingY="s" gap="s" vertical="center">
-                    <RiNextjsFill size={20} color={primaryColor} />
-                    <Text variant="label-default-s" wrap="balance">
-                      Next.js Бизнес Сайт
-                    </Text>
-                  </Row>
-
-                  <div
-                    style={{
-                      width: "100%",
-                      height: "192px",
-                      background: `linear-gradient(135deg, ${primaryColor}10, ${primaryColor}20)`,
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      borderTop: "1px solid var(--neutral-alpha-weak)",
-                      borderBottom: "1px solid var(--neutral-alpha-weak)"
-                    }}
-                  >
-                    <RiNextjsFill size={48} color={primaryColor} />
-                  </div>
-
-                  <Column fillWidth paddingX="m" paddingY="l" gap="s">
-                    <Text variant="body-default-xl" wrap="balance" align="center">
-                      Next.js сайт за бизнес клиенти
-                    </Text>
-                    <Text
-                      onBackground="neutral-weak"
-                      variant="body-default-s"
-                      wrap="balance"
-                      align="center"
-                    >
-                      Модерен, SEO оптимизиран и до 3x по-бърз от WordPress. 
-                      По-добро класиране в Google и по-висока конверсия.
-                    </Text>
-                    <Column gap="4" align="center" paddingTop="s">
-                      <Flex gap="4" align="center">
-                        <FaCheckCircle color={primaryColor} size={14} />
-                        <Text variant="body-default-s">&lt;1s зареждане</Text>
-                      </Flex>
-                      <Flex gap="4" align="center">
-                        <FaCheckCircle color={primaryColor} size={14} />
-                        <Text variant="body-default-s">100/100 SEO performance</Text>
-                      </Flex>
-                      <Flex gap="4" align="center">
-                        <FaCheckCircle color={primaryColor} size={14} />
-                        <Text variant="body-default-s">€0 месечни плъгини</Text>
-                      </Flex>
-                    </Column>
-                  </Column>
-
-                  <Column paddingX="m" paddingBottom="m" align="center">
-                    <Button
-                      href="/web/izrabotka-sait-nextjs"
-                      variant="primary"
-                      size="m"
-                      prefixIcon="rocket"
-                      style={{ backgroundColor: primaryColor }}
-                      fillWidth
-                    >
-                      Виж повече
-                    </Button>
-                  </Column>
-                </Card>
-              </RevealFx>
-
-              {/* React SPA Service Card */}
-              <RevealFx delay={0.1}>
-                <Card
-                  fillWidth
-                  radius="l"
-                  direction="column"
-                  style={{
-                    border: `1px solid var(--neutral-alpha-medium)`,
-                    gap: 0,
-                  }}
-                >
-                  <Row fillWidth paddingX="m" paddingY="s" gap="s" vertical="center">
-                    <FaCode size={20} color={primaryColor} />
-                    <Text variant="label-default-s" wrap="balance">
-                      React SPA Приложение
-                    </Text>
-                  </Row>
-
-                  <div
-                    style={{
-                      width: "100%",
-                      height: "192px",
-                      background: `linear-gradient(135deg, ${primaryColor}08, ${primaryColor}15)`,
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      borderTop: "1px solid var(--neutral-alpha-weak)",
-                      borderBottom: "1px solid var(--neutral-alpha-weak)"
-                    }}
-                  >
-                    <FaCode size={48} color={primaryColor} />
-                  </div>
-
-                  <Column fillWidth paddingX="m" paddingY="l" gap="s">
-                    <Text variant="body-default-xl" wrap="balance" align="center">
-                      React Single Page Application
-                    </Text>
-                    <Text
-                      onBackground="neutral-weak"
-                      variant="body-default-s"
-                      wrap="balance"
-                      align="center"
-                    >
-                      Интерактивни web приложения, dashboards и admin панели. 
-                      Динамична функционалност и отлично потребителско изживяване.
-                    </Text>
-                    <Column gap="4" align="center" paddingTop="s">
-                      <Flex gap="4" align="center">
-                        <FaCheckCircle color={primaryColor} size={14} />
-                        <Text variant="body-default-s">Комплексност</Text>
-                      </Flex>
-                      <Flex gap="4" align="center">
-                        <FaCheckCircle color={primaryColor} size={14} />
-                        <Text variant="body-default-s">Real-time updates</Text>
-                      </Flex>
-                      <Flex gap="4" align="center">
-                        <FaCheckCircle color={primaryColor} size={14} />
-                        <Text variant="body-default-s">API интеграции</Text>
-                      </Flex>
-                    </Column>
-                  </Column>
-
-                  <Column paddingX="m" paddingBottom="m" align="center">
-                    <Button
-                      href="/web/react-spa"
-                      variant="primary"
-                      size="m"
-                      prefixIcon="rocket"
-                      style={{ backgroundColor: primaryColor }}
-                      fillWidth
-                    >
-                      Виж повече
-                    </Button>
-                  </Column>
-                </Card>
-              </RevealFx>
-
-              {/* Headless WordPress Service Card */}
-              <RevealFx delay={0.2}>
-                <Card
-                  fillWidth
-                  radius="l"
-                  direction="column"
-                  style={{
-                    border: `1px solid var(--neutral-alpha-medium)`,
-                    gap: 0,
-                  }}
-                >
-                  <Row fillWidth paddingX="m" paddingY="s" gap="s" vertical="center">
-                    <FaRocket size={20} color={primaryColor} />
-                    <Text variant="label-default-s" wrap="balance">
-                      Headless WordPress
-                    </Text>
-                  </Row>
-
-                  <div
-                    style={{
-                      width: "100%",
-                      height: "192px",
-                      background: `linear-gradient(135deg, ${primaryColor}08, ${primaryColor}15)`,
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      borderTop: "1px solid var(--neutral-alpha-weak)",
-                      borderBottom: "1px solid var(--neutral-alpha-weak)"
-                    }}
-                  >
-                    <Flex gap="8" align="center">
-                      <FaWordpress size={32} color={primaryColor} />
-                      <Text variant="display-strong-l" style={{ color: primaryColor }}>+</Text>
-                      <FaCode size={32} color={primaryColor} />
-                    </Flex>
-                  </div>
-
-                  <Column fillWidth paddingX="m" paddingY="l" gap="s">
-                    <Text variant="body-default-xl" wrap="balance" align="center">
-                      Headless WordPress + React/Next.js
-                    </Text>
-                    <Text
-                      onBackground="neutral-weak"
-                      variant="body-default-s"
-                      wrap="balance"
-                      align="center"
-                    >
-                      Най-доброто от двата свята - WordPress CMS за управление + 
-                      модерен frontend за скорост и UX. Идеален за сайтове с много съдържание.
-                    </Text>
-                    <Column gap="4" align="center" paddingTop="s">
-                      <Flex gap="4" align="center">
-                        <FaCheckCircle color={primaryColor} size={14} />
-                        <Text variant="body-default-s">WordPress управление</Text>
-                      </Flex>
-                      <Flex gap="4" align="center">
-                        <FaCheckCircle color={primaryColor} size={14} />
-                        <Text variant="body-default-s">React/Next.js frontend</Text>
-                      </Flex>
-                      <Flex gap="4" align="center">
-                        <FaCheckCircle color={primaryColor} size={14} />
-                        <Text variant="body-default-s">Отлично SEO + скорост</Text>
-                      </Flex>
-                    </Column>
-                  </Column>
-
-                  <Column paddingX="m" paddingBottom="m" align="center">
-                    <Button
-                      href="/web/headless-wordpress-sait"
-                      variant="primary"
-                      size="m"
-                      prefixIcon="rocket"
-                      style={{ backgroundColor: primaryColor }}
-                      fillWidth
-                    >
-                      Виж повече
-                    </Button>
-                  </Column>
-                </Card>
-              </RevealFx>
-
-              {/* Landing Page Service */}
-              <RevealFx delay={0.3}>
-                <Card 
-                  fillWidth
-                  radius="l" 
-                  direction="column"
-                  style={{ border: "1px solid var(--neutral-alpha-medium)", gap: 0 }}
-                >
-                  <Row fillWidth paddingX="m" paddingY="s" gap="s" vertical="center">
-                    <FaLaptop size={20} color={primaryColor} />
-                    <Text variant="label-default-s">Лендинг страница</Text>
-                  </Row>
-                  
-                  <div
-                    style={{
-                      width: "100%",
-                      height: "192px",
-                      background: `linear-gradient(135deg, ${primaryColor}08, ${primaryColor}15)`,
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      borderTop: "1px solid var(--neutral-alpha-weak)",
-                      borderBottom: "1px solid var(--neutral-alpha-weak)"
-                    }}
-                  >
-                    <FaLaptop size={40} color={primaryColor} />
-                  </div>
-                  
-                  <Column fillWidth paddingX="m" paddingY="l" gap="s">
-                    <Text variant="body-default-xl" wrap="balance" align="center">
-                      Изработка на лендинг страница
-                    </Text>
-                    <Text onBackground="neutral-weak" variant="body-default-s" wrap="balance" align="center">
-                      Изчистен, модерен дизайн с фокус върху потребителското изживяване и конверсия.
-                    </Text>
-                    <Column gap="4" align="center" paddingTop="s">
-                      <Flex gap="4" align="center">
-                        <FaCheckCircle color={primaryColor} size={14} />
-                        <Text variant="body-default-s">React, Next.js, Tailwind</Text>
-                      </Flex>
-                      <Flex gap="4" align="center">
-                        <FaCheckCircle color={primaryColor} size={14} />
-                        <Text variant="body-default-s">SEO оптимизация</Text>
-                      </Flex>
-                      <Flex gap="4" align="center">
-                        <FaCheckCircle color={primaryColor} size={14} />
-                        <Text variant="body-default-s">Responsive дизайн</Text>
-                      </Flex>
-                    </Column>
-                  </Column>
-                  
-                  <Column paddingX="m" paddingBottom="m" align="center">
-                    <Button
-                      href="/web/izrabotka-sajt"
-                      variant="primary"
-                      size="m"
-                      prefixIcon="rocket"
-                      style={{ backgroundColor: primaryColor }}
-                      fillWidth
-                    >
-                      Виж повече
-                    </Button>
-                  </Column>
-                </Card>
-              </RevealFx>
-
-              {/* SEO Service */}
-              <RevealFx delay={0.4}>
-                <Card 
-                  fillWidth
-                  radius="l" 
-                  direction="column"
-                  style={{ border: "1px solid var(--neutral-alpha-medium)", gap: 0 }}
-                >
-                  <Row fillWidth paddingX="m" paddingY="s" gap="s" vertical="center">
-                    <FaSearch size={20} color={primaryColor} />
-                    <Text variant="label-default-s">SEO интеграция</Text>
-                  </Row>
-                  
-                  <div
-                    style={{
-                      width: "100%",
-                      height: "192px",
-                      background: `linear-gradient(135deg, ${primaryColor}08, ${primaryColor}15)`,
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      borderTop: "1px solid var(--neutral-alpha-weak)",
-                      borderBottom: "1px solid var(--neutral-alpha-weak)"
-                    }}
-                  >
-                    <FaSearch size={40} color={primaryColor} />
-                  </div>
-                  
-                  <Column fillWidth paddingX="m" paddingY="l" gap="s">
-                    <Text variant="body-default-xl" wrap="balance" align="center">
-                      SEO оптимизация
-                    </Text>
-                    <Text onBackground="neutral-weak" variant="body-default-s" wrap="balance" align="center">
-                      Техническа SEO, schema markup, Core Web Vitals и Google Search Console.
-                    </Text>
-                    <Column gap="4" align="center" paddingTop="s">
-                      <Flex gap="4" align="center">
-                        <FaCheckCircle color={primaryColor} size={14} />
-                        <Text variant="body-default-s">Schema markup</Text>
-                      </Flex>
-                      <Flex gap="4" align="center">
-                        <FaCheckCircle color={primaryColor} size={14} />
-                        <Text variant="body-default-s">Core Web Vitals</Text>
-                      </Flex>
-                      <Flex gap="4" align="center">
-                        <FaCheckCircle color={primaryColor} size={14} />
-                        <Text variant="body-default-s">Google Search Console</Text>
-                      </Flex>
-                    </Column>
-                  </Column>
-                  
-                  <Column paddingX="m" paddingBottom="m" align="center">
-                    <Button
-                      href="/web/seo-integratsiya"
-                      variant="primary"
-                      size="m"
-                      prefixIcon="rocket"
-                      style={{ backgroundColor: primaryColor }}
-                      fillWidth
-                    >
-                      Виж повече
-                    </Button>
-                  </Column>
-                </Card>
-              </RevealFx>
-
-              {/* WordPress Plugins */}
-              <RevealFx delay={0.5}>
-                <Card 
-                  fillWidth
-                  radius="l" 
-                  direction="column"
-                  style={{ border: "1px solid var(--neutral-alpha-medium)", gap: 0 }}
-                >
-                  <Row fillWidth paddingX="m" paddingY="s" gap="s" vertical="center">
-                    <FaCode size={20} color={primaryColor} />
-                    <Text variant="label-default-s">Custom плъгини</Text>
-                  </Row>
-                  
-                  <div
-                    style={{
-                      width: "100%",
-                      height: "192px",
-                      background: `linear-gradient(135deg, ${primaryColor}08, ${primaryColor}15)`,
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      borderTop: "1px solid var(--neutral-alpha-weak)",
-                      borderBottom: "1px solid var(--neutral-alpha-weak)"
-                    }}
-                  >
-                    <FaWordpress size={40} color={primaryColor} />
-                  </div>
-                  
-                  <Column fillWidth paddingX="m" paddingY="l" gap="s">
-                    <Text variant="body-default-xl" wrap="balance" align="center">
-                      WordPress & OpenCart плъгини
-                    </Text>
-                    <Text onBackground="neutral-weak" variant="body-default-s" wrap="balance" align="center">
-                      Персонализирани плъгини и модули за конкретни бизнес нужди.
-                    </Text>
-                    <Column gap="4" align="center" paddingTop="s">
-                      <Flex gap="4" align="center">
-                        <FaCheckCircle color={primaryColor} size={14} />
-                        <Text variant="body-default-s">WordPress плъгини</Text>
-                      </Flex>
-                      <Flex gap="4" align="center">
-                        <FaCheckCircle color={primaryColor} size={14} />
-                        <Text variant="body-default-s">OpenCart модули</Text>
-                      </Flex>
-                      <Flex gap="4" align="center">
-                        <FaCheckCircle color={primaryColor} size={14} />
-                        <Text variant="body-default-s">WooCommerce</Text>
-                      </Flex>
-                    </Column>
-                  </Column>
-                  
-                  <Column paddingX="m" paddingBottom="m" align="center">
-                    <Button
-                      href="/web/custom-plagini"
-                      variant="primary"
-                      size="m"
-                      prefixIcon="rocket"
-                      style={{ backgroundColor: primaryColor }}
-                      fillWidth
-                    >
-                      Виж повече
-                    </Button>
-                  </Column>
-                </Card>
-              </RevealFx>
-
-              {/* Maintenance Service */}
-              <RevealFx delay={0.6}>
-                <Card 
-                  fillWidth
-                  radius="l" 
-                  direction="column"
-                  style={{ border: "1px solid var(--neutral-alpha-medium)", gap: 0 }}
-                >
-                  <Row fillWidth paddingX="m" paddingY="s" gap="s" vertical="center">
-                    <FaCogs size={20} color={primaryColor} />
-                    <Text variant="label-default-s">Поддръжка</Text>
-                  </Row>
-                  
-                  <div
-                    style={{
-                      width: "100%",
-                      height: "192px",
-                      background: `linear-gradient(135deg, ${primaryColor}08, ${primaryColor}15)`,
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      borderTop: "1px solid var(--neutral-alpha-weak)",
-                      borderBottom: "1px solid var(--neutral-alpha-weak)"
-                    }}
-                  >
-                    <FaCogs size={40} color={primaryColor} />
-                  </div>
-                  
-                  <Column fillWidth paddingX="m" paddingY="l" gap="s">
-                    <Text variant="body-default-xl" wrap="balance" align="center">
-                      Поддръжка и надграждане
-                    </Text>
-                    <Text onBackground="neutral-weak" variant="body-default-s" wrap="balance" align="center">
-                      Месечна поддръжка, актуализации и техническа помощ.
-                    </Text>
-                    <Column gap="4" align="center" paddingTop="s">
-                      <Flex gap="4" align="center">
-                        <FaCheckCircle color={primaryColor} size={14} />
-                        <Text variant="body-default-s">Месечна поддръжка</Text>
-                      </Flex>
-                      <Flex gap="4" align="center">
-                        <FaCheckCircle color={primaryColor} size={14} />
-                        <Text variant="body-default-s">Сигурност и backup</Text>
-                      </Flex>
-                      <Flex gap="4" align="center">
-                        <FaCheckCircle color={primaryColor} size={14} />
-                        <Text variant="body-default-s">24/7 техническа помощ</Text>
-                      </Flex>
-                    </Column>
-                  </Column>
-                  
-                  <Column paddingX="m" paddingBottom="m" align="center">
-                    <Button
-                      href="/web/poddrzhka-nadgradzhdane"
-                      variant="primary"
-                      size="m"
-                      prefixIcon="rocket"
-                      style={{ backgroundColor: primaryColor }}
-                      fillWidth
-                    >
-                      Виж повече
-                    </Button>
-                  </Column>
-                </Card>
-              </RevealFx>
-
-              {/* Speed Optimization */}
-              <RevealFx delay={0.7}>
-                <Card 
-                  fillWidth
-                  radius="l" 
-                  direction="column"
-                  style={{ border: "1px solid var(--neutral-alpha-medium)", gap: 0 }}
-                >
-                  <Row fillWidth paddingX="m" paddingY="s" gap="s" vertical="center">
-                    <FaRocket size={20} color={primaryColor} />
-                    <Text variant="label-default-s">Оптимизация</Text>
-                  </Row>
-                  
-                  <div
-                    style={{
-                      width: "100%",
-                      height: "192px",
-                      background: `linear-gradient(135deg, ${primaryColor}08, ${primaryColor}15)`,
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      borderTop: "1px solid var(--neutral-alpha-weak)",
-                      borderBottom: "1px solid var(--neutral-alpha-weak)"
-                    }}
-                  >
-                    <FaRocket size={40} color={primaryColor} />
-                  </div>
-                  
-                  <Column fillWidth paddingX="m" paddingY="l" gap="s">
-                    <Text variant="body-default-xl" wrap="balance" align="center">
-                      Оптимизация на съществуващ сайт
-                    </Text>
-                    <Text onBackground="neutral-weak" variant="body-default-s" wrap="balance" align="center">
-                      Ускоряване, подобряване на мобилния изглед, фиксиране на грешки.
-                    </Text>
-                    <Column gap="4" align="center" paddingTop="s">
-                      <Flex gap="4" align="center">
-                        <FaCheckCircle color={primaryColor} size={14} />
-                        <Text variant="body-default-s">+70% по-бързо</Text>
-                      </Flex>
-                      <Flex gap="4" align="center">
-                        <FaCheckCircle color={primaryColor} size={14} />
-                        <Text variant="body-default-s">Технически одит</Text>
-                      </Flex>
-                      <Flex gap="4" align="center">
-                        <FaCheckCircle color={primaryColor} size={14} />
-                        <Text variant="body-default-s">Mobile-first</Text>
-                      </Flex>
-                    </Column>
-                  </Column>
-                  
-                  <Column paddingX="m" paddingBottom="m" align="center">
-                    <Button
-                      href="/web/optimizatsiya-sajt"
-                      variant="primary"
-                      size="m"
-                      prefixIcon="rocket"
-                      style={{ backgroundColor: primaryColor }}
-                      fillWidth
-                    >
-                      Виж повече
-                    </Button>
-                  </Column>
-                </Card>
-              </RevealFx>
-
-            </Grid>
-          </Column>
-
-          {/* WHY ME SECTION */}
-          <Column fillWidth gap="l" align="center" paddingY="m">
-            <RevealFx>
-              <Column fillWidth gap="m" align="center">
-                <Icon name="star" size="l" onBackground="brand-strong" />
-                <Heading variant="display-strong-m" align="center">
-                  Защо да избереш мен
-                </Heading>
-                <Text 
-                  variant="body-default-xl" 
-                  align="center" 
-                  onBackground="neutral-weak"
-                  style={{ maxWidth: "48rem", margin: "0 auto" }}
-                >
-                  Опитен фронтенд разработчик и SEO специалист с доказани резултати. 
-                  Специализирам се в Next.js и React с фокус върху скорост и SEO.
-                </Text>
-              </Column>
-            </RevealFx>
-
-            <Grid fillWidth columns={2} s={{ columns: 1 }} gap="l">
-              {/* About Card */}
-              <RevealFx delay={0.1}>
-                <Card fillWidth padding="xl" radius="xl">
-                  <Column fillWidth gap="m" align="center">
-                    <Flex gap="m" align="center" horizontal="center">
-                      <Avatar src={person.avatar} size="l" />
-                      <Column gap="4">
-                        <Text variant="body-default-s" weight="strong">Stanchev</Text>
-                        <Text variant="body-default-xs" onBackground="neutral-weak">
-                          Frontend Developer & SEO
-                        </Text>
-                      </Column>
-                    </Flex>
-                    
-                    <Text variant="body-default-m" align="center" onBackground="neutral-weak">
-                      Фронтенд разработчик, който вярва, че уебсайтът не е просто визитка, 
-                      а дигитално преживяване. Всеки проект съчетавам с реална SEO логика — 
-                      защото красивият сайт е безсмислен, ако никой не го открива.
-                    </Text>
-
-                    <Flex fillWidth gap="8" wrap horizontal="center" paddingTop="m">
-                      <Flex gap="4" align="center">
-                        <FaCheckCircle color={primaryColor} />
-                        <Text variant="body-default-s">1+ години опит</Text>
-                      </Flex>
-                      <Flex gap="4" align="center">
-                        <FaCheckCircle color={primaryColor} />
-                        <Text variant="body-default-s">5 проекта</Text>
-                      </Flex>
-                    </Flex>
-                  </Column>
-                </Card>
-              </RevealFx>
-
-              {/* Core Web Vitals Card */}
-              <RevealFx delay={0.2}>
-                <Card fillWidth padding="xl" radius="xl">
-                  <Column fillWidth gap="l">
-                    <Heading variant="heading-strong-l" align="center">
-                      Core Web Vitals подобрения
-                    </Heading>
-                    
-                    <BarChart
-                      title="Подобрения в производителността"
-                      axis="none"
-                      legend={{ position: "bottom-center" }}
-                      series={[
-                        { key: "Преди", color: "red" },
-                        { key: "След", color: "green" }
-                      ]}
-                      data={[
-                        { label: "LCP (s)", "Преди": 4.8, "След": 2.1 },
-                        { label: "FID (ms)", "Преди": 180, "След": 45 },
-                        { label: "CLS", "Преди": 0.35, "След": 0.08 },
-                        { label: "Score", "Преди": 52, "След": 94 }
-                      ]}
-                    />
-
-                    <Text variant="body-default-s" align="center" onBackground="neutral-weak">
-                      <strong>Средно подобрение: +81%</strong> в Core Web Vitals
-                    </Text>
-                  </Column>
-                </Card>
-              </RevealFx>
-            </Grid>
-          </Column>
-
-          {/* PROCESS SECTION */}
-          <Column fillWidth gap="l" align="center" paddingY="xl">
-            <RevealFx>
-              <Column fillWidth gap="m" align="center">
-                <Heading variant="display-strong-m" align="center">
-                  Процес на работа
-                </Heading>
-                <Text 
-                  variant="body-default-xl" 
-                  align="center" 
-                  onBackground="neutral-weak"
-                  style={{ maxWidth: "48rem", margin: "0 auto" }}
-                >
-                  Ясен и структуриран процес - от консултация до пускане и поддръжка. 
-                  Работя прозрачно с редовни актуализации.
-                </Text>
-              </Column>
-            </RevealFx>
-
-            <RevealFx delay={0.1}>
-              <Column fillWidth gap="l">
-                {/* Step 1 */}
-                <Row fillWidth gap="l" align="center">
-                  <Column align="center">
-                    <div
-                      style={{
-                        width: "60px",
-                        height: "60px",
-                        borderRadius: "50%",
-                        background: `${primaryColor}20`,
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        border: `3px solid ${primaryColor}`,
-                      }}
-                    >
-                      <FaUsers size={24} color={primaryColor} />
-                    </div>
-                  </Column>
-                  <Column flex={1}>
-                    <Card fillWidth padding="l" radius="xl">
-                      <Column gap="s">
-                        <Text variant="heading-strong-m">1. Безплатна консултация</Text>
-                        <Text variant="body-default-m" onBackground="neutral-weak">
-                          Обсъждаме целите и нуждите. Анализирам текущото състояние и предлагам решения.
-                        </Text>
-                      </Column>
-                    </Card>
-                  </Column>
-                </Row>
-
-                {/* Step 2 */}
-                <Row fillWidth gap="l" align="center">
-                  <Column align="center">
-                    <div
-                      style={{
-                        width: "60px",
-                        height: "60px",
-                        borderRadius: "50%",
-                        background: `${primaryColor}20`,
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        border: `3px solid ${primaryColor}`,
-                      }}
-                    >
-                      <FaLightbulb size={24} color={primaryColor} />
-                    </div>
-                  </Column>
-                  <Column flex={1}>
-                    <Card fillWidth padding="l" radius="xl">
-                      <Column gap="s">
-                        <Text variant="heading-strong-m">2. План и оферта</Text>
-                        <Text variant="body-default-m" onBackground="neutral-weak">
-                          Детайлен план за реализация, ясни етапи и точни срокове.
-                        </Text>
-                      </Column>
-                    </Card>
-                  </Column>
-                </Row>
-
-                {/* Step 3 */}
-                <Row fillWidth gap="l" align="center">
-                  <Column align="center">
-                    <div
-                      style={{
-                        width: "60px",
-                        height: "60px",
-                        borderRadius: "50%",
-                        background: `${primaryColor}20`,
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        border: `3px solid ${primaryColor}`,
-                      }}
-                    >
-                      <FaCode size={24} color={primaryColor} />
-                    </div>
-                  </Column>
-                  <Column flex={1}>
-                    <Card fillWidth padding="l" radius="xl">
-                      <Column gap="s">
-                        <Text variant="heading-strong-m">3. Разработка</Text>
-                        <Text variant="body-default-m" onBackground="neutral-weak">
-                          Изграждам сайта с регулярни актуализации и обратна връзка.
-                        </Text>
-                      </Column>
-                    </Card>
-                  </Column>
-                </Row>
-
-                {/* Step 4 */}
-                <Row fillWidth gap="l" align="center">
-                  <Column align="center">
-                    <div
-                      style={{
-                        width: "60px",
-                        height: "60px",
-                        borderRadius: "50%",
-                        background: `${primaryColor}20`,
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        border: `3px solid ${primaryColor}`,
-                      }}
-                    >
-                      <FaRocket size={24} color={primaryColor} />
-                    </div>
-                  </Column>
-                  <Column flex={1}>
-                    <Card fillWidth padding="l" radius="xl">
-                      <Column gap="s">
-                        <Text variant="heading-strong-m">4. Пускане + Поддръжка</Text>
-                        <Text variant="body-default-m" onBackground="neutral-weak">
-                          SEO настройки, следпускова помощ и месечна поддръжка.
-                        </Text>
-                      </Column>
-                    </Card>
-                  </Column>
-                </Row>
-              </Column>
-            </RevealFx>
-          </Column>
-
-          {/* RESULTS SECTION */}
-          <Column fillWidth gap="l" align="center" paddingY="xl">
-            <RevealFx>
-              <Column fillWidth gap="m" align="center">
-                <Heading variant="display-strong-m" align="center">
-                  Реални резултати от проектите
-                </Heading>
-                <Text 
-                  variant="body-default-xl" 
-                  align="center" 
-                  onBackground="neutral-weak"
-                  style={{ maxWidth: "48rem", margin: "0 auto" }}
-                >
-                  Доказани резултати - средно +433% ръст в трафика, +585% в приходите, 
-                  +148% подобрение на конверсията.
-                </Text>
-              </Column>
-            </RevealFx>
-
-            <RevealFx delay={0.1}>
-              <Card
-                fillWidth
-                padding="xl"
-                radius="xl"
-                style={{
-                  maxWidth: "900px",
-                  margin: "0 auto",
-                }}
-              >
-                <Column fillWidth gap="l" align="center">
-                  <Heading variant="heading-strong-l" align="center">
-                    Ръст в трафика, конверсия и продажби
-                  </Heading>
-
-                  <LineBarChart
-                    title="Органичен трафик и приходи (Март-Ноември 2025)"
-                    axis="both"
-                    date={{
-                      format: "MMM yyyy",
-                      start: new Date("2025-03-01"),
-                      end: new Date("2025-11-01"),
-                      selector: false,
-                      presets: { display: true, granularity: "month" },
-                      dual: true
-                    }}
-                    series={[
-                      { key: "Трафик", color: "blue" },
-                      { key: "Приходи (лв)", color: "yellow" },
-                    ]}
-                    data={[
-                      { date: new Date("2025-03-01"), "Трафик": 1200, "Приходи (лв)": 18500 },
-                      { date: new Date("2025-04-01"), "Трафик": 1650, "Приходи (лв)": 21400 },
-                      { date: new Date("2025-05-01"), "Трафик": 2100, "Приходи (лв)": 26800 },
-                      { date: new Date("2025-06-01"), "Трафик": 2750, "Приходи (лв)": 32100 },
-                      { date: new Date("2025-07-01"), "Трафик": 3400, "Приходи (лв)": 37900 },
-                      { date: new Date("2025-08-01"), "Трафик": 4100, "Приходи (лв)": 44200 },
-                      { date: new Date("2025-09-01"), "Трафик": 4850, "Приходи (лв)": 51800 },
-                      { date: new Date("2025-10-01"), "Трафик": 5600, "Приходи (лв)": 59500 },
-                      { date: new Date("2025-11-01"), "Трафик": 6400, "Приходи (лв)": 68200 }
-                    ]}
-                  />
-
-                  <Text variant="body-default-s" align="center" onBackground="neutral-weak">
-                    <strong>Ръст в трафика: +433%</strong> | <strong>Ръст в приходите: +585%</strong> | <strong>Конверсия: +148%</strong>
-                  </Text>
-                  <Text variant="body-default-xs" align="center" onBackground="neutral-weak" style={{ fontStyle: "italic" }}>
-                    * Средни данни от всички клиенти до момента
-                  </Text>
-                </Column>
-              </Card>
-            </RevealFx>
-          </Column>
-
-          {/* FAQ SECTION */}
-          <Column fillWidth gap="l" align="center" paddingY="s">
-            <RevealFx>
-              <Column fillWidth gap="m" align="center">
-                <Icon name="help-circle" size="l" onBackground="info-strong" />
-                <Heading variant="display-strong-m" align="center">
-                  Често задавани въпроси
-                </Heading>
-                <Text 
-                  variant="body-default-xl" 
-                  align="center" 
-                  onBackground="neutral-weak"
-                  style={{ maxWidth: "48rem", margin: "0 auto" }}
-                >
-                  Отговори на най-често задаваните въпроси за уеб разработка, 
-                  цени, срокове и процес на работа.
-                </Text>
-              </Column>
-            </RevealFx>
-
-            <RevealFx delay={0.1}>
-              <Column fillWidth style={{ maxWidth: "900px", margin: "0 auto" }}>
-                <AccordionGroup
-                  items={[
-                    {
-                      title: "Колко време отнема изработката на уебсайт?",
-                      content: (
-                        <Text onBackground="neutral-weak">
-                          Лендинг страница - 1-2 седмици. Пълноценен сайт - 3-6 седмици. 
-                          Включва планиране, дизайн, разработка, тестване и пускане.
-                        </Text>
-                      ),
-                    },
-                    {
-                      title: "Какви технологии използвате?",
-                      content: (
-                        <Text onBackground="neutral-weak">
-                          React, Next.js, TypeScript, Tailwind CSS. Всички сайтове са 
-                          оптимизирани за SEO с отлични Core Web Vitals резултати.
-                        </Text>
-                      ),
-                    },
-                    {
-                      title: "Колко струва изработката на уебсайт?",
-                      content: (
-                        <Text onBackground="neutral-weak">
-                          Лендинг от 800-1500 лв. Корпоративен сайт 2000-5000 лв. 
-                          Next.js сайт от 1200 лв. Безплатна консултация и оферта.
-                        </Text>
-                      ),
-                    },
-                    {
-                      title: "Предоставяте ли поддръжка след пускането?",
-                      content: (
-                        <Text onBackground="neutral-weak">
-                          Да, месечна поддръжка с актуализации, бекъп и техническа помощ. 
-                          Осигурявам обучение за управление на съдържанието.
-                        </Text>
-                      ),
-                    },
-                    {
-                      title: "Как се осигурява SEO оптимизацията?",
-                      content: (
-                        <Text onBackground="neutral-weak">
-                          Техническа SEO, schema markup, meta tags, sitemap, Google Search Console, 
-                          Core Web Vitals оптимизация. SEO е вградено от самото начало.
-                        </Text>
-                      ),
-                    },
-                  ]}
-                />
-              </Column>
-            </RevealFx>
-          </Column>
-
-          {/* CTA SECTION */}
-          <Column fillWidth gap="l" align="center" paddingY="s">
-            <RevealFx>
-              <Card
-                fillWidth
-                padding="xl"
-                radius="xl"
-                style={{
-                  background: `linear-gradient(135deg, ${primaryColor} 0%, #003d66 100%)`,
-                  maxWidth: "900px",
-                  margin: "0 auto",
-                }}
-              >
-                <Column fillWidth gap="l" align="center">
-                  <Heading variant="display-strong-m" align="center" style={{ color: "white" }}>
-                    Готов за твоя сайт?
-                  </Heading>
-                  
-                  <Text 
-                    variant="body-default-xl" 
-                    align="center" 
-                    style={{ color: "white", maxWidth: "600px", margin: "0 auto" }}
-                  >
-                    Времето е сега да направиш стъпката към професионален онлайн присъствие. 
-                    Свържи се за безплатна консултация.
-                  </Text>
-
-                  <Flex fillWidth gap="m" horizontal="center" wrap>
-                    <Button
-                      href="/kontakti"
-                      variant="secondary"
-                      size="l"
-                      prefixIcon="message-circle"
-                      style={{ backgroundColor: "white", color: primaryColor }}
-                    >
-                      Свържи се с мен
-                    </Button>
-                    <Button
-                      href="tel:+359877038729"
-                      variant="tertiary"
-                      size="l"
-                      style={{ color: "white", border: "2px solid white" }}
-                    >
-                      <Flex gap="4" align="center">
-                        <FaPhone />
-                        +359 877 038 729
-                      </Flex>
-                    </Button>
-                  </Flex>
-
-                  <Text variant="body-default-m" align="center" style={{ color: "white" }}>
-                    Имейл: seo@stanchev.bg • Отговарям в рамките на 24 часа
-                  </Text>
-                </Column>
-              </Card>
-            </RevealFx>
-          </Column>
-
+      <Column fillWidth horizontal="center" paddingTop="8" paddingBottom="16">
+        <Background
+          position="absolute"
+          fill
+          pointerEvents="none"
+          style={{ left: "50%", width: "100vw", transform: "translateX(-50%)", top: "-24px", height: "calc(100% + 24px)" }}
+          lines={{ display: true, size: "24", thickness: 1, angle: 0, color: "neutral-alpha-weak", opacity: 50 }}
+          mask={{ x: 50, y: 0, radius: 100 }}
+        />
+        <Column zIndex={1} maxWidth="l" fillWidth gap="32">
+          <Trail items={[{ label: "Начало", href: "/" }, { label: "Уеб услуги" }]} />
+          <Row fillWidth gap="40" vertical="center" m={{ direction: "column" }}>
+            <Column flex={5} gap="24" fillWidth>
+              <Row gap="8" wrap>
+                <Tag size="m">Next.js</Tag>
+                <Tag size="m">React</Tag>
+                <Tag size="m">TypeScript</Tag>
+                <Tag size="m">WordPress</Tag>
+              </Row>
+              <Heading as="h1" variant="display-strong-l" wrap="balance">
+                Изработка на сайт и уеб разработка със SEO в кода
+              </Heading>
+              <Text variant="body-default-l" onBackground="neutral-weak" wrap="balance">
+                Бързи сайтове с Next.js, React и headless WordPress. Сървърно рендиране, метаданни, структурирани данни и Core Web Vitals са част от архитектурата, за да са видими за Google и за AI търсачките.
+              </Text>
+              <Row gap="12" s={{ direction: "column" }}>
+                <Button href="/kontakti" size="l" arrowIcon>Запитване</Button>
+                <Button href="#ceni" size="l" variant="secondary">Цени</Button>
+              </Row>
+            </Column>
+            <Column flex={6} fillWidth minWidth={0}>
+              <CodeBlock
+                codes={[
+                  { code: heroCode, language: "tsx", label: "page.tsx" },
+                  { code: lighthouseCode, language: "bash", label: "измерване" },
+                ]}
+                copyButton
+              />
+            </Column>
+          </Row>
         </Column>
       </Column>
-    </>
+
+      <Column fillWidth horizontal="center" gap="64" s={{ gap: "40" }}>
+        <Column maxWidth="l" fillWidth gap="64" s={{ gap: "40" }}>
+          <RevealOnView>
+            <Column fillWidth gap="12" paddingLeft="24" style={{ borderLeft: "3px solid var(--brand-solid-medium)" }}>
+              <Heading as="h2" variant="heading-strong-xl" wrap="balance">
+                Какво е уеб разработка със SEO в кода?
+              </Heading>
+              <Text variant="body-default-l" onBackground="neutral-medium">
+                Това е изработка на сайт, при която видимостта в търсачките се проектира от първия ред код: съдържанието е в HTML, всяка страница има собствени метаданни и структурирани данни, а скоростта се измерва и поддържа. Така не се налага SEO да се &quot;закърпва&quot; след пускането.
+              </Text>
+            </Column>
+          </RevealOnView>
+
+          <Column gap="24">
+            <SectionTitle eyebrow="Архитектура" title="Как пътува една заявка" lead="Опростена схема на типичен сайт с Next.js и по избор headless CMS." />
+            <RevealOnView>
+              <Row fillWidth gap="8" s={{ direction: "column" }} vertical="stretch">
+                {flow.map((f, i) => (
+                  <Row key={f.title} flex={1} fillWidth gap="8" vertical="center" s={{ direction: "column" }}>
+                    <Column fillWidth flex={1} padding="20" gap="12" radius="l" border="neutral-alpha-medium" background="surface" overflow="hidden">
+                      {i === 2 && (
+                        <Mask position="absolute" right="0" top="0" radius={33} x={75} y={0}>
+                          <MatrixFx size={1.5} colors={["brand-background-strong"]} flicker />
+                        </Mask>
+                      )}
+                      <Row gap="8" vertical="center">
+                        <Icon name={f.icon} size="s" border="brand-alpha-weak" background="brand-alpha-weak" onBackground="brand-weak" radius="m" padding="8" />
+                        <Text variant="code-default-s" onBackground="neutral-weak">{`0${i + 1}`}</Text>
+                      </Row>
+                      <Heading as="h3" variant="heading-strong-s">{f.title}</Heading>
+                      <Text variant="body-default-s" onBackground="neutral-weak">{f.text}</Text>
+                    </Column>
+                    {i < flow.length - 1 && (
+                      <>
+                        <Row s={{ hide: true }}><Icon name="arrowRight" size="s" onBackground="neutral-weak" /></Row>
+                        <Row hide s={{ hide: false }}><Icon name="chevronDown" size="s" onBackground="neutral-weak" /></Row>
+                      </>
+                    )}
+                  </Row>
+                ))}
+              </Row>
+            </RevealOnView>
+          </Column>
+
+          <Column gap="24">
+            <SectionTitle eyebrow="Спецификация" title="Какво е вградено във всеки проект" lead="Стандартна основа, която не е допълнителна услуга." />
+            <Table
+              data={{
+                headers: [
+                  { content: "Област", key: "a" },
+                  { content: "Как", key: "b" },
+                  { content: "Защо", key: "c" },
+                ],
+                rows: spec.map(([a, b, c]) => [a, b, c]),
+              }}
+            />
+          </Column>
+
+          <Column gap="24">
+            <SectionTitle eyebrow="Скорост" title="Бюджет за Core Web Vitals" lead="Целите са прагът &quot;добро&quot; на Google за потребителски опит. Измервам преди и след промените." />
+            <RevealOnView>
+              <Grid fillWidth columns={3} s={{ columns: 1 }} gap="16">
+                {budgets.map((b) => (
+                  <Column key={b.metric} padding="24" gap="8" radius="l" border="neutral-alpha-medium" background="surface">
+                    <Text variant="code-default-s" onBackground="brand-weak">{b.metric}</Text>
+                    <Text variant="display-strong-m">{b.target}</Text>
+                    <Line />
+                    <Text variant="body-default-s" onBackground="neutral-weak">{b.note}</Text>
+                  </Column>
+                ))}
+              </Grid>
+            </RevealOnView>
+          </Column>
+
+          <Column gap="24" id="moduli">
+            <SectionTitle eyebrow="Услуги" title="Модули" lead="Избирате само това, което ви трябва. Цените са стартови, в евро." />
+            <RevealOnView>
+              <Column fillWidth radius="l" border="neutral-alpha-medium" background="surface" overflow="hidden">
+                {list.map((s, i) => (
+                  <Row key={s.slug} fillWidth paddingX="20" paddingY="16" gap="16" vertical="center" borderTop={i === 0 ? undefined : "neutral-alpha-weak"} s={{ direction: "column", vertical: "start", gap: "8" }}>
+                    <Row gap="12" vertical="center" flex={4} fillWidth>
+                      <Text variant="code-default-s" onBackground="neutral-weak">{String(i + 1).padStart(2, "0")}</Text>
+                      <Icon name={s.icon} size="s" onBackground="brand-weak" />
+                      <Text variant="label-strong-m"><a href={servicePath(s)} style={{ color: "inherit" }}>{s.name}</a></Text>
+                    </Row>
+                    <Text variant="body-default-s" onBackground="neutral-weak" style={{ flex: 5 }}>{s.summary}</Text>
+                    <Row flex={2} horizontal="end" s={{ horizontal: "start" }}>
+                      <Tag size="s" scheme={s.priceFrom === "По договаряне" ? "neutral" : "brand"}>{s.priceFrom}</Tag>
+                    </Row>
+                  </Row>
+                ))}
+              </Column>
+            </RevealOnView>
+          </Column>
+
+          <Column gap="24" id="ceni">
+            <SectionTitle eyebrow="Цени" title="Колко струва изработката на сайт" lead="Стартови цени в евро. Крайната цена зависи от обхвата, а оферта получавате писмено след кратък преглед." />
+            <Table
+              data={{
+                headers: [
+                  { content: "Услуга", key: "a" },
+                  { content: "Цена", key: "b" },
+                ],
+                rows: list.filter((s) => s.priceFrom !== "По договаряне").map((s) => [<a key={s.slug} href={servicePath(s)}>{s.name}</a>, s.priceFrom]),
+              }}
+            />
+            <Column gap="12">
+              <Heading as="h3" variant="heading-strong-m">От какво зависи цената</Heading>
+              <Checklist items={costDrivers} />
+            </Column>
+          </Column>
+
+          <RevealOnView>
+            <FeaturesBordered title="Какво е включено в изработката" lead="Основите са част от цената, не допълнителна услуга." items={included} />
+          </RevealOnView>
+
+          <RevealOnView>
+            <FeaturesBordered title="Какви сайтове изработвам" lead="От фирмен сайт до уеб приложение и миграция." items={siteTypes} />
+          </RevealOnView>
+
+          <Column gap="24">
+            <SectionTitle eyebrow="Избор на технология" title="Next.js, WordPress или headless" lead="Няма универсално най-добър избор. Ето как се различават на практика." />
+            <Table
+              data={{
+                headers: [
+                  { content: "", key: "k" },
+                  { content: "Next.js", key: "n" },
+                  { content: "WordPress", key: "w" },
+                  { content: "Headless WP", key: "h" },
+                ],
+                rows: matrix.map(([k, n, w, h]) => [k, n, w, h]),
+              }}
+            />
+          </Column>
+
+          <FeaturesTimeline
+            title="От бриф до пускане"
+            lead="Шест стъпки, всяка с проверка."
+            steps={[
+              { title: "Бриф и цели", description: "Какво трябва да прави сайтът и как ще мерим успеха." },
+              { title: "Структура и SEO план", description: "Страници, адреси, ключови думи и структурирани данни още преди дизайна." },
+              { title: "Разработка", description: "Компоненти, шаблони и интеграции с TypeScript." },
+              { title: "Тестове", description: "Скорост, достъпност, индексиране и проверка на пренасочванията." },
+              { title: "Пускане", description: "Публикуване, Search Console, sitemap и наблюдение." },
+              { title: "Поддръжка", description: "Обновявания, сигурност и измерване след пускането." },
+            ]}
+            side={
+              <Column fillWidth radius="l" border overflow="hidden" padding="m" gap="12" minWidth={0}>
+                <Text variant="label-strong-s">Измерване от командния ред</Text>
+                <CodeBlock codes={[{ code: lighthouseCode, language: "bash", label: "lighthouse" }]} copyButton />
+              </Column>
+            }
+          />
+
+          <RevealOnView>
+            <FeaturesBordered
+              title="Проверки преди пускане"
+              lead="Така не губите позиции при смяна на сайт."
+              items={[
+                { icon: "search", title: "Индексиране", description: "Няма noindex по грешка, а robots и sitemap са верни." },
+                { icon: "arrowRight", title: "Пренасочвания", description: "Всеки стар адрес води към правилния нов с 301." },
+                { icon: "document", title: "Метаданни", description: "Уникални title и description, canonical на всяка страница." },
+                { icon: "code", title: "Структурирани данни", description: "JSON-LD е валиден и отговаря на видимото съдържание." },
+                { icon: "lighthouse", title: "Core Web Vitals", description: "Измерени LCP, INP и CLS на ключовите шаблони." },
+                { icon: "lock", title: "Сигурност", description: "HTTPS, обновени зависимости и ограничени достъпи." },
+              ]}
+            />
+          </RevealOnView>
+
+          <Column gap="24">
+            <SectionTitle eyebrow="Избор" title="Готов шаблон или индивидуален сайт" lead="И двата варианта имат място, зависи от ролята на сайта за бизнеса." />
+            <Table
+              data={{
+                headers: [
+                  { content: "", key: "k" },
+                  { content: "Готов шаблон", key: "t" },
+                  { content: "Индивидуален сайт", key: "c" },
+                ],
+                rows: templateMatrix.map(([k, a, b]) => [k, a, b]),
+              }}
+            />
+          </Column>
+
+          <Column gap="24">
+            <SectionTitle eyebrow="Преди да изберете" title="Как да сравнявате оферти за сайт" lead="Седем въпроса, които можете да зададете на всеки изпълнител, включително на мен." />
+            <Checklist items={quoteChecklist} />
+          </Column>
+
+          <Column gap="16">
+            <SectionTitle eyebrow="Примери" title="Реални проекти" lead="Технически одит, структурирани данни за онлайн магазин и SEO при редизайн с Next.js." />
+            <Row gap="12" wrap>
+              <Button href="/work" variant="secondary" arrowIcon>Вижте проектите</Button>
+              <Button href="/seo-uslugi/seo-odit" variant="secondary" arrowIcon>SEO одит на сайт</Button>
+            </Row>
+          </Column>
+
+          <Column gap="32">
+            <SectionTitle eyebrow="Въпроси" title="Често задавани въпроси за уеб разработката" />
+            <Faq items={faq} />
+          </Column>
+        </Column>
+      </Column>
+
+      <Column fillWidth horizontal="center" paddingY="56" theme="dark" s={{ paddingY: "32" }}>
+        <GeoBackground style={{ left: "50%", width: "100vw", transform: "translateX(-50%)" }} />
+        <Column zIndex={1} maxWidth="m" fillWidth paddingX="24" gap="20" horizontal="center" align="center">
+          <Heading as="h2" variant="display-strong-xs" wrap="balance">
+            Имате проект или бавен сайт?
+          </Heading>
+          <Text variant="body-default-l" onBackground="neutral-weak" wrap="balance">
+            Опишете го накратко. Първоначалният разговор до 30 минути е безплатен и без ангажимент.
+          </Text>
+          <Row gap="12" wrap horizontal="center">
+            <Button href="/kontakti" size="l" arrowIcon>Запитване</Button>
+            <Button href="/seo-uslugi" size="l" variant="secondary">SEO услуги</Button>
+          </Row>
+        </Column>
+      </Column>
+    </Column>
   );
 }
-

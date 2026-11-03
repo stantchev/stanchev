@@ -10,7 +10,6 @@ import {
 } from "@/types";
 import { Line, Row, Text } from "@once-ui-system/core";
 
-// 🆕 Добавени типове
 type Contact = {
   path: string;
   label: string;
@@ -38,7 +37,7 @@ const person: Person = {
   firstName: "Stanchev",
   lastName: "Digital",
   name: "Stanchev Digital",
-  role: "SEO & GEO Специалист",
+  role: "SEO консултант, SEO специалист и уеб разработчик",
   avatar: "/images/avatar.jpg",
   email: "seo@stanchev.bg",
   location: "Europe/Sofia",
@@ -64,11 +63,11 @@ const home: Home = {
   label: "Начало",
   title: "SEO оптимизация и AI Automation за вашия бизнес",
   description:
-    "Комбинация от SEO оптимизация и AI Automation за повече трафик, по-високо класиране и автоматизирано развитие на вашия бизнес | Станчев SEO",
-  headline: <>SEO & AI Automation – интелигентни решения за растеж</>,
+    "Комбинация от SEO оптимизация и AI Automation за повече трафик, по-високо класиране и автоматизирано развитие на вашия бизнес | Stanchev Digital",
+  headline: <>SEO & AI Automation - интелигентни решения за растеж</>,
   subline: (
     <>
-      Аз съм Станчев – комбинирам SEO експертиза и AI автоматизация,
+      Аз съм Станчев - комбинирам SEO експертиза и AI автоматизация,
       <br /> за да превръщам данните в стратегии, задачите в автоматизирани процеси
       <br /> и идеите в устойчив онлайн успех
     </>
@@ -104,7 +103,7 @@ const about: About = {
         Front-end разработчик (React • Next.js • Tailwind CSS) и сериозен SEO специалист. Комбинирам техническа прецизност, за да създавам бързи, оптимизирани и видими сайтове.
         <br />
         <br />
-        Силно ме вълнува писането на чист, ефективен код с React и Next.js, перфектно стилизиран с Tailwind CSS, комбиниран с професионално техническо SEO – от структурата на проекта, през семантичен HTML и скорост, до перфектна индексация и Core Web Vitals.
+        Силно ме вълнува писането на чист, ефективен код с React и Next.js, перфектно стилизиран с Tailwind CSS, комбиниран с професионално техническо SEO - от структурата на проекта, през семантичен HTML и скорост, до перфектна индексация и Core Web Vitals.
         <br />
         <br />
         Вярвам, че перфектното SEO е балансирано между код, съдържание и UX — защото само така алгоритмите се превръщат в твой съюзник.
@@ -117,7 +116,7 @@ const about: About = {
     experiences: [
             {
         company: "HempFarms LTD.",
-        timeframe: "2025 – 2025",
+        timeframe: "2025 - 2025",
         role: "SEO специалист",
         achievements: [
           <>Ръководих SEO стратегията и координирах UI/UX редизайн за Коледните празници на портфолио от 17 международни онлайн магазина за CBD продукти и CBD масло, изградени на WordPress, Shopify, WooCommerce и Elementor, обслужващи множество международни пазари.</>,
@@ -129,7 +128,7 @@ const about: About = {
       },
       {
         company: "InHouse LTD.",
-        timeframe: "2025 – 2025",
+        timeframe: "2025 - 2025",
         role: "SEO специалист",
         achievements: [
           <>Отговарях за SEO стратегията на онлайн магазин за домашни потреби, изграден на WordPress, като участвах в UI/UX редизайн на сайта по повод Коледните празници с цел по-добра навигация и по-високи сезонни конверсии.</>,
@@ -140,7 +139,7 @@ const about: About = {
       },
       {
         company: "Webstation LTD.",
-        timeframe: "2025 – настоящем",
+        timeframe: "2025 - настоящем",
         role: "SEO специалист (стажант)",
         achievements: [
           <>Извърших над 30 GEO и технически SEO одита, включително оптимизации по Core Web Vitals, които повишиха скоростта и локалната видимост с над 40%.</>,
@@ -180,7 +179,7 @@ const about: About = {
         ),
       },
       {
-        name: "SEMrush – Become an AI-Powered Marketer",
+        name: "SEMrush - Become an AI-Powered Marketer",
         description: (
           <a
             href="https://static.semrush.com/academy/certificates/dfbe013175/milen-stanchev_26.pdf"
@@ -192,7 +191,7 @@ const about: About = {
         ),
       },
       {
-        name: "SEMrush – On-Page SEO Essentials",
+        name: "SEMrush - On-Page SEO Essentials",
         description: (
           <a
             href="https://static.semrush.com/academy/certificates/c326ee55fe/milen-stanchev_25.pdf"
@@ -293,14 +292,14 @@ const blog: Blog = {
 const work: Work = {
   path: "/seo-proekti",
   label: "Проекти",
-  title: `SEO проекти – ${person.name}`,
+  title: `SEO проекти - ${person.name}`,
   description: `Разгледайте портфолиото ми. Постигнал съм видими резултати в SEO.`,
 };
 
 const gallery: Gallery = {
   path: "/gallery",
   label: "Галерия",
-  title: `Photo gallery – ${person.name}`,
+  title: `Photo gallery - ${person.name}`,
   description: `A photo collection by ${person.name}`,
   images: [
     { src: "/images/gallery/horizontal-1.jpg", alt: "image", orientation: "horizontal" },

@@ -29,21 +29,19 @@ function getHeadings(containerSelector?: string): Heading[] {
   }));
 }
 
-const SIDEBAR_HEIGHT = 400; // px, can be made a prop
-const MIN_DOT_SPACING = 24; // px, minimum vertical space between dots
+const SIDEBAR_HEIGHT = 400;
+const MIN_DOT_SPACING = 24;
 
 const ArticleHeadingMapNav: React.FC<ArticleHeadingMapNavProps> = ({ containerSelector }) => {
   const [headings, setHeadings] = useState<Heading[]>([]);
   const [activeId, setActiveId] = useState<string | null>(null);
   const sidebarRef = useRef<HTMLDivElement>(null);
 
-  // Collect headings and their positions
   const updateHeadings = () => {
     const hs = getHeadings(containerSelector);
     setHeadings(hs);
   };
 
-  // Find the active heading based on scroll
   const updateActive = () => {
     const scroll = window.scrollY;
     let current: Heading | null = null;
@@ -73,7 +71,6 @@ const ArticleHeadingMapNav: React.FC<ArticleHeadingMapNavProps> = ({ containerSe
     // eslint-disable-next-line
   }, [headings]);
 
-  // Calculate proportional positions
   let positions: number[] = [];
   if (headings.length > 1) {
     const min = headings[0].top;

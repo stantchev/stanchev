@@ -4,7 +4,6 @@ import {
   Schema,
   Column,
   Heading,
-  HeadingNav,
   Icon,
   Row,
   Text,
@@ -25,12 +24,13 @@ import { formatDate } from "@/utils/formatDate";
 import { getPosts } from "@/utils/utils";
 import { Metadata } from "next";
 import React from "react";
-import { Posts } from "@/components/blog/Posts";
+import { RelatedPosts } from "@/components/blog/RelatedPosts";
 import { ShareSection } from "@/components/blog/ShareSection";
 import { TextToSpeech } from "@/components/blog/TextToSpeech";
+import { PostToc } from "@/components/blog/PostToc";
 import { Feedback } from "@/components/blog/Feedback";
+import { protectJson } from "@/lib/contact";
 
-// ✅ Static params
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
   const posts = getPosts(["src", "app", "blog", "posts"]);
   return posts.map((post) => ({
@@ -38,7 +38,6 @@ export async function generateStaticParams(): Promise<{ slug: string }[]> {
   }));
 }
 
-// ✅ Metadata for SEO
 export async function generateMetadata({
   params,
 }: {
@@ -94,12 +93,12 @@ export async function generateMetadata({
     },
     other: {
       "article:published_time": post.metadata.publishedAt,
+      "article:modified_time": post.metadata.updatedAt || post.metadata.publishedAt,
       "article:author": "Милен Станчев",
     },
   };
 }
 
-// ✅ Main Blog component
 export default async function Blog({
   params,
 }: {
@@ -118,13 +117,11 @@ export default async function Blog({
     notFound();
   }
 
-  // ✅ Team avatars
   const avatars =
     post.metadata.team?.map((person) => ({
       src: person.avatar,
     })) || [];
 
-  // ✅ JSON-LD Schema (динамично от MDX файла)
   const schemaOrgJSONLD = post.metadata.schema || {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -159,18 +156,16 @@ export default async function Blog({
       }
     },
     datePublished: post.metadata.publishedAt,
-    dateModified: post.metadata.publishedAt,
+    dateModified: post.metadata.updatedAt || post.metadata.publishedAt,
     keywords: post.metadata.keywords || [],
   };
 
-  // ✅ Render
   return (
     <>
-      {/* Инжектираме Schema.org JSON-LD в head */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(schemaOrgJSONLD),
+          __html: protectJson(JSON.stringify(schemaOrgJSONLD)),
         }}
       />
 
@@ -191,7 +186,7 @@ export default async function Blog({
               title={post.metadata.title}
               description={post.metadata.summary}
               datePublished={post.metadata.publishedAt}
-              dateModified={post.metadata.publishedAt}
+              dateModified={post.metadata.updatedAt || post.metadata.publishedAt}
               image={
                 post.metadata.image ||
                 `/api/og/generate?title=${encodeURIComponent(
@@ -227,8 +222,9 @@ export default async function Blog({
               >
                 {post.metadata.publishedAt &&
                   formatDate(post.metadata.publishedAt)}
+                {post.metadata.updatedAt && ` · Обновено: ${formatDate(post.metadata.updatedAt)}`}
               </Text>
-              <Heading variant="display-strong-m">
+              <Heading as="h1" variant="display-strong-m">
                 {post.metadata.title}
               </Heading>
             </Column>
@@ -286,15 +282,9 @@ export default async function Blog({
             <Column fillWidth gap="40" horizontal="center" marginTop="40">
               <Line maxWidth="40" />
               <Heading as="h2" variant="heading-strong-xl" marginBottom="24">
-                Последни публикации
+                Свързани статии
               </Heading>
-              <Posts
-                exclude={[post.slug]}
-                range={[1, 2]}
-                columns="2"
-                thumbnail
-                direction="column"
-              />
+              <RelatedPosts slug={post.slug} />
             </Column>
 
             <ScrollToHash />
@@ -320,7 +310,7 @@ export default async function Blog({
             <Icon name="document" size="xs" />
             В тази статия
           </Row>
-          <HeadingNav fitHeight header={false} />
+          <PostToc />
         </Column>
       </Row>
     </>

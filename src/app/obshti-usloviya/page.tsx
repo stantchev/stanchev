@@ -8,19 +8,19 @@ export const metadata: Metadata = {
 }
 
 import { Column, Flex, Feedback } from "@once-ui-system/core";
+import { protectJson } from "@/lib/contact";
+import { ContactButton, ContactText } from "@/components/ProtectedContact";
+import { EMAIL_PARTS, PHONE_GROUPS } from "@/lib/contact";
 
 export default function TermsPage() {
   return (
     <>
-      <Script
-        id="terms-and-conditions-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
+      <script type="application/ld+json" dangerouslySetInnerHTML={{
+          __html: protectJson(JSON.stringify({
             "@context": "http://schema.org",
             "@type": "WebPage",
-            "name": "Общи Условия за Ползване на Услугите на Станчев SEO",
-            "description": "Запознайте се с Общите условия за ползване на услугите, предоставяни от Станчев SEO, включително права и задължения, условия за плащане и поверителност.",
+            "name": "Общи Условия за Ползване на Услугите на Stanchev Digital",
+            "description": "Запознайте се с Общите условия за ползване на услугите, предоставяни от Stanchev Digital, включително права и задължения, условия за плащане и поверителност.",
             "url": "https://stanchev.bg/obshti-uslovia",
             "potentialAction": {
               "@type": "ReadAction",
@@ -31,7 +31,7 @@ export default function TermsPage() {
             },
             "publisher": {
               "@type": "Organization",
-              "name": "Станчев SEO",
+              "name": "Stanchev Digital",
               "url": "https://stanchev.bg/",
               "logo": "https://stanchev.bg/images/og/og.jpg",
               "contactPoint": {
@@ -53,7 +53,7 @@ export default function TermsPage() {
                 "https://dev.to/stanchev"
               ]
             }
-          })
+          }))
         }}
       />
     <Column as="section" padding="xl" gap="xl" fillWidth>
@@ -66,21 +66,19 @@ export default function TermsPage() {
       </Flex>
 
       <Column gap="l">
-        {/* 1. Данни за доставчика */}
         <Flex as="h2" textVariant="display-default-m">
           1. Данни за доставчика
         </Flex>
         <Flex as="p">Stanchev.bg е уебсайт, собственост на Станчев.</Flex>
         <Column as="ul" gap="s" paddingLeft="l">
           <li>Уебсайт: https://stanchev.bg</li>
-          <li>Имейл: seo@stanchev.bg</li>
+          <li>Имейл: <ContactText kind="email" parts={EMAIL_PARTS} /></li>
         </Column>
 
-        {/* 2. Обхват на услугите */}
         <Flex as="h2" textVariant="display-default-m">
           2. Обхват на услугите
         </Flex>
-        <p> Услугите на Станчев SEO включват, но не се свеждат до:</p>
+        <p> Услугите на Stanchev Digital включват, но не се свеждат до:</p>
         <Column as="ul" gap="s" paddingLeft="l">
           <li>SEO одит и анализ</li>
           <li>On-page оптимизация</li>
@@ -94,7 +92,6 @@ export default function TermsPage() {
           description="Услугите се предоставят след потвърждение и писмено съгласие между двете страни."
         />
 
-        {/* 3. Права и отговорности */}
         <Flex as="h2" textVariant="display-default-m">
           3. Права и отговорности
         </Flex>
@@ -109,7 +106,6 @@ export default function TermsPage() {
           <li>Да откаже услуга при съмнение за недобросъвестност</li>
         </Column>
 
-        {/* 4. Поверителност */}
         <Flex as="h2" textVariant="display-default-m">
           4. Поверителност
         </Flex>
@@ -117,7 +113,6 @@ export default function TermsPage() {
           Всички данни и анализи, предоставени от клиента, се третират като строго поверителни и не се споделят с трети страни.
         </Flex>
 
-        {/* 5. Плащания и срокове */}
         <Flex as="h2" textVariant="display-default-m">
           5. Плащания и срокове
         </Flex>
@@ -129,7 +124,6 @@ export default function TermsPage() {
           description="За абонаментни услуги и дългосрочни партньорства се договарят индивидуални условия."
         />
 
-        {/* 6. Авторски права */}
         <Flex as="h2" textVariant="display-default-m">
           6. Авторски права
         </Flex>
@@ -137,7 +131,6 @@ export default function TermsPage() {
           Всички материали на сайта (текстове, графики, дизайн) са собственост на автора им и не могат да бъдат използвани без разрешение.
         </Flex>
 
-        {/* 7. Заключителни разпоредби */}
         <Flex as="h2" textVariant="display-default-m">
           7. Заключителни разпоредби
         </Flex>

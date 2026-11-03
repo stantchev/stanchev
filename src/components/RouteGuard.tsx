@@ -33,7 +33,6 @@ const RouteGuard: React.FC<RouteGuardProps> = ({ children }) => {
           return routes[pathname as keyof typeof routes];
         }
 
-        // Handle root path redirect to "/"
         if (pathname === "/") {
           window.location.href = "/";
           return false;

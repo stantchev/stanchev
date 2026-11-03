@@ -1,15 +1,11 @@
-// Performance monitoring utilities
 export const performanceObserver = () => {
   if (typeof window === 'undefined') return;
 
-  // Monitor Core Web Vitals
   const observer = new PerformanceObserver((list) => {
     for (const entry of list.getEntries()) {
-      // Log performance metrics with proper typing
       const entryValue = (entry as any).value || (entry as any).startTime || entry.duration;
       console.log(`${entry.name}: ${entryValue}`);
       
-      // Send to analytics if needed
       if (entry.name === 'LCP') {
         console.log('Largest Contentful Paint:', (entry as any).value);
       }
@@ -25,12 +21,10 @@ export const performanceObserver = () => {
   try {
     observer.observe({ entryTypes: ['largest-contentful-paint', 'first-input', 'layout-shift'] });
   } catch (e) {
-    // Browser doesn't support Performance Observer
     console.log('Performance Observer not supported');
   }
 };
 
-// Preload critical resources
 export const preloadCriticalResources = () => {
   if (typeof window === 'undefined') return;
 
@@ -48,14 +42,12 @@ export const preloadCriticalResources = () => {
   });
 };
 
-// Optimize images loading
 export const optimizeImageLoading = () => {
   if (typeof window === 'undefined') return;
 
-  // Add loading="lazy" to all images below the fold
   const images = document.querySelectorAll('img');
   images.forEach((img, index) => {
-    if (index > 2) { // Skip first few images (above the fold)
+    if (index > 2) {
       img.setAttribute('loading', 'lazy');
     }
   });

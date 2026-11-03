@@ -1,347 +1,319 @@
-import {
-  Column,
-  Flex,
-  Heading,
-  Text,
-  Button,
-  Tag,
-  Icon,
-  Feedback,
-  AccordionGroup,
-} from '@once-ui-system/core';
-import { baseURL } from '@/resources';
-import Script from 'next/script';
+import { Background, Button, Column, Grid, Heading, Icon, Line, Mask, MatrixFx, Row, Table, Tag, Text, type IconName } from "@once-ui-system/core";
+import { CodeBlock } from "@once-ui-system/core/code";
+import { Toolkit } from "@/components/seo/Engagement";
+import { GeoBackground } from "@/components/seo/GeoBackground";
+import { IntegrationHub } from "@/components/seo/IntegrationHub";
+import { IntegrationSpec } from "@/components/seo/IntegrationSpec";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { RevealOnView } from "@/components/seo/RevealOnView";
+import { serviceMetadata } from "@/components/seo/metadata";
+import { Faq, SectionTitle, Trail } from "@/components/seo/blocks";
+import { FeaturesBordered } from "@/components/seo/Features";
+import { FeaturesTimeline } from "@/components/seo/FeaturesMore";
+import { baseURL } from "@/resources";
+import { getService, servicePath } from "@/resources/services";
 
-export async function generateMetadata() {
+export const metadata = serviceMetadata("seo-integratsiya");
+
+const s = getService("seo-integratsiya")!;
+const url = `${baseURL}${servicePath(s)}`;
+
+const metaCode = `// lib/seo.ts - един източник на метаданни
+import type { Metadata } from "next";
+
+export function buildMetadata(p: { title: string; description: string; path: string }): Metadata {
   return {
-    title: 'SEO интеграция и структура | Техническа SEO оптимизация за сайтове | Станчев SEO',
-    description: 'Професионална SEO интеграция и структура за сайтове. Метатагове, schema markup, правилна йерархия на заглавията, sitemap и Google Search Console интеграция.',
-    keywords: 'SEO интеграция цена, техническа SEO България, schema markup оптимизация, мета тагове София, sitemap създаване, Google Search Console настройка, SEO структура на сайт, йерархия на заглавията оптимизация, структурирани данни, техническа SEO оптимизация',
-    alternates: {
-      canonical: `${baseURL}/web/seo-integratsiya`,
-    },
-    openGraph: {
-      title: 'SEO интеграция и структура | Техническа SEO оптимизация за сайтове',
-      description: 'Професионална SEO интеграция и структура за сайтове. Метатагове, schema markup, правилна йерархия на заглавията, sitemap и Google Search Console интеграция.',
-      url: `${baseURL}/web/seo-integratsiya`,
-      siteName: 'Станчев SEO',
-      images: [
-        {
-          url: `https://stanchev.bg/images/og/web.jpg`,
-          width: 1200,
-          height: 630,
-        },
-      ],
-      locale: 'bg_BG',
-      type: 'website',
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: 'SEO интеграция и структура | Техническа SEO оптимизация за сайтове',
-      description: 'Професионална SEO интеграция и структура за сайтове. Метатагове, schema markup, правилна йерархия на заглавията, sitemap и Google Search Console интеграция.',
-      images: [`https://stanchev.bg/images/og/web.jpg`],
-    },
+    title: p.title,
+    description: p.description,
+    alternates: { canonical: p.path },
+    openGraph: { title: p.title, description: p.description, url: p.path, type: "website" },
   };
-}
+}`;
 
-export default function SeoIntegratsiyaPage() {
+const sitemapCode = `// app/sitemap.ts - генериран от същите данни като страниците
+import type { MetadataRoute } from "next";
+import { pages } from "@/data/pages";
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  return pages.map((p) => ({
+    url: \`https://example.com\${p.path}\`,
+    lastModified: p.updatedAt,
+  }));
+}`;
+
+const jsonLdCode = `// components/JsonLd.tsx - сървърен компонент
+export function JsonLd({ data }: { data: object }) {
+  // "<" се екранира, за да не може данните да затворят тага
+  const json = JSON.stringify(data).replace(/</g, "\\\\u003c");
+  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: json }} />;
+}`;
+
+const redirectCode = `// next.config.mjs - карта на пренасочванията при миграция
+export default {
+  async redirects() {
+    return [
+      { source: "/stara-stranica", destination: "/nova-stranica", permanent: true },
+    ];
+  },
+};`;
+
+const trackCode = `// събитие при изпратена форма (GA4 през gtag или Tag Manager)
+window.gtag?.("event", "generate_lead", { form_id: "contact" });`;
+
+const matrix: [string, string, string, string][] = [
+  ["Метаданни", "Metadata API в кода", "SEO плъгин или код в темата", "Модул или шаблон на темата"],
+  ["Структурирани данни", "JSON-LD компонент", "Плъгин или персонализиран код", "Модул или шаблон"],
+  ["Sitemap и robots", "Генерират се от кода", "Плъгин или ядрото на WordPress", "Модул или настройка"],
+  ["Пренасочвания", "Конфигурация или middleware", "Плъгин или правила на сървъра", "Модул или правила на сървъра"],
+  ["Измерване", "Скрипт или Tag Manager", "Скрипт или Tag Manager", "Скрипт или Tag Manager"],
+];
+
+const migrationItems: { icon: IconName; title: string; description: string }[] = [
+  { icon: "code", title: "Тестова среда", description: "Сайтът се изгражда на отделен адрес, докато старият работи без прекъсване." },
+  { icon: "arrowRight", title: "Карта на 301", description: "Всеки стар адрес сочи към най-близката нова страница, без вериги." },
+  { icon: "lock", title: "Една HTTPS версия", description: "http, www и без www водят с пренасочване към единствената версия на домейна." },
+  { icon: "globe", title: "Sitemap и robots", description: "Новата карта на сайта е подадена, а robots.txt не блокира нищо по грешка." },
+  { icon: "document", title: "Метаданни и canonical", description: "Title, description и H1 на важните страници са пренесени и проверени." },
+  { icon: "search", title: "Search Console", description: "След пускането следим индексирането, грешките и промените в позициите." },
+];
+
+const faq = [
+  ...s.faq,
+  { q: "Какво е SEO интеграция?", a: "SEO интеграцията вгражда SEO механизмите - метаданни, структурирани данни, sitemap, robots, пренасочвания и измерване - директно в сайта, така че да работят автоматично и да се поддържат лесно. За разлика от SEO оптимизацията на съдържанието, тя е инженерна работа по кода или темата." },
+  { q: "С какво SEO интеграцията се различава от SEO одита?", a: "Одитът открива проблемите и подрежда приоритетите. Интеграцията ги решава на ниво код: внедрява поправките и механизмите, които ги предотвратяват. Често започваме с одит, а след него следва интеграция." },
+  { q: "Подходяща ли е за нов сайт или само за съществуващ?", a: "И за двата. При нов сайт SEO основата се заражда още в разработката и е най-евтина. При съществуващ внедряваме липсващото, без да пипаме дизайна." },
+  { q: "Работите ли с наш разработчик или агенция?", a: "Да. Мога да подготвя спецификация, да прегледам промените преди пускане и да проверя внедряването. Можете да ползвате генератора на спецификация по-горе." },
+  { q: "Как се прави SEO миграция без загуба на позиции?", a: "Преди пускането се подготвя карта на постоянните пренасочвания, пренасят се метаданните на важните страници, сайтът се тества на отделна среда, а след пускането следим Search Console. Позиции не се гарантират, но рискът от загуби намалява." },
+  { q: "Какво е нужно за интеграция в WordPress?", a: "Зависи от темата и плъгините. Понякога стига правилна настройка на SEO плъгин, а в други случаи е нужен персонализиран код. След кратък преглед предлагам по-простото решение." },
+  { q: "Настройвате ли Search Console и Analytics?", a: "Да. Верификация на сайта, подаване на sitemap, GA4 и ключови събития като заявка, обаждане или покупка." },
+  { q: "Колко струва SEO интеграцията?", a: "Основната интеграция за малък сайт е от 170 €, а разширената за по-голям сайт или магазин е от 280 €. Крайната цена зависи от платформата и броя шаблони." },
+];
+
+export default function SeoIntegrationPage() {
+  const schema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      { "@type": "WebPage", "@id": `${url}#webpage`, url, name: s.metaTitle, description: s.metaDescription, inLanguage: "bg-BG", breadcrumb: { "@id": `${url}#breadcrumb` }, mainEntity: { "@id": `${url}#service` } },
+      {
+        "@type": "Service",
+        "@id": `${url}#service`,
+        name: "SEO интеграция",
+        serviceType: "Внедряване на SEO механизми в сайт",
+        description: s.metaDescription,
+        url,
+        areaServed: { "@type": "Country", name: "България" },
+        provider: { "@type": "ProfessionalService", name: "Stanchev Digital", url: baseURL },
+        offers: [
+          { "@type": "Offer", name: "Основна интеграция", priceSpecification: { "@type": "PriceSpecification", minPrice: 170, priceCurrency: "EUR" } },
+          { "@type": "Offer", name: "Разширена интеграция", priceSpecification: { "@type": "PriceSpecification", minPrice: 280, priceCurrency: "EUR" } },
+        ],
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${url}#breadcrumb`,
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Начало", item: baseURL },
+          { "@type": "ListItem", position: 2, name: "Уеб услуги", item: `${baseURL}/web` },
+          { "@type": "ListItem", position: 3, name: "SEO интеграция", item: url },
+        ],
+      },
+    ],
+  };
+
+  const bentoWide = [0, 2, 5];
+
   return (
-    <>
-      <Script
-        id="seo-integration-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "http://schema.org",
-            "@type": "Service",
-            "name": "SEO интеграция и структура",
-            "serviceType": "Техническа SEO",
-            "description": "Професионална SEO интеграция и структура за сайтове. Метатагове, schema markup, правилна йерархия на заглавията, sitemap и Google Search Console интеграция.",
-            "provider": {
-              "@type": "Organization",
-              "name": "Станчев SEO",
-              "url": "https://stanchev.bg/",
-              "logo": "https://stanchev.bg/images/og/og.jpg",
-              "contactPoint": {
-                "@type": "ContactPoint",
-                "contactType": "customer service",
-                "email": "seo@stanchev.bg"
-              }
-            },
-            "url": "https://stanchev.bg/web/seo-integratsiya",
-            "areaServed": {
-              "@type": "Place",
-              "name": "България"
-            },
-            "hasOfferCatalog": {
-              "@type": "OfferCatalog",
-              "name": "SEO интеграция услуги и цени",
-              "itemListElement": [
-                {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@type": "Service",
-                    "name": "Schema markup интеграция",
-                    "description": "Професионално добавяне на структурирани данни за по-добра индексация, богати резултати и AI търсачки оптимизация."
-                  }
-                },
-                {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@type": "Service",
-                    "name": "Техническа SEO оптимизация",
-                    "description": "Комплексна техническа SEO оптимизация: мета тагове, robots.txt, sitemap, йерархия на заглавията и Open Graph тагове."
-                  }
-                },
-                {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@type": "Service",
-                    "name": "Google Search Console настройка",
-                    "description": "Пълна интеграция и настройка на Google Search Console за мониторинг, индексиране и производителност."
-                  }
-                },
-                {
-                  "@type": "Offer",
-                  "name": "Базова SEO интеграция - стартов пакет",
-                  "description": "Основни SEO елементи, техническа оптимизация, мета тагове и sitemap създаване.",
-                  "priceSpecification": {
-                    "@type": "UnitPriceSpecification",
-                    "price": "350",
-                    "priceCurrency": "BGN",
-                    "unitText": "лв.",
-                    "valueAddedTaxIncluded": true
-                  },
-                  "availability": "https://schema.org/InStock"
-                },
-                {
-                  "@type": "Offer",
-                  "name": "Пълна SEO интеграция - професионален пакет",
-                  "description": "Цялостна SEO интеграция с schema markup, Google Search Console, rich snippets оптимизация и 30-дневна поддръжка.",
-                  "priceSpecification": {
-                    "@type": "UnitPriceSpecification",
-                    "price": "550",
-                    "priceCurrency": "BGN",
-                    "unitText": "лв.",
-                    "valueAddedTaxIncluded": true
-                  },
-                  "availability": "https://schema.org/InStock"
-                }
-              ]
-            },
-            "aggregateRating": {
-              "@type": "AggregateRating",
-              "ratingValue": "4.9",
-              "reviewCount": "28",
-              "bestRating": "5",
-              "worstRating": "1"
-            }
-          })
-        }}
-      />
-      <Column as="section" gap="xl" padding="xl" fillWidth>
-        <Column gap="m" align="center" fillWidth>
-          <Heading as="h1" variant="display-strong-l" align="center">
-            SEO интеграция и структура – техническа SEO оптимизация за вашия сайт
-          </Heading>
+    <Column fillWidth horizontal="center" paddingBottom="64" gap="48" s={{ paddingBottom: "40", gap: "32" }}>
+      <JsonLd data={schema} />
 
-          <Text variant="display-default-s" align="center" onBackground="neutral-weak">
-            <strong>SEO интеграция</strong> с метатагове, schema markup, правилна йерархия на заглавията, sitemap и Google Search Console. Осигурявам правилно индексиране и по-добра видимост в Google. Ако търсите цялостни <a href="/web">уеб разработка услуги</a>, тук е мястото да започнете.
-          </Text>
-          <Flex horizontal="center">
-            <Button
-              variant="primary"
-              size="l"
-              href="/kontakti"
-              prefixIcon="checkCircle"
-              data-border="rounded"
-            >
-              Заяви безплатен SEO анализ
-            </Button>
-          </Flex>
-        </Column>
-
-        <Flex gap="8" wrap horizontal="center">
-          {["Schema markup", "Мета тагове", "Sitemap", "Google Search Console", "Техническа SEO"].map((lbl) => (
-            <Tag key={lbl} size="l">
-              {lbl}
-            </Tag>
-          ))}
-        </Flex>
-
-        <Column gap="l">
-          <Heading as="h2" variant="display-default-m">
-            Какво включва SEO интеграцията?
-          </Heading>
-
-          <Text variant="body-default-l">
-            <strong>SEO интеграция</strong> е основата на всяка успешна SEO стратегия. Настройвам техническите елементи, които позволяват на Google да разбере и индексира правилно вашия сайт. Включва мета тагове, schema markup, sitemap, robots.txt и правилна структура на съдържанието.
-          </Text>
-
-          <Column as="ul" gap="s" paddingLeft="l">
-            <li><strong>Schema markup интеграция</strong> – структурирани данни за по-добра индексация и богати резултати.</li>
-            <li><strong>Мета тагове оптимизация</strong> – title, description, keywords и Open Graph тагове за всяка страница.</li>
-            <li><strong>Sitemap и robots.txt</strong> – правилно индексиране и навигация за търсачките.</li>
-            <li><strong>Google Search Console</strong> – настройка и мониторинг на производителността в Google.</li>
-          </Column>
-        </Column>
-
-        <Column gap="l">
-          <Heading as="h2" variant="display-default-m">
-            Защо е важна SEO интеграцията?
-          </Heading>
-
-          <Text variant="body-default-l">
-            <strong>SEO интеграцията</strong> е първата стъпка към видимост в Google. Без правилна техническа SEO основа, дори най-доброто съдържание може да остане невидимо за търсачките. Правилната структура и метаданни помагат на Google да разбере какво предлага вашият сайт и кога да го показва в резултатите.
-          </Text>
-        </Column>
-
-        <Column gap="l">
-          <Heading as="h2" variant="display-default-m">
-            Моят процес в 4 етапа
-          </Heading>
-
-          {["Анализ", "Структуриране", "Интеграция", "Тестване"].map((step, i) => (
-            <Flex key={i} gap="8" vertical="start">
-              <Icon name="checkCircle" onBackground="brand-strong" />
-              <Column gap="2">
-                <Heading as="h3" variant="heading-strong-l">
-                  {step}
-                </Heading>
-                <Text variant="body-default-m">
-                  {step === "Анализ"
-                    ? "Анализирам текущата SEO структура на сайта: мета тагове, schema markup, sitemap и индексиране."
-                    : step === "Структуриране"
-                    ? "Планирам оптималната SEO структура: йерархия на заглавията, URL структура и навигация."
-                    : step === "Интеграция"
-                    ? "Интегрирам всички SEO елементи: schema markup, мета тагове, sitemap и Google Search Console."
-                    : "Тествам всички SEO елементи и проверявам правилното индексиране в Google Search Console."}
-                </Text>
-              </Column>
-            </Flex>
-          ))}
-        </Column>
-
-        <Column gap="l">
-          <Heading as="h3" variant="display-default-m" align="center">
-            Пакети и цени за SEO интеграция
-          </Heading>
-          
-          <Flex gap="l" wrap horizontal="center">
-            <Column gap="m" padding="l" border="neutral-alpha-medium" radius="l" style={{ minWidth: "300px" }}>
-              <Heading as="h4" variant="heading-strong-l" align="center">
-                Базова SEO интеграция
+      <Column fillWidth horizontal="center" paddingTop="8" paddingBottom="16">
+        <Background
+          position="absolute"
+          fill
+          pointerEvents="none"
+          style={{ left: "50%", width: "100vw", transform: "translateX(-50%)", top: "-24px", height: "calc(100% + 24px)" }}
+          gradient={{ display: true, colorStart: "brand-alpha-medium", colorEnd: "static-transparent", x: 20, y: 0, width: 120, height: 80, opacity: 60 }}
+          lines={{ display: true, size: "24", thickness: 1, angle: 0, color: "neutral-alpha-weak", opacity: 40 }}
+          mask={{ x: 50, y: 0, radius: 100 }}
+        />
+        <Column zIndex={1} maxWidth="l" fillWidth gap="32">
+          <Trail items={[{ label: "Начало", href: "/" }, { label: "Уеб услуги", href: "/web" }, { label: "SEO интеграция" }]} />
+          <Row fillWidth gap="48" vertical="center" m={{ direction: "column" }}>
+            <Column flex={6} gap="24" fillWidth>
+              <Row gap="8" wrap>
+                <Tag scheme="brand" size="m">Next.js</Tag>
+                <Tag scheme="brand" size="m">WordPress</Tag>
+                <Tag scheme="neutral" size="m">Search Console</Tag>
+                <Tag scheme="neutral" size="m">GA4</Tag>
+              </Row>
+              <Heading as="h1" variant="display-strong-l" wrap="balance">
+                SEO интеграция: оптимизация, вградена в кода на сайта
               </Heading>
-              <Text variant="body-default-s" onBackground="neutral-weak" align="center">
-                Основни SEO елементи и техническа оптимизация
+              <Text variant="body-default-l" onBackground="neutral-weak" wrap="balance">
+                {s.lead} Метаданни, structured data, sitemap, пренасочвания и измерване - свързани в една система, а не залепени накрая.
               </Text>
-              <Text variant="display-strong-l" align="center" onBackground="brand-strong">
-                170 €
-              </Text>
-              <Column gap="s">
-                <Text variant="body-default-s">• Мета тагове оптимизация</Text>
-                <Text variant="body-default-s">• Sitemap създаване</Text>
-                <Text variant="body-default-s">• Robots.txt настройка</Text>
-                <Text variant="body-default-s">• Йерархия на заглавията</Text>
-                <Text variant="body-default-s">• Open Graph тагове</Text>
-              </Column>
-              <Button variant="primary" size="m" href="/kontakti">
-                Избери този пакет
-              </Button>
+              <Row gap="12" s={{ direction: "column" }}>
+                <Button href="/kontakti" size="l" arrowIcon>Запитване</Button>
+                <Button href="#spetsifikatsiya" size="l" variant="secondary">Съберете спецификация</Button>
+              </Row>
+              <Row gap="24" wrap textVariant="label-default-s" onBackground="neutral-weak">
+                <Row gap="8" vertical="center"><Icon name="check" size="xs" onBackground="brand-medium" /> От {s.priceFrom.replace("от ", "")}</Row>
+                <Row gap="8" vertical="center"><Icon name="check" size="xs" onBackground="brand-medium" /> Работя и с вашия разработчик</Row>
+              </Row>
             </Column>
-
-            <Column gap="m" padding="l" border="neutral-alpha-medium" radius="l" style={{ minWidth: "300px" }}>
-              <Heading as="h4" variant="heading-strong-l" align="center">
-                Пълна SEO интеграция
-              </Heading>
-              <Text variant="body-default-s" onBackground="neutral-weak" align="center">
-                Цялостна SEO интеграция с schema markup
-              </Text>
-              <Text variant="display-strong-l" align="center" onBackground="brand-strong">
-                280 €
-              </Text>
-              <Column gap="s">
-                <Text variant="body-default-s">• Всичко от базовия пакет</Text>
-                <Text variant="body-default-s">• Schema markup интеграция</Text>
-                <Text variant="body-default-s">• Google Search Console</Text>
-                <Text variant="body-default-s">• Rich snippets оптимизация</Text>
-                <Text variant="body-default-s">• 30-дневна поддръжка</Text>
-              </Column>
-              <Button variant="primary" size="m" href="/kontakti">
-                Избери този пакет
-              </Button>
+            <Column flex={5} fillWidth minWidth={0}>
+              <IntegrationHub />
             </Column>
-          </Flex>
-        </Column>
-
-        <Column gap="l">
-          <Heading as="h3" variant="display-default-m" align="center">
-            Често задавани въпроси за SEO интеграция
-          </Heading>
-          
-          <AccordionGroup
-            items={[
-              {
-                title: "Какво включва SEO интеграцията?",
-                content: (
-                  <Text onBackground="neutral-weak">
-                    SEO интеграцията включва: мета тагове оптимизация, schema markup добавване, sitemap създаване, 
-                    robots.txt настройка, йерархия на заглавията, Open Graph тагове и Google Search Console интеграция. 
-                    Всичко е направено според най-новите Google стандарти.
-                  </Text>
-                ),
-              },
-              {
-                title: "Колко време отнема SEO интеграцията?",
-                content: (
-                  <Text onBackground="neutral-weak">
-                    Базовата SEO интеграция се прави за 3-5 дни, докато пълната интеграция с schema markup може да 
-                    отнеме 1-2 седмици. Времето зависи от размера на сайта и броя страници, които трябва да се 
-                    оптимизират.
-                  </Text>
-                ),
-              },
-              {
-                title: "Какви са предимствата на schema markup?",
-                content: (
-                  <Text onBackground="neutral-weak">
-                    Schema markup подобрява индексацията в Google, добавя богати резултати (rich snippets), 
-                    оптимизира сайта за AI търсачки и Google Overviews. Това води до по-висока CTR и по-добро 
-                    класиране в търсачката.
-                  </Text>
-                ),
-              },
-              {
-                title: "Предоставяте ли обучение за управление на SEO елементите?",
-                content: (
-                  <Text onBackground="neutral-weak">
-                    Да, включвам обучение за управление на основните SEO елементи, както и документация за 
-                    всички направени промени. Също така предоставям инструменти за мониторинг на производителността 
-                    в Google Search Console.
-                  </Text>
-                ),
-              },
-            ]}
-          />
-        </Column>
-
-        <Column gap="m" align="center" paddingTop="xl">
-          <Heading as="h4" variant="display-strong-m" align="center">
-            Готови за правилна SEO интеграция?
-          </Heading>
-          <Flex horizontal="center">
-            <Button
-              variant="primary"
-              size="l"
-              prefixIcon="rocket"
-              href="/kontakti"
-            >
-              Свържи се с мен
-            </Button>
-          </Flex>
+          </Row>
         </Column>
       </Column>
-    </>
+
+      <Column fillWidth horizontal="center" gap="64" s={{ gap: "40" }}>
+        <Column maxWidth="l" fillWidth gap="64" s={{ gap: "40" }}>
+          <RevealOnView>
+            <Column fillWidth gap="12" paddingLeft="24" style={{ borderLeft: "3px solid var(--brand-solid-medium)" }}>
+              <Heading as="h2" variant="heading-strong-xl" wrap="balance">Какво е SEO интеграция?</Heading>
+              <Text variant="body-default-l" onBackground="neutral-medium">
+                SEO интеграцията вгражда SEO механизмите - метаданни, структурирани данни, sitemap, robots.txt, пренасочвания и измерване - директно в кода или темата на сайта, така че да работят автоматично и да се поддържат лесно. Това е инженерната част на SEO: при нов сайт спестява поправки по-късно, а при съществуващ затваря техническите пропуски.
+              </Text>
+            </Column>
+          </RevealOnView>
+
+          <Column gap="24">
+            <SectionTitle eyebrow="Обхват" title="Какво се интегрира" lead="Шест механизма, всеки проверен с инструментите на Google." />
+            <RevealOnView>
+              <Grid fillWidth columns={3} m={{ columns: 2 }} s={{ columns: 1 }} gap="16">
+                {s.includes.map((a, i) => (
+                  <Column key={a.title} className={bentoWide.includes(i) ? "bento-wide" : undefined} padding="24" gap="12" radius="l" border="neutral-alpha-weak" background="surface" overflow="hidden">
+                    {bentoWide.includes(i) && (
+                      <Mask position="absolute" right="0" top="0" radius={33} x={75} y={0}>
+                        <MatrixFx size={1.5} colors={["brand-background-strong"]} flicker />
+                      </Mask>
+                    )}
+                    <Icon name={(["document", "code", "globe", "chartBar", "arrowRight", "check"] as IconName[])[i % 6]} size="s" border="brand-alpha-weak" background="brand-alpha-weak" onBackground="brand-weak" radius="m" padding="8" />
+                    <Heading as="h3" variant="heading-strong-m">{a.title}</Heading>
+                    <Text variant="body-default-s" onBackground="neutral-weak" wrap="balance">{a.text}</Text>
+                  </Column>
+                ))}
+              </Grid>
+            </RevealOnView>
+          </Column>
+
+          <Column gap="24">
+            <SectionTitle eyebrow="В кода" title="Как изглежда интеграцията в Next.js" lead="Пет малки парчета, които заедно правят SEO автоматично. В други платформи същото се прави с модули или код в темата." />
+            <CodeBlock
+              codes={[
+                { code: metaCode, language: "ts", label: "metadata" },
+                { code: sitemapCode, language: "ts", label: "sitemap" },
+                { code: jsonLdCode, language: "tsx", label: "json-ld" },
+                { code: redirectCode, language: "js", label: "redirects" },
+                { code: trackCode, language: "ts", label: "ga4" },
+              ]}
+              copyButton
+            />
+          </Column>
+
+          <Column gap="24">
+            <SectionTitle eyebrow="Платформи" title="Как се интегрира на различните платформи" lead="Принципът е един, начинът зависи от платформата." />
+            <Table
+              data={{
+                headers: [
+                  { content: "", key: "k" },
+                  { content: "Next.js", key: "n" },
+                  { content: "WordPress", key: "w" },
+                  { content: "OpenCart / Magento", key: "m" },
+                ],
+                rows: matrix.map(([a, b, c, d]) => [a, b, c, d]),
+              }}
+            />
+          </Column>
+
+          <Column gap="24" id="spetsifikatsiya">
+            <SectionTitle eyebrow="Инструмент" title="Съберете спецификация за вашия разработчик" lead="Изберете платформа и какво да се внедри. Копирайте готовия текст и го дайте на екипа си." />
+            <IntegrationSpec />
+          </Column>
+
+          <FeaturesTimeline
+            title="Как протича интеграцията"
+            lead="Четири стъпки, всяка с проверка."
+            steps={s.process.map((p) => ({ title: p.title, description: p.text }))}
+            side={
+              <Column fillWidth aspectRatio="3/4" m={{ aspectRatio: "16/10" }} radius="l" border overflow="hidden" center padding="xl" gap="16" align="center">
+                <Background position="absolute" top="0" left="0" fill gradient={{ display: true, colorStart: "brand-alpha-medium", colorEnd: "static-transparent", x: 50, y: 100, width: 120, height: 90, opacity: 70 }} lines={{ display: true, size: "16", thickness: 1, angle: 0, color: "neutral-alpha-weak", opacity: 40 }} />
+                <Column zIndex={1} center gap="12" align="center">
+                  <Icon name="chartBar" size="xl" onBackground="brand-weak" />
+                  <Text variant="heading-strong-l">Проверено, не предположено</Text>
+                  <Text variant="body-default-s" onBackground="neutral-weak" wrap="balance">Rich Results Test, URL Inspection и Lighthouse преди предаването.</Text>
+                </Column>
+              </Column>
+            }
+          />
+
+          <RevealOnView>
+            <FeaturesBordered title="Интеграция при миграция и редизайн" lead="Шест проверки, които пазят позициите при смяна на сайт или платформа." items={migrationItems} />
+          </RevealOnView>
+
+          <Column gap="24" id="ceni">
+            <SectionTitle eyebrow="Цени" title="Цени на SEO интеграцията" lead="Стартови цени в евро. Крайната цена зависи от платформата и броя шаблони." />
+            <RevealOnView>
+              <Grid fillWidth columns={2} s={{ columns: 1 }} gap="16">
+                {(s.packages ?? []).map((p, i) => (
+                  <Column key={p.name} padding="32" s={{ padding: "20" }} gap="16" radius="l" border={i === 1 ? "brand-alpha-medium" : "neutral-alpha-medium"} background="surface" overflow="hidden">
+                    {i === 1 && <Background position="absolute" fill gradient={{ display: true, colorStart: "brand-alpha-weak", colorEnd: "static-transparent", x: 50, y: 0, width: 120, height: 70, opacity: 60 }} />}
+                    <Row zIndex={1} horizontal="between" vertical="center" wrap gap="8">
+                      <Heading as="h3" variant="heading-strong-l">{p.name}</Heading>
+                      {i === 1 && <Tag scheme="brand" size="s">За магазини</Tag>}
+                    </Row>
+                    <Text zIndex={1} variant="display-strong-s">{p.price}</Text>
+                    <Text zIndex={1} variant="body-default-s" onBackground="neutral-weak">{p.fit}</Text>
+                    <Line zIndex={1} />
+                    <Column zIndex={1} gap="8">
+                      {p.features.map((f) => (
+                        <Row key={f} gap="8" vertical="center" textVariant="body-default-s">
+                          <Icon name="check" size="xs" onBackground="brand-medium" /> {f}
+                        </Row>
+                      ))}
+                    </Column>
+                    <Row zIndex={1} paddingTop="8"><Button href="/kontakti" variant={i === 1 ? "primary" : "secondary"} arrowIcon>Поискайте оферта</Button></Row>
+                  </Column>
+                ))}
+              </Grid>
+            </RevealOnView>
+          </Column>
+
+          <Toolkit />
+
+          <Column gap="32">
+            <SectionTitle eyebrow="Въпроси" title="Често задавани въпроси за SEO интеграцията" />
+            <Faq items={faq} />
+          </Column>
+
+          <Column gap="16">
+            <SectionTitle eyebrow="Свързани" title="Свързани услуги" />
+            <Grid fillWidth columns={4} m={{ columns: 2 }} s={{ columns: 1 }} gap="12">
+              {s.related.map((r) => getService(r)).filter((r): r is NonNullable<typeof r> => Boolean(r)).map((r) => (
+                <Button key={r.slug} href={servicePath(r)} variant="secondary" size="l" prefixIcon={r.icon} fillWidth arrowIcon>
+                  {r.name}
+                </Button>
+              ))}
+            </Grid>
+          </Column>
+        </Column>
+      </Column>
+
+      <Column fillWidth horizontal="center" paddingY="56" theme="dark" s={{ paddingY: "32" }}>
+        <GeoBackground style={{ left: "50%", width: "100vw", transform: "translateX(-50%)" }} />
+        <Column zIndex={1} maxWidth="m" fillWidth paddingX="24" gap="20" horizontal="center" align="center">
+          <Heading as="h2" variant="display-strong-xs" wrap="balance">Нека свържем SEO със сайта ви</Heading>
+          <Text variant="body-default-l" onBackground="neutral-weak" wrap="balance">
+            Опишете платформата и целта си. Първоначалният разговор до 30 минути е безплатен и без ангажимент.
+          </Text>
+          <Row gap="12" wrap horizontal="center">
+            <Button href="/kontakti" size="l" arrowIcon>Запитване</Button>
+            <Button href="/seo-uslugi/seo-odit" size="l" variant="secondary">SEO одит</Button>
+          </Row>
+        </Column>
+      </Column>
+    </Column>
   );
 }
-

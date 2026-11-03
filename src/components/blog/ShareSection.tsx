@@ -1,6 +1,6 @@
 "use client";
 
-import { Row, Text, Button, useToast } from "@once-ui-system/core";
+import { Row, Text, Button, useToast, type IconName } from "@once-ui-system/core";
 import { socialSharing } from "@/resources";
 
 interface ShareSectionProps {
@@ -10,7 +10,7 @@ interface ShareSectionProps {
 
 interface SocialPlatform {
   name: string;
-  icon: string;
+  icon: IconName;
   label: string;
   generateUrl: (title: string, url: string) => string;
 }
@@ -48,7 +48,6 @@ const socialPlatforms: Record<string, SocialPlatform> = {
 
 export function ShareSection({ title, url }: ShareSectionProps) {
   const { addToast } = useToast();
-  // Don't render if sharing is disabled
   if (!socialSharing.display) {
     return null;
   }
@@ -69,11 +68,10 @@ export function ShareSection({ title, url }: ShareSectionProps) {
     }
   };
 
-  // Get enabled platforms
   const enabledPlatforms = Object.entries(socialSharing.platforms)
     .filter(([_, enabled]) => enabled && _ !== 'copyLink')
     .map(([platformKey]) => ({ key: platformKey, ...socialPlatforms[platformKey] }))
-    .filter(platform => platform.name); // Filter out platforms that don't exist in our definitions
+    .filter(platform => platform.name);
 
   return (
     <Row fillWidth center gap="16" marginTop="32" marginBottom="16">

@@ -13,7 +13,6 @@ import {
 } from "@/types";
 import { home } from "./content";
 
-// IMPORTANT: Replace with your own domain address - it's used for SEO in meta tags and schema
 const baseURL: string = "https://stanchev.bg";
 
 const routes: RoutesConfig = {
@@ -21,6 +20,7 @@ const routes: RoutesConfig = {
   "/za-men": true,
   "/seo-proekti": true,
   "/seo-uslugi": true,
+  "/seo-konsultant": true,
   "/kontakti": true,
   "/blog": true,
   "/gallery": false,
@@ -54,8 +54,6 @@ const display: DisplayConfig = {
   themeSwitcher: true,
 };
 
-// Enable password protection on selected routes
-// Set password in the .env file, refer to .env.example
 const protectedRoutes: ProtectedRoutesConfig = {};
 
 import { Sofia_Sans } from "next/font/google";
@@ -92,7 +90,6 @@ const fonts: FontsConfig = {
   code,
 };
 
-// default customization applied to the HTML in the main layout.tsx
 const style: StyleConfig = {
   theme: "system",
   neutral: "gray",
@@ -205,7 +202,6 @@ const mailchimp: MailchimpConfig = {
   },
 };
 
-// default schema data
 const schema: SchemaConfig = {
   logo: "",
   type: "Organization",
@@ -214,14 +210,12 @@ const schema: SchemaConfig = {
   email: "seo@stanchev.bg",
 };
 
-// social links
 const sameAs: SameAsConfig = {
   github: "https://github.com/stantchev/",
   linkedin: "https://www.linkedin.com/in/stanchev-seo/",
   devto: "https://dev.to/stanchev",
 };
 
-// social sharing configuration for blog posts
 const socialSharing: SocialSharingConfig = {
   display: true,
   platforms: {

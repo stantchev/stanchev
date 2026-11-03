@@ -28,6 +28,12 @@ import {
   HiOutlineDocument,
   HiOutlineGlobeAsiaAustralia,
   HiOutlineRocketLaunch,
+  HiOutlineUser,
+  HiOutlineArrowTrendingUp,
+  HiOutlineChatBubbleOvalLeft,
+  HiOutlineMap,
+  HiOutlinePhone,
+  HiOutlineBriefcase,
 } from "react-icons/hi2";
 
 import {
@@ -36,6 +42,9 @@ import {
   PiGridFourDuotone,
   PiBookBookmarkDuotone,
   PiImageDuotone,
+  PiImage,
+  PiTarget,
+  PiAperture,
 } from "react-icons/pi";
 
 import {
@@ -72,6 +81,9 @@ import {
   FaVolumeUp,
   FaShoppingCart,
   FaOpencart,
+  FaMagento,
+  FaFacebookMessenger,
+  FaViber,
 } from "react-icons/fa";
 
 import {
@@ -85,10 +97,7 @@ import {
   SiSemrush,
   SiYoast,
   SiWordpress,
-  SiMagento,
   SiNpm,
-  SiAdobephotoshop,
-  SiAdobelightroom,
   SiLighthouse,
   SiGoogleanalytics,
   SiGooglesearchconsole,
@@ -110,6 +119,15 @@ export const iconLibrary: Record<string, IconType> = {
   arrowUpRight: HiArrowUpRight,
   arrowRight: HiArrowRight,
   helpCircle: HiMiniQuestionMarkCircle,
+  user: HiOutlineUser,
+  trendingUp: HiOutlineArrowTrendingUp,
+  messageCircle: HiOutlineChatBubbleOvalLeft,
+  map: HiOutlineMap,
+  phone: HiOutlinePhone,
+  briefcase: HiOutlineBriefcase,
+  target: PiTarget,
+  messenger: FaFacebookMessenger,
+  viber: FaViber,
   infoCircle: HiInformationCircle,
   warningTriangle: HiExclamationTriangle,
   errorCircle: HiExclamationCircle,
@@ -128,14 +146,12 @@ export const iconLibrary: Record<string, IconType> = {
   sun: HiSun,
   document: HiOutlineDocument,
 
-  // UI навигация
   home: PiHouseDuotone,
   person: PiUserCircleDuotone,
   grid: PiGridFourDuotone,
   book: PiBookBookmarkDuotone,
   gallery: PiImageDuotone,
 
-  // Социални мрежи
   discord: FaDiscord,
   github: FaGithub,
   linkedin: FaLinkedin,
@@ -149,7 +165,6 @@ export const iconLibrary: Record<string, IconType> = {
   reddit: FaReddit,
   telegram: FaTelegram,
 
-  // Web Технологии
   javascript: SiJavascript,
   nextjs: SiNextdotjs,
   supabase: SiSupabase,
@@ -159,14 +174,13 @@ export const iconLibrary: Record<string, IconType> = {
   netlify: SiNetlify,
   npm: SiNpm,
   wordpress: SiWordpress,
-  magento: SiMagento,
+  magento: FaMagento,
   opencart: FaOpencart,
-  photoshop: SiAdobephotoshop,
-  lightroom: SiAdobelightroom,
+  photoshop: PiImage,
+  lightroom: PiAperture,
   lighthouse: SiLighthouse,
   vercel: SiVercel,
 
-  // SEO & Generic Icons
   search: FaSearch,
   ahrefs: FaChartBar,
   chartBar: FaChartBar,
@@ -187,17 +201,14 @@ export const iconLibrary: Record<string, IconType> = {
   gsconsole: SiGooglesearchconsole,
 
 
-  // Utility
   eye: HiOutlineEye,
   eyeOff: HiOutlineEyeSlash,
   
-  // Audio controls
   play: FaPlay,
   pause: FaPause,
   stop: FaStop,
   speaker: FaVolumeUp,
 
-  // Addidional icons
   seoopt: GrOptimize,
   seoecommerce: FaShoppingCart,
   keywordresearch: VscSymbolKeyword,
@@ -207,7 +218,7 @@ export const iconLibrary: Record<string, IconType> = {
 };
 
 export type IconLibrary = typeof iconLibrary;
-export type IconName = keyof IconLibrary;
+export type { IconName } from "@once-ui-system/core";
 
 
 

@@ -16,7 +16,7 @@ team:
   </p>
 
   <p>
-    Това забавя SEO процесите, затруднява технически по-неопитни екипи и носи риск от грешки. Решението, което разработих, е <strong>Robots Editor модул</strong> – пълноценен UI в админ панела с директен контрол върху robots.txt и специален бутон за изчистване на неговия кеш.
+    Това забавя SEO процесите, затруднява технически по-неопитни екипи и носи риск от грешки. Решението, което разработих, е <strong>Robots Editor модул</strong> - пълноценен UI в админ панела с директен контрол върху robots.txt и специален бутон за изчистване на неговия кеш.
   </p>
 
   <h3>Ключови подобрения</h3>
@@ -24,33 +24,33 @@ team:
   <ul>
     <li><strong>Редакция на robots.txt</strong> през удобен интерфейс в админ панела.</li>
     <li><strong>Clear robots.txt cache бутон</strong>, който премахва само кеша на файла.</li>
-    <li><strong>SEO удобство</strong> – промени се виждат веднага при crawl и одити.</li>
-    <li><strong>Без FTP/SSH</strong> – напълно достъпно за маркетинг и SEO екипи.</li>
+    <li><strong>SEO удобство</strong> - промени се виждат веднага при crawl и одити.</li>
+    <li><strong>Без FTP/SSH</strong> - напълно достъпно за маркетинг и SEO екипи.</li>
   </ul>
 
   <h3>Използвани технологии</h3>
 
   <ul>
-    <li><strong>OpenCart 2.3.0.2</strong> – основната платформа.</li>
-    <li><strong>OCMOD</strong> – за интеграция без промяна в ядрото.</li>
-    <li><strong>PHP Controller + View</strong> – backend и UI логика.</li>
-    <li><strong>Cache API</strong> – за селективно изчистване на robots.txt кеша.</li>
+    <li><strong>OpenCart 2.3.0.2</strong> - основната платформа.</li>
+    <li><strong>OCMOD</strong> - за интеграция без промяна в ядрото.</li>
+    <li><strong>PHP Controller + View</strong> - backend и UI логика.</li>
+    <li><strong>Cache API</strong> - за селективно изчистване на robots.txt кеша.</li>
   </ul>
 
   <h3>Предизвикателства</h3>
 
   <p>
-    Основният проблем беше, че robots.txt се кешира и след промяна новата версия не се виждаше веднага. За SEO това е критично – Search Console, SEMrush и други инструменти продължават да виждат старата версия, което блокира индексацията.
+    Основният проблем беше, че robots.txt се кешира и след промяна новата версия не се виждаше веднага. За SEO това е критично - Search Console, SEMrush и други инструменти продължават да виждат старата версия, което блокира индексацията.
   </p>
 
   <h3>Процес на разработка</h3>
 
   <ol>
-    <li><strong>Анализ</strong> – проверих как OpenCart зарежда robots.txt и къде се кешира.</li>
-    <li><strong>Проектиране</strong> – реших модулът да има три части: UI редактор, Save логика и Purge бутон.</li>
-    <li><strong>Имплементация</strong> – написах контролер <code>robots_editor.php</code>, view с textarea и добавих бутон „Clear robots.txt cache“.</li>
-    <li><strong>Тестване</strong> – използвах <code>curl</code> и SEO инструменти, за да проверя дали веднага се връща актуалната версия.</li>
-    <li><strong>Документация</strong> – описах инсталация и работа, за да е достъпно за всеки администратор.</li>
+    <li><strong>Анализ</strong> - проверих как OpenCart зарежда robots.txt и къде се кешира.</li>
+    <li><strong>Проектиране</strong> - реших модулът да има три части: UI редактор, Save логика и Purge бутон.</li>
+    <li><strong>Имплементация</strong> - написах контролер <code>robots_editor.php</code>, view с textarea и добавих бутон „Clear robots.txt cache“.</li>
+    <li><strong>Тестване</strong> - използвах <code>curl</code> и SEO инструменти, за да проверя дали веднага се връща актуалната версия.</li>
+    <li><strong>Документация</strong> - описах инсталация и работа, за да е достъпно за всеки администратор.</li>
   </ol>
 
   <h3>Примерен код</h3>
@@ -86,7 +86,7 @@ public function clearCache() {
     <li>Отворих <strong>Robots Editor</strong> в админ панела.</li>
     <li>Редактирах съдържанието на <code>robots.txt</code> и запазих.</li>
     <li>Натиснах бутона <strong>Clear robots.txt cache</strong>.</li>
-    <li>Проверих с <code>curl</code> или SEO инструмент – получих актуалната версия.</li>
+    <li>Проверих с <code>curl</code> или SEO инструмент - получих актуалната версия.</li>
   </ol>
 </section>
 
@@ -101,7 +101,7 @@ public function clearCache() {
 <section>
   <h4>Извод</h4>
   <p>
-    Един на пръв поглед малък проблем – кешът на <code>robots.txt</code> – може да доведе до големи SEO загуби. 
+    Един на пръв поглед малък проблем - кешът на <code>robots.txt</code> - може да доведе до големи SEO загуби. 
     Чрез добре структуриран модул с OCMOD, кеш контрол и удобен UI, аз постигнах пълен контрол над 
     <code>robots.txt</code>, без технически бариери. 
   </p>
@@ -114,7 +114,7 @@ public function clearCache() {
     target="_blank" 
     rel="noopener nofollow noreferrer"
   >
-    GitHub Repository – opencart-robots-editor
+    GitHub Repository - opencart-robots-editor
   </a>
 </p>
 </section>

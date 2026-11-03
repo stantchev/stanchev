@@ -4,6 +4,8 @@ import React, { useTransition, useState } from "react";
 import { Button, Column, Input, Textarea, useToast, Checkbox, Text, Row } from "@once-ui-system/core";
 import { FaShieldAlt, FaInfoCircle } from "react-icons/fa";
 import Script from "next/script";
+import { ContactText } from "@/components/ProtectedContact";
+import { EMAIL_PARTS } from "@/lib/contact";
 
 type Props = {
   handleSubmit: (formData: FormData) => Promise<void>;
@@ -74,7 +76,7 @@ export default function ContactForm({ handleSubmit }: Props) {
             name="message"
             label="Съобщение"
             placeholder="Опишете вашия проект или въпрос..."
-            rows={6}
+            lines={6}
             required
             autoComplete="off"
           />
@@ -90,7 +92,7 @@ export default function ContactForm({ handleSubmit }: Props) {
             <Checkbox
               id="gdpr-consent"
               name="gdpr"
-              isChecked={gdprConsent}
+              checked={gdprConsent}
               onToggle={() => setGdprConsent(!gdprConsent)}
               label="Съгласие за обработка на лични данни"
               description="С изпращане на формата приемам обработката на моите лични данни съгласно GDPR политиката и Общите условия. Данните ще се използват само за отговор на запитването ми."
@@ -98,7 +100,7 @@ export default function ContactForm({ handleSubmit }: Props) {
             <Row gap="xs" vertical="center" paddingTop="xs">
               <FaInfoCircle size={12} color="var(--info-weak)" />
               <Text variant="body-default-xs" onBackground="neutral-weak">
-                Можете да оттеглите съгласието си по всяко време на: seo@stanchev.bg
+                Можете да оттеглите съгласието си по всяко време на: <ContactText kind="email" parts={EMAIL_PARTS} />
               </Text>
             </Row>
           </Column>
