@@ -1,4 +1,5 @@
-import { Background, Button, Column, Grid, Heading, Icon, Line, Mask, MatrixFx, Row, Tag, Text, type IconName } from "@once-ui-system/core";
+import { Background, Button, Column, Grid, Heading, Icon, Line, Row, Tag, Text, type IconName } from "@once-ui-system/core";
+import { MatrixCorner } from "./LazyFx";
 import { baseURL } from "@/resources";
 import { getService, servicePath } from "@/resources/services";
 import { GeoBackground } from "./GeoBackground";
@@ -160,9 +161,7 @@ export function SeoServicePage({ slug }: { slug: string }) {
                 {s.includes.map((a, i) => (
                   <Column key={a.title} className={wide.includes(i) ? "bento-wide" : undefined} padding="24" gap="12" radius="l" border="neutral-alpha-weak" background="surface" overflow="hidden">
                     {wide.includes(i) && (
-                      <Mask position="absolute" right="0" top="0" radius={33} x={75} y={0}>
-                        <MatrixFx size={1.5} colors={["brand-background-strong"]} flicker />
-                      </Mask>
+                      <MatrixCorner color="brand-background-strong" side="right" />
                     )}
                     <Icon name={i === 0 ? s.icon : cellIcons[i % cellIcons.length]} size="s" border="brand-alpha-weak" background="brand-alpha-weak" onBackground="brand-weak" radius="m" padding="8" />
                     <Heading as="h3" variant="heading-strong-m">{a.title}</Heading>

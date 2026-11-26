@@ -61,9 +61,9 @@ const home: Home = {
   path: "/",
   image: "/images/og/og.jpg",
   label: "Начало",
-  title: "SEO оптимизация и AI Automation за вашия бизнес",
+  title: "SEO консултант София - SEO оптимизация и AI Automation",
   description:
-    "Комбинация от SEO оптимизация и AI Automation за повече трафик, по-високо класиране и автоматизирано развитие на вашия бизнес | Stanchev Digital",
+    "SEO консултант в София: SEO оптимизация, GEO и AI Automation за повече трафик и по-високо класиране. Работа онлайн с клиенти от цяла България | Stanchev Digital",
   headline: <>SEO & AI Automation - интелигентни решения за растеж</>,
   subline: (
     <>

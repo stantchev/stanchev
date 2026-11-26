@@ -112,3 +112,16 @@ body {
 .flow-wire-v { width: 2px; height: 20px; background-image: repeating-linear-gradient(180deg, var(--brand-solid-strong) 0 6px, transparent 6px 12px); background-size: 2px 12px; animation: flow-move-v 0.8s linear infinite; opacity: 0.7; }
 @keyframes flow-move-v { from { background-position: 0 0; } to { background-position: 0 12px; } }
 @media (prefers-reduced-motion: reduce) { .flow-wire-v { animation: none; } }
+
+[data-dropdown-wrapper] { gap: 20px !important; max-width: calc(100vw - 32px); }
+[data-dropdown-content] { gap: 8px !important; }
+[data-dropdown-content] > * { width: 270px; min-width: 0 !important; }
+[data-dropdown-content] * { min-width: 0; }
+[data-dropdown-content] [class*="neutral-on-background-weak"]:not([class*="font-label"]) { font-size: 12px; line-height: 1.35; display: block; max-width: 190px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+[data-dropdown-content] [class*="font-label"][class*="neutral-on-background-weak"] { font-size: 11px; letter-spacing: 0.02em; }
+@media (max-width: 1100px) {
+  [data-dropdown-content] > * { width: 215px; }
+  [data-dropdown-content] [class*="neutral-on-background-weak"]:not([class*="font-label"]) { max-width: 135px; }
+}
+
+.defer-render { content-visibility: auto; contain-intrinsic-size: auto 520px; }

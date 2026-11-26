@@ -1,4 +1,5 @@
-import { Background, Button, Column, Grid, Heading, Icon, Line, Mask, MatrixFx, Row, Table, Tag, Text, type IconName } from "@once-ui-system/core";
+import { Background, Button, Column, Grid, Heading, Icon, Line, Row, Table, Tag, Text, type IconName } from "@once-ui-system/core";
+import { MatrixCorner } from "@/components/seo/LazyFx";
 import { CodeBlock } from "@once-ui-system/core/code";
 import { GeoBackground } from "@/components/seo/GeoBackground";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -249,9 +250,7 @@ export default function WebPage() {
                   <Row key={f.title} flex={1} fillWidth gap="8" vertical="center" s={{ direction: "column" }}>
                     <Column fillWidth flex={1} padding="20" gap="12" radius="l" border="neutral-alpha-medium" background="surface" overflow="hidden">
                       {i === 2 && (
-                        <Mask position="absolute" right="0" top="0" radius={33} x={75} y={0}>
-                          <MatrixFx size={1.5} colors={["brand-background-strong"]} flicker />
-                        </Mask>
+                        <MatrixCorner color="brand-background-strong" side="right" />
                       )}
                       <Row gap="8" vertical="center">
                         <Icon name={f.icon} size="s" border="brand-alpha-weak" background="brand-alpha-weak" onBackground="brand-weak" radius="m" padding="8" />

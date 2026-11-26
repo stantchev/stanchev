@@ -1,4 +1,5 @@
-import { Background, Button, Column, Grid, Heading, Icon, Mask, MatrixFx, Row, Table, Tag, Text, type IconName } from "@once-ui-system/core";
+import { Background, Button, Column, Grid, Heading, Icon, Row, Table, Tag, Text, type IconName } from "@once-ui-system/core";
+import { MatrixCorner } from "@/components/seo/LazyFx";
 import { CodeBlock } from "@once-ui-system/core/code";
 import { AiAnswerDemo } from "@/components/seo/AiDemo";
 import { AiReadiness } from "@/components/seo/AiReadiness";
@@ -177,9 +178,7 @@ export default function LlmSeoPage() {
                 {signals.map((a) => (
                   <Column key={a.title} className={a.wide ? "bento-wide" : undefined} padding="24" gap="12" radius="l" border="neutral-alpha-weak" background="surface" overflow="hidden">
                     {a.wide && (
-                      <Mask position="absolute" right="0" top="0" radius={33} x={75} y={0}>
-                        <MatrixFx size={1.5} colors={["accent-background-strong"]} flicker />
-                      </Mask>
+                      <MatrixCorner color="accent-background-strong" side="right" />
                     )}
                     <Icon name={a.icon} size="s" border="accent-alpha-weak" background="accent-alpha-weak" onBackground="accent-weak" radius="m" padding="8" />
                     <Heading as="h3" variant="heading-strong-m">{a.title}</Heading>

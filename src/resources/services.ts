@@ -352,9 +352,9 @@ export const services: Service[] = [
     icon: "localseo",
     name: "Локално SEO",
     summary: "Видимост в картата и в търсенията „близо до мен“.",
-    metaTitle: "Локално SEO - Google профил и карта | Stanchev Digital",
+    metaTitle: "Локално SEO София - Google профил и карта | Stanchev Digital",
     metaDescription:
-      "Локално SEO: Google Business профил, последователни данни за бизнеса, отзиви и локални страници. Привлечете клиенти от вашия град и регион.",
+      "Локално SEO в София и страната: Google Business профил, последователни данни за бизнеса, отзиви и локални страници. Онлайн работа или лична среща в София.",
     keywords: ["локално seo", "google business profile", "google maps оптимизация", "seo за местен бизнес", "локална оптимизация"],
     eyebrow: "Локално SEO",
     h1: "Локално SEO - клиенти от вашия град и регион",
@@ -371,7 +371,7 @@ export const services: Service[] = [
     ],
     forWhom: [
       "Хотели, ресторанти, клиники, сервизи и други бизнеси с физически адрес",
-      "Услуги, които работят в определен район",
+      "Бизнеси, които обслужват клиенти на място в района си, без да приемат в офис (профил със зона на обслужване)",
       "Бизнеси с няколко обекта",
     ],
     process: [
@@ -398,10 +398,10 @@ export const services: Service[] = [
     icon: "seoecommerce",
     name: "SEO за онлайн магазини",
     summary: "Категории, продукти, филтри и структурирани данни за магазини.",
-    metaTitle: "SEO за онлайн магазини - категории и продукти | Stanchev Digital",
+    metaTitle: "SEO за онлайн магазини - категории | Stanchev Digital",
     metaDescription:
-      "E-commerce SEO: оптимизация на категории, продуктови страници, филтри, структурирани данни и скорост. Повече органичен трафик към магазина.",
-    keywords: ["seo за онлайн магазин", "ecommerce seo", "оптимизация на онлайн магазин", "product schema", "seo на категории"],
+      "SEO за онлайн магазини: категории, продуктови страници, филтри, структурирани данни, миграции и скорост. Повече органичен трафик към магазина.",
+    keywords: ["seo за онлайн магазин", "ecommerce seo", "seo оптимизация на онлайн магазин", "product schema", "seo на категории", "seo за магазини"],
     eyebrow: "E-commerce SEO",
     h1: "SEO за онлайн магазини - повече поръчки от органично търсене",
     lead:
@@ -432,7 +432,7 @@ export const services: Service[] = [
       { q: "Помага ли schema markup за продукти?", a: "Да, структурираните данни помагат на Google да разбира цената, наличността и оценките и могат да дадат обогатени резултати." },
       { q: "Как се измерва ефектът?", a: "С органичен трафик, поръчки и приходи по категории в Analytics." },
     ],
-    related: ["wordpress-seo", "opencart-seo", "magento-seo", "seo-odit"],
+    related: ["woocommerce-seo", "opencart-seo", "shopify-seo", "magento-seo"],
   },
   {
     slug: "wordpress-seo",
@@ -440,10 +440,10 @@ export const services: Service[] = [
     icon: "wordpress",
     name: "SEO за WordPress",
     summary: "Настройка на WordPress, теми и плъгини за по-добро класиране.",
-    metaTitle: "SEO за WordPress сайтове - настройка и оптимизация | Stanchev Digital",
+    metaTitle: "SEO за WordPress: настройка и скорост | Stanchev Digital",
     metaDescription:
-      "SEO оптимизация на WordPress: Rank Math или Yoast, скорост, структурирани данни, постоянни връзки и чиста архитектура без излишни плъгини.",
-    keywords: ["wordpress seo", "seo за wordpress", "rank math настройка", "yoast seo", "оптимизация на wordpress"],
+      "SEO за WordPress: правилна настройка на Rank Math или Yoast, скорост, структурирани данни, адреси и индексиране. Чести грешки и решения, с примери.",
+    keywords: ["seo за wordpress", "wordpress seo", "wordpress seo оптимизация", "rank math настройка", "yoast seo настройка", "оптимизация на wordpress", "wordpress скорост"],
     eyebrow: "WordPress SEO",
     h1: "SEO за WordPress - чиста настройка и бърз сайт",
     lead:
@@ -474,7 +474,7 @@ export const services: Service[] = [
       { q: "Могат ли да ми направят сайта по-бърз?", a: "Да, при повечето WordPress сайтове има значителна възможност за ускоряване чрез кеширане и оптимизация на изображенията." },
       { q: "Работите ли с WooCommerce?", a: "Да, включително с продуктовата schema и категориите." },
     ],
-    related: ["on-page-seo", "ecommerce-seo", "optimizatsiya-sajt", "seo-odit"],
+    related: ["woocommerce-seo", "on-page-seo", "optimizatsiya-sajt", "seo-odit"],
   },
   {
     slug: "opencart-seo",
@@ -482,10 +482,10 @@ export const services: Service[] = [
     icon: "opencart",
     name: "SEO за OpenCart",
     summary: "SEO адреси, дублиране и скорост за магазини на OpenCart.",
-    metaTitle: "SEO за OpenCart - оптимизация на магазин | Stanchev Digital",
+    metaTitle: "SEO за OpenCart 3 и 4 - оптимизация | Stanchev Digital",
     metaDescription:
-      "SEO оптимизация на OpenCart: SEO URL, дублирани страници, филтри, мета данни, структурирани данни и скорост на магазина.",
-    keywords: ["opencart seo", "seo за opencart", "оптимизация на opencart", "opencart seo url", "онлайн магазин opencart"],
+      "SEO за OpenCart: SEO адреси, дублирани страници, филтри и сортиране, мета данни, структурирани данни и скорост. Реални казуси и честни решения.",
+    keywords: ["opencart seo", "seo за opencart", "opencart 3 seo", "opencart 4 seo", "opencart seo url", "оптимизация на opencart", "онлайн магазин opencart"],
     eyebrow: "OpenCart SEO",
     h1: "SEO за OpenCart - оправете типичните проблеми на платформата",
     lead:
@@ -516,7 +516,7 @@ export const services: Service[] = [
       { q: "Мога ли да мигрирам без загуба на позиции?", a: "Да, с карта на пренасочванията и проверка след пускането." },
       { q: "Работите ли и с други платформи?", a: "Да - WooCommerce, Magento и персонализирани решения." },
     ],
-    related: ["ecommerce-seo", "magento-seo", "seo-odit", "optimizatsiya-sajt"],
+    related: ["ecommerce-seo", "woocommerce-seo", "shopify-seo", "optimizatsiya-sajt"],
   },
   {
     slug: "magento-seo",
@@ -524,10 +524,10 @@ export const services: Service[] = [
     icon: "magento",
     name: "SEO за Magento",
     summary: "SEO за големи каталози, филтри и мултистор конфигурации.",
-    metaTitle: "SEO за Magento - големи каталози и филтри | Stanchev Digital",
+    metaTitle: "SEO за Magento 2 - големи каталози | Stanchev Digital",
     metaDescription:
-      "SEO оптимизация на Magento: категории, слоеста навигация, канонични адреси, скорост и структурирани данни за магазини с голям каталог.",
-    keywords: ["magento seo", "seo за magento", "оптимизация на magento", "magento 2 seo", "големи онлайн магазини"],
+      "SEO за Magento 2: канонични адреси, слоеста навигация, мултистор, sitemap, структурирани данни и скорост на големи каталози.",
+    keywords: ["magento seo", "seo за magento", "magento 2 seo", "оптимизация на magento", "magento канонични адреси", "големи онлайн магазини"],
     eyebrow: "Magento SEO",
     h1: "SEO за Magento - контрол върху големите каталози",
     lead:
@@ -558,7 +558,91 @@ export const services: Service[] = [
       { q: "Подходящо ли е за мултистор?", a: "Да, включително за езикови версии и hreflang." },
       { q: "Помагате ли при миграция?", a: "Да, с карта на пренасочванията и проверка след пускане." },
     ],
-    related: ["ecommerce-seo", "opencart-seo", "seo-odit", "optimizatsiya-sajt"],
+    related: ["ecommerce-seo", "shopify-seo", "optimizatsiya-sajt", "seo-odit"],
+  },
+  {
+    slug: "woocommerce-seo",
+    kind: "seo",
+    icon: "woocommerce",
+    name: "SEO за WooCommerce",
+    summary: "Продукти, категории, филтри и скорост за магазини на WooCommerce.",
+    metaTitle: "SEO за WooCommerce магазини | Stanchev Digital",
+    metaDescription:
+      "SEO за WooCommerce: продуктови страници, категории, филтри, Product schema, дублирани адреси и скорост. Практически решения за магазини на WordPress.",
+    keywords: ["woocommerce seo", "seo за woocommerce", "woocommerce оптимизация", "woocommerce product schema", "seo за онлайн магазин wordpress", "woocommerce скорост"],
+    eyebrow: "WooCommerce SEO",
+    h1: "SEO за WooCommerce - магазин, който се намира в Google",
+    lead:
+      "WooCommerce е гъвкав, но по подразбиране създава дублирани адреси, тънки страници и тежки скриптове. Оправям ги, така че продуктите и категориите да се класират.",
+    priceFrom: NEGOTIABLE,
+    includes: [
+      { title: "Категории и продукти", text: "Уникални текстове, заглавия, описания и ясна структура на каталога." },
+      { title: "Филтри и параметри", text: "Контрол върху адресите с филтри и сортиране, canonical и noindex." },
+      { title: "Структурирани данни", text: "Product, Offer и отзиви, които съвпадат с видимите данни." },
+      { title: "Изчерпани продукти", text: "Правилно поведение при изчерпани и спрени артикули, без 404." },
+      { title: "Скорост", text: "Кеширане, изображения, скриптове на количката и тежки плъгини." },
+      { title: "Индексиране", text: "Sitemap, noindex за количка и профил, ненужни архиви." },
+    ],
+    forWhom: [
+      "Магазини на WooCommerce с много продукти и филтри",
+      "Сайтове, при които продуктите не се показват в Google",
+      "Магазини преди миграция или смяна на платформа",
+    ],
+    process: [
+      { title: "Преглед", text: "Каталог, адреси, плъгини, скорост и Search Console." },
+      { title: "Приоритети", text: "Какво дава най-бърз ефект за продажбите." },
+      { title: "Внедряване", text: "Настройки, код и съдържание на ключовите страници." },
+      { title: "Измерване", text: "Импресии, позиции и поръчки преди и след." },
+    ],
+    faq: [
+      { q: "Нужен ли е платен плъгин за Product schema?", a: "Не винаги. WooCommerce има основна schema, а при нужда може да се добави точна и лека реализация с код, без скъпи плъгини." },
+      { q: "Какво да правя с изчерпани продукти?", a: "Ако се връщат, оставете страницата и го отбележете. Ако са спрени завинаги, пренасочете към най-подходящата категория." },
+      { q: "Бавният WooCommerce магазин вреди ли на продажбите?", a: "Да. Бавната страница губи посетители и лошите Core Web Vitals са негативен сигнал." },
+      { q: "Работите ли и с миграция към WooCommerce?", a: "Да, включително карта на пренасочванията и проверки преди и след пускане." },
+    ],
+    related: ["ecommerce-seo", "wordpress-seo", "optimizatsiya-sajt", "seo-odit"],
+  },
+  {
+    slug: "shopify-seo",
+    kind: "seo",
+    icon: "shopify",
+    name: "SEO за Shopify",
+    summary: "Колекции, продукти, теми и скорост за магазини на Shopify.",
+    metaTitle: "SEO за Shopify - колекции и скорост | Stanchev Digital",
+    metaDescription:
+      "SEO за Shopify: колекции, продукти, дублирани адреси, мета данни, структурирани данни, теми и приложения. Какво може и какво не може да се настрои.",
+    keywords: ["shopify seo", "seo за shopify", "shopify оптимизация", "shopify колекции seo", "shopify скорост", "seo за онлайн магазин shopify"],
+    eyebrow: "Shopify SEO",
+    h1: "SEO за Shopify - какво може да се настрои и как",
+    lead:
+      "Shopify върши голяма част от техническото SEO сам, но има ограничения и капани: дублирани адреси, тежки приложения и слаби колекции. Знам какво е в ръцете ви и какво не.",
+    priceFrom: NEGOTIABLE,
+    includes: [
+      { title: "Колекции и продукти", text: "Заглавия, описания и текстове, които отговарят на търсенето." },
+      { title: "Адреси и пренасочвания", text: "Структурата на Shopify, канонични адреси и 301 при промени." },
+      { title: "Структурирани данни", text: "Проверка на schema в темата и добавяне на липсващото." },
+      { title: "Теми и приложения", text: "Скорост, излишен код и приложения, които забавят магазина." },
+      { title: "Съдържание", text: "Блог, ръководства за покупка и вътрешно свързване." },
+      { title: "Международни пазари", text: "Езици, валути и hreflang, когато продавате в повече държави." },
+    ],
+    forWhom: [
+      "Магазини на Shopify с малко органичен трафик",
+      "Магазини, които продават в няколко държави и валути",
+      "Сайтове с бавна тема или много приложения",
+    ],
+    process: [
+      { title: "Преглед", text: "Тема, колекции, приложения и Search Console." },
+      { title: "Приоритети", text: "Първо промените с най-голям ефект." },
+      { title: "Внедряване", text: "Настройки, съдържание и при нужда код в темата." },
+      { title: "Измерване", text: "Позиции, кликове и поръчки." },
+    ],
+    faq: [
+      { q: "Добър ли е Shopify за SEO?", a: "Да, основите са наред: сигурност, sitemap, canonical. Ограниченията са в структурата на адресите и в гъвкавостта на някои настройки." },
+      { q: "Мога ли да променя robots.txt в Shopify?", a: "Да, чрез шаблона robots.txt.liquid в темата. Правете го внимателно и само при нужда." },
+      { q: "Приложенията влияят ли на скоростта?", a: "Често да. Всяко приложение може да добави скриптове. Оставят се само нужните." },
+      { q: "Работите ли с валути и няколко пазара?", a: "Да. Имам практически казуси с евро цена и валутна конверсия в Shopify." },
+    ],
+    related: ["ecommerce-seo", "woocommerce-seo", "optimizatsiya-sajt", "seo-odit"],
   },
   {
     slug: "seo-konsultaciya",

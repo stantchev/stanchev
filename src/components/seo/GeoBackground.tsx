@@ -1,4 +1,5 @@
-import { Background, Mask, ParticleFx, Row } from "@once-ui-system/core";
+import { Background, Row } from "@once-ui-system/core";
+import { ParticleGate } from "./LazyFx";
 
 export const GeoBackground: React.FC<React.ComponentProps<typeof Row>> = ({ ...flex }) => {
   return (
@@ -32,9 +33,7 @@ export const GeoBackground: React.FC<React.ComponentProps<typeof Row>> = ({ ...f
           colorEnd: "static-transparent",
         }}
       />
-      <Mask position="absolute" top="0" left="0" x={50} y={50} radius={100}>
-        <ParticleFx opacity={70} fill interactive speed={1} intensity={40} pointerEvents="none" />
-      </Mask>
+      <ParticleGate />
     </Row>
   );
 };

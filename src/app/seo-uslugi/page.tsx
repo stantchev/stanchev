@@ -11,9 +11,9 @@ import { baseURL, person } from "@/resources";
 import { servicePath, servicesOf } from "@/resources/services";
 
 const path = "/seo-uslugi";
-const title = "SEO услуги и цени - консултант и специалист | Stanchev Digital";
+const title = "SEO услуги и цени от 150 € на месец | Stanchev Digital";
 const description =
-  "SEO услуги и цени от SEO консултант, SEO специалист и уеб разработчик: одит, оптимизация, keyword research, линк билдинг, локално SEO и GEO. Ясен обхват и цени в евро.";
+  "SEO услуги в България: одит от 300 €, месечна оптимизация от 150 €, локално SEO и GEO. Ясен обхват, прозрачни цени и отчет от Search Console.";
 
 export const metadata = buildMetadata({
   title,

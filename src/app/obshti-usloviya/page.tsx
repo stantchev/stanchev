@@ -41,10 +41,7 @@ export default function TermsPage() {
               },
               "address": {
                 "@type": "PostalAddress",
-                "streetAddress": "Бул. Г.М. Димитров 26",
                 "addressLocality": "София",
-                "addressRegion": "София",
-                "postalCode": "1797",
                 "addressCountry": "BG"
               },
               "sameAs": [

@@ -1,4 +1,5 @@
-import { Avatar, Background, Button, Column, Grid, Heading, Icon, IconButton, Line, Mask, MatrixFx, Media, Row, Tag, Text, type IconName } from "@once-ui-system/core";
+import { Avatar, Background, Button, Column, Grid, Heading, Icon, IconButton, Line, Media, Row, Tag, Text, type IconName } from "@once-ui-system/core";
+import { MatrixCorner } from "@/components/seo/LazyFx";
 import { getPosts } from "@/app/utils/utils";
 import { GeoBackground } from "@/components/seo/GeoBackground";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -163,9 +164,7 @@ export default function About() {
                 {roles.map((r, i) => (
                   <Column key={r.title} padding="24" gap="12" radius="l" border="neutral-alpha-weak" background="surface" overflow="hidden">
                     {i === 1 && (
-                      <Mask position="absolute" right="0" top="0" radius={33} x={75} y={0}>
-                        <MatrixFx size={1.5} colors={["brand-background-strong"]} flicker />
-                      </Mask>
+                      <MatrixCorner color="brand-background-strong" side="right" />
                     )}
                     <Icon name={r.icon} size="s" border="brand-alpha-weak" background="brand-alpha-weak" onBackground="brand-weak" radius="m" padding="8" />
                     <Heading as="h3" variant="heading-strong-m">{r.title}</Heading>

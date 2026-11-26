@@ -12,9 +12,9 @@ import { baseURL, person } from "@/resources";
 import { getService, servicePath } from "@/resources/services";
 
 const path = "/seo-konsultant";
-const title = "SEO консултант България - одит, стратегия и GEO | Stanchev Digital";
+const title = "SEO консултант София - одит, стратегия и GEO | Stanchev Digital";
 const description =
-  "SEO консултант в България, който е и SEO специалист и уеб разработчик: одит, стратегия и GEO оптимизация. Първи разговор безплатен, цени в евро.";
+  "SEO консултант в София, който работи с клиенти от цяла България онлайн или на лична среща: одит, стратегия и GEO оптимизация. Първи разговор безплатен, цени в евро.";
 
 export const metadata = buildMetadata({
   title,
@@ -23,6 +23,8 @@ export const metadata = buildMetadata({
   keywords: [
     "seo консултант",
     "seo консултант българия",
+    "seo консултант софия",
+    "seo специалист софия",
     "сео консултант",
     "seo експерт",
     "seo консултация",
@@ -165,7 +167,7 @@ export default function SeoKonsultantPage() {
             <Tag scheme="neutral" size="m">Уеб разработчик</Tag>
           </Row>
           <Heading as="h1" variant="display-strong-xl" align="center" wrap="balance">
-            SEO консултант в България
+            SEO консултант в София
           </Heading>
           <Text variant="body-default-xl" onBackground="neutral-weak" align="center" wrap="balance">
             Технически одит, SEO стратегия и GEO оптимизация за Google и AI търсачки. Работите директно с човека, който анализира, оптимизира и изгражда сайта, с ясен план и цени в евро.

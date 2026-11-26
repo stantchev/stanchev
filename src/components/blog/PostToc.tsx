@@ -35,9 +35,9 @@ export function PostToc() {
 
   return (
     <Column as="nav" aria-label="Съдържание на статията" gap="4">
-      {items.map((item) => (
+      {items.map((item, index) => (
         <a
-          key={item.id}
+          key={`${index}-${item.id}`}
           href={`#${item.id}`}
           style={{
             display: "block",

@@ -1,4 +1,5 @@
-import { Background, Button, Column, Grid, Heading, Icon, Line, Mask, MatrixFx, Row, Table, Tag, Text, type IconName } from "@once-ui-system/core";
+import { Background, Button, Column, Grid, Heading, Icon, Line, Row, Table, Tag, Text, type IconName } from "@once-ui-system/core";
+import { MatrixCorner } from "@/components/seo/LazyFx";
 import { GeoBackground } from "@/components/seo/GeoBackground";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { RevealOnView } from "@/components/seo/RevealOnView";
@@ -187,9 +188,7 @@ export default function SeoOditPage() {
                     className={a.wide ? "bento-wide" : undefined}
                   >
                     {a.wide && (
-                      <Mask position="absolute" right="0" top="0" radius={33} x={75} y={0}>
-                        <MatrixFx size={1.5} colors={["brand-background-strong"]} flicker />
-                      </Mask>
+                      <MatrixCorner color="brand-background-strong" side="right" />
                     )}
                     <Icon name={a.icon} size="s" border="brand-alpha-weak" background="brand-alpha-weak" onBackground="brand-weak" radius="m" padding="8" />
                     <Heading as="h3" variant="heading-strong-m">{a.title}</Heading>

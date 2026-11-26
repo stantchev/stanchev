@@ -48,6 +48,7 @@ export async function GET(request: Request) {
     {
       width: 1280,
       height: 720,
+      headers: { "X-Robots-Tag": "noindex" },
     },
   );
 }

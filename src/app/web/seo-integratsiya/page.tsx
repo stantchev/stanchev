@@ -1,4 +1,5 @@
-import { Background, Button, Column, Grid, Heading, Icon, Line, Mask, MatrixFx, Row, Table, Tag, Text, type IconName } from "@once-ui-system/core";
+import { Background, Button, Column, Grid, Heading, Icon, Line, Row, Table, Tag, Text, type IconName } from "@once-ui-system/core";
+import { MatrixCorner } from "@/components/seo/LazyFx";
 import { CodeBlock } from "@once-ui-system/core/code";
 import { Toolkit } from "@/components/seo/Engagement";
 import { GeoBackground } from "@/components/seo/GeoBackground";
@@ -186,9 +187,7 @@ export default function SeoIntegrationPage() {
                 {s.includes.map((a, i) => (
                   <Column key={a.title} className={bentoWide.includes(i) ? "bento-wide" : undefined} padding="24" gap="12" radius="l" border="neutral-alpha-weak" background="surface" overflow="hidden">
                     {bentoWide.includes(i) && (
-                      <Mask position="absolute" right="0" top="0" radius={33} x={75} y={0}>
-                        <MatrixFx size={1.5} colors={["brand-background-strong"]} flicker />
-                      </Mask>
+                      <MatrixCorner color="brand-background-strong" side="right" />
                     )}
                     <Icon name={(["document", "code", "globe", "chartBar", "arrowRight", "check"] as IconName[])[i % 6]} size="s" border="brand-alpha-weak" background="brand-alpha-weak" onBackground="brand-weak" radius="m" padding="8" />
                     <Heading as="h3" variant="heading-strong-m">{a.title}</Heading>

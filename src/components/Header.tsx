@@ -41,6 +41,16 @@ const nav = [
           { label: "Всички SEO услуги и цени", href: "/seo-uslugi", icon: "arrowRight", description: "Пълен списък с ориентировъчни цени" },
         ]),
       },
+      {
+        title: "По платформа",
+        links: compact([
+          svc("wordpress-seo"),
+          svc("woocommerce-seo"),
+          svc("opencart-seo"),
+          svc("shopify-seo"),
+          svc("magento-seo"),
+        ]),
+      },
     ],
   },
   {

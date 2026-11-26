@@ -99,6 +99,16 @@ export default function RootLayout({
     <html
       lang="bg"
       suppressHydrationWarning
+      data-brand={style.brand}
+      data-accent={style.accent}
+      data-neutral={style.neutral}
+      data-solid={style.solid}
+      data-solid-style={style.solidStyle}
+      data-border={style.border}
+      data-surface={style.surface}
+      data-transition={style.transition}
+      data-scaling={style.scaling}
+      data-viz-style={dataStyle.variant}
       className={classNames(
         fonts.heading.variable,
         fonts.body.variable,
@@ -111,9 +121,14 @@ export default function RootLayout({
             __html: protectJson(JSON.stringify({
               "@context": "https://schema.org",
               "@type": "ProfessionalService",
+              "@id": "https://stanchev.bg/#org",
               name: "Stanchev Digital",
               description:
-                "Професионален SEO консултант в България. SEO оптимизация, линк билдинг стратегия, оптимизация на сайт, SEO анализ.",
+                "SEO консултант в София. SEO оптимизация, GEO, линк билдинг и SEO анализ. Работа онлайн с клиенти от цяла България и лични срещи в София.",
+              hasMap: "https://maps.app.goo.gl/5hor1DWPhB2gbG2RA",
+              openingHoursSpecification: [
+                { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], opens: "09:30", closes: "16:30" },
+              ],
               url: "https://stanchev.bg",
               logo: "https://stanchev.bg/images/og/og.jpg",
               image: "https://stanchev.bg/images/og/og.jpg",
@@ -130,10 +145,10 @@ export default function RootLayout({
                 latitude: "42.6977",
                 longitude: "23.3219",
               },
-              areaServed: {
-                "@type": "Country",
-                name: "България",
-              },
+              areaServed: [
+                { "@type": "City", name: "София" },
+                { "@type": "Country", name: "България" },
+              ],
               serviceType: [
                 "SEO оптимизация",
                 "Линк билдинг",
@@ -146,8 +161,8 @@ export default function RootLayout({
                 "Keyword research",
                 "SEO копирайтинг",
               ],
-              priceRange: "$$",
               sameAs: [
+                "https://maps.app.goo.gl/5hor1DWPhB2gbG2RA",
                 "https://github.com/stantchev/",
                 "https://www.linkedin.com/in/stantcheff/",
                 "https://dev.to/stanchev",
@@ -162,7 +177,7 @@ export default function RootLayout({
             })),
           }}
         />
-        <Script id="theme-init" strategy="beforeInteractive" async>{`
+        <Script id="theme-init" strategy="beforeInteractive">{`
           (function () {
             try {
               const root = document.documentElement;
@@ -182,39 +197,14 @@ export default function RootLayout({
                 root.setAttribute("data-" + k, v)
               );
               
-              const getTimeBasedTheme = () => {
-                const now = new Date();
-                const sofiaTime = new Intl.DateTimeFormat("bg-BG", {
-                  timeZone: "Europe/Sofia",
-                  hour: "2-digit",
-                  minute: "2-digit",
-                  second: "2-digit",
-                  hour12: false,
-                }).formatToParts(now);
-                
-                const hour = parseInt(sofiaTime.find(part => part.type === "hour")?.value || "0");
-                return hour >= 8 && hour < 20 ? "light" : "dark";
-              };
-              
-              const resolveTheme = (t) => {
-                if (!t) {
-                  return getTimeBasedTheme();
-                }
-                return t;
-              };
-              
-              root.setAttribute(
-                "data-theme",
-                resolveTheme(localStorage.getItem("data-theme"))
-              );
-              
-              setInterval(() => {
-                const currentTheme = localStorage.getItem("data-theme");
-                if (!currentTheme) {
-                  const newTheme = getTimeBasedTheme();
-                  root.setAttribute("data-theme", newTheme);
-                }
-              }, 60000);
+              const saved = localStorage.getItem("data-theme");
+              const theme =
+                saved === "light" || saved === "dark"
+                  ? saved
+                  : saved === "system"
+                    ? (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light")
+                    : "dark";
+              root.setAttribute("data-theme", theme);
             } catch (e) {
               console.error(e);
               document.documentElement.setAttribute("data-theme", "dark");

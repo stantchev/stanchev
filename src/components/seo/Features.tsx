@@ -1,4 +1,5 @@
-import { Background, Column, Grid, Heading, Icon, Mask, MatrixFx, Row, SmartLink, Text, type IconName } from "@once-ui-system/core";
+import { Background, Column, Grid, Heading, Icon, Row, SmartLink, Text, type IconName } from "@once-ui-system/core";
+import { MatrixCorner } from "./LazyFx";
 import type { ReactNode } from "react";
 
 export type FeatureItem = {
@@ -93,9 +94,7 @@ export function FeaturesBordered({ title, lead, items }: { title: string; lead?:
       <Grid fillWidth borderLeft borderTop columns="3" m={{ columns: 2 }} s={{ columns: 1 }}>
         {items.map((item) => (
           <Column key={item.title} padding="40" s={{ padding: "24" }} borderBottom borderRight fillWidth gap="24">
-            <Mask position="absolute" left="0" top="0" radius={33} x={25} y={0}>
-              <MatrixFx size={1.5} colors={["brand-background-strong"]} flicker />
-            </Mask>
+            <MatrixCorner color="brand-background-strong" side="left" />
             <Row vertical="center" gap="16">
               <Icon padding="8" name={item.icon} onBackground="brand-weak" size="xs" radius="m" border="brand-alpha-medium" background="brand-alpha-weak" />
               <Heading as="h3" variant="label-default-m" onBackground="brand-weak">

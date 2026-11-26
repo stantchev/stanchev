@@ -13,7 +13,7 @@ export function RevealOnView({ children, delay = 0 }: { children: ReactNode; del
   }, [inViewport]);
 
   return (
-    <div ref={ref} style={{ width: "100%" }}>
+    <div ref={ref} className="defer-render" style={{ width: "100%" }}>
       <RevealFx revealed={seen} translateY="8" speed={350} delay={delay} fillWidth>
         {children}
       </RevealFx>

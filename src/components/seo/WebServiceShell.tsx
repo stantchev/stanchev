@@ -1,4 +1,5 @@
-import { Background, Button, Column, Grid, Heading, Icon, Line, Mask, MatrixFx, Row, Tag, Text, type IconName } from "@once-ui-system/core";
+import { Background, Button, Column, Grid, Heading, Icon, Line, Row, Tag, Text, type IconName } from "@once-ui-system/core";
+import { MatrixCorner } from "./LazyFx";
 import type { ReactNode } from "react";
 import { baseURL } from "@/resources";
 import { getPosts } from "@/utils/utils";
@@ -140,9 +141,7 @@ export function WebServiceShell(p: ShellProps) {
                 {p.includes.map((a, i) => (
                   <Column key={a.title} className={p.includes.length === 6 && wideSet.includes(i) ? "bento-wide" : undefined} padding="24" gap="12" radius="l" border="neutral-alpha-weak" background="surface" overflow="hidden">
                     {p.includes.length === 6 && wideSet.includes(i) && (
-                      <Mask position="absolute" right="0" top="0" radius={33} x={75} y={0}>
-                        <MatrixFx size={1.5} colors={[`${glow.color}-background-strong`]} flicker />
-                      </Mask>
+                      <MatrixCorner color={`${glow.color}-background-strong`} side="right" />
                     )}
                     <Icon name={a.icon ?? iconCycle[i % iconCycle.length]} size="s" border={`${glow.color}-alpha-weak`} background={`${glow.color}-alpha-weak`} onBackground={`${glow.color}-weak`} radius="m" padding="8" />
                     <Heading as="h3" variant="heading-strong-m">{a.title}</Heading>

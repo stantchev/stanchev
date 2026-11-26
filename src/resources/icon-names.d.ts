@@ -64,6 +64,8 @@ declare module "@once-ui-system/core" {
     netlify: true;
     npm: true;
     wordpress: true;
+    shopify: true;
+    woocommerce: true;
     magento: true;
     opencart: true;
     photoshop: true;

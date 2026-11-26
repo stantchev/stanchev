@@ -19,6 +19,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
         surface={style.surface as SurfaceStyle}
         transition={style.transition as TransitionStyle}
         scaling={style.scaling as ScalingSize}
+        defaultTheme="dark"
       >
         <DataThemeProvider
           variant={dataStyle.variant as ChartVariant}
