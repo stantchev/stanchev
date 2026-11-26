@@ -1,5 +1,97 @@
 # 📝 Complete Project Updates - SEO Portfolio Website
 
+## v3.1: Platform SEO pages, content & indexing fixes
+
+### Added
+- **Shopify SEO** (`/seo-uslugi/shopify-seo`) and **WooCommerce SEO**
+  (`/seo-uslugi/woocommerce-seo`) service pages, built on the shared
+  `PlatformSeoPage` component
+- 5 new blog posts: SEO glossary, how an SEO consultation works, measuring
+  AI visibility, Google Business Profile step by step, why a site does not
+  appear in Google
+- `LazyFx` component for lazily loaded visual effects
+
+### Changed
+- New title/meta description on `/seo-uslugi`, "SEO цени 2026" and
+  "Какво прави SEO консултантът" (price signal, clearer intent)
+- WordPress, OpenCart, Magento and e-commerce SEO pages expanded with more
+  content, FAQ and cross-links
+- LocalBusiness schema: address, opening hours, map link, Sofia service area
+- Theme toggle, provider, header and styles refreshed
+
+### Fixed (indexing)
+- OG image endpoint now returns `X-Robots-Tag: noindex`, removing 5 non-page
+  URLs from Search Console's "crawled - not indexed" list
+- Added internal links to posts stuck in "discovered - not indexed"
+
+## v3.0: Website Rebuild & Stack Upgrade
+
+### Major Release
+
+Complete rebuild of **stanchev.bg**, modernizing the technology stack, restructuring service pages, and strengthening technical SEO, GEO, and AI-search readiness.
+
+## Technology Stack
+- Upgraded to Next.js 16 with Turbopack, React 19, and TypeScript 7.
+- Once UI Core 2.6 integration.
+- Updated dependencies: next-mdx-remote 6 (blockJS disabled), cookie 2, react-icons 5.7, and recharts 3.
+- Introduced a typed icon registry, LayoutProvider from core/next, and transition tokens.
+
+## Website & Architecture
+
+### Homepage
+- Full-bleed hero and auto-scrolling platform strip.
+- GEO positioning band.
+- Redesigned process and euro-denominated pricing cards.
+- Simplified blog section and expanded FAQ.
+
+### SEO Services
+- Rebuilt `/seo-uslugi` with promotional, sticky, grid, timeline, and bordered feature layouts.
+- Introduced a reusable bento template for 12 SEO services.
+- Added a dedicated, hand-built SEO audit page.
+- New pages: `/seo-konsultant`, `/za-men`, `/seo-proekti`, `/blog`, and `/kontakti`.
+- Filterable project cases and improved blog discovery with search, topics, and reading-time indicators.
+
+### Web Development
+- Rebuilt `/web` and nine individual service pages, each with dedicated layouts and interactive tools.
+- Added code tabs, rendering-mode comparisons, SPA vs SSR explanations, development pipeline, plugin decision guidance, speed diagnostics, and maintenance board.
+- Introduced `/web/llm-seo` with an AI answer demonstration and readiness self-assessment.
+- Added `/web/seo-integratsiya` with an integration diagram and specification builder.
+
+## SEO, GEO & AI Search Readiness
+- Established `services.ts` as the single source of truth for service pages, sitemap entries, and internal links.
+- Server-rendered JSON-LD structured data, excluding FAQPage markup.
+- Centralized canonical and Open Graph metadata helpers.
+- Sitemap improvements with real `lastmod` values exclusively for blog posts.
+- Added `X-Robots-Tag` protection for `/api/*`.
+- Implemented standard `llms.txt`.
+- Optimized page titles and descriptions for SERP display lengths.
+- Added related-post ring linking and pillar guides across the homepage and service pages.
+- Improved blog content with `updatedAt` support and main-heading-only table of contents.
+- Rebuilt the 2026 SEO pricing guide with EUR pricing, comparison tables, charts, timelines, accordions, and official nofollow references.
+
+## Contact & Privacy
+- Split email and phone numbers into inline parts.
+- Contact links activate only through user interaction.
+- JSON-LD contact values use Unicode escapes to avoid exposing plain-text values in raw HTML.
+- Unified the contact phone number across the website.
+
+## Fixes & Cleanup
+- Removed duplicated hero images in blog posts.
+- Fixed invalid chart properties and missing React keys.
+- Eliminated nested LayoutProviders and nested `<main>` elements.
+- Replaced all instances of "Станчев SEO" with "Stanchev Digital".
+- Removed unnecessary code comments while preserving functional directives.
+- Rewrote the project README.
+
+## Positioning & Business Updates
+- Repositioned the website around three professional roles:
+  - SEO Consultant
+  - SEO Specialist
+  - Web Developer
+- Introduced EUR-based pricing.
+- Revised service messaging to prioritize transparency, realistic claims, and measurable value.
+- Strengthened positioning around traditional search engine optimization, Generative Engine Optimization (GEO), and AI-search readiness.
+
 ## 🚀 Version 2.2 - Complete SEO Portfolio Overhaul (Latest)
 
 ### **🎯 Major Features Added**
