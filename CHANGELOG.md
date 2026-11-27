@@ -1,479 +1,209 @@
-# 📝 Complete Project Updates - SEO Portfolio Website
+# Changelog
 
-## v3.1: Platform SEO pages, content & indexing fixes
+All notable changes to **stanchev.bg** (SEO portfolio and services site) are documented here.
+The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and versions follow
+[Semantic Versioning](https://semver.org/) as closely as a content-driven site allows: a major
+version marks a redesign or architecture change, a minor version marks new pages and features, and a
+patch marks fixes.
+
+| Version | Date | Summary |
+|---|---|---|
+| [3.1](#31---2026-11-26) | 2026-11-26 | Shopify and WooCommerce SEO pages, 5 new posts, CTR metadata, indexing fixes, Next.js 16.4.6 |
+| [3.0](#30---2026-11-03) | 2026-11-03 | Full redesign, GEO and LLM SEO, web development services, content growth from 30 to 61 posts |
+| [2.2](#22---2025-10-02) | 2025-10-02 | Theme system, Bulgarian localization, structured data, Off-Page SEO service |
+| [2.0](#20---2025-10-01) | 2025-10-01 | Performance layer: critical CSS, service worker, loading states |
+| [1.1.0](#110---2025-06-26) | 2025-06-26 | Content and layout refinements |
+| [1.0.1](#101---2025-06-24) | 2025-06-24 | Header fixes |
+
+---
+
+## Measurements: before and after 3.0
+
+The 3.0 release was deployed on **2026-11-03**. The tables compare two equal 22-day windows taken
+from Google Search Console (web search, property `https://stanchev.bg/`), so the numbers are
+comparable day for day. They are the baseline that 3.1 is measured against.
+
+### Search performance
+
+| Metric | Before 3.0<br>12 Oct - 2 Nov 2026 | After 3.0<br>3 Nov - 24 Nov 2026 | Change |
+|---|---:|---:|---:|
+| Clicks | 4 | 6 | +2 (+50%) |
+| Impressions | 1,990 | 2,430 | +440 (+22%) |
+| Average CTR | 0.2% | 0.2% | no change |
+| Average position | 55.8 | 43.1 | 12.7 places higher |
+
+Reading the numbers: visibility improved (more impressions at a clearly better position), but the
+click count is still very low, so CTR did not move. Absolute volumes are small, which means a gain
+or loss of a few clicks changes the percentages a lot. Treat the direction as meaningful and the
+size as indicative.
+
+### Site state
+
+| Metric | Before 3.0 | After 3.0 | At 3.1 |
+|---|---:|---:|---:|
+| Blog posts | 61 | 61 | 66 |
+| Pages (`page.tsx` routes) | 38 | 39 | 41 |
+| Case studies | 14 | 14 | 14 |
+| Services in `services.ts` | n/a | 24 | 26 |
+| Next.js / React | 15.3.2 / 19.0 | 16.4.4 / 19.3 | 16.4.6 / 19.3 |
+
+### Three-month Search Console snapshot at the time of 3.1
+
+Window 25 Aug - 24 Nov 2026, used as the starting point for the next comparison.
+
+| Metric | Value |
+|---|---:|
+| Clicks | 18 |
+| Impressions | 9,640 |
+| Average CTR | 0.2% |
+| Average position | 46.4 |
+| Indexed pages | 99 |
+| Not indexed | 21 |
+
+Not-indexed breakdown: 9 crawled but not indexed, 6 discovered but not indexed, 4 returning 404,
+2 excluded by `noindex`.
+
+Pages with the most impressions and almost no clicks, targeted by the 3.1 metadata rewrite:
+
+| Page | Clicks | Impressions |
+|---|---:|---:|
+| `/seo-uslugi` | 0 | 3,179 |
+| `/blog/seo-cena-2025` | 0 | 2,630 |
+| `/blog/kakvo-e-seo-konsultant` | 0 | 2,143 |
+
+**How to re-measure 3.1:** compare 4-6 weeks after deploy, using the same window length and the same
+property. Compare these three pages and the sitewide position, not total clicks alone.
+
+---
+
+## [3.1] - 2026-11-26
+
+Focus: broaden platform coverage, add content, fix the indexing problems found in Search Console,
+and raise click-through on the highest-impression pages.
 
 ### Added
-- **Shopify SEO** (`/seo-uslugi/shopify-seo`) and **WooCommerce SEO**
-  (`/seo-uslugi/woocommerce-seo`) service pages, built on the shared
-  `PlatformSeoPage` component
-- 5 new blog posts: SEO glossary, how an SEO consultation works, measuring
-  AI visibility, Google Business Profile step by step, why a site does not
-  appear in Google
-- `LazyFx` component for lazily loaded visual effects
+- **Shopify SEO** (`/seo-uslugi/shopify-seo`) and **WooCommerce SEO** (`/seo-uslugi/woocommerce-seo`)
+  service pages, built on a new shared `PlatformSeoPage` component.
+- `LazyFx` component that defers decorative visual effects until they are needed.
+- Five blog posts:
+  - `seo-rechnik` (SEO glossary)
+  - `seo-konsultaciya-kak-protica` (how an SEO consultation works)
+  - `kak-da-izmerim-ai-vidimost` (measuring AI visibility)
+  - `google-business-profile-stapka-po-stapka` (Google Business Profile, step by step)
+  - `zashto-saitat-ne-izliza-v-google` (why a site does not appear in Google)
 
 ### Changed
-- New title/meta description on `/seo-uslugi`, "SEO цени 2026" and
-  "Какво прави SEO консултантът" (price signal, clearer intent)
-- WordPress, OpenCart, Magento and e-commerce SEO pages expanded with more
-  content, FAQ and cross-links
-- LocalBusiness schema: address, opening hours, map link, Sofia service area
-- Theme toggle, provider, header and styles refreshed
+- **Metadata for CTR:** rewrote the title and description of `/seo-uslugi`, "SEO цени 2026" and
+  "Какво прави SEO консултантът". The price signal (from 150 EUR per month, audit from 300 EUR) now
+  appears in the title of the two pricing-intent pages.
+- Expanded the WordPress, OpenCart, Magento and e-commerce SEO pages with more content, FAQ items
+  and cross-links.
+- `LocalBusiness` structured data now includes address, opening hours, map link and a Sofia
+  service area. `services.ts` and site content were refreshed to match.
+- Theme toggle, provider, header and stylesheet refinements, plus new icons.
+- Upgraded **Next.js to 16.4.6** and `@next/mdx` to 16.4.6 (patch release). Type check and
+  production build pass.
 
-### Fixed (indexing)
-- OG image endpoint now returns `X-Robots-Tag: noindex`, removing 5 non-page
-  URLs from Search Console's "crawled - not indexed" list
-- Added internal links to posts stuck in "discovered - not indexed"
+### Fixed
+- The OG image endpoint (`/api/og/generate`) now responds with `X-Robots-Tag: noindex`. Five of
+  these image URLs were listed under "crawled, currently not indexed" in Search Console.
+- Added internal links from related posts to pages stuck under "discovered, currently not indexed"
+  (back-button hijacking, React vs WordPress, headless WordPress).
 
-## v3.0: Website Rebuild & Stack Upgrade
-
-### Major Release
-
-Complete rebuild of **stanchev.bg**, modernizing the technology stack, restructuring service pages, and strengthening technical SEO, GEO, and AI-search readiness.
-
-## Technology Stack
-- Upgraded to Next.js 16 with Turbopack, React 19, and TypeScript 7.
-- Once UI Core 2.6 integration.
-- Updated dependencies: next-mdx-remote 6 (blockJS disabled), cookie 2, react-icons 5.7, and recharts 3.
-- Introduced a typed icon registry, LayoutProvider from core/next, and transition tokens.
-
-## Website & Architecture
-
-### Homepage
-- Full-bleed hero and auto-scrolling platform strip.
-- GEO positioning band.
-- Redesigned process and euro-denominated pricing cards.
-- Simplified blog section and expanded FAQ.
-
-### SEO Services
-- Rebuilt `/seo-uslugi` with promotional, sticky, grid, timeline, and bordered feature layouts.
-- Introduced a reusable bento template for 12 SEO services.
-- Added a dedicated, hand-built SEO audit page.
-- New pages: `/seo-konsultant`, `/za-men`, `/seo-proekti`, `/blog`, and `/kontakti`.
-- Filterable project cases and improved blog discovery with search, topics, and reading-time indicators.
-
-### Web Development
-- Rebuilt `/web` and nine individual service pages, each with dedicated layouts and interactive tools.
-- Added code tabs, rendering-mode comparisons, SPA vs SSR explanations, development pipeline, plugin decision guidance, speed diagnostics, and maintenance board.
-- Introduced `/web/llm-seo` with an AI answer demonstration and readiness self-assessment.
-- Added `/web/seo-integratsiya` with an integration diagram and specification builder.
-
-## SEO, GEO & AI Search Readiness
-- Established `services.ts` as the single source of truth for service pages, sitemap entries, and internal links.
-- Server-rendered JSON-LD structured data, excluding FAQPage markup.
-- Centralized canonical and Open Graph metadata helpers.
-- Sitemap improvements with real `lastmod` values exclusively for blog posts.
-- Added `X-Robots-Tag` protection for `/api/*`.
-- Implemented standard `llms.txt`.
-- Optimized page titles and descriptions for SERP display lengths.
-- Added related-post ring linking and pillar guides across the homepage and service pages.
-- Improved blog content with `updatedAt` support and main-heading-only table of contents.
-- Rebuilt the 2026 SEO pricing guide with EUR pricing, comparison tables, charts, timelines, accordions, and official nofollow references.
-
-## Contact & Privacy
-- Split email and phone numbers into inline parts.
-- Contact links activate only through user interaction.
-- JSON-LD contact values use Unicode escapes to avoid exposing plain-text values in raw HTML.
-- Unified the contact phone number across the website.
-
-## Fixes & Cleanup
-- Removed duplicated hero images in blog posts.
-- Fixed invalid chart properties and missing React keys.
-- Eliminated nested LayoutProviders and nested `<main>` elements.
-- Replaced all instances of "Станчев SEO" with "Stanchev Digital".
-- Removed unnecessary code comments while preserving functional directives.
-- Rewrote the project README.
-
-## Positioning & Business Updates
-- Repositioned the website around three professional roles:
-  - SEO Consultant
-  - SEO Specialist
-  - Web Developer
-- Introduced EUR-based pricing.
-- Revised service messaging to prioritize transparency, realistic claims, and measurable value.
-- Strengthened positioning around traditional search engine optimization, Generative Engine Optimization (GEO), and AI-search readiness.
-
-## 🚀 Version 2.2 - Complete SEO Portfolio Overhaul (Latest)
-
-### **🎯 Major Features Added**
-
-#### **1. SEO & Metadata Optimization**
-- **Dynamic canonical tags** for all blog posts with proper URL structure
-- **Keywords extraction** from MDX frontmatter and integration into `<head>`
-- **Open Graph & Twitter Card** metadata for enhanced social sharing
-- **Structured data** implementation for better search visibility
-- **Article metadata** with published time and author information
-
-#### **2. Time-Based Theme System**
-- **Intelligent theme switching** based on Sofia timezone (8:00-20:00 light, 20:00-8:00 dark)
-- **Automatic theme updates** every 60 seconds when no user preference is set
-- **Working theme toggle** with proper react-icons (HiSun, HiMoon)
-- **User preference persistence** via localStorage
-- **Sofia timezone synchronization** for accurate time-based switching
-
-#### **3. Bulgarian Localization**
-- **Time display** in Bulgarian format with Sofia timezone
-- **Date formatting** with Bulgarian locale throughout the site
-- **Location display** as "София, България" in all relevant sections
-- **Consistent localization** across Header, About, and Contact pages
-
-#### **4. New Off-Page SEO Service**
-- **Complete service page** at `/seo-uslugi/off-page-seo`
-- **Professional content** following existing template structure
-- **Pricing and FAQ sections** with relevant information
-- **SEO-optimized** with proper metadata and structure
-
-### **🔧 Technical Improvements**
-
-#### **Blog System Enhancement**
-```typescript
-// Dynamic metadata generation with canonical URLs
-export async function generateMetadata({ params }): Promise<Metadata> {
-  const post = await getPost(params.slug);
-  const canonicalURL = `${baseURL}${blog.path}/${post.slug}`;
-  
-  return {
-    title: post.metadata.title,
-    description: post.metadata.summary,
-    keywords: post.metadata.keywords?.join(", "),
-    openGraph: {
-      title: post.metadata.title,
-      description: post.metadata.summary,
-      url: canonicalURL,
-      images: [post.metadata.image],
-    },
-    alternates: {
-      canonical: canonicalURL,
-    },
-  };
-}
-```
-
-#### **Theme Management System**
-```typescript
-// Time-based theme switching with Sofia timezone
-const getTimeBasedTheme = () => {
-  const now = new Date();
-  const sofiaTime = new Intl.DateTimeFormat("bg-BG", {
-    timeZone: "Europe/Sofia",
-    hour: "2-digit",
-    minute: "2-digit",
-    second: "2-digit",
-    hour12: false,
-  }).formatToParts(now);
-
-  const hour = parseInt(sofiaTime.find(part => part.type === "hour")?.value || "0");
-  return hour >= 8 && hour < 20 ? "light" : "dark";
-};
-```
-
-#### **Bulgarian Localization**
-```typescript
-// Time display with Bulgarian locale and Sofia timezone
-const TimeDisplay = ({ timeZone, locale = "bg-BG" }) => {
-  const options: Intl.DateTimeFormatOptions = {
-    timeZone: "Europe/Sofia",
-    hour: "2-digit",
-    minute: "2-digit", 
-    second: "2-digit",
-    hour12: false,
-  };
-  return new Intl.DateTimeFormat(locale, options).format(new Date());
-};
-```
-
-### **📁 Files Modified in v2.2**
-
-| File | Changes | Impact |
-|------|---------|--------|
-| `src/app/blog/[slug]/page.tsx` | Dynamic canonical tags, keywords extraction | Enhanced SEO |
-| `src/utils/utils.ts` | Keywords support in Metadata type | Content optimization |
-| `src/components/ThemeToggle.tsx` | Time-based theme switching | User experience |
-| `src/app/layout.tsx` | Sofia timezone theme initialization | Theme management |
-| `src/components/Providers.tsx` | LayoutProvider wrapper for useTheme | Theme functionality |
-| `src/components/Header.tsx` | Bulgarian time display | Localization |
-| `src/resources/content.tsx` | Location text updates | Bulgarian localization |
-| `src/app/seo-uslugi/off-page-seo/` | New service page | Content expansion |
-
-### **🎨 Design & UX Improvements**
-
-#### **Theme Toggle Enhancement**
-- **React Icons integration** (HiSun, HiMoon) for proper icon display
-- **Time synchronization** with Sofia timezone for accurate switching
-- **User preference persistence** with localStorage integration
-- **Automatic theme updates** based on time of day
-
-#### **Bulgarian Localization**
-- **Time display** in Bulgarian format with proper timezone
-- **Location text** updated to "София, България" across all pages
-- **Consistent formatting** throughout the application
-- **Cultural adaptation** for Bulgarian users
-
-#### **SEO Optimization**
-- **Dynamic canonical URLs** for all blog posts
-- **Keywords integration** from MDX frontmatter
-- **Rich metadata** for social media sharing
-- **Structured data** for search engines
+### Known issues and next steps
+- 4 URLs return 404 and 2 are excluded by `noindex`; they still need review.
+- The off-topic cybersecurity posts are unlikely to be indexed and dilute topical focus.
+- Request re-indexing for the rewritten pages after deploy.
+- `npm audit` reports 7 transitive vulnerabilities (`js-yaml`, `minimatch`, `picomatch`,
+  `source-map-js`) that `npm audit fix` can address.
 
 ---
 
-## 🔧 Previous Updates (v2.1 and earlier)
+## [3.0] - 2026-11-03
 
-## 🔧 Fixed Issues
+Major release: a full redesign and a shift from a portfolio site to a service-led SEO and web
+development site. The release commit changed 183 files (+13,626 / -23,207 lines).
 
-### **1. Responsive Layout Improvements**
-- **Homepage**: Centered buttons below main heading on desktop and mobile
-- **Services page**: Uniform 400x430px cards, 2 per row desktop, 1 mobile
-- **About page**: Avatar and languages at top on mobile, left on desktop
+### Added
+- **GEO and LLM SEO** positioning: dedicated service content, `public/llms.txt`, and posts on
+  generative engine optimization and AI search reporting.
+- **Web development services** under `/web`: website building, Next.js, React SPA, headless
+  WordPress, custom plugins, speed optimization, SEO integration, LLM SEO, and maintenance.
+- Central service registry (`src/resources/services.ts`) driving service pages, related links and
+  the sitemap, with shared metadata and JSON-LD helpers (`components/seo/metadata.ts`, `JsonLd.tsx`).
+- Legal pages: `cookie-policy` and `gdpr`.
+- Content growth from **30 to 61 blog posts** and from **10 to 14 case studies** since 2.2,
+  covering SEO after core updates, WordPress 7.0, Next.js 16 (Server vs Client Components, App Router
+  migration, performance), headless WordPress, Search Console AI reports, and cybersecurity news.
 
-### **2. Fixed Duplicated Elements**
-- **About page**: Removed duplicate avatar and language sections
-- **Header navbar**: Fixed duplicate navigation items (icon + text vs icon only)
+### Changed
+- Redesigned layout, navigation, service pages and components on the Once UI system.
+- Rebuilt `sitemap.ts` to include blog, case studies, service pages and extra routes without
+  duplicates.
+- Upgraded to **Next.js 16.4 and React 19.3** (from Next.js 15.3.2 and React 19.0).
 
-### **3. Icon System Overhaul**
-- **Problem**: Icon components not working properly
-- **Solution**: Replaced with direct react-icons components
-- **Files affected**: Header.tsx, seo-uslugi/page.tsx, za-men/page.tsx
-
-### **4. CSS Modules & Sass Updates**
-- **Fixed Sass deprecation**: Replaced `@import` with `@use` in PlansSection.scss
-- **Fixed CSS Modules errors**: Removed invalid selectors for mobile responsiveness
-
-### **5. React Key Prop Errors**
-- **Fixed duplicate keys**: Added unique prefixes for mobile/desktop versions
-- **Clean console output**: No more React warnings
-
-## 🎨 Layout Improvements
-
-### **Homepage (src/app/page.tsx)**
-```tsx
-// Centered buttons with proper spacing
-<RevealFx delay={0.4} speed="fast">
-  <Column align="center" horizontal="center" fillWidth>
-    <Flex
-      gap="16"
-      horizontal="center"
-      vertical="center"
-      wrap
-      className="justify-center w-full"
-    >
-      <Button href="/kontakti" variant="primary" size="l" prefixIcon="rocket">
-        Започнете сега
-      </Button>
-      <Button href="/za-men" variant="secondary" size="l" prefixIcon="user">
-        <Flex vertical="center" gap="8">
-          <Avatar src={person.avatar} size="s" />
-          За мен
-        </Flex>
-      </Button>
-    </Flex>
-  </Column>
-</RevealFx>
-```
-
-### **Services Page (src/app/seo-uslugi/page.tsx)**
-- **Uniform card dimensions**: 400x430px exactly
-- **Text wrapping**: Proper line breaks instead of stretching
-- **Service icons**: Replaced images with relevant react-icons
-- **Added missing service**: Off-Page SEO with proper pricing
-
-```tsx
-// Service icon mapping
-const getServiceIcon = (slug: string, size: number = 20) => {
-  const iconMap: { [key: string]: React.ReactElement } = {
-    'seo-optimizatsiya': <HiOutlineRocketLaunch size={size} />,
-    'link-building': <HiOutlineLink size={size} />,
-    'ecommerce-seo': <PiGridFourDuotone size={size} />,
-    'on-page-seo': <HiOutlineDocument size={size} />,
-    'off-page-seo': <HiArrowTopRightOnSquare size={size} />,
-    'keyword-research': <HiOutlineGlobeAsiaAustralia size={size} />,
-    'seo-odit': <HiCheckCircle size={size} />,
-    'seo-konsultaciya': <PiUserCircleDuotone size={size} />
-  };
-  return iconMap[slug] || <HiOutlineRocketLaunch size={size} />;
-};
-```
-
-### **About Page (src/app/za-men/page.tsx)**
-- **Mobile layout**: Avatar and languages at top, content below
-- **Desktop layout**: Avatar left (sticky), content right
-- **Increased content width**: maxWidth from 40 to 80
-- **Better spacing**: Added proper padding and margins
-- **React keys**: Fixed duplicate key warnings
-
-```tsx
-// Mobile version - vertical layout
-<Column className="lg:hidden" fillWidth gap="l" paddingX="l">
-  {/* Avatar section at top on mobile */}
-  {about.avatar.display && (
-    <Column fillWidth paddingY="l" gap="m" horizontal="center">
-      <Avatar src={person.avatar} size="xl" />
-      <Flex gap="8" vertical="center">
-        <HiOutlineGlobeAsiaAustralia size={16} />
-        <Text>{person.location}</Text>
-      </Flex>
-      {/* Languages with unique keys */}
-      {languages.map((language, index) => (
-        <Tag key={`mobile-${language}`} size="l">{language}</Tag>
-      ))}
-    </Column>
-  )}
-</Column>
-```
-
-## 🌐 Header Navigation (src/components/Header.tsx)
-
-### **Complete Header Overhaul**
-- **Working responsive logic**: Separate components for desktop/mobile
-- **Proper icon implementation**: Direct react-icons instead of icon components
-- **Fixed TypeScript errors**: Corrected Fade component props
-
-```tsx
-// Desktop version - icons + text
-<Row s={{ hide: true }}>
-  <ToggleButton href="/za-men" label={about.label}>
-    <FaUser size={16} />
-  </ToggleButton>
-</Row>
-
-// Mobile version - icons only
-<Row hide s={{ hide: false }}>
-  <ToggleButton href="/za-men">
-    <FaUser size={16} />
-  </ToggleButton>
-</Row>
-```
-
-### **Icon Mapping**
-- **Home**: `AiOutlineHome`
-- **About**: `FaUser`
-- **Projects**: `FaThLarge`
-- **Services**: `MdOutlineRocketLaunch`
-- **Contacts**: `MdOutlineMail`
-- **Blog**: `FaRegNewspaper`
-
-## 🌍 Localization Updates
-
-### **Blog Dates (src/utils/formatDate.ts)**
-```typescript
-// Bulgarian date formatting
-export function formatDate(date: string, includeRelative = false) {
-  // ... existing logic ...
-  
-  if (yearsAgo > 0) {
-    formattedDate = `преди ${yearsAgo} г.`;
-  } else if (monthsAgo > 0) {
-    formattedDate = `преди ${monthsAgo} мес.`;
-  } else if (daysAgo > 0) {
-    formattedDate = `преди ${daysAgo} дни`;
-  } else {
-    formattedDate = "Днес";
-  }
-
-  const fullDate = targetDate.toLocaleString("bg-BG", {
-    month: "long",
-    day: "numeric",
-    year: "numeric",
-  });
-
-  return includeRelative ? `${fullDate} (${formattedDate})` : fullDate;
-}
-```
-
-## 📦 New Services Added
-
-### **Off-Page SEO Service (src/resources/content.tsx)**
-```tsx
-{
-  title: "Off-Page SEO",
-  slug: "off-page-seo",
-  description: "Външна оптимизация за подобряване на авторитета.",
-  features: ["Link building", "Social media signals", "Brand mentions"],
-  price: "От 400 лв.",
-}
-```
-
-## 🔧 Technical Fixes
-
-### **Sass Modernization (src/components/PlansSection.scss)**
-```scss
-// Before (deprecated)
-@import './breakpoints.scss';
-
-// After (modern)
-@use './breakpoints.scss' as breakpoints;
-
-.plans {
-  @include breakpoints.m {
-    // mobile styles
-  }
-  @include breakpoints.s {
-    // small screen styles
-  }
-}
-```
-
-### **CSS Modules Fixes (src/components/Header.module.scss)**
-```scss
-/* Mobile: Hide text labels completely */
-@media (max-width: 768px) {
-  .nav-label {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-    width: 0 !important;
-    height: 0 !important;
-    overflow: hidden !important;
-    position: absolute !important;
-    left: -9999px !important;
-  }
-}
-```
-
-## 📁 Files Modified
-
-| File | Changes | Status |
-|------|---------|--------|
-| `src/app/page.tsx` | Centered homepage buttons | ✅ |
-| `src/app/seo-uslugi/page.tsx` | Uniform service cards with react-icons | ✅ |
-| `src/app/za-men/page.tsx` | Complete responsive redesign | ✅ |
-| `src/components/Header.tsx` | Fixed navbar with react-icons | ✅ |
-| `src/resources/content.tsx` | Added Off-Page SEO service | ✅ |
-| `src/utils/formatDate.ts` | Bulgarian date localization | ✅ |
-| `src/components/PlansSection.scss` | Updated Sass syntax | ✅ |
-| `src/components/Header.module.scss` | Fixed CSS Modules | ✅ |
-
-## ✨ Final Result
-
-### **🎯 Achievements**
-- ✅ **Professional responsive design** across all pages
-- ✅ **All icons displaying correctly** with react-icons
-- ✅ **Better content readability** and spacing
-- ✅ **Bulgarian localization** for dates
-- ✅ **Clean, modern layout** following best practices
-- ✅ **No console errors** or warnings
-- ✅ **Perfect mobile experience** with proper navigation
-
-### **📱 Mobile Experience**
-- Header shows only icons, centered at bottom
-- About page: Avatar and languages at top, content below
-- Services: 1 card per row with proper text wrapping
-- All content fits properly without horizontal scrolling
-
-### **💻 Desktop Experience**
-- Header shows icons + text labels
-- About page: Avatar sticky left, content right with more space
-- Services: 2 cards per row, uniform 400x430px dimensions
-- Professional layout with proper spacing
-
-### **🔧 Technical Quality**
-- Clean TypeScript code with no errors
-- Modern Sass syntax
-- Proper React key management
-- Component system integration
-- Responsive design with mobile-first approach
+### Removed
+- Obsolete build artefacts and legacy pages replaced by the new structure.
 
 ---
 
-**Total Development Time**: Multiple iterations with continuous improvements  
-**Code Quality**: Production-ready with best practices  
-**User Experience**: Seamless across all devices and screen sizes
+## [2.2] - 2025-10-02
+
+### Added
+- **Dynamic canonical tags**, keyword extraction from MDX frontmatter, Open Graph and Twitter Card
+  metadata, article metadata and structured data for blog posts.
+- **Time-based theme system** following Sofia time (light 08:00-20:00, dark otherwise), refreshed
+  every 60 seconds unless the visitor has chosen a theme, with the choice kept in `localStorage`.
+- **Bulgarian localization**: Sofia-timezone time display, Bulgarian date formatting and consistent
+  "София, България" location text.
+- **Off-Page SEO** service page at `/seo-uslugi/off-page-seo` with pricing and FAQ.
+- New posts and a FAQ component.
+
+### Changed
+- Header navigation with `react-icons`, and a working theme toggle (`HiSun` / `HiMoon`).
+- Uniform service cards (400 x 430 px, two per row on desktop, one on mobile) and a responsive
+  About page layout.
+- Modernized Sass syntax and CSS Modules.
+
+### Fixed
+- Icon rendering, homepage button alignment, mobile navigation overflow, and React key warnings.
+
+---
+
+## [2.0] - 2025-10-01
+
+### Added
+- **Performance layer:** critical CSS, a service worker (`sw.js`), a loading component and
+  performance utilities.
+- `README.md` for the project.
+- Posts on cyber insurance and other security topics.
+
+### Changed
+- Tuned `next.config.mjs` and the root layout for faster first paint.
+
+---
+
+## [1.1.0] - 2025-06-26
+
+### Changed
+- Content and layout refinements across the main pages.
+
+### Removed
+- Leftover backup page `kontakti/page.tsx.bak`.
+
+---
+
+## [1.0.1] - 2025-06-24
+
+### Fixed
+- Header component issues.
+
+---
+
+## Notes on this changelog
+
+- Versions 1.0.1 to 2.2 were reconstructed from tags and commit history; 3.0 and 3.1 reflect the
+  current state of the repository. Between 2.2 and 3.0 about 420 commits were made without
+  intermediate tags, so that period is summarized under 3.0.
+- Search Console figures come from the Google Search Console web interface and may be revised by
+  Google. Average position is impression-weighted.
